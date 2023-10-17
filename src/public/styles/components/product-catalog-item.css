@@ -1,4 +1,4 @@
-.product-list-item {
+.product-catalog__item {
     width: 15%;
     height: 150px;
     box-sizing: border-box;
@@ -11,14 +11,14 @@
     background-color: #f2f5f7;
 }
 
-.product-list-item__img {
+.product-catalog__img {
     object-fit: contain;
     width: 100%;
     height: 70%;
 }
 
-.product-list-item__name {
-    margin: 8px;
-    font-size: 1rem;
+.product-catalog__name {
+    margin: 6px;
+    font-size: 1em;
     text-align: center;
 }
