@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/pages/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <script src="/scripts/index.js"></script>
+    <title>Tech Two.</title>
+</head>
+
+<body>
+    <div class="product-list">
+        <h1 class="product-list__heading">DANH MỤC SẢN PHẨM</h1>
+        <div class="product-list__container">
+            <a href="" class="product-list__icon">
+                <span class="material-symbols-outlined">navigate_before</span>
+            </a>
+            <% Object.keys(productList).forEach(key => { %>
+            <%- include('../components/product-list-item', {productList, key}) %>
+            <% }) %>
+            <a href="" class="product-list__icon">
+                <span class="material-symbols-outlined">navigate_next</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
