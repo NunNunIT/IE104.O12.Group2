@@ -10,7 +10,7 @@
         padding: 0;
         border: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 16px;
+        /* font-size: 16px; */
     }
 
 
@@ -21,7 +21,7 @@
         justify-content: center;
         align-items: center;
         background-color: #2A7EE4;
-        font-size: 0.875rem;
+        font-size: 16px;
 
     }
 
@@ -43,7 +43,6 @@
         align-items: center;
         justify-content: space-between;
         box-sizing: border-box;
-        font-size: 0.875rem;
     }
 
     .container .nav-bottom {
@@ -76,21 +75,21 @@
     }
 
     .nav-bottom .material-symbols-outlined {
-        font-size: 1.875rem;
+        font-size: 1.75rem;
         padding: 0px 10px;
         color: white;
     }
 
     .logo {
-        width: 200px;
+        width: 13.75rem;
         object-fit: contain;
         height: 100%
     }
 
 
     .search-bar {
-        width: 62%;
-        height: 100%;
+        width: 60%;
+        height: 90%;
         background-color: white;
         border-radius: 8px;
         box-sizing: border-box;
@@ -107,12 +106,12 @@
     }
 
     .search-bar input {
-        width: 84%;
+        width: 86%;
         text-indent: 12px;
     }
 
     .search-bar button {
-        width: 15%;
+        width: 13%;
         border-radius: 8px;
         background-color: #2A7EE4;
     }
@@ -122,13 +121,18 @@
     }
 
     .cart .material-symbols-outlined {
-        font-size: 2.1875rem;
+        font-size: 2.25rem;
     }
 
+    /*Responsive-tablet*/
     @media only screen and (max-width: 48rem) {
         header {
-            height: 100px;
+            height: 135px;
             font-size: 0.8175rem;
+        }
+
+        .logo {
+            width: 11.25rem;
         }
 
         .search-bar {
@@ -141,13 +145,50 @@
         }
 
         .nav-bottom .material-symbols-outlined {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
         .search-bar input {
             text-indent: 8px;
         }
-    }
+
+        .cart .material-symbols-outlined {
+            font-size: 1.5rem;
+        }
+
+        /*Responsive-smartphone*/
+        @media only screen and (max-width: 40rem) {
+            header {
+                height: 100px;
+                font-size: 0.75rem;
+            }
+
+            .logo {
+                width: 11.25rem;
+            }
+
+            .search-bar {
+                height: 80%;
+                border-radius: 4px;
+            }
+
+            .search-bar button {
+                border-radius: 4px;
+            }
+
+            .nav-bottom .material-symbols-outlined {
+                font-size: 1rem;
+            }
+
+            .search-bar input {
+                text-indent: 8px;
+            }
+
+            .cart .material-symbols-outlined {
+                font-size: 1.5rem;
+            }
+
+        }
 </style>
 
 <header>
