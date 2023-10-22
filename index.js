@@ -21,5 +21,5 @@ app.use(express.static(path.join('src', 'public')))
 route(app)
 
 app.listen(cfg.port, () => {
-    console.log(`App is running at http://${cfg.host}:${cfg.port}`)
+    console.log(`Website is running at http://${cfg.host}:${cfg.port}`)
 })
