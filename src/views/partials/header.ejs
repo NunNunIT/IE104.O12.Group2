@@ -1,16 +1,13 @@
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
 </head>
 <style>
-    /* 40 48 64 80em */
     * {
         margin: 0;
         padding: 0;
         border: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        /* font-size: 16px; */
     }
 
 
@@ -22,20 +19,24 @@
         align-items: center;
         background-color: #2A7EE4;
         font-size: 16px;
-
     }
 
-    .container {
+    .header__container {
         width: 80vw;
         max-width: 1152px;
         height: 80%;
         background-color: none;
-        display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .header__nav {
+        display: inline-flex;
         justify-content: space-between;
     }
 
-    .container .nav-top a {
+    .header__nav a {
         text-decoration: none;
         color: white;
         margin: auto;
@@ -45,7 +46,7 @@
         box-sizing: border-box;
     }
 
-    .container .nav-bottom {
+    .header__main {
         height: 60%;
         text-decoration: none;
         color: white;
@@ -55,39 +56,25 @@
         box-sizing: border-box;
     }
 
-    .left,
-    .right {
+    .header__support-info {
         display: flex;
         gap: 20px;
     }
 
-    .left {
-        float: left;
+    .header__about-account{
+        display: flex;
+        gap: 20px;
     }
 
-    .right {
-        float: right;
-    }
-
-    .nav-top .material-symbols-outlined {
-        font-size: 1.25rem;
-        margin-right: 5px;
-    }
-
-    .nav-bottom .material-symbols-outlined {
-        font-size: 1.75rem;
-        padding: 0px 10px;
-        color: white;
-    }
-
-    .logo {
+    .header__logo {
         width: 13.75rem;
         object-fit: contain;
-        height: 100%
+        height: 100%;
+        display:flex;
+
     }
 
-
-    .search-bar {
+    .header__search-bar {
         width: 60%;
         height: 90%;
         background-color: white;
@@ -100,101 +87,151 @@
         margin-right: 5%;
     }
 
-    .search-bar input,
+    .header__search-bar input,
     button {
         height: 100%;
     }
 
-    .search-bar input {
+    .header__search-bar input {
         width: 86%;
         text-indent: 12px;
+        outline: none;
     }
 
-    .search-bar button {
+
+    .header__search-bar button {
         width: 13%;
         border-radius: 8px;
         background-color: #2A7EE4;
     }
 
-    .search-bar button:hover {
+    .header__search-bar button:hover {
         cursor: pointer;
     }
 
-    .cart .material-symbols-outlined {
+    .header__nav .material-symbols-outlined {
+        font-size: 1.25rem;
+        margin-right: 5px;
+    }
+
+    .header__main .material-symbols-outlined {
+        font-size: 1.75rem;
+        padding: 0px 10px;
+        color: white;
+    }
+
+    .header__cart .material-symbols-outlined {
         font-size: 2.25rem;
+    }
+
+    .header__about-account .header__nofitications {
+            display: flex;
+    }
+
+    .header__logo--top
+    {
+        width: 0rem;
     }
 
     /*Responsive-tablet*/
     @media only screen and (max-width: 48rem) {
         header {
-            height: 135px;
-            font-size: 0.8175rem;
+            height: 100px;
+            font-size: 0.8125rem;
         }
 
-        .logo {
+        .header__logo {
             width: 11.25rem;
         }
 
-        .search-bar {
+        .header__search-bar {
             height: 80%;
             border-radius: 4px;
         }
 
-        .search-bar button {
+        .header__search-bar button {
             border-radius: 4px;
         }
 
-        .nav-bottom .material-symbols-outlined {
-            font-size: 1rem;
-        }
-
-        .search-bar input {
+        .header__search-bar input {
             text-indent: 8px;
         }
 
-        .cart .material-symbols-outlined {
+        .header__main .material-symbols-outlined {
+            font-size: 1rem;
+        }
+
+        .header__cart .material-symbols-outlined {
             font-size: 1.5rem;
         }
 
-        /*Responsive-smartphone*/
-        @media only screen and (max-width: 40rem) {
-            header {
-                height: 100px;
-                font-size: 0.75rem;
-            }
-
-            .logo {
-                width: 11.25rem;
-            }
-
-            .search-bar {
-                height: 80%;
-                border-radius: 4px;
-            }
-
-            .search-bar button {
-                border-radius: 4px;
-            }
-
-            .nav-bottom .material-symbols-outlined {
-                font-size: 1rem;
-            }
-
-            .search-bar input {
-                text-indent: 8px;
-            }
-
-            .cart .material-symbols-outlined {
-                font-size: 1.5rem;
-            }
-
+        .header__support-info {
+        gap: 10px;
         }
-</style>
 
+        .header__about-account {
+        gap: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 40rem) {
+        header {
+            height: 140px;
+            font-size: 0.8125rem;
+        }
+
+        .header__container {
+        width: 90vw;
+        }
+
+        .header__logo {
+            display: none;
+        }
+
+        .header__search-bar {
+        width: 90%;
+        margin-left: 0;
+        margin-right: 3%;
+        border-radius: 8px;
+        }
+
+
+        .header__search-bar button {
+            border-radius: 8px;
+        }
+
+        .header__support-info {
+        display: none;
+        }
+
+        .header__about-account .header__nofitications {
+            display: none;
+        }
+
+        .header__logo--top {
+        width: 12.5rem;
+        }
+
+        .header__nav {
+        justify-content: space-between;
+        }
+
+        .header__main .material-symbols-outlined {
+            font-size: 1.5rem;
+        }
+
+        .header__cart .material-symbols-outlined {
+            font-size: 1.75rem;
+        }
+
+    }
+
+
+</style>
 <header>
-    <nav class="container">
-        <div class="nav-top">
-            <div class="left">
+    <div class="header__container">
+        <nav class="header__nav">
+            <div class="header__support-info">
                 <a href="#">
                     <span class="material-symbols-outlined">
                         help
@@ -205,11 +242,16 @@
                     <span class="material-symbols-outlined">
                         call
                     </span>
-                    Hotline: 0123456789</a>
+                    Hotline: 0123456789
+                </a>
             </div>
-
-            <div class="right">
+            <div>
                 <a href="#">
+                    <img class="header__logo--top" src="/imgs/logo-white.png">
+                </a>
+            </div>
+            <div class="header__about-account">
+                <a href="#" class = "header__nofitications">
                     <span class="material-symbols-outlined">
                         notifications
                     </span>
@@ -224,23 +266,22 @@
                     Đăng ký
                 </a>
             </div>
-        </div>
-
-        <div class="nav-bottom">
+        </nav>
+        <div class="header__main">
             <a href="#">
-                <img class="logo" src="/imgs/logo-white.png">
+                <img class="header__logo" src="/imgs/logo-white.png">
             </a>
-            <form class="search-bar" action="/form/submit" method="GET">
-                <input type="text" name="text" placeholder="Bạn tìm gì...">
+            <form class="header__search-bar" action="/form/submit" method="GET">
+                <input type="text" name="text" placeholder="Bạn tìm gì..." >
                 <button type="submit" name="submit">
                     <span class="material-symbols-outlined">search</span>
                 </button>
             </form>
             <a href="#">
-                <div class="cart">
+                <div class="header__cart">
                     <span class="material-symbols-outlined">shopping_cart</span>
                 </div>
             </a>
         </div>
-    </nav>
+    </div>
 </header>
