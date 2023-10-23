@@ -4,169 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Slider</title>
-  <!-- Google Fonts Link For Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
-  <style>
-    * {
-      margin: 0px 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: #f1f4fd;
-    }
-
-    .container {
-      width: 96%;
-
-    }
-
-    .slider-wrapper {
-      position: relative;
-      margin-top: 10vh;
-    }
-
-    .slider-wrapper .slider-wrapper__slide-button {
-      position: absolute;
-      top: 50%;
-      outline: none;
-      border: none;
-      height: 50px;
-      width: 50px;
-      z-index: 5;
-      color: #fff;
-      display: flex;
-      cursor: pointer;
-      font-size: 2.2rem;
-      background: #000;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transform: translateY(-50%);
-    }
-
-    .slider-wrapper .slider-wrapper__slide-button:hover {
-      background: #404040;
-    }
-
-    .slider-wrapper .slider-wrapper__slide-button#prev-slide {
-      left: -25px;
-      display: none;
-    }
-
-    .slider-wrapper .slider-wrapper__slide-button#next-slide {
-      right: -25px;
-    }
-
-    .slider-wrapper .slider-wrapper__image-list {
-      display: grid;
-      grid-template-columns: repeat(10, 100%);
-      gap: 0;
-      font-size: 0;
-      list-style: none;
-      margin-bottom: 5px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .slider-wrapper .slider-wrapper__image-list::-webkit-scrollbar {
-      display: none;
-    }
-
-    .slider-wrapper .slider-wrapper__image-list .slider-wrapper__image-list--item {
-      width: 110rem;
-      height: 300px;
-      object-fit: cover;
-    }
-
-    .container .container__slider-scrollbar {
-      height: 24px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .container__slider-scrollbar .container__slider-scrollbar__scrollbar-track {
-      background: #ccc;
-      width: 100%;
-      height: 2px;
-      display: flex;
-      align-items: center;
-      border-radius: 4px;
-      position: relative;
-    }
-
-    .container__slider-scrollbar:hover .container__slider-scrollbar__scrollbar-track {
-      height: 4px;
-    }
-
-    .container__slider-scrollbar .container__slider-scrollbar__scrollbar-thumb {
-      position: absolute;
-      background: #000;
-      top: 0;
-      bottom: 0;
-      width: 50%;
-      height: 100%;
-      cursor: grab;
-      border-radius: inherit;
-    }
-
-    .container__slider-scrollbar .container__slider-scrollbar__scrollbar-thumb:active {
-      cursor: grabbing;
-      height: 8px;
-      top: -2px;
-    }
-
-    .container__slider-scrollbar .container__slider-scrollbar__scrollbar-thumb::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -10px;
-      bottom: -10px;
-    }
-
-    /* Styles for mobile and tablets */
-    @media only screen and (max-width: 1023px) {
-
-      .slider-wrapper {
-        position: relative;
-        width: 100%;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 10vh;
-
-      }
-
-      /* Hide slide navigation buttons on mobile and tablets */
-      .slider-wrapper .slider-wrapper__slide-button {
-        display: none !important;
-      }
-
-      /* Adjust spacing between images and enable horizontal scrolling */
-      .slider-wrapper .slider-wrapper__image-list {
-        gap: 0px;
-        margin-bottom: 15px;
-        scroll-snap-type: x mandatory;
-      }
-
-      /* Adjust image size for mobile and tablets */
-      .slider-wrapper .slider-wrapper__image-list .slider-wrapper__image-list--item {
-        width: 100%;
-        height: 200px;
-      }
-
-      .container__slider-scrollbar .container__slider-scrollbar__scrollbar-track {
-        display: none !important;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -176,16 +14,16 @@
         chevron_left
       </button>
       <ul class="slider-wrapper__image-list">
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide01.jpg" alt="img-1" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide02.jpg" alt="img-2" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide03.jpg" alt="img-3" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide04.jpg" alt="img-4" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide05.jpg" alt="img-5" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide06.jpg" alt="img-6" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide03.jpg" alt="img-7" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide04.jpg" alt="img-8" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide01.jpg" alt="img-9" />
-        <img class="slider-wrapper__image-list--item" src="/imgs/slide02.jpg" alt="img-10" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide01.jpg" alt="img-1" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide02.jpg" alt="img-2" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide03.jpg" alt="img-3" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide04.jpg" alt="img-4" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide05.jpg" alt="img-5" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide06.jpg" alt="img-6" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide03.jpg" alt="img-7" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide04.jpg" alt="img-8" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide01.jpg" alt="img-9" />
+        <img class="slider-wrapper__image-list--item" src="/imgs/slider/slide02.jpg" alt="img-10" />
       </ul>
       <button id="next-slide" class="slider-wrapper__slide-button material-symbols-rounded">
         chevron_right
@@ -197,105 +35,6 @@
       </div>
     </div>
   </div>
-  <script>
-    const initSlider = () => {
-      const imageList = document.querySelector(".slider-wrapper .slider-wrapper__image-list");
-      const slideButtons = document.querySelectorAll(".slider-wrapper .slider-wrapper__slide-button");
-      const sliderScrollbar = document.querySelector(".container .container__slider-scrollbar");
-      const scrollbarThumb = sliderScrollbar.querySelector(".container__slider-scrollbar__scrollbar-thumb");
-      const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-      const slideWidth = imageList.clientWidth;
-
-      // Function để chuyển slide tự động
-      const autoSlide = () => {
-        if (imageList.scrollLeft + slideWidth < maxScrollLeft) {
-          imageList.scrollBy({
-            left: slideWidth,
-            behavior: "smooth"
-          });
-        } else {
-          imageList.scrollTo({
-            left: 0,
-            behavior: "smooth"
-          });
-        }
-      };
-
-      // Sử dụng hàm `setInterval` để tự động chuyển slide sau mỗi 2 giây
-      let autoSlideInterval = setInterval(autoSlide, 2000);
-
-      // Khi trình chiếu được di chuyển bằng tay, hãy xóa bất kỳ interval tự động nào đang chạy
-      imageList.addEventListener("scroll", () => {
-        clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(autoSlide, 2000);
-      });
-
-      // Handle scrollbar thumb drag
-      scrollbarThumb.addEventListener("mousedown", (e) => {
-        const startX = e.clientX;
-        const thumbPosition = scrollbarThumb.offsetLeft;
-        const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
-
-        // Update thumb position on mouse move
-        const handleMouseMove = (e) => {
-          const deltaX = e.clientX - startX;
-          const newThumbPosition = thumbPosition + deltaX;
-
-          // Ensure the scrollbar thumb stays within bounds
-          const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
-          const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
-
-          scrollbarThumb.style.left = `${boundedPosition}px`;
-          imageList.scrollLeft = scrollPosition;
-        };
-
-        // Remove event listeners on mouse up
-        const handleMouseUp = () => {
-          document.removeEventListener("mousemove", handleMouseMove);
-          document.removeEventListener("mouseup", handleMouseUp);
-        };
-
-        // Add event listeners for drag interaction
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
-      });
-
-      // Slide images according to the slide button clicks
-      slideButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const direction = button.id === "prev-slide" ? -1 : 1;
-          const scrollAmount = slideWidth * direction;
-          imageList.scrollBy({
-            left: scrollAmount,
-            behavior: "smooth"
-          });
-        });
-      });
-
-      // Show or hide slide buttons based on scroll position
-      const handleSlideButtons = () => {
-        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
-        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
-      };
-
-      // Update scrollbar thumb position based on image scroll
-      const updateScrollThumbPosition = () => {
-        const scrollPosition = imageList.scrollLeft;
-        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-        scrollbarThumb.style.left = `${thumbPosition}px`;
-      };
-
-      // Call these functions when image list scrolls
-      imageList.addEventListener("scroll", () => {
-        updateScrollThumbPosition();
-        handleSlideButtons();
-      });
-    };
-
-    window.addEventListener("resize", initSlider);
-    window.addEventListener("load", initSlider);
-  </script>
-
 </body>
 
 </html>

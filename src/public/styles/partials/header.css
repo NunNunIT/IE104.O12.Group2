@@ -1,0 +1,167 @@
+header {
+    width: 100%;
+    height: 130px;
+    box-sizing: border-box;
+    padding: 13px 10vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #2A7EE4;
+}
+
+.nav-top a {
+    text-decoration: none;
+    color: white;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav-bottom {
+    height: 60%;
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.left,
+.right {
+    display: flex;
+    gap: 20px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.nav-top .material-symbols-outlined {
+    font-size: 1.25rem;
+    margin-right: 5px;
+}
+
+.nav-bottom .material-symbols-outlined {
+    font-size: 1.75rem;
+    padding: 0px 10px;
+    color: white;
+}
+
+.logo {
+    width: 13.75rem;
+    object-fit: contain;
+    height: 100%
+}
+
+
+.search-bar {
+    width: 60%;
+    height: 90%;
+    background-color: white;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.search-bar input,
+button {
+    height: 100%;
+}
+
+.search-bar input {
+    width: 86%;
+    text-indent: 12px;
+}
+
+.search-bar button {
+    width: 13%;
+    border-radius: 8px;
+    background-color: #2A7EE4;
+}
+
+.search-bar button:hover {
+    cursor: pointer;
+}
+
+.cart .material-symbols-outlined {
+    font-size: 2.25rem;
+}
+
+/*Responsive-tablet*/
+@media only screen and (max-width: 48rem) {
+    header {
+        height: 120px;
+        font-size: 0.8175rem;
+    }
+
+    .logo {
+        width: 11.25rem;
+    }
+
+    .search-bar {
+        height: 80%;
+        border-radius: 4px;
+    }
+
+    .search-bar button {
+        border-radius: 4px;
+    }
+
+    .nav-bottom .material-symbols-outlined {
+        font-size: 1rem;
+    }
+
+    .search-bar input {
+        text-indent: 8px;
+    }
+
+    .cart .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+
+}
+
+/*Responsive-smartphone*/
+@media only screen and (max-width: 40rem) {
+    header {
+        height: 100px;
+        padding: 8px 5vw;
+    }
+
+    .logo {
+        width: 11.25rem;
+    }
+
+    .search-bar {
+        height: 80%;
+        border-radius: 4px;
+    }
+
+    .search-bar button {
+        border-radius: 4px;
+    }
+
+    .nav-bottom .material-symbols-outlined {
+        font-size: 1rem;
+    }
+
+    .search-bar input {
+        text-indent: 8px;
+    }
+
+    .cart .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+
+}
