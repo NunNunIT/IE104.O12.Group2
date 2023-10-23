@@ -1,0 +1,23 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.scrollup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #2A7EE4;
+    border-radius: 20%;
+    border-radius: 1px solid #ffffff;
+    box-shadow: 0 2px 5px gray;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+
+}
+
+.scrollup:hover {
+    background-color: #2A7EE4;
+    color: #fff;
+}
