@@ -6,7 +6,7 @@ const initSlider = () => {
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
     const slideWidth = imageList.clientWidth;
 
-    // Function để chuyển slide tự động
+    // Function for auto slide
     const autoSlide = () => {
         if (imageList.scrollLeft + slideWidth < maxScrollLeft) {
             imageList.scrollBy({
@@ -24,7 +24,7 @@ const initSlider = () => {
     // Sử dụng hàm `setInterval` để tự động chuyển slide sau mỗi 2 giây
     let autoSlideInterval = setInterval(autoSlide, 2000);
 
-    // Khi trình chiếu được di chuyển bằng tay, hãy xóa bất kỳ interval tự động nào đang chạy
+    // Khi trình chiếu được di chuyển bằng tay, thi se xóa bất kỳ interval tự động nào đang chạy
     imageList.addEventListener("scroll", () => {
         clearInterval(autoSlideInterval);
         autoSlideInterval = setInterval(autoSlide, 2000);
