@@ -1,0 +1,62 @@
+@import url('/styles/variables.css');
+@import url('/styles/partials/header.css');
+@import url('/styles/components/slider.css');
+@import url('/styles/partials/footer.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh
+}
+
+.content-container {
+    width: 80%;
+    margin: 0 auto;
+    display: inherit;
+    flex-direction: column;
+    gap: 5vh
+}
+
+.header {
+    display: inherit;
+    align-items: center;
+    gap: 18px;
+}
+
+.header__name {
+    font-size: 1.5rem;
+}
+
+.header__rating {
+    display: inherit;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.header__rating span {
+    color: var(--orange);
+}
+
+.header__num-of-rating {
+    font-size: 0.875rem;
+}
+
+.content {
+    display: inherit;
+}
+
+.box-left {
+    width: 50%;
+}

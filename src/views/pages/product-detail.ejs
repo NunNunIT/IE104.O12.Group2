@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/pages/product-detail.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <title>Tech Two.</title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="content-container">
+        <section class="header">
+            <h1 class="header__name">Smart Tivi QLED 4K 50 inch Samsung QA50Q65A</h1>
+            <p class="header__rating">4.5/5 <span class="material-symbols-outlined">star</span></p>
+            <p class="header__num-of-rating">168 lượt</p>
+        </section>
+
+        <section class="content">
+            <div class="box-left">
+                <%- include('../components/slider') %>
+            </div>
+
+            <div class="box-right">
+                <div class="box-right__group-variant">
+                    <a href="#" class="box-right__variant">43 inch</a>
+                    <a href="#" class="box-right__variant">43 inch</a>
+                    <a href="#" class="box-right__variant">43 inch</a>
+                    <a href="#" class="box-right__variant">43 inch</a>
+                    <a href="#" class="box-right__variant">43 inch</a>
+                </div>
+
+                <div class="box-right__payment payment">
+                    <div class="payment__header">
+                        <div class="payment__left">
+                            <p>Online giá rẻ quá</p>
+                            <h1>10.990.000 VND</h1>
+                            <p><em>14.390.000 VND</em> giảm đến 23%</p>
+                        </div>
+                        <div class="payment__right">
+                            <p>Kết thúc vào</p>
+                            <p>23:59 ngày 31/10</p>
+                        </div>
+                    </div>
+
+                    <div class="payment__promo promo">
+                        <div class="promo__header">
+                            <h1>Khuyến mãi</h1>
+                            <p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
+                        </div>
+                        <ol class="promo__list">
+                            <li>Tặng thêm gói Gắn Kết truyền hình K+ (6 Tháng)</li>
+                            <li>Tặng Bộ 5 ứng dụng giải trí</li>
+                            <li>Tặng 10 năm bảo hành không lưu ảnh</li>
+                            <li>Nhập mã MMSALE100 giảm ngay 1% tối đa 100.000đ khi thanh toán qua MOMO</li>
+                        </ol>
+                    </div>
+
+                    <a href="#" class="promo__pay-btn">
+                        <h1>Giá rẻ quá, mua ngay, chỉ 10.990.000 VND</h1>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../components/scrollup') %>
+    <%- include('../partials/footer') %>
+    <script src="/scripts/scrollup.js"></script>
+</body>
+
+</html>
