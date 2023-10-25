@@ -1,11 +1,12 @@
 // import router
 const siteRouter = require('./siteRouter')
+const productRouter = require('./productRouter')
 
 function route(app) {
-    app.use('/slider', (req, res)=> {
-        res.render('./components/slider')
-    })
+
+    app.use('/product', productRouter)
     app.use('/', siteRouter)
+
 }
 
 module.exports = route

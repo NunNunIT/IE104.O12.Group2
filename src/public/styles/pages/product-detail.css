@@ -1,0 +1,149 @@
+@import url('/styles/variables.css');
+@import url('/styles/partials/header.css');
+@import url('/styles/components/slider.css');
+@import url('/styles/partials/footer.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh
+}
+
+.content-container {
+    width: 80%;
+    margin: 0 auto;
+    display: inherit;
+    flex-direction: column;
+    gap: 5vh
+}
+
+.header {
+    display: inherit;
+    align-items: center;
+    gap: 18px;
+}
+
+.header__name {
+    font-size: 1.5rem;
+}
+
+.header__rating {
+    display: inherit;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.header__rating span {
+    color: var(--orange);
+}
+
+.header__num-of-rating {
+    font-size: 0.875rem;
+}
+
+.content {
+    display: inherit;
+}
+
+.box--left {
+    width: 50%;
+}
+
+.box--right {
+    width: 50%;
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.box__group-variant--right {
+    display: inherit;
+    gap: 12px;
+}
+
+.box__variant--right {
+    text-decoration: none;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 8px 8px;
+}
+
+.box__payment--right {
+    width: 90%;
+    box-sizing: border-box;
+    padding: 12px 8px 8px;
+    background-color: var(--fb-blue);
+    color: var(--white);
+    border-radius: 12px;
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment__header {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.payment__left,
+.payment__right p {
+    font-size: 0.875rem;
+}
+
+.payment__promo {
+    background-color: var(--bg-white);
+    color: var(--black);
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+    padding: 12px 8px;
+    border-radius: 8px;
+}
+
+.promo__header h1 {
+    font-size: 1.25rem;
+}
+
+.promo__header p {
+    color: var(--dark-gray);
+    font-size: 0.875rem;
+}
+
+.promo__list {
+    padding-left: 24px;
+    line-height: 1.5;
+}
+
+.promo__pay-btn {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 6px 12px;
+    text-align: center;
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+.promo__contact {
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.promo__tele {
+    color: var(--fb-blue);
+    font-weight: 500;
+}
