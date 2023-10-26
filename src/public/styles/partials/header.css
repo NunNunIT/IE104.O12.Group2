@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+header {
+    max-width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A7EE4;
+    font-size: 16px;
+}
+
+.header__container {
+    width: 80vw;
+    max-width: 1152px;
+    height: 80%;
+    background-color: none;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+
+.header__nav {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: white;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.header__main {
+    height: 60%;
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.header__support-info {
+    display: flex;
+    gap: 20px;
+}
+
+.header__about-account {
+    display: flex;
+    gap: 20px;
+}
+
+.header__logo {
+    width: 13.75rem;
+    object-fit: contain;
+    height: 100%;
+    display: flex;
+
+}
+
+.header__search-bar {
+    width: 60%;
+    height: 90%;
+    background-color: white;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.header__search-bar input,
+button {
+    height: 100%;
+}
+
+.header__search-bar input {
+    width: 86%;
+    text-indent: 12px;
+    outline: none;
+}
+
+
+.header__search-bar button {
+    width: 13%;
+    border-radius: 8px;
+    background-color: #2A7EE4;
+}
+
+.header__search-bar button:hover {
+    cursor: pointer;
+}
+
+.header__nav .material-symbols-outlined {
+    font-size: 1.25rem;
+    margin-right: 5px;
+}
+
+.header__main .material-symbols-outlined {
+    font-size: 1.75rem;
+    padding: 0px 10px;
+    color: white;
+}
+
+.header__cart .material-symbols-outlined {
+    font-size: 2.25rem;
+}
+
+.header__about-account .header__nofitications {
+    display: flex;
+}
+
+.header__logo--top {
+    width: 0rem;
+}
+
+/*Responsive-tablet-landscape*/
+@media only screen and (max-width: 48rem) {
+    header {
+        height: 100px;
+        font-size: 0.8125rem;
+    }
+
+    .header__logo {
+        width: 11.25rem;
+    }
+
+    .header__search-bar {
+        height: 80%;
+    }
+
+    .header__search-bar input {
+        text-indent: 8px;
+    }
+
+    .header__main .material-symbols-outlined {
+        font-size: 1rem;
+    }
+
+    .header__cart .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+
+    .header__support-info {
+        gap: 10px;
+    }
+
+    .header__about-account {
+        gap: 10px;
+    }
+}
+
+/*Responsive-tablet-portrait*/
+@media only screen and (max-width: 40rem) {
+    header {
+        height: 130px;
+        font-size: 0.8125rem;
+    }
+
+    .header__container {
+        width: 90vw;
+    }
+
+    .header__logo {
+        display: none;
+    }
+
+    .header__search-bar {
+        width: 90%;
+        height: 80%;
+        margin-left: 0;
+        margin-right: 3%;
+        border-radius: 8px;
+    }
+
+
+    .header__search-bar button {
+        border-radius: 8px;
+    }
+
+    .header__support-info {
+        display: none;
+    }
+
+    .header__about-account .header__nofitications {
+        display: none;
+    }
+
+    .header__logo--top {
+        width: 12.5rem;
+    }
+
+    .header__nav {
+        justify-content: space-between;
+    }
+
+    .header__main .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+
+    .header__cart .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+}
+
+/*Responsive-smartphone*/
+@media only screen and (max-width: 26rem) {
+    header {
+        height: 130px;
+        font-size: 0.8125rem;
+    }
+
+    .header__search-bar {
+        width: 90%;
+        height: 80%;
+        margin-left: 0;
+        margin-right: 3%;
+    }
+
+    .header__support-info {
+        display: none;
+    }
+
+    .header__about-account .header__nofitications {
+        display: none;
+    }
+
+    .header__logo--top {
+        width: 12.5rem;
+    }
+
+    .header__nav {
+        justify-content: space-between;
+    }
+
+    .header__main .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+
+    .header__cart .material-symbols-outlined {
+        font-size: 1.75rem;
+    }
+
+}
