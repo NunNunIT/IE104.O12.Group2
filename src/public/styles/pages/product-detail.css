@@ -1,6 +1,7 @@
 @import url('/styles/variables.css');
 @import url('/styles/partials/header.css');
 @import url('/styles/components/slider.css');
+@import url('/styles/components/scrollup.css');
 @import url('/styles/partials/footer.css');
 
 * {
@@ -82,7 +83,6 @@ body {
 }
 
 .box__payment--right {
-    width: 90%;
     box-sizing: border-box;
     padding: 12px 8px 8px;
     background-color: var(--fb-blue);
@@ -146,4 +146,34 @@ body {
 .promo__tele {
     color: var(--fb-blue);
     font-weight: 500;
+}
+
+.box__specifi--right {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.specifi__table {
+    display: inherit;
+    flex-direction: column;
+}
+
+.specifi__row {
+    display: flex;
+    padding: 12px;
+}
+
+.specifi__row:nth-child(odd) {
+    background-color: var(--bg-white-o80);
+    border-radius: 8px;
+}
+
+.specifi__type {
+    width: 30%;
+    font-weight: 500;
+}
+
+.specifi__info {
+    width: 70%;
 }
