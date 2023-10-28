@@ -7,6 +7,7 @@ function route(app) {
     app.use('/product', productRouter)
     app.use('/', siteRouter)
 
+
 }
 
 module.exports = route

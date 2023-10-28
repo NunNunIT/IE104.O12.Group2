@@ -12,4 +12,6 @@
     --dark-blue: #092a3b;
     --orange: #fe9c0b;
     --black: #000000;
+    --primary-color: hsl(var(--hue), var(--sat), 40%);
+    --header-height: 3rem;
 }
