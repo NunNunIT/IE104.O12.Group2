@@ -12,6 +12,12 @@ class SiteController {
 
         res.render('./pages/index', { productCatalog })
     }
+
+    productDetail(req, res) {
+        const title = 'Chi tiết sản phẩm'
+        res.render('./pages/product-detail', { title })
+    }
 }
+
 
 module.exports = new SiteController()
