@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/pages/product-detail.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Tech Two.</title>
 </head>
 
@@ -13,217 +13,146 @@
     <%- include('../partials/header') %>
 
     <main class="content-container">
-        <section class="header">
-            <h1 class="header__name">Smart Tivi QLED 4K 50 inch Samsung QA50Q65A</h1>
-            <p class="header__rating">4.5/5 <span class="material-symbols-outlined">star</span></p>
-            <p class="header__num-of-rating">168 lượt</p>
+        <section class="title">
+            <h1>Smart Tivi QLED 4K 50 inch Samsung QA50Q65A</h1>
+            <div class="title__rating">
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+            </div>
+            <p>168 lượt</p>
         </section>
 
-        <section class="content">
-            <div class="box--left">
-                <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__img">
-                <div class="product__slider--total">
-                    <div class="product__slider--details">
-                        Xem tất cả các điểm nổi bật
-                    </div>
-                    <div class="product__slider--counter">
-                        (999/1000)
-                    </div>
-                </div>
-                <div class="product__slider--infor">
-                    <div class="product__slider--options">
-                        <div class="product__slider--opti--element1">
-                            <!-- <span class="material-symbols-outlined">award_star</span> -->
-                        </div>
-                        <div class="product__slider--opti--element2">
-                            Điểm nổi bật
-                        </div>
-                    </div>
-                    <div class="product__slider--options">
-                        <div class="product__slider--opti--element1">
-                            <!---->
-                        </div>
-                        <div class="product__slider--opti--element2">
-                            Màu sắc sản phẩm
-                        </div>
-                    </div>
-                    <div class="product__slider--options">
-                        <div class="product__slider--opti--element1">
-                            <!-- <span class="material-symbols-outlined">screen_search_desktop</span>                                 -->
-                        </div>
-                        <div class="product__slider--opti--element2">
-                            Thông số kĩ thuật
-                        </div>
-                    </div>
-                    <div class="product__slider--options">
-                        <div class="product__slider--opti--element1">
-                            <!-- <span class="material-symbols-outlined">feed</span> -->
-                        </div>
-                        <div class="product__slider--opti--element2">
-                            Thông tin sản phẩm
-                        </div>                   
-                    </div>
-                </div>
-                <div class="product__guarantee">
-                    <div class="product__guarantee--row">
-                        <div class="product__guarantee--frame">
-                            <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__guarantee--element1">
-                            <div class="product__guarantee--element2">Lắp đặt miễn phí lúc giao hàng</div>
-                        </div>
-                        <div class="product__guarantee--frame">
-                            <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__guarantee--element1">
-                            <div class="product__guarantee--element2">Hư gì đổi nấy 12 tháng tận nhà (miễn phí tháng đầu)</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="product__guarantee--row">
-                        <div class="product__guarantee--frame">
-                            <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__guarantee--element1">
-                            <div class="product__guarantee--element2">Bảo hành chính hãng tivi 2 năm, có người đến tận nhà</div>
-                        </div>
-                        <div class="product__guarantee--frame">
-                            <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__guarantee--element1">
-                            <div class="product__guarantee--element2">Thùng tivi có: Sách hướng dẫn, Remote, Chân đế</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="product__guarantee--row">
-                        <div class="product__guarantee--frame">
-                            <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__guarantee--element1">
-                            <div class="product__guarantee--element2">Bảo hành Remote 1 năm</div>
-                        </div>
-                    </div> 
-                </div>
-                <img src="/imgs/banderoll.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Banderoll" class="product__banderoll">
-                <div class="product__old">
-                    <img src="/imgs/smartTV.png" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A" class="product__old--img">
-                    <div class="product__old--frame">
-                        <div class="product__old--header">Xem sản phẩm cũ</div>
-                        <div class="product__old--name">Smart Tivi QLED 4K 50 inch Samsung QA50Q65A</div>
-                        <div class="product__old--infor">
-                            <div class="product__old--inforE">Giá từ 8.970.000₫</div>
-                            <div class="product__old--inforE">Tiết kiệm 37%</div>
-                            <div class="product__old--inforE">Bảo hành 22 tháng chính hãng</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product__parameter">
-                    <img src="/imgs/productInfor.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Information" class="product__parameter--img">
-                    <div class="product__parameter--title">Thông tin sản phẩm</div>
-                </div>
-                <div class="product__details">
-                    <h2 class="product__details--title">Thiết kế sang trọng, màn hình tràn viền 4 cạnh ấn tượng</h2>
-                    <div class="product__details--content">
-                        <a href="https://www.dienmayxanh.com/tivi/qled-4k-samsung-qa50q65a">Smart Tivi QLED 4K 50 inch Samsung QA50Q65A</a> được thiết kế với màn hình tràn viền 4 cạnh ấn tượng, 
-                        giúp người dùng có được những khung hình giải trí chân thực.</div>
-                    <div class="product__details--content">
-                        <a href="https://www.dienmayxanh.com/tivi-samsung-50-inch">Tivi Samsung 50 inch</a> được thiết kế cùng chân đế vững chắc, mang lại tổng thể tivi sang trọng và 
-                        đẳng cấp, tạo điểm nhấn cho không gian trưng bày như: Phòng khách, phòng ngủ,...
-                    </div>
-                    <img src="/imgs/infor1.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Detail_1" class="product__details--img">
-                    <h2 class="product__details--title">Hình ảnh hiển thị sắc nét gấp 4 lần Full HD nhờ độ phân giải 4K</h2>
-                    <img src="/imgs/infor2.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Detail_2" class="product__details--img">
-                    <h2 class="product__details--title">Mời bạn tìm hiểu thêm về "Mật độ điểm ảnh và độ phân giải trên màn hình TV là gì?"</h2>
-                    <iframe width="755" height="420" src="https://www.youtube.com/watch?v=wiDQWdPVDqM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h2 class="product__details--title">Hiển thị trọn vẹn 100% dải sắc màu nhờ công nghệ màn hình chấm lượng tử Quantum Dot (QLED)</h2>
-                    <div class="product__details--content">
-                        Công nghệ màn hình chấm lượng tử với khả năng hiển thị 100% dải sắc màu giúp người dùng xem nội dung hình ảnh trên Smart tivi này với màu sắc hình ảnh rực rỡ và tự nhiên.
-                    </div>
-                    <img src="/imgs/infor3.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Detail_2" class="product__details--img">
-                    <h2 class="product__details--title">Khả năng tự động điều chỉnh màu sắc, nâng cấp hình ảnh lên chuẩn nhờ bộ xử lý Quantum Processor Lite</h2>
-                    <img src="/imgs/infor4.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Detail_2" class="product__details--img">
-                    <h2 class="product__details--title">Tối ưu sắc trắng và sắc đen nhờ công nghệ Quantum HDR</h2>
-                    <div class="product__details--content">
-                        Hình ảnh được tối ưu sắc trắng và sắc đen, tăng cường độ tương phản. Giúp người dùng có thể thưởng thức những thước phim với chất lượng hình ảnh vô cùng hoàn mỹ.
-                    </div>
-                    <img src="/imgs/infor5.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Detail_2" class="product__details--img">
-                    <h2 class="product__details--title">Khả năng kiểm soát đèn nền hiệu quả nhờ công nghệ Dual LED</h2>
-                    <div class="product__details--content">
-                        <a href="https://www.dienmayxanh.com/tivi-samsung-50-inch">Smart tivi Samsung</a> nhờ được trang bị công nghệ Dual LED, với khả năng kiểm soát đèn nền tốt, độ tương phản cao hơn, mang lại cho bạn những khung hình hiển thị với màu sắc tuyệt đẹp.
-                    </div>
-                    <img src="/imgs/infor6.jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A Detail_2" class="product__details--img">
+        <section class="detail">
+            <div class="detail--left">
+                <div class="detail__slider">
+                    <%- include('../components/slider') %>
                 </div>
 
-                <!--CONTINUE-->
-                
+                <div class="detail__policy policy">
+                    <div>
+                        <div class="policy__item">
+                            <span class="material-symbols-outlined">settings</span>
+                            <p>Lắp đặt miễn phí lúc giao hàng</p>
+                        </div>
+                        <div class="policy__item">
+                            <span class="material-symbols-outlined">settings</span>
+                            <p>Lắp đặt miễn phí lúc giao hàng</p>
+                        </div>
+                        <div class="policy__item">
+                            <span class="material-symbols-outlined">settings</span>
+                            <p>Lắp đặt miễn phí lúc giao hàng</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="policy__item">
+                            <span class="material-symbols-outlined">settings</span>
+                            <p>Lắp đặt miễn phí lúc giao hàng</p>
+                        </div>
+                        <div class="policy__item">
+                            <span class="material-symbols-outlined">settings</span>
+                            <p>Lắp đặt miễn phí lúc giao hàng</p>
+                        </div>
+                        <div class="policy__item">
+                            <span class="material-symbols-outlined">settings</span>
+                            <p>Lắp đặt miễn phí lúc giao hàng</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail__description description">
+                    <div class="description__item">
+                        <h2>Thông tin sản phẩm</h2>
+                        <p>Smart Tivi QLED 4K 43 inch Samsung QA43Q65A được mang lên trên mình thiết kế không viền 3 cạnh loại bỏ cảm giác hình ảnh bị giới hạn, chân tivi có dạng hình chữ L đẹp mắt và vững vàng.</p>
+                        <p>Tivi Samsung 43 inch phù hợp cho các không gian vừa như: phòng ngủ, phòng khách,...</p>
+                        <img src="/imgs/infor1.jpg" alt="">
+                    </div>
+
+                    <div class="description__item">
+                        <h2>Thông tin sản phẩm</h2>
+                        <p>Smart Tivi QLED 4K 43 inch Samsung QA43Q65A được mang lên trên mình thiết kế không viền 3 cạnh loại bỏ cảm giác hình ảnh bị giới hạn, chân tivi có dạng hình chữ L đẹp mắt và vững vàng.</p>
+                        <p>Tivi Samsung 43 inch phù hợp cho các không gian vừa như: phòng ngủ, phòng khách,...</p>
+                        <img src="/imgs/infor1.jpg" alt="">
+                    </div>
+
+                    <button type="button">Xem thêm</button>
+                </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="box--right">
-                <div class="box__group-variant--right">
-                    <a href="#" class="box__variant--right">43 inch</a>
-                    <a href="#" class="box__variant--right">43 inch</a>
-                    <a href="#" class="box__variant--right">43 inch</a>
-                    <a href="#" class="box__variant--right">43 inch</a>
-                    <a href="#" class="box__variant--right">43 inch</a>
+            <div class="detail--right">
+                <div class="detail__variants">
+                    <a href="#">43 inch</a>
+                    <a href="#">43 inch</a>
+                    <a href="#">43 inch</a>
+                    <a href="#">43 inch</a>
+                    <a href="#">43 inch</a>
                 </div>
 
-                <div class="box__payment--right payment">
-                    <div class="payment__header">
-                        <div class="payment__left">
+                <div class="detail__promo promo">
+                    <div class="promo__header">
+                        <div>
                             <p>Online giá rẻ quá</p>
-                            <h1>10.990.000 VND</h1>
+                            <h2>10.990.000 VND</h2>
                             <p><del>14.390.000 VND</del> giảm đến 23%</p>
                         </div>
-                        <div class="payment__right">
+                        <div>
                             <p>Kết thúc vào</p>
                             <p>23:59 ngày 31/10</p>
                         </div>
                     </div>
 
-                    <div class="payment__promo promo">
-                        <div class="promo__header">
-                            <h1>Khuyến mãi</h1>
-                            <p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
-                        </div>
+                    <div class="promo__content">
+                        <h2>Khuyến mãi</h2>
+                        <p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
                         <ol class="promo__list">
                             <li>Tặng thêm gói Gắn Kết truyền hình K+ (6 Tháng)</li>
                             <li>Tặng Bộ 5 ứng dụng giải trí</li>
                             <li>Tặng 10 năm bảo hành không lưu ảnh</li>
                             <li>Nhập mã MMSALE100 giảm ngay 1% tối đa 100.000đ khi thanh toán qua MOMO</li>
                         </ol>
-                        <a href="#" class="promo__pay-btn">MUA NGAY GIÁ CHỈ 10.990.000 VND </a>
-                        <p class="promo__contact">Hoặc gọi đặt mua ngay: <span class="promo__tele">0123456789</span> (7:30 - 22:00)</p>
+                        <a href="#">MUA NGAY GIÁ CHỈ 10.990.000 VND </a>
+                        <p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
                     </div>
                 </div>
 
-                <div class="box__specifi--right specifi">
-                    <h1 class="specifi__title">Thông số kỹ thuật</h1>
-                    <div class="specifi__table">
-                        <div class="specifi__row">
-                            <p class="specifi__type">Loại tivi</p>
-                            <p class="specifi__info">Smart Tivi QLED43 inch4K</p>
-                        </div>
-                        <div class="specifi__row">
-                            <p class="specifi__type">Hệ điều hành</p>
-                            <p class="specifi__info">Tizen™</p>
-                        </div>
-                        <div class="specifi__row">
-                            <p class="specifi__type">Ứng dụng phổ biến</p>
-                            <p class="specifi__info">
-                                Clip TVFPT PlayGalaxy Play (Fim+)MP3 ZingMyTVNetflixPOPS KidsSpotifyTrình duyệt webVieONYouTube</p>
-                        </div>
-                        <div class="specifi__row">
-                            <p class="specifi__type">Công nghệ hình ảnh</p>
-                            <p class="specifi__info">Ambient ModeBrightness/Color DetectionChuyển động mượt Motion Xcelerator TurboGiảm độ trễ chơi game Auto Low Latency Mode (ALLM)HDR10+Quantum DotQuantum HDRSuper Ultra Wide Game View & Game BarSupreme UHD Dimming</p>
-                        </div>
-                        <div class="specifi__row">
-                            <p class="specifi__type">Điều khiển bằng giọng nói</p>
-                            <p class="specifi__info">Điều khiển bằng giọng nói</p>
-                        </div>
+                <div class="detail__specification specification">
+                    <h2>Thông số kỹ thuật</h2>
+                    <div class="specification__item">
+                        <p class="specification__type">Loại tivi</p>
+                        <p class="specification__info">Smart Tivi QLED43 inch4K</p>
+                    </div>
+                    <div class="specification__item">
+                        <p class="specification__type">Hệ điều hành</p>
+                        <p class="specification__info">Tizen™</p>
+                    </div>
+                    <div class="specification__item">
+                        <p class="specification__type">Ứng dụng phổ biến</p>
+                        <p class="specification__info">
+                            Clip TVFPT PlayGalaxy Play (Fim+)MP3 ZingMyTVNetflixPOPS KidsSpotifyTrình duyệt webVieONYouTube</p>
+                    </div>
+                    <div class="specification__item">
+                        <p class="specification__type">Công nghệ hình ảnh</p>
+                        <p class="specification__info">Ambient ModeBrightness/Color DetectionChuyển động mượt Motion Xcelerator TurboGiảm độ trễ chơi game Auto Low Latency Mode (ALLM)HDR10+Quantum DotQuantum HDRSuper Ultra Wide Game View & Game BarSupreme UHD Dimming</p>
+                    </div>
+                    <div class="specification__item">
+                        <p class="specification__type">Điều khiển bằng giọng nói</p>
+                        <p class="specification__info">Điều khiển bằng giọng nói</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="comments">
+            <h1>Đánh giá sản phẩm</h1>
+            <div class="comments__list">
+                <%- include('../components/comment') %>
+                <%- include('../components/comment') %>
+            </div>
+            <div class="comments__pagination">
+                <%- include('../components/pagination') %>
             </div>
         </section>
     </main>
