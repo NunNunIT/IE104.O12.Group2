@@ -17,3 +17,19 @@
     font-size: 2rem;
     color: var(--primary-color-1);
 }
+
+/* 768px - Tablet */
+@media screen and (max-width: 48rem) {
+    .pagination {
+        gap: 8px;
+    }
+
+    .pagination button {
+        height: 36px;
+        width: 36px;
+    }
+
+    .pagination span {
+        font-size: 1.8rem;
+    }
+}
