@@ -1,0 +1,327 @@
+@import url("/styles/variables.css");
+@import url("/styles/partials/header.css");
+@import url("/styles/components/scrollup.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/components/product-card.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f6f8;
+}
+
+
+.seacrh-result__container {
+    width: 80%;
+    max-width: 1152px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0 12px 0;
+}
+
+.seacrh-result__heading--disable {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 13px;
+    border-bottom: 0.5px solid #d9d9d9;
+}
+
+.seacrh-result__sort--disable {
+    display: flex;
+    margin: 0 12px 0 24px;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.seacrh-result__heading--disable .seacrh-result__sort--disable .material-symbols-outlined {
+    font-size: 1.125rem;
+    padding-left: 6px;
+    margin: 0;
+}
+
+.seacrh-result__heading--disable .material-symbols-outlined {
+    font-size: 1.5rem;
+    margin-right: 12px;
+}
+
+.seacrh-result__filter {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.seacrh-result__filter-normal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.seacrh-result__filter-brand {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.seacrh-result__filter-normal__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 8px 4px 12px;
+    border: solid 1px var(--gray);
+    border-radius: 12px;
+    gap: 4px;
+}
+
+.seacrh-result__filter-normal__title,
+.seacrh-result__filter-brand__title {
+    font-weight: 600;
+}
+
+.seacrh-result__filter-brand__img {
+    object-fit: contain;
+    height: 15px;
+    border: solid 1px var(--gray);
+    border-radius: 24px;
+    padding: 12px 16px;
+}
+
+.seacrh-result__filter-brand__img:hover {
+    cursor: pointer;
+    border-color: var(--primary-color);
+    /* background-color: rgb(42, 126, 228, 0.1); */
+}
+
+.seacrh-result__main {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 24px;
+}
+
+.seacrh-result__main__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.seacrh-result__highlight {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.seacrh-result__key {
+    font-style: italic;
+}
+
+.seacrh-result__form-check {
+    align-items: center;
+    display: flex;
+    padding: 0;
+}
+
+.seacrh-result__form-check-disable {
+    align-items: center;
+    display: flex;
+    padding: 0;
+}
+
+.seacrh-result__form-check-disable__group {
+    margin-top: 8px;
+    display: none;
+    flex-direction: row;
+    gap: 24px;
+    font-size: 13px;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    margin-top: 0;
+}
+
+.form-check-input:hover {
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 4px;
+}
+
+.seacrh-result__sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 1px var(--gray);
+    border-radius: 12px;
+    gap: 8px;
+    padding: 4px 4px 4px 8px;
+}
+
+.seacrh-result__sort:hover {
+    cursor: pointer;
+    border-color: var(--primary-color);
+}
+
+.seacrh-result__sort-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.seacrh-result__main-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1.3%;
+    margin-top: 24px;
+}
+
+.seacrh-result__filter-normal__content:hover {
+    cursor: pointer;
+    border-color: var(--primary-color);
+}
+
+/*Responsive-tablet*/
+@media only screen and (max-width: 48rem) {
+    .seacrh-result__filter-normal {
+        gap: 12px;
+    }
+
+    .seacrh-result__filter-normal__content {
+        font-size: 14px;
+    }
+
+    .seacrh-result__main-card {
+        gap: 2%;
+    }
+
+    .seacrh-result__form-check {
+        font-size: 12px;
+    }
+
+    .seacrh-result__main__count {
+        font-size: 14px;
+    }
+
+    .seacrh-result__sort {
+        font-size: 14px;
+    }
+
+    .seacrh-result__filter-brand__img {
+        height: 10px;
+    }
+
+    .seacrh-result__sort {
+        font-size: 13px;
+        border-radius: 8px;
+        gap: 4px;
+        padding: 2px 4px 2px 8px;
+    }
+
+    .seacrh-result__form-check {
+        display: none;
+    }
+
+    .seacrh-result__filter-normal__title,
+    .seacrh-result__filter-brand__title {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .seacrh-result__filter-brand {
+        margin-top: 6px;
+    }
+
+    .seacrh-result__filter-normal__content {
+        font-size: 13px;
+        padding: 2px 4px 2px 8px;
+        border: solid 1px var(--gray);
+        border-radius: 8px;
+    }
+
+    .seacrh-result__filter-brand {
+        gap: 8px;
+    }
+
+    .seacrh-result__form-check-disable__group {
+        display: flex;
+    }
+
+    .seacrh-result__highlight {
+        font-size: 16px;
+    }
+}
+
+/*Responsive-smartphone*/
+@media only screen and (max-width: 26rem) {
+
+    .seacrh-result__container {
+        width: 95%;
+    }
+
+    .seacrh-result__filter {
+        display: none;
+    }
+
+    .seacrh-result__main {
+        margin: 0;
+    }
+
+    .seacrh-result__main__count {
+        display: none;
+    }
+
+    .seacrh-result__sort {
+        display: none;
+    }
+
+    .seacrh-result__heading--disable {
+        display: flex;
+    }
+
+    .seacrh-result__form-check-disable__group {
+        display: none;
+    }
+
+    .seacrh-result__main-card {
+        margin-top: 16px;
+    }
+}

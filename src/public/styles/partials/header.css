@@ -1,18 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
 header {
-    max-width: 100%;
+    width: 100%;
     height: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2A7EE4;
+    background-color: var(--primary-color);
     font-size: 16px;
 }
 
@@ -247,7 +239,7 @@ button {
     }
 
     .header__main .material-symbols-outlined {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .header__cart .material-symbols-outlined {
