@@ -4,6 +4,7 @@
     margin: auto;
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
 }
 .slider .list{
     position: absolute;
@@ -61,7 +62,7 @@
 .slider .dots li.active{
     width: 30px;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 48rem){
     .slider{
         height: 25vh;
     }
