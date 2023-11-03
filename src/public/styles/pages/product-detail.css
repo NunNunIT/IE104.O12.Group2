@@ -1,0 +1,228 @@
+@import url('/styles/general.css');
+@import url('/styles/partials/header.css');
+@import url('/styles/partials/footer.css');
+@import url('/styles/components/slider.css');
+@import url('/styles/components/comment.css');
+@import url('/styles/components/pagination.css');
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    width: 80%;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title {
+    display: inherit;
+    align-items: center;
+    gap: 12px;
+}
+
+.title__rating {
+    display: inherit;
+    font-variation-settings: 'FILL' 1;
+    color: var(--primary-color-5);
+}
+
+.detail {
+    display: inherit;
+    gap: 24px;
+}
+
+.detail--left,
+.detail--right {
+    width: 50%;
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail__policy {
+    display: inherit;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--outline-gray);
+    border-radius: 8px;
+}
+
+.detail__policy>div {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.policy__item {
+    display: inherit;
+    align-items: center;
+    gap: 12px;
+}
+
+.policy__item span {
+    color: var(--primary-color-1);
+    font-variation-settings: 'FILL' 1;
+}
+
+.policy__item p {
+    text-align: left;
+}
+
+.detail__description {
+    display: inherit;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.description__item {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.description__item img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.detail__description button {
+    height: 48px;
+    padding: 12px;
+    background-color: var(--white);
+    border: 2px solid var(--primary-color-1);
+    border-radius: 8px;
+    color: var(--primary-color-1);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.detail__variants {
+    display: inherit;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.detail__variants a {
+    height: 48px;
+    box-sizing: border-box;
+    padding: 12px 8px 0;
+    border: 1px solid var(--outline-gray);
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.detail__promo {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    background-color: var(--primary-color-1);
+    border-radius: 8px;
+}
+
+.promo__header {
+    display: inherit;
+    justify-content: space-between;
+}
+
+.promo__header div {
+    display: inherit;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--white);
+}
+
+.promo__header div h2 {
+    font-weight: 700;
+}
+
+.promo__header div p {
+    font-size: 0.875rem;
+}
+
+.promo__header div:last-child p {
+    text-align: right;
+}
+
+.promo__content {
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
+    background-color: var(--white);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.promo__list {
+    padding-left: 16px;
+    line-height: 1.8;
+}
+
+.promo__content a {
+    height: 48px;
+    box-sizing: border-box;
+    padding: 12px 12px 0;
+    background-color: var(--primary-color-5);
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    color: var(--white)
+}
+
+.promo__contact {
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.promo__contact span {
+    color: var(--primary-color-1);
+    font-weight: 500;
+}
+
+.detail__specification {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.specification__item {
+    display: inherit;
+    gap: 12px;
+}
+
+.specification__item:nth-child(even) {
+    padding: 12px;
+    background-color: var(--bg-white-o50);
+    border-radius: 8px;
+}
+
+.specification__type {
+    width: 40%;
+    font-weight: 500;
+    text-align: left;
+}
+
+.specification__info {
+    width: 60%;
+    text-align: left;
+}
+
+.comments,
+.comments__list {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comments__pagination {
+    display: inherit;
+    justify-content: center;
+}
