@@ -60,3 +60,28 @@
     height: 100px;
     object-fit: cover;
 }
+
+/* 768px - Tablet */
+@media screen and (max-width: 48rem) {
+    .comment-container {
+        padding: 16px;
+    }
+
+    .comment__avatar {
+        width: 64px;
+        height: 64px;
+    }
+
+    .comment__stars span {
+        font-size: 1.5rem;
+    }
+
+    .comment__content {
+        gap: 8px;
+    }
+
+    .comment__pictures img {
+        width: 76px;
+        height: 76px;
+    }
+}
