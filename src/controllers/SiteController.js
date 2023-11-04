@@ -1,3 +1,8 @@
+const db = require('../config/db/connect');
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { promisify } = require("util");
+
 class SiteController {
     // [GET] /
     index(req, res) {
@@ -13,9 +18,33 @@ class SiteController {
         res.render('./pages/index', { productCatalog })
     }
 
-    productDetail(req, res) {
-        const title = 'Chi tiết sản phẩm'
-        res.render('./pages/product-detail', { title })
+    // [GET] /login
+    login(req, res) {
+        res.render('./pages/login')
+    }
+
+    // [POST] /login
+    submitLogin(req, res) {
+        const { user_phone, user_password } = req.body;
+        db.query('SELECT *  FROM users WHERE user_phone = ?', [user_phone], async (err, result) => {
+            console.log(result);
+            if (err) throw err;
+            // if (!result.length || !await bcrypt.compare(user_password, result[0].user_password)) return res.json({
+            if (!result[0]) return res.json({
+                status: "error",
+                error: "Số điện thoại không tồn tại."
+            })
+            else if ((user_password !== result[0].user_password)) return res.json({
+                status: "error2",
+                error: "Mật khẩu không chính xác."
+            })
+        })
+
+    }
+
+    //[GET] /account
+    account(req, res) {
+        res.render('./pages/account')
     }
 }
 
