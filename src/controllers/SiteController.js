@@ -82,6 +82,14 @@ class SiteController {
         })
     }
 
+    search(req, res) {
+        const searchResults = {
+            'name': 'HaiYen',
+            'rate': '4'
+        }
+        res.render('./pages/search-results', { searchResults })
+    }
+
     //[GET] /account
     account(req, res) {
         res.render('./pages/account')
