@@ -4,6 +4,8 @@
 @import url("/styles/components/product-catalog.css");
 @import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
+@import url("/styles/partials/app-bar.css");
+
 
 * {
     padding: 0;

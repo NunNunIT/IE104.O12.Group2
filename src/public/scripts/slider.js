@@ -1,96 +1,39 @@
-const initSlider = () => {
-    const imageList = document.querySelector(".slider-wrapper .slider-wrapper__image-list");
-    const slideButtons = document.querySelectorAll(".slider-wrapper .slider-wrapper__slide-button");
-    const sliderScrollbar = document.querySelector(".container .container__slider-scrollbar");
-    const scrollbarThumb = sliderScrollbar.querySelector(".container__slider-scrollbar__scrollbar-thumb");
-    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-    const slideWidth = imageList.clientWidth;
+let slider = document.querySelector('.slider .list');
+let items = document.querySelectorAll('.slider .list .item');
+let next = document.getElementById('next');
+let prev = document.getElementById('prev');
+let dots = document.querySelectorAll('.slider .dots li');
 
-    // Function để chuyển slide tự động
-    const autoSlide = () => {
-        if (imageList.scrollLeft + slideWidth < maxScrollLeft) {
-            imageList.scrollBy({
-                left: slideWidth,
-                behavior: "smooth"
-            });
-        } else {
-            imageList.scrollTo({
-                left: 0,
-                behavior: "smooth"
-            });
-        }
-    };
+let lengthItems = items.length - 1;
+let active = 0;
+next.onclick = function(){
+    active = active + 1 <= lengthItems ? active + 1 : 0;
+    reloadSlider();
+}
+prev.onclick = function(){
+    active = active - 1 >= 0 ? active - 1 : lengthItems;
+    reloadSlider();
+}
+let refreshInterval = setInterval(()=> {next.click()}, 3000);
+function reloadSlider(){
+    slider.style.left = -items[active].offsetLeft + 'px';
+    // 
+    let last_active_dot = document.querySelector('.slider .dots li.active');
+    last_active_dot.classList.remove('active');
+    dots[active].classList.add('active');
 
-    // Sử dụng hàm `setInterval` để tự động chuyển slide sau mỗi 2 giây
-    let autoSlideInterval = setInterval(autoSlide, 2000);
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(()=> {next.click()}, 3000);
 
-    // Khi trình chiếu được di chuyển bằng tay, hãy xóa bất kỳ interval tự động nào đang chạy
-    imageList.addEventListener("scroll", () => {
-        clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(autoSlide, 2000);
-    });
+    
+}
 
-    // Handle scrollbar thumb drag
-    scrollbarThumb.addEventListener("mousedown", (e) => {
-        const startX = e.clientX;
-        const thumbPosition = scrollbarThumb.offsetLeft;
-        const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
-
-        // Update thumb position on mouse move
-        const handleMouseMove = (e) => {
-            const deltaX = e.clientX - startX;
-            const newThumbPosition = thumbPosition + deltaX;
-
-            // Ensure the scrollbar thumb stays within bounds
-            const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
-            const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
-
-            scrollbarThumb.style.left = `${boundedPosition}px`;
-            imageList.scrollLeft = scrollPosition;
-        };
-
-        // Remove event listeners on mouse up
-        const handleMouseUp = () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
-        };
-
-        // Add event listeners for drag interaction
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
-    });
-
-    // Slide images according to the slide button clicks
-    slideButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const direction = button.id === "prev-slide" ? -1 : 1;
-            const scrollAmount = slideWidth * direction;
-            imageList.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth"
-            });
-        });
-    });
-
-    // Show or hide slide buttons based on scroll position
-    const handleSlideButtons = () => {
-        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
-        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
-    };
-
-    // Update scrollbar thumb position based on image scroll
-    const updateScrollThumbPosition = () => {
-        const scrollPosition = imageList.scrollLeft;
-        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-        scrollbarThumb.style.left = `${thumbPosition}px`;
-    };
-
-    // Call these functions when image list scrolls
-    imageList.addEventListener("scroll", () => {
-        updateScrollThumbPosition();
-        handleSlideButtons();
-    });
+dots.forEach((li, key) => {
+    li.addEventListener('click', ()=>{
+         active = key;
+         reloadSlider();
+    })
+})
+window.onresize = function(event) {
+    reloadSlider();
 };
-
-window.addEventListener("resize", initSlider);
-window.addEventListener("load", initSlider);
