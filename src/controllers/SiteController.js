@@ -22,6 +22,10 @@ class SiteController {
     login(req, res) {
         res.render('./pages/login')
     }
+    //[GET] /account
+    account(req, res) {
+        res.render('./pages/account')
+    }
 
     // [POST] /login
     submitLogin(req, res) {

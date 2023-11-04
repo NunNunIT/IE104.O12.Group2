@@ -4,6 +4,7 @@ const router = express.Router();
 // import controller
 const SiteController = require('../controllers/SiteController.js')
 
+router.get('/account', SiteController.account)
 router.get('/login', SiteController.login)
 router.post('/login', SiteController.submitLogin)
 router.get('/', SiteController.index)
