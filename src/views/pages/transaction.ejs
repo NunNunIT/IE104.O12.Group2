@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
+    <link rel="stylesheet" href="/styles/pages/transaction.css">
+    <title>Document</title>
+</head>
+
+<body>
+  <main class="transaction-container">
+    <div class="transaction-box">
+      <div class="inner-box">
+        <div class="success">
+          <div class="success-logo">
+            <span class="material-symbols-outlined">
+              sweep
+            </span>
+          </div>
+          <div class="success-text">
+            Đặt hàng thành công
+          </div>
+        </div>
+
+        <div class="thanks">
+          Cảm ơn Anh <str> Lân </str> đã cho TECHTWO cơ hội được phục vụ.
+        </div>
+
+        <div class="info-order">
+          <div class="info-order--header">
+            Đơn hàng: #99999999
+            <div class="header-right">
+              <a href="#">Quản lý đơn hàng</a>
+              <a>Hủy</a>
+            </div>
+          </div>
+          <p>Người nhận hàng: </p>
+          <p id="customer-info"></p>
+          <p>Giao đến: </p>
+          <p id="customer-info"></p>
+          <p>Tổng tiền: </p>
+          <p id="customer-info"></p>
+        </div>
+
+        <div class="purchase-status">
+          Đơn hàng chưa được thanh toán
+        </div>
+
+        <h3>Chọn hình thức thanh toán:</h3>
+
+        <div class="payment-frame">
+            <input id="cash" type="radio">
+            <span class="material-symbols-outlined">payments</span>
+            <label for="cash">Thanh toán bằng tiền mặt</label>
+        </div>
+        <div class="payment-frame">
+          <input id="cash" type="radio">
+          <span class="material-symbols-outlined">local_atm</span>
+          <label for="cash">Thanh toán bằng tài khoản ngân hàng</label>
+        </div>
+        <div class="payment-frame">
+          <input id="cash" type="radio">
+          <span class="material-symbols-outlined">credit_card</span>
+          <label for="cash">Thanh toán bằng thẻ tín dụng</label>
+          <img src="imgs/R.png" alt="Visa">
+          <img src="imgs/R (1).png" alt="Master Card">
+          <img src="imgs/R (2).png" alt="JCB">
+        </div>
+
+        <div class="submit">
+          Xác nhận
+        </div>
+
+        <div class="more">
+          Mua thêm sản phẩm khác
+        </div>
+
+      </div>
+    </div>    
+  </main>
+    
+      <script src="/scripts/login.js"></script>
+</body>
+</html>

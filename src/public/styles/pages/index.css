@@ -22,7 +22,6 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    gap: 10vh
 }
 
 .content-container {
