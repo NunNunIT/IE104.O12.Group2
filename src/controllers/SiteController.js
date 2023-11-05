@@ -1,8 +1,4 @@
 const db = require('../config/db/connect');
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-
-const db = require('../config/db/connect');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { promisify } = require("util");
