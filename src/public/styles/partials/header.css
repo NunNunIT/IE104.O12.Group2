@@ -4,12 +4,12 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-1);
     font-size: 16px;
 }
 
 .header__container {
-    width: 80vw;
+    width: 80%;
     max-width: 1152px;
     height: 80%;
     background-color: none;
@@ -74,8 +74,7 @@ header {
     margin-right: 5%;
 }
 
-.header__search-bar input,
-button {
+.header__search-bar button {
     height: 100%;
 }
 

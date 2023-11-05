@@ -1,7 +1,10 @@
-@import url("/styles/variables.css");
-@import url("/styles/partials/header-medium.css");
+@import url("/styles/general.css");
+@import url("/styles/partials/header.css");
+/* @import url("/styles/components/slider.css");
+@import url("/styles/components/product-catalog.css");
+@import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
-@import url("/styles/components/next-page.css");
+@import url("/styles/partials/app-bar.css"); */
 @import url("/styles/components/noti-item-promo.css");
 
 html {
@@ -31,12 +34,14 @@ body {
     flex-direction: column;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid var(--outline-variant);
+    border: 0.5px solid var(--outline-gray);
     background: #ffff;
+    width: 35%;
 }
 
 .aside-wrapper hr {
-    margin: 12px 0 12px 0;
+    margin: 4px 0 12px 0;
+    border: 0.5px solid var(--outline-gray);
 }
 
 .aside-wrapper__aside-info {
@@ -44,6 +49,7 @@ body {
     align-items: center;
     flex-direction: row;
     gap: 12px;
+    margin-bottom: 14px;
 }
 
 .aside-wrapper__aside-avatar {
@@ -52,7 +58,7 @@ body {
     border-radius: 50%;
 }
 
-.aside-wrapper__aside-title {
+.aside-wrapper__aside-title p {
     font-size: 16px;
     font-weight: 500;
 }
@@ -67,10 +73,14 @@ body {
     gap: 12px;
 }
 
-.aside-wrapper__aside-section p {
-    padding: 12px;
+.btn--outlined pri mark {
+    display: flex;
+}
+
+.btn-update,
+.btn-promo {
+    padding: 14px 12px;
     margin: 0;
-    width: 256px;
     font-weight: 500;
 }
 
@@ -82,7 +92,7 @@ body {
 }
 
 .aside-wrapper__aside-section p:nth-child(2) {
-    background-color: #004f52;
+    background-color: var(--primary-color-1);
     color: white;
     border-radius: 8px;
 }
@@ -96,11 +106,233 @@ body {
 }
 
 button.btn--outlined.pri {
-    padding: 0 24px 0 24px;
     font-weight: 500;
 }
 
-button.btn--filled.pri {
-    padding: 0 24px 0 24px;
-    /* font-weight: 500; */
+.nofi--disable {
+    width: 100%;
+    display: none;
+}
+
+.noti__button-update--disable,
+.noti__button-promo--disable {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    flex-direction: column;
+}
+
+.btn-promo--disable {
+    color: var(--primary-color-2);
+    font-weight: 500;
+}
+
+.btn-update--disable {
+    font-weight: 500;
+}
+
+.btn-promo--disable:hover,
+.btn-update--disable:hover {
+    color: var(--primary-color-1);
+    cursor: pointer;
+}
+
+.noti__button-update--disable hr {
+    border: 0.5px solid var(--outline-gray);
+    width: 100%;
+    margin-top: 8px;
+}
+
+.noti__button-promo--disable hr {
+    border: 0.5px solid var(--outline-gray);
+    width: 100%;
+    margin-top: 8px;
+}
+
+.noti__button-promo--disable hr {
+    border-color: var(--primary-color-2);
+}
+
+.btn-button--disable {
+    display: none;
+}
+
+.btn-button--disable p {
+    font-size: 0.75rem;
+    margin: 0 10px;
+    color: var(--primary-color-1);
+    font-weight: 500;
+}
+
+/*Responsive-small-laptop*/
+@media only screen and (max-width: 64rem) {
+    .aside-wrapper {
+        width: 45%;
+    }
+
+    .noti-item__title {
+        font-size: 1.125rem;
+        margin-bottom: 4px;
+    }
+
+    .noti-item__sub-title {
+        font-size: 0.875rem;
+    }
+
+    button {
+        height: 40px;
+    }
+
+    button.btn--outlined.pri {
+        font-size: 0.875rem;
+        padding: 0 18px;
+    }
+
+    button.btn--filled.pri {
+        font-size: 0.875rem;
+        padding: 0 18px;
+    }
+
+    .noti-item__date-time p {
+        font-size: 0.875rem;
+    }
+
+    .popup__main {
+        width: 70%;
+    }
+}
+
+/*Responsive-tablet*/
+@media only screen and (max-width: 48rem) {
+    p {
+        font-size: 0.875rem;
+    }
+
+    .nofi-container {
+        width: 95%;
+    }
+
+    .aside-wrapper__aside-title p {
+        font-size: 0.875rem;
+    }
+
+    .noti-item__title {
+        font-size: 1rem;
+    }
+
+    .noti-item__sub-title {
+        font-size: 0.8125rem;
+    }
+
+    .noti-item__date-time p {
+        font-size: 0.8125rem;
+    }
+
+    button {
+        height: 34px;
+    }
+
+    button.btn--outlined.pri {
+        font-size: 0.75rem;
+        padding: 0 18px;
+    }
+
+    button.btn--filled.pri {
+        font-size: 0.75rem;
+        padding: 0 18px;
+    }
+
+    .btn-update,
+    .btn-promo {
+        padding: 12px;
+    }
+
+    .popup__main {
+        width: 85%;
+    }
+
+    .popup .popup__title {
+        font-size: 1.25rem;
+    }
+
+    .popup .popup__sub-title {
+        font-size: 1rem;
+    }
+}
+
+/*Responsive-smartphone*/
+@media only screen and (max-width: 26rem) {
+    .nofi__main {
+        gap: 12px;
+    }
+
+    .aside-wrapper {
+        display: none;
+    }
+
+    button.btn--outlined.pri.mark {
+        display: none;
+    }
+
+    .noti-item__title {
+        font-size: 0.8125rem;
+    }
+
+    .noti-item__sub-title {
+        font-size: 0.6875rem;
+        font-weight: 400;
+    }
+
+    .noti-item__date-time p {
+        font-size: 0.6875rem;
+    }
+
+    button {
+        height: 32px;
+    }
+
+    button.btn--outlined.pri {
+        font-size: 0.625rem;
+        padding: 0 12px;
+    }
+
+    button.btn--filled.pri {
+        font-size: 0.625rem;
+        padding: 0 12px;
+    }
+
+    .noti-item__block {
+        padding: 8px;
+    }
+
+    .nofi--disable {
+        display: flex;
+    }
+
+    .btn-button--disable {
+        display: flex;
+    }
+
+    .popup__content-main {
+        padding: 20px;
+        gap: 8px;
+    }
+
+    .popup .popup__title {
+        font-size: 1rem;
+    }
+
+    .popup .popup__sub-title {
+        font-size: 0.875rem;
+    }
+
+    .popup p {
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+
+    .close-btn .material-symbols-outlined {
+        font-size: 16px;
+    }
 }
