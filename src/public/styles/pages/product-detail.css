@@ -95,10 +95,6 @@ body {
     gap: 12px;
 }
 
-.detail__variant h2 {
-    text-align: center;
-}
-
 .detail__variant div {
     display: inherit;
     justify-content: flex-start;
