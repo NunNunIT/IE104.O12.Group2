@@ -3,7 +3,7 @@
 @import url("/styles/partials/footer.css");
 
 
-.success-logo .material-symbols-outlined {
+.momo-logo .material-symbols-outlined {
     font-variation-settings:
         'FILL' 0,
         'wght' 300,
@@ -42,19 +42,50 @@ a {
     text-decoration: none;
 }
 
-.transaction-container {
+.momo-container {
     width: 100%;
     height: 100%;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
 }
 
-.transaction-box {
+.momo_left-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.momo_left-box {
+    width: 100%;
+}
+
+.momo_left-cancel {
+    color: rgba(185, 65, 130);
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+}
+
+.momo_left-cancel_ip {
+    color: rgba(185, 65, 130);
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: none;
+    margin-bottom: 0;
+}
+
+
+.momo-box {
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 100%;
     margin: 3% 0;
     background-color: var(--white);
     border-radius: 8px;
@@ -71,16 +102,26 @@ a {
 }
 
 
-.success {
+.momo-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(17, 151, 38, 0.1);
-    padding: 18px 0;
+    background-color: rgba(185, 65, 130, 0.15);
+    padding: 18px 10px;
     border-radius: 8px 8px 0 0;
 }
 
-.success-text {
+.momo-header img {
+    object-fit: contain;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.momo-header h3 {
+    color: rgba(185, 65, 130);
+}
+
+.header-text {
     color: var(--green);
 }
 
@@ -133,6 +174,7 @@ a {
     flex-direction: column;
     margin-left: 8px;
     gap: 12px;
+    font-size: 1rem;
 }
 
 .purchase-status {
@@ -144,6 +186,7 @@ a {
     border: 0.5px dashed #ff6117;
     padding: 8px 0;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 .payment-frame {
@@ -190,12 +233,6 @@ a {
     transform: translateY(-0%);
     pointer-events: none;
     transition: 0.4s;
-}
-
-.heading h2 {
-    font-size: 2.0rem;
-    font-weight: 600;
-    color: var(--black);
 }
 
 .heading h4 {
@@ -273,11 +310,96 @@ label {
     color: var(--blue);
 }
 
+.momo-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
+    margin: 0 0 0 20px;
+    background-color: rgba(185, 65, 130);
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.2);
+    /* justify-content: center; */
+}
+
+.momo-qr h4 {
+    font-size: 1.5rem;
+    font-weight: 550;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 5rem 0;
+}
+
+.qr-frame {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border-style: double;
+    margin-bottom: 3rem;
+}
+
+.qr-frame img {
+    width: 20rem;
+    padding: 2rem;
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.qr-instruct {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.qr-instruct-1 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.qr-help {
+    font-size: 0.875rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.help-instruction {
+    color: rgb(252 211 77);
+    margin-left: 5px;
+}
+
+.help-instruction:hover {
+    color: var(--black);
+    cursor: pointer;
+}
+
 
 @media (max-width: 64rem) {
-    .transaction-box {
+    .momo-box {
         height: auto;
-        width: 80%;
+        /* width: 100%; */
+        overflow: hidden;
+    }
+
+    .momo-header h3 {
+        font-size: 1rem;
+    }
+
+    .momo-header img {
+        width: 35px;
+    }
+
+    .momo-qr {
+        height: auto;
+        width: 55%;
         overflow: hidden;
     }
 
@@ -297,8 +419,28 @@ label {
 
 @media (max-width: 48rem) {
 
-    .transaction-box {
-        width: 80%;
+    .momo_left-frame {
+        width: 50%;
+    }
+
+    .header-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .momo-header h3 {
+        color: rgba(185, 65, 130);
+        font-size: 1rem;
+    }
+    .momo-header img {
+        width: 30px;
+    }
+
+    .info-order__bill {
+        font-size: 1rem;
+    }
+
+    .purchase-status {
+        font-size: 1rem;
     }
 
     .inner-box {
@@ -311,15 +453,21 @@ label {
 }
 
 
+
 @media (max-width: 26rem) {
     main {
         background-color: var(--white);
     }
-    .transaction-container {
+
+    .momo_left-frame {
+        width: 100%;
+    }
+    .momo-container {
         padding: 0;
+        flex-direction: column;
     }
 
-    .transaction-box {
+    .momo-box {
         width: 100%;
         margin: 0;
     }
@@ -329,13 +477,96 @@ label {
     }
 
     .info-order__header--left p {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
     .header--right a {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
 
     .payment-frame label {
-        font-size: 0.875rem;
+        font-size: 1rem;
     }
+
+    .momo-qr {
+        width: 90%;
+        margin: 20px;
+    }
+
+    .momo_left-cancel {
+        display: none;
+    }
+
+    .momo_left-cancel_ip {
+        display: flex;
+        margin-bottom: 4rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgb(235, 108, 175), transparent);
+    /* border: 2px solid rgb(235, 108, 175); */
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* .image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/public/imgs/transaction/momo.png');
+    background-size: cover;
+  } */
+
+  .scanning-box {
+    position: relative;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+  .scanning-box img {
+    /* width: 15rem;
+    padding: 2rem;
+    background-color: var(--bg-white); */
+    width: 20rem;
+    padding: 2rem;
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.countdown-box {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
 }
