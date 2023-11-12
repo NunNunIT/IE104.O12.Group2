@@ -1,0 +1,27 @@
+@import url("/styles/general.css");
+@import url("/styles/partials/header.css");
+/* @import url("/styles/partials/footer.css");
+@import url("/styles/partials/app-bar.css"); */
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-gray);
+}
+
+.error-container {
+    margin: 100px 0;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.error__img {
+    object-fit: cover;
+    width: 20%;
+}

@@ -8,6 +8,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	background-color: var(--bg-white);
+	box-sizing: border-box;
 }
 
 a {

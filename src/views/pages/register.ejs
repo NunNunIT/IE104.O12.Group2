@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechTwo-Chào mừng</title>
+    <link rel="shortcut icon" type="img/ico-logo-blue.png" href="/favicon.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/styles/pages/register.css" />
+</head>
+
+<body>
+    <main>
+        <div class="register__box">
+            <div class="register__inner-box">
+                <div class="register__forms-wrap">
+                    <form id="form" action="/register" autocomplete="off" class="register__sign-in-form" method="post">
+                        <div class="register__logo">
+                            <!-- Về trang chủ -->
+                            <a href="#"><img src="/imgs/logo-blue.png" alt="techtwo" /></a>
+                            <div class="register__heading">
+                                <h1>Chào mừng đến với TechTwo</h1>
+                                <h4>Đã có tài khoản? <a href="#" class="register__toggle">Đăng nhập ngay</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="register__actual-form">
+                            <div class="register__input-wrap">
+                                <input type="text" id="userName" name="userName" class="register__input-field" autocomplete="off" />
+                                <label>Họ tên<span style="color:red">*</span></label>
+                                <div class="register__error"></div>
+                            </div>
+
+                            <div class="register__input-wrap">
+                                <input type="text" id="phoneNumber" name="phoneNumber" class="register__input-field" autocomplete="off" />
+                                <label>Số điện thoại<span style="color:red">*</span></label>
+                                <div class="register__error"></div>
+                            </div>
+
+                            <div class="register__input-wrap">
+                                <input type="password" id="password" name="password" class="register__input-field" autocomplete="off" />
+                                <label>Mật khẩu<span style="color:red">*</span></label>
+                                <span id="togglePassword" class="register__toggle-password"><span class="material-symbols-outlined" id="eye-open">visibility</span>
+                                </span>
+                                <div class="register__error"></div>
+                            </div>
+
+                            <div class="register__input-wrap">
+                                <input type="password" id="passwordRepeat" name="passwordRepeat" class="register__input-field" autocomplete="off" />
+                                <label>Nhập lại mật khẩu<span style="color:red">*</span></label>
+                                <span id="togglePasswordN" class="register__toggle-password"><span class="material-symbols-outlined" id="eye-open">visibility</span>
+                                </span>
+                                <div class="register__error"></div>
+                            </div>
+                            <!-- <button type="submit">Đăng ký</button> -->
+                            <input type="submit" value="Đăng ký" class="register__sign-btn" />
+
+                            <p class="register__text">
+                                Bằng việc đăng ký, người dùng đồng ý với
+                                <a href="#">Điều khoản sử dụng</a> và
+                                <a href="#">Chính sách bảo mật</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="register__carousel">
+                    <div class="register__images-wrapper">
+                        <img src="/imgs/slider/image1.png" class="register__image register__img-1 show" alt="" />
+                        <img src="/imgs/slider/image2.png" class="register__image register__img-2" alt="" />
+                        <img src="/imgs/slider/image3.png" class="register__image register__img-3" alt="" />
+                    </div>
+
+                    <div class="register__bullets">
+                        <span class="active" data-value="1"></span>
+                        <span data-value="2"></span>
+                        <span data-value="3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Javascript file -->
+
+    <script src="/scripts/register.js"></script>
+</body>
+
+</html>
