@@ -1,5 +1,5 @@
 <div class="cart-item">
-    <input type="checkbox" class="checkbox">
+    <input onclick="checkOne(event)" type="checkbox" class="checkbox">
     <div class="cart-item__product lg-col">
         <img src="/imgs/avatar.jpg" alt="">
         <p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
@@ -18,9 +18,9 @@
     </div>
 
     <div class="cart-item__quantity sm-col">
-        <span class="material-symbols-outlined">remove</span>
+        <button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
         <input type="number" value="0">
-        <span class="material-symbols-outlined">add</span>
+        <button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
     </div>
 
     <div class="sm-col">
@@ -28,6 +28,6 @@
     </div>
 
     <div class="sm-col">
-        <button class="cart-item__del-btn" type="button">Xóa</button>
+        <button onclick="removeItem(event)" class="cart-item__del-btn" type="button">Xóa</button>
     </div>
 </div>

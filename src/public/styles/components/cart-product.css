@@ -57,7 +57,17 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 
-.cart-item__quantity span {
+.cart-item__quantity button {
+    width: 24px;
+    height: 24px;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+.cart-item__quantity button span {
     font-size: 1.25rem;
 }
 
