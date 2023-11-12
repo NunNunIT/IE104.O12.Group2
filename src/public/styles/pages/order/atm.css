@@ -341,9 +341,6 @@ label {
     width: 10rem;
 }
 
-.pay_use {
-}
-
 @media (max-width: 64rem) {
     .transaction-box {
         height: auto;
@@ -389,6 +386,7 @@ label {
     main {
         background-color: var(--white);
     }
+
     .transaction-container {
         padding: 0;
     }
@@ -405,6 +403,7 @@ label {
     .info-order__header--left p {
         font-size: 0.875rem;
     }
+
     .header--right a {
         font-size: 0.875rem;
     }

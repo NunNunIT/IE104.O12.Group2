@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/pages/search-results.css">
+    <link rel="stylesheet" href="/styles/pages/search/results.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Kết quả tìm kiếm</title>
 </head>
+
 <body>
-    <%- include('../partials/header') %>
+    <%- include('../../partials/header') %>
 
     <main class="seacrh-result__container">
         <section class="seacrh-result__filter">
@@ -91,19 +92,20 @@
                     <label class="form-check-label">Trả góp 0% - 1%</label>
                 </div>
             </div>
-            
+
             <div class="seacrh-result__main-card">
-                <%- include('../components/product-card') %>
-                <%- include('../components/product-card') %>
-                <%- include('../components/product-card') %>
-                <%- include('../components/product-card') %>
-                <%- include('../components/product-card') %>
-                <%- include('../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
             </div>
         </section>
     </main>
-    <%- include('../components/scrollup') %>
-    <%- include('../partials/footer') %>
+    <%- include('../../components/scrollup') %>
+    <%- include('../../partials/footer') %>
     <script src="/scripts/scrollup.js"></script>
 </body>
+
 </html>

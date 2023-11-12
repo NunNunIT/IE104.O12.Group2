@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/pages/cart.css">
+    <link rel="stylesheet" href="/styles/pages/order/cart.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Tech Two.</title>
 </head>
 
 <body>
-    <%- include('../partials/header') %>
+
+    <%- include('../../partials/header') %>
 
     <main class="cart">
         <section class="cart__title">
@@ -25,9 +26,9 @@
 
         <section class="cart__content">
             <form action="#">
-                <%- include('../components/cart-product') %>
-                <%- include('../components/cart-product') %>
-                <%- include('../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
                 <hr>
                 <div class="cart__footer">
                     <div class="cart__feature">
@@ -47,9 +48,11 @@
         </section>
     </main>
 
-    <%- include('../components/scrollup') %>
-    <%- include('../partials/footer') %>
+    <%- include('../../components/scrollup') %>
+    <%- include('../../partials/footer') %>
+
     <script src="/scripts/scrollup.js"></script>
+
 </body>
 
 </html>
