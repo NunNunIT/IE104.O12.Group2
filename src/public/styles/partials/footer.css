@@ -1,20 +1,38 @@
+@import url("/styles/general.css");
+
 .footer {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top: 16px;
-    border-top: 4px solid;
-    background-color: var(--white);
+    background-color: var(--bg-white-o80);
     justify-content: center;
 }
 
 .footer__element {
     display: flex;
+    width: 80%;
+    flex-direction: row;
     margin-left: 0px;
     margin-right: 0px;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
+.footer__row--2 {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+
 .footer__column-4 {
-    width: 20%;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin: 0;
 }
 
 .footer__framelist {
@@ -25,15 +43,15 @@
 
 .footer__header {
     font-size: 1.3rem;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--text-color);
     padding-left: 0px;
 }
 
 .footer__header--thanhtoan {
     font-size: 1.3rem;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--text-color);
     padding-left: 3%;
 }
 
@@ -168,13 +186,56 @@
         .tabletmini {
                 display: block;
             }
-        .footer {
-            display: none;
+        .footer__header {
+            font-size: 0.875rem;
         }
+        .footer__header--thanhtoan {
+            font-size: 0.875rem;
+        }
+        .footer__listtext {
+            font-size: 0.6875rem;
+        }
+        .footer__logo-img {
+            padding-top: 3px;
+            width: 30px;
+            height: 30px;
+        } 
+    }
+
+     /* For small devices */
+     @media screen and (max-width: 26rem) {
+        .nav__list {
+            justify-content: center;
+            column-gap: 3rem;
+        }
+        .tabletmini {
+                display: block;
+            }
         .footer__element {
-            display: none;
+            flex-direction: column;
         }
-        .footer__bottom {
-            display: none;
+
+        .footer__row--2 {
+            /* flex-direction: column; */
+            width: 100%;
+            margin-bottom: 20px;
         }
+        .footer__column--4 {
+            width: 50%;
+            margin: 0 0 8px 8px;
+        }
+        .footer__header {
+            font-size: 0.875rem;
+        }
+        .footer__header--thanhtoan {
+            font-size: 0.875rem;
+        }
+        .footer__listtext {
+            font-size: 0.6875rem;
+        }
+        .footer__logo-img {
+            padding-top: 3px;
+            width: 35px;
+            height: 35px;
+        } 
     }

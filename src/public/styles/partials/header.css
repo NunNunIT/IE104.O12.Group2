@@ -9,7 +9,7 @@ header {
 }
 
 .header__container {
-    width: 80vw;
+    width: 80%;
     max-width: 1152px;
     height: 80%;
     flex-direction: column;
@@ -73,8 +73,7 @@ header {
     margin-right: 5%;
 }
 
-.header__search-bar input,
-button {
+.header__search-bar button {
     height: 100%;
 }
 
