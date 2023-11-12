@@ -32,36 +32,42 @@
             </div>
         </section>
 
-        <form action="#" id="order-form">
+        <form action="#" method="post" id="order-form">
             <section class="order-detail">
                 <div class="order-detail__customer">
                     <h2>Thông tin người nhận hàng</h2>
                     <div>
-                        <input type="text" placeholder="Họ và tên">
-                        <input type="text" placeholder="Số điện thoại">
+                        <div class="order-detail__input">
+                            <input onchange="validateName(event)" type="text" placeholder="Họ và tên" required>
+                            <p>Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!</p>
+                        </div>
+                        <div class="order-detail__input">
+                            <input onchange="validatePhoneNumber(event)" type="text" placeholder="Số điện thoại" required>
+                            <p>Số điện thoại không hợp lệ!</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="order-detail__location location">
                     <h2>Địa chỉ nhận hàng</h2>
                     <div class="location__input-group">
-                        <input class="location__select" type="text" list="province" placeholder="Tỉnh">
+                        <input class="location__select" type="text" list="province" placeholder="Tỉnh" required>
                         <datalist id="province">
                             <option value="Boston">
                             <option value="Cambridge">
                         </datalist>
 
-                        <input class="location__select" type="text" list="district" placeholder="Quận/huyện">
+                        <input class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
                         <datalist id="district">
                             <option value="Boston">
                             <option value="Cambridge">
                         </datalist>
-                        <input class="location__select" type="text" list="commune" placeholder="Phường/xã">
+                        <input class="location__select" type="text" list="commune" placeholder="Phường/xã" required>
                         <datalist id="commune">
                             <option value="Boston">
                             <option value="Cambridge">
                         </datalist>
-                        <input type="text" placeholder="Địa chỉ">
+                        <input type="text" placeholder="Địa chỉ" required>
                     </div>
                 </div>
 
@@ -69,15 +75,15 @@
                     <h2>Phương thức thanh toán</h2>
                     <div class="pay-method__choose">
                         <div>
-                            <input type="radio" id="radio1" name="pay-method">
+                            <input type="radio" id="radio1" name="pay-method" required>
                             <label for="radio1">Thanh toán qua MOMO</label>
                         </div>
                         <div>
-                            <input type="radio" id="radio2" name="pay-method">
+                            <input type="radio" id="radio2" name="pay-method" required>
                             <label for="radio2">Thanh toán qua thẻ ATM</label>
                         </div>
                         <div>
-                            <input type="radio" id="radio3" name="pay-method">
+                            <input type="radio" id="radio3" name="pay-method" required>
                             <label for="radio3">Thanh toán qua thẻ VISA</label>
                         </div>
                     </div>
@@ -116,6 +122,7 @@
     <%- include('../../partials/footer') %>
 
     <script src="/scripts/components/scrollup.js"></script>
+    <script src="/scripts/pages/order/information.js"></script>
 
 </body>
 
