@@ -4,6 +4,7 @@
 @import url('/styles/components/slider.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/pagination.css');
+@import url('/styles/partials/breadcrumb.css');
 
 body {
     width: 100vw;

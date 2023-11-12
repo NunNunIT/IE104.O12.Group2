@@ -1,0 +1,148 @@
+@import url("/styles/general.css");
+@import url("/styles/admin/sidebar_admin.css");
+@import url("/styles/admin/header_admin.css");
+
+body {
+  background-color: var(--bg-white);
+  color: var(--black);
+}
+
+.material-symbols-rounded {
+  font-size: 28px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    'sidebar header header header'
+    'sidebar main main main';
+  height: 100vh;
+}
+
+/* ---------- MAIN ---------- */
+
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 20px 20px;
+  color: var(--black);
+}
+
+.main-cards--top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.main-cards--bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+.card__icon {
+  /* background-color: var(--bg-white-o30); */
+  border-radius: 50%;
+  text-align: center;
+  padding: 24px;
+  color: var(--primary-color-1);
+  font-size: 40px;
+
+}
+
+.main-cards--bottom .card:last-child {
+  color: var(--white);
+  background: var(--primary-color-1);
+}
+
+.main-cards--bottom .card:last-child .card_-icon .card__icon {
+  color: var(--white);
+}
+
+.card-inner {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.charts-card {
+  background-color: var(--white);
+  margin-bottom: 20px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  -webkit-column-break-inside: avoid;
+  border-radius: 5px;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Mini pc */
+
+@media screen and (max-width: 64rem) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      'header'
+      'main';
+  }
+}
+
+/* tablet */
+
+@media screen and (max-width: 64rem) {
+  .main-cards--top {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .main-cards--bottom {
+    grid-template-columns: 1fr;
+    width: auto;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* phone */
+
+@media screen and (max-width: 48rem) {
+    .charts {
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+    }
+}

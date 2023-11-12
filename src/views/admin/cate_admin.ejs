@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <title>Admin</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet" href="/styles/admin/cate_admin.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-symbols-rounded">menu</span>
+            </div>
+            <div class="header-left">
+                <h2>Danh mục sản phẩm</h2>
+                <!-- <span class="material-symbols-rounded">search</span> -->
+            </div>
+            <div class="header-right">
+                <span class="material-symbols-rounded">notifications</span>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <img src="/imgs/logo-white.png" alt="logo" />
+                <span class="material-symbols-rounded" onclick="closeSidebar()">close</span>
+            </div>
+            <div class="side-content">
+                <div class="profile">
+                    <div class="profile-img bg-img" src="" alt="avt"></div>
+                    <h4>Admin Nhung</h4>
+                    <small>Owner</small>
+                </div>
+
+                <div class="sidebar-list">
+
+                    <div class="sidebar-list-item">
+                        <a href="/admin/" class="active">
+                            <span class="material-symbols-rounded">
+                                space_dashboard
+                            </span>
+                            <p>Dashboard</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item active">
+                        <a href="/admin/categories_management" class="active">
+                            <span class="material-symbols-rounded">category</span>
+                            <p>Danh mục</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="/admin/products_management">
+                            <span class="material-symbols-rounded">inventory_2</span>
+                            <p>Sản phẩm</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="/admin/customers_management">
+                            <span class="material-symbols-rounded">groups</span>
+                            <p>Khách hàng</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="/admin/feedbacks_management">
+                            <span class="material-symbols-rounded">rate_review</span>
+                            <p>Đánh giá</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="/admin/warehouse_management">
+                            <span class="material-symbols-rounded">warehouse</span>
+                            <p>Kho</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="/admin/warehouse_management">
+                            <span class="material-symbols-rounded">bar_chart_4_bars</span>
+                            <p>Báo cáo</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="#">
+                            <span class="material-symbols-rounded">settings</span>
+                            <p>Cài đặt</p>
+                        </a>
+                    </div>
+                    <div class="sidebar-list-item">
+                        <a href="#">
+                            <span class="material-symbols-rounded">logout</span>
+                            <p>Đăng xuất</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- End Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container">
+                <!-- Table categories_management -->
+                <div class="records table-responsive">
+
+                    <div class="record-header">
+                        <div class="add">
+                            <span>Lọc</span>
+                            <select name="" id="">
+                                <option value="">ID</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="">Name</option>
+                            </select>
+                        </div>
+
+                        <div class="browse">
+                            <input type="search" placeholder="Search" class="record-search">
+                            <select name="" id="">
+                                <option value="">Trạng thái</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên danh mục</th>
+                                    <th>Số lượng sản phẩm</th>
+                                    <th>Doanh thu</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE00001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#CATE000001</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4>Máy giặt</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        205.000.000
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="material-symbols-rounded">delete</span>
+                                            <span class="material-symbols-rounded">visibility</span>
+                                            <span class="material-symbols-rounded">edit</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+        </main>
+        <!-- End Main -->
+
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/scripts/admin/cate_admin.js"></script>
+    <script src="/scripts/admin/index_admin.js"></script>
+</body>
+
+</html>
