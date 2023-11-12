@@ -79,11 +79,19 @@ h2 {
 
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
+    h1 {
+        font-size: 2rem;
+    }
+
     h2 {
         font-size: 1.5rem;
     }
 
     p {
+        font-size: 0.875rem;
+    }
+
+    li {
         font-size: 0.875rem;
     }
 }
@@ -100,5 +108,13 @@ h2 {
 
     p {
         font-size: 0.75rem;
+    }
+
+    li {
+        font-size: 0.75rem;
+    }
+
+    .privacy__content .privacy__content-title {
+        font-size: 1rem;
     }
 }

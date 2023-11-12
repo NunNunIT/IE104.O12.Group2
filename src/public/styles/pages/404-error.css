@@ -25,3 +25,27 @@ body {
     object-fit: cover;
     width: 20%;
 }
+
+@media only screen and (max-width: 48rem) {
+    h1 {
+        font-size: 1.875rem;
+    }
+
+    .error-container {
+        margin: 80px 0;
+    }
+}
+
+@media only screen and (max-width: 26rem) {
+    .error__img {
+        width: 30%;
+    }
+
+    h1 {
+        font-size: 1.125rem;
+    }
+
+    .error-container {
+        margin: 60px 0;
+    }
+}
