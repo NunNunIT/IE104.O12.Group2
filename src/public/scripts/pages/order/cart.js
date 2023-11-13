@@ -37,9 +37,20 @@ function changeDel() {
 }
 
 function showEmptyNoti() {
-    const numCartItem = [...document.querySelectorAll('.cart-item')].length
-    if (numCartItem == 0) {
+    const numCartItem = [...document.querySelectorAll('.cart-item.mobile-hidden')].length
+    const numCartItemMobile = [...document.querySelectorAll('.cart-item.mobile-display')].length
+    if (numCartItem == 0 || numCartItemMobile == 0) {
         const emptyNoti = document.querySelector('.cart__empty')
         emptyNoti.style.display = 'flex'
     }
 }
+
+const cartMbHiddenItems = [...document.querySelectorAll('.cart-item.mobile-hidden')]
+const lastMbHiddenChild = cartMbHiddenItems[cartMbHiddenItems.length - 1]
+lastMbHiddenChild.style.border = 'none'
+lastMbHiddenChild.style.padding = '0'
+
+const cartMbDisplayItems = [...document.querySelectorAll('.cart-item.mobile-display')]
+const lastMbDisplayChild = cartMbDisplayItems[cartMbDisplayItems.length - 1]
+lastMbDisplayChild.style.border = 'none'
+lastMbDisplayChild.style.padding = '0'

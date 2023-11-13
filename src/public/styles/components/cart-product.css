@@ -39,7 +39,7 @@
 }
 
 .cart-item__unit-price del {
-    color: #a9a9a9;
+    color: var(--del-gray);
 }
 
 input::-webkit-outer-spin-button,
@@ -91,6 +91,16 @@ input::-webkit-inner-spin-button {
     color: var(--white);
 }
 
+@media screen and (max-width: 64rem) {
+    .cart-item__quantity input {
+        width: 50%;
+    }
+
+    .cart-item__quantity button {
+        width: 20%;
+    }
+}
+
 /* 900px - Large Tablet */
 @media screen and (max-width: 56.25rem) {
     .cart-item__product {
@@ -102,15 +112,17 @@ input::-webkit-inner-spin-button {
         height: 60px;
     }
 
+
     .cart-item__unit-price {
         gap: 4px;
     }
+
 }
 
 /* 768px - Tablet */
 @media screen and (max-width: 48rem) {
     .cart-item__variants {
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
     }
 
     .cart-item__product img {
@@ -128,12 +140,69 @@ input::-webkit-inner-spin-button {
 }
 
 /* 640px - Large Mobile */
-/* @media screen and (max-width: 40rem) {
-    .cart-item__product {
-        flex-direction: column;
+@media screen and (max-width: 40rem) {
+    .cart-item__variants {
+        font-size: 0.75rem;
+    }
+}
+
+/* 416px - Mobile */
+@media screen and (max-width: 26rem) {
+    .cart-item {
+        justify-content: start;
+        gap: 12px;
     }
 
-    .cart-item__product p {
-        text-align: center;
+    .cart-item__product {
+        width: 90%;
+        gap: 12px;
     }
-} */
+
+    .cart-item__product img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cart-item__content {
+        width: 80%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .cart-item__content>p {
+        font-weight: 500;
+    }
+
+    .cart-item__variants {
+        width: 100%;
+        max-width: max-content;
+        height: auto;
+        padding: 4px;
+        background-color: var(--bg-white-o80);
+        border-radius: 4px;
+    }
+
+    .cart-item__price del {
+        font-weight: 400;
+        color: var(--del-gray);
+    }
+
+    .cart-item__quantity {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .cart-item__quantity input {
+        width: 32px;
+        height: 24px;
+        padding: 0;
+    }
+
+    .cart-item__quantity button {
+        width: 24px;
+        height: 24px !important;
+    }
+}

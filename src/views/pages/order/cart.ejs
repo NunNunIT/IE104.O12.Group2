@@ -15,13 +15,17 @@
 
     <main class="cart">
         <section class="cart__title">
-            <input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
-            <h4 class="lg-col">Sản phẩm</h4>
-            <h4 class="sm-col">Loại</h4>
-            <h4 class="sm-col">Đơn giá</h4>
-            <h4 class="sm-col">Số lượng</h4>
-            <h4 class="sm-col">Số tiền</h4>
-            <h4 class="sm-col">Thao tác</h4>
+            <div>
+                <input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
+                <p class="mobile-display">Tất cả</p>
+            </div>
+            <h4 class="lg-col mobile-hidden">Sản phẩm</h4>
+            <h4 class="sm-col mobile-hidden">Loại</h4>
+            <h4 class="sm-col mobile-hidden">Đơn giá</h4>
+            <h4 class="sm-col mobile-hidden">Số lượng</h4>
+            <h4 class="sm-col mobile-hidden">Số tiền</h4>
+            <h4 class="sm-col mobile-hidden">Thao tác</h4>
+            <button onclick="deleteAllItem(event)" type="button" class="mobile-display" id="del-mb-btn">Xóa</button>
         </section>
 
         <section class="cart__content">
@@ -38,19 +42,19 @@
 
         <section class="cart__footer">
             <div>
-                <div class="cart__feature">
-                    <button onclick="checkAllBtn(event)" type="button" class="cart__checkall-btn">Chọn tất cả</button>
-                    <button onclick="deleteAllItem(event)" type="button" class="cart__del-btn" id="del-btn">Xóa</button>
+                <div class="cart__feature mobile-hidden">
+                    <button onclick="checkAllBtn(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả</button>
+                    <button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn">Xóa</button>
                 </div>
                 <div class="cart__order">
                     <div class="cart__total-price">
-                        <p>Tổng tiền:</p>
+                        <p>Tổng tiền: <del>100.000.000đ</del></p>
                         <h2>100.000.000đ</h2>
                     </div>
                     <input type="submit" form="cart-form" value="Đặt hàng">
                 </div>
             </div>
-            <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="#">chính sách đặt hàng.</a> của TechTwo</p>
+            <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="#">chính sách đặt hàng.</a> của TECHTWO.</p>
         </section>
     </main>
 
