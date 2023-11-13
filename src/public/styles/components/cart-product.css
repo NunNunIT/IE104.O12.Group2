@@ -76,7 +76,7 @@ input::-webkit-inner-spin-button {
 
 .cart-item__price {
     text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--dollar-red);
 }
 
