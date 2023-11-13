@@ -1,11 +1,11 @@
 const express = require('express')
-const router = express.Router();
+const router = express.Router()
 
 // import controller
-const AccountController = require('../controllers/AccountController.js')
+const AccountController = require('../controllers/AccountController')
 
-router.get('/purchase/:purchaseID', AccountController.purchaseDetail);
-router.get('/purchase', AccountController.purchase);
-
+router.get('/information', AccountController.information)
+router.get('/purchase', AccountController.purchaseHistory)
+router.get('/purchase/:purchaseID', AccountController.purchaseDetail)
 
 module.exports = router

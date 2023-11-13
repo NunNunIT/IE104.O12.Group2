@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/pages/search/results.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Kết quả tìm kiếm</title>
+</head>
+
+<body>
+
+    <%- include('../../partials/header') %>
+
+    <main class="seacrh-result__container">
+        <section class="seacrh-result__filter">
+            <div class="seacrh-result__filter-normal">
+                <p class="seacrh-result__filter-normal__title">Bộ lọc:</p>
+                <div class="seacrh-result__filter-normal__content">
+                    <p>Giá</p>
+                    <span class="material-symbols-outlined">expand_more</span>
+                </div>
+                <div class="seacrh-result__filter-normal__content">
+                    <p>Phân loại</p>
+                    <span class="material-symbols-outlined">expand_more</span>
+                </div>
+                <div class="seacrh-result__filter-normal__content">
+                    <p>Tiện ích</p>
+                    <span class="material-symbols-outlined">expand_more</span>
+                </div>
+            </div>
+            <div class="seacrh-result__filter-brand">
+                <p class="seacrh-result__filter-brand__title">Thương hiệu:</p>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/LG.png" alt="LG">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/panasonic.png" alt="Panasonic">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/samsung.png" alt="Samsung">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/toshiba.png" alt="Toshiba">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/sharp.png" alt="Sharp">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/aqua.png" alt="Aqua">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/casper.png" alt="Casper">
+                </div>
+                <div class="seacrh-result__filter-brand__content">
+                    <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/electrolux.png" alt="Electrolux">
+                </div>
+            </div>
+        </section>
+        <section class="seacrh-result__main">
+            <div class="seacrh-result__main__heading">
+                <p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight">118</span> kết quả cho từ khóa "<span class="seacrh-result__key">máy lạnh</span>"</p>
+                <div class="seacrh-result__form-check">
+                    <input type="checkbox" class="form-check-input" value="something">
+                    <label class="form-check-label">Giảm giá</label>
+                </div>
+                <div class="seacrh-result__form-check">
+                    <input type="checkbox" class="form-check-input" value="something">
+                    <label class="form-check-label">Trả góp 0% - 1%</label>
+                </div>
+                <div class="seacrh-result__sort">
+                    <p class="seacrh-result__sort-title">Sắp xếp theo:</p>
+                    <div class="seacrh-result__sort-content">
+                        <p>Nổi bật</p>
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </div>
+                </div>
+            </div>
+            <div class="seacrh-result__heading--disable">
+                <p class="seacrh-result__sort--disable">Nổi bật</p>
+                <p class="seacrh-result__sort--disable">Bán chạy</p>
+                <p class="seacrh-result__sort--disable">Giá <span class="material-symbols-outlined">swap_vert</span> </p>
+                <span class="material-symbols-outlined">filter_alt</span>
+            </div>
+            <div class="seacrh-result__form-check-disable__group">
+                <div class="seacrh-result__form-check-disable">
+                    <input type="checkbox" class="form-check-input" value="something">
+                    <label class="form-check-label">Giảm giá</label>
+                </div>
+                <div class="seacrh-result__form-check-disable">
+                    <input type="checkbox" class="form-check-input" value="something">
+                    <label class="form-check-label">Trả góp 0% - 1%</label>
+                </div>
+            </div>
+
+            <div class="seacrh-result__main-card">
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+                <%- include('../../components/product-card') %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../../components/scrollup') %>
+    <%- include('../../partials/footer') %>
+
+    <script src="/scripts/components/scrollup.js"></script>
+
+</body>
+
+</html>
