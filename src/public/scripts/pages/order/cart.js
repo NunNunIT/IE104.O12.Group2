@@ -21,6 +21,7 @@ function deleteAllItem(event) {
         if (checkbox.checked == true)
             checkbox.parentNode.remove()
     })
+    showEmptyNoti()
 }
 
 function changeDel() {
@@ -32,5 +33,13 @@ function changeDel() {
     else {
         delBtn.style.removeProperty('background')
         delBtn.style.removeProperty('color')
+    }
+}
+
+function showEmptyNoti() {
+    const numCartItem = [...document.querySelectorAll('.cart-item')].length
+    if (numCartItem == 0) {
+        const emptyNoti = document.querySelector('.cart__empty')
+        emptyNoti.style.display = 'flex'
     }
 }

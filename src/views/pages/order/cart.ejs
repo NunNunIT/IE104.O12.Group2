@@ -16,16 +16,20 @@
     <main class="cart">
         <section class="cart__title">
             <input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
-            <h2 class="lg-col">Sản phẩm</h2>
-            <h2 class="sm-col">Loại</h2>
-            <h2 class="sm-col">Đơn giá</h2>
-            <h2 class="sm-col">Số lượng</h2>
-            <h2 class="sm-col">Số tiền</h2>
-            <h2 class="sm-col">Thao tác</h2>
+            <h4 class="lg-col">Sản phẩm</h4>
+            <h4 class="sm-col">Loại</h4>
+            <h4 class="sm-col">Đơn giá</h4>
+            <h4 class="sm-col">Số lượng</h4>
+            <h4 class="sm-col">Số tiền</h4>
+            <h4 class="sm-col">Thao tác</h4>
         </section>
 
         <section class="cart__content">
             <form id="cart-form" action="#">
+                <div class="cart__empty">
+                    <img src="/imgs/cart/empty-cart.png" alt="">
+                    <p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
+                </div>
                 <%- include('../../components/cart-product') %>
                 <%- include('../../components/cart-product') %>
                 <%- include('../../components/cart-product') %>
