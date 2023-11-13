@@ -49,25 +49,64 @@
 
         <!-- <h4>Hình thức thanh toán: Thanh toán bằng thẻ tín dụng</h4> -->
 
-
-
-
-
-
-
         <div class="pay_box">
           <div class="pay_bank_frame">
             <div class="pay_title">
                 Thẻ Tín Dụng/ Ghi Nợ
             </div>
             <div class="pay_bank">
-              <img src="imgs/transaction/visa.png" alt="Bank_1">
+              <img src="imgs/transaction/visa.png" alt="Visa">
             </div>
             <div class="pay_bank">
-              <img src="imgs/transaction/visa.png" alt="Bank_2">
+              <img src="imgs/transaction/master.png" alt="Master Card">
+            </div>
+            <div class="pay_bank">
+              <img src="imgs/transaction/jcb.png" alt="JCB">
             </div>
           </div>
-          <div class="pay_info">
+
+
+
+          <div class="input_frame">
+
+            <div class="input_left">
+              <div class="input_box--top">
+                <div class="input_title">Số thẻ<span style="color:red">*</span></div>
+                <div class="input-wrap">
+                  <input id="Password" type="text" name="Password" class="input-field" autocomplete="off" />
+                  <label>1234 5678 9101 2345</label>
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div class="input_box--bot">
+                <div class="input_box--mini">
+                  <div class="input_title">Tháng/Năm hết hạn<span style="color:red">*</span></div>
+                  <div class="input-wrap">
+                    <input id="Password" type="text" name="Password" class="input-field" autocomplete="off" />
+                    <label>MM/YY</label>
+                    <div class="error"></div>
+                  </div>
+                </div>
+                <div class="input_box--mini">
+                  <div class="input_title">CSC<span style="color:red">*</span></div>
+                  <div class="input-wrap">
+                    <input id="Password" type="text" name="Password" class="input-field" autocomplete="off" />
+                    <label>123</label>
+                    <div class="error"></div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+            <div class="input_right">
+              <img src="imgs/transaction/card_vi.png" alt="Font of Visa Card">
+            </div>
+
+
+          <!-- <div class="pay_info">
             <div class="pay_info_frame">
               <div class="pay_frame1">Ngân hàng:</div>
               <div class="pay_frame2">Vietcombank</div>
@@ -92,11 +131,16 @@
               <div class="pay_frame1">Số tiền:</div>
               <div class="pay_frame2">25.500.000đ</div>
             </div>
-          </div>
-          <div class="pay_qr"><img src="imgs/transaction/momo.png" alt="Bank_QR"></div>
+          </div> -->
+          <!-- <div class="pay_qr"><img src="imgs/transaction/momo.png" alt="Bank_QR"></div>
           <div class="pay_use">
             Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
-          </div>
+          </div> -->
+
+
+
+
+
         </div>
 
 
@@ -105,35 +149,35 @@
 
 
 
-        <h3>Chọn hình thức thanh toán khác:</h3>
+        <!-- <h3>Chọn hình thức thanh toán khác:</h3>
 
         <div class="payment-frame">
             <input id="cash" type="radio" value="momo"name="drone" />
             <span class="material-symbols-outlined">payments</span>
             <label for="cash">Ví Momo</label>
             <img src="imgs/transaction/momo.png" alt="Visa">
-        </div>
+        </div> -->
         <!-- <div class="payment-frame">
           <input id="atm" type="radio" value="atm" name="drone" />
           <span class="material-symbols-outlined">local_atm</span>
           <label for="atm">Thanh toán bằng tài khoản ngân hàng</label>
         </div> -->
-        <div class="payment-frame">
+        <!-- <div class="payment-frame">
           <input id="credit-card" type="radio" value="credit-card" name="drone" />
           <span class="material-symbols-outlined">credit_card</span>
           <label for="credit-card">Thanh toán bằng thẻ tín dụng</label>
           <img src="imgs/transaction/visa.png" alt="Visa">
           <img src="imgs/transaction/master.png" alt="Master Card">
           <img src="imgs/transaction/jcb.png" alt="JCB">
-        </div>
+        </div> -->
         
 
-        <button type="submit" id="btn-submit" class="btn--filled pri">Xác nhận</button>
-        <button type="submit" id="btn-more" class="btn--outlined pri">Mua thêm sản phẩm khác</button>
+        <button type="submit" id="btn-submit" class="btn--filled pri">Thanh toán</button>
+        <button type="submit" id="btn-more" class="btn--outlined pri">Hủy giao dịch</button>
 
       </div>
     </div>    
   </main>
-      <!-- <script src="/scripts/login.js"></script> -->
+      <script src="/scripts/login.js"></script>
 </body>
 </html>
