@@ -1,47 +1,50 @@
 <header>
-    <div class="header__container">
-        <nav class="header__nav">
+    <nav class="header__nav">
+        <div class="header__nav-container">
             <div class="header__support-info">
-                <a href="#">
-                    <span class="material-symbols-outlined">help</span>
-                    Hỗ trợ
-                </a>
-                <a href="#">
-                    <span class="material-symbols-outlined">call</span>
-                    Hotline: 0123456789
-                </a>
-            </div>
-            <div>
-                <a href="#">
-                    <img class="header__logo--top" src="/imgs/logo-white.png">
-                </a>
-            </div>
-            <div class="header__about-account">
-                <a href="#" class = "header__nofitications">
-                    <span class="material-symbols-outlined">notifications</span>
-                    Thông báo
-                </a>
-                <a href="#">
-                    <span class="material-symbols-outlined">account_circle</span>
-                    Đăng nhập
-                    |
-                    Đăng ký
-                </a>
-            </div>
-        </nav>
+            <a href="#">
+                <span class="material-symbols-outlined">help</span>
+                Hỗ trợ
+            </a>
+            <a href="#">
+                <span class="material-symbols-outlined">call</span>
+                Hotline: 0123456789
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <img class="header__logo--top" src="/imgs/logo-white.png">
+            </a>
+        </div>
+        <div class="header__about-account">
+            <a href="#" class = "header__nofitications">
+                <span class="material-symbols-outlined">notifications</span>
+                Thông báo
+            </a>
+            <a href="#">
+                <span class="material-symbols-outlined">account_circle</span>
+                Đăng nhập
+                |
+                Đăng ký
+            </a>
+        </div>
+        </div>
+    </nav>
+    <div class="header__container">
         <div class="header__main">
             <a href="#">
-                <img class="header__logo" src="/imgs/logo-white.png">
+                <img class="header__logo" src="/imgs/logo-blue.png">
             </a>
             <form class="header__search-bar" action="/form/submit" method="GET">
                 <input type="text" name="text" placeholder="Bạn tìm gì..." >
-                <button type="submit" name="submit">
-                    <span class="material-symbols-outlined">search</span>
-                </button>
             </form>
-            <a href="#">
+            <button class="header__search-btn" type="submit" name="submit">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <a href="#" class="header__cart-container">
                 <div class="header__cart">
                     <span class="material-symbols-outlined">shopping_cart</span>
+                    <div class="header__cart__number-badge" aria-hidden="true">31</div>
                 </div>
             </a>
         </div>
