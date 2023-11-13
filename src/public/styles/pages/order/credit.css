@@ -173,25 +173,6 @@ a {
     color: red;
 }
 
-.input-wrap {
-    width: 40%;
-    position: relative;
-    height: 37px;
-    margin-bottom: 2rem;
-    border: 2px solid var(--black);
-}
-
-.input-wrap .error {
-    color: var(--alert);
-    font-size: 0.8rem;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    transform: translateY(-0%);
-    pointer-events: none;
-    transition: 0.4s;
-}
-
 .heading h2 {
     font-size: 2.0rem;
     font-weight: 600;
@@ -277,7 +258,7 @@ label {
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 12px;
+    padding: 5px 12px 12px 12px;
     gap: 8px;
     border-radius: 4px;
     border: 1px solid #bbb;
@@ -286,8 +267,8 @@ label {
 .pay_bank_frame {
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    align-items: right;
+    justify-content: left;
+    align-items: center;
     border-bottom: #bbb;
     /* border-radius: 4px; */
     border-bottom: 1px solid #bbb;
@@ -295,16 +276,23 @@ label {
 
 .pay_title {
     color: #00529a;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 1.25rem;
     display: flex;
+    justify-content: left;
+    margin-right: 10px;
+}
+
+.pay_bank_logo {
+    display: flex;
+    flex-direction: row;
     justify-content: left;
 }
 
 .pay_bank {
-    padding: 5px;
     border-bottom: #bbb;
     border-radius: 4px;
-    border: 1px solid #bbb;
+    /* border: 1px solid #bbb; */
     margin: 10px 5px 10px 5px;
     padding: 5px 5px 5px 5px;
     display: flex;
@@ -313,7 +301,7 @@ label {
 
 .pay_bank img {
     object-fit: cover;
-    width: 3rem;
+    width: 2.75rem;
 }
 
 .pay_info {
@@ -353,6 +341,93 @@ label {
 .pay_use {
 }
 
+
+.input-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #bbb;
+    padding: 0;
+    font-size: 0.95rem;
+    color: var(--black);
+    transition: 0.4s;
+}
+
+.input-wrap {
+    width: 100%;
+    position: relative;
+    height: 37px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--dark-gray-o50);
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.input-wrap .error {
+    color: var(--alert);
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translateY(-0%);
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.input-wrap label{
+    margin-left: 10px;
+    color: var(--dark-gray-o50);
+}
+
+.input_frame {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 20px 0 0 0;
+}
+
+.input_box--top {
+
+}
+
+.input_box--bot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input_box--mini {
+    width: 45%;
+    /* display: flex;
+    flex-direction: row; */
+}
+
+.input_title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.input_left {
+    width: 70%;
+    /* display: flex; */
+}
+.input_right {
+    display: flex;
+    justify-content: right;
+    width: 50%;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.input_right img {
+    object-fit: fixed;
+    width: 90%;
+}
+
 @media (max-width: 64rem) {
     .transaction-box {
         height: auto;
@@ -390,6 +465,21 @@ label {
 
     .pay_frame1 {
         width: 45%;
+    }
+
+    .input_title {
+        font-size: 0.8125rem;
+    }
+    
+    .input-wrap {
+        width: 100%;
+        position: relative;
+        height: 37px;
+        margin-bottom: 2rem;
+        border: 1px solid var(--dark-gray-o50);
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
     }
 }
 
@@ -438,5 +528,29 @@ label {
 
     .pay_use {
         font-size: 0.875rem;
+    }
+
+
+    .pay_title {
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+
+    .pay_bank img {
+        object-fit: cover;
+        width: 2rem;
+    }
+
+    .input_frame {
+        flex-direction: column;
+    }
+
+    .input_left {
+        width: 100%;
+        /* display: flex; */
+    }
+    .input_right {
+        width: 90%;
+        margin-bottom: 20px;
     }
 }
