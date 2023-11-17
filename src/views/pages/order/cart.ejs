@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/pages/order/cart.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Tech Two.</title>
+</head>
+
+<body>
+
+    <%- include('../../partials/header') %>
+
+    <main class="cart">
+        <section class="cart__title">
+            <input type="checkbox" class="checkbox" id="check-all">
+            <h2 class="lg-col">Sản phẩm</h2>
+            <h2 class="sm-col">Loại</h2>
+            <h2 class="sm-col">Đơn giá</h2>
+            <h2 class="sm-col">Số lượng</h2>
+            <h2 class="sm-col">Số tiền</h2>
+            <h2 class="sm-col">Thao tác</h2>
+        </section>
+
+        <section class="cart__content">
+            <form action="#">
+                <%- include('../../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
+                <hr>
+                <div class="cart__footer">
+                    <div class="cart__feature">
+                        <button type="button" class="cart__checkall-btn">Chọn tất cả</button>
+                        <button type="button" class="cart__del-btn">Xóa</button>
+                    </div>
+                    <div class="cart__order">
+                        <div class="cart__total-price">
+                            <p>Tổng tiền:</p>
+                            <h2>100.000.000đ</h2>
+                        </div>
+                        <input type="submit" value="Đặt hàng">
+                    </div>
+                </div>
+                <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="#">chính sách đặt hàng.</a> của TechTwo</p>
+            </form>
+        </section>
+    </main>
+
+    <%- include('../../components/scrollup') %>
+    <%- include('../../partials/footer') %>
+
+    <script src="/scripts/scrollup.js"></script>
+
+</body>
+
+</html>

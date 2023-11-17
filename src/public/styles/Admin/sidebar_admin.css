@@ -3,6 +3,10 @@
   grid-area: sidebar;
   height: 100%;
   background: var(--dark-gray);
+  background-image: url("/imgs/admin/background6.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-y: auto;
   transition: all 0.5s;
 }
@@ -76,8 +80,11 @@
 }
 
 .profile small {
-  color: var(--primary-color-1);
+  color: var(--primary-color-2);
   font-weight: 600;
+  border-radius: 4px;
+  padding: 2px 8px;
+  background-color: var(--white);
 }
 
 .sidebar-list {
@@ -117,6 +124,29 @@
 .sidebar-list-item.active {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* width */
+.side-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.side-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.side-content::-webkit-scrollbar-thumb {
+  background: #b0b0b0; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.side-content::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
 
 @media screen and (max-width: 64rem) {
   #sidebar {

@@ -1,0 +1,572 @@
+@import url("/styles/general.css");
+@import url("/styles/partials/header.css");
+@import url("/styles/partials/footer.css");
+
+
+.momo-logo .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 2rem;
+    margin-right: 8px;
+    color: var(--green);
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+input {
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background-color: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+strong {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+.momo-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.momo_left-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.momo_left-box {
+    width: 100%;
+}
+
+.momo_left-cancel {
+    color: rgba(185, 65, 130);
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+}
+
+.momo_left-cancel_ip {
+    color: rgba(185, 65, 130);
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: none;
+    margin-bottom: 0;
+}
+
+
+.momo-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 3% 0;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.2);
+}
+
+.inner-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px 24px 24px 24px;
+    gap: 12px;
+}
+
+
+.momo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(185, 65, 130, 0.15);
+    padding: 18px 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.momo-header img {
+    object-fit: contain;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.momo-header h3 {
+    color: rgba(185, 65, 130);
+}
+
+.header-text {
+    color: var(--green);
+}
+
+.info-order {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(238, 238, 238);
+    padding: 12px;
+    gap: 8px;
+    border-radius: 4px;
+}
+
+.info-order__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-order__header--left {
+    display: flex;
+    gap: 4px;
+}
+
+.header--right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+#btn-manage {
+    font-weight: 500;
+    color: var(--primary-color-1);
+}
+
+#btn-cancel {
+    font-weight: 500;
+    color: var(--red);
+}
+
+.header--right p {
+    color: var(--dark-gray-o50);
+}
+
+#purchase-amount {
+    font-weight: 500;
+    color: var(--primary-color-1);
+}
+
+.info-order__bill {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    gap: 12px;
+    font-size: 1rem;
+}
+
+.purchase-status {
+    background-color: rgba(251, 110, 46, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff6117;
+    border: 0.5px dashed #ff6117;
+    padding: 8px 0;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.payment-frame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.payment-frame .material-symbols-outlined {
+    width: 24px;
+}
+
+.payment-frame img {
+    object-fit: contain;
+    width: 30px;
+}
+
+.payment-frame input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    color: var(--gray)
+}
+
+.payment-frame input[type="radio"]:checked {
+    color: red;
+}
+
+.input-wrap {
+    width: 40%;
+    position: relative;
+    height: 37px;
+    margin-bottom: 2rem;
+    border: 2px solid var(--black);
+}
+
+.input-wrap .error {
+    color: var(--alert);
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translateY(-0%);
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.heading h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--black);
+}
+
+.heading h6 {
+    color: var(--gray);
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline;
+}
+
+.input-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #bbb;
+    padding: 0;
+    font-size: 0.95rem;
+    color: var(--black);
+    transition: 0.4s;
+}
+
+label {
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.input-field.active {
+    border-bottom-color: var(--black);
+}
+
+.input-field.active+label {
+    font-size: 0.95rem;
+    top: -2px;
+}
+
+.sign-btn {
+    display: inline-block;
+    width: 100%;
+    height: 55px;
+    background-color: var(--primary-color-1);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+.sign-btn:hover {
+    background-color: var(--primary-color-2);
+}
+
+.text {
+    color: var(--gray);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.text a {
+    color: var(--fb-blue);
+    transition: 0.3s;
+}
+
+.text a:hover {
+    color: var(--blue);
+}
+
+.momo-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 55%;
+    margin: 0 0 0 20px;
+    background-color: rgba(185, 65, 130);
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.2);
+    /* justify-content: center; */
+}
+
+.momo-qr h4 {
+    font-size: 1.5rem;
+    font-weight: 550;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 5rem 0;
+}
+
+.qr-frame {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border-style: double;
+    margin-bottom: 3rem;
+}
+
+.qr-frame img {
+    width: 20rem;
+    padding: 2rem;
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.qr-instruct {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.qr-instruct-1 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
+.qr-help {
+    font-size: 0.875rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.help-instruction {
+    color: rgb(252 211 77);
+    margin-left: 5px;
+}
+
+.help-instruction:hover {
+    color: var(--black);
+    cursor: pointer;
+}
+
+
+@media (max-width: 64rem) {
+    .momo-box {
+        height: auto;
+        /* width: 100%; */
+        overflow: hidden;
+    }
+
+    .momo-header h3 {
+        font-size: 1rem;
+    }
+
+    .momo-header img {
+        width: 35px;
+    }
+
+    .momo-qr {
+        height: auto;
+        width: 55%;
+        overflow: hidden;
+    }
+
+    .inner-box {
+        position: static;
+        transform: none;
+        width: revert;
+        height: revert;
+        padding: 2rem;
+    }
+
+    .heading {
+        margin: 2rem 0;
+    }
+}
+
+
+@media (max-width: 48rem) {
+
+    .momo_left-frame {
+        width: 50%;
+    }
+
+    .header-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .momo-header h3 {
+        color: rgba(185, 65, 130);
+        font-size: 1rem;
+    }
+    .momo-header img {
+        width: 30px;
+    }
+
+    .info-order__bill {
+        font-size: 1rem;
+    }
+
+    .purchase-status {
+        font-size: 1rem;
+    }
+
+    .inner-box {
+        position: static;
+        transform: none;
+        width: revert;
+        height: revert;
+        padding: 1.8rem;
+    }
+}
+
+
+
+@media (max-width: 26rem) {
+    main {
+        background-color: var(--white);
+    }
+
+    .momo_left-frame {
+        width: 100%;
+    }
+    .momo-container {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .momo-box {
+        width: 100%;
+        margin: 0;
+    }
+
+    .inner-box {
+        padding: 1rem;
+    }
+
+    .info-order__header--left p {
+        font-size: 1rem;
+    }
+    .header--right a {
+        font-size: 1rem;
+    }
+
+    .payment-frame label {
+        font-size: 1rem;
+    }
+
+    .momo-qr {
+        width: 90%;
+        margin: 20px;
+    }
+
+    .momo_left-cancel {
+        display: none;
+    }
+
+    .momo_left-cancel_ip {
+        display: flex;
+        margin-bottom: 4rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgb(235, 108, 175), transparent);
+    /* border: 2px solid rgb(235, 108, 175); */
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* .image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/public/imgs/transaction/momo.png');
+    background-size: cover;
+  } */
+
+  .scanning-box {
+    position: relative;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+  .scanning-box img {
+    /* width: 15rem;
+    padding: 2rem;
+    background-color: var(--bg-white); */
+    width: 20rem;
+    padding: 2rem;
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.countdown-box {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+}

@@ -189,30 +189,30 @@ const validateInput = () => {
 
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
     if (isAllValid) {
-        // form.submit();
         const register = {
             user_login_name: userName.value.trim(),
             user_phone: phoneNumber.value.trim(),
             user_password: password.value.trim()
         };
 
-        fetch("/register", {
+        fetch("/auth/register", {
                 method: "POST",
                 body: JSON.stringify(register),
                 headers: {
                     "Content-Type": "application/json"
                 }
             }).then(res => res.json())
-            .then(data => {
-                if (data.status == "error") {
+            .then(back => {
+                if (back.status == "error") {
                     // success.style.display = "none"
                     // error.style.display = "block";
-                    setError(phoneNumber, data.error);
-                    // error.innerText = data.error
+                    setError(phoneNumber, back.error);
+                    // error.innerText = back.error
                 } else {
+                    form.submit();
                     // success.style.display = "block"
                     // error.style.display = "none";
-                    // success.innerText = data.success
+                    // success.innerText = back.success
                 }
             })
     }

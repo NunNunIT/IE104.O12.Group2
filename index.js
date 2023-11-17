@@ -2,15 +2,23 @@
 const ejs = require('ejs');
 const path = require('path')
 const express = require('express')
+const util = require('node:util')
+const app = express()
+const session = require('express-session')
 const bodyParser = require('body-parser')
-const mysql = require('mysql')
+const cookieParser = require('cookie-parser')
 
 // connect to db
 const db = require('./src/config/db/connect');
+const query = util.promisify(db.query).bind(db)
 
-const app = express()
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+}))
 
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
@@ -19,11 +27,13 @@ app.set('view engine', 'ejs');
 // use static folder
 app.use(express.static(path.join('src', 'public')))
 
-// use body-parser
+//parse URL-encoded bodies
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use("/api", require("./src/middleware/authMiddleware"))
+app.use(cookieParser('secret'))
 
+//app.use('/', require('./routes/index'))
 
 // route init
 route(app)

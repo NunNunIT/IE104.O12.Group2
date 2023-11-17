@@ -14,16 +14,70 @@
     --bg-white-o30: rgb(241, 241, 241, 0.3);
     --bg-white-o50: rgb(241, 241, 241, 0.5);
     --bg-white-o80: rgb(241, 241, 241, 0.8);
-    --outline-gray: #ababab;
+    --bg-blue-o10: rgba(42, 126, 228, 0.1);
+    --outline-gray: #eaeaea;
     --dark-gray: #2c2c2c;
-    --dark-gray-2:#1e1e1e;
+    --dark-gray-2: #1e1e1e;
     --dark-gray-70: #4A4A4A;
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
+    --pink: #FF685F;
+    --dollar-red: #D0021C;
 
     --scroll-thumb: #828282;
     --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
 
+    --dark1: #0000004d;
+    --dark2: #181c20;
+    --dark3: #212529;
+    --dark4: #2d3135;
+    --dark5: #424549;
+    --dark6: #404346;
+    --dark7: #9c9c9c;
+    --dark8: #dae0e7;
+    --dark9: #262a2e;
+
+    /* --red1: #ffdab9; */
+    --red1: rgb(255,8,0,0.1);
+    --red2: #fa8072;
+    --red3: #fe2712;
+    --red4: #ff0800;
+    --red5: #dd3545;
+    --red6: #c6303e;
+    --red7: #ae0c00;
+    --red8: #92000a;
+    --red9: #550000;
+    --red10: #440000;
+    --red11: #330000;
+
+    --green1: #E6F1D8;
+    --green2: #e5f8ed;
+    --green3: #AFD788;
+    --green4: #00ac47;
+    --green5: #28a745;
+    --green6: #24963e;
+    --green7: #006600;
+    --green8: #005500;
+    --green9: #004400;
+    --green10: #003300;
+    --green11: #002200;
+    --green12: #001100;
+
+    --blue1: #e9edf2;
+    --blue2: #add8e6;
+    --blue3: #00aae4;
+    --blue4: #0892d0;
+    --blue5: #007aff;
+    --blue6: #1592a5;
+    --blue7: #004f98;
+    --blue8: #0033aa;
+    --blue9: #1034a6;
+    --blue10: #191970;
+    --blue11: #000036;
+
+    --yellow1: rgb(255, 193, 7, 0.1);
+    --yellow5: #ffc107;
+    --yellow6: #e5ad06;
     /*
         border-radius: 4px 8px 12px 16px
         button border-radius: 8px
@@ -34,6 +88,7 @@
     padding: 0;
     margin: 0;
     border: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -65,32 +120,38 @@ h4 {
     font-weight: 500;
 }
 
+h5 {
+    /* 16px */
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 p {
     font-size: 1rem;
     font-weight: 400;
     text-align: justify;
 }
 
+/* Custom Scrollbar */
 
-/*Format thanh lăn Srcollbar*/
-  /* width */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    /* box-shadow: inset 0px 0px 2px grey;  */
-    /* border-radius: 10px; */
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--scroll-thumb);
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--dark-gray-70); 
-  }
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b0b0b0;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color-2);
+}

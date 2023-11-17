@@ -30,18 +30,11 @@ body {
   color: var(--black);
 }
 
-.main-cards--top {
+.main-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  margin: 20px 0;
-}
-
-.main-cards--bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .card {
@@ -49,28 +42,31 @@ body {
   grid-template-columns: 0.3fr 1fr;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 8px;
+  border-radius: 4px;
   background: var(--white);
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 
 .card__icon {
-  /* background-color: var(--bg-white-o30); */
-  border-radius: 50%;
+  border-radius: 4px;
   text-align: center;
-  padding: 24px;
-  color: var(--primary-color-1);
+  padding: 12px;
   font-size: 40px;
-
 }
 
-.main-cards--bottom .card:last-child {
-  color: var(--white);
-  background: var(--primary-color-1);
+.main-cards .card:first-child .card__icon {
+    background-color: var(--blue5);
+    color: var(--white);
 }
 
-.main-cards--bottom .card:last-child .card_-icon .card__icon {
+.main-cards .card:nth-child(2) .card__icon {
+  background-color: var(--yellow5);
+  color: var(--dark9);
+}
+
+.main-cards .card:nth-child(3) .card__icon {
+  background-color: var(--green5);
   color: var(--white);
 }
 
@@ -83,7 +79,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .charts-card {

@@ -1,15 +1,28 @@
 header {
     width: 100%;
     height: 130px;
-    box-sizing: border-box;
-    padding: 13px 10vw;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    background-color: #2A7EE4;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-1);
+    font-size: 16px;
 }
 
-.nav-top a {
+.header__container {
+    width: 80%;
+    max-width: 1152px;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+
+.header__nav {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.header__nav a {
     text-decoration: none;
     color: white;
     margin: auto;
@@ -19,7 +32,7 @@ header {
     box-sizing: border-box;
 }
 
-.nav-bottom {
+.header__main {
     height: 60%;
     text-decoration: none;
     color: white;
@@ -29,39 +42,25 @@ header {
     box-sizing: border-box;
 }
 
-.left,
-.right {
+.header__support-info {
     display: flex;
     gap: 20px;
 }
 
-.left {
-    float: left;
+.header__about-account {
+    display: flex;
+    gap: 20px;
 }
 
-.right {
-    float: right;
-}
-
-.nav-top .material-symbols-outlined {
-    font-size: 1.25rem;
-    margin-right: 5px;
-}
-
-.nav-bottom .material-symbols-outlined {
-    font-size: 1.75rem;
-    padding: 0px 10px;
-    color: white;
-}
-
-.logo {
+.header__logo {
     width: 13.75rem;
     object-fit: contain;
-    height: 100%
+    height: 100%;
+    display: flex;
+
 }
 
-
-.search-bar {
+.header__search-bar {
     width: 60%;
     height: 90%;
     background-color: white;
@@ -74,94 +73,175 @@ header {
     margin-right: 5%;
 }
 
-.search-bar input,
-button {
+.header__search-bar button {
     height: 100%;
 }
 
-.search-bar input {
+.header__search-bar input {
     width: 86%;
     text-indent: 12px;
+    outline: none;
 }
 
-.search-bar button {
+
+.header__search-bar button {
     width: 13%;
     border-radius: 8px;
     background-color: #2A7EE4;
 }
 
-.search-bar button:hover {
+.header__search-bar button:hover {
     cursor: pointer;
 }
 
-.cart .material-symbols-outlined {
+.header__nav .material-symbols-outlined {
+    font-size: 1.25rem;
+    margin-right: 5px;
+}
+
+.header__main .material-symbols-outlined {
+    font-size: 1.75rem;
+    padding: 0px 10px;
+    color: white;
+}
+
+.header__cart .material-symbols-outlined {
     font-size: 2.25rem;
 }
 
-/*Responsive-tablet*/
+.header__about-account .header__nofitications {
+    display: flex;
+}
+
+.header__logo--top {
+    width: 0rem;
+}
+
+/*Responsive-tablet-landscape*/
 @media only screen and (max-width: 48rem) {
     header {
-        height: 120px;
-        font-size: 0.8175rem;
+        height: 100px;
+        font-size: 0.8125rem;
     }
 
-    .logo {
+    .header__logo {
         width: 11.25rem;
     }
 
-    .search-bar {
+    .header__search-bar {
         height: 80%;
-        border-radius: 4px;
     }
 
-    .search-bar button {
-        border-radius: 4px;
-    }
-
-    .nav-bottom .material-symbols-outlined {
-        font-size: 1rem;
-    }
-
-    .search-bar input {
+    .header__search-bar input {
         text-indent: 8px;
     }
 
-    .cart .material-symbols-outlined {
+    .header__main .material-symbols-outlined {
+        font-size: 1rem;
+    }
+
+    .header__cart .material-symbols-outlined {
         font-size: 1.5rem;
     }
 
+    .header__support-info {
+        gap: 10px;
+    }
+
+    .header__about-account {
+        gap: 10px;
+    }
+}
+
+/*Responsive-tablet-portrait*/
+@media only screen and (max-width: 40rem) {
+    header {
+        height: 130px;
+        font-size: 0.8125rem;
+    }
+
+    .header__container {
+        width: 90vw;
+    }
+
+    .header__logo {
+        display: none;
+    }
+
+    .header__search-bar {
+        width: 90%;
+        height: 80%;
+        margin-left: 0;
+        margin-right: 3%;
+        border-radius: 8px;
+    }
+
+
+    .header__search-bar button {
+        border-radius: 8px;
+    }
+
+    .header__support-info {
+        display: none;
+    }
+
+    .header__about-account .header__nofitications {
+        display: none;
+    }
+
+    .header__logo--top {
+        width: 12.5rem;
+    }
+
+    .header__nav {
+        justify-content: space-between;
+    }
+
+    .header__main .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+
+    .header__cart .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
 }
 
 /*Responsive-smartphone*/
-@media only screen and (max-width: 40rem) {
+@media only screen and (max-width: 26rem) {
     header {
-        height: 100px;
-        padding: 8px 5vw;
+        height: 130px;
+        font-size: 0.8125rem;
     }
 
-    .logo {
-        width: 11.25rem;
-    }
-
-    .search-bar {
+    .header__search-bar {
+        width: 90%;
         height: 80%;
-        border-radius: 4px;
+        margin-left: 0;
+        margin-right: 3%;
     }
 
-    .search-bar button {
-        border-radius: 4px;
+    .header__support-info {
+        display: none;
     }
 
-    .nav-bottom .material-symbols-outlined {
-        font-size: 1rem;
+    .header__about-account .header__nofitications {
+        display: none;
     }
 
-    .search-bar input {
-        text-indent: 8px;
+    .header__logo--top {
+        width: 12.5rem;
     }
 
-    .cart .material-symbols-outlined {
-        font-size: 1.5rem;
+    .header__nav {
+        justify-content: space-between;
+    }
+
+    .header__main .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+
+    .header__cart .material-symbols-outlined {
+        font-size: 1.75rem;
     }
 
 }

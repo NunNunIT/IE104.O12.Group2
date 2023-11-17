@@ -23,13 +23,13 @@
 
         <!-- Main -->
         <main class="main-container">
-          <div class="main-cards--top">
+          <div class="main-cards">
             <div class="card">
-              <div class="card_-icon">
-                <span class="card__icon material-symbols-rounded">category</span>
+              <div class="card-icon">
+                <span class="card__icon material-symbols-rounded">groups</span>
               </div>
               <div class="card-inner">
-                <h3>Danh mục sản phẩm</h3>
+                <h4>Khách hàng</h4>
                 <h1>
                   <%=data.count_cate %>
                 </h1>
@@ -38,11 +38,11 @@
             </div>
 
             <div class="card">
-              <div class="card_-icon">
-                <span class="card__icon material-symbols-rounded">inventory_2</span>
+              <div class="card-icon">
+                <span class="card__icon material-symbols-rounded">shopping_cart</span>
               </div>
               <div class="card-inner">
-                <h3>Sản phẩm</h3>
+                <h4>Đơn hàng</h4>
                 <h1>
                   <%=data.count_pro %>
                 </h1>
@@ -50,25 +50,26 @@
             </div>
 
             <div class="card">
-              <div class="card_-icon">
-                <span class="card__icon material-symbols-rounded">groups</span>
+              <div class="card-icon">
+                <span class="card__icon material-symbols-rounded">monetization_on</span>
               </div>
               <div class="card-inner">
-                <h3>Khách hàng</h3>
+                <h4>Doanh thu</h4>
                 <h1>
                   <%=data.count_cust %>
                 </h1>
               </div>
             </div>
+            
           </div>
 
-          <div class="main-cards--bottom">
+          <!-- <div class="main-cards--bottom">
             <div class="card">
               <div class="card_-icon">
                 <span class="card__icon material-symbols-rounded">local_shipping</span>
               </div>
               <div class="card-inner">
-                <h3>Đơn hàng</h3>
+                <h4>Đơn hàng</h4>
                 <h1>
                   <%=data.count_order %>
                 </h1>
@@ -80,11 +81,11 @@
                 <span class="card__icon material-symbols-rounded">monetization_on</span>
               </div>
               <div class="card-inner">
-                <h3>Doanh thu</h3>
+                <h4>Doanh thu</h4>
                 <h1><%- total.sum_total%>đ</h1>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
