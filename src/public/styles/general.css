@@ -16,6 +16,7 @@
     --bg-white-o50: rgba(241, 241, 241, 0.5);
     --bg-white-o80: rgba(241, 241, 241, 0.8);
     --bg-blue-o10: rgba(42, 126, 228, 0.1);
+    --bg-blue-o30: rgba(42, 126, 228, 0.3);
     --outline-gray: #eaeaea;
     --dark-gray: #2c2c2c;
     --dark-blue: #114a91;
@@ -23,6 +24,7 @@
     --luminos-blue: #0235f6;
     --pink: #FF685F;
     --dollar-red: #D0021C;
+    --fire-orange: #FFA500;
 }
 
 * {
