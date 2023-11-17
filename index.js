@@ -9,6 +9,11 @@ const bodyParser = require('body-parser')
 // connect to db
 const db = require('./src/config/db/connect')
 
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: true,
+//     saveUninitialized: true,
+// }));
 
 const app = express()
 const cfg = require('./src/config/index')

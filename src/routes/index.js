@@ -5,8 +5,10 @@ const accountRouter = require('./accountRouter')
 const authRouter = require('./authRouter')
 const orderRouter = require('./orderRouter')
 const searchRouter = require('./searchRouter')
+const testRouter = require('./testRouter')
 
 function route(app) {
+    app.use('/test', testRouter)
     app.use('/search', searchRouter)
     app.use('/order', orderRouter)
     app.use('/auth', authRouter)
