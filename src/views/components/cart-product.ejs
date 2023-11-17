@@ -1,7 +1,7 @@
-<div class="cart-item">
-    <input type="checkbox" class="checkbox">
+<div class="cart-item mobile-hidden">
+    <input onclick="checkOne(event)" type="checkbox" class="checkbox">
     <div class="cart-item__product lg-col">
-        <img src="/imgs/avatar.jpg" alt="">
+        <img src="/imgs/slider/1.jpg" alt="">
         <p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
     </div>
 
@@ -14,13 +14,13 @@
     </div>
 
     <div class="sm-col">
-        <p class="cart-item__unit-price"><del>160.000</del> 80.000</p>
+        <p class="cart-item__unit-price"><del>160.000đ</del> 80.000đ</p>
     </div>
 
     <div class="cart-item__quantity sm-col">
-        <span class="material-symbols-outlined">remove</span>
+        <button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
         <input type="number" value="0">
-        <span class="material-symbols-outlined">add</span>
+        <button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
     </div>
 
     <div class="sm-col">
@@ -28,6 +28,27 @@
     </div>
 
     <div class="sm-col">
-        <button class="cart-item__del-btn" type="button">Xóa</button>
+        <button onclick="removeItem(event)" class="cart-item__del-btn" type="button">Xóa</button>
+    </div>
+</div>
+
+<div class="cart-item mobile-display">
+    <input onclick="checkOne(event)" type="checkbox" class="checkbox">
+    <div class="cart-item__product">
+        <img src="/imgs/slider/1.jpg" alt="">
+        <div class="cart-item__content">
+            <p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
+            <select name="variants" class="cart-item__variants">
+                <option value="Gấu dâu">Gấu dâu</option>
+                <option value="Gấu sivi">Gấu sivi</option>
+                <option value="Gấu lá cây">Gấu lá cây</option>
+            </select>
+            <p class="cart-item__price"><del>160.000đ</del> 80.000đ</p>
+            <div class="cart-item__quantity">
+                <button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
+                <input type="number" value="0">
+                <button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
+            </div>
+        </div>
     </div>
 </div>

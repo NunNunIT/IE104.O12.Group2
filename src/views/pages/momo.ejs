@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
+    <link rel="stylesheet" href="/styles/pages/momo.css">
+    <title>Thanh toán MoMo</title>
+</head>
+
+<body>
+  <!-- <%- include('../partials/header') %> -->
+
+  <main class="momo-container">
+    <div class="momo_left-frame">
+      <div class="momo_left-box">
+        <div class="momo-box">
+          <div class="momo-header">
+            <img src="imgs/transaction/momo.png" alt="momo">
+            <!-- <div class="momo-logo">
+              <span class="material-symbols-outlined">sweep</span>
+            </div> -->
+            <h3 class="header-text"><strong>THANH TOÁN BẰNG MOMO</strong></h3>
+          </div>
+          <div class="inner-box">
+            <!-- <div class="thanks">
+              Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
+            </div> -->
+            <div class="info-order">
+              <div class="info-order__header">
+                <div class="info-order__header--left">
+                  <p><strong>ĐƠN HÀNG:</strong></p>
+                  <p id="trans__id">#DH0001</p>
+                </div>
+                <!-- <div class="header--right">
+                  <a href="#" id="btn-manage">Quản lý đơn hàng</a>
+                  <p>|</p>
+                  <a href="#" id="btn-cancel">Hủy</a>
+                </div> -->
+              </div>
+              <div class="info-order__bill">
+                <span>- <strong>Người đặt hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
+                <span>- <strong>Mã đơn hàng: </strong><span id="purchase-address">02OP2955875F</span></span>
+                <span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
+              </div>
+            </div>
+
+            <div class="purchase-status">Đơn hàng chưa được thanh toán</div>
+
+            <!-- <h3>Chọn hình thức thanh toán:</h3> -->
+
+            <!-- <div class="payment-frame">
+                <input id="cash" type="radio" value="momo"name="drone" />
+                <span class="material-symbols-outlined">payments</span>
+                <label for="cash">Thanh toán bằng ứng dụng Momo</label>
+                <img src="imgs/transaction/momo.png" alt="momo">
+            </div>
+            <div class="payment-frame">
+              <input id="atm" type="radio" value="atm" name="drone" />
+              <span class="material-symbols-outlined">local_atm</span>
+              <label for="atm">Thanh toán bằng tài khoản ngân hàng</label>
+            </div>
+            <div class="payment-frame">
+              <input id="credit-card" type="radio" value="credit-card" name="drone" />
+              <span class="material-symbols-outlined">credit_card</span>
+              <label for="credit-card">Thanh toán bằng thẻ tín dụng</label>
+              <img src="imgs/transaction/visa.png" alt="Visa">
+              <img src="imgs/transaction/master.png" alt="Master Card">
+              <img src="imgs/transaction/jcb.png" alt="JCB">
+            </div> -->
+            
+            <!-- <button type="submit" id="btn-submit" class="btn--filled pri">Xác nhận</button>
+            <button type="submit" id="btn-more" class="btn--outlined pri">Mua thêm sản phẩm khác</button> -->
+
+          </div>
+        </div>
+      </div>
+      <div class="momo_left-cancel">Hủy bỏ</div>
+    </div>
+
+    <div class="momo-qr">
+      <h4>Quét mã QR để thanh toán</h4>
+      <!-- <div class="qr-frame">
+        <img src="imgs/transaction/momo.png" alt="momo_qr">
+      </div> -->
+      <div class="scanning-box">
+        <img src="imgs/transaction/momo_qr.png" alt="momo_qr">
+        <div class="image-container"></div>
+        <div class="border">
+        </div>
+      </div>
+      <div class="qr-instruct">
+        <div class="qr-instruct-1">
+          <span class="material-symbols-outlined">qr_code_2</span>
+          <div>Sử dụng App MoMo hoặc ứng dụng</div>
+        </div>
+        <div class="qr-instruct-1">
+          <div>camera hỗ trợ QR code để quét mã</div>
+        </div>
+      </div>
+      <div class="qr-help">
+        <div>Gặp khó khăn khi thanh toán?</div>
+        <div class="help-instruction">
+          Xem Hướng dẫn
+        </div>
+      </div>
+    </div>
+    <div class="momo_left-cancel_ip">Hủy bỏ</div>
+    </div>
+  </main>
+</body>
+</html>

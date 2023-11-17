@@ -15,44 +15,55 @@
 
     <main class="cart">
         <section class="cart__title">
-            <input type="checkbox" class="checkbox" id="check-all">
-            <h2 class="lg-col">Sản phẩm</h2>
-            <h2 class="sm-col">Loại</h2>
-            <h2 class="sm-col">Đơn giá</h2>
-            <h2 class="sm-col">Số lượng</h2>
-            <h2 class="sm-col">Số tiền</h2>
-            <h2 class="sm-col">Thao tác</h2>
+            <div>
+                <input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
+                <p class="mobile-display">Tất cả</p>
+            </div>
+            <h4 class="lg-col mobile-hidden">Sản phẩm</h4>
+            <h4 class="sm-col mobile-hidden">Loại</h4>
+            <h4 class="sm-col mobile-hidden">Đơn giá</h4>
+            <h4 class="sm-col mobile-hidden">Số lượng</h4>
+            <h4 class="sm-col mobile-hidden">Số tiền</h4>
+            <h4 class="sm-col mobile-hidden">Thao tác</h4>
+            <button onclick="deleteAllItem(event)" type="button" class="mobile-display" id="del-mb-btn">Xóa</button>
         </section>
 
         <section class="cart__content">
-            <form action="#">
-                <%- include('../../components/cart-product') %>
-                <%- include('../../components/cart-product') %>
-                <%- include('../../components/cart-product') %>
-                <hr>
-                <div class="cart__footer">
-                    <div class="cart__feature">
-                        <button type="button" class="cart__checkall-btn">Chọn tất cả</button>
-                        <button type="button" class="cart__del-btn">Xóa</button>
-                    </div>
-                    <div class="cart__order">
-                        <div class="cart__total-price">
-                            <p>Tổng tiền:</p>
-                            <h2>100.000.000đ</h2>
-                        </div>
-                        <input type="submit" value="Đặt hàng">
-                    </div>
+            <form id="cart-form" action="#">
+                <div class="cart__empty">
+                    <img src="/imgs/cart/empty-cart.png" alt="">
+                    <p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
                 </div>
-                <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="#">chính sách đặt hàng.</a> của TechTwo</p>
+                <%- include('../../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
+                <%- include('../../components/cart-product') %>
             </form>
+        </section>
+
+        <section class="cart__footer">
+            <div>
+                <div class="cart__feature mobile-hidden">
+                    <button onclick="checkAllBtn(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả</button>
+                    <button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn">Xóa</button>
+                </div>
+                <div class="cart__order">
+                    <div class="cart__total-price">
+                        <p>Tổng tiền: <del>100.000.000đ</del></p>
+                        <h2>100.000.000đ</h2>
+                    </div>
+                    <input type="submit" form="cart-form" value="Đặt hàng">
+                </div>
+            </div>
+            <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="#">chính sách đặt hàng.</a> của TECHTWO.</p>
         </section>
     </main>
 
     <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
 
-    <script src="/scripts/scrollup.js"></script>
-
+    <script src="/scripts/components/scrollup.js"></script>
+    <script src="/scripts/components/cartProduct.js"></script>
+    <script src="/scripts/pages/order/cart.js"></script>
 </body>
 
 </html>
