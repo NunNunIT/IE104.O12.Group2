@@ -17,6 +17,7 @@
     --bg-blue-o10: rgba(42, 126, 228, 0.1);
     --outline-gray: #eaeaea;
     --dark-gray: #2c2c2c;
+    --dark-blue: #114a91;
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
     --pink: #FF685F;
@@ -30,84 +31,84 @@
     box-sizing: border-box;
 }
 
-    html {
-        font-size: 16px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+html {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    h1 {
-        /* 32px */
-        font-size: 2rem;
-        font-weight: 600;
-    }
+h1 {
+    /* 32px */
+    font-size: 2rem;
+    font-weight: 600;
+}
 
-    h2 {
-        /* 24px */
-        font-size: 1.5rem;
-        font-weight: 500;
-    }
+h2 {
+    /* 24px */
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 
-    h3 {
-        /* 20px */
-        font-size: 1.25rem;
-        font-weight: 500;
-    }
+h3 {
+    /* 20px */
+    font-size: 1.25rem;
+    font-weight: 500;
+}
 
-    h4 {
-        /* 18px */
-        font-size: 1.125rem;
-        font-weight: 500;
-    }
+h4 {
+    /* 18px */
+    font-size: 1.125rem;
+    font-weight: 500;
+}
 
-    h5 {
-        /* 16px */
-        font-size: 1rem;
-        font-weight: 500;
-    }
+h5 {
+    /* 16px */
+    font-size: 1rem;
+    font-weight: 500;
+}
 
-    p {
-        font-size: 1rem;
-        font-weight: 400;
-        text-align: justify;
-    }
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: justify;
+}
 
-    button {
-        cursor: pointer;
-        height: 48px;
-        display: inline-block;
-        padding: 0;
-        border-radius: 8px;
+button {
+    cursor: pointer;
+    height: 48px;
+    display: inline-block;
+    padding: 0;
+    border-radius: 8px;
 
-        & .status-layer {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 24px;
-            border-radius: inherit;
+    & .status-layer {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 24px;
+        border-radius: inherit;
 
-            & span {
-                /* font-weight: bold; */
-                margin: auto;
-            }
+        & span {
+            /* font-weight: bold; */
+            margin: auto;
         }
+    }
 
     &:hover {
         box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
             0 0 2px 0 rgba(0, 0, 0, 0.2);
     }
 
-        &:active {
-            box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
-                0 0 2px 0 rgba(0, 0, 0, 0.2);
+    &:active {
+        box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
+            0 0 2px 0 rgba(0, 0, 0, 0.2);
 
-            & .status-layer {
-                background-color: rgba(0, 0, 0, 0.2);
-            }
+        & .status-layer {
+            background-color: rgba(0, 0, 0, 0.2);
         }
     }
+}
 
-    /* button.btn--filled {
+/* button.btn--filled {
     background-color: white;
     color: var(--primary-color-2);
     border: none;
@@ -119,32 +120,32 @@
     }
 } */
 
-    button.btn--filled.pri {
-        background-color: var(--primary-color-1);
-        color: white;
-        font-size: 16px;
-        padding: 0 24px 0 24px;
-    }
+button.btn--filled.pri {
+    background-color: var(--primary-color-1);
+    color: white;
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}
 
-    button.btn--filled.sec {
-        background-color: var(--primary-color-5);
-        color: white;
-        font-size: 16px;
-        padding: 0 24px 0 24px;
-    }
+button.btn--filled.sec {
+    background-color: var(--primary-color-5);
+    color: white;
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}
 
-    button.btn--outlined.pri {
-        background-color: white;
-        color: var(--primary-color-1);
-        border: 1px solid var(--primary-color-1);
-        font-size: 16px;
-        padding: 0 24px 0 24px;
-    }
+button.btn--outlined.pri {
+    background-color: white;
+    color: var(--primary-color-1);
+    border: 1px solid var(--primary-color-1);
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}
 
-    button.btn--outlined.sec {
-        background-color: white;
-        color: var(--primary-color-5);
-        border: 1px solid var(--primary-color-5);
-        font-size: 16px;
-        padding: 0 24px 0 24px;
-    }
+button.btn--outlined.sec {
+    background-color: white;
+    color: var(--primary-color-5);
+    border: 1px solid var(--primary-color-5);
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}

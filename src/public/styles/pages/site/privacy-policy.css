@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-/* @import url("/styles/partials/footer.css");
-@import url("/styles/partials/app-bar.css"); */
+@import url("/styles/components/scrollup.css");
+@import url("/styles/partials/footer.css");
 
 body {
     width: 100vw;
@@ -51,15 +51,17 @@ h2 {
 
 .privacy-container {
     width: 95%;
+    max-width: 1440px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin: 32px 0 32px 0;
+    margin: 162px 0 32px 0;
 }
 
 .privacy__content {
     width: 80%;
+    max-width: 1152px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,6 +96,10 @@ h2 {
     li {
         font-size: 0.875rem;
     }
+
+    .privacy-container {
+        margin: 132px 0 32px 0;
+    }
 }
 
 /*Responsive-smartphone*/
@@ -116,5 +122,13 @@ h2 {
 
     .privacy__content .privacy__content-title {
         font-size: 1rem;
+    }
+
+    .privacy__content {
+        gap: 8px;
+    }
+
+    .privacy__content {
+        width: 88%;
     }
 }

@@ -15,10 +15,11 @@ body {
 .content-container {
     width: 80%;
     max-width: 1152px;
-    margin: 3vh auto;
+    margin: 130px auto;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding-top: 32px;
 }
 
 .title {
