@@ -14,6 +14,7 @@ const query = util.promisify(db.query).bind(db)
 
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
