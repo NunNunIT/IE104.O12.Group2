@@ -1,8 +1,61 @@
-// const express = require('express')
-// const router = express.Router()
+const db = require('../config/db/connect');
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const {promisify} = require('util')
 
-// const SiteController = require('../controllers/SiteController');
+exports.isLoggedIn = async (req, res, next) => {
+    console.log(`isLoggedIn: ${req.cookies.userSave}`);
+    if (req.cookies.userSave) {
+        try {
+            // 1. Verify the token
+            const decoded = await promisify(jwt.verify)(req.cookies.userSave,
+                process.env.JWT_SECRET
+            );
+            console.log(decoded);
 
-// router.post("/register", SiteController.submitRegister)
+            // 2. Check if the user still exist
+            db.query('SELECT * FROM users WHERE user_id = ?', [decoded.id], (err, results) => {
+                console.log(results);
+                if (!results) {
+                    return next();
+                }
+                req.user = results[0];
+                next();
+            });
+        } catch (err) {
+            console.log(err)
+            return next();
+        }
+    } else {
+        res.status(401).redirect('/auth/login')
+    }
+}
 
-// module.exports = router;
+exports.checkAuth = (req, res, next) => {
+    console.log (`checkAuth: ${req.cookies.userSave}`)
+    if (req.cookies.userSave) {
+        res.redirect('/')
+    }
+    else {
+        next();
+    }
+
+}
+
+checkUnAuth = (req, res, next) => {
+    console.log (`checkUnAuth: ${req.cookies.userSave}`)
+    if (!req.cookies.userSave) {
+        res.status(401).redirect('/')
+    }
+    else {
+        next();
+    }
+}
+
+exports.logout = (req, res) => {
+    res.cookie('userSave', 'logout', {
+        expires: new Date(Date.now() + 2 * 1000),
+        httpOnly: true
+    });
+    res.status(200).redirect("/");
+}
