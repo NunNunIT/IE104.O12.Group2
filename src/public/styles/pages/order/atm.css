@@ -300,11 +300,14 @@ label {
     padding: 5px 5px 5px 5px;
     display: flex;
     justify-content: center;
+    width: 5.5rem;
+    height: 4rem;
+    cursor: pointer;
 }
 
 .pay_bank img {
-    object-fit: cover;
-    width: 3rem;
+    object-fit: fixed;
+    width: 4rem;
 }
 
 .pay_info {

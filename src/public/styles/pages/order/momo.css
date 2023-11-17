@@ -70,6 +70,12 @@ a {
     font-weight: 500;
     cursor: pointer;
     display: flex;
+    height: 2rem;
+}
+
+.momo_left-cancel:hover {
+    font-size: 1.5rem;
+    color: rgb(151, 30, 95);
 }
 
 .momo_left-cancel_ip {
@@ -79,6 +85,12 @@ a {
     cursor: pointer;
     display: none;
     margin-bottom: 0;
+    height: 2rem;
+}
+
+.momo_left-cancel_ip :hover {
+    font-size: 1.5rem;
+    color: rgb(151, 30, 95);
 }
 
 

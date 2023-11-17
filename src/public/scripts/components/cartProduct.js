@@ -26,4 +26,6 @@ function removeItem(event) {
     const cartItem = event.currentTarget.parentElement.parentElement
     console.log(cartItem)
     cartItem.remove()
+
+    showEmptyNoti()
 }

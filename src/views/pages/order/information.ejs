@@ -15,15 +15,13 @@
 
     <main class="order-container">
         <section class="order-product">
-            <div class="order-product__title">
-                <h2 class="order-product__col-big">Sản phẩm</h2>
-                <h2 class="order-product__col">Loại</h2>
-                <h2 class="order-product__col">Đơn giá</h2>
-                <h2 class="order-product__col">Số lượng</h2>
-                <h2 class="order-product__col">Số tiền</h2>
+            <div class="order-product__title mobile-hidden">
+                <h4 class="order-product__col-big">Sản phẩm</h4>
+                <h4 class="order-product__col">Loại</h4>
+                <h4 class="order-product__col">Đơn giá</h4>
+                <h4 class="order-product__col">Số lượng</h4>
+                <h4 class="order-product__col">Số tiền</h4>
             </div>
-
-            <hr>
 
             <div class="order-product__content">
                 <%- include('../../components/order-info-product') %>
@@ -96,8 +94,7 @@
                 <div class="order-pay__price-container">
                     <div>
                         <p>Tổng tiền hàng</p>
-                        <p>95.000đ</p>
-
+                        <p><del>100.000đ</del> 95.000đ</p>
                     </div>
                     <div>
                         <p>Phí vận chuyển</p>
@@ -111,7 +108,7 @@
             </div>
 
             <div class="order-pay__submit">
-                <p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <a href="#">Điều khoản đặt hàng của TechTwo.</a></p>
+                <p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br><a href="#">Điều khoản đặt hàng của TECHTWO.</a></p>
                 <button type="submit" form="order-form">Đặt hàng</button>
             </div>
         </section>
