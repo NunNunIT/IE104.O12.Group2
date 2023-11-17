@@ -23,11 +23,19 @@
 }
 
 .cart-item__variants {
+    cursor: pointer;
     width: 90%;
-    max-width: 80px;
-    height: 48px;
+    padding: 0 8px;
+    max-width: 100px;
+    height: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
+    background-color: var(--bg-white-o80);
+    border-radius: 4px;
+}
+
+.cart-item__variants:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cart-item__unit-price {
@@ -123,6 +131,7 @@ input::-webkit-inner-spin-button {
 @media screen and (max-width: 48rem) {
     .cart-item__variants {
         font-size: 0.8125rem;
+        padding: 2px;
     }
 
     .cart-item__product img {

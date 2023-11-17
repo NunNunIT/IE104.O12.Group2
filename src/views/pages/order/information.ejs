@@ -30,18 +30,18 @@
             </div>
         </section>
 
-        <form action="#" method="post" id="order-form">
+        <form method="post" id="order-form">
             <section class="order-detail">
                 <div class="order-detail__customer">
                     <h2>Thông tin người nhận hàng</h2>
                     <div>
                         <div class="order-detail__input">
                             <input onchange="validateName(event)" type="text" placeholder="Họ và tên" required>
-                            <p>Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!</p>
+                            <p class="error">Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!</p>
                         </div>
                         <div class="order-detail__input">
                             <input onchange="validatePhoneNumber(event)" type="text" placeholder="Số điện thoại" required>
-                            <p>Số điện thoại không hợp lệ!</p>
+                            <p class="error">Số điện thoại không hợp lệ!</p>
                         </div>
                     </div>
                 </div>
@@ -49,22 +49,16 @@
                 <div class="order-detail__location location">
                     <h2>Địa chỉ nhận hàng</h2>
                     <div class="location__input-group">
-                        <input class="location__select" type="text" list="province" placeholder="Tỉnh" required>
+                        <input onchange="changeProvince(event)" class="location__select" type="text" list="province" placeholder="Tỉnh/Thành phố" required>
                         <datalist id="province">
-                            <option value="Boston">
-                            <option value="Cambridge">
+                            <option value="Hồ Chí Minh">
+                            <option value="Vũng Tàu">
                         </datalist>
 
-                        <input class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
-                        <datalist id="district">
-                            <option value="Boston">
-                            <option value="Cambridge">
-                        </datalist>
-                        <input class="location__select" type="text" list="commune" placeholder="Phường/xã" required>
-                        <datalist id="commune">
-                            <option value="Boston">
-                            <option value="Cambridge">
-                        </datalist>
+                        <input onchange="changeDistrict(event)" class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
+                        <datalist id="district"> </datalist>
+                        <input class="location__select" type="text" list="ward" placeholder="Phường/xã" required>
+                        <datalist id="ward"> </datalist>
                         <input type="text" placeholder="Địa chỉ" required>
                     </div>
                 </div>
