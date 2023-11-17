@@ -1,3 +1,8 @@
+const db = require('../config/db/connect');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+
 class AuthController {
 
     // [GET] /register
@@ -45,7 +50,7 @@ class AuthController {
     // [POST] /login
     submitLogin(req, res) {
         const { user_phone, user_password } = req.body
-        db.query('SELECT *  FROM users WHERE user_phone = ?', [user_phone], async (err, result) => {
+        db.query('SELECT *  FROM users WHERE user_phone = ?', [user_phone],(err, result) => {
             console.log(result)
             if (err) throw err
             // if (!result.length || !await bcrypt.compare(user_password, result[0].user_password)) return res.json({
@@ -53,10 +58,17 @@ class AuthController {
                 status: 'error',
                 error: 'Số điện thoại không tồn tại.'
             })
-            else if ((user_password !== result[0].user_password)) return res.json({
+            else if ((user_password !== result[0].user_password)) {
+             return res.json({
                 status: 'error2',
                 error: 'Mật khẩu không chính xác.'
             })
+            } else {
+                return res.json({
+                    status: 'success',
+                    success: 'Bạn đã đăng nhập thành công'
+                })
+            }
         })
     }
 

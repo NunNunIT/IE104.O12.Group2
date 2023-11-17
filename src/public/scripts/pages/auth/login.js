@@ -153,18 +153,21 @@ const validateInput = () => {
             user_phone: PhoneNumber.value.trim(),
             user_password: Password.value.trim()
         }
-        fetch("/login", {
+        fetch("/auth/login", {
             method: 'POST',
             body: JSON.stringify(login),
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then (res => res.json()).then (data => {
-            if (data.status == "error"){
-                setError(PhoneNumber, data.error);
+        }).then (res => res.json()).then (back => {
+            if (back.status == "error"){
+                setError(PhoneNumber, back.error);
             }
-            else if (data.status == "error2") {
-                setError(Password, data.error);
+            else if (back.status == "error2") {
+                setError(Password, back.error);
+            }
+            else {
+                form.submit();
             }
     
         })

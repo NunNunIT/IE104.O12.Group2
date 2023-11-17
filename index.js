@@ -4,13 +4,14 @@ const path = require('path')
 const express = require('express')
 const mysql = require('mysql')
 const session = require('express-session')
+const dodenv = require('dotenv').config();
 const bodyParser = require('body-parser')
 
 // connect to db
 const db = require('./src/config/db/connect')
 
 // app.use(session({
-//     secret: process.env.SESSION_SECRET,
+//     secret: process.env.JWT_SECRET,
 //     resave: true,
 //     saveUninitialized: true,
 // }));
@@ -37,10 +38,3 @@ route(app)
 app.listen(cfg.port, () => {
     console.log(`Website is running at http://${cfg.host}:${cfg.port}`)
 })
-
-//
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-}));
