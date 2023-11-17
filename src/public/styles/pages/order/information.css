@@ -101,10 +101,10 @@ input::-webkit-calendar-picker-indicator {
     border-radius: 8px;
 }
 
-.order-detail__input p {
+.error {
     display: none;
     color: var(--red);
-    text-indent: 12px;
+    font-size: 0.8125rem;
 }
 
 .order-detail__location,
@@ -132,6 +132,10 @@ input::-webkit-calendar-picker-indicator {
 
 .location__select {
     color: var(--primary-color-2);
+}
+
+.location__input-group datalist option {
+    width: 100%;
 }
 
 .location__select::placeholder {
