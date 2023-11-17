@@ -29,7 +29,7 @@
         </section>
 
         <section class="cart__content">
-            <form id="cart-form" action="#">
+            <form id="cart-form" method="post">
                 <div class="cart__empty">
                     <img src="/imgs/cart/empty-cart.png" alt="">
                     <p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
@@ -51,7 +51,7 @@
                         <p>Tổng tiền: <del>100.000.000đ</del></p>
                         <h2>100.000.000đ</h2>
                     </div>
-                    <input type="submit" form="cart-form" value="Đặt hàng">
+                    <input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng">
                 </div>
             </div>
             <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="#">chính sách đặt hàng.</a> của TECHTWO.</p>

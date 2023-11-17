@@ -1,32 +1,47 @@
+// Sự kiện onclick checkbox chọn tất cả
 function checkAll(event) {
-    const checkboxes = document.querySelectorAll('.checkbox')
+    let checkboxes
+    if (window.innerWidth == 416)
+        checkboxes = document.querySelectorAll('.checkbox.mobile-display')
+    else
+        checkboxes = document.querySelectorAll('.checkbox.mobile-hidden')
     checkboxes.forEach(checkbox => checkbox.checked = event.currentTarget.checked)
 
     changeDel()
 }
 
+// Sự kiện onclick nút "Chọn tất cả"
 function checkAllBtn(event) {
     const checkAll = document.querySelector('#check-all')
-    const checkboxes = document.querySelectorAll('.checkbox')
-
     checkAll.checked = !checkAll.checked
+
+    let checkboxes
+    if (window.innerWidth == 416)
+        checkboxes = document.querySelectorAll('.checkbox.mobile-display')
+    else
+        checkboxes = document.querySelectorAll('.checkbox.mobile-hidden')
     checkboxes.forEach(checkbox => checkbox.checked = checkAll.checked)
 
     changeDel()
 }
 
+// Sự kiện onclick nút "Xóa" tất cả
 function deleteAllItem(event) {
-    const checkboxes = [...document.querySelectorAll('.checkbox')].slice(1)
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked == true)
+    const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
+    checkboxes.forEach((checkbox, index) => {
+        if (index % 2 == 0 && checkbox.checked == true) {
+            checkbox.parentNode.nextSibling.remove()
             checkbox.parentNode.remove()
+        }
     })
+
     showEmptyNoti()
 }
 
+// Hàm thay đổi màu nút "Xóa" tất cả
 function changeDel() {
     const delBtn = document.querySelector('#del-btn')
-    if ([...document.querySelectorAll('.checkbox')].some(checkbox => checkbox.checked == true)) {
+    if (Array.from(document.querySelectorAll('.checkbox')).some(checkbox => checkbox.checked == true)) {
         delBtn.style.background = 'var(--dollar-red)'
         delBtn.style.color = 'var(--white)'
     }
@@ -36,21 +51,67 @@ function changeDel() {
     }
 }
 
+// Hàm hiện thông báo không có sản phẩm trong giỏ
 function showEmptyNoti() {
-    const numCartItem = [...document.querySelectorAll('.cart-item.mobile-hidden')].length
-    const numCartItemMobile = [...document.querySelectorAll('.cart-item.mobile-display')].length
-    if (numCartItem == 0 || numCartItemMobile == 0) {
+    let countCartItem
+    if (window.innerWidth == 416)
+        countCartItem = Array.from(document.querySelectorAll('.cart-item.mobile-display')).length
+    else
+        countCartItem = Array.from(document.querySelectorAll('.cart-item.mobile-hidden')).length
+
+    if (countCartItem == 0) {
         const emptyNoti = document.querySelector('.cart__empty')
         emptyNoti.style.display = 'flex'
     }
 }
 
-const cartMbHiddenItems = [...document.querySelectorAll('.cart-item.mobile-hidden')]
-const lastMbHiddenChild = cartMbHiddenItems[cartMbHiddenItems.length - 1]
-lastMbHiddenChild.style.border = 'none'
-lastMbHiddenChild.style.padding = '0'
+// Căn chỉnh cart-item cuối cùng
+let cartItems
+if (window.innerWidth == 416)
+    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+else
+    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
 
-const cartMbDisplayItems = [...document.querySelectorAll('.cart-item.mobile-display')]
-const lastMbDisplayChild = cartMbDisplayItems[cartMbDisplayItems.length - 1]
-lastMbDisplayChild.style.border = 'none'
-lastMbDisplayChild.style.padding = '0'
+const lastCartItem = cartItems[cartItems.length - 1]
+lastCartItem.style.border = 'none'
+lastCartItem.style.padding = '0'
+
+// Sự kiện onclick nút "Đặt hàng"
+function cartSubmit(event) {
+    event.preventDefault()
+    const cartForm = document.getElementById('cart-form')
+
+    const selectedCartItem = Array.from(document.querySelectorAll('.checkbox'))
+        .filter(item => item.checked == true && item.id != 'check-all')
+        .map(item => item.parentNode)
+
+    if (selectedCartItem.length > 0) {
+        const unselectedCartItem = Array.from(document.querySelectorAll('.checkbox'))
+            .filter(item => item.checked == false && item.id != 'check-all')
+            .map(item => item.parentNode)
+            .forEach(item => item.querySelectorAll('input, select').forEach(input => input.disabled = true))
+
+        const formData = new FormData(cartForm)
+        const transformedData = []
+        console.log(formData.getAll('variant'))
+
+        formData.getAll('variant').forEach((variant, index) => {
+            transformedData.push({
+                variant: variant,
+                quantity: parseInt(formData.getAll('quantity')[index], 10)
+            })
+        })
+
+        // Use fetch to submit the data
+        fetch('/order/cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(transformedData),
+        })
+    }
+}
+
+// Hàm thực thi
+showEmptyNoti()
