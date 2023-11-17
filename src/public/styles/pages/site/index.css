@@ -24,8 +24,9 @@ body {
 }
 
 .content-container {
+    margin: 180px auto;
     width: 80%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
     gap: 5vh

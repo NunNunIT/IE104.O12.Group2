@@ -18,10 +18,11 @@ a {
 .account-container {
 	width: 80%;
 	padding: 0;
-	margin: 12px 0 24px 0;
+	margin: 130px 0 24px 0;
 	display: flex;
 	gap: 12px;
 	align-items: flex-start;
+	padding-top: 32px;
 }
 
 .purchase__main {
@@ -180,9 +181,11 @@ span.image-container img {
 }
 
 /*Responsive-tablet*/
-@media only screen and (max-width: 64rem) {
+@media only screen and (max-width: 48rem) {
 	.account-container {
 		width: 95%;
+		margin: 100px 0 24px 0;
+		padding-top: 24px;
 	}
 
 	h2 {

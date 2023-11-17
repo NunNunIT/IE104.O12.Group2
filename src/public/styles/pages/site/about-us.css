@@ -1,10 +1,10 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-/* @import url("/styles/partials/footer.css");
-@import url("/styles/partials/app-bar.css"); */
+@import url("/styles/components/scrollup.css");
+@import url("/styles/partials/footer.css");
 
 body {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,15 +31,17 @@ h2 {
 
 .about-container {
     width: 95%;
+    max-width: 1440px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin: 12px 0 24px 0;
+    margin: 162px 0 24px 0;
 }
 
 .about-us__content {
     width: 80%;
+    max-width: 1152px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -137,6 +139,10 @@ h2 {
         font-size: 0.875rem;
     }
 
+    .about-container {
+        margin: 128px 0 24px 0;
+    }
+
     .about-us__content--colunm {
         flex-direction: column;
     }
@@ -159,7 +165,7 @@ h2 {
 
     .about-us__content--colunm {
         gap: 24px;
-        margin: 56px 0;
+        margin: 32px 0;
     }
 }
 
@@ -184,6 +190,7 @@ h2 {
 
     .about-us__content--colunm {
         width: 90%;
-        margin: 28px 0;
+        margin: 0;
+        padding: 68px 0;
     }
 }
