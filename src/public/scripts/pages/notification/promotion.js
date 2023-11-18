@@ -4,11 +4,11 @@ const promoBtn = document.querySelector(".btn-promo");
 const useBtns = document.querySelectorAll(".btn-use");
 
 const redirect2updateView = () => {
-    window.location.href = "http://127.0.0.1:3000/notifications/account-update";
+    window.location.href = "http://127.0.0.1:3000/notification/account-update";
 }
 
 const redirect2promoView = () => {
-    window.location.href = "http://127.0.0.1:3000/notifications/promotion";
+    window.location.href = "http://127.0.0.1:3000/notification/promotion";
 }
 
 const redirect2detailAccom = () => {

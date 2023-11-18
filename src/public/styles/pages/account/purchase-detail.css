@@ -8,6 +8,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	background-color: var(--bg-white);
+	box-sizing: border-box;
 }
 
 a {
@@ -21,10 +22,11 @@ hr {
 .account-container {
 	width: 80%;
 	padding: 0;
-	margin: 12px 0 24px 0;
+	margin: 130px 0 24px 0;
 	display: flex;
 	gap: 12px;
 	align-items: flex-start;
+	padding-top: 32px;
 }
 
 .purchase-detail__main {
@@ -164,6 +166,10 @@ hr {
 	width: 100%;
 }
 
+.purchase-detail__element h5 {
+	font-weight: 600;
+}
+
 .purchase-detail__element--left {
 	display: flex;
 	align-items: flex-start;
@@ -182,10 +188,9 @@ hr {
 
 #purchase-detail__price {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
-	gap: 12px;
 	color: var(--primary-color-5);
 }
 
@@ -227,7 +232,7 @@ small {
 }
 
 .purchase-detail__final {
-	font-weight: 500;
+	font-weight: 700;
 }
 
 /* side-bar */
@@ -363,6 +368,8 @@ span.image-container img {
 @media only screen and (max-width: 48rem) {
 	.account-container {
 		width: 90%;
+		margin: 100px 0 24px 0;
+		padding-top: 24px;
 	}
 
 	.purchase-detail__order-info {
@@ -411,5 +418,11 @@ span.image-container img {
 
 	#purchase-detail__price {
 		gap: 8px;
+	}
+}
+
+@media only screen and (max-width: 40rem) {
+	.account-container {
+		margin: 130px 0 24px 0;
 	}
 }

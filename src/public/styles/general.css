@@ -11,20 +11,20 @@
     --white-gray: #f9f9f9;
     --bg-white: #f1f1f1;
     --bg-gray: #f5f6f8;
-    --bg-white-o30: rgb(241, 241, 241, 0.3);
-    --bg-white-o50: rgb(241, 241, 241, 0.5);
-    --bg-white-o80: rgb(241, 241, 241, 0.8);
+    --del-gray: #868181;
+    --bg-white-o30: rgba(241, 241, 241, 0.3);
+    --bg-white-o50: rgba(241, 241, 241, 0.5);
+    --bg-white-o80: rgba(241, 241, 241, 0.8);
     --bg-blue-o10: rgba(42, 126, 228, 0.1);
+    --bg-blue-o30: rgba(42, 126, 228, 0.3);
     --outline-gray: #eaeaea;
     --dark-gray: #2c2c2c;
+    --dark-blue: #114a91;
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
     --pink: #FF685F;
     --dollar-red: #D0021C;
-    /*
-        border-radius: 4px 8px 12px 16px
-        button border-radius: 8px
-    */
+    --fire-orange: #FFA500;
 }
 
 * {

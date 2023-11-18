@@ -1,10 +1,8 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-/* @import url("/styles/components/slider.css");
-@import url("/styles/components/product-catalog.css");
 @import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
-@import url("/styles/partials/app-bar.css"); */
+@import url("/styles/partials/app-bar.css");
 @import url("/styles/components/noti-item-promo.css");
 
 html {
@@ -22,8 +20,8 @@ body {
 
 .nofi-container {
     width: 80%;
+    margin: 164px 0 24px 0;
     padding: 0;
-    margin: 12px 0 24px 0;
     display: flex;
     gap: 12px;
     align-items: flex-start;
@@ -34,7 +32,7 @@ body {
     flex-direction: column;
     padding: 12px;
     border-radius: 8px;
-    border: 0.5px solid var(--outline-gray);
+    border: 1px solid var(--outline-gray);
     background: #ffff;
     width: 35%;
 }

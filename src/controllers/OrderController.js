@@ -1,8 +1,9 @@
 class OrderController {
-  // [GET] /order/cart
-  cart(rea, res) {
-    res.render("./pages/order/cart");
-  }
+
+    // [GET] /order/cart
+    cart(req, res) {
+        res.render('./pages/order/cart')
+    }
 
   // [GET] /order/information
   information(req, res) {
