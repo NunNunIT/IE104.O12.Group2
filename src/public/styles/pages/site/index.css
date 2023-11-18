@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
 @import url("/styles/components/slider.css");
-@import url("/styles/components/product-catalog.css");
+@import url("/styles/components/cate-item.css");
 @import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/app-bar.css");
@@ -21,23 +21,46 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-white);
 }
 
 .content-container {
-    margin: 180px auto;
     width: 80%;
+    padding: 24px;
+    margin: 180px auto;
+    max-width: 1152px;
     /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
-    gap: 5vh
+    gap: 5vh;
+    background-color: var(--white);
+    border-radius: 12px;
 }
 
-/* respnsive for tablet */
-/* @media only screen and (max-width: 48rem) {} */
+.cate {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
 
-/* respnsive for smartphone */
-@media only screen and (max-width: 40rem) {
+.cate__content {
+    display: inherit;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* 1024px - Mini PC */
+@media only screen and (max-width: 64rem) {
+    .cate__content {
+        gap: 8px;
+    }
+}
+
+/* 768px - Tablet */
+@media only screen and (max-width: 48rem) {
     .content-container {
         width: 100%;
+        margin: 130px 0;
     }
 }

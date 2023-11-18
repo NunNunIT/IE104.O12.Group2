@@ -320,6 +320,7 @@ header {
 .cate-dropdown__product a:hover {
     box-shadow: inset 0px 0px 0px 1px var(--primary-color-2);
     border-radius: 8px;
+    background-color: var(--bg-gray);
 }
 
 .cate-dropdown__product-name {
@@ -423,6 +424,14 @@ header {
     header a,
     header p {
         font-size: 0.8125rem;
+    }
+
+    .header__menu {
+        width: 90%;
+    }
+
+    .header__cate-dopdown {
+        width: 90%;
     }
 
     .cate-dropdown__content {
