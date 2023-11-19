@@ -3,12 +3,12 @@
 @import url("/styles/partials/header-small.css");
 
 
-.material-symbols-outlined {
+#eye-open {
   font-variation-settings:
-    'FILL'0,
-    'wght'400,
-    'GRAD'0,
-    'opsz'24;
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 
   position: absolute;
   right: 10px;
@@ -241,15 +241,15 @@ label {
 }
 
 .register__img-1 {
-    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  transition: transform 0.8s ease-in-out, opacity 0.45s linear;
 }
 
 .register__img-2 {
-    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  transition: transform 0.8s ease-in-out, opacity 0.45s linear;
 }
 
 .register__img-3 {
-    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  transition: transform 0.8s ease-in-out, opacity 0.45s linear;
 }
 
 .register__image.show {
@@ -292,7 +292,7 @@ label {
     width: 100%;
     height: auto;
   }
-  
+
   form {
     max-width: revert;
     padding: 1.5rem 2.5rem 2rem;
@@ -314,7 +314,7 @@ label {
     display: block;
     padding: 0.5rem;
   }
-  
+
   .register__box {
     border-radius: 2rem;
     box-shadow: none;
@@ -323,6 +323,7 @@ label {
   .register__inner-box {
     padding: 1rem;
   }
+
   .register__forms-wrap {
     width: 100%;
   }

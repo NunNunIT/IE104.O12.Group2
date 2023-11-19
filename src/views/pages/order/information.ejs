@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
     <link rel="stylesheet" href="/styles/pages/order/information.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Tech Two.</title>
+
+    <title>TECHTWO.</title>
 </head>
 
 <body>
 
     <%- include('../../partials/header') %>
+    <%- include('../../partials/breadcrumb') %>
 
     <main class="order-container">
         <section class="order-product">
@@ -102,7 +105,7 @@
             </div>
 
             <div class="order-pay__submit">
-                <p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br><a href="#">Điều khoản đặt hàng của TECHTWO.</a></p>
+                <p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br><a href="/privacy-policy">Điều khoản đặt hàng của TECHTWO.</a></p>
                 <button type="submit" form="order-form">Đặt hàng</button>
             </div>
         </section>

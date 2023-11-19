@@ -1,5 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/partials/breadcrumb.css");
 /* @import url("/styles/components/purchase-item.css"); */
 
 body {
@@ -22,11 +24,10 @@ hr {
 .account-container {
 	width: 80%;
 	padding: 0;
-	margin: 130px 0 24px 0;
+	margin: 24px 0;
 	display: flex;
-	gap: 12px;
 	align-items: flex-start;
-	padding-top: 32px;
+	gap: 12px;
 }
 
 .purchase-detail__main {

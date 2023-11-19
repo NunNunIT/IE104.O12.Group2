@@ -1,6 +1,5 @@
 @import url("/styles/general.css");
-
-
+@import url("/styles/partials/header-small.css");
 
 .material-symbols-outlined {
     font-variation-settings:

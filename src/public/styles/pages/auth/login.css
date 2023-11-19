@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header-small.css");
 
-.material-symbols-outlined {
+#eye-open {
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
@@ -88,8 +88,9 @@ form {
 form .login__sign-in-form {
     opacity: 0;
     pointer-events: none;
-    
+
 }
+
 .login__logo {
     display: flex;
     align-items: center;
@@ -113,7 +114,7 @@ form .login__sign-in-form {
 .login__toggle {
     color: var(--primary-color-1);
     text-decoration: none;
-    
+
     transition: 0.3s;
 }
 

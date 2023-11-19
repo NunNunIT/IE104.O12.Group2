@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0..1,0");
+@import url("/styles/partials/footer.css");
 
 :root {
     --white: #ffffff;
@@ -9,7 +11,7 @@
     --primary-color-2: #1559ab;
     --primary-color-3: #02e5f6;
     --primary-color-4: #092a3b;
-    --primary-color-5: #030302;
+    --primary-color-5: #fbb72c;
     --white-gray: #f9f9f9;
     --bg-white: #f1f1f1;
     --bg-gray: #f5f6f8;
@@ -27,6 +29,7 @@
     --luminos-blue: #0235f6;
     --pink: #FF685F;
     --dollar-red: #D0021C;
+    --fire-orange: #FF9F40;
 
     --scroll-thumb: #828282;
     --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
@@ -42,7 +45,7 @@
     --dark9: #262a2e;
 
     /* --red1: #ffdab9; */
-    --red1: rgb(255,8,0,0.1);
+    --red1: rgb(255, 8, 0, 0.1);
     --red2: #fa8072;
     --red3: #fe2712;
     --red4: #ff0800;
