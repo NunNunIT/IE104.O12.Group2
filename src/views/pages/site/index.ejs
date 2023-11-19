@@ -15,6 +15,35 @@
     <main class="content-container">
         <%- include('../../components/slider') %>
         <%- include('../../components/product-catalog') %>
+        <section class = "product-list">
+            <div class="product-list__label">
+                <h2>SẢN PHẨM NỔI BẬT</h2>
+                <div class = "product-list__label-seemore">
+                <a href="/search/result">Xem tất cả</a>
+                <span class="material-symbols-outlined">
+                    chevron_right
+                </span>
+                </div>
+            </div>
+        <div class="product-list__main-card">
+            <%- include('../../components/product-card') %>
+        </div>
+        </section>
+         
+        <section class = "product-list">
+            <div class="product-list__label">
+                <h2>SẢN PHẨM NỔI BẬT</h2>
+                <div class = "product-list__label-seemore">
+                <a href="/search/result">Xem tất cả</a>
+                <span class="material-symbols-outlined">
+                    chevron_right
+                </span>
+                </div>
+            </div>
+        <div class="product-list__main-card">
+            <%- include('../../components/product-card') %>
+        </div>
+        </section>
     </main>
 
     <%- include('../../components/scrollup') %>
