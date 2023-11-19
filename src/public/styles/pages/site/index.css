@@ -1,10 +1,11 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/partials/app-bar.css");
+@import url("/styles/partials/breadcrumb.css");
 @import url("/styles/components/slider.css");
 @import url("/styles/components/cate-item.css");
 @import url("/styles/components/scrollup.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/app-bar.css");
 
 * {
     padding: 0;
@@ -27,14 +28,18 @@ body {
 .content-container {
     width: 80%;
     padding: 24px;
-    margin: 180px auto;
+    margin: 24px auto;
     max-width: 1152px;
     /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
     gap: 5vh;
     background-color: var(--white);
-    border-radius: 12px;
+    border-radius: 8px;
+}
+
+.slider {
+    margin-top: 160px;
 }
 
 .cate {

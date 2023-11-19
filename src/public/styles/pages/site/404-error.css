@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-/* @import url("/styles/partials/footer.css");
-@import url("/styles/partials/app-bar.css"); */
+@import url("/styles/partials/footer.css");
+@import url("/styles/partials/app-bar.css");
 
 body {
     width: 100vw;
@@ -13,7 +13,7 @@ body {
 }
 
 .error-container {
-    margin: 100px 0;
+    margin: 192px 0 120px 0;
     width: 80%;
     display: flex;
     flex-direction: column;

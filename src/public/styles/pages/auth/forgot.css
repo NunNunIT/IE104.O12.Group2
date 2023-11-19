@@ -1,4 +1,5 @@
 @import url("/styles/general.css");
+@import url("/styles/partials/header-small.css");
 
 .material-symbols-outlined {
     font-variation-settings:
@@ -30,17 +31,17 @@ input {
 
 
 input[type="text"] {
-    width: 60px; 
-    height: 80px; 
-    margin: 5px; 
-    text-align: center; 
-    font-size: 18px; 
-    border: 1px solid #ccc; 
+    width: 60px;
+    height: 80px;
+    margin: 5px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
     border-radius: 4px;
     font-family: "Segoe UI", sans-serif;
-  }
+}
 
-  .input-wrap {
+.input-wrap {
     position: relative;
     height: 4rem;
     margin-bottom: 1rem;
@@ -56,20 +57,18 @@ input[type="text"] {
     margin-top: 24px;
     margin-bottom: 24px;
     flex-direction: column;
- }
+}
 
- .submit-frame {
+.submit-frame {
     display: flex;
     justify-content: center;
- }
+}
 
- .otp {
+.otp {}
 
- }
-
- .forgot-head {
+.forgot-head {
     flex-direction: row;
- }
+}
 
 main {
     width: 100%;

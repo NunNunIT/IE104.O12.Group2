@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
 @import url("/styles/partials/footer.css");
-
+@import url("/styles/partials/breadcrumb.css");
 
 .success-logo .material-symbols-outlined {
     font-variation-settings:
@@ -338,8 +338,7 @@ label {
     width: 10rem;
 }
 
-.pay_use {
-}
+.pay_use {}
 
 
 .input-field {
@@ -378,7 +377,7 @@ label {
     transition: 0.4s;
 }
 
-.input-wrap label{
+.input-wrap label {
     margin-left: 10px;
     color: var(--dark-gray-o50);
 }
@@ -390,9 +389,7 @@ label {
     padding: 20px 0 0 0;
 }
 
-.input_box--top {
-
-}
+.input_box--top {}
 
 .input_box--bot {
     display: flex;
@@ -415,6 +412,7 @@ label {
     width: 70%;
     /* display: flex; */
 }
+
 .input_right {
     display: flex;
     justify-content: right;
@@ -470,7 +468,7 @@ label {
     .input_title {
         font-size: 0.8125rem;
     }
-    
+
     .input-wrap {
         width: 100%;
         position: relative;
@@ -488,6 +486,7 @@ label {
     main {
         background-color: var(--white);
     }
+
     .transaction-container {
         padding: 0;
     }
@@ -504,6 +503,7 @@ label {
     .info-order__header--left p {
         font-size: 0.875rem;
     }
+
     .header--right a {
         font-size: 0.875rem;
     }
@@ -549,6 +549,7 @@ label {
         width: 100%;
         /* display: flex; */
     }
+
     .input_right {
         width: 90%;
         margin-bottom: 20px;

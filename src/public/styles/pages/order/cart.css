@@ -1,6 +1,7 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/header.css');
-@import url('/styles/partials/footer.css');
+@import url("/styles/partials/header.css");
+@import url("/styles/partials/footer.css");
+@import url("/styles/partials/breadcrumb.css");
 @import url('/styles/components/scrollup.css');
 @import url('/styles/components/cart-product.css');
 
@@ -8,13 +9,13 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--bg-white-o80);
 }
 
 .cart {
     width: 80%;
     max-width: 1152px;
-    /* min-height: 40vh; */
     margin: 3vh auto;
     display: flex;
     flex-direction: column;
