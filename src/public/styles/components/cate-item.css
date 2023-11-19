@@ -26,6 +26,7 @@
 }
 
 .cate__item h4 {
+    text-align: center;
     color: var(--primary-color-2);
 }
 
@@ -40,10 +41,28 @@
     }
 
     .cate__item h4 {
+        text-align: center;
         font-size: 1rem;
     }
 
     .cate__item p {
+        text-align: center;
         font-size: 0.8125rem;
+    }
+}
+
+@media only screen and (max-width: 26rem) {
+    .cate__item {
+        width: 24%;
+        padding: 4px;
+        gap: 4px;
+    }
+
+    .cate__item h4 {
+        font-size: 0.8125rem;
+    }
+
+    .cate__item p {
+        font-size: 0.75rem;
     }
 }

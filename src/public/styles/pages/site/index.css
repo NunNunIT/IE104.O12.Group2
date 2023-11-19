@@ -64,3 +64,11 @@ body {
         margin: 130px 0;
     }
 }
+
+/* 416px - Mobile */
+@media only screen and (max-width: 26rem) {
+    .cate__content {
+        gap: 4px;
+        justify-content: flex-start;
+    }
+}

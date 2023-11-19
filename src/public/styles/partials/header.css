@@ -576,4 +576,10 @@ header {
     .header__cart .material-symbols-outlined {
         font-size: 1.8125rem;
     }
+
+    .header__menu {
+        display: none;
+    }
+
+
 }
