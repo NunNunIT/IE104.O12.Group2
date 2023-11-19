@@ -1,4 +1,5 @@
 @import url("/styles/general.css");
+@import url("/styles/partials/header-small.css");
 
 .material-symbols-outlined {
     font-variation-settings:
@@ -33,17 +34,18 @@ main {
     min-height: 100vh;
     overflow: hidden;
     background-color: var(--bg-white);
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .login__box {
+    margin-top: 80px;
     position: relative;
     width: 100%;
     max-width: 1020px;
-    height: 678px;
+    height: 700px;
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
@@ -210,12 +212,12 @@ label {
     height: 100%;
     width: 55%;
     left: 45%;
-    top: 0;
-    background-color: var(--bg-white);
-    border-radius: 12px;
+    top: 7%;
+    /* background-color: var(--bg-white); */
+    /* border-radius: 12px; */
     display: grid;
     grid-template-rows: auto 1fr;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
     overflow: hidden;
     transition: 0.8s ease-in-out;
 }
@@ -227,6 +229,7 @@ label {
 }
 
 .login__image {
+    border-radius: 12px;
     width: 100%;
     grid-column: 1/2;
     grid-row: 1/2;
@@ -264,7 +267,7 @@ label {
     display: block;
     width: 0.5rem;
     height: 0.5rem;
-    background-color: var(--dark7);
+    background-color: var(--outline-gray);
     margin: 0 0.25rem;
     border-radius: 50%;
     cursor: pointer;
