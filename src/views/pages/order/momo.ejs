@@ -19,26 +19,15 @@
                 <div class="momo-box">
                     <div class="momo-header">
                         <img src="/imgs/transaction/momo.png" alt="momo">
-                        <!-- <div class="momo-logo">
-              <span class="material-symbols-outlined">sweep</span>
-            </div> -->
                         <h3 class="header-text"><strong>THANH TOÁN BẰNG MOMO</strong></h3>
                     </div>
                     <div class="inner-box">
-                        <!-- <div class="thanks">
-              Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
-            </div> -->
                         <div class="info-order">
                             <div class="info-order__header">
                                 <div class="info-order__header--left">
                                     <p><strong>ĐƠN HÀNG:</strong></p>
                                     <p id="trans__id">#DH0001</p>
                                 </div>
-                                <!-- <div class="header--right">
-                  <a href="#" id="btn-manage">Quản lý đơn hàng</a>
-                  <p>|</p>
-                  <a href="#" id="btn-cancel">Hủy</a>
-                </div> -->
                             </div>
                             <div class="info-order__bill">
                                 <span>- <strong>Người đặt hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
@@ -48,32 +37,6 @@
                         </div>
 
                         <div class="purchase-status">Đơn hàng chưa được thanh toán</div>
-
-                        <!-- <h3>Chọn hình thức thanh toán:</h3> -->
-
-                        <!-- <div class="payment-frame">
-                <input id="cash" type="radio" value="momo"name="drone" />
-                <span class="material-symbols-outlined">payments</span>
-                <label for="cash">Thanh toán bằng ứng dụng Momo</label>
-                <img src="imgs/transaction/momo.png" alt="momo">
-            </div>
-            <div class="payment-frame">
-              <input id="atm" type="radio" value="atm" name="drone" />
-              <span class="material-symbols-outlined">local_atm</span>
-              <label for="atm">Thanh toán bằng tài khoản ngân hàng</label>
-            </div>
-            <div class="payment-frame">
-              <input id="credit-card" type="radio" value="credit-card" name="drone" />
-              <span class="material-symbols-outlined">credit_card</span>
-              <label for="credit-card">Thanh toán bằng thẻ tín dụng</label>
-              <img src="imgs/transaction/visa.png" alt="Visa">
-              <img src="imgs/transaction/master.png" alt="Master Card">
-              <img src="imgs/transaction/jcb.png" alt="JCB">
-            </div> -->
-
-                        <!-- <button type="submit" id="btn-submit" class="btn--filled pri">Xác nhận</button>
-            <button type="submit" id="btn-more" class="btn--outlined pri">Mua thêm sản phẩm khác</button> -->
-
                     </div>
                 </div>
             </div>
@@ -82,11 +45,8 @@
 
         <div class="momo-qr">
             <h4>Quét mã QR để thanh toán</h4>
-            <!-- <div class="qr-frame">
-        <img src="imgs/transaction/momo.png" alt="momo_qr">
-      </div> -->
             <div class="scanning-box">
-                <img src="/imgs/transaction/momo.png" alt="momo_qr">
+                <img src="/imgs/transaction/momo_qr.png" alt="momo_qr">
                 <div class="image-container"></div>
                 <div class="border">
                 </div>
@@ -107,9 +67,41 @@
                 </div>
             </div>
         </div>
-        <div class="momo_left-cancel_ip">Hủy bỏ</div>
+        <!-- Add this HTML inside the <body> section -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <!-- Your modal content goes here -->
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <p>Modal content here...</p>
         </div>
+    </div>
+
+    <!-- Modify the "Xem Hướng dẫn" div to call the showPopup function -->
+    <div class="help-instruction" onclick="showPopup()">
+        Xem Hướng dẫn
+    </div>
+        <div class="momo_left-cancel_ip">Hủy bỏ</div>
     </main>
+
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            // Get the modal element
+            var modal = document.getElementById("myModal");
+    
+            // Display the modal
+            modal.style.display = "block";
+    
+            // Close the modal when the user clicks anywhere outside of it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        }
+    </script>
+    
+
 
 </body>
 
