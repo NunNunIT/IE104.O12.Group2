@@ -15,6 +15,11 @@ class AccountController {
         res.render('./pages/account/purchase-detail')
     }
 
+    // [GET] /account/feedback
+    feedback(req, res) { 
+        res.render('./pages/account/feedback')
+    }
+
 }
 
 module.exports = new AccountController()
