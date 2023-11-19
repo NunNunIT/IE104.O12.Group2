@@ -15,14 +15,20 @@ a {
 	text-decoration: none;
 }
 
+.purchase__status a {
+	color: black;
+	font-weight: 500;
+}
+
+
 .account-container {
 	width: 80%;
 	padding: 0;
-	margin: 130px 0 24px 0;
+	margin: 170px 0 24px 0;
 	display: flex;
 	gap: 12px;
 	align-items: flex-start;
-	padding-top: 32px;
+	padding-top: 24px;
 }
 
 .purchase__main {
@@ -36,10 +42,33 @@ a {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding: 12px 36px;
+	padding: 0px 36px;
 	width: 100%;
 	background-color: white;
 	border-radius: 8px;
+	align-items: center;
+}
+
+.purchase__status a {
+	padding: 12px 24px 13px 24px;
+}
+
+.purchase__status a:hover {
+	cursor: pointer;
+	color: var(--primary-color-1);
+	border-bottom: 1px solid var(--primary-color-1);
+	padding: 12px 24px;
+}
+
+
+#purchase__status-all.active,
+#purchase__status-payment.active,
+#purchase__status-finish.active,
+#purchase__status-cancel.active,
+#purchase__status-deliver.active {
+	color: var(--primary-color-1);
+	border-bottom: 1px solid var(--primary-color-1);
+	padding: 12px 24px 13px 24px;
 }
 
 
@@ -168,7 +197,7 @@ span.image-container img {
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
 	.purchase__status {
-		padding: 12px 24px;
+		padding: 0px 12px;
 	}
 
 	h2 {
@@ -178,14 +207,30 @@ span.image-container img {
 	#purchase-item__price {
 		gap: 8px;
 	}
+
+	#purchase__status-all,
+	#purchase__status-payment,
+	#purchase__status-deliver,
+	#purchase__status-finish,
+	#purchase__status-cancel {
+		padding: 12px 12px 13px 12px;
+	}
+
+	#purchase__status-all:hover,
+	#purchase__status-payment:hover,
+	#purchase__status-deliver:hover,
+	#purchase__status-finish:hover,
+	#purchase__status-cancel:hover {
+		padding: 12px;
+	}
+
 }
 
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
 	.account-container {
 		width: 95%;
-		margin: 100px 0 24px 0;
-		padding-top: 24px;
+		margin: 140px 0 24px 0;
 	}
 
 	h2 {
@@ -193,10 +238,10 @@ span.image-container img {
 	}
 
 	h4 {
-		font-size: 1rem;
+		font-size: 0.875rem;
 	}
 
-	h5 {
+	.purchase__status a {
 		font-size: 0.875rem;
 	}
 
@@ -204,16 +249,13 @@ span.image-container img {
 		font-size: 0.75rem;
 	}
 
-	.purchase__status {
-		padding: 12px 24px;
-	}
-
 	#purchase-item__price {
-		gap: 8px;
+		gap: 4px;
+		flex-direction: column;
 	}
 
 	.purchase-item__status {
-		font-size: 0.875rem;
+		font-size: 0.8125rem;
 	}
 
 	.purchase-item__info p {
@@ -232,5 +274,25 @@ span.image-container img {
 	button.btn--filled.pri {
 		font-size: 0.875rem;
 		padding: 0 18px;
+	}
+
+	#purchase__status-all,
+	#purchase__status-payment,
+	#purchase__status-deliver,
+	#purchase__status-finish,
+	#purchase__status-cancel {
+		padding: 12px 8px 13px 8px;
+	}
+
+	#purchase__status-all:hover,
+	#purchase__status-payment:hover,
+	#purchase__status-deliver:hover,
+	#purchase__status-finish:hover,
+	#purchase__status-cancel:hover {
+		padding: 12px 8px;
+	}
+
+	.purchase__status a {
+		font-size: 0.8125rem;
 	}
 }

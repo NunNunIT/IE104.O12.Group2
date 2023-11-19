@@ -19,15 +19,100 @@
                 <p class="seacrh-result__filter-normal__title">Bộ lọc:</p>
                 <div class="seacrh-result__filter-normal__content">
                     <p>Giá</p>
-                    <span class="material-symbols-outlined">expand_more</span>
+                    <span class="material-symbols-outlined dropdown-button">expand_more</span>
+                    <div class="dropdown-content">
+                        <div class="filter-list">
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
+                                <label for="less-than-5m" class="filter-label">Dưới 5 triệu</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
+                                <label for="5m-10m" class="filter-label">Từ 5tr - 10tr</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
+                                <label for="10m-15m" class="filter-label">Từ 10tr - 15tr</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
+                                <label for="15m-20m" class="filter-label">Từ 15tr - 20tr</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
+                                <label for="greater-than-20m" class="filter-label">Trên 20 triệu</label>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown__button">
+                            <button class="btn--outlined pri" type="submit">Hủy bộ lọc này</button>
+                            <button class="btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
+                        </div>
+                    </div>
                 </div>
+          
                 <div class="seacrh-result__filter-normal__content">
                     <p>Phân loại</p>
-                    <span class="material-symbols-outlined">expand_more</span>
+                    <span class="material-symbols-outlined dropdown-button">expand_more</span>
+                    <div class="dropdown-content">
+                        <div class="filter-list">
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
+                                <label for="less-than-5m" class="filter-label">Phân loại 1</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
+                                <label for="5m-10m" class="filter-label">Phân loại 2</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
+                                <label for="10m-15m" class="filter-label">Phân loại 3</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
+                                <label for="15m-20m" class="filter-label">Phân loại 4</label>
+                            </div>
+                            <!-- <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
+                                <label for="greater-than-20m" class="filter-label">Trên 20 triệu</label>
+                            </div> -->
+                        </div>
+                        <div class="filter-dropdown__button">
+                            <button class="btn--outlined pri" type="submit">Hủy bộ lọc này</button>
+                            <button class="btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="seacrh-result__filter-normal__content">
                     <p>Tiện ích</p>
-                    <span class="material-symbols-outlined">expand_more</span>
+                    <span class="material-symbols-outlined dropdown-button">expand_more</span>
+                    <div class="dropdown-content">
+                        <div class="filter-list">
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
+                                <label for="less-than-5m" class="filter-label">Tiện ích 1</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
+                                <label for="5m-10m" class="filter-label">Tiện ích 2</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
+                                <label for="10m-15m" class="filter-label">Tiện ích 3</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
+                                <label for="15m-20m" class="filter-label">Tiện ích 4</label>
+                            </div>
+                            <div class="dropdown-options">
+                                <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
+                                <label for="greater-than-20m" class="filter-label">Tiện ích 5</label>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown__button">
+                            <button class="btn--outlined pri" type="submit">Hủy bộ lọc này</button>
+                            <button class="btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="seacrh-result__filter-brand">
@@ -75,8 +160,30 @@
                         <p>Nổi bật</p>
                         <span class="material-symbols-outlined">expand_more</span>
                     </div>
+                    <div class="dropdown-content--sort">
+                        <div class="dropdown-options">
+                            <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+                            <label for="hot" class="sort-label">Nổi bật</label>
+                        </div>
+                        <hr />
+                        <div class="dropdown-options">
+                            <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+                            <label for="hot" class="sort-label">Bán chạy</label>
+                        </div>
+                        <hr />
+                        <div class="dropdown-options">
+                            <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+                            <label for="hot" class="sort-label">Giá cao đến thấp</label>
+                        </div>
+                        <hr />
+                        <div class="dropdown-options">
+                            <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+                            <label for="hot" class="sort-label">Giá thấp đến cao</label>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="seacrh-result__heading--disable">
                 <p class="seacrh-result__sort--disable">Nổi bật</p>
                 <p class="seacrh-result__sort--disable">Bán chạy</p>
@@ -108,6 +215,7 @@
     <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
 
+    <script src="/scripts/pages/search/results.js"></script>
     <script src="/scripts/components/scrollup.js"></script>
 
 </body>
