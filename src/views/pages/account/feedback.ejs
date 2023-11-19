@@ -2,41 +2,44 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-  <title>Feedback</title>
-  <link rel="stylesheet" href="/styles/pages/account/feedback.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles/pages/account/feedback.css">
+
+    <title>TECHTWO.</title>
 </head>
 
 <body>
 
-  <div class="wrapper">
+    <div class="wrapper">
 
-    <div class="product-info">
-      <img src="P1_1.jpg" alt="Ảnh sản phẩm">
-      <div class="product-details">
-        <p class="product_name">Bếp từ hồng ngoại lắp âm Pramie 2108</p>
-        <p class="product_variant-name">Trắng</p>
-      </div>
-    </div>
+        <div class="product-info">
+            <img src="P1_1.jpg" alt="Ảnh sản phẩm">
+            <div class="product-details">
+                <p class="product_name">Bếp từ hồng ngoại lắp âm Pramie 2108</p>
+                <p class="product_variant-name">Trắng</p>
+            </div>
+        </div>
 
-      <h3>Bạn nghĩ gì về sản phẩm vừa mua?</h3>
-      <form action="#">
-        <div class="rating">
-          <input type="number" name="rating" hidden>
-          <i class='bx bx-star star' style="--i: 0;"></i>
-          <i class='bx bx-star star' style="--i: 1;"></i>
-          <i class='bx bx-star star' style="--i: 2;"></i>
-          <i class='bx bx-star star' style="--i: 3;"></i>
-          <i class='bx bx-star star' style="--i: 4;"></i>
-        </div>
-        <textarea name="opinion" cols="30" rows="5" placeholder="Đánh giá của bạn..."></textarea>
-        <div class="btn-group">
-          <button type="submit" class="btn submit">Gửi đánh giá</button>
-          <button class="btn cancel">Hủy</button>
-        </div>
-      </form>
+        <h3>Bạn nghĩ gì về sản phẩm vừa mua?</h3>
+        <form action="#">
+            <div class="rating">
+                <input type="number" name="rating" hidden>
+                <i class='bx bx-star star' style="--i: 0;"></i>
+                <i class='bx bx-star star' style="--i: 1;"></i>
+                <i class='bx bx-star star' style="--i: 2;"></i>
+                <i class='bx bx-star star' style="--i: 3;"></i>
+                <i class='bx bx-star star' style="--i: 4;"></i>
+            </div>
+            <textarea name="opinion" cols="30" rows="5" placeholder="Đánh giá của bạn..."></textarea>
+            <div class="btn-group">
+                <button type="submit" class="btn submit">Gửi đánh giá</button>
+                <button class="btn cancel">Hủy</button>
+            </div>
+        </form>
     </div>
     <script src="/scripts/pages/account/feedback.js"></script>
 

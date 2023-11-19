@@ -7,7 +7,7 @@
     --primary-color-2: #1559ab;
     --primary-color-3: #02e5f6;
     --primary-color-4: #092a3b;
-    --primary-color-5: #030302;
+    --primary-color-5: #fbb72c;
     --white-gray: #f9f9f9;
     --bg-white: #f1f1f1;
     --bg-gray: #f5f6f8;
@@ -40,7 +40,7 @@
     --dark9: #262a2e;
 
     /* --red1: #ffdab9; */
-    --red1: rgb(255,8,0,0.1);
+    --red1: rgb(255, 8, 0, 0.1);
     --red2: #fa8072;
     --red3: #fe2712;
     --red4: #ff0800;
