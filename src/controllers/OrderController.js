@@ -1,7 +1,7 @@
 class OrderController {
 
     // [GET] /order/cart
-    cart(rea, res) {
+    cart(req, res) {
         res.render('./pages/order/cart')
     }
 

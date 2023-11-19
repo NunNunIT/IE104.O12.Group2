@@ -53,17 +53,17 @@
 
                 <div class="pay_box">
                     <div class="pay_bank_frame">
-                        <div class="pay_bank">
-                            <img src="/imgs/transaction/visa.png" alt="Bank_1">
+                        <div class="pay_bank" id="bank-vietcombank">
+                            <img src="/imgs/transaction/Logo-Vietcombank.webp" alt="Vietcombank" id="btn-vietcombank">
                         </div>
-                        <div class="pay_bank">
-                            <img src="/imgs/transaction/visa.png" alt="Bank_2">
+                        <div class="pay_bank" id="bank-bidv">
+                            <img src="/imgs/transaction/Logo-BIDV.webp" alt="BIDV" id="btn-bidv">
                         </div>
                     </div>
-                    <div class="pay_info">
+                    <div class="pay_info" id="pay_info-vietcombank">
                         <div class="pay_info_frame">
                             <div class="pay_frame1">Ngân hàng:</div>
-                            <div class="pay_frame2">Vietcombank</div>
+                            <div class="pay_frame2">Vietcombank - NHTMCP Ngoại thương Việt Nam</div>
                         </div>
                         <div class="pay_info_frame">
                             <div class="pay_frame1">Số tài khoản:</div>
@@ -78,50 +78,64 @@
                             <div class="pay_frame2">CN Đông Sài Gòn</div>
                         </div>
                         <div class="pay_info_frame">
-                            <div class="pay_frame1">Nội dung Chuyển khoản:</div>
-                            <div class="pay_frame2">DH0001</div>
+                            <div class="pay_frame1">Nội dung chuyển khoản:</div>
+                            <div class="pay_frame2"><strong>DH0001</strong></div>
                         </div>
                         <div class="pay_info_frame">
                             <div class="pay_frame1">Số tiền:</div>
-                            <div class="pay_frame2">25.500.000đ</div>
+                            <div class="pay_frame2"><strong>25.500.000đ</strong></div>
+                        </div>
+                        <div class="pay_qr"><img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR"></div>
+                        <div class="pay_use">
+                            Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
                         </div>
                     </div>
-                    <div class="pay_qr"><img src="/imgs/transaction/momo.png" alt="Bank_QR"></div>
-                    <div class="pay_use">
-                        Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
+                    <div class="pay_info" id="pay_info-bidv">
+                        <div class="pay_info_frame">
+                            <div class="pay_frame1">Ngân hàng:</div>
+                            <div class="pay_frame2">BIDV - NHTMCP Đầu tư và Phát triển Việt Nam</div>
+                        </div>
+                        <div class="pay_info_frame">
+                            <div class="pay_frame1">Số tài khoản:</div>
+                            <div class="pay_frame2">3149235259</div>
+                        </div>
+                        <div class="pay_info_frame">
+                            <div class="pay_frame1">Thụ hưởng:</div>
+                            <div class="pay_frame2">Công ty cổ phần TECHTWO</div>
+                        </div>
+                        <div class="pay_info_frame">
+                            <div class="pay_frame1">Chi nhánh:</div>
+                            <div class="pay_frame2">CN Đông Sài Gòn</div>
+                        </div>
+                        <div class="pay_info_frame">
+                            <div class="pay_frame1">Nội dung chuyển khoản:</div>
+                            <div class="pay_frame2"><strong>DH0001</strong></div>
+                        </div>
+                        <div class="pay_info_frame">
+                            <div class="pay_frame1">Số tiền:</div>
+                            <div class="pay_frame2"><strong>25.500.000đ</strong></div>
+                        </div>
+                        <div class="pay_qr"><img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR"></div>
+                        <div class="pay_use">
+                            Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
+                        </div>
                     </div>
                 </div>
-
-                <h3>Chọn hình thức thanh toán khác:</h3>
-
-                <div class="payment-frame">
-                    <input id="cash" type="radio" value="momo" name="drone" />
-                    <span class="material-symbols-outlined">payments</span>
-                    <label for="cash">Ví Momo</label>
-                    <img src="/imgs/transaction/momo.png" alt="Visa">
-                </div>
-                <!-- <div class="payment-frame">
-          <input id="atm" type="radio" value="atm" name="drone" />
-          <span class="material-symbols-outlined">local_atm</span>
-          <label for="atm">Thanh toán bằng tài khoản ngân hàng</label>
-        </div> -->
-                <div class="payment-frame">
-                    <input id="credit-card" type="radio" value="credit-card" name="drone" />
-                    <span class="material-symbols-outlined">credit_card</span>
-                    <label for="credit-card">Thanh toán bằng thẻ tín dụng</label>
-                    <img src="/imgs/transaction/master.png" alt="Master Card">
-                    <img src="/imgs/transaction/jcb.png" alt="JCB">
-                    <img src="/imgs/transaction/visa.png" alt="Visa">
-                </div>
-
                 <button type="submit" id="btn-submit" class="btn--filled pri">Xác nhận</button>
-                <button type="submit" id="btn-more" class="btn--outlined pri">Mua thêm sản phẩm khác</button>
+                <button type="submit" id="btn-home-page" class="btn--outlined pri">Trở lại trang chủ</button>
 
+            </div>
+
+                
             </div>
         </div>
     </main>
+    <%- include('../../components/scrollup') %>
+    <%- include('../../partials/footer') %>
 
-    <!-- <script src="/scripts/login.js"></script> -->
+    <script src="/scripts/components/scrollup.js"></script>
+    <script src="/scripts/pages/notification/promotion.js"></script>
+    <script src="/scripts/pages/order/atm.js"></script>
 
 </body>
 

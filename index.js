@@ -5,7 +5,7 @@ const express = require('express')
 const util = require('node:util')
 const app = express()
 const session = require('express-session')
-const dodenv = require('dotenv').config();
+const dotdenv = require('dotenv').config();
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
