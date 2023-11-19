@@ -1,0 +1,35 @@
+@import url("/styles/general.css");
+
+/* ---------- HEADER ---------- */
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 10vw;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 99;
+}
+
+.header-left {
+  display: flex;
+  gap: 24px;
+}
+
+.header-left>img {
+  width: 150px;
+}
+
+.header-right a{
+  text-decoration: none;
+  color: var(--primary-color-1);
+}
+
+.header-right a:hover{
+  color: var(--primary-color-2);
+}
+

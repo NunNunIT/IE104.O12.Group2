@@ -1,81 +1,82 @@
-const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+let btn = document.querySelector('#btn');
+  let sidebar = document.querySelector('.sidebar');
 
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
+  btn.onclick = function() {
+    sidebar.classList.toggle('active')
+  };
 
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
+// Lấy tất cả các mục trong menu
+var menuItems = document.querySelectorAll('.menu-item');
+
+// Lắng nghe sự kiện click cho từng mục
+menuItems.forEach(function (item) {
+  item.addEventListener('click', function () {
+    // Xóa class active khỏi tất cả các mục
+    menuItems.forEach(function (otherItem) {
+      otherItem.classList.remove('active');
+    });
+
+    // Thêm class active cho mục được chọn
+    item.classList.add('active');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const logoutButton = document.querySelector('#logout-btn');
+  const popup = document.querySelector('#logout-popup');
+  const confirmButton = document.querySelector('#confirm-button');
+  const cancelButton = document.querySelector('#cancel-button');
+
+  // Thêm mã để hiện thông tin cá nhân khi trang tải xong
+  document.getElementById('info').style.display = 'block';
+
+  logoutButton.addEventListener('click', function () {
+    // Ẩn thông tin cá nhân khi click vào nút "Đăng xuất"
+    document.getElementById('info').style.display = 'none';
+    // Hiển thị popup form đăng xuất
+    popup.style.display = 'block';
+  });
+
+  cancelButton.addEventListener('click', function () {
+    // Hiển thị lại thông tin cá nhân khi click vào nút "Hủy" trong popup
+    document.getElementById('info').style.display = 'block';
+    // Ẩn popup form đăng xuất
+    popup.style.display = 'none';
+  });
+
+  confirmButton.addEventListener('click', function () {
+    // Thêm mã xử lý khi người dùng xác nhận đăng xuất
+    // Ví dụ: window.location.href = 'logout.php';
+  });
 });
 
 
-// TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .material-symbols-outlined');
-const sidebar = document.getElementById('sidebar');
-
-menuBar.addEventListener('click', function () {
-	sidebar.classList.toggle('hide');
-})
-
-
-// show profile
-// Giả sử đã có dữ liệu từ cơ sở dữ liệu
-const profileData = {
-    username: 'john_doe',
-    fullname: 'John Doe',
-    birthdate: '01/15/1990',
-    gender: 'Nam',
-    email: 'john@example.com',
-    phone: '123-456-7890',
-    address: '123 Main St, City, Country',
-    registrationDate: '10/01/2023',
-    accountStatus: 'Hoạt động',
-};
-
-document.getElementById('username').textContent = profileData.username;
-document.getElementById('fullname').textContent = profileData.fullname;
-document.getElementById('birthdate').textContent = profileData.birthdate;
-document.getElementById('gender').textContent = profileData.gender;
-document.getElementById('email').textContent = profileData.email;
-document.getElementById('phone').textContent = profileData.phone;
-document.getElementById('address').textContent = profileData.address;
-document.getElementById('registration-date').textContent = profileData.registrationDate;
-document.getElementById('account-status').textContent = profileData.accountStatus;
-
-
-document.querySelector('.logout').addEventListener('click', function() {
-    // Ẩn nội dung thông tin cá nhân
-    document.querySelector('.info').style.display = 'none';
-    // Hiển thị nội dung trang đăng xuất
-    document.querySelector('.logout-content').style.display = 'block';
+// Lắng nghe sự kiện click trên phần tử có class "popup"
+document.querySelector('.popup').addEventListener('click', function(event) {
+  // Kiểm tra nếu phần tử được click không thuộc về phần tử con của logout-form
+  if (!event.target.closest('.logout-form')) {
+    // Đóng popup
+    closeLogoutPopup();
+  }
 });
 
-document.getElementById('cancel-button').addEventListener('click', function() {
-    // Hiển thị lại nội dung thông tin cá nhân và ẩn nội dung trang đăng xuất khi hủy
-    document.querySelector('.info').style.display = 'block';
-    document.querySelector('.logout-content').style.display = 'none';
-});
+// Các hàm khác không thay đổi
+function openLogoutPopup() {
+  var logoutPopup = document.getElementById('logout-popup');
+  logoutPopup.style.display = 'block';
+}
 
-document.getElementById('confirm-button').addEventListener('click', function() {
-    // Thực hiện đăng xuất (có thể thực hiện các hành động đăng xuất khác)
-    alert('Bạn đã đăng xuất thành công.');
-    // Có thể thêm mã để chuyển đến trang đăng xuất
-});
+function closeLogoutPopup() {
+  var logoutPopup = document.getElementById('logout-popup');
+  logoutPopup.style.display = 'none';
+}
+
+function confirmLogout() {
+  console.log('Đăng xuất thành công');
+  closeLogoutPopup();
+}
+
+// Sự kiện nhấn nút "Đăng xuất"
+document.getElementById('confirm-button').addEventListener('click', confirmLogout);
 
 
-// Lấy tham chiếu đến các phần tử
-const infoLink = document.getElementById('info-link');
-const infoContent = document.querySelector('.info');
-const logoutContent = document.querySelector('.logout-content');
-
-// Đặt sự kiện khi nhấn vào "Thông tin cá nhân"
-infoLink.addEventListener('click', function(e) {
-    // e.preventDefault(); // Ngăn chuyển hướng đến href của liên kết
-
-    // Hiển thị nội dung thông tin cá nhân và ẩn nội dung trang đăng xuất
-    infoContent.style.display = 'block';
-    logoutContent.style.display = 'none';
-});

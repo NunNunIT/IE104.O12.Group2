@@ -7,7 +7,7 @@
     --primary-color-2: #1559ab;
     --primary-color-3: #02e5f6;
     --primary-color-4: #092a3b;
-    --primary-color-5: #fbb72c;
+    --primary-color-5: #030302;
     --white-gray: #f9f9f9;
     --bg-white: #f1f1f1;
     --bg-gray: #f5f6f8;
@@ -19,12 +19,71 @@
     --bg-blue-o30: rgba(42, 126, 228, 0.3);
     --outline-gray: #eaeaea;
     --dark-gray: #2c2c2c;
-    --dark-blue: #114a91;
+    --dark-gray-2: #1e1e1e;
+    --dark-gray-70: #4A4A4A;
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
     --pink: #FF685F;
     --dollar-red: #D0021C;
-    --fire-orange: #FFA500;
+
+    --scroll-thumb: #828282;
+    --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
+
+    --dark1: #0000004d;
+    --dark2: #181c20;
+    --dark3: #212529;
+    --dark4: #2d3135;
+    --dark5: #424549;
+    --dark6: #404346;
+    --dark7: #9c9c9c;
+    --dark8: #dae0e7;
+    --dark9: #262a2e;
+
+    /* --red1: #ffdab9; */
+    --red1: rgb(255,8,0,0.1);
+    --red2: #fa8072;
+    --red3: #fe2712;
+    --red4: #ff0800;
+    --red5: #dd3545;
+    --red6: #c6303e;
+    --red7: #ae0c00;
+    --red8: #92000a;
+    --red9: #550000;
+    --red10: #440000;
+    --red11: #330000;
+
+    --green1: #E6F1D8;
+    --green2: #e5f8ed;
+    --green3: #AFD788;
+    --green4: #00ac47;
+    --green5: #28a745;
+    --green6: #24963e;
+    --green7: #006600;
+    --green8: #005500;
+    --green9: #004400;
+    --green10: #003300;
+    --green11: #002200;
+    --green12: #001100;
+
+    --blue1: #e9edf2;
+    --blue2: #add8e6;
+    --blue3: #00aae4;
+    --blue4: #0892d0;
+    --blue5: #007aff;
+    --blue6: #1592a5;
+    --blue7: #004f98;
+    --blue8: #0033aa;
+    --blue9: #1034a6;
+    --blue10: #191970;
+    --blue11: #000036;
+
+    --yellow1: rgb(255, 193, 7, 0.1);
+    --yellow5: #ffc107;
+    --yellow6: #e5ad06;
+    /*
+        border-radius: 4px 8px 12px 16px
+        button border-radius: 8px
+    */
 }
 
 * {
@@ -75,80 +134,26 @@ p {
     text-align: justify;
 }
 
-button {
-    cursor: pointer;
-    height: 48px;
-    display: inline-block;
-    padding: 0;
-    border-radius: 8px;
+/* Custom Scrollbar */
 
-    & .status-layer {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 24px;
-        border-radius: inherit;
-
-        & span {
-            /* font-weight: bold; */
-            margin: auto;
-        }
-    }
-
-    &:hover {
-        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    &:active {
-        box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
-
-        & .status-layer {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
 }
 
-/* button.btn--filled {
-    background-color: white;
-    color: var(--primary-color-2);
-    border: none;
-    padding: 0 24px 0 24px;
-
-    &:hover .status-layer {
-        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
-    }
-} */
-
-button.btn--filled.pri {
-    background-color: var(--primary-color-1);
-    color: white;
-    font-size: 16px;
-    padding: 0 24px 0 24px;
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
 }
 
-button.btn--filled.sec {
-    background-color: var(--primary-color-5);
-    color: white;
-    font-size: 16px;
-    padding: 0 24px 0 24px;
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b0b0b0;
+    border-radius: 10px;
 }
 
-button.btn--outlined.pri {
-    background-color: white;
-    color: var(--primary-color-1);
-    border: 1px solid var(--primary-color-1);
-    font-size: 16px;
-    padding: 0 24px 0 24px;
-}
-
-button.btn--outlined.sec {
-    background-color: white;
-    color: var(--primary-color-5);
-    border: 1px solid var(--primary-color-5);
-    font-size: 16px;
-    padding: 0 24px 0 24px;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color-2);
 }

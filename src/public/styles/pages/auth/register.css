@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 @import url("/styles/general.css");
+@import url("/styles/partials/header-small.css");
 
 
 .material-symbols-outlined {
@@ -14,7 +15,7 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: var(--outline-gray)
+  color: var(--dark7)
 }
 
 *,
@@ -35,13 +36,14 @@ main {
   min-height: 100vh;
   overflow: hidden;
   background-color: var(--bg-white);
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .register__box {
+  margin-top: 80px;
   position: relative;
   width: 100%;
   max-width: 1020px;
@@ -107,7 +109,7 @@ form.register__sign-up-form {
 }
 
 .register__heading h4 {
-  color: var(--outline-gray);
+  color: var(--dark7);
   /* font-weight: 400;
   font-size: 0.95rem; */
   display: inline;
@@ -162,7 +164,7 @@ label {
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.95rem;
-  color: var(--outline-gray);
+  color: var(--dark7);
   pointer-events: none;
   transition: 0.4s;
 }
@@ -196,7 +198,7 @@ label {
 }
 
 .register__text {
-  color: var(--outline-gray);
+  color: var(--dark7);
   font-size: 0.8rem;
   text-align: center;
 }
@@ -215,12 +217,10 @@ label {
   height: 100%;
   width: 55%;
   left: 45%;
-  top: 0;
-  background-color: var(--bg-white);
-  border-radius: 12px;
+  top: 10%;
+  background-color: none;
   display: grid;
   grid-template-rows: auto 1fr;
-  padding-bottom: 2rem;
   overflow: hidden;
   transition: 0.8s ease-in-out;
 }
@@ -233,6 +233,7 @@ label {
 
 .register__image {
   width: 100%;
+  border-radius: 12px;
   grid-column: 1/2;
   grid-row: 1/2;
   opacity: 0;
@@ -261,30 +262,6 @@ label {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-
-
-.register__bullets {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.register__bullets span {
-  display: block;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: var(--outline-gray);
-  margin: 0 0.25rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.register__bullets span.active {
-  width: 1.1rem;
-  background-color: var(--black);
-  border-radius: 1rem;
 }
 
 .register__toggle-password {
