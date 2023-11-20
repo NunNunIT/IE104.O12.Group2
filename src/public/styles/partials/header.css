@@ -66,6 +66,49 @@ header {
     gap: 20px;
 }
 
+.dropdown-help {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-help__content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+    z-index: 1;
+    margin-top: 4px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    gap: 12px;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-help__content img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.dropdown-help__content p {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.dropdown-help:hover .dropdown-help__content {
+    display: flex;
+}
+
+.dropdown-help:hover a {
+    color: #d7d7d7;
+}
+
+.header__support-info__hotline:hover {
+    color: #d7d7d7;
+}
+
 .header__about-account {
     display: flex;
     gap: 20px;

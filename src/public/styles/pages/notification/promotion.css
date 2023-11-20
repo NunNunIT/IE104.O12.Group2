@@ -20,11 +20,12 @@ body {
 
 .nofi-container {
     width: 80%;
-    margin: 164px 0 24px 0;
     padding: 0;
+    margin: 170px 0 24px 0;
     display: flex;
     gap: 12px;
     align-items: flex-start;
+    padding-top: 24px;
 }
 
 .aside-wrapper {
