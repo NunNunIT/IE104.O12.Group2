@@ -1,0 +1,197 @@
+
+.landing-page-content.container {
+    padding: 0;
+    max-width: none;
+    }
+    .right-side img {
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        will-change: transform;
+        animation: fadeInRight .6s ease;
+        animation-fill-mode: both;
+    }
+    .warranty-page .container {
+        width: 1200px;
+        max-width: 1200px;
+        background: #fff;
+        margin-top: 14px;
+        padding: 18px 32px;
+    }
+    .warranty-page .warranty-short-description {
+        margin-top: 40px;
+        padding: 0 44px;
+    }
+    .warranty-page .warranty-short-description ul {
+        list-style: disc;
+    }
+    .warranty-page .warranty-short-description ul li {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        color: #3f3f3f;
+        position: relative;
+    }
+    
+    .warranty-page .warranty-process-road {
+        padding: 26px;
+        position: relative;
+    }
+    .warranty-page .warranty-process-road .road {
+        position: absolute;
+        width: 100%;
+        top: 300px;
+        left: 0;
+    }
+    .warranty-page .warranty-process-road .process-step {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+    .left-side {
+        flex-grow: 1;
+        flex-basis: 50%;
+    }
+    .right-side {
+        flex-grow: 1;
+        flex-basis: 50%;
+        position: relative;
+    }
+    .warranty-page .warranty-process-road .step-content .step-title {
+        align-items: center;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        color: #3f3f3f;
+    }
+    .warranty-page .warranty-process-road .step-content .step-description {
+        padding-top: 1rem;
+    }
+    .warranty-page .warranty-process-road .step-content .step-description p {
+        font-size: 16px;
+        line-height: 36px;
+        color: #3f3f3f;
+        margin-bottom: 8px;
+    padding-left: 5px;
+    }
+    .font-700 {
+        font-weight: 700;
+    }
+    .text-red {
+        color: rgb(42, 126, 228);
+    }
+    .warranty-page .warranty-process-road .step-content .step-description ul {
+        list-style: disc;
+    }
+    .warranty-page .warranty-process-road .step-content .step-description ul li {
+        font-size: 16px;
+        line-height: 32px;
+        color: #3f3f3f;
+        position: relative;
+    }
+    .warranty-page .warranty-process-road .step-1 {
+        padding: 0 0 0 115px;
+    }
+    .warranty-page .warranty-process-road .step-1 .right-side img.row-step-1 {
+        left: -30px;
+    }
+    .warranty-page .warranty-process-road .step-1 .step-title-decorate {
+        position: absolute;
+        width: 295px;
+        height: 97px;
+        top: 13px;
+        left: -57px;
+        transform: translate(-50%,25%);
+    }
+    .warranty-page .warranty-process-road .step-1 .right-side img {
+        box-shadow: none;
+    }
+    .warranty-page .warranty-process-road .step-content .step-title img {
+        margin-right: 10px;
+    }
+    .warranty-page .warranty-process-road .step-1 .step-title {
+        position: relative;
+    }
+    .warranty-page .warranty-process-road .step-1 .left-side {
+        width: 345px;
+    }
+    .warranty-page .warranty-process-road .step-2 {
+        padding-top: 6em;
+    }
+    .warranty-page .warranty-process-road .step-2 .right-side .step2 {
+        width: 525px;
+        height: auto;
+        box-shadow: none;
+    }
+    .warranty-page .warranty-process-road .step-2 .step-title {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        padding-right: 9rem;
+        margin-bottom: 9rem;
+    }
+    .warranty-page .warranty-process-road .step-2 .step-title-decorate {
+        position: absolute;
+        width: 440px;
+        height: 158px;
+        top: 0;
+        right: 0;
+        transform: translate(45%,5%);
+    }
+    .warranty-page .warranty-process-road .step-3 .step-title-decorate {
+    position: absolute;
+        height: 95px;
+        top: -5px;
+        left: -224px;
+        width: 350px;
+        box-shadow: none;
+        transform: translate(-11%,40%);
+    }
+    .warranty-page .warranty-process-road .step-4 {
+        padding-top: 4em;
+    }
+    .warranty-page .warranty-process-road .step-3 .step-title .step3 {
+        margin-left: -23px;
+        margin-right: 0;
+        width: 15px;
+        height: auto;
+        margin-top: 8px;
+        box-shadow: none;
+    }
+    .warranty-page .warranty-process-road .step-3 .right-side .step-description p {
+        margin-bottom: 0;
+        font-size: 1em;
+        font-weight: 700;
+    }
+    .warranty-page .warranty-process-road .step-3 .left-side {
+        text-align: center;
+        padding-top: 5rem;
+    }
+    .warranty-page .warranty-process-road .step-content .step-description ul li {
+        font-size: 16px;
+        line-height: 32px;
+        color: #3f3f3f;
+        position: relative;
+    }
+    b, strong {
+        font-weight: bolder;
+    }
+    .warranty-page .warranty-process-road .step-4 .step-title {
+    position: relative;
+        display: flex;
+        padding-right: 18rem;
+        justify-content: flex-end;
+    }
+    .warranty-page .warranty-process-road .step-2 .step-description ul li ul li {
+        color:  rgb(42, 126, 228);
+        list-style-type: "+";
+    }
+    .warranty-page .warranty-process-road .step-4 .step-title-decorate {
+        position: absolute;
+        top: -37px;
+        right: 0;
+        transform: translate(25%,50%);
+    }
+        

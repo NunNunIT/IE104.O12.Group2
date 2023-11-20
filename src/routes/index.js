@@ -8,6 +8,9 @@ const orderRouter = require('./orderRouter')
 const searchRouter = require('./searchRouter')
 const testRouter = require('./testRouter')
 
+
+// const testRouter = require('./testRouter')
+
 function route(app) {
 
     app.use('/admin', adminRouter)
@@ -17,6 +20,9 @@ function route(app) {
     app.use('/notification', notificationRouter)
     app.use('/account', accountRouter)
     app.use('/', siteRouter)
+
+
+    // app.use('/test', testRouter)
 }
 
 module.exports = route

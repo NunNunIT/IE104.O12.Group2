@@ -1,6 +1,6 @@
 const db = require('../config/db/connect');
 const bcrypt = require('bcryptjs')
-const util = require('node:util')
+const util = require('util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 class adminController {
