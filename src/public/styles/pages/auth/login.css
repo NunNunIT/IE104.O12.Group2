@@ -1,6 +1,7 @@
 @import url("/styles/general.css");
+@import url("/styles/partials/header-small.css");
 
-.material-symbols-outlined {
+#eye-open {
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
@@ -12,7 +13,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: var(--outline-gray);
+    color: var(--dark7);
 }
 
 *,
@@ -33,17 +34,18 @@ main {
     min-height: 100vh;
     overflow: hidden;
     background-color: var(--bg-white);
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .login__box {
+    margin-top: 80px;
     position: relative;
     width: 100%;
     max-width: 1020px;
-    height: 678px;
+    height: 700px;
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
@@ -86,8 +88,9 @@ form {
 form .login__sign-in-form {
     opacity: 0;
     pointer-events: none;
-    
+
 }
+
 .login__logo {
     display: flex;
     align-items: center;
@@ -104,14 +107,14 @@ form .login__sign-in-form {
 }
 
 .login__heading h4 {
-    color: var(--outline-gray);
+    color: var(--dark7);
     display: inline;
 }
 
 .login__toggle {
     color: var(--primary-color-1);
     text-decoration: none;
-    
+
     transition: 0.3s;
 }
 
@@ -156,7 +159,7 @@ label {
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.95rem;
-    color: var(--outline-gray);
+    color: var(--dark7);
     pointer-events: none;
     transition: 0.4s;
 }
@@ -190,7 +193,7 @@ label {
 }
 
 .login__text {
-    color: var(--outline-gray);
+    color: var(--dark7);
     font-size: 0.8rem;
     text-align: center;
 }
@@ -210,12 +213,12 @@ label {
     height: 100%;
     width: 55%;
     left: 45%;
-    top: 0;
-    background-color: var(--bg-white);
-    border-radius: 12px;
+    top: 7%;
+    /* background-color: var(--bg-white); */
+    /* border-radius: 12px; */
     display: grid;
     grid-template-rows: auto 1fr;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
     overflow: hidden;
     transition: 0.8s ease-in-out;
 }
@@ -227,6 +230,7 @@ label {
 }
 
 .login__image {
+    border-radius: 12px;
     width: 100%;
     grid-column: 1/2;
     grid-row: 1/2;

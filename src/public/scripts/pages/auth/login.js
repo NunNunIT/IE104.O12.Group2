@@ -1,8 +1,17 @@
 const inputs = document.querySelectorAll(".login__input-field");
 const toggle_btn = document.querySelectorAll(".login__toggle");
 const main = document.querySelector("main");
-const bullets = document.querySelectorAll(".login__bullets span");
 const images = document.querySelectorAll(".login__image");
+
+autoComplete();
+function autoComplete () {
+    inputs.forEach((inp) => {
+        if (inp.value) {
+        inp.classList.add("active");
+        }
+    });
+}
+
 
 inputs.forEach((inp) => {
     inp.addEventListener("focus", () => {
@@ -22,9 +31,6 @@ function moveSlider() {
         images.forEach((img) => img.classList.remove("show"));
         currentImage.classList.add("show");
 
-        bullets.forEach((bull) => bull.classList.remove("active"));
-        bullets[index - 1].classList.add("active");
-
         index = (index % images.length) + 1;
     }
 
@@ -39,28 +45,6 @@ function startAutoSlide() {
 }
 
 startAutoSlide();
-
-bullets.forEach((bullet) => {
-    bullet.addEventListener("click", () => {
-        // Dừng tự động chuyển slide khi người dùng chọn slide thủ công
-        clearTimeout(autoSlide);
-
-        // Xác định slide cần hiển thị dựa trên data-value của bullet
-        const index = parseInt(bullet.getAttribute("data-value"));
-        let currentImage = document.querySelector(`.login__img-${index}`);
-
-        // Hiển thị slide tương ứng
-        images.forEach((img) => img.classList.remove("show"));
-        currentImage.classList.add("show");
-
-        // Đánh dấu bullet tương ứng là active
-        bullets.forEach((bull) => bull.classList.remove("active"));
-        bullet.classList.add("active");
-
-        // Khởi động lại tự động chuyển slide sau khi người dùng đã chọn slide
-        autoSlideInterval = setInterval(moveSlider, 2000);
-    });
-});
 
 
 const passwordInput = document.getElementById("Password");
@@ -153,18 +137,21 @@ const validateInput = () => {
             user_phone: PhoneNumber.value.trim(),
             user_password: Password.value.trim()
         }
-        fetch("/login", {
+        fetch("/auth/login", {
             method: 'POST',
             body: JSON.stringify(login),
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then (res => res.json()).then (data => {
-            if (data.status == "error"){
-                setError(PhoneNumber, data.error);
+        }).then (res => res.json()).then (back => {
+            if (back.status == "error"){
+                setError(PhoneNumber, back.error);
             }
-            else if (data.status == "error2") {
-                setError(Password, data.error);
+            else if (back.status == "error2") {
+                setError(Password, back.error);
+            }
+            else {
+                form.submit();
             }
     
         })

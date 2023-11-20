@@ -3,8 +3,9 @@ const router = express.Router();
 
 // import controller
 const NotificationController = require('../controllers/NotificationController.js')
+const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/account-update', NotificationController.accountUpdate);
-router.get('/promotion', NotificationController.promotion);
+router.get('/account-update', authMiddleware.isLoggedIn, NotificationController.accountUpdate);
+router.get('/promotion', authMiddleware.isLoggedIn, NotificationController.promotion);
 
 module.exports = router

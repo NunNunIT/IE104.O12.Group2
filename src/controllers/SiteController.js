@@ -17,7 +17,18 @@ class SiteController {
 
         res.render('./pages/site/index', { productCatalog })
     }
+    indexPost(req, res) {
+        const productCatalog = {
+            'cooker': 'Nồi cơm điện',
+            'fan': 'Quạt điện',
+            'fridge': 'Tủ lạnh',
+            'television': 'Ti vi',
+            'water-purifier': 'Máy lọc nước',
+            'induction-cooker': 'Bếp từ'
+        }
 
+        res.render('./pages/site/index', { productCatalog })
+    }
 
 
     //[GET] /about-us

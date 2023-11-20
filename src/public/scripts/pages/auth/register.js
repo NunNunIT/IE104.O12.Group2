@@ -1,7 +1,6 @@
 const inputs = document.querySelectorAll(".register__input-field");
 const toggle_btn = document.querySelectorAll(".register__toggle");
 const main = document.querySelector("main");
-const bullets = document.querySelectorAll(".register__bullets span");
 const images = document.querySelectorAll(".register__image");
 
 inputs.forEach((inp) => {
@@ -22,9 +21,6 @@ function moveSlider() {
         images.forEach((img) => img.classList.remove("show"));
         currentImage.classList.add("show");
 
-        bullets.forEach((bull) => bull.classList.remove("active"));
-        bullets[index - 1].classList.add("active");
-
         index = (index % images.length) + 1;
     }
 
@@ -39,28 +35,6 @@ function startAutoSlide() {
 }
 
 startAutoSlide();
-
-bullets.forEach((bullet) => {
-    bullet.addEventListener("click", () => {
-        // Dừng tự động chuyển slide khi người dùng chọn slide thủ công
-        clearTimeout(autoSlide);
-
-        // Xác định slide cần hiển thị dựa trên data-value của bullet
-        const index = parseInt(bullet.getAttribute("data-value"));
-        let currentImage = document.querySelector(`.register__img-${index}`);
-
-        // Hiển thị slide tương ứng
-        images.forEach((img) => img.classList.remove("show"));
-        currentImage.classList.add("show");
-
-        // Đánh dấu bullet tương ứng là active
-        bullets.forEach((bull) => bull.classList.remove("active"));
-        bullet.classList.add("active");
-
-        // Khởi động lại tự động chuyển slide sau khi người dùng đã chọn slide
-        autoSlideInterval = setInterval(moveSlider, 2000);
-    });
-});
 
 const passwordInput = document.getElementById("password");
 const togglePasswordButton = document.getElementById("togglePassword");
@@ -189,30 +163,30 @@ const validateInput = () => {
 
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
     if (isAllValid) {
-        // form.submit();
         const register = {
             user_login_name: userName.value.trim(),
             user_phone: phoneNumber.value.trim(),
             user_password: password.value.trim()
         };
 
-        fetch("/register", {
+        fetch("/auth/register", {
                 method: "POST",
                 body: JSON.stringify(register),
                 headers: {
                     "Content-Type": "application/json"
                 }
             }).then(res => res.json())
-            .then(data => {
-                if (data.status == "error") {
+            .then(back => {
+                if (back.status == "error") {
                     // success.style.display = "none"
                     // error.style.display = "block";
-                    setError(phoneNumber, data.error);
-                    // error.innerText = data.error
+                    setError(phoneNumber, back.error);
+                    // error.innerText = back.error
                 } else {
+                    form.submit();
                     // success.style.display = "block"
                     // error.style.display = "none";
-                    // success.innerText = data.success
+                    // success.innerText = back.success
                 }
             })
     }

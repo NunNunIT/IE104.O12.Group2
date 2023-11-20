@@ -1,8 +1,9 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-@import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
+@import url("/styles/partials/breadcrumb.css");
 @import url("/styles/partials/app-bar.css");
+@import url("/styles/components/scrollup.css");
 
 .success-logo .material-symbols-outlined {
     font-variation-settings:
@@ -50,7 +51,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 120px 0 0px 0;
 }
 
 .transaction-box {

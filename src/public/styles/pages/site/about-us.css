@@ -1,7 +1,8 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-@import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
+@import url("/styles/partials/breadcrumb.css");
+@import url("/styles/components/scrollup.css");
 
 body {
     width: 100%;
@@ -11,7 +12,7 @@ body {
     background-color: var(--white-gray);
 }
 
-p {
+.about-container p {
     line-height: 1.5;
     font-weight: 300;
     letter-spacing: 0.8px;
@@ -30,18 +31,18 @@ h2 {
 }
 
 .about-container {
-    width: 95%;
-    max-width: 1440px;
+    width: 80%;
+    max-width: 1152px;
+    padding: 24px;
+    margin: 24px 0;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
-    margin: 162px 0 24px 0;
+    background-color: var(--white);
 }
 
 .about-us__content {
-    width: 80%;
-    max-width: 1152px;
     display: flex;
     flex-direction: column;
     align-items: center;

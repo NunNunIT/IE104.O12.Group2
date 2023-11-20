@@ -1,0 +1,66 @@
+.breadcrumbs {
+    font-family: "Segoe UI", "Poppins", sans-serif;
+    width: 80%;
+    max-width: 1152px;
+    margin-top: 176px;
+    box-sizing: border-box;
+}
+
+.breadcrumbs ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+}
+
+.breadcrumbs ul li {
+    align-items: center;
+    white-space: nowrap;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.breadcrumbs ul li span {
+    font-variation-settings: 'FILL' 1;
+    display: block;
+}
+
+.breadcrumbs ul li a {
+    text-decoration: none;
+    color: #1559ab;
+    /* color: var(--fb-blue); */
+    font-size: 16px;
+    font-weight: 450;
+}
+
+.breadcrumbs ul li a:hover {
+    color: #2a7ee4;
+    /* color: var(--fb-blue); */
+}
+
+.breadcrumbs ul li:last-child a {
+    color: black;
+    /* color: var(--black); */
+}
+
+@media only screen and (max-width: 40rem) {
+    .breadcrumbs {
+        padding: 8px 5vw;
+    }
+
+    .breadcrumbs li {
+        max-width: 100px;
+    }
+
+    .breadcrumbs ul li:first-child {
+        display: none;
+    }
+
+    .breadcrumbs ul li:nth-child(2) {
+        display: none;
+    }
+
+}

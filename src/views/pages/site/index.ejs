@@ -4,23 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
+
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
     <link rel="stylesheet" href="/styles/pages/site/index.css">
+
     <title>TECHTWO.</title>
 </head>
 
 <body>
     <%- include('../../partials/header') %>
 
-    <main class="content-container">
         <%- include('../../components/slider') %>
-        <%- include('../../components/product-catalog') %>
+
+    <main class="content-container">
+        <section class="cate">
+            <h2 class="cate__title">Danh mục sản phẩm</h2>
+            <div class="cate__content">
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+                <%- include ('../../components/cate-item') %>
+            </div>
+        </section>
+        <%- include('../../components/carousel') %>
     </main>
 
-    <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
-    <%- include('../../partials/app-bar') %>
+            <%- include('../../components/scrollup') %>
+                <%- include('../../partials/footer') %>
+                    <%- include('../../partials/app-bar') %>
 
+    <script src="/scripts/components/carousel.js"></script>
     <script src="/scripts/components/slider.js"></script>
     <script src="/scripts/components/scrollup.js"></script>
 </body>

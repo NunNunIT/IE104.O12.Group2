@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0..1,0");
+@import url("/styles/partials/footer.css");
+
 :root {
     --white: #ffffff;
     --red: #ff0000;
@@ -19,12 +23,73 @@
     --bg-blue-o30: rgba(42, 126, 228, 0.3);
     --outline-gray: #eaeaea;
     --dark-gray: #2c2c2c;
-    --dark-blue: #114a91;
+    --dark-gray-2: #1e1e1e;
+    --dark-gray-70: #4A4A4A;
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
     --pink: #FF685F;
     --dollar-red: #D0021C;
-    --fire-orange: #FFA500;
+    --fire-orange: #FF9F40;
+    --dark-blue: #114A91;
+
+    --scroll-thumb: #828282;
+    --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
+
+    --dark1: #0000004d;
+    --dark2: #181c20;
+    --dark3: #212529;
+    --dark4: #2d3135;
+    --dark5: #424549;
+    --dark6: #404346;
+    --dark7: #9c9c9c;
+    --dark8: #dae0e7;
+    --dark9: #262a2e;
+
+    /* --red1: #ffdab9; */
+    --red1: rgb(255, 8, 0, 0.1);
+    --red2: #fa8072;
+    --red3: #fe2712;
+    --red4: #ff0800;
+    --red5: #dd3545;
+    --red6: #c6303e;
+    --red7: #ae0c00;
+    --red8: #92000a;
+    --red9: #550000;
+    --red10: #440000;
+    --red11: #330000;
+
+    --green1: #E6F1D8;
+    --green2: #e5f8ed;
+    --green3: #AFD788;
+    --green4: #00ac47;
+    --green5: #28a745;
+    --green6: #24963e;
+    --green7: #006600;
+    --green8: #005500;
+    --green9: #004400;
+    --green10: #003300;
+    --green11: #002200;
+    --green12: #001100;
+
+    --blue1: #e9edf2;
+    --blue2: #add8e6;
+    --blue3: #00aae4;
+    --blue4: #0892d0;
+    --blue5: #007aff;
+    --blue6: #1592a5;
+    --blue7: #004f98;
+    --blue8: #0033aa;
+    --blue9: #1034a6;
+    --blue10: #191970;
+    --blue11: #000036;
+
+    --yellow1: rgb(255, 193, 7, 0.1);
+    --yellow5: #ffc107;
+    --yellow6: #e5ad06;
+    /*
+        border-radius: 4px 8px 12px 16px
+        button border-radius: 8px
+    */
 }
 
 * {
@@ -75,6 +140,30 @@ p {
     text-align: justify;
 }
 
+/* Custom Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b0b0b0;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color-2);
+}
+
 button {
     cursor: pointer;
     height: 48px;
@@ -110,18 +199,6 @@ button {
         }
     }
 }
-
-/* button.btn--filled {
-    background-color: white;
-    color: var(--primary-color-2);
-    border: none;
-    padding: 0 24px 0 24px;
-
-    &:hover .status-layer {
-        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
-    }
-} */
 
 button.btn--filled.pri {
     background-color: var(--primary-color-1);

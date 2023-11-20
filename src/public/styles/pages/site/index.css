@@ -1,10 +1,13 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
-@import url("/styles/components/slider.css");
-@import url("/styles/components/product-catalog.css");
-@import url("/styles/components/scrollup.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/app-bar.css");
+@import url("/styles/partials/breadcrumb.css");
+@import url("/styles/components/slider.css");
+@import url("/styles/components/cate-item.css");
+@import url("/styles/components/scrollup.css");
+@import url("/styles/components/product-card.css");
+@import url("/styles/components/carousel.css");
 
 * {
     padding: 0;
@@ -21,23 +24,74 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-white);
 }
 
 .content-container {
-    margin: 180px auto;
     width: 80%;
+    margin: 24px auto;
+    max-width: 1152px;
     /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
-    gap: 5vh
+    gap: 5vh;
+    /* background-color: var(--white); */
 }
 
-/* respnsive for tablet */
-/* @media only screen and (max-width: 48rem) {} */
+section {
+    padding: 24px;
+    background-color: var(--white);
+    border-radius: 8px;
+}
 
-/* respnsive for smartphone */
-@media only screen and (max-width: 40rem) {
-    .content-container {
-        width: 100%;
+.slider {
+    margin-top: 160px;
+}
+
+.cate {
+    display: inherit;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cate__content {
+    display: inherit;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* 1024px - Mini PC */
+@media only screen and (max-width: 64rem) {
+    .cate__content {
+        gap: 8px;
     }
 }
+
+/*Responsive-smartphone*/
+/* 768px - Tablet */
+@media only screen and (max-width: 48rem) {
+    .content-container {
+        width: 100%;
+        margin: 130px 0;
+    }
+
+    .seacrh-result__main-card {
+        gap: 2%;
+    }
+}
+
+/*Responsive-smartphone*/
+@media only screen and (max-width: 26rem) {
+    .cate__content {
+        gap: 4px;
+        justify-content: flex-start;
+    }
+
+    .product-list__main-card {
+        margin-top: 16px;
+    }
+}
+
+
+
