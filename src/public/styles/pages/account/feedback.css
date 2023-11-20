@@ -32,7 +32,7 @@ body {
 }
 
 .product-info {
-    height: 70px;
+    height: 80px;
     /* border: 1px solid var(--outline-gray); */
     border-radius: 8px;
     /* background-color: rgb(220, 220, 224); */
@@ -54,6 +54,10 @@ body {
 
 .product_variant-name {
     display:  block;
+}
+
+.price {
+    width: 100%;
 }
 
 .price, .quantity {
