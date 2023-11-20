@@ -1,23 +1,44 @@
-* {
-    scroll-behavior: smooth;
-}
-
 .scrollup {
+    display: none;
     position: fixed;
     bottom: 30px;
     right: 30px;
-    padding: 10px 15px;
-    background-color: #ffffff;
-    color: #2A7EE4;
-    border-radius: 20%;
-    border-radius: 1px solid #ffffff;
+    width: 52px;
+    height: 52px;
+    background-color: #333333;
+    border-radius: 50%;
     box-shadow: 0 2px 5px gray;
     cursor: pointer;
     transition: all 0.5s ease 0s;
-
 }
 
+.scrollup span{
+    font-size: 40px;
+    color: var(--white);
+}
+
+
+
 .scrollup:hover {
-    background-color: #2A7EE4;
+    background-color: var(--dark7);
     color: #fff;
+}
+
+.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 26rem) {
+    .scrollup {
+        right: 12px;
+        bottom: 60px;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .scrollup span{
+        font-size: 28px;
+    }
 }

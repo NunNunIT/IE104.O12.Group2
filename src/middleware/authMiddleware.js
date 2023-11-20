@@ -42,7 +42,7 @@ exports.checkAuth = (req, res, next) => {
 
 }
 
-checkUnAuth = (req, res, next) => {
+exports.checkUnAuth = (req, res, next) => {
     console.log (`checkUnAuth: ${req.cookies.userSave}`)
     if (!req.cookies.userSave) {
         res.status(401).redirect('/')
@@ -50,12 +50,4 @@ checkUnAuth = (req, res, next) => {
     else {
         next();
     }
-}
-
-exports.logout = (req, res) => {
-    res.cookie('userSave', 'logout', {
-        expires: new Date(Date.now() + 2 * 1000),
-        httpOnly: true
-    });
-    res.status(200).redirect("/");
 }
