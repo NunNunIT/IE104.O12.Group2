@@ -23,29 +23,29 @@
                 <div class="seacrh-result__filter-normal__content">
                     <p>Giá</p>
                     <span class="material-symbols-outlined dropdown-button">expand_more</span>
-                    <div class="dropdown-content">
+                    <form action="/search/results" method="GET" class="dropdown-content">
                         <div class="filter-list">
                             <div class="dropdown-options">
-                                <input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
-                                <label for="less-than-5m" class="filter-label">Dưới 5 triệu</label>
+                                <input class="filter-option" type="radio" id="less-than-5m" name="less-than-5m" value="" />
+                                <label class="filter-label">Dưới 5 triệu</label>
                             </div>
                             <div class="dropdown-options">
                                 <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
-                                <label for="5m-10m" class="filter-label">Từ 5tr - 10tr</label>
+                                <label class="filter-label">Từ 5tr - 10tr</label>
                             </div>
                             <div class="dropdown-options">
                                 <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
-                                <label for="10m-15m" class="filter-label">Từ 10tr - 15tr</label>
+                                <label class="filter-label">Từ 10tr - 15tr</label>
                             </div>
                             <div class="dropdown-options">
                                 <input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
-                                <label for="15m-20m" class="filter-label">Từ 15tr - 20tr</label>
+                                <label class="filter-label">Từ 15tr - 20tr</label>
                             </div>
                             <div class="dropdown-options">
                                 <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
-                                <label for="greater-than-20m" class="filter-label">Trên 20 triệu</label>
+                                <label class="filter-label">Trên 20 triệu</label>
                             </div>
-                        </div>
+                        </form>
                         <div class="filter-dropdown__button">
                             <button class="btn--outlined pri" type="submit">Hủy bộ lọc này</button>
                             <button class="btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
@@ -58,14 +58,14 @@
                     <span class="material-symbols-outlined dropdown-button">expand_more</span>
                     <div class="dropdown-content">
                         <div class="filter-list">
-                            <div class="dropdown-options">
-                                <input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
-                                <label for="less-than-5m" class="filter-label">Phân loại 1</label>
-                            </div>
-                            <div class="dropdown-options">
+                            <a href="#" class="dropdown-options">
+                                <input class="filter-option" type="radio" id="" name="sort" value="" />
+                                <label for="" class="filter-label">Phân loại 1</label>
+                            </a>
+                            <a href="#" class="dropdown-options">
                                 <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
                                 <label for="5m-10m" class="filter-label">Phân loại 2</label>
-                            </div>
+                            </a>
                             <div class="dropdown-options">
                                 <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
                                 <label for="10m-15m" class="filter-label">Phân loại 3</label>
