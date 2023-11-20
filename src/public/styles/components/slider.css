@@ -1,6 +1,6 @@
 .slider {
     width: 100%;
-    height: 40vh;
+    height: 400px;
     margin: auto;
     position: relative;
     overflow: hidden;
@@ -17,10 +17,13 @@
     transition: 1s;
 }
 
+.item {
+    width: 100vw;
+}
+
 .slider .list img {
-    width: 1300px;
-    max-width: 100vw;
-    height: 100%;
+    width: 100%;
+    height: 400px;
     object-fit: cover;
 }
 
@@ -81,5 +84,3 @@
         height: 30vh;
     }
 }
-
-

@@ -180,6 +180,7 @@ header {
 /* menu */
 .header__menu {
     width: 80%;
+    max-width: 1152px;
     display: flex;
     justify-content: flex-start;
     gap: 24px;
@@ -215,8 +216,9 @@ header {
     color: var(--pink);
 }
 
-.header__cate-dopdown {
+.header__cate-dropdown {
     width: 80%;
+    max-width: 1152px;
     padding: 12px;
     display: flex;
     justify-content: space-between;
@@ -436,7 +438,7 @@ header {
         width: 90%;
     }
 
-    .header__cate-dopdown {
+    .header__cate-dropdown {
         width: 90%;
     }
 
@@ -466,7 +468,7 @@ header {
         padding: 4px;
     }
 
-    .header__cate-dopdown {
+    .header__cate-dropdown {
         padding: 8px;
     }
 
