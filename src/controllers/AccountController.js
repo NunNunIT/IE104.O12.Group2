@@ -15,6 +15,10 @@ class AccountController {
         res.render('./pages/account/purchase-detail')
     }
 
+    warrantyClaim(req, res) {
+        res.render('./pages/account/warranty-claim')
+    }
+
 }
 
 module.exports = new AccountController()
