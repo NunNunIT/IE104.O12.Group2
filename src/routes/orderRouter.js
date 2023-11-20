@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
 // import controller
 const OrderController = require('../controllers/OrderController')
@@ -19,4 +19,4 @@ router.get('/momo', authMiddleware.isLoggedIn, OrderController.momo)
 router.get('/atm', authMiddleware.isLoggedIn, OrderController.atm)
 router.get('/credit', authMiddleware.isLoggedIn, OrderController.credit)
 
-module.exports = router
+module.exports = router;

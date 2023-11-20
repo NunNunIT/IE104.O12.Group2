@@ -2,7 +2,6 @@
     width: 100%;
     position: relative;
     background-color: var(--white);
-    border-radius: 4px;
 }
 
 .wrapper .arrow {
@@ -10,7 +9,7 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
-    
+
     top: 50%;
     height: 50px;
     width: 50px;
@@ -41,6 +40,7 @@
 .wrapper .carousel__list {
     padding: 12px;
 }
+
 .wrapper .carousel {
     display: grid;
     grid-auto-flow: column;

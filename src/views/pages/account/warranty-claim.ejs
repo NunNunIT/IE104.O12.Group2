@@ -4,25 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
+    <link rel="stylesheet" href="/styles/pages/account/warranty-claim.css">
     <title>TECHTWO.</title>
 </head>
 
 <body>
 
     <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
-
     <main class="account-container">
         <aside class="account-aside" id="sidebar">
             <a href="#" class="avatar">
                 <span class="image-container">
                     <img src="/imgs/avatar.png" alt="avatar" />
                 </span>
-
             </a>
             <ul class="side-menu top">
                 <li class="active">
@@ -70,26 +65,17 @@
                 </li>
             </ul>
         </aside>
-        <!-- <aside class="account-aside" id="sidebar"></aside> -->
-        <section class="purchase__main">
-            <nav class="purchase__status">
-                <a href="#status-all" id="purchase__status-all">Tất cả</a>
-                <a href="#status-payment" id="purchase__status-payment">Chờ thanh toán</a>
-                <a href="#status-deliver" id="purchase__status-deliver">Chờ giao hàng</a>
-                <a href="#status-finish" id="purchase__status-finish">Hoàn thành</a>
-                <a href="#status-cancel" id="purchase__status-cancel">Đã hủy</a>
-            </nav>
+        <section class="warranty__main">
             <div class="purchase__main__item">
-                <%- include('../../components/purchase-item') %>
-                <%- include('../../components/purchase-item') %>
-                <%- include('../../components/purchase-item') %>
+                <%- include('../../components/warranty-item') %>
+                <%- include('../../components/warranty-item') %>
+                <%- include('../../components/warranty-item') %>
             </div>
+            <%- include('../../components/popup-warranty') %>
         </section>
     </main>
 
-    <%- include('../../partials/footer') %>
-
-    <script src="/scripts/pages/account/purchaseHistory.js"></script>
+    <script src="/scripts/pages/account/warranty-claim.js"></script>
 
 </body>
 

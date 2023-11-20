@@ -1,0 +1,178 @@
+/*popup*/
+.popup {
+    display: none;
+    position: fixed;
+    padding-top: 64px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.popup .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.popup .material-symbols-outlined:hover {
+    color: var(--primary-color-2);
+}
+
+.popup__main {
+    position: relative;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    margin: auto;
+    width: 55%;
+    height: auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 32px;
+
+}
+
+.close-btn {
+    position: relative;
+    color: var(--primary-color-1);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.popup__img {
+    object-fit: contain;
+    height: 50%;
+    border-radius: 8px;
+}
+
+.popup__content-main {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup--top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup .popup__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.popup .popup__subtitle {
+    margin: 4px 0;
+}
+
+.popup__note {
+    color: red;
+    font-style: italic;
+    margin: 12px 0;
+}
+
+/* .popup p {
+    margin-bottom: 6px;
+} */
+
+.popup__content-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__main--right {
+    width: 100%;
+}
+
+.warranty__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.warranty-detail__input {
+    width: 100%;
+    display: inherit;
+    flex-direction: column;
+}
+
+.warranty-detail__input input {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0px 12px;
+    border: 1px solid var(--outline-gray);
+    border-radius: 8px;
+    background-color: #FAFAFA;
+    letter-spacing: 0.15px;
+}
+
+.warranty-detail__input--filled {
+    width: 100%;
+    display: inherit;
+    flex-direction: column;
+}
+
+.warranty-detail__input-title {
+    font-weight: 500;
+    margin: 0 0 8px 4px;
+}
+
+.warranty-detail__input-detail--filled {
+    width: 100%;
+    height: 48px;
+    padding: 0px 12px;
+    border: 1px solid var(--outline-gray);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    background-color: var(--outline-gray);
+    font-size: 0.875rem;
+}
+
+.required {
+    color: red;
+}
+
+.warranty-detail__input textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 12px 0 12px;
+    border: 1px solid var(--outline-gray);
+    border-radius: 8px;
+    background-color: #FAFAFA;
+    font-size: 0.875rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.15px;
+}
+
+.popup__button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    gap: 12px;
+}
+
+.popup__button button.btn--filled.pri {
+    padding: 0 36px 0 36px;
+}
+
+.popup__button button.btn--outlined.pri {
+    padding: 0 36px 0 36px;
+}
