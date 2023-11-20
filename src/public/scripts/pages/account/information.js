@@ -1,38 +1,15 @@
-let btn = document.querySelector('#btn');
-  let sidebar = document.querySelector('.sidebar');
-
-  btn.onclick = function() {
-    sidebar.classList.toggle('active')
-  };
-
-// Lấy tất cả các mục trong menu
-var menuItems = document.querySelectorAll('.menu-item');
-
-// Lắng nghe sự kiện click cho từng mục
-menuItems.forEach(function (item) {
-  item.addEventListener('click', function () {
-    // Xóa class active khỏi tất cả các mục
-    menuItems.forEach(function (otherItem) {
-      otherItem.classList.remove('active');
-    });
-
-    // Thêm class active cho mục được chọn
-    item.classList.add('active');
-  });
-});
-
 document.addEventListener('DOMContentLoaded', function () {
   const logoutButton = document.querySelector('#logout-btn');
   const popup = document.querySelector('#logout-popup');
   const confirmButton = document.querySelector('#confirm-button');
   const cancelButton = document.querySelector('#cancel-button');
 
-  // Thêm mã để hiện thông tin cá nhân khi trang tải xong
-  document.getElementById('info').style.display = 'block';
+  // // Thêm mã để hiện thông tin cá nhân khi trang tải xong
+  // document.getElementById('info').style.display = 'block';
 
   logoutButton.addEventListener('click', function () {
     // Ẩn thông tin cá nhân khi click vào nút "Đăng xuất"
-    document.getElementById('info').style.display = 'none';
+    // document.getElementById('info').style.display = 'none';
     // Hiển thị popup form đăng xuất
     popup.style.display = 'block';
   });
