@@ -1,16 +1,15 @@
 
  .slider {
     width: 100%;
-    height: 40vh;
+    height: 300px;
     margin: auto;
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
 }
 
 .slider .list {
     position: absolute;
-    width: max-content;
+    max-width: max-content;
     height: 100%;
     left: 0;
     top: 0;
@@ -18,10 +17,13 @@
     transition: 1s;
 }
 
+.slider .item {
+    width: 100vw;
+}
+
 .slider .list img {
-    width: 1920px;
-    max-width: 100vw;
-    height: 100%;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -73,14 +75,17 @@
 
 @media screen and (max-width: 48rem) {
     .slider {
-        height: 40vh;
+        height: 300px;
     }
 }
 
 @media screen and (max-width: 26rem) {
     .slider {
-        height: 30vh;
+        height: 250px;
     }
+
+
+
 }
 
 
