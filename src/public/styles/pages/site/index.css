@@ -6,6 +6,8 @@
 @import url("/styles/components/slider.css");
 @import url("/styles/components/cate-item.css");
 @import url("/styles/components/scrollup.css");
+@import url("/styles/components/product-card.css");
+@import url("/styles/components/carousel.css");
 
 * {
     padding: 0;
@@ -27,13 +29,17 @@ body {
 
 .content-container {
     width: 80%;
-    padding: 24px;
     margin: 24px auto;
     max-width: 1152px;
     /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
     gap: 5vh;
+    /* background-color: var(--white); */
+}
+
+section {
+    padding: 24px;
     background-color: var(--white);
     border-radius: 8px;
 }
@@ -62,18 +68,30 @@ body {
     }
 }
 
+/*Responsive-smartphone*/
 /* 768px - Tablet */
 @media only screen and (max-width: 48rem) {
     .content-container {
         width: 100%;
         margin: 130px 0;
     }
+
+    .seacrh-result__main-card {
+        gap: 2%;
+    }
 }
 
-/* 416px - Mobile */
+/*Responsive-smartphone*/
 @media only screen and (max-width: 26rem) {
     .cate__content {
         gap: 4px;
         justify-content: flex-start;
     }
+
+    .product-list__main-card {
+        margin-top: 16px;
+    }
 }
+
+
+

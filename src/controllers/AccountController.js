@@ -16,8 +16,12 @@ class AccountController {
     }
 
     // [GET] /account/feedback
-    feedback(req, res) { 
+    feedback(req, res) {
         res.render('./pages/account/feedback')
+    }
+
+    warrantyClaim(req, res) {
+        res.render('./pages/account/warranty-claim')
     }
 
 }

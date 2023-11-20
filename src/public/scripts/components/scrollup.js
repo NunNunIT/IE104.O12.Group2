@@ -1,6 +1,6 @@
-let span = document.querySelector(".scrollup");
+let span = document.querySelector('.scrollup');
 window.onscroll = function () {
-    this.scrollY >= 1000 ? span.classList.add("show") : span.classList.remove("show");
+    this.scrollY >= 1000 ? span.classList.add('show') : span.classList.remove('show');
 };
 
 span.onclick = function () {

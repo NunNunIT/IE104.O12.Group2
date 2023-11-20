@@ -2,7 +2,7 @@
 const ejs = require('ejs');
 const path = require('path')
 const express = require('express')
-const util = require('node:util')
+// const util = require('node:util')
 const app = express()
 const session = require('express-session')
 const dotdenv = require('dotenv').config();
@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser')
 
 // connect to db
 const db = require('./src/config/db/connect');
-const query = util.promisify(db.query).bind(db)
+// const query = util.promisify(db.query).bind(db)
 
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
