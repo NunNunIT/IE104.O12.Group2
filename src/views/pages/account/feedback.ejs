@@ -18,7 +18,7 @@
 
     <div class="feedback-wrapper">
 
-        <h4>Bạn nghĩ gì về sản phẩm vừa mua?</h4>
+        <h3>ĐÁNH GIÁ SẢN PHẨM</h3>
 
         <div class="product-info">
             <img src="/imgs/slider/1.jpg" alt="Ảnh sản phẩm">
@@ -35,6 +35,8 @@
 
         <!-- <h3>Bạn nghĩ gì về sản phẩm vừa mua?</h3> -->
         <form action="#">
+            <div class="quality">
+                <p>Chất lượng sản phẩm</p>
             <div class="rating">
                 <input type="number" name="rating" hidden>
                 <i class='bx bx-star star' style="--i: 0;"></i>
@@ -43,10 +45,12 @@
                 <i class='bx bx-star star' style="--i: 3;"></i>
                 <i class='bx bx-star star' style="--i: 4;"></i>
             </div>
-            <textarea name="opinion" cols="30" rows="5" placeholder="Đánh giá của bạn..."></textarea>
+            </div>
+            
+            <textarea name="opinion" cols="30" rows="10" placeholder="Đánh giá của bạn..."></textarea>
             <div class="btn-group">
-                <button type="submit" class="btn submit">Gửi đánh giá</button>
                 <button class="btn cancel">Hủy</button>
+                <button type="submit" class="btn submit">Gửi đánh giá</button>
             </div>
         </form>
     </div>

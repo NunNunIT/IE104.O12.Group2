@@ -28,6 +28,10 @@ body {
     margin-bottom: 20px;
 }
 
+.feedback-wrapper h3 {
+    text-align: left;
+}
+
 .product-info {
     display: flex;
     gap: 12px;
@@ -36,7 +40,7 @@ body {
 
 .product-info img {
     height: 80px;
-    width: 120px;
+    width: 80px;
     float: left;
     border-radius: 4px;
 }
@@ -67,14 +71,20 @@ body {
 }
 
 
+.quality {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 12px;
+}
+
 .rating {
     display: flex;
     justify-content: center;
     align-items: center;
     grid-gap: .5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--primary-color-5);
-    margin-bottom: 10px;
 }
 
 .rating .star {
@@ -117,12 +127,14 @@ textarea {
     outline: none;
     resize: none;
     margin-bottom: .5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn-group {
     display: flex;
     grid-gap: .5rem;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .btn-group .btn {

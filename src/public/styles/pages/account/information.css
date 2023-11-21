@@ -205,6 +205,7 @@ span.image-container img {
   .purchase-item__product-detail hr {
     width: calc(100% - 15px); /* Điều chỉnh chiều rộng của hr */
     margin: 5px 0; /* Điều chỉnh khoảng cách trên và dưới của hr */
+
   }
   
 
