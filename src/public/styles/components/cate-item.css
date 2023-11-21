@@ -12,7 +12,7 @@
 }
 
 .cate__item:hover {
-    border: 1px solid var(--primary-color-2);
+    box-shadow: inset 0px 0px 0px 1px var(--primary-color-2);
     background-color: var(--bg-gray);
 }
 
