@@ -1,10 +1,10 @@
 function showCate() {
-    const cateDrop = document.querySelector('.header__cate-dopdown')
+    const cateDrop = document.querySelector('.header__cate-dropdown')
     cateDrop.style.display = 'flex'
 }
 
 function closeCate(event) {
-    const cateDrop = document.querySelector('.header__cate-dopdown')
+    const cateDrop = document.querySelector('.header__cate-dropdown')
 
     // Check if the click is outside the dropdown or the menu__cate element
     if (!cateDrop.contains(event.target) && event.target !== cateDiv) {

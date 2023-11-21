@@ -23,6 +23,10 @@ body {
     background-color: #f5f6f8;
 }
 
+a {
+    text-decoration: none;
+}
+
 .seacrh-result__container {
     width: 80%;
     max-width: 1152px;
@@ -129,6 +133,10 @@ body {
     border-color: var(--primary-color-1);
 }
 
+.filter-label.active {
+    border-color: var(--primary-color-1);
+    color: var(--primary-color-1);
+}
 
 .filter-option {
     display: none;

@@ -12,7 +12,7 @@ const redirect2promoView = () => {
 }
 
 const redirect2detailAccom = () => {
-    window.location.href = "#"; // Sửa URL chuyển hướng tại đây
+    window.location.href = "http://127.0.0.1:3000/search/detail"; // Sửa URL chuyển hướng tại đây
 }
 
 useBtns.forEach((btn) => {
