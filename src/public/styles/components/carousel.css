@@ -9,13 +9,13 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
-
     top: 50%;
     height: 50px;
     width: 50px;
     cursor: pointer;
     font-size: 1.25rem;
     position: absolute;
+    z-index: 98;
     text-align: center;
     line-height: 50px;
     background: #fff;
@@ -84,6 +84,7 @@
     list-style: none;
     background: var(--white);
     cursor: pointer;
+    padding: 12px;
     padding-bottom: 15px;
     flex-direction: column;
     border-radius: 8px;
@@ -107,7 +108,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1.3%;
-    border-bottom: 2px solid var(--dark8);
 }
 
 .carousel__label-seemore {

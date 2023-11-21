@@ -39,7 +39,7 @@ body {
 }
 
 section {
-    padding: 24px;
+    /* padding: 12px; */
     background-color: var(--white);
     border-radius: 8px;
 }
