@@ -14,8 +14,8 @@
 }
 
 .comment__avatar {
-    width: 72px;
-    height: 72px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
     border: 1px solid var(--outline-gray);
@@ -24,11 +24,11 @@
 .comment__info>div {
     display: inherit;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .comment__user-name {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .comment__stars {
@@ -36,6 +36,7 @@
 }
 
 .comment__stars span {
+    font-size: 1rem;
     font-variation-settings: 'FILL' 1;
     color: var(--primary-color-5);
 }
@@ -56,8 +57,8 @@
 }
 
 .comment__pictures img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
 }
 
