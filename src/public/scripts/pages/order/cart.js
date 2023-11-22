@@ -30,7 +30,20 @@ function deleteAllItem(event) {
     const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
     checkboxes.forEach((checkbox, index) => {
         if (index % 2 == 0 && checkbox.checked == true) {
-            checkbox.parentNode.nextSibling.remove()
+            checkbox.parentNode.nextElementSibling.remove()
+            checkbox.parentNode.remove()
+        }
+    })
+
+    showEmptyNoti()
+}
+
+// Sự kiện onclick nút "Xóa" responsive điện thoại
+function deleteMbItem(event) {
+    const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
+    checkboxes.forEach((checkbox, index) => {
+        if (index % 2 == 1 && checkbox.checked == true) {
+            checkbox.parentNode.previousElementSibling.remove()
             checkbox.parentNode.remove()
         }
     })
