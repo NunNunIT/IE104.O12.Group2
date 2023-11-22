@@ -184,7 +184,7 @@ body {
 
 .detail__buy-btn {
     width: 50%;
-    height: auto;
+    height: 48px;
     box-sizing: border-box;
     padding: 12px;
     background-color: var(--dollar-red);
@@ -267,7 +267,6 @@ body {
 
 .detail__more-btn {
     height: 48px;
-    padding: 12px;
     background-color: var(--white);
     border: 2px solid var(--primary-color-1);
     border-radius: 8px;
@@ -318,7 +317,7 @@ body {
 }
 
 .filter__option {
-    width: 75%;
+    width: 85%;
     display: inherit;
     gap: 8px;
 }
@@ -337,8 +336,18 @@ body {
 
 /* 1024px - Mini PC */
 @media screen and (max-width: 64rem) {
-    html {
-        font-size: 14px;
+
+    .content-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .content-container h2 {
+        font-size: 1.25rem;
+    }
+
+    .content-container button {
+        height: 40px;
+        font-size: 1rem;
     }
 
     .detail--top,
@@ -353,28 +362,43 @@ body {
     .detail__buy-btn,
     .detail__add-btn {
         width: 50%;
-    }
-}
-
-/* 900px - Large Tablet */
-@media screen and (max-width: 56.25rem) {
-    html {
-        font-size: 13px;
+        height: 40px;
     }
 
-    .detail__variant div {
-        gap: 4px;
+    .filter__avg-rating p {
+        font-size: 1.25rem;
     }
 
-    .detail__variant a {
-        padding: 8px 4px;
+    .filter__option button {
+        width: 15%;
     }
 }
 
 /* 768px - Tablet */
 @media screen and (max-width: 48rem) {
-    html {
-        font-size: 12px;
+
+    .content-container {
+        width: 90%;
+    }
+
+    .content-container h1 {
+        font-size: 1.25rem;
+    }
+
+    .content-container h2 {
+        font-size: 1.125rem;
+    }
+
+    .content-container a,
+    .content-container p,
+    .content-container del,
+    .content-container li {
+        font-size: 0.8125rem;
+    }
+
+    .content-container button {
+        height: 40px;
+        font-size: 0.8125rem;
     }
 
     .content-container {
@@ -402,23 +426,28 @@ body {
         gap: 8px;
     }
 
+    .detail__variant {
+        gap: 8px;
+    }
+
     .detail__variant div {
         gap: 4px;
     }
 
     .detail__variant a {
-        font-size: 0.85rem;
         padding: 6px 4px;
+        border-radius: 4px;
     }
 
     .detail__promo {
         gap: 8px;
         padding: 8px;
+        border-radius: 4px;
     }
 
     .detail__buy-btn,
     .detail__add-btn {
-        padding: 8px;
+        padding: 12px;
     }
 
     .promo__header div {
@@ -427,6 +456,7 @@ body {
 
     .promo__content {
         padding: 8px;
+        border-radius: 4px;
     }
 
     .promo__list {
@@ -442,12 +472,29 @@ body {
         border-radius: 6px;
     }
 
+    .filter__stars span {
+        font-size: 1.25rem;
+    }
+
+    .filter__avg-rating p {
+        font-size: 1.125rem;
+    }
 }
 
-/* 640px - Large Mobile */
-@media screen and (max-width: 40rem) {
+/* 416px - Mobile */
+@media screen and (max-width: 26rem) {
+    body {
+        background-color: var(--white);
+    }
+
     .content-container {
-        width: 90%;
+        width: 100%;
+        margin-top: 12px;
+        padding: 0 24px;
+    }
+
+    .content-container button {
+        height: 36px;
     }
 
     .detail--top,
@@ -464,7 +511,40 @@ body {
         display: none;
     }
 
-    .detail__variant a {
+    .title__rating span {
+        font-size: 1.25rem;
+    }
+
+    .detail__buy-btn,
+    .detail__add-btn {
+        height: 36px;
+        padding: 9px;
+        border-radius: 4px;
+    }
+
+    .comments__filter {
+        padding: 8px;
+    }
+
+    .filter__avg-rating {
+        width: 25%;
+    }
+
+    .filter__option {
+        width: 75%;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .filter__option button {
+        width: 23%;
+    }
+
+    .filter__avg-rating p {
+        font-size: 1rem;
+    }
+
+    .filter__stars span {
         font-size: 1.125rem;
     }
 }
