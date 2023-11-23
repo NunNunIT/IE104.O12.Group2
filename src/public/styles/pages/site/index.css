@@ -38,10 +38,10 @@ body {
     /* background-color: var(--white); */
 }
 
-section {
-    /* padding: 12px; */
+.cate {
+    padding: 12px;
     background-color: var(--white);
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .slider {
@@ -73,7 +73,6 @@ section {
 @media only screen and (max-width: 48rem) {
     .content-container {
         width: 100%;
-        margin: 130px 0;
     }
 
     .seacrh-result__main-card {
@@ -92,6 +91,3 @@ section {
         margin-top: 16px;
     }
 }
-
-
-

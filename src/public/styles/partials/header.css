@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    height: 160px;
+    height: 154px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -18,11 +18,13 @@ header {
 
 .header__nav {
     width: 100%;
+    height: 48px;
+    margin-bottom: 12px;
+    font-size: 0.8125rem;
     background-color: var(--primary-color-1);
     display: flex;
     justify-content: center;
-    padding: 12px 0;
-    margin-bottom: 12px;
+    align-items: center;
 }
 
 .header__container {
@@ -40,6 +42,7 @@ header {
     max-width: 1152px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .header__nav a {
@@ -66,9 +69,53 @@ header {
     gap: 20px;
 }
 
+.dropdown-help {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-help__content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+    z-index: 1;
+    margin-top: 4px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    gap: 12px;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-help__content img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.dropdown-help__content p {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.dropdown-help:hover .dropdown-help__content {
+    display: flex;
+}
+
+.dropdown-help:hover a {
+    color: #d7d7d7;
+}
+
+.header__support-info__hotline:hover {
+    color: #d7d7d7;
+}
+
 .header__about-account {
     display: flex;
     gap: 20px;
+    height: 100%;
 }
 
 .header__logo {
@@ -80,13 +127,13 @@ header {
 }
 
 .header__search-bar {
-    width: 42%;
-    height: 100%;
+    width: 65%;
+    height: 80%;
     background-color: white;
-    border-radius: 12px 0 0 12px;
+    border-radius: 8px 0 0 8px;
     display: flex;
     justify-content: space-between;
-    margin-left: 10%;
+    margin-left: 5%;
     border: none;
     border: var(--outline-gray) 2px solid;
     border-right: none;
@@ -94,11 +141,11 @@ header {
 }
 
 .header__search-btn {
-    width: 8%;
-    height: 100%;
-    border-radius: 0 12px 12px 0;
+    width: 10%;
+    height: 80%;
+    border-radius: 0 8px 8px 0;
     background-color: var(--primary-color-1);
-    margin-right: 10%;
+    margin-right: 6%;
     border: none;
     margin-left: -4px;
     display: flex;
@@ -116,14 +163,14 @@ header {
     height: calc(100% + 2px);
     text-indent: 16px;
     outline-color: var(--primary-color-1);
-    border-radius: 12px 0 0 12px;
+    border-radius: 8px 0 0 8px;
     border: none;
     background-color: transparent;
 }
 
 
 .header__nav .material-symbols-outlined {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-right: 5px;
 }
 
@@ -177,9 +224,16 @@ header {
     align-items: center;
 }
 
+.header__auth img {
+    object-fit: cover;
+    height: 20px;
+    border-radius: 50%;
+}
+
 /* menu */
 .header__menu {
     width: 80%;
+    max-width: 1152px;
     display: flex;
     justify-content: flex-start;
     gap: 24px;
@@ -190,9 +244,10 @@ header {
 .header__menu div {
     height: 48px;
     display: flex;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 12px 0;
+    padding: 12px;
     gap: 4px;
 }
 
@@ -220,13 +275,14 @@ header {
     width: 80%;
     max-width: 1152px;
     padding: 12px;
-    display: flex;
+    display: none;
     justify-content: space-between;
+    position: absolute;
+    top: 154px;
     background-color: var(--white);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     box-shadow: 1px 6px 8px -2px rgba(0, 0, 0, 0.2);
-    display: none;
 }
 
 .cate-dropdown__aside {
@@ -396,7 +452,6 @@ header {
     }
 
     .header__search-bar input {
-        border-radius: 8px 0 0 8px;
         text-indent: 8px;
         height: calc(90% + 4px);
     }
@@ -438,7 +493,7 @@ header {
         width: 90%;
     }
 
-    .header__cate-dopdown {
+    .header__cate-dropdown {
         width: 90%;
     }
 
@@ -468,7 +523,7 @@ header {
         padding: 4px;
     }
 
-    .header__cate-dopdown {
+    .header__cate-dropdown {
         padding: 8px;
     }
 

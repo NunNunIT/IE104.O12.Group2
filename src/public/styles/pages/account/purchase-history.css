@@ -58,7 +58,7 @@ a {
 .purchase__status a:hover {
 	cursor: pointer;
 	color: var(--primary-color-1);
-	border-bottom: 1px solid var(--primary-color-1);
+	border-bottom: 2px solid var(--primary-color-1);
 	padding: 12px 24px;
 }
 
@@ -69,8 +69,8 @@ a {
 #purchase__status-cancel.active,
 #purchase__status-deliver.active {
 	color: var(--primary-color-1);
-	border-bottom: 1px solid var(--primary-color-1);
-	padding: 12px 24px 13px 24px;
+	border-bottom: 2px solid var(--primary-color-1);
+	padding: 12px 24px 12px 24px;
 }
 
 

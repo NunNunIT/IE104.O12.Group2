@@ -20,9 +20,6 @@ footer a {
     font-size: 0.875rem;
 }
 
-footer p:hover {
-    font-weight: 700;
-}
 
 footer a:hover {
     font-weight: 700;
@@ -116,10 +113,6 @@ footer h3 {
     align-items: center;
     gap: 8px;
     color: white;
-}
-
-.footer__company-name p:hover {
-    font-weight: 300;
 }
 
 .footer--bottom {

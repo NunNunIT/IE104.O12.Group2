@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
     <link rel="stylesheet" href="/styles/pages/account/information.css">
 
     <title>TECHTWO.</title>
@@ -17,114 +18,120 @@
     <%- include('../../partials/header') %>
     <%- include('../../partials/breadcrumb') %>
 
-    <div class="account-container">
-        <div class="sidebar">
-            <div class="top">
-                <div class="logo">
-                    <i class="bx bxl-codepen"></i>
-                    <span><strong>TECHTWO</strong></span>
-                </div>
-                <i class='bx bx-menu' id="btn"></i>
-            </div>
-            <div class="user">
-                <img src="/imgs/information/avatar.jpg" alt="meme" class="user-img">
-                <div>
-                    <p class="bold">HuongVi</p>
-                    <p>User</p>
-                </div>
-            </div>
-            <ul>
-                <li>
-                    <a href="#" id="profile" class="menu-item">
-                        <!-- <i class="bx bxs-grid-alt"></i> -->
-                        <i class="bx bx-user-circle"></i>
-                        <span class="nav-item">Thông tin cá nhân</span>
+    <main class="account-container">
+        <aside class="account-aside" id="sidebar">
+            <a href="#" class="avatar">
+                <span class="image-container">
+                    <img src="/imgs/avatar.png" alt="avatar" />
+                </span>
+                <span class="user_name"><h5>HuongVi</h5></span>
+            </a>
+            
+            <ul class="side-menu top">
+                <li class="active">
+                    <a href="#profile" id="info-link">
+                        <span class="material-symbols-outlined">
+                            perm_contact_calendar
+                        </span>
+                        <span class="text">Thông tin cá nhân</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#" id="purchase-history" class="menu-item">
-                        <i class="bx bx-list-check"></i>
-                        <span class="nav-item">Lịch sử đơn mua</span>
+                    <a href="#order-history">
+                        <span class="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                        <span class="text">Lịch sử đơn mua</span>
                     </a>
                 </li>
-
                 <li>
-                    <a href="#" id="guarantee" class="menu-item">
-                        <i class="bx bx-wrench"></i>
-                        <span class="nav-item">Yêu cầu bảo hành</span>
+                    <a href="#maintaince">
+                        <span class="material-symbols-outlined">
+                            build
+                        </span>
+                        <span class="text">Yêu cầu bảo hành</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="#" id="change-password" class="menu-item">
-                        <i class="bx bxs-cog"></i>
-                        <span class="nav-item">Đổi mật khẩu</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#" id="logout-btn" class="menu-item">
-                        <i class="bx bx-log-out"></i>
-                        <span class="nav-item">Đăng xuất</span>
-                    </a>
-                </li>
-
             </ul>
-        </div>
-        <div class="main-content">
-            <div class="container">
-                <div class="info" id="info">
-                    <h2>Thông tin cá nhân</h2>
-                    <a href="#edit_info" class="edit-btn">
-                        <i class='bx bx-edit' id="edit"></i>
+            <ul class="side-menu">
+                <li>
+                    <a href="#change-password">
+                        <span class="material-symbols-outlined">
+                            settings
+                        </span>
+                        <span class="text">Đổi mật khẩu</span>
                     </a>
-                    <div class="info_content">
-                        <h4>Tên đăng nhập:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Tên người dùng:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Ngày sinh:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Giới tính:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Email:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Số điện thoại:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Địa chỉ:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Địa chỉ:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Ngày đăng ký:</h4> <span id="username">hvi</span>
-                    </div>
-                    <div class="info_content">
-                        <h4>Trạng thái tài khoản:</h4> <span id="username">hvi</span>
-                    </div>
-                </div>
+                </li>
+                <li>
+                    <a href="#logout" class="logout">
+                        <span class="material-symbols-outlined">
+                            logout
+                        </span>
+                        <span class="text" id="logout-btn">Đăng xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-                <div class="popup" id="logout-popup">
-                    <div class="logout-form">
-                        <span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
-                        <h1>Đăng xuất</h1>
-                        <p>Bạn có chắc chắn muốn đăng xuất không?</p>
-                        <img src="/imgs/information/Lg.png" alt="Hình ảnh đăng xuất">
-                        <button id="confirm-button">Đăng xuất</button>
-                        <button id="cancel-button">Hủy</button>
-                    </div>
-                </div>
 
+        <section class="purchase__main" id="info">
+            <div class="purchase__main__item">
+                <div class="purchase-item">
+                    <div class="purchase-item--top">
+                        <div class="purchase-item__info">
+                            <h4>Thông tin cá nhân</h4>
+                            
+                        </div>
+                        <p class="purchase-item__status"> <a href="#edit_info">Sửa</a></p>
+                    </div>
+                    <hr />
+                    <div class="purchase-item__main">
+                        <div class="purchase-item__element">
+                            <!-- <div class="purchase-item__element--left"> -->
+                                <div class="purchase-item__product-detail">
+                                    <h5 id="purchase-item__product-name">Tên đăng nhập: </h5><span>HuongVi</span>
+                                    <hr />
+
+                                    <h5 id="purchase-item__product-name">Tên người dùng: </h5><span>Vi Thị Hương</span>
+                                    <hr />
+
+                                    <h5 id="purchase-item__product-name">Ngày sinh: </h5><span>24/10/2023</span>
+                                    <hr />
+
+                                    <h5 id="purchase-item__product-name">Giới tính: </h5><span>Nữ</span>
+                                    <hr />
+
+                                    <h5 id="purchase-item__product-name">Email: </h5><span>vithihuong384@gmail.com</span>
+                                    <hr />
+
+                                    <h5 id="purchase-item__product-name">Số điện thoại: </h5><span>0352060384</span>
+                                    <hr />
+
+                                    <h5 id="purchase-item__product-name">Địa chỉ: </h5><span>An Bình, Dĩ An, Bình Dương</span>
+                                    <hr />
+
+                                </div>
+                            <!-- </div> -->
+                        </div>
+                        
+                    </div>
+                
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
+        <div class="popup" id="logout-popup">
+            <div class="logout-form">
+              <span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
+              <h1>Đăng xuất</h1>
+              <p>Bạn có chắc chắn muốn đăng xuất không?</p>
+              <img src="/imgs/information/bye.png" alt="Hình ảnh đăng xuất">
+              <button id="confirm-button">Đăng xuất</button>
+              <button id="cancel-button">Hủy</button>
+            </div>
+          </div>
+
+    </main>
 
     <%- include('../../partials/footer') %>
 

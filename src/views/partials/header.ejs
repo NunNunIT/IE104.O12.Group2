@@ -2,11 +2,17 @@
     <nav class="header__nav">
         <div class="header__nav-container">
             <div class="header__support-info">
-                <a href="/search/1">
-                    <span class="material-symbols-outlined">help</span>
-                    Hỗ trợ
-                </a>
-                <a href="/search/1">
+                <div class="dropdown-help">
+                    <a href="#">
+                        <span class="material-symbols-outlined">help</span>
+                        Hỗ trợ
+                    </a>
+                    <div class="dropdown-help__content">
+                        <img src="/imgs/avatar.png" alt="help">
+                        <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
+                    </div>
+                </div>
+                <a href="#" class="header__support-info__hotline">
                     <span class="material-symbols-outlined">call</span>
                     Hotline: 0123456789
                 </a>
@@ -22,11 +28,16 @@
                     Thông báo
                 </a>
                 <div class="header__auth">
+                    <img src="/imgs/avatar.png" alt="avatar">
+                    <span>Phan Nguyễn Hải Yến</span>
+                </div>
+
+                <!-- <div class="header__auth">
                     <span class="material-symbols-outlined">account_circle</span>
                     <a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
                     <span>|</span>
                     <a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </nav>
@@ -42,7 +53,7 @@
             <button class="header__search-btn" type="submit" name="submit">
                 <span class="material-symbols-outlined">search</span>
             </button>
-            <a href="http://127.0.0.1:3000/order/cart" class="header__cart-container">
+            <a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
                 <div class="header__cart">
                     <span class="material-symbols-outlined">shopping_cart</span>
                     <div class="header__cart__number-badge" aria-hidden="true">31</div>

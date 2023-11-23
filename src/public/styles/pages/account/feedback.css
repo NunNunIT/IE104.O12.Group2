@@ -5,26 +5,23 @@
 
 body {
     background: var(--white-gray);
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
     min-height: 100vh;
     padding: 1rem;
+    width: 100vw;
     margin: auto;
 }
 
-.wrapper {
+.feedback-wrapper {
 
-    /* display: flex; */
+    display: flex;
     margin: 0 auto;
-    /* justify-content: center;
-    align-items: center; */
+    flex-direction: column;
+    gap: 12px;
 
     margin-top: 150px;
     background: var(--white);
     padding: 1.5rem;
-    max-width: 576px;
-    width: 100%;
+    width: 80vw;
     border-radius: 12px;
     box-shadow: 8px 8px 30px rgba(0, 0, 0, .05);
     text-align: center;
@@ -32,19 +29,15 @@ body {
 }
 
 .product-info {
-    height: 70px;
-    /* border: 1px solid var(--outline-gray); */
+    display: flex;
+    gap: 12px;
     border-radius: 8px;
-    /* background-color: rgb(220, 220, 224); */
-    padding: 1.5px;
-    margin-bottom:20px;
 }
 
 .product-info img {
     height: 80px;
     width: 120px;
     float: left;
-    margin-right: 10px;
     border-radius: 4px;
 }
 
@@ -53,10 +46,15 @@ body {
 }
 
 .product_variant-name {
-    display:  block;
+    display: block;
 }
 
-.price, .quantity {
+.price {
+    width: 100%;
+}
+
+.price,
+.quantity {
     display: block;
 }
 
@@ -64,15 +62,10 @@ body {
     color: var(--dollar-red)
 }
 
-.product-info del{
+.product-info del {
     color: var(--del-gray)
 }
 
-
-
-.wrapper h4 {
-    margin-bottom: 10px;
-}
 
 .rating {
     display: flex;
@@ -161,16 +154,34 @@ textarea {
 
 /* 416px - Mobile */
 @media screen and (max-width: 26rem) {
-    .price {
-        display:inline-block;
-        
-    }
-    
-    .quantity {
-        display: inline-block;
+
+    body {
+        padding: 0;
     }
 
-   
-    
-    
+    .feedback-wrapper {
+        width: 100%;
+        padding: 12px;
+
+    }
+
+    .product-info {
+        margin-bottom: 0;
+    }
+
+    .product_name,
+    .product_variant-name,
+    .price,
+    .quantity {
+        font-size: 14px;
+    }
+
+    .rating {
+        font-size: 1.5rem;
+    }
+
+    .price_quantity {
+        display: inline;
+    }
+
 }
