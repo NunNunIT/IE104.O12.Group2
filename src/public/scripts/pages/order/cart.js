@@ -1,12 +1,13 @@
 // Sự kiện onclick checkbox chọn tất cả
 function checkAll(event) {
     let checkboxes
-    if (window.innerWidth == 416)
+    if (window.innerWidth <= 416)
         checkboxes = document.querySelectorAll('.checkbox.mobile-display')
     else
         checkboxes = document.querySelectorAll('.checkbox.mobile-hidden')
     checkboxes.forEach(checkbox => checkbox.checked = event.currentTarget.checked)
 
+    showSelectedNums()
     changeDel()
 }
 
@@ -16,12 +17,13 @@ function checkAllBtn(event) {
     checkAll.checked = !checkAll.checked
 
     let checkboxes
-    if (window.innerWidth == 416)
+    if (window.innerWidth <= 416)
         checkboxes = document.querySelectorAll('.checkbox.mobile-display')
     else
         checkboxes = document.querySelectorAll('.checkbox.mobile-hidden')
     checkboxes.forEach(checkbox => checkbox.checked = checkAll.checked)
 
+    showSelectedNums()
     changeDel()
 }
 
@@ -35,6 +37,7 @@ function deleteAllItem(event) {
         }
     })
 
+    showSelectedNums()
     showEmptyNoti()
 }
 
@@ -48,6 +51,7 @@ function deleteMbItem(event) {
         }
     })
 
+    showSelectedNums()
     showEmptyNoti()
 }
 
@@ -64,10 +68,23 @@ function changeDel() {
     }
 }
 
+// Hàm hiển thị số lượng sản phẩm được lựa chọn
+function showSelectedNums() {
+    const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
+    let count = 0
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked == true)
+            count++
+    })
+
+    const selectedNumsSpan = document.querySelectorAll('.selected-nums')
+    selectedNumsSpan.forEach(span => span.innerHTML = count)
+}
+
 // Hàm hiện thông báo không có sản phẩm trong giỏ
 function showEmptyNoti() {
     let countCartItem
-    if (window.innerWidth == 416)
+    if (window.innerWidth <= 416)
         countCartItem = Array.from(document.querySelectorAll('.cart-item.mobile-display')).length
     else
         countCartItem = Array.from(document.querySelectorAll('.cart-item.mobile-hidden')).length
@@ -80,7 +97,7 @@ function showEmptyNoti() {
 
 // Căn chỉnh cart-item cuối cùng
 let cartItems
-if (window.innerWidth == 416)
+if (window.innerWidth <= 416)
     cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
 else
     cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
