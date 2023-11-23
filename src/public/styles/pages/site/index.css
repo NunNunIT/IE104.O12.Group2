@@ -15,11 +15,6 @@
     border: 0;
 }
 
-html {
-    font-size: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 body {
     width: 100vw;
     display: flex;
@@ -55,10 +50,39 @@ section {
 }
 
 .cate__content {
+    overflow: hidden;
     display: inherit;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    position: relative;
+}
+
+.cate__carousel {
+    display: inherit;
     gap: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.cate__item {
+    flex: 0 0 19%;
+}
+
+.cate__button {
+    width: 48px;
+    height: 48px;
+    margin: 2px;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--white);
+    position: absolute;
+    top: 35%;
+    left: 8px;
+}
+
+#cateNext {
+    left: 95%;
+}
+
+.cate__button:hover {
+    background-color: var(--bg-gray);
 }
 
 /* 1024px - Mini PC */
@@ -68,7 +92,6 @@ section {
     }
 }
 
-/*Responsive-smartphone*/
 /* 768px - Tablet */
 @media only screen and (max-width: 48rem) {
     .content-container {
@@ -80,11 +103,28 @@ section {
     }
 }
 
-/*Responsive-smartphone*/
+/* 416px - Mobile */
 @media only screen and (max-width: 26rem) {
     .cate__content {
         gap: 4px;
         justify-content: flex-start;
+    }
+
+    .cate__carousel {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cate__carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cate__item {
+        scroll-snap-align: start;
+    }
+
+    .cate__button {
+        display: none;
     }
 
     .product-list__main-card {
