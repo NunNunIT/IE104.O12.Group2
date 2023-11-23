@@ -23,7 +23,7 @@
         <div class="product-info">
             <img src="/imgs/slider/1.jpg" alt="Ảnh sản phẩm">
             <div class="product-details">
-                <p class="product_name">Bếp từ hồng ngoại lắp âm Pramie 2108</p>
+                <h4 class="product_name">Bếp từ hồng ngoại lắp âm Pramie 2108</h4>
                 <p class="product_variant-name">Phân loại: Trắng</p>
                 <div class="price_quantity">
                 <p class="price"><del>160.000đ</del> 80.000đ</p>
@@ -33,7 +33,6 @@
             </div>
         </div>
 
-        <!-- <h3>Bạn nghĩ gì về sản phẩm vừa mua?</h3> -->
         <form action="#">
             <div class="quality">
                 <p>Chất lượng sản phẩm</p>
@@ -45,19 +44,24 @@
                 <i class='bx bx-star star' style="--i: 3;"></i>
                 <i class='bx bx-star star' style="--i: 4;"></i>
             </div>
+            <div class="rating-text" id="ratingText"></div>
             </div>
             
-            <textarea name="opinion" cols="30" rows="10" placeholder="Đánh giá của bạn..."></textarea>
-            <div class="btn-group">
-                <button class="btn cancel">Hủy</button>
-                <button type="submit" class="btn submit">Gửi đánh giá</button>
+            <textarea name="opinion" cols="30" rows="8" placeholder="Đánh giá của bạn..."></textarea>
+            <div class="popup__button">
+                <button class="btn--outlined pri btn-cancel" type="button"
+                    onclick="redirectTo('/account/purchase')">Hủy</button>
+                <button class="btn--filled pri btn-logout" type="button"
+                    onclick="redirectTo('/account/purchase')">Gửi đánh giá</button>
             </div>
+
         </form>
     </div>
 
     <%- include('../../partials/footer') %>
 
     <script src="/scripts/pages/account/feedback.js"></script>
+    <script src="/scripts/pages/account/information.js"></script>
 
 </body>
 
