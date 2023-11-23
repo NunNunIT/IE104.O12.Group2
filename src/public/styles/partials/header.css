@@ -336,6 +336,7 @@ header {
 
 .cate-dropdown__title {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
     gap: 12px;
 }

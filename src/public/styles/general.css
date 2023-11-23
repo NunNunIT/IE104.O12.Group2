@@ -28,6 +28,8 @@
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
     --pink: #FF685F;
+    --bg-pink: #fffbf8;
+    --outline-pink: #f9ede5;
     --dollar-red: #D0021C;
     --fire-orange: #FF9F40;
     --dark-blue: #114A91;
@@ -107,19 +109,19 @@ html {
 h1 {
     /* 32px */
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 h2 {
     /* 24px */
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h3 {
     /* 20px */
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h4 {
