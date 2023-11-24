@@ -1,0 +1,33 @@
+.noti-dropdown__block {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: var(--bg-blue-o10);
+    padding: 12px;
+}
+
+.noti-dropdown__block:hover {
+    background-color: var(--bg-white);
+    cursor: pointer;
+}
+
+.noti-dropdown__img {
+    object-fit: contain;
+    width: 20%;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.noti-dropdown__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: black;
+}
+
+.noti-dropdown__block strong {
+    font-weight: 500;
+    font-size: 1rem;
+}

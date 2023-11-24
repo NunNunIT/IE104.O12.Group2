@@ -16,7 +16,7 @@ const modalBtns = document.querySelectorAll(".popup-btn");
 const modals = document.querySelectorAll(".popup");
 const closeBtns = document.querySelectorAll(".close-btn");
 const notiItems = document.querySelectorAll(".noti-item__block");
-const markAllReadButton = document.querySelector(".btn--outlined");
+const markAllReadButton = document.querySelector(".btn-mark-all-read");
 const popupVisible = new Array(modals.length).fill(false);
 
 // Lặp qua từng nút và gán sự kiện hiển thị pop-up
