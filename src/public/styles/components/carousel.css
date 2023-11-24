@@ -1,7 +1,6 @@
 .wrapper {
     width: 100%;
     position: relative;
-    background-color: var(--white);
 }
 
 .wrapper .arrow {
@@ -38,7 +37,7 @@
 }
 
 .wrapper .carousel__list {
-    padding: 12px;
+    /* padding: 12px; */
 }
 
 .wrapper .carousel {
@@ -47,7 +46,7 @@
     grid-auto-columns: calc((100% / 4) - 12px);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 2%;
+    gap: 8px;
     border-radius: 8px;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -72,10 +71,10 @@
 }
 
 .carousel :where(.carousel__card, .carousel__card--img) {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--white);
+    background: var(--white); */
 }
 
 .carousel .carousel__card {
@@ -84,7 +83,7 @@
     list-style: none;
     background: var(--white);
     cursor: pointer;
-    padding: 12px;
+    /* padding: 12px; */
     padding-bottom: 15px;
     flex-direction: column;
     border-radius: 8px;
@@ -96,13 +95,18 @@
     margin: 8px 0px;
 }
 
+.carousel .carousel__card a{
+    text-decoration: none;
+    color: #363636;
+}
+
 .carousel .carousel__card:hover {
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .carousel__label {
-    padding: 12px;
+    padding: 12px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -113,13 +117,18 @@
 .carousel__label-seemore {
     display: flex;
     align-items: center;
-    color: var(--dark6);
+    color: var(--primary-color-1);
 }
 
 .carousel__label-seemore a {
     text-decoration: none;
-    color: var(--dark6);
+    color: var(--primary-color-1);
     font-size: 18px;
+}
+
+.carousel__label-seemore:hover,
+.carousel__label-seemore:hover a {
+    color: var(--primary-color-2);
 }
 
 
@@ -257,5 +266,9 @@
 
     .wrapper .arrow {
         display: none;
+    }
+
+    .carousel__label-seemore a {
+        font-size: 18px;
     }
 }

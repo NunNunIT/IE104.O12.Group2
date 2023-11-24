@@ -1,11 +1,25 @@
 <!-- Header -->
-<header class="header">
-    <div class="header-left">
-            <img src="/imgs/logo-blue.png" alt="logo" />
-            <h2><%=title%></h2>
+<header class="header-small">
+    <div class="header-small-left">
+        <a href="/"><img src="/imgs/logo-blue.png" alt="logo" /></a>
+        <h2>
+            <%=title%>
+        </h2>
     </div>
-    <div class="header-right">
-        <a href="#">Bạn cần giúp đỡ?</a>
+    <div class="header-small__support-info">
+        <div class="header-small__dropdown-help">
+            <a href="#" class = "help">
+                <span class="material-symbols-outlined">help</span>
+                Bạn cần hỗ trợ?
+            </a>
+            <a href="#" class = "help--mobile">
+                <span class="material-symbols-outlined">help</span>
+            </a>
+            <div class="header-small__dropdown-help__content">
+                <img src="/imgs/avatar.png" alt="help">
+                <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
+            </div>
+        </div>
     </div>
 </header>
 <!-- End Header -->

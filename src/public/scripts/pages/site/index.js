@@ -1,3 +1,8 @@
+// Thêm "active" vào app-bar__element
+const appbar__element = document.querySelectorAll('.app-bar__element');
+appbar__element[0].classList.add('active');
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('cateCarousel')
     const items = document.querySelectorAll('.cate__item')

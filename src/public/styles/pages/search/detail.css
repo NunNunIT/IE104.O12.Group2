@@ -1,11 +1,10 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/header.css');
-@import url('/styles/partials/footer.css');
 @import url('/styles/partials/breadcrumb.css');
 @import url('/styles/components/slider02.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/pagination.css');
 @import url('/styles/components/scrollup.css');
+@import url("/styles/components/carousel.css");
 
 body {
     width: 100vw;
@@ -15,7 +14,8 @@ body {
     background-color: var(--bg-white);
 }
 
-.content-container {
+.content-container,
+.similar-products {
     width: 80%;
     padding: 24px;
     max-width: 1152px;
@@ -341,7 +341,8 @@ body {
         font-size: 1.5rem;
     }
 
-    .content-container h2 {
+    .content-container h2,
+    .similar-products h2 {
         font-size: 1.25rem;
     }
 
@@ -377,7 +378,8 @@ body {
 /* 768px - Tablet */
 @media screen and (max-width: 48rem) {
 
-    .content-container {
+    .content-container,
+    .similar-products {
         width: 90%;
     }
 
@@ -385,7 +387,8 @@ body {
         font-size: 1.25rem;
     }
 
-    .content-container h2 {
+    .content-container h2,
+    .similar-products h2 {
         font-size: 1.125rem;
     }
 
@@ -487,7 +490,8 @@ body {
         background-color: var(--white);
     }
 
-    .content-container {
+    .content-container,
+    .similar-products {
         width: 100%;
         margin-top: 12px;
         padding: 0 24px;

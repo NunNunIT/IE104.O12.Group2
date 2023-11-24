@@ -16,7 +16,7 @@
 
     <%- include('../../partials/header-small', title='Đăng ký') %>
 
-    <main>
+    <main class = "register_main">
         <div class="register__box">
             <div class="register__inner-box">
                 <div class="register__forms-wrap">
@@ -81,7 +81,9 @@
         </div>
     </main>
 
+    <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
+    <%- include('../../partials/app-bar') %>
 
     <!-- Javascript file -->
     <script src="/scripts/pages/auth/register.js"></script>

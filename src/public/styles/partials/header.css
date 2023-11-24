@@ -1,4 +1,4 @@
-header {
+.header {
     width: 100%;
     height: 154px;
     display: flex;
@@ -423,7 +423,7 @@ header {
 
 /*Responsive-tablet-landscape*/
 @media only screen and (max-width: 48rem) {
-    header {
+    .header {
         height: 140px;
         font-size: 0.8125rem;
     }
@@ -485,8 +485,8 @@ header {
         top: -0.875rem;
     }
 
-    header a,
-    header p {
+    .header a,
+    .header p {
         font-size: 0.8125rem;
     }
 
@@ -551,7 +551,7 @@ header {
 
 /*Responsive-tablet-portrait*/
 @media only screen and (max-width: 40rem) {
-    header {
+    .header {
         height: 130px;
         font-size: 0.8125rem;
     }
@@ -598,7 +598,7 @@ header {
 
 /*Responsive-smartphone*/
 @media only screen and (max-width: 26rem) {
-    header {
+    .header {
         height: 112px;
     }
 

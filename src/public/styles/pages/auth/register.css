@@ -30,7 +30,7 @@ input {
   font-family: "Segoe UI", "Poppins", sans-serif;
 }
 
-main {
+.register_main {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -308,10 +308,11 @@ label {
 }
 
 @media (max-width: 26rem) {
-  main {
+  .register_main {
     background-color: var(--white);
     display: block;
     padding: 0.5rem;
+    min-height: 90vh;
   }
 
   .register__box {

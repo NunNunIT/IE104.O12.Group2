@@ -36,7 +36,66 @@
 				<button type="button" class="cate__button" id="cateNext"><span class="material-symbols-outlined"> chevron_right </span></button>
 			</div>
 		</section>
-		<%- include('../../components/carousel') %>
+
+		<section class="outstanding-products">
+		<div class="outstanding-products__img"></div>
+		<%- include('../../components/carousel', {title: 'Gợi ý hôm nay'}) %>
+		</section>
+
+		'<section class="tip-products-wrapper">
+			<div class="tip-products__img"></div>
+				<div class="tip-products">
+				<div class="tip-products__label">
+					<h2 class="tip-products__title">Hàng mới về</h2>
+					<div class="tip-products__seemore">
+						<a href="/search/result">Xem tất cả</a>
+						<span class="material-symbols-outlined">
+							chevron_right
+						</span>
+					</div>
+				</div>
+				<div class="tip-products__content">
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+				</div>
+			</div>
+        </section>
+		
+		<section class="tip-products-wrapper3">
+				<div class="tip-products">
+				<div class="tip-products__label">
+					<h2 class="tip-products__title">Xả kho giá tốt</h2>
+					<div class="tip-products__seemore">
+						<a href="/search/result">Xem tất cả</a>
+						<span class="material-symbols-outlined">
+							chevron_right
+						</span>
+					</div>
+				</div>
+				<div class="tip-products__content">
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+				</div>
+			</div>
+        </section>
 	</main>
 
 	<%- include('../../components/scrollup') %>

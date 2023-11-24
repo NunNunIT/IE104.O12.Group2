@@ -16,7 +16,7 @@
 
     <%- include('../../partials/header-small', title='Đăng nhập')%>
 
-    <main>
+    <main class = "login_main">
         <div class="login__box">
             <div class="login__inner-box">
                 <div class="login__forms-wrap">
@@ -72,7 +72,9 @@
         </div>
     </main>
 
+    <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
+    <%- include('../../partials/app-bar') %>
 
     <script src="/scripts/pages/auth/login.js"></script>
 
