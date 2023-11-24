@@ -25,8 +25,9 @@
 .cart-item__variants {
     cursor: pointer;
     width: 90%;
-    padding: 0 8px;
     max-width: 100px;
+    padding-left: 8px;
+    border-right: 8px solid transparent;
     height: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
@@ -131,7 +132,8 @@ input::-webkit-inner-spin-button {
 @media screen and (max-width: 48rem) {
     .cart-item__variants {
         font-size: 0.8125rem;
-        padding: 2px;
+        padding-left: 2px;
+        border-right: 2px solid transparent
     }
 
     .cart-item__product img {
@@ -188,9 +190,10 @@ input::-webkit-inner-spin-button {
         width: 100%;
         max-width: max-content;
         height: auto;
-        padding: 4px;
-        background-color: var(--bg-white-o80);
+        padding-left: 4px;
+        border-right: 4px solid transparent;
         border-radius: 4px;
+        background-color: var(--bg-white-o80);
     }
 
     .cart-item__price del {

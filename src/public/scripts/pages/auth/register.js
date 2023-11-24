@@ -183,10 +183,19 @@ const validateInput = () => {
                     setError(phoneNumber, back.error);
                     // error.innerText = back.error
                 } else {
-                    form.submit();
-                    // success.style.display = "block"
-                    // error.style.display = "none";
-                    // success.innerText = back.success
+                    const login = {
+                        phoneNumber: phoneNumber.value.trim(),
+                        password: password.value.trim()
+                    }
+
+                    fetch('/auth/login', {
+                        method: 'POST',
+                        body: JSON.stringify(login),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    window.location.href = '/'
                 }
             })
     }

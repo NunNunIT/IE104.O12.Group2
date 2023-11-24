@@ -80,11 +80,15 @@ h2 {
     font-weight: 500;
 }
 
+.privacy__title {
+    margin-top: 24px;
+}
+
 
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
     h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     h2 {
@@ -100,7 +104,8 @@ h2 {
     }
 
     .privacy-container {
-        margin: 132px 0 32px 0;
+        margin: 24px 0;
+        width: 90%;
     }
 }
 
@@ -122,6 +127,11 @@ h2 {
         font-size: 0.75rem;
     }
 
+    .privacy-container {
+        width: 100%;
+        border-radius: 0;
+    }
+
     .privacy__content .privacy__content-title {
         font-size: 1rem;
     }
@@ -131,6 +141,7 @@ h2 {
     }
 
     .privacy__content {
-        width: 88%;
+        width: 90%;
+        padding: 0 4px 0 12px;
     }
 }

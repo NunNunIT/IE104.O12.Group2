@@ -23,6 +23,10 @@ body {
     background-color: #f5f6f8;
 }
 
+a {
+    text-decoration: none;
+}
+
 .seacrh-result__container {
     width: 80%;
     max-width: 1152px;
@@ -129,6 +133,10 @@ body {
     border-color: var(--primary-color-1);
 }
 
+.filter-label.active {
+    border-color: var(--primary-color-1);
+    color: var(--primary-color-1);
+}
 
 .filter-option {
     display: none;
@@ -338,7 +346,6 @@ body {
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
     .seacrh-result__container {
-        margin-top: 140px;
         width: 90%;
     }
 
@@ -436,18 +443,10 @@ body {
 }
 
 /*Responsive-smartphone*/
-@media only screen and (max-width: 40rem) {
-    .seacrh-result__container {
-        margin-top: 130px;
-    }
-}
-
-/*Responsive-smartphone*/
 @media only screen and (max-width: 26rem) {
 
     .seacrh-result__container {
-        margin-top: 112px;
-        width: 95%;
+        width: 100%;
     }
 
     .seacrh-result__filter {

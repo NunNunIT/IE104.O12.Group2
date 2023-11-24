@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+  <title>Admin</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+  <link rel="stylesheet" href="/styles/admin/pages/dashboard_admin.css">
+</head>
+
+<body>
+  <div class="grid-container">
+
+    <!-- Header -->
+    <%- include('../partials/sidebar_admin') %>
+
+      <!-- Sidebar -->
+      <%- include('../partials/header_admin', title) %>
+
+
+        <!-- Main -->
+        <main class="main-container">
+          <div class="main-cards">
+            <div class="card">
+              <div class="card-icon">
+                <span class="card__icon material-symbols-rounded">groups</span>
+              </div>
+              <div class="card-inner">
+                <h4>Khách hàng</h4>
+                <h1>
+                  <%=data.count_cate %>
+                </h1>
+              </div>
+
+            </div>
+
+            <div class="card">
+              <div class="card-icon">
+                <span class="card__icon material-symbols-rounded">shopping_cart</span>
+              </div>
+              <div class="card-inner">
+                <h4>Đơn hàng</h4>
+                <h1>
+                  <%=data.count_pro %>
+                </h1>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">
+                <span class="card__icon material-symbols-rounded">monetization_on</span>
+              </div>
+              <div class="card-inner">
+                <h4>Doanh thu</h4>
+                <h1>
+                  <%=data.count_cust %>
+                </h1>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- <div class="main-cards--bottom">
+            <div class="card">
+              <div class="card_-icon">
+                <span class="card__icon material-symbols-rounded">local_shipping</span>
+              </div>
+              <div class="card-inner">
+                <h4>Đơn hàng</h4>
+                <h1>
+                  <%=data.count_order %>
+                </h1>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card_-icon">
+                <span class="card__icon material-symbols-rounded">monetization_on</span>
+              </div>
+              <div class="card-inner">
+                <h4>Doanh thu</h4>
+                <h1><%- total.sum_total%>đ</h1>
+              </div>
+            </div>
+          </div> -->
+
+
+
+          <div class="charts">
+
+            <div class="charts-card">
+              <h2 class="chart-title">5 sản phẩm bán chạy</h2>
+              <div id="bar-chart"></div>
+            </div>
+
+            <div class="charts-card">
+              <h2 class="chart-title">Doanh thu năm</h2>
+              <div id="area-chart"></div>
+            </div>
+          </div>
+
+  </div>
+  </main>
+  <!-- End Main -->
+
+  </div>
+
+  <!-- Scripts -->
+  <!-- ApexCharts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+  <script src="/scripts/admin/dashboard.js"></script>
+  <script src="/scripts/admin/index_admin.js"></script>
+</body>
+
+</html>

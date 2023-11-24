@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 
 /* ---------- HEADER ---------- */
-.header {
+.header-small {
   width: 100%;
   box-sizing: border-box;
   padding: 13px 10vw;
@@ -15,21 +15,92 @@
   z-index: 99;
 }
 
-.header-left {
+.header-small-left {
   display: flex;
   gap: 24px;
 }
 
-.header-left>img {
+.header-small-left>a>img {
   width: 150px;
 }
 
-.header-right a{
+.header-small__support-info {
+  display: flex;
+  gap: 20px;
+}
+
+.header-small .header-small__dropdown-help a{
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   text-decoration: none;
   color: var(--primary-color-1);
 }
 
-.header-right a:hover{
+.header-small .header-small__dropdown-help:hover a {
   color: var(--primary-color-2);
+}
+
+.header-small .header-small__dropdown-help:hover .dropdown-help__content,
+.header-small .header-small__dropdown-help:focus .dropdown-help__content {
+  display: flex;
+}
+
+.header-small .header-small__dropdown-help .help {
+  display: flex;
+}
+
+.header-small .header-small__dropdown-help .help--mobile {
+  display: none;
+}
+
+.header-small .header-small__dropdown-help__content {
+  display: none;
+  position: absolute;
+  right: 20vh;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+  z-index: 1;
+  margin-top: 12px;
+  padding: 12px;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+  gap: 12px;
+  border-radius: 0 0 8px 8px;
+}
+
+.header-small .header-small__dropdown-help__content img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.header-small .header-small__dropdown-help__content p {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/*Responsive-smartphone*/
+@media only screen and (max-width: 26rem) {
+  .header-small {
+      height: 70px;
+      padding: 0px 24px;
+  }
+
+  .header-small .header-small__dropdown-help__content {
+    right: 12px;
+  }
+
+  .header-small .header-small__dropdown-help .help {
+    display: none;
+  }
+  
+  .header-small .header-small__dropdown-help .help--mobile {
+    display: flex;
+  }
+
 }
 

@@ -2,94 +2,96 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
+  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+  <link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
 
-    <title>TECHTWO.</title>
+  <title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+  <%- include('../../partials/header') %>
+  <%- include('../../partials/breadcrumb') %>
 
-    <main class="account-container">
-        <aside class="account-aside" id="sidebar">
-            <a href="#" class="avatar">
-                <span class="image-container">
-                    <img src="/imgs/avatar.png" alt="avatar" />
-                </span>
+  <main class="account-container">
+    <aside class="account-aside" id="sidebar">
+      <a href="#" class="avatar">
+        <span class="image-container">
+          <img src="/imgs/avatar.png" alt="avatar" />
+        </span>
 
-            </a>
-            <ul class="side-menu top">
-                <li class="active">
-                    <a href="#profile" id="info-link">
-                        <span class="material-symbols-outlined">
-                            perm_contact_calendar
-                        </span>
-                        <span class="text">Thông tin cá nhân</span>
-                    </a>
-                </li>
+      </a>
+      <ul class="side-menu top">
+        <li class="active">
+          <a href="#profile" id="info-link">
+            <span class="material-symbols-outlined">
+              perm_contact_calendar
+            </span>
+            <span class="text">Thông tin cá nhân</span>
+          </a>
+        </li>
 
-                <li>
-                    <a href="#order-history">
-                        <span class="material-symbols-outlined">
-                            shopping_bag
-                        </span>
-                        <span class="text">Lịch sử đơn mua</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#maintaince">
-                        <span class="material-symbols-outlined">
-                            build
-                        </span>
-                        <span class="text">Yêu cầu bảo hành</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="side-menu">
-                <li>
-                    <a href="#change-password">
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
-                        <span class="text">Đổi mật khẩu</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#logout" class="logout">
-                        <span class="material-symbols-outlined">
-                            logout
-                        </span>
-                        <span class="text">Đăng xuất</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-        <!-- <aside class="account-aside" id="sidebar"></aside> -->
-        <section class="purchase__main">
-            <nav class="purchase__status">
-                <a href="#status-all" id="purchase__status-all">Tất cả</a>
-                <a href="#status-payment" id="purchase__status-payment">Chờ thanh toán</a>
-                <a href="#status-deliver" id="purchase__status-deliver">Chờ giao hàng</a>
-                <a href="#status-finish" id="purchase__status-finish">Hoàn thành</a>
-                <a href="#status-cancel" id="purchase__status-cancel">Đã hủy</a>
-            </nav>
-            <div class="purchase__main__item">
-                <%- include('../../components/purchase-item') %>
-                <%- include('../../components/purchase-item') %>
-                <%- include('../../components/purchase-item') %>
-            </div>
-        </section>
-    </main>
+        <li>
+          <a href="#order-history">
+            <span class="material-symbols-outlined">
+              shopping_bag
+            </span>
+            <span class="text">Lịch sử đơn mua</span>
+          </a>
+        </li>
+        <li>
+          <a href="#maintaince">
+            <span class="material-symbols-outlined">
+              build
+            </span>
+            <span class="text">Yêu cầu bảo hành</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="side-menu">
+        <li>
+          <a href="#change-password">
+            <span class="material-symbols-outlined">
+              settings
+            </span>
+            <span class="text">Đổi mật khẩu</span>
+          </a>
+        </li>
+        <li>
+          <a href="#logout" class="logout">
+            <span class="material-symbols-outlined">
+              logout
+            </span>
+            <span class="text">Đăng xuất</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <!-- <aside class="account-aside" id="sidebar"></aside> -->
+    <section class="purchase__main">
+      <nav class="purchase__status">
+        <a href="#status-all" id="purchase__status-all">Tất cả</a>
+        <a href="#status-payment" id="purchase__status-payment">Chờ thanh toán</a>
+        <a href="#status-deliver" id="purchase__status-deliver">Đang giao hàng</a>
+        <a href="#status-finish" id="purchase__status-finish">Hoàn thành</a>
+        <a href="#status-cancel" id="purchase__status-cancel">Đã hủy</a>
+      </nav>
+      <div class="purchase__main__item">
+        <%- include('../../components/purchase-item') %>
+        <%- include('../../components/purchase-item') %>
+        <%- include('../../components/purchase-item') %>
+      </div>
+    </section>
+  </main>
 
+    <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
+    <%- include('../../partials/app-bar') %>
 
-    <script src="/scripts/pages/account/purchaseHistory.js"></script>
+  <script src="/scripts/pages/account/purchaseHistory.js"></script>
 
 </body>
 

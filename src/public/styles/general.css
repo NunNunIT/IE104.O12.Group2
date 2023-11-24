@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0..1,0");
+@import url("/styles/partials/header.css");
+@import url("/styles/partials/header-small.css");
 @import url("/styles/partials/footer.css");
+@import url("/styles/partials/app-bar.css");
+@import url("/styles/components/scrollup.css");
 
 :root {
     --white: #ffffff;
@@ -28,8 +32,11 @@
     --dark-gray-o50: rgba(44, 44, 44, 0.5);
     --luminos-blue: #0235f6;
     --pink: #FF685F;
+    --bg-pink: #fffbf8;
+    --outline-pink: #f9ede5;
     --dollar-red: #D0021C;
     --fire-orange: #FF9F40;
+    --dark-blue: #114A91;
 
     --scroll-thumb: #828282;
     --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
@@ -106,19 +113,19 @@ html {
 h1 {
     /* 32px */
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 h2 {
     /* 24px */
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h3 {
     /* 20px */
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h4 {
@@ -163,7 +170,7 @@ p {
     background: var(--primary-color-2);
 }
 
-button {
+.btn {
     cursor: pointer;
     height: 48px;
     display: inline-block;
@@ -199,25 +206,25 @@ button {
     }
 }
 
-.btn--filled.pri {
+.btn.btn--filled.pri {
     background-color: var(--primary-color-1);
     color: white;
     font-size: 16px;
     padding: 0 24px 0 24px;
 }
 
-.btn--filled.pri:hover {
+.btn.btn--filled.pri:hover {
     background-color: var(--primary-color-2);
 }
 
-.btn--filled.sec {
+.btn.btn--filled.sec {
     background-color: var(--primary-color-5);
     color: white;
     font-size: 16px;
     padding: 0 24px 0 24px;
 }
 
-.btn--outlined.pri {
+.btn.btn--outlined.pri {
     background-color: white;
     color: var(--primary-color-1);
     border: 1px solid var(--primary-color-1);
@@ -225,7 +232,7 @@ button {
     padding: 0 24px 0 24px;
 }
 
-.btn--outlined.sec {
+.btn.btn--outlined.sec {
     background-color: white;
     color: var(--primary-color-5);
     border: 1px solid var(--primary-color-5);

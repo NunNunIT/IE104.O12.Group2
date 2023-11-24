@@ -12,7 +12,7 @@ const redirect2promoView = () => {
 }
 
 const redirect2detailAccom = () => {
-    window.location.href = "#"; // Sửa URL chuyển hướng tại đây
+    window.location.href = "http://127.0.0.1:3000/search/detail"; // Sửa URL chuyển hướng tại đây
 }
 
 useBtns.forEach((btn) => {
@@ -28,7 +28,7 @@ const modalBtns = document.querySelectorAll(".popup-btn");
 const modals = document.querySelectorAll(".popup");
 const closeBtns = document.querySelectorAll(".close-btn");
 const notiItems = document.querySelectorAll(".noti-item__block");
-const markAllReadButton = document.querySelector(".btn--outlined");
+const markAllReadButton = document.querySelector(".btn-mark-all-read");
 const popupVisible = new Array(modals.length).fill(false);
 
 modalBtns.forEach((btn, index) => {

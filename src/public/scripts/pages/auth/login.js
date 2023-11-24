@@ -3,16 +3,6 @@ const toggle_btn = document.querySelectorAll(".login__toggle");
 const main = document.querySelector("main");
 const images = document.querySelectorAll(".login__image");
 
-autoComplete();
-function autoComplete () {
-    inputs.forEach((inp) => {
-        if (inp.value) {
-        inp.classList.add("active");
-        }
-    });
-}
-
-
 inputs.forEach((inp) => {
     inp.addEventListener("focus", () => {
         inp.classList.add("active");
@@ -47,7 +37,7 @@ function startAutoSlide() {
 startAutoSlide();
 
 
-const passwordInput = document.getElementById("Password");
+const passwordInput = document.getElementById("password");
 const togglePasswordButton = document.getElementById("togglePassword");
 
 togglePasswordButton.addEventListener("click", function () {
@@ -68,8 +58,8 @@ togglePasswordButton.addEventListener("click", function () {
 });
 
 const form = document.getElementById('form');
-const PhoneNumber = document.getElementById('PhoneNumber');
-const Password = document.getElementById('Password');
+const phoneNumber = document.getElementById('phoneNumber');
+const password = document.getElementById('password');
 
 
 form.addEventListener('submit', e => {
@@ -97,45 +87,45 @@ const setSuccess = element => {
     inputControl.classList.remove('error');
 }
 
-const isValidPhoneNumber = PhoneNumber => {
+const isValidPhoneNumber = phoneNumber => {
     const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-    return re.test(String(PhoneNumber).trim());
+    return re.test(String(phoneNumber).trim());
 }
 
 const validateInput = () => {
 
-    const PhoneNumberValue = PhoneNumber.value.trim();
-    const PasswordValue = Password.value.trim();
+    const PhoneNumberValue = phoneNumber.value.trim();
+    const PasswordValue = password.value.trim();
 
     let isAllValid = true;
 
 
 
     if (PhoneNumberValue === '') {
-        setError(PhoneNumber, 'Vui lòng nhập số điện thoại!');
+        setError(phoneNumber, 'Vui lòng nhập số điện thoại!');
         isAllValid = false;
     } else if (!isValidPhoneNumber(PhoneNumberValue)) {
-        setError(PhoneNumber, 'Số điện thoại không đúng định dạng!')
+        setError(phoneNumber, 'Số điện thoại không đúng định dạng!')
         isAllValid = false;
     } else {
-        setSuccess(PhoneNumber);
+        setSuccess(phoneNumber);
     }
 
     if (PasswordValue === '') {
-        setError(Password, 'Vui lòng nhập mật khẩu!');
+        setError(password, 'Vui lòng nhập mật khẩu!');
         isAllValid = false;
     } else if (PasswordValue.length < 8) {
-        setError(Password, 'Mật khẩu phải ít nhất 8 ký tự!')
+        setError(password, 'Mật khẩu phải ít nhất 8 ký tự!')
         isAllValid = false;
     } else {
-        setSuccess(Password);
+        setSuccess(password);
     }
 
 
     if (isAllValid) {
         const login = {
-            user_phone: PhoneNumber.value.trim(),
-            user_password: Password.value.trim()
+            phoneNumber: phoneNumber.value.trim(),
+            password: password.value.trim()
         }
         fetch("/auth/login", {
             method: 'POST',
@@ -145,10 +135,10 @@ const validateInput = () => {
             }
         }).then (res => res.json()).then (back => {
             if (back.status == "error"){
-                setError(PhoneNumber, back.error);
+                setError(phoneNumber, back.error);
             }
             else if (back.status == "error2") {
-                setError(Password, back.error);
+                setError(password, back.error);
             }
             else {
                 form.submit();

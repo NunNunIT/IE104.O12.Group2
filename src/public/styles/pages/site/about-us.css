@@ -12,7 +12,7 @@ body {
     background-color: var(--white-gray);
 }
 
-p {
+.about-container p {
     line-height: 1.5;
     font-weight: 300;
     letter-spacing: 0.8px;
@@ -97,7 +97,6 @@ h2 {
     justify-content: center;
     width: 100%;
     padding: 40px 0 28px 0;
-    background-color: var(--white-gray);
 }
 
 .about-us__title p {
@@ -141,7 +140,8 @@ h2 {
     }
 
     .about-container {
-        margin: 128px 0 24px 0;
+        width: 90%;
+        margin: 24px 0;
     }
 
     .about-us__content--colunm {
@@ -182,6 +182,15 @@ h2 {
 
     p {
         font-size: 0.75rem;
+    }
+
+    .about-container {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .about-us__title {
+        padding: 20px 0;
     }
 
     .about-us__content {

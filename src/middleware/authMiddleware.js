@@ -1,5 +1,4 @@
 const db = require('../config/db/connect');
-const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {promisify} = require('util')
 
@@ -39,7 +38,6 @@ exports.checkAuth = (req, res, next) => {
     else {
         next();
     }
-
 }
 
 exports.checkUnAuth = (req, res, next) => {
