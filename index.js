@@ -4,7 +4,6 @@ const path = require('path')
 const express = require('express')
 const util = require('util')
 const app = express()
-const session = require('express-session')
 const dotdenv = require('dotenv').config();
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
