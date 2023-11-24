@@ -173,6 +173,9 @@ textarea {
 
 /* 416px - Mobile */
 @media screen and (max-width: 26rem) {
+    .app-bar {
+        display: block;
+    }
 
     body {
         padding: 0;

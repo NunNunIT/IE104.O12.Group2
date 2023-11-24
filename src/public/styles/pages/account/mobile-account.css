@@ -1,5 +1,7 @@
 @import url("/styles/general.css");
 
+/* @import url("/styles/components/sidebar_account.css"); */
+
 body {
 	margin: 0;
 	padding: 0;
@@ -193,11 +195,13 @@ span.image-container img {
 .popup {
 	display: none;
 	position: fixed;
-	padding-top: 40%;
+	padding-top: 50%;
 	width: 100%;
 	height: 100%;
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.5);
+	top: 50%;
+	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
@@ -209,9 +213,6 @@ span.image-container img {
 		'opsz' 24
 }
 
-/* .popup .material-symbols-outlined:hover {
-    color: var(--primary-color-2);
-} */
 
 .popup__main {
 	position: relative;
@@ -221,9 +222,7 @@ span.image-container img {
 	width: 55%;
 	height: auto;
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: space-between;
-	/* align-items: center; */
 	padding: 15px;
 
 }

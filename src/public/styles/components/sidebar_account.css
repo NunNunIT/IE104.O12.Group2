@@ -34,7 +34,7 @@ span.image-container img {
 .avatar {
     margin-top: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     text-decoration: none;
@@ -139,15 +139,10 @@ span.image-container img {
     display: none;
     position: fixed;
     padding-top: 12%;
-    /* left: 0;
-    top: 0; */
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.5);
-    /* z-index: 9999; */
-    /* overflow-y: auto; */
-	/* position: fixed; */
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
