@@ -213,6 +213,10 @@ p {
     padding: 0 24px 0 24px;
 }
 
+.btn.btn--filled.pri:hover {
+    background-color: var(--primary-color-2);
+}
+
 .btn.btn--filled.sec {
     background-color: var(--primary-color-5);
     color: white;
