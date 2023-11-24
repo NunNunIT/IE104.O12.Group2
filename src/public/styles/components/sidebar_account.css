@@ -2,7 +2,6 @@
 @import url("/styles/partials/header.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/breadcrumb.css");
-@import url("/styles/components/purchase-item.css");
 
 
 
@@ -50,21 +49,21 @@ span.image-container img {
   }
   
 
-#sidebar .side-menu.top li.active a {
-	color: var( --blue5);
+
+/* Định dạng màu đỏ cho menu active */
+#sidebar .side-menu__ele.active a {
+    color: var( --primary-color-1);
 }
 
-#sidebar .side-menu li.active a:first-child {
-	color: var(--blue5);
-}
+
 
 
 #sidebar .side-menu.top li a:hover {
-	color: var(--primary-color-1);
+	color: var(--primary-color-2);
 }
 
 #sidebar .side-menu li a:hover {
-	color: var(--primary-color-1);
+	color: var(--primary-color-2);
 }
 
 
@@ -79,35 +78,6 @@ span.image-container img {
 	margin-left: 6px;
 	border-radius: 48px 0 0 48px;
 	padding: 4px;
-}
-
-#sidebar .side-menu li.active {
-	background: white;
-	position: relative;
-}
-
-#sidebar .side-menu li.active::before {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	top: -40px;
-	right: 0;
-	box-shadow: 20px 20px 0 white;
-	z-index: -1;
-}
-
-#sidebar .side-menu li.active::after {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	bottom: -40px;
-	right: 0;
-	box-shadow: 20px -20px 0 white;
-	z-index: -1;
 }
 
 #sidebar .side-menu li a {

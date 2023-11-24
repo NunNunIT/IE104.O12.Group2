@@ -1,16 +1,22 @@
 
-  //sidebar
-const links = document.querySelectorAll('#sidebar a');
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('#sidebar a');
 
-links.forEach(function (link) {
-    link.addEventListener('click', function () {
-        links.forEach(function (otherLink) {
-            otherLink.parentNode.classList.remove('active');
+    links.forEach(function (link) {
+        link.addEventListener('click', function () {
+            // Xóa lớp 'active' khỏi tất cả các liên kết
+            links.forEach(function (otherLink) {
+                otherLink.classList.remove('active');
+            });
+
+            // Thêm lớp 'active' cho liên kết được nhấp vào
+            link.classList.add('active');
         });
-
-        link.parentNode.classList.add('active');
     });
 });
+
+
+
 
   function redirectTo(url) {
     window.location.href = url;
