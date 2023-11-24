@@ -5,9 +5,9 @@ appbar__element[0].classList.add('active');
 
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('cateCarousel')
-    const items = document.querySelectorAll('.cate__item')
+    const items = document.querySelectorAll('.cate__carousel-col')
     const totalItems = items.length
-    const maxItemsDisplay = 5
+    const maxItemsDisplay = 7
     let currentIndex = 0
 
     const prevButton = document.querySelector('#catePrev')
