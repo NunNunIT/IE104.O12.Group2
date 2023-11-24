@@ -15,7 +15,10 @@ class SiteController {
             'induction-cooker': 'Bếp từ'
         }
 
-        res.render('./pages/site/index', { productCatalog })
+        res.render('./pages/site/index', {
+            user: (req.user)? req.user : 0,
+            productCatalog
+        })
     }
     
     indexPost(req, res) {
@@ -28,22 +31,31 @@ class SiteController {
             'induction-cooker': 'Bếp từ'
         }
 
-        res.render('./pages/site/index', { productCatalog })
+        res.render('./pages/site/index', {
+            user: (req.user)? req.user : 0,
+            productCatalog
+        })
     }
 
 
     //[GET] /about-us
     aboutUs(req, res) {
-        res.render('./pages/site/about-us')
+        res.render('./pages/site/about-us', {
+            user: (req.user)? req.user : 0
+        })
     }
 
     //[GET] /privacy-policy
     privacyPolicy(req, res) {
-        res.render('./pages/site/privacy-policy')
+        res.render('./pages/site/privacy-policy', {
+            user: (req.user)? req.user : 0
+        })
     }
 
     error(req, res) {
-        res.render('./pages/site/404-error')
+        res.render('./pages/site/404-error', {
+            user: (req.user)? req.user : 0
+        })
     }
 }
 

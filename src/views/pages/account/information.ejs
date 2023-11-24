@@ -20,36 +20,37 @@
   <main class="account-container">
     <%- include("../../components/sidebar_account") %>
 
-    <section class="purchase__main" id="info">
-      <div class="purchase__main__item">
-        <div class="purchase-item">
-          <div class="purchase-item--top">
-            <div class="purchase-item__info">
-              <h3>Thông tin cá nhân</h3>
+        <section class="purchase__main" id="info">
+            <div class="purchase__main__item">
+                <div class="purchase-item">
+                    <div class="purchase-item--top">
+                        <div class="purchase-item__info">
+                            <h3>Thông tin cá nhân</h3>
+                            
+                        </div>
+                        <p class="purchase-item__status"> <a href="/account/edit-information">Sửa</a></p>
+                    </div>
+                    <div class="purchase-item__main">
+                        <div class="purchase-item__element">
+                                <div class="purchase-item__product-detail">
 
-            </div>
-            <p class="purchase-item__status"> <a href="/account/edit-information">Sửa</a></p>
-          </div>
-          <div class="purchase-item__main">
-            <div class="purchase-item__element">
-              <div class="purchase-item__product-detail">
-                <h5 id="purchase-item__product-name">Tên người dùng: </h5><span>Vi Thị Hương</span>
-                <hr />
+                                    <h5 id="purchase-item__product-name">Tên người dùng: </h5><span><%= (user.user_name) ? user.user_name : '' %></span>
+                                    <hr />
 
-                <h5 id="purchase-item__product-name">Ngày sinh: </h5><span>24/10/2023</span>
-                <hr />
+                                    <h5 id="purchase-item__product-name">Ngày sinh: </h5><span><%= (user.user_birth_format) ? user.user_birth_format : '' %></span>
+                                    <hr />
 
-                <h5 id="purchase-item__product-name">Giới tính: </h5><span>Nữ</span>
-                <hr />
+                                    <h5 id="purchase-item__product-name">Giới tính: </h5><span><%= (user.user_sex) ? user.user_sex : '' %></span>
+                                    <hr />
 
-                <h5 id="purchase-item__product-name">Email: </h5><span>vithihuong384@gmail.com</span>
-                <hr />
+                                    <h5 id="purchase-item__product-name">Email: </h5><span><%= (user.user_email) ? user.user_email : '' %></span>
+                                    <hr />
 
-                <h5 id="purchase-item__product-name">Số điện thoại: </h5><span>0352060384</span>
-                <hr />
+                                    <h5 id="purchase-item__product-name">Số điện thoại: </h5><span><%= (user.user_phone) ? user.user_phone : '' %></span>
+                                    <hr />
 
-                <h5 id="purchase-item__product-name">Địa chỉ: </h5><span>An Bình, Dĩ An, Bình Dương</span>
-                <hr />
+                                    <h5 id="purchase-item__product-name">Địa chỉ: </h5><span><%= (user.user_address) ? user.user_address : '' %></span>
+                                    <hr />
 
               </div>
             </div>

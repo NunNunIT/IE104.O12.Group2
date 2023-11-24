@@ -122,7 +122,8 @@ section {
 }
 
 .outstanding-products,
-.tip-products-wrapper {
+.tip-products-wrapper,
+.tip-products-wrapper3 {
     padding: 12px;
     border-radius: 4px;
     display: inherit;
@@ -171,10 +172,10 @@ section {
 
 .tip-products-wrapper3 {
     /* background-color: var(--white); */
-    background: #EA4C2D;
-    background: -moz-linear-gradient(left, #EA4C2D 0%, #FFA62E 100%);
-    background: -webkit-linear-gradient(left, #EA4C2D 0%, #FFA62E 100%);
-    background: linear-gradient(to right, #EA4C2D 0%, #FFA62E 100%) !important;
+    background: #FFA62E;
+    background: -moz-linear-gradient(left, #FFA62E 0%, #EA4C2D 100%);
+    background: -webkit-linear-gradient(left, #FFA62E 0%, #EA4C2D 100%);
+    background: linear-gradient(to right, #FFA62E 0%, #EA4C2D 100%) !important;
 }
 
 

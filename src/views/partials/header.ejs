@@ -1,75 +1,81 @@
 <header class="header">
-  <nav class="header__nav">
-    <div class="header__nav-container">
-      <div class="header__support-info">
-        <div class="dropdown-help">
-          <a href="#">
-            <span class="material-symbols-outlined">help</span>
-            Hỗ trợ
-          </a>
-          <div class="dropdown-help__content-container">
-            <div class="dropdown-help__content">
-              <img src="/imgs/avatar.png" alt="help">
-              <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
-            </div>
-          </div>
-        </div>
-        <a href="#" class="header__support-info__hotline">
-          <span class="material-symbols-outlined">call</span>
-          Hotline: 0123456789
-        </a>
-      </div>
-      <div>
-        <a href="http://127.0.0.1:3000/">
-          <img class="header__logo--top" src="/imgs/logo-white.png">
-        </a>
-      </div>
-      <div class="header__about-account">
-        <div class="dropdown-noti">
-          <a href="http://127.0.0.1:3000/notification/account-update" class="header__nofitications">
-            <span class="material-symbols-outlined">notifications</span>
-            Thông báo
-          </a>
-          <div class="dropdown-noti__content-container">
-            <div class="dropdown-noti__content">
-              <div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
-              <%- include('../components/noti-content-dropdown') %>
-              <%- include('../components/noti-content-dropdown') %>
-              <a href="http://127.0.0.1:3000/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
-            </div>
-          </div>
-        </div>
-        <div class="dropdown-account">
-          <a href="http://127.0.0.1:3000/account/information">
-            <div class="header__auth">
-              <img src="/imgs/avatar.png" alt="avatar">
-              <span>Phan Nguyễn Hải Yến</span>
-            </div>
-          </a>
-          <div class="dropdown-account__content-container">
-            <div class="dropdown-account__content">
-              <a href="http://127.0.0.1:3000/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
-              <a href="http://127.0.0.1:3000/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
-              <a href="http://127.0.0.1:3000/" id="btn-dropdown-logout">Đăng xuất</a>
-            </div>
-          </div>
-        </div>
-        <div class="dropdown-help">
-          <a href="#" class="help--disable">
-            <span class="material-symbols-outlined">help</span>
-            Hỗ trợ
-          </a>
-        </div>
-
-        <!-- <div class="header__auth">
+	<nav class="header__nav">
+		<div class="header__nav-container">
+			<div class="header__support-info">
+				<div class="dropdown-help">
+					<a href="#">
+						<span class="material-symbols-outlined">help</span>
+						Hỗ trợ
+					</a>
+					<div class="dropdown-help__content-container">
+						<div class="dropdown-help__content">
+							<img src="/imgs/avatar.png" alt="help">
+							<p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="header__support-info__hotline">
+					<span class="material-symbols-outlined">call</span>
+					Hotline: 0123456789
+				</a>
+			</div>
+			<div>
+				<a href="http://127.0.0.1:3000/">
+					<img class="header__logo--top" src="/imgs/logo-white.png">
+				</a>
+			</div>
+			<div class="header__about-account">
+				<div class="dropdown-noti">
+					<a href="http://127.0.0.1:3000/notification/account-update" class="header__nofitications">
+						<span class="material-symbols-outlined">notifications</span>
+						Thông báo
+					</a>
+					<div class="dropdown-noti__content-container">
+						<div class="dropdown-noti__content">
+							<div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
+							<%- include('../components/noti-content-dropdown') %>
+							<%- include('../components/noti-content-dropdown') %>
+							<a href="http://127.0.0.1:3000/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
+						</div>
+					</div>
+				</div>
+				<div class="dropdown-help">
+					<a href="#" class="help--disable">
+						<span class="material-symbols-outlined">help</span>
+						Hỗ trợ
+					</a>
+				</div>
+				<!-- Khi đã đăng nhập -->
+				<% if (user) { %>
+				<div class="dropdown-account">
+					<a href="http://127.0.0.1:3000/account/information">
+						<div class="header__auth">
+							<img src="/imgs/user_avt_img/<%= (user.user_avt_img) ? user.user_avt_img : 'default.png' %>" alt="avatar">
+							<span><%= user.user_name %></span>
+						</div>
+					</a>
+					<div class="dropdown-account__content-container">
+						<div class="dropdown-account__content">
+							<a href="http://127.0.0.1:3000/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
+							<a href="http://127.0.0.1:3000/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
+							<a href="http://127.0.0.1:3000/" id="btn-dropdown-logout">Đăng xuất</a>
+						</div>
+					</div>
+				</div>
+				<!-- Kết thúc khi đã đăng nhập -->
+				<% } else { %>
+				<!-- Khi chưa đăng nhập  -->
+				<div class="header__auth">
                     <span class="material-symbols-outlined">account_circle</span>
                     <a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
                     <span>|</span>
                     <a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
-                </div> -->
-      </div>
-    </div>
-  </nav>
+                </div>
+				<!-- Kết thúc khi chưa đăng nhập -->
+				<% } %>
+			</div>
+		</div>
+	</nav>
 
   <div class="header__container">
     <div class="header__main">
