@@ -200,21 +200,25 @@ button {
     }
 }
 
-button.btn--filled.pri {
+.btn--filled.pri {
     background-color: var(--primary-color-1);
     color: white;
     font-size: 16px;
     padding: 0 24px 0 24px;
 }
 
-button.btn--filled.sec {
+.btn--filled.pri:hover {
+    background-color: var(--primary-color-2);
+}
+
+.btn--filled.sec {
     background-color: var(--primary-color-5);
     color: white;
     font-size: 16px;
     padding: 0 24px 0 24px;
 }
 
-button.btn--outlined.pri {
+.btn--outlined.pri {
     background-color: white;
     color: var(--primary-color-1);
     border: 1px solid var(--primary-color-1);
@@ -222,7 +226,7 @@ button.btn--outlined.pri {
     padding: 0 24px 0 24px;
 }
 
-button.btn--outlined.sec {
+.btn--outlined.sec {
     background-color: white;
     color: var(--primary-color-5);
     border: 1px solid var(--primary-color-5);

@@ -346,7 +346,6 @@ a {
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
     .seacrh-result__container {
-        margin-top: 140px;
         width: 90%;
     }
 
@@ -444,18 +443,10 @@ a {
 }
 
 /*Responsive-smartphone*/
-@media only screen and (max-width: 40rem) {
-    .seacrh-result__container {
-        margin-top: 130px;
-    }
-}
-
-/*Responsive-smartphone*/
 @media only screen and (max-width: 26rem) {
 
     .seacrh-result__container {
-        margin-top: 112px;
-        width: 95%;
+        width: 100%;
     }
 
     .seacrh-result__filter {

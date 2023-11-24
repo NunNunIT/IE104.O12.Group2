@@ -7,9 +7,11 @@
             <span class="material-symbols-outlined">help</span>
             Hỗ trợ
           </a>
-          <div class="dropdown-help__content">
-            <img src="/imgs/avatar.png" alt="help">
-            <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
+          <div class="dropdown-help__content-container">
+            <div class="dropdown-help__content">
+              <img src="/imgs/avatar.png" alt="help">
+              <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
+            </div>
           </div>
         </div>
         <a href="#" class="header__support-info__hotline">
@@ -23,13 +25,44 @@
         </a>
       </div>
       <div class="header__about-account">
-        <a href="http://127.0.0.1:3000/notification/account-update" class="header__nofitications">
-          <span class="material-symbols-outlined">notifications</span>
-          Thông báo
-        </a>
-        <div class="header__auth">
-          <img src="/imgs/avatar.png" alt="avatar">
-          <span>Phan Nguyễn Hải Yến</span>
+        <div class="dropdown-noti">
+          <a href="http://127.0.0.1:3000/notification/account-update" class="header__nofitications">
+            <span class="material-symbols-outlined">notifications</span>
+            Thông báo
+          </a>
+          <div class="dropdown-noti__content-container">
+            <div class="dropdown-noti__content">
+              <div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
+              <%- include('../components/noti-content-dropdown') %>
+              <%- include('../components/noti-content-dropdown') %>
+              <a href="http://127.0.0.1:3000/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown-account">
+          <a href="http://127.0.0.1:3000/account/information">
+            <div class="header__auth">
+              <img src="/imgs/avatar.png" alt="avatar">
+              <span>Phan Nguyễn Hải Yến</span>
+            </div>
+          </a>
+          <div class="dropdown-account__content-container">
+            <div class="dropdown-account__content">
+              <a href="http://127.0.0.1:3000/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
+              <a href="http://127.0.0.1:3000/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
+              <a href="http://127.0.0.1:3000/" id="btn-dropdown-logout">Đăng xuất</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown-help">
+          <a href="#" class="help--disable">
+            <span class="material-symbols-outlined">help</span>
+            Hỗ trợ
+          </a>
+          <!-- <div class="dropdown-help__content">
+            <img src="/imgs/avatar.png" alt="help">
+            <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
+          </div> -->
         </div>
 
         <!-- <div class="header__auth">
@@ -80,7 +113,7 @@
     </a>
   </div>
 
-  <div class="header__cate-dopdown cate-dropdown">
+  <div class="header__cate-dropdown cate-dropdown">
     <div class="cate-dropdown__aside">
       <div class="cate-dropdown__item">
         <img src="/imgs/categories/refrigerator.png" alt="">
