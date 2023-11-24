@@ -23,11 +23,9 @@ body {
     width: 80%;
     margin: 24px auto;
     max-width: 1152px;
-    /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
     gap: 5vh;
-    /* background-color: var(--white); */
 }
 
 section {
@@ -65,9 +63,6 @@ section {
     gap: 8px;
 }
 
-/* .cate__item {
-} */
-
 .cate__button {
     width: 48px;
     height: 48px;
@@ -75,13 +70,20 @@ section {
     border-radius: 50%;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 140px;
+    top: 175px;
     left: 8px;
 }
 
+.cate__button span {
+    font-size: 2rem;
+}
+
 #cateNext {
-    left: 740px;
+    left: 1070px;
 }
 
 .cate__button:hover {
@@ -191,6 +193,14 @@ section {
 @media only screen and (max-width: 64rem) {
     .cate__content {
         gap: 8px;
+    }
+
+    .cate__button {
+        top: 160px;
+    }
+
+    #cateNext {
+        left: 740px;
     }
 }
 
