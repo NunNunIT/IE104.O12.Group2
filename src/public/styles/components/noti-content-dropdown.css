@@ -16,6 +16,7 @@
     object-fit: contain;
     width: 20%;
     border-radius: 4px;
+    margin-right: 12px;
 }
 
 .noti-dropdown__content {

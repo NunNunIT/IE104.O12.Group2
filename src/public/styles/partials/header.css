@@ -1,4 +1,5 @@
 @import url("/styles/components/noti-content-dropdown.css");
+@import url("/styles/components/cart-dropdown-item.css");
 
 .header {
     width: 100%;
@@ -16,6 +17,10 @@
     right: 0;
     transform: translateZ(0);
     z-index: 9999;
+}
+
+.header a {
+    text-decoration: none;
 }
 
 .header__nav {
@@ -171,6 +176,7 @@
     color: #d7d7d7;
 }
 
+
 .header__support-info__hotline:hover {
     color: #d7d7d7;
 }
@@ -275,6 +281,58 @@
     background-color: var(--dollar-red);
     left: -1.5rem;
     top: -1rem;
+}
+
+.dropdown-cart {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-cart__content-container {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 340px;
+    border-radius: 0 0 8px 8px;
+    padding-top: 12px;
+    margin-left: -280px;
+}
+
+.dropdown-cart__content {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-cart__content-title {
+    color: var(--dark7);
+    display: flex;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-left: 12px;
+    font-size: 0.8125rem;
+}
+
+
+.dropdown-cart:hover .dropdown-cart__content-container {
+    display: flex;
+}
+
+.btn-cart {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px;
+}
+
+.btn-cart .btn.btn--filled.pri {
+    font-size: 0.8125rem;
+    padding: 0 20px;
+    height: 36px;
+    border-radius: 4px;
 }
 
 .header__logo--top {

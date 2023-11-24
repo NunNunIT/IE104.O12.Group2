@@ -86,12 +86,29 @@
       <button class="header__search-btn" type="submit" name="submit">
         <span class="material-symbols-outlined">search</span>
       </button>
-      <a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
-        <div class="header__cart">
-          <span class="material-symbols-outlined">shopping_cart</span>
-          <div class="header__cart__number-badge" aria-hidden="true">31</div>
+
+      <div class="dropdown-cart">
+        <a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
+          <div class="header__cart">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <div class="header__cart__number-badge" aria-hidden="true">31</div>
+          </div>
+        </a>
+        <div class="dropdown-cart__content-container">
+          <div class="dropdown-cart__content">
+            <div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
+            <%- include('../components/cart-dropdown-item') %>
+            <%- include('../components/cart-dropdown-item') %>
+            <%- include('../components/cart-dropdown-item') %>
+            <%- include('../components/cart-dropdown-item') %>
+            <%- include('../components/cart-dropdown-item') %>
+            <a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
+              <button class="btn btn--filled pri">Xem giỏ hàng</button>
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
+
     </div>
   </div>
 
