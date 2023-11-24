@@ -39,11 +39,19 @@
 						</div>
 					</div>
 				</div>
+				<div class="dropdown-help">
+					<a href="#" class="help--disable">
+						<span class="material-symbols-outlined">help</span>
+						Hỗ trợ
+					</a>
+				</div>
+				<!-- Khi đã đăng nhập -->
+				<% if (user) { %>
 				<div class="dropdown-account">
 					<a href="http://127.0.0.1:3000/account/information">
 						<div class="header__auth">
-							<img src="/imgs/avatar.png" alt="avatar">
-							<span>Phan Nguyễn Hải Yến</span>
+							<img src="/imgs/user_avt_img/<%= (user.user_avt_img) ? user.user_avt_img : 'default.png' %>" alt="avatar">
+							<span><%= user.user_name %></span>
 						</div>
 					</a>
 					<div class="dropdown-account__content-container">
@@ -54,23 +62,17 @@
 						</div>
 					</div>
 				</div>
-				<div class="dropdown-help">
-					<a href="#" class="help--disable">
-						<span class="material-symbols-outlined">help</span>
-						Hỗ trợ
-					</a>
-					<!-- <div class="dropdown-help__content">
-            <img src="/imgs/avatar.png" alt="help">
-            <p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
-          </div> -->
-				</div>
-
-				<!-- <div class="header__auth">
+				<!-- Kết thúc khi đã đăng nhập -->
+				<% } else { %>
+				<!-- Khi chưa đăng nhập  -->
+				<div class="header__auth">
                     <span class="material-symbols-outlined">account_circle</span>
                     <a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
                     <span>|</span>
                     <a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
-                </div> -->
+                </div>
+				<!-- Kết thúc khi chưa đăng nhập -->
+				<% } %>
 			</div>
 		</div>
 	</nav>
