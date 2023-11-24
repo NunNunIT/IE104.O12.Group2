@@ -17,7 +17,8 @@
 <body>
 
     <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
+        <%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1' , link : 'đường dẫn 1' }, {text
+            : 'tên biến 2' , link : 'đường dẫn 2' }]}) %>
 
             <main class="account-container">
                 <%- include("../../components/sidebar_account") %>
@@ -34,8 +35,8 @@
                                 <div class="purchase-item__main">
                                     <div class="purchase-item__element">
                                         <div class="purchase-item__product-detail">
-                                            <h5 id="purchase-item__product-name">Tên người dùng: </h5><input type="text"
-                                                value="Vi Thị Hương" />
+                                            <h5 id="purchase-item__product-name">Tên người dùng: </h5>
+                                            <input type="text" value="Vi Thị Hương" />
                                             <hr />
 
                                             <h5 id="purchase-item__product-name">Ngày sinh: </h5><input type="text"
@@ -60,10 +61,9 @@
 
 
                                             <div class="popup__button">
-                                                <button class="btn btn--outlined pri btn-cancel" type="button"
-                                                    onclick="redirectTo('/account/information')">Hủy</button>
-                                                <button class="btn btn--filled pri btn-logout" type="button"
-                                                    onclick="redirectTo('/account/information')">Lưu</button>
+                                                <a href="/account/information"><button class="btn btn--outlined pri btn-cancel"
+                                                    type="button">Hủy</button></a>
+                                                <a href="/account/information"><button class="btn btn--filled pri btn-logout" type="button">Lưu</button></a>
                                             </div>
 
                                         </div>
@@ -91,6 +91,7 @@
                 <%- include('../../partials/footer') %>
 
                     <script src="/scripts/pages/account/information.js"></script>
+                    <script src="/scripts/pages/account/edit-information.js"></script>
 
 </body>
 

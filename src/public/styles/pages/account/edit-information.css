@@ -1,6 +1,10 @@
 @import url("/styles/general.css");
 @import url("/styles/pages/account/information.css");
 
+
+.purchase-item__product-detail hr {
+    opacity: 1;
+}
 .popup__button {
     display: flex;
     justify-content: flex-end;
@@ -16,13 +20,23 @@
     color: white;
 }
 
-input[type="text"] {
-    height: 30px; 
+ .purchase-item__product-detail input[type="text"] {
+    height: 40px; 
     font-size: 16px;
+    text-indent: 8px;
+    outline-color: var(--primary-color-1);
   }
 
-  input {
+  .purchase-item__product-detail input {
+   
+    border-radius: 8px;
     color: var(--del-gray);
+}
+
+
+
+#purchase-item__product-name {
+    margin-bottom: 12px;
 }
 
 @media only screen and (max-width: 26rem){
