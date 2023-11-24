@@ -1,94 +1,95 @@
-@import url("/styles/general.css");
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .slideshow-container {
-    max-width: 800px;
-    position: relative;
-    margin: auto;
-  }
-  
-  .slides img {
-    width: 100%;
-    display: none;
-  }
-  
-  a.prev, a.next {
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 8px;
-    margin-top: -22px;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    background-color: rgb(170, 168, 168);
-    opacity: 0.75;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  a.prev {
-    left: 10px;
-  }
-  
-  a.next {
-    right: 10px;
-  }
+	font-family: Arial, sans-serif;
+}
 
-  a.prev:hover {
-    background-color: rgb(241, 247, 247);
-    color: black
-  }
+.slideshow-container {
+	max-width: 800px;
+	position: relative;
+	margin: auto;
+}
 
-  a.next:hover {
-    background-color: rgb(241, 247, 247);
-    color: black
-  }
+.slides img {
+	width: 100%;
+	display: none;
+	border-radius: 8px;
+}
 
-  
-  .thumbnail-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .thumbnails img {
-    width: 80px;
-    margin: 0 5px;
-    cursor: pointer;
-    opacity: 0.6;
-  }
-  
-  .thumbnail-active {
-    border: 1.5px solid #007BFF;
-  }
+a.prev,
+a.next {
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 8px;
+	margin-top: -22px;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	background-color: rgb(170, 168, 168);
+	opacity: 0.75;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+}
 
-  .thumbnails img:hover {
-    /* border: 1.5px solid rgb(9, 9, 10); */
-    opacity: 1;
-  }
-  
-    .counter {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px;
-    background-color: white;
-    color: black;
-    opacity: 0.5;
-    border: 1px solid rgb(60, 60, 66);
-    border-radius: 8px;
-    padding: 2px 2px;
-  }
+a.prev {
+	left: 10px;
+}
+
+a.next {
+	right: 10px;
+}
+
+a.prev:hover {
+	background-color: rgb(241, 247, 247);
+	color: black
+}
+
+a.next:hover {
+	background-color: rgb(241, 247, 247);
+	color: black
+}
 
 
+.thumbnail-container {
+	text-align: center;
+	margin-top: 20px;
+}
 
-  @media only screen and (max-width: 416px) {
-    .thumbnails img {
-      width: 15%;
-    }
-  }
+.thumbnails img {
+	width: 80px;
+	margin: 0 5px;
+	cursor: pointer;
+	opacity: 0.6;
+	border-radius: 4px;
+}
 
+.thumbnail-active {
+	border: 1.5px solid #007BFF;
+}
+
+.thumbnails img:hover {
+	/* border: 1.5px solid rgb(9, 9, 10); */
+	opacity: 1;
+}
+
+.counter {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 16px;
+	background-color: white;
+	color: black;
+	opacity: 0.5;
+	border: 1px solid rgb(60, 60, 66);
+	border-radius: 8px;
+	padding: 2px 2px;
+}
+
+
+
+@media only screen and (max-width: 416px) {
+	.thumbnails img {
+		width: 15%;
+	}
+}

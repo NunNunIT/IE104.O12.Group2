@@ -14,7 +14,7 @@
 <body>
 
     <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+    <%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
 
     <main class="content-container">
         <section class="title">
@@ -35,7 +35,7 @@
             <div class="detail--top">
                 <div class="detail--left">
                     <div class=" detail__slider">
-                        <%- include('../../components/slider') %>
+                        <%- include('../../components/slider02') %>
                     </div>
                     <div class="detail__policy policy">
                         <div>
@@ -174,7 +174,28 @@
         </section>
 
         <section class="comments">
-            <h1>Đánh giá sản phẩm</h1>
+            <h2>Đánh giá sản phẩm</h2>
+            <div class="comments__filter filter">
+                <div class="filter__avg-rating">
+                    <p>4.5 trên 5</p>
+                    <div class="filter__stars">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+                <div class="filter__option">
+                    <button onclick="chooseOption(event)" type="button">Tất cả</button>
+                    <button onclick="chooseOption(event)" type="button">Hình ảnh</button>
+                    <button onclick="chooseOption(event)" type="button">5 sao</button>
+                    <button onclick="chooseOption(event)" type="button">4 sao</button>
+                    <button onclick="chooseOption(event)" type="button">3 sao</button>
+                    <button onclick="chooseOption(event)" type="button">2 sao</button>
+                    <button onclick="chooseOption(event)" type="button">1 sao</button>
+                </div>
+            </div>
             <div class="comments__list">
                 <%- include('../../components/comment') %>
                 <%- include('../../components/comment') %>
@@ -184,12 +205,19 @@
             </div>
         </section>
     </main>
+    <div class="similar-products">
+        <%- include('../../components/carousel', {title: 'Sản phẩm tương tự'}) %>
+    </div>
+        
 
     <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
 
     <script src="/scripts/components/scrollup.js"></script>
-    <script src="/scripts/components/slider.js"></script>
+    <script src="/scripts/components/carousel.js"></script>
+    <script src="/scripts/pages/search/detail.js"></script>
+    <script src="/scripts/components/slider02.js"></script>
 
 </body>
 

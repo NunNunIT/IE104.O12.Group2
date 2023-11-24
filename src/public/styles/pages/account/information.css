@@ -1,223 +1,212 @@
-@import url('/styles/partials/general.css');
+@import url("/styles/general.css");
 @import url("/styles/partials/header.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/breadcrumb.css");
+@import url("/styles/components/purchase-item.css");
 
 body {
-    background-color: var(--bg-white);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--bg-white);
+	box-sizing: border-box;
+}
 
+a {
+	text-decoration: none;
 }
 
 .account-container {
-    width: 80%;
-    max-width: 1152px;
-    margin: auto;
-    overflow-x: hidden;
+	width: 80%;
+	max-width: 1152px;
+	padding: 0;
+	margin: 24px 0;
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
 }
 
-.user-img {
-    width: 50px;
-    border-radius: 50%;
-    border: 1px solid var(--bg-gray);
+.purchase__main {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	width: 100%;
 }
 
-.sidebar {
-    position: absolute;
-    top: 18px;
-    height: auto;
-    width: 80px;
-    background-color: var(--primary-color-1);
-    padding: .4rem .8rem;
-    transition: all 0.5s ease;
-    border-radius: 8px;
-}
-
-.sidebar.active~.main-content {
-    left: 250px;
-    width: calc(100%-20px);
-}
-
-
-.sidebar.active {
-    width: 250px;
+.purchase__status {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 12px 36px;
+	width: 100%;
+	background-color: white;
+	border-radius: 8px;
 }
 
 
-.sidebar #btn {
-    position: absolute;
-    color: var(--white);
-    top: .4rem;
-    left: 50%;
-    font-size: 1.2rem;
-    line-height: 50px;
-    transform: translateX(-50%);
-    cursor: pointer;
+/* side-bar */
+#sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 345px;
+	background: white;
+	z-index: 2000;
+	transition: .3s ease;
+	overflow-x: hidden;
+	scrollbar-width: none;
+	border-radius: 8px;
 }
 
-.sidebar.active #btn {
-    left: 90%;
+#sidebar .material-symbols-outlined {
+	margin-right: 8px;
 }
 
-.sidebar .top .logo {
-    color: var(--white);
+/* #sidebar::--webkit-scrollbar {
+	display: none;
+} */
+
+#sidebar.hide {
+	width: 60px;
+}
+
+span.image-container img {
+	/* Đặt kích thước của hình ảnh */
+	width: 7rem;
+	height: 7rem;
+	border-radius: 50%;
+	object-fit: cover;
+	/* Đảm bảo hình ảnh vừa với kích thước của hình tròn */
+}
+
+
+/* .avatar {
+	margin-top: 4vh;
+	display: flex;
+	justify-content: center;
+}
+
+.avatar .user_name {
+    display: block;
+} */
+
+.avatar {
+    margin-top: 20px;
     display: flex;
-    height: 50px;
-    width: 100%;
+    flex-direction: column;
     align-items: center;
-    pointer-events: none;
-    opacity: 0;
-}
-
-.sidebar.active .top .logo {
-    opacity: 1;
-}
-
-.top .logo i {
-    font-size: 2rem;
-    margin-right: 5px;
-}
-
-.user {
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.user p {
-    color: var(--white);
-    opacity: 1;
-    margin-left: 1rem;
-}
-
-.bold {
-    font-weight: 600;
-}
-
-.sidebar p {
-    opacity: 0;
-}
-
-.sidebar.active p {
-    opacity: 1;
-}
-
-.sidebar ul li {
-    position: relative;
-    list-style-type: none;
-    height: 50px;
-    width: 90%;
-    margin: 0.8rem auto;
-    line-height: 50px;
-}
-
-.sidebar ul li a {
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 0.8rem;
-    text-wrap: nowrap;
-}
-
-.sidebar ul li a:hover {
-    background-color: var(--bg-gray);
-    color: var(--black);
-}
-
-.sidebar ul li a:active {
-    background-color: var(--bg-white);
-    color: var(--black);
-}
-
-.sidebar .menu-item.active {
-    background-color: var(--primary-color-2);
-    /* Chọn màu sắc mà bạn muốn sử dụng */
-    color: var(--white);
-}
-
-
-
-.sidebar ul li a i {
-    min-width: 50px;
     text-align: center;
-    height: 50px;
-    border-radius: 12px;
-    line-height: 50px;
+    text-decoration: none; /* Nếu bạn muốn loại bỏ đường chân trang mặc định của thẻ a */
+  }
+  
+  .image-container {
+    margin-bottom: 5px; /* Có thể điều chỉnh giá trị để căn chỉnh khoảng cách giữa ảnh và tên người dùng */
+  }
+  
+  .user_name {
+    color: #333; /* Màu chữ cho tên người dùng, có thể thay đổi tùy ý */
+  }
+  
+
+#sidebar .side-menu.top li.active a {
+	color: var(--primary-color-2);
 }
 
-.sidebar .nav-item {
-    opacity: 0;
-}
-
-.sidebar.active .nav-item {
-    opacity: 1;
-}
-
-.main-content {
-    position: relative;
-    /* background-color: var(--bg-gray); */
-    min-height: 100vh;
-    left: 80px;
-    transition: all 0.5s ease;
-    width: calc(100% - 80px);
-    padding: 18px;
+#sidebar .side-menu.top li a:hover {
+	color: var(--primary-color-1);
 }
 
 
-.info {
-    width: relative;
-    border: 1px solid black;
-    border-radius: 8px;
-    background: var(--white);
-    margin-left: 10px;
-    padding: 1rem;
+#sidebar .side-menu {
+	width: 100%;
+	margin-top: 20px;
 }
 
-.container h2,
-#edit {
-    display: inline-block;
+#sidebar .side-menu li {
+	height: 48px;
+	background: transparent;
+	margin-left: 6px;
+	border-radius: 48px 0 0 48px;
+	padding: 4px;
 }
 
-.edit-btn {
-    margin-left: 1.5rem;
-    align-items: center;
-    padding: 6px 6px;
-    text-decoration: none;
-    background-color: var(--primary-color-1);
-    color: var(--white);
-    border: 1px solid var(--black);
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+#sidebar .side-menu li.active {
+	background: white;
+	position: relative;
 }
 
-.edit-btn:hover {
-    background-color: var(--outline-gray);
-    color: var(--black);
+#sidebar .side-menu li.active::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -40px;
+	right: 0;
+	box-shadow: 20px 20px 0 white;
+	z-index: -1;
 }
 
-.edit-btn i {
-    font-size: 18px;
+#sidebar .side-menu li.active::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	bottom: -40px;
+	right: 0;
+	box-shadow: 20px -20px 0 white;
+	z-index: -1;
 }
 
-.info_content {
-    display: flex;
-    gap: 12px;
-    height: 40px;
+#sidebar .side-menu li a {
+	width: 100%;
+	height: 100%;
+	background: white;
+	display: flex;
+	align-items: center;
+	border-radius: 48px;
+	font-size: 16px;
+	color: var(--dark);
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+
+
+#sidebar.hide .side-menu li a {
+	width: calc(48px - (4px * 2));
+	transition: width .3s ease;
+}
+
+#sidebar .side-menu li a.logout {
+	color: var(--red);
+}
+
+#sidebar .side-menu li a .bx {
+	min-width: calc(60px - ((4px + 6px) * 2));
+	display: flex;
+	justify-content: center;
+}
+
+
+.purchase-item__product-detail {
     width: 100%;
-    margin: 0.2rem auto;
-    align-items: center;
-    padding: 4px;
 }
 
-.info_content h4 {
-    width: 20%;
-}
-
-.info_content span {
-    margin-left: 10px;
-    border-bottom: 1px solid var(--outline-gray);
-    width: 50%;
-}
+.purchase-item__product-detail h5 {
+    display: inline !important;
+    margin-right: 10px;
+  }
+  
+  .purchase-item__product-detail span {
+    display: inline !important;
+  }
+  
+  .purchase-item__product-detail hr {
+    width: calc(100% - 15px); /* Điều chỉnh chiều rộng của hr */
+    margin: 5px 0; /* Điều chỉnh khoảng cách trên và dưới của hr */
+  }
+  
 
 
 /* Thêm mã CSS cho popup logout form */
@@ -251,8 +240,8 @@ body {
     font-size: 30px;
     cursor: pointer;
     color: #555;
-}
-
+  }
+  
 
 .logout-form h1 {
     font-size: 24px;
@@ -265,6 +254,7 @@ body {
 
 .logout-form img {
     display: block;
+    border-radius: 8px;
     width: 200px;
     margin: auto;
     margin-bottom: 10px;
@@ -308,79 +298,74 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 26rem) {
-
-    html {
-        font-size: 12px;
-    }
-
-    .account-container {
-        width: 100% !important;
-        max-width: 1152px;
-        margin: auto;
-    }
-
-    .sidebar.active {
-        width: 200px;
-    }
-
-    .info_content {
-        justify-content: space-between;
-    }
-
-    .info_content h4 {
-        width: 40% !important;
-    }
-
-    .info_content span {
-        margin-left: 10px;
-        border-bottom: 1px solid var(--outline-gray);
-        width: 60%;
-    }
 
 
+/*Responsive-small-laptop*/
+@media only screen and (max-width: 64rem) {
+	.purchase__status {
+		padding: 12px 24px;
+	}
 
+	h2 {
+		font-size: 1.25rem;
+	}
+
+	#purchase-item__price {
+		gap: 8px;
+	}
 }
 
-@media screen and (max-width: 48rem) {
-    .account-container {
-        width: 90%;
-        max-width: 1152px;
-        margin: auto;
-    }
+/*Responsive-tablet*/
+@media only screen and (max-width: 48rem) {
+	.account-container {
+		width: 95%;
+		margin: 100px 0 24px 0;
+		padding-top: 24px;
+	}
 
-    .sidebar.active {
-        width: 240px;
-    }
+	h2 {
+		font-size: 1.125rem;
+	}
 
-    .main-content {
-        padding: 18px;
-    }
+	h4 {
+		font-size: 1rem;
+	}
 
-    .info_content {
-        justify-content: space-between;
-    }
+	h5 {
+		font-size: 0.875rem;
+	}
 
-    .info_content h4 {
-        width: 40% !important;
-    }
+	small {
+		font-size: 0.75rem;
+	}
 
-    .info_content span {
-        margin-left: 10px;
-        border-bottom: 1px solid var(--outline-gray);
-        width: 60%;
-    }
+	.purchase__status {
+		padding: 12px 24px;
+	}
 
-}
+	#purchase-item__price {
+		gap: 8px;
+	}
 
-@media screen and (max-width: 64rem) {
-    .account-container {
-        width: 80%;
-        max-width: 1152px;
-        margin: auto;
-    }
+	.purchase-item__status {
+		font-size: 0.875rem;
+	}
 
-    .container ul li {
-        width: 80%;
-    }
+	.purchase-item__info p {
+		font-size: 0.875rem;
+	}
+
+	button {
+		height: 42px;
+	}
+
+	button.btn--outlined.pri {
+		font-size: 0.875rem;
+		padding: 0 18px;
+	}
+
+	button.btn--filled.pri {
+		font-size: 0.875rem;
+		padding: 0 18px;
+	}
 }

@@ -6,10 +6,6 @@ const accountRouter = require('./accountRouter')
 const authRouter = require('./authRouter')
 const orderRouter = require('./orderRouter')
 const searchRouter = require('./searchRouter')
-const testRouter = require('./testRouter')
-
-
-// const testRouter = require('./testRouter')
 
 function route(app) {
 
@@ -22,7 +18,6 @@ function route(app) {
     app.use('/', siteRouter)
 
 
-    // app.use('/test', testRouter)
 }
 
 module.exports = route

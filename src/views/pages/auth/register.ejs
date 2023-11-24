@@ -16,11 +16,11 @@
 
     <%- include('../../partials/header-small', title='Đăng ký') %>
 
-    <main>
+    <main class = "register_main">
         <div class="register__box">
             <div class="register__inner-box">
                 <div class="register__forms-wrap">
-                    <form id="form" action="/auth/login" method="get" autocomplete="off" class="register__sign-in-form">
+                    <form id="form" action="/auth/login" method="POST" autocomplete="off" class="register__sign-in-form">
                         <div class="register__logo">
                             <!-- Về trang chủ -->
                             <a href="#"><img src="/imgs/logo-blue.png" alt="techtwo" /></a>
@@ -72,16 +72,18 @@
 
                 <div class="register__carousel">
                     <div class="register__images-wrapper">
-                        <img src="/imgs/slider/image1.png" class="register__image register__img-1 show" alt="" />
-                        <img src="/imgs/slider/image2.png" class="register__image register__img-2" alt="" />
-                        <img src="/imgs/slider/image3.png" class="register__image register__img-3" alt="" />
+                        <img src="/imgs/slider/image1.png" class="register__image register__img-1 show" alt="image1" />
+                        <img src="/imgs/slider/image2.png" class="register__image register__img-2" alt="image2" />
+                        <img src="/imgs/slider/image3.png" class="register__image register__img-3" alt="image3" />
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
+    <%- include('../../partials/app-bar') %>
 
     <!-- Javascript file -->
     <script src="/scripts/pages/auth/register.js"></script>

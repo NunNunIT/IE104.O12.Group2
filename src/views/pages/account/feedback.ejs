@@ -16,7 +16,7 @@
 
     <%- include('../../partials/header') %>
 
-    <div class="wrapper">
+    <div class="feedback-wrapper">
 
         <h4>Bạn nghĩ gì về sản phẩm vừa mua?</h4>
 
@@ -24,9 +24,12 @@
             <img src="/imgs/slider/1.jpg" alt="Ảnh sản phẩm">
             <div class="product-details">
                 <p class="product_name">Bếp từ hồng ngoại lắp âm Pramie 2108</p>
-                <p class="product_variant-name">Trắng</p>
+                <p class="product_variant-name">Phân loại: Trắng</p>
+                <div class="price_quantity">
                 <p class="price"><del>160.000đ</del> 80.000đ</p>
-                <p class="quantity"> x<span>2</span></p>
+                <p class="quantity">Số lượng: 2</p>
+                </div>
+                
             </div>
         </div>
 
@@ -48,7 +51,9 @@
         </form>
     </div>
 
+    <%- include('../../components/scrollup') %>
     <%- include('../../partials/footer') %>
+    <%- include('../../partials/app-bar') %>
 
     <script src="/scripts/pages/account/feedback.js"></script>
 

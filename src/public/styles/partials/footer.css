@@ -1,4 +1,4 @@
-footer {
+.footer {
     width: 100%;
     height: 280px;
     display: flex;
@@ -8,27 +8,24 @@ footer {
     justify-content: space-between;
 }
 
-footer p {
+.footer p {
     color: white;
     font-size: 0.875rem;
     text-align: start;
 }
 
-footer a {
+.footer a {
     text-decoration: none;
     color: white;
     font-size: 0.875rem;
 }
 
-footer p:hover {
+
+.footer a:hover {
     font-weight: 700;
 }
 
-footer a:hover {
-    font-weight: 700;
-}
-
-footer h3 {
+.footer h3 {
     font-size: 1.25rem;
 }
 
@@ -118,10 +115,6 @@ footer h3 {
     color: white;
 }
 
-.footer__company-name p:hover {
-    font-weight: 300;
-}
-
 .footer--bottom {
     width: 100%;
     background-color: var(--dark-blue);
@@ -171,19 +164,19 @@ footer h3 {
 }
 
 @media only screen and (max-width: 48rem) {
-    footer {
+    .footer {
         height: 220px;
     }
 
-    footer h3 {
+    .footer h3 {
         font-size: 1rem;
     }
 
-    footer a {
+    .footer a {
         font-size: 0.75rem;
     }
 
-    footer p {
+    .footer p {
         font-size: 0.75rem;
     }
 
@@ -216,7 +209,7 @@ footer h3 {
 }
 
 @media only screen and (max-width: 40rem) {
-    footer {
+    .footer {
         height: auto;
     }
 
@@ -254,5 +247,12 @@ footer h3 {
 
     .footer--bottom {
         height: 36px;
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    .footer {
+        height: auto;
+        margin-bottom: 80px;
     }
 }

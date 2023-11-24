@@ -1,18 +1,17 @@
 .cate__item {
     text-decoration: none;
-    width: 19%;
+    /* width: 19%; */
     padding: 12px;
     box-sizing: border-box;
     display: inherit;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    border: 1px solid var(--outline-gray);
     border-radius: 8px;
 }
 
 .cate__item:hover {
-    border: 1px solid var(--primary-color-2);
+    box-shadow: inset 0px 0px 0px 1px var(--primary-color-2);
     background-color: var(--bg-gray);
 }
 
@@ -21,7 +20,7 @@
     aspect-ratio: 1/1;
     padding: 4px;
     border-radius: 50%;
-    background-color: var(--bg-blue-o30);
+    background-color: var(--blue);
     object-fit: cover;
 }
 
@@ -63,6 +62,6 @@
     }
 
     .cate__item p {
-        font-size: 0.75rem;
+        display: none;
     }
 }
