@@ -33,6 +33,10 @@ class AccountController {
             user: (req.user)? req.user : 0
         })
     }
+    
+    changePassword(req, res) {
+        res.render('./pages/account/changePassword')
+    }
 
     //GET /account/edit-information
     editInformation(req, res) {

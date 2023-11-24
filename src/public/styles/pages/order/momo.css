@@ -341,7 +341,7 @@ label {
     color: var(--white);
     display: flex;
     justify-content: center;
-    margin: 3rem 0 5rem 0;
+    margin: 1.5rem 0 1.2rem 0;
 }
 
 .qr-frame {
@@ -365,6 +365,7 @@ label {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .qr-instruct-1 {
@@ -563,7 +564,7 @@ label {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
     border-radius: 8px;
     margin-bottom: 3rem;
 }
@@ -572,8 +573,8 @@ label {
     /* width: 15rem;
     padding: 2rem;
     background-color: var(--bg-white); */
-    width: 20rem;
-    padding: 2rem;
+    width: 18rem;
+    padding: 1rem;
     background-color: var(--bg-white);
     display: flex;
     justify-content: center;
