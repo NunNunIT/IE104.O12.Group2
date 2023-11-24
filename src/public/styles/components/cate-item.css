@@ -1,6 +1,5 @@
 .cate__item {
     text-decoration: none;
-    /* width: 19%; */
     padding: 12px;
     box-sizing: border-box;
     display: inherit;
@@ -16,11 +15,11 @@
 }
 
 .cate__item img {
-    width: 60%;
+    width: 80%;
     aspect-ratio: 1/1;
     padding: 4px;
     border-radius: 50%;
-    background-color: var(--blue);
+    background-color: var(--blue1);
     object-fit: cover;
 }
 
@@ -52,13 +51,12 @@
 
 @media only screen and (max-width: 26rem) {
     .cate__item {
-        width: 24%;
         padding: 4px;
         gap: 4px;
     }
 
     .cate__item h4 {
-        font-size: 0.8125rem;
+        font-size: 0.875rem;
     }
 
     .cate__item p {
