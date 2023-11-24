@@ -1,0 +1,25 @@
+/* ---------- HEADER ---------- */
+.header-admin {
+  grid-area: header;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
+  background: var(--white);
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+.header-admin span {
+  padding: 10px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 64rem) {
+  .menu-icon {
+    display: inline;
+  }
+}

@@ -1,23 +1,17 @@
 <div class="breadcrumbs">
     <ul>
         <li>
-            <a href="/"><span class="material-symbols-outlined">home</span></a>
+            <a href="/">Trang chủ</a>
         </li>
 
-        <li class="arrow">
-            <span class="material-symbols-outlined">chevron_right</span>
-        </li>
-
-        <li>
-            <a href="#">Tên biến</a>
-        </li>
-
-        <li class="arrow">
-            <span class="material-symbols-outlined">chevron_right</span>
-        </li>
-
-        <li>
-            <a href="#">Tên biến</a>
-        </li>
+        <% breadcrumbs.forEach(function(scrumb){ %>
+            <li class="arrow">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </li>
+    
+            <li>
+                <a href="<%=scrumb.link%>"> <%=scrumb.text%></a>
+            </li>
+        <% }) %>
     </ul>
 </div>

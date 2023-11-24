@@ -118,7 +118,6 @@ button {
     display: inherit;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     border-radius: 8px;
 }
 
@@ -265,9 +264,14 @@ button {
         font-size: 0.8125rem;
     }
 
+    body {
+        background-color: var(--white);
+    }
+
     .cart {
         width: 100%;
-        padding: 24px;
+        padding: 12px 24px;
+        margin: 0;
         border-radius: 0;
     }
 

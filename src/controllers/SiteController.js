@@ -17,6 +17,7 @@ class SiteController {
 
         res.render('./pages/site/index', { productCatalog })
     }
+    
     indexPost(req, res) {
         const productCatalog = {
             'cooker': 'Nồi cơm điện',

@@ -29,7 +29,7 @@ input {
     font-family: "Segoe UI", sans-serif;
 }
 
-main {
+.login_main {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
@@ -336,11 +336,12 @@ label {
 }
 
 @media (max-width: 26rem) {
-    main {
+    .login_main {
         padding: 1rem;
         background-color: var(--white);
         display: block;
         padding: 0.5rem;
+        min-height: 70vh;
     }
 
     .login__box {

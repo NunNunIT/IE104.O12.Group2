@@ -5,7 +5,7 @@ function checkOne(event) {
         checkAll.checked = false
 
     let checkboxes
-    if (window.innerWidth == 416)
+    if (window.innerWidth <= 416)
         checkboxes = document.querySelectorAll('.checkbox.mobile-display')
     else
         checkboxes = document.querySelectorAll('.checkbox.mobile-hidden')
@@ -13,6 +13,7 @@ function checkOne(event) {
     if (Array.from(checkboxes).filter(checkbox => checkbox.checked == false).length == 0)
         checkAll.checked = true
 
+    showSelectedNums()
     changeDel()
 }
 
@@ -22,6 +23,7 @@ function removeItem(event) {
     console.log(cartItem)
     cartItem.remove()
 
+    showSelectedNums()
     showEmptyNoti()
 }
 

@@ -1,0 +1,94 @@
+@import url("/styles/general.css");
+@import url("/styles/admin/partials/sidebar_admin.css");
+@import url("/styles/admin/partials/header_admin.css");
+@import url("/styles/admin/components/pagination.css");
+
+body {
+  background-color: var(--bg-white);
+  color: var(--black);
+}
+
+.material-symbols-rounded {
+  font-size: 28px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main';
+  height: 100vh;
+}
+
+/* ---------- MAIN ---------- */
+
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 20px 20px;
+  color: var(--black);
+}
+
+.recent-orders {
+  margin-top: 1.3 rem;
+  border-radius: 4px;
+}
+
+.recent-orders table {
+  background-color: var(--white);
+  width: 100%;
+  padding: 0;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+table tbody td {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--outline-gray);
+  color: var(--black);
+}
+
+table tbody tr:last-child td {
+  border: none;
+}
+
+.warning {
+  color: red;
+}
+
+.danger {
+  color: red;
+}
+
+.success {
+  color: red;
+}
+
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Mini pc */
+
+@media screen and (max-width: 64rem) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      'header'
+      'main';
+  }
+}
+
+/* tablet */
+
+@media screen and (max-width: 64rem) {}
+
+/* phone */
+
+@media screen and (max-width: 48rem) {
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
