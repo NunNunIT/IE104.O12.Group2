@@ -3,13 +3,13 @@ const router = express.Router()
 
 // import controller
 const AuthController = require('../controllers/AuthController')
-const Middleware = require('../middleware/authMiddleware')
+const middleware = require('../middleware/authMiddleware')
 
-router.get('/register', AuthController.register)
-router.post('/register', AuthController.submitRegister)
-router.get('/login', AuthController.login)
-router.post('/login', AuthController.submitLogin)
-router.get('/logout', AuthController.logout)
+router.get('/register', middleware.checkAuth, AuthController.register)
+router.post('/register', middleware.checkAuth, AuthController.submitRegister)
+router.get('/login', middleware.checkAuth, AuthController.login)
+router.post('/login', middleware.checkAuth, AuthController.submitLogin)
+router.get('/logout', middleware.checkUnAuth, AuthController.logout)
 router.get('/forgot', AuthController.forgotPassword)
 router.get('/reset', AuthController.resetPassword)
 

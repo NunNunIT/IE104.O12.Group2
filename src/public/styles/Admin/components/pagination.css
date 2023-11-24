@@ -1,0 +1,60 @@
+.table-footer {
+    background: var(--white);
+    padding: 25px 8px;
+    border-radius: 0px 0px 4px 4px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container .table-footer span {
+    color: var(--black);
+}
+
+.table-footer .pagination {
+    display: flex;
+}
+
+
+.table-footer .pagination a {
+    width: 48px;
+    padding: 8px 4px;
+    color: var(--primary-color-1);
+    background: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+    border: 1px solid var(--dark8);
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+.table-footer .pagination a span {
+    color: var(--primary-color-1);
+    padding: 4px 4px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.pagination a.active,
+.pagination a:hover,
+.pagination a:active span,
+.pagination a:hover span{
+    text-decoration: none;
+    background: var(--primary-color-1);
+    color: var(--white);
+}
+
+
+.pagination a.act:first-child {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pagination a.act:last-child {
+    opacity: 1;
+    pointer-events: auto;
+}

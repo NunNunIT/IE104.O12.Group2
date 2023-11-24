@@ -1,7 +1,7 @@
 .scrollup {
     display: none;
     position: fixed;
-    bottom: 30px;
+    bottom: 60px;
     right: 30px;
     width: 52px;
     height: 52px;
@@ -30,10 +30,10 @@
     justify-content: center;
 }
 
-@media only screen and (max-width: 26rem) {
+@media only screen and (max-width: 48rem) {
     .scrollup {
         right: 12px;
-        bottom: 60px;
+        bottom: 80px;
         width: 48px;
         height: 48px;
     }

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <title>Admin</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet" href="/styles/admin/pages/cate_admin.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+        <%- include('../partials/sidebar_admin') %>
+        <!-- Sidebar -->
+        <%- include('../partials/header_admin', title) %>
+        <!-- Main -->
+        <main class="main-container">
+            <!-- <header> -->
+
+            <div class="filterEntries">
+                <div class="feature">
+                    <button class="addBtn">
+                        <span class="material-symbols-rounded">
+                            add
+                        </span>
+                        <p>Thêm</p>
+                    </button>
+                    <button class="deleteBtn">
+                        <span class="material-symbols-rounded">
+                            delete
+                        </span>
+                        <p>Xóa</p>
+                    </button>
+                </div>
+
+                <div class="search">
+                    <button type="submit" class="searchButton">
+                        <span class="material-symbols-rounded">
+                            search
+                        </span>
+                    </button>
+                    <form active="" method="get" role="form">
+                        <input type="search" class="searchTerm" name="searchKey"
+                            id="search" placeholder="Enter"
+                            value="<%= (searchKey) ? searchKey: '' %>">
+                    </form>
+                </div>
+            </div>
+
+            <!-- </header> -->
+
+            <div class="table-reponsive">
+                <table>
+                    <thead>
+                        <tr class="heading">
+                            <th><input type="checkbox" class="checkbox"></th>
+                            <th>#ID</th>
+                            <th>Tên danh mục</th>
+                            <th>Số sản phẩm</th>
+                            <th>Tồn kho</th>
+                            <th>Doanh thu</th>
+                            <th>Bán chạy</th>
+                            <th>Trạng thái</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="userInfo">
+                        <% if (!categories[0]) { %>
+                        <tr>
+                            <td class="empty" colspan="9" align="center">Không
+                                có kết quả trả về</td>
+                        </tr>
+                        <% } else { %>
+                        <% categories.forEach(function(category) { %>
+                        <tr class="employeeDetails">
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td>
+                                <%= category.category_id %>
+                            </td>
+                            <td>
+                                <img src="/imgs/admin/pic1.png" alt="cate_img">
+                                <%= category.category_name %>
+                            </td>
+                            <td>30</td>
+                            <td>50</td>
+                            <td>1.900.900đ</td>
+                            <td>no</td>
+                            <td class="status bad">
+                                <p>Hết hàng</p>
+                            </td>
+                            <td>
+                                <a>Sửa</a>
+                                <a>Xóa</a>
+                                <!-- <button>Sửa</button>
+                                <button>Xóa</button> -->
+                            </td>
+                        </tr>
+                        <% }) %>
+                        
+                        <% } %>
+                    </tbody>
+                </table>
+                <%- include('../components/pagination') %>
+            </div>
+
+
+
+    </div>
+
+    <!--Popup Form-->
+
+    <div class="dark_bg">
+
+        <div class="popup">
+            <div class="popup-header">
+                <h2 class="modalTitle">Thêm danh mục sản phẩm</h2>
+                <button class="closeBtn"><span class="material-symbols-rounded">
+                        close
+                    </span></button>
+            </div>
+
+            <div class="body">
+                <form action="#" id="myForm">
+                    <div class="imgholder">
+                        <label for="uploadimg" class="upload">
+                            <input type="file" name="" id="uploadimg"
+                                class="picture">
+                            <span class="material-symbols-rounded">
+                                image
+                            </span>
+                        </label>
+                        <img src="" alt="cate_img" class="img">
+                    </div>
+
+                    <div class="inputFieldContainer">
+
+                        <div class="name-field">
+                            <div class="form_control">
+                                <label for="fName">Tên danh mục:</label>
+                                <input type="text" name="category_name"
+                                    id="name" required>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="popup-footer">
+                <button form="myForm" class="submitBtn">Submit</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </main>
+    <!-- End Main -->
+
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/scripts/admin/cate_admin.js"></script>
+    <script src="/scripts/admin/index_admin.js"></script>
+</body>
+
+</html>
