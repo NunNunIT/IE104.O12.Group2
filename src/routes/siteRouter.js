@@ -6,12 +6,12 @@ let encodeUrl = parseUrl.urlencoded({ extended: false });
 
 // import controller
 const SiteController = require('../controllers/SiteController.js')
-const Middleware = require('../middleware/authMiddleware.js')
+const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/about-us', SiteController.aboutUs);
-router.get('/privacy-policy', SiteController.privacyPolicy);
-router.get('/error', SiteController.error);
-router.get('/', SiteController.index);
-router.post('/', Middleware.isLoggedIn, encodeUrl, SiteController.indexPost);
-// router.get('/', Middleware.checkAuth, SiteController.index);
+router.get('/about-us', authMiddleware.getLoggedIn, SiteController.aboutUs);
+router.get('/privacy-policy', authMiddleware.getLoggedIn, SiteController.privacyPolicy);
+router.get('/error', authMiddleware.getLoggedIn, SiteController.error);
+router.get('/', authMiddleware.getLoggedIn, SiteController.index);
+router.post('/', authMiddleware.isLoggedIn, encodeUrl, SiteController.indexPost);
+
 module.exports = router

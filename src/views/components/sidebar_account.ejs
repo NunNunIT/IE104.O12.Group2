@@ -13,10 +13,10 @@
     <aside class=" account-aside" id="sidebar">
     <a href="#" class="avatar">
         <span class="image-container">
-            <img src="/imgs/avatar.png" alt="avatar" />
+            <img src="/imgs/user_avt_img/<%= (user.user_avt_img) ? user.user_avt_img : 'default.png' %>" alt="avatar" />
         </span>
         <span class="user_name">
-            <h3>HuongVi</h3>
+            <h3><%= (user.user_name) ? user.user_name : '' %></h3>
         </span>
     </a>
     <ul class="side-menu top">
