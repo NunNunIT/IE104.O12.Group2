@@ -118,6 +118,58 @@ class AuthController {
         const title = 'Đặt lại mật khẩu'
         res.render('./pages/auth/reset', { title })
     }
+
+        // [POST] /reset
+        submitReset(req, res) {
+            const { user_phone} = req.body
+            db.query('SELECT *  FROM users WHERE user_phone = ?', [user_phone], async (err, result) => {
+                // console.log(bcrypt.compare(user_password, result[0].user_password));
+                console.log(result)
+                if (err) throw err
+                if (!result.length) { 
+                    return res.json({
+                // if (!result[0]) return res.json({
+                    status: 'error',
+                    error: 'Số điện thoại không tồn tại.'
+                })}
+                // else
+                // if (!await bcrypt.compare(user_password, result[0].user_password)) {
+                //     // console.log(bcrypt.compare(user_password, result[0].user_password));
+                //  return res.json({
+                //     status: 'error2',
+                //     error: 'Mật khẩu không chính xác.'
+                // })
+                // } 
+                // else {
+                //     // return res.json({
+                //     //     status: 'success',
+                //     //     success: 'Bạn đã đăng nhập thành công'
+                //     // })
+    
+                //     const id = result[0].user_id;
+    
+                //     const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+                //         expiresIn: process.env.JWT_EXPIRES
+                //     });
+    
+                //     console.log("the token is " + token);
+    
+                //     const cookieOptions = {
+                //         expires: new Date(
+                //             Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 1000
+                //         ),
+                //         httpOnly: true
+                //     }
+                //     res.cookie('userSave', token, cookieOptions)
+                //     // res.status(200).render("./pages/site/index")
+                //     res.json({
+                //         status: 'success',
+                //         success: 'Bạn đã đăng nhập thành công'
+                //     })
+                //     // res.redirect("/");
+                // }
+            })
+        }
     
     logout(req, res) {
         

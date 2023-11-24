@@ -18,32 +18,37 @@
     <main>
         <div class="box">
             <div class="inner-box">
-                <form id="form" action="/login" autocomplete="off" class="sign-in-form" method="post">
+                <form id="form" autocomplete="off" class="sign-in-form" method="post">
                     <div class="logo">
                         <a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
                     </div>
-
                     <div class="heading">
                         <h2>Đặt lại mật khẩu</h2>
                     </div>
-
                     <div class="actual-form">
-                        <div class="input-wrap">
-                            <input id="Password" type="text" name="Password" class="input-field" autocomplete="off" />
+                        <div class="reset__input-wrap">
+                            <input id="Password" type="password" name="Password" class="reset__input-field" autocomplete="off" />
                             <label>Mật khẩu mới<span style="color:red">*</span></label>
-                            <div class="error"></div>
+                            <span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+                                    visibility</span>
+                            </span>
+                            <div class="reset__error"></div>
                         </div>
 
-                        <div class="input-wrap">
-                            <input id="PasswordConfirm" type="text" name="PasswordConfirm" class="input-field" autocomplete="off" />
-                            <label>Nhập lại mật khẩu mới<span style="color:red">*</span></label>
-                            <div class="error"></div>
+                        <div class="reset__input-wrap">
+                            <input id="ConfirmPassword" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+                            <label>Xác nhận mật khẩu mới<span style="color:red">*</span></label>
+                            <span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+                                    visibility</span>
+                            </span>
+                            <div class="reset__error"></div>
                         </div>
 
-                        <input type="submit" value="Xác nhận" class="sign-btn" />
+                        <input type="submit" value="Xác nhận" class="reset__sign-btn" />
                         <div class="back">
-                            <a href="#">Trở lại</a>
+                            <a href="/auth/login">Hủy</a>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -5,7 +5,7 @@
 :root {
     --white: #ffffff;
     --red: #ff0000;
-    --black: #000000;
+    --black: #000000x;
     --green: #119726;
     --primary-color-1: #2a7ee4;
     --primary-color-2: #1559ab;
@@ -161,4 +161,74 @@ p {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color-2);
+}
+
+button {
+    cursor: pointer;
+    height: 48px;
+    display: inline-block;
+    padding: 0;
+    border-radius: 8px;
+
+    & .status-layer {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 24px;
+        border-radius: inherit;
+
+        & span {
+            /* font-weight: bold; */
+            margin: auto;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+            0 0 2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
+            0 0 2px 0 rgba(0, 0, 0, 0.2);
+
+        & .status-layer {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.btn--filled.pri {
+    background-color: var(--primary-color-1);
+    color: white;
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}
+
+.btn--filled.pri:hover {
+    background-color: var(--primary-color-2);
+}
+
+.btn--filled.sec {
+    background-color: var(--primary-color-5);
+    color: white;
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}
+
+.btn--outlined.pri {
+    background-color: white;
+    color: var(--primary-color-1);
+    border: 1px solid var(--primary-color-1);
+    font-size: 16px;
+    padding: 0 24px 0 24px;
+}
+
+.btn--outlined.sec {
+    background-color: white;
+    color: var(--primary-color-5);
+    border: 1px solid var(--primary-color-5);
+    font-size: 16px;
+    padding: 0 24px 0 24px;
 }
