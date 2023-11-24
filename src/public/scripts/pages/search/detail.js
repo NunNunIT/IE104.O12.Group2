@@ -1,4 +1,4 @@
-// variants
+// default active variants
 function chooseOption(event) {
     const buttons = document.querySelectorAll('.filter__option button')
     buttons.forEach(button => {
@@ -14,3 +14,13 @@ function chooseOption(event) {
     target.style.fontWeight = '500'
     target.style.color = 'var(--dollar-red)'
 }
+
+// open images modal
+function openImageModal(event) {
+    const imageModal = document.querySelector('.image-modal')
+    imageModal.style.display = 'flex'
+}
+
+// Run
+const commentImages = document.querySelectorAll('.comment__pictures img')
+commentImages.forEach(image => image.addEventListener('click', openImageModal))

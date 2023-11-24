@@ -1,7 +1,7 @@
 @import url('/styles/general.css');
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
+@import url('/styles/partials/header.css');
+@import url('/styles/partials/footer.css');
+@import url('/styles/partials/breadcrumb.css');
 @import url('/styles/components/scrollup.css');
 @import url('/styles/components/cart-product.css');
 
@@ -167,6 +167,11 @@ button {
 .cart__order-confirm {
     font-size: 0.875rem;
     text-align: center;
+}
+
+
+.cart__order-confirm a {
+    color: var(--primary-color-1);
 }
 
 /* 1024px - Mini PC */
