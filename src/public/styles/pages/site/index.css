@@ -149,6 +149,35 @@ section {
     /* Resize the background image to cover the entire container */
 }
 
+.tip-products-wrapper2 {
+    /* background-color: var(--white); */
+    background: #4400eb;
+    background: -moz-linear-gradient(left, #4400eb 0%, #44e7f5 100%);
+    background: -webkit-linear-gradient(left, #4400eb 0%, #44e7f5 100%);
+    background: linear-gradient(to right, #4400eb 0%, #44e7f5 100%) !important;
+}
+
+.tip-products__img2 {
+    background-image: url("/imgs/banner/bannerTechno.png");
+    /* The image used */
+    height: 220px;
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+}
+
+.tip-products-wrapper3 {
+    /* background-color: var(--white); */
+    background: #EA4C2D;
+    background: -moz-linear-gradient(left, #EA4C2D 0%, #FFA62E 100%);
+    background: -webkit-linear-gradient(left, #EA4C2D 0%, #FFA62E 100%);
+    background: linear-gradient(to right, #EA4C2D 0%, #FFA62E 100%) !important;
+}
+
+
 .tip-products__label {
     display: flex;
     padding: 12px 0px;

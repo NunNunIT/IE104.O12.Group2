@@ -2,167 +2,116 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
+  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+  <link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
 
-    <title>TECHTWO.</title>
+  <title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+  <%- include('../../partials/header') %>
+  <%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Trang cá nhân', link : '#'}, {text : 'Lịch sử đơn mua', link : 'http://127.0.0.1:3000/account/purchase/'}, {text : 'Chi tiết đơn mua', link : '#'}]}) %>
 
-    <main class="account-container">
-        <aside class="account-aside" id="sidebar">
-            <a href="#" class="avatar">
-                <span class="image-container">
-                    <img src="/imgs/avatar.png" alt="avatar" />
-                </span>
+  <main class="account-container">
+    <!-- side-bar -->
+    <%- include("../../components/sidebar_account") %>
 
-            </a>
-            <ul class="side-menu top">
-                <li class="active">
-                    <a href="#profile" id="info-link">
-                        <span class="material-symbols-outlined">
-                            perm_contact_calendar
-                        </span>
-                        <span class="text">Thông tin cá nhân</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#order-history">
-                        <span class="material-symbols-outlined">
-                            shopping_bag
-                        </span>
-                        <span class="text">Lịch sử đơn mua</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#maintaince">
-                        <span class="material-symbols-outlined">
-                            build
-                        </span>
-                        <span class="text">Yêu cầu bảo hành</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="side-menu">
-                <li>
-                    <a href="#change-password">
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
-                        <span class="text">Đổi mật khẩu</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#logout" class="logout">
-                        <span class="material-symbols-outlined">
-                            logout
-                        </span>
-                        <span class="text">Đăng xuất</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
-        <section class="purchase-detail__main">
-            <div class="purchase-detail--top">
-                <div class="purchase-detail__info">
-                    <h4>Chi tiết đơn hàng:</h4>
-                    <p id="purchase-detail__id">#DH0001</p>
-                </div>
-                <p class="purchase-detail__status">Đã nhận hàng</p>
+    <section class="purchase-detail__main">
+      <div class="purchase-detail--top">
+        <div class="purchase-detail__info">
+          <h4>Chi tiết đơn hàng:</h4>
+          <p id="purchase-detail__id">#DH0001</p>
+        </div>
+        <p class="purchase-detail__status">Đã nhận hàng</p>
+      </div>
+      <div class="purchase-detail__date-time">
+        <p>Đặt lúc:</p>
+        <p id="purchase-detail__time">11:11</p>
+        <p id="purchase-detail__date">05/11/2023</p>
+      </div>
+      <div class="purchase-detail__order-info">
+        <div class="purchase-detail__order-info__user">
+          <h5>
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>THÔNG TIN NHẬN HÀNG</span>
+          </h5>
+          <div class="purchase-detail__order-info__user-detail">
+            <span class="order-info__label">Người nhận:</span>
+            <p id="user-detail__name">Phan Nguyễn Hải Yến</p>
+          </div>
+          <div class="purchase-detail__order-info__user-detail">
+            <span class="order-info__label">Số điện thoại:</span>
+            <p id="user-detail__phone">0795849949</p>
+          </div>
+          <div class="purchase-detail__order-info__user-detail">
+            <span class="order-info__label">Địa chỉ:</span>
+            <p id="user-detail__address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh.</p>
+          </div>
+        </div>
+        <div class="purchase-detail__order-info__payment">
+          <h5>
+            <span class="material-symbols-outlined">credit_card</span>
+            <span>HÌNH THỨC THANH TOÁN</span>
+          </h5>
+          <p id="order-info__payment-detail">Thanh toán qua thẻ tín dụng</p>
+        </div>
+      </div>
+      <div class="purchase-detail__bill">
+        <h5>
+          <span class="material-symbols-outlined">local_mall</span>
+          <span>THÔNG TIN SẢN PHẨM</span>
+        </h5>
+        <div class="purchase-detail__element">
+          <div class="purchase-detail__element--left">
+            <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-detail__product-img">
+            <div class="purchase-detail__product-detail">
+              <h4 id="purchase-detail__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
+              <p id="purchase-detail__variant">Phân loại hàng: 55 inch</p>
+              <p id="purchase-detail__amount">x1</p>
             </div>
-            <div class="purchase-detail__date-time">
-                <p>Đặt lúc:</p>
-                <p id="purchase-detail__time">11:11</p>
-                <p id="purchase-detail__date">05/11/2023</p>
+          </div>
+          <h5 id="purchase-detail__price"><small>13.990.000đ</small>11.800.000đ</h5>
+        </div>
+        <hr />
+        <div class="purchase-detail__element">
+          <div class="purchase-detail__element--left">
+            <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-detail__product-img">
+            <div class="purchase-detail__product-detail">
+              <h4 id="purchase-detail__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
+              <p id="purchase-detail__variant">Phân loại hàng: 55 inch</p>
+              <p id="purchase-detail__amount">x1</p>
             </div>
-            <div class="purchase-detail__order-info">
-                <div class="purchase-detail__order-info__user">
-                    <h5>
-                        <span class="material-symbols-outlined">pin_drop</span>
-                        <span>THÔNG TIN NHẬN HÀNG</span>
-                    </h5>
-                    <div class="purchase-detail__order-info__user-detail">
-                        <span class="order-info__label">Người nhận:</span>
-                        <p id="user-detail__name">Phan Nguyễn Hải Yến</p>
-                    </div>
-                    <div class="purchase-detail__order-info__user-detail">
-                        <span class="order-info__label">Số điện thoại:</span>
-                        <p id="user-detail__phone">0795849949</p>
-                    </div>
-                    <div class="purchase-detail__order-info__user-detail">
-                        <span class="order-info__label">Địa chỉ:</span>
-                        <p id="user-detail__address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh.</p>
-                    </div>
-                </div>
-                <div class="purchase-detail__order-info__payment">
-                    <h5>
-                        <span class="material-symbols-outlined">credit_card</span>
-                        <span>HÌNH THỨC THANH TOÁN</span>
-                    </h5>
-                    <p id="order-info__payment-detail">Thanh toán qua thẻ tín dụng</p>
-                </div>
-            </div>
-            <div class="purchase-detail__bill">
-                <h5>
-                    <span class="material-symbols-outlined">local_mall</span>
-                    <span>THÔNG TIN SẢN PHẨM</span>
-                </h5>
-                <div class="purchase-detail__element">
-                    <div class="purchase-detail__element--left">
-                        <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-detail__product-img">
-                        <div class="purchase-detail__product-detail">
-                            <h4 id="purchase-detail__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-                            <p id="purchase-detail__variant">Phân loại hàng: 55 inch</p>
-                            <p id="purchase-detail__amount">x1</p>
-                        </div>
-                    </div>
-                    <h5 id="purchase-detail__price"><small>13.990.000đ</small>11.800.000đ</h5>
-                </div>
-                <hr />
-                <div class="purchase-detail__element">
-                    <div class="purchase-detail__element--left">
-                        <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-detail__product-img">
-                        <div class="purchase-detail__product-detail">
-                            <h4 id="purchase-detail__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-                            <p id="purchase-detail__variant">Phân loại hàng: 55 inch</p>
-                            <p id="purchase-detail__amount">x1</p>
-                        </div>
-                    </div>
-                    <h5 id="purchase-detail__price"><small>13.990.000đ</small>11.800.000đ</h5>
-                </div>
-                <hr />
-                <div class="purchase-detail__order-price">
-                    <p>
-                        <span>Tạm tính:</span>
-                        <span id="temp-amount">23.600.000đ</span>
-                    </p>
-                    <p>
-                        <span>Thành tiền:</span>
-                        <span id="total-amount">23.600.000đ</span>
-                    </p>
-                    <p class="purchase-detail__final">
-                        <span>Số tiền đã thanh toán:</span>
-                        <span id="paid-amount">23.600.000đ</span>
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
+          </div>
+          <h5 id="purchase-detail__price"><small>13.990.000đ</small>11.800.000đ</h5>
+        </div>
+        <hr />
+        <div class="purchase-detail__order-price">
+          <p>
+            <span>Tạm tính:</span>
+            <span id="temp-amount">23.600.000đ</span>
+          </p>
+          <p>
+            <span>Thành tiền:</span>
+            <span id="total-amount">23.600.000đ</span>
+          </p>
+          <p class="purchase-detail__final">
+            <span>Số tiền đã thanh toán:</span>
+            <span id="paid-amount">23.600.000đ</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
-    <%- include('../../partials/app-bar') %>
+  <%- include('../../components/scrollup') %>
+  <%- include('../../partials/footer') %>
+  <%- include('../../partials/app-bar') %>
 
-    <!-- <script src="/scripts/account/purchase.js"></script> -->
+  <!-- <script src="/scripts/account/purchase.js"></script> -->
 
 </body>
 
