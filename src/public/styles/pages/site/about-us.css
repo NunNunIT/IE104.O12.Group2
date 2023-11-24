@@ -140,7 +140,8 @@ h2 {
     }
 
     .about-container {
-        margin: 128px 0 24px 0;
+        width: 90%;
+        margin: 24px 0;
     }
 
     .about-us__content--colunm {
@@ -181,6 +182,15 @@ h2 {
 
     p {
         font-size: 0.75rem;
+    }
+
+    .about-container {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .about-us__title {
+        padding: 20px 0;
     }
 
     .about-us__content {

@@ -119,19 +119,24 @@ button.btn--outlined.pri {
     flex-direction: column;
 }
 
+.noti__button-update--disable:hover,
+.noti__button-promo--disable:hover {
+    cursor: pointer;
+    color: var(--primary-color-1);
+}
+
 .btn-promo--disable {
+    text-decoration: none;
     color: var(--primary-color-2);
     font-weight: 500;
+    font-size: 0.875rem;
 }
 
 .btn-update--disable {
+    text-decoration: none;
+    color: black;
     font-weight: 500;
-}
-
-.btn-promo--disable:hover,
-.btn-update--disable:hover {
-    color: var(--primary-color-1);
-    cursor: pointer;
+    font-size: 0.875rem;
 }
 
 .noti__button-update--disable hr {
@@ -141,24 +146,25 @@ button.btn--outlined.pri {
 }
 
 .noti__button-promo--disable hr {
-    border: 0.5px solid var(--outline-gray);
+    border: 0.5px solid var(--primary-color-2);
     width: 100%;
     margin-top: 8px;
 }
 
-.noti__button-promo--disable hr {
-    border-color: var(--primary-color-2);
-}
-
-.btn-button--disable {
-    display: none;
-}
-
-.btn-button--disable p {
-    font-size: 0.75rem;
+.btn-mark-all-read {
+    font-size: 1rem;
     margin: 0 10px;
     color: var(--primary-color-1);
     font-weight: 500;
+}
+
+.btn-mark-all-read:hover {
+    cursor: pointer;
+    color: var(--primary-color-2);
+}
+
+.noti-item__sub-title {
+    font-size: 1rem;
 }
 
 /*Responsive-small-laptop*/
@@ -180,12 +186,12 @@ button.btn--outlined.pri {
         height: 40px;
     }
 
-    button.btn--outlined.pri {
+    .btn--outlined.pri {
         font-size: 0.875rem;
         padding: 0 18px;
     }
 
-    button.btn--filled.pri {
+    .btn--filled.pri {
         font-size: 0.875rem;
         padding: 0 18px;
     }
@@ -197,6 +203,10 @@ button.btn--outlined.pri {
     .popup__main {
         width: 70%;
     }
+
+    .btn-mark-all-read {
+        font-size: 0.875rem;
+    }
 }
 
 /*Responsive-tablet*/
@@ -206,7 +216,7 @@ button.btn--outlined.pri {
     }
 
     .nofi-container {
-        width: 95%;
+        width: 90%;
     }
 
     .aside-wrapper__aside-title p {
@@ -218,26 +228,31 @@ button.btn--outlined.pri {
     }
 
     .noti-item__sub-title {
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
     }
 
     .noti-item__date-time p {
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
     }
 
     button {
         height: 34px;
     }
 
-    button.btn--outlined.pri {
+    .btn--outlined.pri {
         font-size: 0.75rem;
-        padding: 0 18px;
+        padding: 0 12px;
     }
 
-    button.btn--filled.pri {
+    .btn--filled.pri {
         font-size: 0.75rem;
-        padding: 0 18px;
+        padding: 0 12px;
     }
+
+    .noti-item__button {
+        gap: 4px;
+    }
+
 
     .btn-update,
     .btn-promo {
@@ -259,15 +274,18 @@ button.btn--outlined.pri {
 
 /*Responsive-smartphone*/
 @media only screen and (max-width: 26rem) {
+    .nofi-container {
+        width: 100%;
+        margin: 12px 0;
+        padding: 12px;
+        border-radius: 0;
+    }
+
     .nofi__main {
         gap: 12px;
     }
 
     .aside-wrapper {
-        display: none;
-    }
-
-    button.btn--outlined.pri.mark {
         display: none;
     }
 
@@ -288,12 +306,12 @@ button.btn--outlined.pri {
         height: 32px;
     }
 
-    button.btn--outlined.pri {
+    .btn--outlined.pri {
         font-size: 0.625rem;
         padding: 0 12px;
     }
 
-    button.btn--filled.pri {
+    .btn--filled.pri {
         font-size: 0.625rem;
         padding: 0 12px;
     }
@@ -306,8 +324,8 @@ button.btn--outlined.pri {
         display: flex;
     }
 
-    .btn-button--disable {
-        display: flex;
+    .btn-mark-all-read {
+        font-size: 0.75rem;
     }
 
     .popup__content-main {
@@ -331,4 +349,5 @@ button.btn--outlined.pri {
     .close-btn .material-symbols-outlined {
         font-size: 16px;
     }
+
 }

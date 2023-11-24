@@ -4,6 +4,7 @@ a {
 
 .product-card {
     width: 24%;
+    height: 434px;
     position: relative;
     box-shadow: 0 2px 7px #dfdfdf;
     margin: 0;
@@ -15,6 +16,13 @@ a {
 .product-card:hover {
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.product-card__block {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .badge {
@@ -45,6 +53,9 @@ a {
 }
 
 .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 12px;
 }
 
@@ -65,10 +76,11 @@ a {
     font-weight: 500;
     display: block;
     margin-bottom: 4px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #363636;
     text-decoration: none;
     transition: 0.3s;
+    font-size: 1.25rem;
 }
 
 .product-details h4:hover {
@@ -76,16 +88,15 @@ a {
 }
 
 .product-details p {
-    font-size: 15px;
+    font-size: 1rem;
     line-height: 22px;
-    margin-bottom: 12px;
     color: #999;
 }
 
 .product-bottom-details {
     overflow: hidden;
     border-top: 1px solid #eee;
-    padding-top: 12px;
+    padding: 12px;
 }
 
 .product-bottom-details div {
@@ -95,7 +106,7 @@ a {
 
 .product-price {
     font-size: 20px;
-    color: #fbb72c;
+    color: #EA4C2D;
     font-weight: 700;
 }
 
@@ -132,15 +143,16 @@ a {
     .product-details h4 a {
         font-size: 1rem;
     }
+
+    .product-details h4 {
+        font-size: 1.125rem;
+    }
 }
 
 @media only screen and (max-width: 48rem) {
-    .product-price {
-        font-size: 16px;
-    }
-
     .product-card {
         width: 32%;
+        height: 380px;
     }
 
     .product-tumb {
@@ -153,7 +165,7 @@ a {
     }
 
     .product-details p {
-        font-size: 12px;
+        font-size: 0.875rem;
         margin-bottom: 4px;
         line-height: 18px;
     }
@@ -185,6 +197,7 @@ a {
 @media only screen and (max-width: 26rem) {
     .product-card {
         width: 49%;
+        height: 332px;
     }
 
     .seacrh-result__main-card {

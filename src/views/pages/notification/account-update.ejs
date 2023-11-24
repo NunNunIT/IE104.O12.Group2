@@ -2,63 +2,62 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/notification/account-update.css" />
+  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+  <link rel="stylesheet" href="/styles/pages/notification/account-update.css" />
 
-    <title>TECHTWO.</title>
+  <title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+  <%- include('../../partials/header') %>
+  <%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Thông báo', link : '#'}, {text : 'Cập nhật tài khoản', link : 'đường dẫn 2'}]}) %>
 
-    <main class="nofi-container">
-        <aside class="aside-wrapper">
-            <div class="aside-wrapper__aside-info">
-                <img class="aside-wrapper__aside-avatar" src="/imgs/avatar.png" alt="avatar" />
-                <div class="aside-wrapper__aside-title">
-                    <p>Thông báo</p>
-                </div>
-            </div>
-            <hr />
-            <div class="aside-wrapper__aside-section">
-                <p class="btn-update">Cập nhật tài khoản</p>
-                <p class="btn-promo">Thông tin khuyến mãi</p>
-            </div>
-        </aside>
+  <main class="nofi-container">
+    <aside class="aside-wrapper">
+      <div class="aside-wrapper__aside-info">
+        <img class="aside-wrapper__aside-avatar" src="/imgs/avatar.png" alt="avatar" />
+        <div class="aside-wrapper__aside-title">
+          <p>Thông báo</p>
+        </div>
+      </div>
+      <hr />
+      <div class="aside-wrapper__aside-section">
+        <p class="btn-update">Cập nhật tài khoản</p>
+        <p class="btn-promo">Thông tin khuyến mãi</p>
+      </div>
+    </aside>
 
-        <section class="nofi__main">
-            <button class="btn--outlined pri mark" type="submit">Đánh dấu tất cả là đã đọc</button>
-            <div class="nofi--disable">
-                <div class="noti__button-update--disable">
-                    <p class="btn-update--disable">Cập nhật tài khoản</p>
-                    <hr />
-                </div>
-                <div class="noti__button-promo--disable">
-                    <p class="btn-promo--disable">Thông tin khuyến mãi</p>
-                    <hr />
-                </div>
-            </div>
-            <div class="btn-button--disable">
-                <p>Đánh dấu tất cả là đã đọc (5)</p>
-            </div>
-            <%- include('../../components/noti-item-account') %>
-            <%- include('../../components/noti-item-account') %>
-            <%- include('../../components/noti-item-account') %>
-            <%- include('../../components/noti-item-account') %>
-        </section>
-    </main>
+    <section class="nofi__main">
+      <div class="nofi--disable">
+        <div class="noti__button-update--disable">
+          <a href="#" class="btn-update--disable">Cập nhật tài khoản</a>
+          <hr />
+        </div>
+        <div class="noti__button-promo--disable">
+          <a href="http://127.0.0.1:3000/notification/promotion" class="btn-promo--disable">Thông tin khuyến mãi</a>
+          <hr />
+        </div>
+      </div>
+      <div class="btn-mark-all-read">
+        <span>Đánh dấu tất cả là đã đọc (5)</span>
+      </div>
+      <%- include('../../components/noti-item-account') %>
+      <%- include('../../components/noti-item-account') %>
+      <%- include('../../components/noti-item-account') %>
+      <%- include('../../components/noti-item-account') %>
+    </section>
+  </main>
 
-    <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
-    <%- include('../../partials/app-bar') %>
+  <%- include('../../components/scrollup') %>
+  <%- include('../../partials/footer') %>
+  <%- include('../../partials/app-bar') %>
 
-    <script src="/scripts/components/scrollup.js"></script>
-    <script src="/scripts/pages/notification/accountUpdate.js"></script>
+  <script src="/scripts/components/scrollup.js"></script>
+  <script src="/scripts/pages/notification/accountUpdate.js"></script>
 
 </body>
 
