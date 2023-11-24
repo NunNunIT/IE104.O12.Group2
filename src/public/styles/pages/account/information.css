@@ -3,6 +3,8 @@
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/breadcrumb.css");
 @import url("/styles/components/purchase-item.css");
+@import url("/styles/components/sidebar_account.css");
+@import url("/styles/partials/app-bar.css");
 
 body {
 	width: 100%;
@@ -21,7 +23,7 @@ a {
 	width: 80%;
 	max-width: 1152px;
 	padding: 0;
-	margin: 24px 0;
+	margin: 24px;
 	display: flex;
 	gap: 12px;
 	align-items: flex-start;
@@ -34,6 +36,10 @@ a {
 	width: 100%;
 }
 
+.purchase-item--top{
+	margin-bottom: 20px !important;
+}
+
 .purchase__status {
 	display: flex;
 	flex-direction: row;
@@ -44,155 +50,15 @@ a {
 	border-radius: 8px;
 }
 
-
-/* side-bar */
-#sidebar {
-	display: flex;
-	flex-direction: column;
-	width: 345px;
-	background: white;
-	z-index: 2000;
-	transition: .3s ease;
-	overflow-x: hidden;
-	scrollbar-width: none;
-	border-radius: 8px;
+.purchase-item__status a {
+	color: var(--primary-color-1)
 }
-
-#sidebar .material-symbols-outlined {
-	margin-right: 8px;
-}
-
-/* #sidebar::--webkit-scrollbar {
-	display: none;
-} */
-
-#sidebar.hide {
-	width: 60px;
-}
-
-span.image-container img {
-	/* Đặt kích thước của hình ảnh */
-	width: 7rem;
-	height: 7rem;
-	border-radius: 50%;
-	object-fit: cover;
-	/* Đảm bảo hình ảnh vừa với kích thước của hình tròn */
-}
-
-
-/* .avatar {
-	margin-top: 4vh;
-	display: flex;
-	justify-content: center;
-}
-
-.avatar .user_name {
-    display: block;
-} */
-
-.avatar {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    text-decoration: none; /* Nếu bạn muốn loại bỏ đường chân trang mặc định của thẻ a */
-  }
-  
-  .image-container {
-    margin-bottom: 5px; /* Có thể điều chỉnh giá trị để căn chỉnh khoảng cách giữa ảnh và tên người dùng */
-  }
-  
-  .user_name {
-    color: #333; /* Màu chữ cho tên người dùng, có thể thay đổi tùy ý */
-  }
-  
-
-#sidebar .side-menu.top li.active a {
-	color: var(--primary-color-2);
-}
-
-#sidebar .side-menu.top li a:hover {
-	color: var(--primary-color-1);
-}
-
-
-#sidebar .side-menu {
-	width: 100%;
-	margin-top: 20px;
-}
-
-#sidebar .side-menu li {
-	height: 48px;
-	background: transparent;
-	margin-left: 6px;
-	border-radius: 48px 0 0 48px;
-	padding: 4px;
-}
-
-#sidebar .side-menu li.active {
-	background: white;
-	position: relative;
-}
-
-#sidebar .side-menu li.active::before {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	top: -40px;
-	right: 0;
-	box-shadow: 20px 20px 0 white;
-	z-index: -1;
-}
-
-#sidebar .side-menu li.active::after {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	bottom: -40px;
-	right: 0;
-	box-shadow: 20px -20px 0 white;
-	z-index: -1;
-}
-
-#sidebar .side-menu li a {
-	width: 100%;
-	height: 100%;
-	background: white;
-	display: flex;
-	align-items: center;
-	border-radius: 48px;
-	font-size: 16px;
-	color: var(--dark);
-	white-space: nowrap;
-	overflow-x: hidden;
-}
-
-
-#sidebar.hide .side-menu li a {
-	width: calc(48px - (4px * 2));
-	transition: width .3s ease;
-}
-
-#sidebar .side-menu li a.logout {
-	color: var(--red);
-}
-
-#sidebar .side-menu li a .bx {
-	min-width: calc(60px - ((4px + 6px) * 2));
-	display: flex;
-	justify-content: center;
-}
-
 
 .purchase-item__product-detail {
     width: 100%;
 }
 
+/*  */
 .purchase-item__product-detail h5 {
     display: inline !important;
     margin-right: 10px;
@@ -204,100 +70,17 @@ span.image-container img {
   
   .purchase-item__product-detail hr {
     width: calc(100% - 15px); /* Điều chỉnh chiều rộng của hr */
-    margin: 5px 0; /* Điều chỉnh khoảng cách trên và dưới của hr */
+    margin: 1px 0 20px 0 !important;
+
   }
   
-
-
-/* Thêm mã CSS cho popup logout form */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+.purchase-item__product-detail {
+    gap: 0 !important;
 }
 
-.logout-form {
-    width: 300px;
-    background: var(--white);
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    text-align: center;
-    align-items: center;
+.purchase-item__product-detail>h5 {
+	margin-bottom: 5px;
 }
-
-.close-btn {
-    position: absolute;
-    top: 6px;
-    right: 18px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #555;
-  }
-  
-
-.logout-form h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.logout-form p {
-    margin-bottom: 5px;
-}
-
-.logout-form img {
-    display: block;
-    border-radius: 8px;
-    width: 200px;
-    margin: auto;
-    margin-bottom: 10px;
-}
-
-
-.logout-form button {
-    width: 100px;
-    height: 40px;
-    border: 1px solid var(--bg-white);
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* Màu xám cho nút Hủy */
-#cancel-button {
-    background-color: var(--bg-gray);
-}
-
-/* Hover màu xám nhạt hơn cho nút Hủy */
-#cancel-button:hover {
-    background-color: #bbb;
-}
-
-/* Màu mặc định cho nút Đăng xuất */
-#confirm-button {
-    background-color: var(--primary-color-1);
-}
-
-/* Hover màu xanh nhạt hơn cho nút Đăng xuất */
-#confirm-button:hover {
-    background-color: var(--primary-color-3);
-}
-
-/* Thêm box-shadow cho cả hai nút */
-.logout-form button {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logout-form button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 
 
 /*Responsive-small-laptop*/
@@ -319,8 +102,7 @@ span.image-container img {
 @media only screen and (max-width: 48rem) {
 	.account-container {
 		width: 95%;
-		margin: 100px 0 24px 0;
-		padding-top: 24px;
+		margin: 20px;
 	}
 
 	h2 {
@@ -354,6 +136,40 @@ span.image-container img {
 	.purchase-item__info p {
 		font-size: 0.875rem;
 	}
+
+	button {
+		height: 42px;
+	}
+
+	button.btn--outlined.pri {
+		font-size: 0.875rem;
+		padding: 0 18px;
+	}
+
+	button.btn--filled.pri {
+		font-size: 0.875rem;
+		padding: 0 18px;
+	}
+}
+
+@media only screen and (max-width: 26rem) {
+	.account-container {
+		width: 90%;
+		margin-top: 12px;
+		padding: 0;
+	}
+
+	.purchase-item--top h3{
+		font-size: 16px;
+	}
+
+	.purchase-item__product-detail h5 {
+        font-size: 14px;
+    }
+
+	.purchase-item__product-detail>h5 + span {
+        font-size: 14px;
+    }
 
 	button {
 		height: 42px;

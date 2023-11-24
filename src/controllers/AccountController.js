@@ -24,6 +24,14 @@ class AccountController {
         res.render('./pages/account/warranty-claim')
     }
 
+    //GET /account/edit-information
+    editInformation(req, res) {
+        res.render("./pages/account/edit-information")
+    }
+    //GET /account/sidebar_account
+    mobileAccount(req, res) {
+        res.render("./pages/account/mobile-account")
+    }
 }
 
 module.exports = new AccountController()

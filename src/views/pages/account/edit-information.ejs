@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <link rel="stylesheet" href="/styles/pages/account/information.css">
+    <link rel="stylesheet" href="/styles/pages/account/edit-information.css">
+
+    <title>TECHTWO.</title>
+</head>
+
+<body>
+
+    <%- include('../../partials/header') %>
+        <%- include('../../partials/breadcrumb') %>
+
+            <main class="account-container">
+                <%- include("../../components/sidebar_account") %>
+
+                    <section class="purchase__main" id="info">
+                        <div class="purchase__main__item">
+                            <div class="purchase-item">
+                                <div class="purchase-item--top">
+                                    <div class="purchase-item__info">
+                                        <h3>Thông tin cá nhân</h3>
+
+                                    </div>
+                                </div>
+                                <div class="purchase-item__main">
+                                    <div class="purchase-item__element">
+                                        <div class="purchase-item__product-detail">
+                                            <h5 id="purchase-item__product-name">Tên đăng nhập: </h5><input type="text"
+                                                value="HuongVi" />
+                                            <hr />
+
+                                            <h5 id="purchase-item__product-name">Tên người dùng: </h5><input type="text"
+                                                value="Vi Thị Hương" />
+                                            <hr />
+
+                                            <h5 id="purchase-item__product-name">Ngày sinh: </h5><input type="text"
+                                                value="24/10/2023" />
+                                            <hr />
+
+                                            <h5 id="purchase-item__product-name">Giới tính: </h5><input type="text"
+                                                value="Nữ" />
+                                            <hr />
+
+                                            <h5 id="purchase-item__product-name">Email: </h5><input type="text"
+                                                value="vithihuong384@gmail.com" />
+                                            <hr />
+
+                                            <h5 id="purchase-item__product-name">Số điện thoại: </h5><input type="text"
+                                                value="0352060384" />
+                                            <hr />
+
+                                            <h5 id="purchase-item__product-name">Địa chỉ: </h5><input type="text"
+                                                value="An Bình, Dĩ An, Bình Dương" />
+                                            <hr />
+
+
+                                            <div class="popup__button">
+                                                <button class="btn--outlined pri btn-cancel" type="button"
+                                                    onclick="redirectTo('/account/information')">Hủy</button>
+                                                <button class="btn--filled pri btn-logout" type="button"
+                                                    onclick="redirectTo('/account/information')">Lưu</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="popup" id="logout-popup">
+                        <div class="logout-form">
+                            <span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
+                            <h1>Đăng xuất</h1>
+                            <p>Bạn có chắc chắn muốn đăng xuất không?</p>
+                            <img src="/imgs/information/bye.png" alt="Hình ảnh đăng xuất">
+                            <button id="confirm-button">Đăng xuất</button>
+                            <button id="cancel-button">Hủy</button>
+                        </div>
+                    </div>
+
+            </main>
+            <%- include('../../partials/app-bar') %>
+                <%- include('../../partials/footer') %>
+
+                    <script src="/scripts/pages/account/information.js"></script>
+
+</body>
+
+</html>

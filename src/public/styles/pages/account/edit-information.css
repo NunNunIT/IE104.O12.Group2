@@ -1,0 +1,53 @@
+@import url("/styles/general.css");
+@import url("/styles/pages/account/information.css");
+
+.popup__button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    gap: 12px;
+}
+
+.popup__button .cancel {
+    color: var(--primary-color-1);
+}
+
+.popup__button .save {
+    color: white;
+}
+
+input[type="text"] {
+    height: 30px; 
+    font-size: 16px;
+  }
+
+  input {
+    color: var(--del-gray);
+}
+
+@media only screen and (max-width: 26rem){
+
+    .purchase-item__status {
+        font-weight: 500;
+        color: var(--green);
+        font-size: 14px !important;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+      }
+
+    button {
+        height: 42px !important;
+    }
+
+    button.btn--outlined.pri {
+        font-size: 0.875rem !important;
+        padding: 0 18px !important;
+    }
+
+    button.btn--filled.pri {
+        font-size: 0.875rem !important;
+        padding: 0 18px !important;
+    }
+}
