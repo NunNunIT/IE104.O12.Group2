@@ -12,5 +12,7 @@ router.get('/feedback', authMiddleware.isLoggedIn, AccountController.feedback)
 router.get('/warranty-claim', authMiddleware.isLoggedIn, AccountController.warrantyClaim)
 router.get('/edit-information', authMiddleware.isLoggedIn, AccountController.editInformation)
 router.get('/mobile-account', authMiddleware.isLoggedIn, AccountController.mobileAccount)
+router.get('/changePassword', AccountController.changePassword)
+
 
 module.exports = router

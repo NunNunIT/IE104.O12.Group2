@@ -23,6 +23,10 @@ class AccountController {
     warrantyClaim(req, res) {
         res.render('./pages/account/warranty-claim')
     }
+    
+    changePassword(req, res) {
+        res.render('./pages/account/changePassword')
+    }
 
     //GET /account/edit-information
     editInformation(req, res) {
