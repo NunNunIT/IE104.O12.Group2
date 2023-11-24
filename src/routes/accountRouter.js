@@ -8,9 +8,9 @@ const authMiddleware = require('../middleware/authMiddleware.js')
 router.get('/information', authMiddleware.isLoggedIn, AccountController.information)
 router.get('/purchase', authMiddleware.isLoggedIn, AccountController.purchaseHistory)
 router.get('/purchase/:purchaseID', authMiddleware.isLoggedIn, AccountController.purchaseDetail)
-router.get('/feedback', AccountController.feedback)
-router.get('/warranty-claim', AccountController.warrantyClaim)
-router.get('/edit-information', AccountController.editInformation)
-router.get("/mobile-account", AccountController.mobileAccount)
+router.get('/feedback', authMiddleware.isLoggedIn, AccountController.feedback)
+router.get('/warranty-claim', authMiddleware.isLoggedIn, AccountController.warrantyClaim)
+router.get('/edit-information', authMiddleware.isLoggedIn, AccountController.editInformation)
+router.get('/mobile-account', authMiddleware.isLoggedIn, AccountController.mobileAccount)
 
 module.exports = router

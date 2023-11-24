@@ -22,27 +22,21 @@
                 </a>
                
                 <ul class="side-menu top">
-                    <li class="active">
+                    <li>
                         <a href="/account/information" id="info-link">
                             <span class="material-symbols-outlined">
                                 perm_contact_calendar
                             </span>
                             <span class="text">Thông tin cá nhân</span>
-                            <span class="material-symbols-outlined arrow-icon">
-                                arrow_forward_ios
-                            </span>
                         </a>
                     </li>
-
+            
                     <li>
                         <a href="/account/purchase">
                             <span class="material-symbols-outlined">
                                 shopping_bag
                             </span>
                             <span class="text">Lịch sử đơn mua</span>
-                            <span class="material-symbols-outlined arrow-icon">
-                                arrow_forward_ios
-                            </span>
                         </a>
                     </li>
                     <li>
@@ -51,9 +45,6 @@
                                 build
                             </span>
                             <span class="text">Yêu cầu bảo hành</span>
-                            <span class="material-symbols-outlined arrow-icon">
-                                arrow_forward_ios
-                            </span>
                         </a>
                     </li>
                     <li>
@@ -62,18 +53,16 @@
                                 settings
                             </span>
                             <span class="text">Đổi mật khẩu</span>
-                            <span class="material-symbols-outlined arrow-icon">
-                                arrow_forward_ios
-                            </span>
                         </a>
                     </li>
+                </ul>
+                <ul class="side-menu">
                     <li>
                         <p class="btn-warranty">
                             <span class="material-symbols-outlined">logout</span>
                             <span class="text">Đăng xuất</span>
                         </p>
                     </li>
-                    
                 </ul>
         
                 <div class="popup">
@@ -91,10 +80,10 @@
                             <img src="/imgs/information/logout_gb.png" alt="goodbye">
                            </div> -->
                             <div class="popup__button">
-                                <button class="btn btn--outlined pri btn-cancel" type="button"
-                                    onclick="redirectTo('/account/information')">Hủy</button>
-                                <button class="btn btn--filled pri btn-logout" type="button"
-                                    onclick="redirectTo('/')">Đăng xuất</button>
+                                <button class="btn--outlined pri btn-cancel" type="button"
+                                    onclick="redirectTo('/account/mobile-account')">Hủy</button>
+                                <button class="btn--filled pri btn-logout" type="button"
+                                    onclick="redirectTo('/auth/logout')">Đăng xuất</button>
                             </div>
                             </div>
                         </div>

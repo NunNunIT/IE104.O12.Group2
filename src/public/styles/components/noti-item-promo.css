@@ -53,15 +53,16 @@
 }
 
 .noti-item__button {
-    display: inherit;
+    display: flex;
     gap: 12px;
+    align-items: center;
 }
 
 /*popup*/
 .popup {
     display: none;
     position: fixed;
-    padding-top: 50px;
+    padding-top: 24px;
     left: 0;
     top: 0;
     width: 100%;
@@ -69,6 +70,7 @@
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
+    overflow-y: auto;
 }
 
 .popup__main {

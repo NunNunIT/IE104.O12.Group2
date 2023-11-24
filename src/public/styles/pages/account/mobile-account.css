@@ -1,12 +1,9 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/app-bar.css");
-@import url("/styles/components/sidebar_account.css");
-
 
 body {
 	margin: 0;
 	padding: 0;
+	background: var(--white);
 }
 
 .mobile-account-container {
@@ -20,13 +17,21 @@ body {
 
 }
 
+/* .mobile-account-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+	
+} */
+
 
 /* side-bar */
 #sidebar {
 	display: flex;
 	flex-direction: column;
 	width: 100% !important;
-	background: white;
 	z-index: 0 !important;
 	transition: .3s ease;
 	scrollbar-width: none;
@@ -35,40 +40,37 @@ body {
 
 #sidebar .material-symbols-outlined {
 	margin-right: 12px;
+	font-size: 32px;
 }
 
-
 span.image-container img {
-	width: 5rem;
-	height: 5rem;
+	width: 8rem;
+	height: 8rem;
 	border-radius: 50%;
 	object-fit: cover;
 }
 
 .avatar {
 	margin-top: 20px;
-	margin-left: 120px;
+	/* margin-left: 120px; */
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	text-align: center;
 	text-decoration: none;
-	gap: 12px;
-}
-
-.image-container {
-	margin-bottom: 5px;
 }
 
 .user_name {
 	color: #333;
 	text-align: center;
+	margin-bottom: 12px;
+	margin-top: 8px;
 }
-
 
 #sidebar .side-menu {
 	width: 100%;
 	margin-top: 0 !important;
+	padding: 12px;
 }
 
 
@@ -80,6 +82,10 @@ span.image-container img {
 	padding: 4px;
 } */
 
+.side-menu.top {
+	background: var(--white);
+}
+
 .side-menu.top li {
 	display: flex;
 	align-items: center;
@@ -88,7 +94,7 @@ span.image-container img {
 	height: 48px;
 	background: transparent;
 	border: 1px solid #ddd;
-	border-radius: 12px;
+	/* border-radius: 12px; */
 	padding: 4px;
 	margin-bottom: 8px;
 }
@@ -99,7 +105,8 @@ span.image-container img {
 	justify-content: center;
 	height: 48px;
 	background: transparent;
-	border: 1px solid #ddd;
+	/* border: 1px solid #ddd; */
+	background: var(--dollar-red);
 	border-radius: 12px;
 	padding: 4px;
 	margin-bottom: 8px;
@@ -126,7 +133,7 @@ span.image-container img {
 	position: absolute;
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
+	/* border-radius: 50%; */
 	top: -40px;
 	right: 0;
 	box-shadow: 20px 20px 0 white;
@@ -138,7 +145,7 @@ span.image-container img {
 	position: absolute;
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
+	/* border-radius: 50%; */
 	bottom: -40px;
 	right: 0;
 	box-shadow: 20px -20px 0 white;
@@ -151,8 +158,7 @@ span.image-container img {
 	background: white;
 	display: flex;
 	align-items: center;
-	border-radius: 8px !important;
-	font-size: 14px;
+	/* border-radius: 8px !important; */
 	color: var(--dark);
 	white-space: nowrap;
 	overflow-x: hidden;
@@ -163,9 +169,10 @@ span.image-container img {
 }
 
 
-/* #sidebar .side-menu li a.logout {
-	color: var(--red);
-} */
+#sidebar .side-menu li p {
+	color: var(--white);
+	font-weight: bold;
+}
 
 #sidebar .side-menu li a .bx {
 	min-width: calc(60px - ((4px + 6px) * 2));
@@ -175,7 +182,7 @@ span.image-container img {
 
 /* Thêm đoạn mã này vào file mobile-account.css của bạn */
 .side-menu li {
-	border-bottom: 1px solid #ddd;
+	/* border-bottom: 1px solid #ddd; */
 	/* Thêm khung ở phía dưới của mỗi mục danh sách */
 	padding: 10px;
 	/* Thêm một số padding để tạo khoảng cách tốt hơn */
@@ -306,7 +313,7 @@ span.image-container img {
 .btn-warranty {
 	display: flex;
 	align-items: center;
-	font-size: 14px;
+	font-size: 18px;
 	color: red;
 }
 

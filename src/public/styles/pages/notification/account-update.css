@@ -115,23 +115,28 @@ body {
     flex-direction: column;
 }
 
-.btn-update--disable {
-    color: var(--primary-color-2);
-    font-weight: 500;
+.noti__button-update--disable:hover,
+.noti__button-promo--disable:hover {
+    cursor: pointer;
+    color: var(--primary-color-1);
 }
 
 .btn-promo--disable {
+    text-decoration: none;
+    color: black;
     font-weight: 500;
+    font-size: 0.875rem;
 }
 
-.btn-promo--disable:hover,
-.btn-update--disable:hover {
-    color: var(--primary-color-1);
-    cursor: pointer;
+.btn-update--disable {
+    text-decoration: none;
+    color: var(--primary-color-2);
+    font-weight: 500;
+    font-size: 0.875rem;
 }
 
 .noti__button-update--disable hr {
-    border: 0.5px solid var(--outline-gray);
+    border: 0.5px solid var(--primary-color-2);
     width: 100%;
     margin-top: 8px;
 }
@@ -142,19 +147,20 @@ body {
     margin-top: 8px;
 }
 
-.noti__button-update--disable hr {
-    border-color: var(--primary-color-2);
-}
-
-.btn-button--disable {
-    display: none;
-}
-
-.btn-button--disable p {
-    font-size: 0.75rem;
+.btn-mark-all-read {
+    font-size: 1rem;
     margin: 0 10px;
     color: var(--primary-color-1);
     font-weight: 500;
+}
+
+.btn-mark-all-read:hover {
+    cursor: pointer;
+    color: var(--primary-color-2);
+}
+
+.noti-item__sub-title {
+    font-size: 1rem;
 }
 
 /*Responsive-small-laptop*/
@@ -176,7 +182,7 @@ body {
         height: 40px;
     }
 
-    button.btn--outlined.pri {
+    .btn--outlined.pri {
         font-size: 0.875rem;
         padding: 0 18px;
     }
@@ -188,6 +194,10 @@ body {
     .popup__main {
         width: 60%;
     }
+
+    .btn-mark-all-read {
+        font-size: 0.875rem;
+    }
 }
 
 /*Responsive-tablet*/
@@ -197,7 +207,7 @@ body {
     }
 
     .nofi-container {
-        width: 95%;
+        width: 90%;
     }
 
     .aside-wrapper__aside-title p {
@@ -209,18 +219,18 @@ body {
     }
 
     .noti-item__sub-title {
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
     }
 
     .noti-item__date-time p {
-        font-size: 0.8125rem;
+        font-size: 0.75rem;
     }
 
     button {
         height: 34px;
     }
 
-    button.btn--outlined.pri {
+    .btn--outlined.pri {
         font-size: 0.75rem;
         padding: 0 18px;
     }
@@ -237,6 +247,13 @@ body {
 
 /*Responsive-smartphone*/
 @media only screen and (max-width: 26rem) {
+    .nofi-container {
+        width: 100%;
+        margin: 12px 0;
+        padding: 12px;
+        border-radius: 0;
+    }
+
     .nofi__main {
         gap: 12px;
     }
@@ -245,7 +262,7 @@ body {
         display: none;
     }
 
-    button.btn--outlined.pri.mark {
+    .btn--outlined.pri.mark {
         display: none;
     }
 
@@ -266,7 +283,7 @@ body {
         height: 32px;
     }
 
-    button.btn--outlined.pri {
+    .btn--outlined.pri {
         font-size: 0.625rem;
         padding: 0 12px;
     }
@@ -279,7 +296,11 @@ body {
         display: flex;
     }
 
-    .btn-button--disable {
-        display: flex;
+    .btn-mark-all-read {
+        font-size: 0.75rem;
+    }
+
+    .noti-item__img {
+        width: 28%;
     }
 }

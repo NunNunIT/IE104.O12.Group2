@@ -23,21 +23,19 @@ body {
     width: 80%;
     margin: 24px auto;
     max-width: 1152px;
-    /* margin: 0 auto; */
     display: inherit;
     flex-direction: column;
     gap: 5vh;
-    /* background-color: var(--white); */
+}
+
+section {
+    max-width: 1152px;
 }
 
 .cate {
     padding: 12px;
     background-color: var(--white);
     border-radius: 4px;
-}
-
-.slider {
-    margin-top: 160px;
 }
 
 .cate {
@@ -54,12 +52,15 @@ body {
 
 .cate__carousel {
     display: inherit;
-    gap: 12px;
+    gap: 8px;
     transition: transform 0.5s ease-in-out;
 }
 
-.cate__item {
-    flex: 0 0 19%;
+.cate__carousel-col {
+    flex: 0 0 13.5%;
+    display: inherit;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .cate__button {
@@ -69,13 +70,20 @@ body {
     border-radius: 50%;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 35%;
+    top: 175px;
     left: 8px;
 }
 
+.cate__button span {
+    font-size: 2rem;
+}
+
 #cateNext {
-    left: 95%;
+    left: 1070px;
 }
 
 .cate__button:hover {
@@ -186,36 +194,71 @@ body {
     .cate__content {
         gap: 8px;
     }
+
+    .cate__button {
+        top: 160px;
+    }
+
+    #cateNext {
+        left: 740px;
+    }
 }
 
 /* 768px - Tablet */
 @media only screen and (max-width: 48rem) {
     .content-container {
-        width: 100%;
+        width: 90%;
     }
 
     .tip-products__content {
         gap: 2%;
     }
+
+    .cate__button {
+        top: 120px;
+    }
+
+    #cateNext {
+        left: 604px;
+    }
 }
 
 /* 416px - Mobile */
 @media only screen and (max-width: 26rem) {
-    .cate__content {
-        gap: 4px;
-        justify-content: flex-start;
+    body {
+        background-color: var(--white);
     }
 
-    .cate__carousel {
+    .content-container {
+        width: 100%;
+        gap: 24px;
+    }
+
+    .cate {
+        padding: 0 12px;
+    }
+
+    .cate__content {
+        justify-content: flex-start;
+        gap: 4px;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
 
-    .cate__carousel::-webkit-scrollbar {
+    .cate__content::-webkit-scrollbar {
         display: none;
     }
 
+    .cate__carousel {
+        gap: 4px;
+    }
+
+    .cate__carousel-col {
+        width: 48px;
+    }
+
     .cate__item {
+        width: 100%;
         scroll-snap-align: start;
     }
 
