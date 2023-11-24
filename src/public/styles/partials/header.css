@@ -124,6 +124,7 @@
 .dropdown-noti {
     position: relative;
     display: inline-block;
+    margin-right: 20px;
 }
 
 .dropdown-noti__content-container {
@@ -183,9 +184,9 @@
 
 .header__about-account {
     display: flex;
-    gap: 20px;
     height: 100%;
     align-items: center;
+    justify-content: space-between;
 }
 
 .header__logo {

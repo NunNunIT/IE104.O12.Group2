@@ -1,5 +1,5 @@
 /* ---------- HEADER ---------- */
-.header {
+.header-admin {
   grid-area: header;
   height: 70px;
   display: flex;
@@ -10,7 +10,7 @@
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 
-.header span {
+.header-admin span {
   padding: 10px;
 }
 

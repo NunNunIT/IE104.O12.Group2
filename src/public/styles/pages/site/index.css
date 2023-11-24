@@ -114,9 +114,7 @@ body {
 }
 
 .outstanding-products,
-.tip-products-wrapper,
-.tip-products-wrapper2,
-.tip-products-wrapper3 {
+.tip-products-wrapper {
     padding: 12px;
     border-radius: 4px;
     display: inherit;
