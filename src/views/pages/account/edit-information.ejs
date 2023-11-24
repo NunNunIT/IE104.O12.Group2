@@ -17,7 +17,7 @@
 <body>
 
     <%- include('../../partials/header') %>
-        <%- include('../../partials/breadcrumb') %>
+    <%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
 
             <main class="account-container">
                 <%- include("../../components/sidebar_account") %>
@@ -64,9 +64,9 @@
 
 
                                             <div class="popup__button">
-                                                <button class="btn--outlined pri btn-cancel" type="button"
+                                                <button class="btn btn--outlined pri btn-cancel" type="button"
                                                     onclick="redirectTo('/account/information')">Hủy</button>
-                                                <button class="btn--filled pri btn-logout" type="button"
+                                                <button class="btn btn--filled pri btn-logout" type="button"
                                                     onclick="redirectTo('/account/information')">Lưu</button>
                                             </div>
 

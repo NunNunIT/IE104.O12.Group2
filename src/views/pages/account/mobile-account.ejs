@@ -87,13 +87,13 @@
                                     </div>
                                 </div>
                             <p class="popup__subtitle">Quý khách có chắc chắn muốn đăng xuất không?</p>
-                           <div class="logout_img">
+                           <!-- <div class="logout_img">
                             <img src="/imgs/information/logout_gb.png" alt="goodbye">
-                           </div>
+                           </div> -->
                             <div class="popup__button">
-                                <button class="btn--outlined pri btn-cancel" type="button"
+                                <button class="btn btn--outlined pri btn-cancel" type="button"
                                     onclick="redirectTo('/account/information')">Hủy</button>
-                                <button class="btn--filled pri btn-logout" type="button"
+                                <button class="btn btn--filled pri btn-logout" type="button"
                                     onclick="redirectTo('/')">Đăng xuất</button>
                             </div>
                             </div>
@@ -104,8 +104,7 @@
         </div>
     <%- include('../../partials/app-bar') %>
     <script src="/scripts/partials/header.js"></script>
-    <script src="/scripts/components/sidebar_account.js"></script>
-
+    <script src="/scripts/pages/account/mobile-account.js"></script>
 </body>
 
 </html>
