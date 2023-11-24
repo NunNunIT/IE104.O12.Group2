@@ -54,4 +54,22 @@ auth.loginPost = async (req, callback) => {
     })
 }
 
+auth.findNumberPhone = async (req, callback) => {
+    // console.log('Đăng nhập:', req.body)
+    const user_phone = req.body.user_phone;
+    console.log(user_phone)
+
+    // console.log('gán req.body:', user_phone, user_password)
+
+    db.query('SELECT *  FROM users WHERE user_phone = ?', [user_phone], async (err, result) => {
+        // console.log(result)
+        if (err) callback(1, 0, 0, 0)
+        if (!result.length) callback(0, 1, 0, 0)
+        else {
+            const id = result[0].user_id;
+            callback(0, 0, 1, id)
+        }
+    })
+}
+
 module.exports = auth

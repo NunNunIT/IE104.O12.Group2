@@ -10,5 +10,7 @@ router.get('/purchase', authMiddleware.isLoggedIn, AccountController.purchaseHis
 router.get('/purchase/:purchaseID', authMiddleware.isLoggedIn, AccountController.purchaseDetail)
 router.get('/feedback', AccountController.feedback)
 router.get('/warranty-claim', AccountController.warrantyClaim)
+router.get('/changePassword', AccountController.changePassword)
+
 
 module.exports = router

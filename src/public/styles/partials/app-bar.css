@@ -1,69 +1,61 @@
 .nav__icon {
-    font-size: 1.5rem;
-    }
-    
+    font-size: 1.8rem;
+}
+
 .app-bar {
-        position: fixed;
-        bottom: 0px;
-        background-color: white;
-        width: 100%;
-        height: 50px;  
-        padding: 30px 0 30px 0;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 -1px 12px hsla(231, 65%, 51%, 0.15);
-        border-radius: 1.25rem 1.25rem 0 0;
+    position: fixed;
+    bottom: 0px;
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    padding: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -1px 12px hsla(231, 65%, 51%, 0.15);
+}
+
+.app-bar__container {
+    width: 90vw;
+    height: 100%;
+    background-color: none;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+
+.app-bar__container a {
+    text-decoration: none;
+    color: black;
+}
+
+.app-bar__element {
+    width: 80px;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.app-bar__element.active .material-symbols-outlined {
+    color: #2a7ee4;
+    font-variation-settings: 'FILL' 1;
+}
+
+.app-bar__element.active a {
+    color: #2a7ee4;
+}
+
+@media screen and (max-width: 40rem) {
+    .app-bar {
+        display: flex;
     }
-    
+}
+
+@media screen and (max-width: 26rem) {
     .app-bar__container {
-        width: 90vw;
-        height: 100%;
-        background-color: none;
-        flex-direction: row;
-        justify-content: space-between;
-        display: flex;
-        padding: 20px 0 20px 0;
+        width: 95vw;
     }
-
-    .app-bar__container a {
-        text-decoration: none;
-        color: black;
-    }
-    
-    .app-bar__element {
-        flex-direction: column;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: black;
-    }
-
-    .app-bar:hover {
-        color: #2a7ee4;
-    }
-
-    .app-bar__element:hover {
-        color: #2a7ee4;
-    }
-    
-    .app-bar__element:hover material-symbols-outlined{
-        color: #2a7ee4;
-    }
-
-    .app-bar__element:hover a{
-        color: #2a7ee4;
-    }
-
-    @media screen and (max-width: 40rem) { 
-        .app-bar {
-            display: flex;
-        }
-    }
-
-    @media screen and (max-width: 26rem) { 
-        .app-bar__container {
-            width: 95vw;
-        }
-    }
+}

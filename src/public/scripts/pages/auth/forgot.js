@@ -1,8 +1,6 @@
 const inputs = document.querySelectorAll(".forgot__input-field");
 const toggle_btn = document.querySelectorAll(".forgot__toggle");
 const main = document.querySelector("main");
-const bullets = document.querySelectorAll(".forgot__bullets span");
-const images = document.querySelectorAll(".forgot__image");
 
 autoComplete();
 function autoComplete() {
@@ -47,10 +45,6 @@ const setSuccess = (element) => {
   errorDisplay.innerText = "";
   inputControl.classList.add("success");
   inputControl.classList.remove("error");
-
-if (element.id === 'PhoneNumber' && isValidPhoneNumber(element.value.trim())) {
-    showStep2();
-}
 };
 
 const isValidPhoneNumber = (PhoneNumber) => {
@@ -77,6 +71,7 @@ const validateInput = () => {
     const forgot = {
       user_phone: PhoneNumber.value.trim(),
     };
+    console.log(forgot);
     fetch("/auth/forgot", {
       method: "POST",
       body: JSON.stringify(forgot),
@@ -86,124 +81,145 @@ const validateInput = () => {
     })
       .then((res) => res.json())
       .then((back) => {
-        if (back.status == "error") {
+        console.log(back);
+        if (back.status == "notFound") {
           setError(PhoneNumber, back.error);
-        } else {
-          form.submit();
+        } else if (back.status == "success") {
+          showStep2();
         }
       });
   }
 };
 
 const showStep2 = () => {
-    document.querySelector('.Step1').style.display = 'none';
-    document.querySelector('.Step2').style.display = 'block';
-    function updateCountdown() {
-      const countdownElement = document.getElementById('countdown');
-      const now = new Date();
-      const targetTime = new Date(now.getTime() + 45 * 1000); // 30 seconds from now
-    
-      const timeDifference = targetTime - now;
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-    
-      countdownElement.textContent = `Thời gian xác nhận: ${seconds}s`;
-    
-      if (timeDifference <= 0) {
-          countdownElement.textContent = 'Hết thời gian xác nhận!';
-      }
-    
-      // Tự động cập nhật mỗi giây
-      setTimeout(updateCountdown, 1000);
-    }
-    updateCountdown();
-}
+  document.querySelector(".Step1").style.display = "none";
+  document.querySelector(".Step2").style.display = "block";
+  document.querySelector(".forgot__sign-in-form").style.display = "none";
+  function updateCountdown() {
+    const countdownElement = document.getElementById("countdown");
+    const now = new Date();
+    const targetTime = new Date(now.getTime() + 45 * 1000); // 30 seconds from now
 
+    const timeDifference = targetTime - now;
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    countdownElement.textContent = `Thời gian xác nhận: ${seconds}s`;
+
+    if (timeDifference <= 0) {
+      countdownElement.textContent = "Hết thời gian xác nhận!";
+    }
+
+    // Tự động cập nhật mỗi giây
+    setTimeout(updateCountdown, 1000);
+  }
+  updateCountdown();
+};
 
 // Lắng nghe sự kiện input trên các ô nhập OTP
-const otpInputs = document.querySelectorAll('.actual-form input[type="number"]');
-otpInputs.forEach(input => {
-    input.addEventListener('input', function () {
-        // Lọc bỏ các ký tự không phải số
-        const inputValue = this.value.replace(/[^0-9]/g, '');
+const otpInputs = document.querySelectorAll(
+  '.actual-form input[type="number"]'
+);
+otpInputs.forEach((input) => {
+  input.addEventListener("input", function () {
+    // Lọc bỏ các ký tự không phải số
+    const inputValue = this.value.replace(/[^0-9]/g, "");
 
-        // Giới hạn chiều dài của giá trị nhập vào
-        const maxLength = parseInt(this.getAttribute('maxlength'));
-        const truncatedValue = inputValue.slice(0, maxLength);
+    // Giới hạn chiều dài của giá trị nhập vào
+    const maxLength = parseInt(this.getAttribute("maxlength"));
+    const truncatedValue = inputValue.slice(0, maxLength);
 
-        // Cập nhật giá trị của ô nhập
-        this.value = truncatedValue;
+    // Cập nhật giá trị của ô nhập
+    this.value = truncatedValue;
 
-        // Chuyển focus đến ô tiếp theo (nếu có) nếu ô hiện tại đã đủ chiều dài
-        if (truncatedValue.length === maxLength) {
-            moveToNext(this);
-        }
-    });
+    // Chuyển focus đến ô tiếp theo (nếu có) nếu ô hiện tại đã đủ chiều dài
+    if (truncatedValue.length === maxLength) {
+      moveToNext(this);
+    }
+  });
 });
 
 // Hàm di chuyển focus đến ô tiếp theo
 const moveToNext = (currentInput, nextInputId) => {
-    const nextInput = document.getElementById(nextInputId || currentInput.getAttribute('data-next-input'));
-    if (nextInput) {
-        nextInput.focus();
-    }
+  const nextInput = document.getElementById(
+    nextInputId || currentInput.getAttribute("data-next-input")
+  );
+  if (nextInput) {
+    nextInput.focus();
+  }
 };
 
-
-
-
 // Lắng nghe sự kiện focus trên các ô nhập OTP
-otpInputs.forEach(input => {
-    input.addEventListener('focus', function () {
-        // Lưu giá trị hiện tại khi ô được chọn
-        this.dataset.previousValue = this.value;
-    });
+otpInputs.forEach((input) => {
+  input.addEventListener("focus", function () {
+    // Lưu giá trị hiện tại khi ô được chọn
+    this.dataset.previousValue = this.value;
+  });
 
-    input.addEventListener('input', function () {
-        const inputValue = this.value.replace(/[^0-9]/g, '');
-        const maxLength = parseInt(this.getAttribute('maxlength'));
-        const truncatedValue = inputValue.slice(0, maxLength);
+  input.addEventListener("input", function () {
+    const inputValue = this.value.replace(/[^0-9]/g, "");
+    const maxLength = parseInt(this.getAttribute("maxlength"));
+    const truncatedValue = inputValue.slice(0, maxLength);
 
-        // Nếu ô đã có giá trị và giá trị mới khác với giá trị trước đó, cập nhật giá trị
-        if (this.dataset.previousValue && this.dataset.previousValue !== truncatedValue) {
-            this.value = truncatedValue;
-        }
+    // Nếu ô đã có giá trị và giá trị mới khác với giá trị trước đó, cập nhật giá trị
+    if (
+      this.dataset.previousValue &&
+      this.dataset.previousValue !== truncatedValue
+    ) {
+      this.value = truncatedValue;
+    }
 
-        // Lưu giá trị hiện tại
-        this.dataset.previousValue = truncatedValue;
+    // Lưu giá trị hiện tại
+    this.dataset.previousValue = truncatedValue;
 
-        if (truncatedValue.length === maxLength) {
-            moveToNext(this);
-        }
-    });
+    if (truncatedValue.length === maxLength) {
+      moveToNext(this);
+    }
+  });
 });
 
-document.getElementById('resendLink').addEventListener('click', function (event) {
+document
+  .getElementById("resendLink")
+  .addEventListener("click", function (event) {
     event.preventDefault();
 
-    const statusSpan = document.querySelector('.send-again span');
+    const statusSpan = document.querySelector(".send-again span");
 
     // Sử dụng gsap để tạo hiệu ứng fadeOut cho cả span và nút Gửi lại mã OTP
-    gsap.to([statusSpan, '#resendLink'], { opacity: 0, duration: 0.5, onComplete: function () {
+    gsap.to([statusSpan, "#resendLink"], {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: function () {
         // Thay đổi nội dung của span
-        statusSpan.textContent = 'Đã gửi lại mã OTP';
+        statusSpan.textContent = "Đã gửi lại mã OTP";
+        statusSpan.classList.add("centered-text");
 
         // Sử dụng gsap để tạo hiệu ứng fadeIn cho cả span và nút Gửi lại mã OTP
         gsap.to([statusSpan], { opacity: 1, duration: 0.5 });
 
         // Đặt thời gian để hiển thị lại nút Gửi lại mã OTP sau 5 giây
         setTimeout(function () {
-            // Sử dụng gsap để tạo hiệu ứng fadeOut cho cả span và nút Gửi lại mã OTP
-            gsap.to([statusSpan], { opacity: 0, duration: 0.5, onComplete: function () {
-                // Cập nhật nội dung của span về trạng thái bình thường
-                statusSpan.textContent = 'Bạn không nhận được mã OTP?';
-
-                // Sử dụng gsap để tạo hiệu ứng fadeIn cho cả span và nút Gửi lại mã OTP
-                gsap.to([statusSpan, '#resendLink'], { opacity: 1, duration: 0.5 });
-            } });
+          // Sử dụng gsap để tạo hiệu ứng fadeOut cho cả span và nút Gửi lại mã OTP
+          gsap.to([statusSpan], {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: function () {
+              // Cập nhật nội dung của span về trạng thái bình thường
+              statusSpan.textContent = "Bạn không nhận được mã OTP?";
+              statusSpan.classList.remove("centered-text");
+              // Sử dụng gsap để tạo hiệu ứng fadeIn cho cả span và nút Gửi lại mã OTP
+              gsap.to([statusSpan, "#resendLink"], {
+                opacity: 1,
+                duration: 0.5,
+              });
+            },
+          });
         }, 5000);
-    } });
+      },
+    });
+  });
+
+const form_otp = document.getElementById("form_otp");
+form_otp.addEventListener("submit", (e) => {
+  e.preventDefault();
+  window.location.href = "/auth/reset";
 });
-
-
-
-

@@ -1,17 +1,6 @@
-const inputs = document.querySelectorAll("reset__input-field");
+const inputs = document.querySelectorAll(".reset__input-field");
 const toggle_btn = document.querySelectorAll(".reset__toggle");
 const main = document.querySelector("main");
-const bullets = document.querySelectorAll(".reset__bullets span");
-const images = document.querySelectorAll(".reset__image");
-
-autoComplete();
-function autoComplete() {
-  inputs.forEach((inp) => {
-    if (inp.value) {
-      inp.classList.add("active");
-    }
-  });
-}
 
 inputs.forEach((inp) => {
   inp.addEventListener("focus", () => {
@@ -35,7 +24,7 @@ togglePasswordButton.addEventListener("click", function () {
     togglePasswordButton.getAttribute("data-visible") === "true";
 
   if (isVisible) {
-    passwordInput.type = "Password";
+    passwordInput.type = "password";
     togglePasswordButton.setAttribute("data-visible", "false");
     togglePasswordButton.querySelector(
       ".material-symbols-outlined"
@@ -54,7 +43,7 @@ toggleConfirmPasswordButton.addEventListener("click", function () {
     toggleConfirmPasswordButton.getAttribute("data-visible") === "true";
 
   if (isVisible) {
-    confirmPasswordInput.type = "Password"; // Ẩn mật khẩu
+    confirmPasswordInput.type = "password"; // Ẩn mật khẩu
     toggleConfirmPasswordButton.setAttribute("data-visible", "false");
     toggleConfirmPasswordButton.querySelector(
       ".material-symbols-outlined"

@@ -13,5 +13,6 @@ router.get('/logout', middleware.checkUnAuth, AuthController.logout)
 router.get('/forgot', AuthController.forgotPassword)
 router.post('/forgot', AuthController.forgotPasswordPost)
 router.get('/reset', AuthController.resetPassword)
+// router.get('/resetAuth', AuthController.resetPasswordAuth)
 
 module.exports = router

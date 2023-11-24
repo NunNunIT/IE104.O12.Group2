@@ -58,7 +58,8 @@ input[type="number"] {
 }
 
 .otp {
-    /* display: none; */
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -292,10 +293,12 @@ label {
 
 .Step1 {
     display: block;
+    flex-direction: column;
 }
 
 .Step2 {
     display: none;
+    flex-direction: column;
 }
 
 
@@ -327,7 +330,14 @@ label {
     font-size: 1rem;
 }
 
-
+.centered-text {
+    position: fixed;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    /* Các thuộc tính khác tùy thuộc vào thiết kế của bạn */
+  }
+  
 
 
 
@@ -370,7 +380,11 @@ label {
     }
 
     .heading {
-        margin: 2rem 0;
+        /* margin: 0.75rem 0; */
+    }
+
+    input[type="number"] {
+        width: 12%;
     }
 
     form.sign-up-form {
@@ -392,6 +406,9 @@ label {
 
     .images-wrapper {
         display: none;
+    }
+    .heading h2 {
+        margin-bottom: 1rem;
     }
 
 }
