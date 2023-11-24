@@ -14,7 +14,8 @@
 <body>
 
   <%- include('../../partials/header') %>
-  <%- include('../../partials/breadcrumb') %>
+  <%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
+
 
   <main class="cart">
     <section class="cart__title">

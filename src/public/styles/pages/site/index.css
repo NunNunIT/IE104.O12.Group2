@@ -165,10 +165,10 @@ body {
 
 .tip-products-wrapper3 {
     /* background-color: var(--white); */
-    background: #f53c79;
-    background: -moz-linear-gradient(left, #f53c79 0%, #f0a907 100%);
-    background: -webkit-linear-gradient(left, #f53c79 0%, #f0a907 100%);
-    background: linear-gradient(to right, #f53c79 0%, #f0a907 100%) !important;
+    background: #EA4C2D;
+    background: -moz-linear-gradient(left, #EA4C2D 0%, #FFA62E 100%);
+    background: -webkit-linear-gradient(left, #EA4C2D 0%, #FFA62E 100%);
+    background: linear-gradient(to right, #EA4C2D 0%, #FFA62E 100%) !important;
 }
 
 
