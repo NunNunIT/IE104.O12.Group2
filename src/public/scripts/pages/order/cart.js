@@ -100,7 +100,7 @@ let cartItems
 if (window.innerWidth <= 416)
     cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
 else
-    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
 const lastCartItem = cartItems[cartItems.length - 1]
 lastCartItem.style.border = 'none'
@@ -141,6 +141,29 @@ function cartSubmit(event) {
             body: JSON.stringify(transformedData),
         })
     }
+}
+
+// Chuyển đổi số thành tiền
+function toCurrency(money) {
+    let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
+        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c
+    })
+    return currency
+}
+
+// Sự kiện onchange tính tổng tiền
+function calcTotalPrice(event) {
+    const totalPrice = document.querySelector('.cart__total-price h2')
+    const cartItemsPrice = document.querySelectorAll('.cart-item__price')
+
+    let total = 0
+    cartItemsPrice.forEach(item => {
+        let itemPrice = Number(item.textContent.slice(0, -1).replaceAll('.', ''))
+
+        total += itemPrice
+    })
+
+    totalPrice.innerHTML = toCurrency(total) + 'đ'
 }
 
 // Hàm thực thi

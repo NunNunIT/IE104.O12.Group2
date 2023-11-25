@@ -328,6 +328,7 @@ body {
     height: 48px;
     background-color: var(--white);
     border: 1px solid var(--outline-gray);
+    border-radius: 8px;
 }
 
 .comments__pagination {

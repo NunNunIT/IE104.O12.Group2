@@ -198,6 +198,12 @@ body {
     .btn-mark-all-read {
         font-size: 0.875rem;
     }
+
+    .noti-item__block .btn.btn--outlined.pri {
+        font-size: 0.8125rem;
+        height: 40px;
+        padding: 0 10px;
+    }
 }
 
 /*Responsive-tablet*/
@@ -242,6 +248,12 @@ body {
 
     .popup__main {
         width: 75%;
+    }
+
+    .noti-item__block .btn.btn--outlined.pri {
+        font-size: 0.75rem;
+        height: 36px;
+        padding: 0 8px;
     }
 }
 
@@ -302,5 +314,9 @@ body {
 
     .noti-item__img {
         width: 28%;
+    }
+
+    .noti-item__block .btn.btn--outlined.pri {
+        height: 32px;
     }
 }
