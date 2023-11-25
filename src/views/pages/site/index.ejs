@@ -21,16 +21,62 @@
 			<h2 class="cate__title">Danh mục sản phẩm</h2>
 			<div class="cate__content">
 				<div class="cate__carousel" id="cateCarousel">
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
-					<%- include ('../../components/cate-item') %>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
+					<div class="cate__carousel-col">
+						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item') %>
+					</div>
 				</div>
 				<button type="button" class="cate__button" id="catePrev"><span class="material-symbols-outlined"> chevron_left </span></button>
 				<button type="button" class="cate__button" id="cateNext"><span class="material-symbols-outlined"> chevron_right </span></button>
@@ -38,11 +84,11 @@
 		</section>
 
 		<section class="outstanding-products">
-		<div class="outstanding-products__img"></div>
-		<%- include('../../components/carousel', {title: 'Gợi ý hôm nay'}) %>
+			<div class="outstanding-products__img"></div>
+			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay'}) %>
 		</section>
 
-		'<section class="tip-products-wrapper">
+		<section class="tip-products-wrapper">
 			<div class="tip-products__img"></div>
 				<div class="tip-products">
 				<div class="tip-products__label">
@@ -72,6 +118,37 @@
 				</div>
 			</div>
         </section>
+
+		<section class="tip-products-wrapper3">
+			<div class="tip-products__img3"></div>
+				<div class="tip-products">
+				<div class="tip-products__label">
+					<h2 class="tip-products__title">Hàng mới về</h2>
+					<div class="tip-products__seemore">
+						<a href="/search/result">Xem tất cả</a>
+						<span class="material-symbols-outlined">
+							chevron_right
+						</span>
+					</div>
+				</div>
+				<div class="tip-products__content">
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+					<%- include('../../components/product-card') %>
+				</div>
+			</div>
+		</section>
 	</main>
 
 	<%- include('../../components/scrollup') %>

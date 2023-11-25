@@ -25,18 +25,18 @@
 .breadcrumbs ul li span {
     font-variation-settings: 'FILL' 1;
     display: block;
-    color: #1559ab;
+    color: var(--dark5);
 }
 
 .breadcrumbs ul li a {
     text-decoration: none;
-    color: var(--primary-color-2);
+    color: var(--primary-color-1);
     font-size: 16px;
     font-weight: 450;
 }
 
 .breadcrumbs ul li a:hover {
-    color: var(--primary-color-1);
+    color: var(--primary-color-2);
 }
 
 .breadcrumbs ul li:last-child a {

@@ -14,7 +14,7 @@
 <body>
 
   <%- include('../../partials/header') %>
-  <%- include('../../partials/breadcrumb') %>
+  <%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Thông báo', link : '#'}, {text : 'Cập nhật tài khoản', link : 'đường dẫn 2'}]}) %>
 
   <main class="nofi-container">
     <aside class="aside-wrapper">
@@ -52,9 +52,9 @@
     </section>
   </main>
 
-    <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
-    <%- include('../../partials/app-bar') %>
+  <%- include('../../components/scrollup') %>
+  <%- include('../../partials/footer') %>
+  <%- include('../../partials/app-bar') %>
 
   <script src="/scripts/components/scrollup.js"></script>
   <script src="/scripts/pages/notification/accountUpdate.js"></script>

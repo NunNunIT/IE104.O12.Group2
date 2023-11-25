@@ -2,72 +2,72 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-  <link rel="stylesheet" href="/styles/pages/order/cart.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/order/cart.css">
 
-  <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-  <%- include('../../partials/header') %>
-  <%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header') %>
+	<%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
 
-  <main class="cart">
-    <section class="cart__title">
-      <div>
-        <input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
-        <p class="mobile-display">Tất cả (<span class="selected-nums">0</span>)</p>
-      </div>
-      <h4 class="lg-col mobile-hidden">Sản phẩm</h4>
-      <h4 class="sm-col mobile-hidden">Loại</h4>
-      <h4 class="sm-col mobile-hidden">Đơn giá</h4>
-      <h4 class="sm-col mobile-hidden">Số lượng</h4>
-      <h4 class="sm-col mobile-hidden">Số tiền</h4>
-      <h4 class="sm-col mobile-hidden">Thao tác</h4>
-      <button onclick="deleteMbItem(event)" type="button" class="mobile-display" id="del-mb-btn">Xóa</button>
-    </section>
+	<main class="cart">
+		<section class="cart__title">
+			<div>
+				<input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
+				<p class="mobile-display">Tất cả (<span class="selected-nums">0</span>)</p>
+			</div>
+			<h4 class="lg-col mobile-hidden">Sản phẩm</h4>
+			<h4 class="sm-col mobile-hidden">Loại</h4>
+			<h4 class="sm-col mobile-hidden">Đơn giá</h4>
+			<h4 class="sm-col mobile-hidden">Số lượng</h4>
+			<h4 class="sm-col mobile-hidden">Số tiền</h4>
+			<h4 class="sm-col mobile-hidden">Thao tác</h4>
+			<button onclick="deleteMbItem(event)" type="button" class="mobile-display" id="del-mb-btn">Xóa</button>
+		</section>
 
-    <section class="cart__content">
-      <form id="cart-form" method="post">
-        <div class="cart__empty">
-          <img src="/imgs/cart/empty-cart.png" alt="">
-          <p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
-        </div>
-        <%- include('../../components/cart-product') %>
-        <%- include('../../components/cart-product') %>
-        <%- include('../../components/cart-product') %>
-      </form>
-    </section>
+		<section class="cart__content">
+			<form id="cart-form" method="post">
+				<div class="cart__empty">
+					<img src="/imgs/cart/empty-cart.png" alt="">
+					<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
+				</div>
+				<%- include('../../components/cart-product') %>
+				<%- include('../../components/cart-product') %>
+				<%- include('../../components/cart-product') %>
+			</form>
+		</section>
 
-    <section class="cart__footer">
-      <div>
-        <div class="cart__feature mobile-hidden">
-          <button onclick="checkAllBtn(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả (<span class="selected-nums">0</span>)</button>
-          <button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn">Xóa</button>
-        </div>
-        <div class="cart__order">
-          <div class="cart__total-price">
-            <p>Tổng tiền: <del>100.000.000đ</del></p>
-            <h2>100.000.000đ</h2>
-          </div>
-          <input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng">
-        </div>
-      </div>
-      <p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="/privacy-policy">chính sách đặt hàng.</a> của TECHTWO.</p>
-    </section>
-  </main>
+		<section class="cart__footer">
+			<div>
+				<div class="cart__feature mobile-hidden">
+					<button onclick="checkAllBtn(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả (<span class="selected-nums">0</span>)</button>
+					<button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn">Xóa</button>
+				</div>
+				<div class="cart__order">
+					<div class="cart__total-price">
+						<p>Tổng tiền: <del>100.000.000đ</del></p>
+						<h2>100.000.000đ</h2>
+					</div>
+					<input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng">
+				</div>
+			</div>
+			<p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="/privacy-policy">chính sách đặt hàng</a> của TECHTWO.</p>
+		</section>
+	</main>
 
-  <%- include('../../components/scrollup') %>
-  <%- include('../../partials/footer') %>
-  <%- include('../../partials/app-bar') %>
+	<%- include('../../components/scrollup') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
 
-  <script src="/scripts/components/scrollup.js"></script>
-  <script src="/scripts/components/cartProduct.js"></script>
-  <script src="/scripts/pages/order/cart.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
+	<script src="/scripts/components/cartProduct.js"></script>
+	<script src="/scripts/pages/order/cart.js"></script>
 </body>
 
 </html>

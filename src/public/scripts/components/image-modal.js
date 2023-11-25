@@ -1,23 +1,18 @@
-// Thêm "active" vào app-bar__element
-const appbar__element = document.querySelectorAll('.app-bar__element');
-appbar__element[0].classList.add('active');
-
-
 document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.getElementById('cateCarousel')
-    const items = document.querySelectorAll('.cate__carousel-col')
+    const carousel = document.querySelector('.image-carousel')
+    const items = document.querySelectorAll('.image-carousel__item')
+    const background = document.querySelector('.image-background')
     const totalItems = items.length
-    const maxItemsDisplay = 7
+    const maxItemsDisplay = 1
     let currentIndex = 0
 
-    const prevButton = document.querySelector('#catePrev')
-    const nextButton = document.querySelector('#cateNext')
+    const prevButton = document.querySelector('#imgModalPrev')
+    const nextButton = document.querySelector('#imgModalNext')
     prevButton.style.display = 'none'
 
-    if (prevButton && nextButton) {
-        prevButton.addEventListener('click', showPrev)
-        nextButton.addEventListener('click', showNext)
-    }
+    prevButton.addEventListener('click', showPrev)
+    nextButton.addEventListener('click', showNext)
+    background.addEventListener('click', closeModal)
 
     function showPrev() {
         if (currentIndex != 0) {
@@ -53,5 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCarousel() {
         const transformValue = -currentIndex * 100 + '%'
         carousel.style.transform = `translateX(${transformValue})`
+    }
+
+    function closeModal() {
+        const modal = document.querySelector('.image-modal')
+        modal.style.display = 'none'
+        carousel.style.transform = 'none'
+        currentIndex = 0
     }
 })

@@ -6,12 +6,17 @@ class SearchController {
             name: 'HaiYen',
             rate: '4',
         }
-        res.render('./pages/search/results', { searchResults })
+        res.render('./pages/search/results', {
+            user: (req.user)? req.user : 0,
+            searchResults
+        })
     }
 
     // [GET] /search/:productId
     detail(req, res) {
-        res.render('./pages/search/detail')
+        res.render('./pages/search/detail', {
+            user: (req.user)? req.user : 0
+        })
     }
 
 }
