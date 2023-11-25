@@ -96,7 +96,7 @@ class AuthController {
     });
   }
 
-  forgotPasswordPost(req, res) {
+  findUser(req, res) {
     auth.findNumberPhone(req, function (err, notFound, success, user_id) {
       if (err) {
         return res.json({
@@ -118,6 +118,8 @@ class AuthController {
 
     });
   }
+
+  
 
   resetPassword(req, res) {
     const title = "Đặt lại mật khẩu";
