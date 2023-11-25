@@ -39,10 +39,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="dropdown-help">
+				<div class="header__nav--disable">
+					<a href="http://127.0.0.1:3000/notification/account-update" class="noti--disable">
+						<span class="material-symbols-outlined">notifications</span>
+					</a>
 					<a href="#" class="help--disable">
 						<span class="material-symbols-outlined">help</span>
-						Hỗ trợ
 					</a>
 				</div>
 				<!-- Khi đã đăng nhập -->
@@ -66,376 +68,376 @@
 				<% } else { %>
 				<!-- Khi chưa đăng nhập  -->
 				<div class="header__auth">
-                    <span class="material-symbols-outlined">account_circle</span>
-                    <a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
-                    <span>|</span>
-                    <a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
-                </div>
+					<span class="material-symbols-outlined">account_circle</span>
+					<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
+					<span>|</span>
+					<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+				</div>
 				<!-- Kết thúc khi chưa đăng nhập -->
 				<% } %>
 			</div>
 		</div>
 	</nav>
 
-  <div class="header__container">
-    <div class="header__main">
-      <a href="http://127.0.0.1:3000/">
-        <img class="header__logo" src="/imgs/logo-blue.png">
-      </a>
-      <form class="header__search-bar" action="/form/submit" method="GET">
-        <input type="text" name="text" placeholder="Bạn tìm gì...">
-      </form>
-      <button class="header__search-btn" type="submit" name="submit">
-        <span class="material-symbols-outlined">search</span>
-      </button>
+	<div class="header__container">
+		<div class="header__main">
+			<a href="http://127.0.0.1:3000/">
+				<img class="header__logo" src="/imgs/logo-blue.png">
+			</a>
+			<form class="header__search-bar" action="/form/submit" method="GET">
+				<input type="text" name="text" placeholder="Bạn tìm gì...">
+			</form>
+			<button class="header__search-btn" type="submit" name="submit">
+				<span class="material-symbols-outlined">search</span>
+			</button>
 
-      <div class="dropdown-cart">
-        <a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
-          <div class="header__cart">
-            <span class="material-symbols-outlined">shopping_cart</span>
-            <div class="header__cart__number-badge" aria-hidden="true">31</div>
-          </div>
-        </a>
-        <div class="dropdown-cart__content-container">
-          <div class="dropdown-cart__content">
-            <div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
-            <%- include('../components/cart-dropdown-item') %>
-            <%- include('../components/cart-dropdown-item') %>
-            <%- include('../components/cart-dropdown-item') %>
-            <%- include('../components/cart-dropdown-item') %>
-            <%- include('../components/cart-dropdown-item') %>
-            <a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
-              <button class="btn btn--filled pri">Xem giỏ hàng</button>
-            </a>
-          </div>
-        </div>
-      </div>
+			<div class="dropdown-cart">
+				<a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
+					<div class="header__cart">
+						<span class="material-symbols-outlined">shopping_cart</span>
+						<div class="header__cart__number-badge" aria-hidden="true">31</div>
+					</div>
+				</a>
+				<div class="dropdown-cart__content-container">
+					<div class="dropdown-cart__content">
+						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
+						<%- include('../components/cart-dropdown-item') %>
+						<%- include('../components/cart-dropdown-item') %>
+						<%- include('../components/cart-dropdown-item') %>
+						<%- include('../components/cart-dropdown-item') %>
+						<%- include('../components/cart-dropdown-item') %>
+						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
+							<button class="btn btn--filled pri">Xem giỏ hàng</button>
+						</a>
+					</div>
+				</div>
+			</div>
 
-    </div>
-  </div>
+		</div>
+	</div>
 
-  <div class="header__menu menu">
-    <div class="menu__cate menu__item">
-      <p class="menu__item-p">Danh mục sản phẩm</p>
-      <span class="material-symbols-outlined"> expand_more </span>
-      <div class="header__cate-dropdown cate-dropdown">
-        <div class="cate-dropdown__aside">
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/refrigerator.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-          <div class="cate-dropdown__item">
-            <img src="/imgs/categories/cooker.png" alt="">
-            <p>Nồi cơm điện</p>
-          </div>
-        </div>
-        <div class="cate-dropdown__content">
-          <div class="cate-dropdown__content-wrapper">
-            <div class="cate-dropdown__title">
-              <h4>Sản phẩm bán chạy nhất</h4>
-              <a href='/search/results'>
-                <p>Xem tất cả</p>
-                <span class="material-symbols-outlined"> chevron_right </span>
-              </a>
-            </div>
-            <div class="cate-dropdown__product">
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/refrigerator.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-              <a href="/search/1">
-                <img src="/imgs/categories/cooker.png" alt="">
-                <div class="cate-dropdown__product-rating">
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <span class="material-symbols-outlined"> star </span>
-                  <p>(5.0)</p>
-                </div>
-                <p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-                <p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a href="/search/results" class="menu__hot-product menu__item">
-      <p>Sản phẩm hot</p>
-      <span class="material-symbols-outlined"> local_fire_department </span>
-    </a>
-    <a href="/search/results" class="menu__promo menu__item">
-      <p>Khuyến mãi</p>
-      <span class="material-symbols-outlined"> savings </span>
-    </a>
-    <a href="/about-us" class="menu__about-us menu__item">
-      <p>Về chúng tôi</p>
-    </a>
-  </div>
+	<div class="header__menu menu">
+		<div class="menu__cate menu__item">
+			<p class="menu__item-p">Danh mục sản phẩm</p>
+			<span class="material-symbols-outlined"> expand_more </span>
+			<div class="header__cate-dropdown cate-dropdown">
+				<div class="cate-dropdown__aside">
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/refrigerator.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+					<div class="cate-dropdown__item">
+						<img src="/imgs/categories/cooker.png" alt="">
+						<p>Nồi cơm điện</p>
+					</div>
+				</div>
+				<div class="cate-dropdown__content">
+					<div class="cate-dropdown__content-wrapper">
+						<div class="cate-dropdown__title">
+							<h4>Sản phẩm bán chạy nhất</h4>
+							<a href='/search/results'>
+								<p>Xem tất cả</p>
+								<span class="material-symbols-outlined"> chevron_right </span>
+							</a>
+						</div>
+						<div class="cate-dropdown__product">
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/refrigerator.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+							<a href="/search/1">
+								<img src="/imgs/categories/cooker.png" alt="">
+								<div class="cate-dropdown__product-rating">
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<span class="material-symbols-outlined"> star </span>
+									<p>(5.0)</p>
+								</div>
+								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
+								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="/search/results" class="menu__hot-product menu__item">
+			<p>Sản phẩm hot</p>
+			<span class="material-symbols-outlined"> local_fire_department </span>
+		</a>
+		<a href="/search/results" class="menu__promo menu__item">
+			<p>Khuyến mãi</p>
+			<span class="material-symbols-outlined"> savings </span>
+		</a>
+		<a href="/about-us" class="menu__about-us menu__item">
+			<p>Về chúng tôi</p>
+		</a>
+	</div>
 </header>
 
 <script src="/scripts/partials/header.js"></script>
