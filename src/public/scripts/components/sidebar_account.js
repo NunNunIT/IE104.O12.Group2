@@ -1,23 +1,3 @@
-// Thêm "active" vào app-bar__element
-const appbar__element = document.querySelectorAll('.app-bar__element');
-appbar__element[3].classList.add('active');
-
-  //sidebar
-const links = document.querySelectorAll('#sidebar a');
-
-links.forEach(function (link) {
-    link.addEventListener('click', function () {
-        links.forEach(function (otherLink) {
-            otherLink.parentNode.classList.remove('active');
-        });
-
-        link.parentNode.classList.add('active');
-    });
-});
-
-  function redirectTo(url) {
-    window.location.href = url;
-  }
 
 //Popup
 const modalBtns = document.querySelectorAll('.btn-warranty')
