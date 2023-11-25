@@ -213,7 +213,7 @@
 
 .carousel__card-price {
     font-size: 20px;
-    color: #fbb72c;
+    color: var(--dollar-red2);
     font-weight: 700;
 }
 
