@@ -2,98 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHTWO.</title>
-    <link rel="stylesheet" href="/styles/pages/account/mobile-account.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TECHTWO.</title>
+	<link rel="stylesheet" href="/styles/pages/account/mobile-account.css">
 </head>
 
 <body>
-    <%- include('../../partials/header') %>
-        <div class="mobile-account-container">
-            <aside class="account-aside" id="sidebar">
-                <a href="#" class="avatar">
-                    <span class="image-container">
-                        <img src="/imgs/avatar.png" alt="avatar" />
-                    </span>
-                    <span class="user_name">
-                        <h5>HuongVi</h5>
-                    </span>
-                </a>
-               
-                <ul class="side-menu top">
-                    <li>
-                        <a href="/account/information" id="info-link">
-                            <span class="material-symbols-outlined">
-                                perm_contact_calendar
-                            </span>
-                            <span class="text">Thông tin cá nhân</span>
-                        </a>
-                    </li>
-            
-                    <li>
-                        <a href="/account/purchase">
-                            <span class="material-symbols-outlined">
-                                shopping_bag
-                            </span>
-                            <span class="text">Lịch sử đơn mua</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/account/warranty-claim">
-                            <span class="material-symbols-outlined">
-                                build
-                            </span>
-                            <span class="text">Yêu cầu bảo hành</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/account/information">
-                            <span class="material-symbols-outlined">
-                                settings
-                            </span>
-                            <span class="text">Đổi mật khẩu</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="side-menu">
-                    <li>
-                        <p class="btn-warranty">
-                            <span class="material-symbols-outlined">logout</span>
-                            <span class="text">Đăng xuất</span>
-                        </p>
-                    </li>
-                </ul>
-        
-                <div class="popup">
-                    <div class="popup__main">
-                        <div class="popup__main--right">
-                            <div class="popup__content">
-                                <div class="popup--top">
-                                    <p class="popup__title">Đăng xuất</p>
-                                    <div class="close-btn">
-                                        <span class="material-symbols-outlined">cancel</span>
-                                    </div>
-                                </div>
-                            <p class="popup__subtitle">Quý khách có chắc chắn muốn đăng xuất không?</p>
-                           <!-- <div class="logout_img">
+
+	<%- include('../../partials/header') %>
+
+	<div class="mobile-account-container">
+		<aside class="account-aside" id="sidebar">
+			<a href="#" class="avatar">
+				<span class="image-container">
+					<img src="/imgs/avatar.png" alt="avatar" />
+				</span>
+				<span class="user_name">
+					<h5>HuongVi</h5>
+				</span>
+			</a>
+
+			<ul class="side-menu top">
+				<li>
+					<a href="/account/information" id="info-link">
+						<span class="material-symbols-outlined">
+							perm_contact_calendar
+						</span>
+						<span class="text">Thông tin cá nhân</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/account/purchase">
+						<span class="material-symbols-outlined">
+							shopping_bag
+						</span>
+						<span class="text">Lịch sử đơn mua</span>
+					</a>
+				</li>
+				<li>
+					<a href="/account/warranty-claim">
+						<span class="material-symbols-outlined">
+							build
+						</span>
+						<span class="text">Yêu cầu bảo hành</span>
+					</a>
+				</li>
+				<li>
+					<a href="/account/information">
+						<span class="material-symbols-outlined">
+							settings
+						</span>
+						<span class="text">Đổi mật khẩu</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="side-menu">
+				<li>
+					<p class="btn-warranty">
+						<span class="material-symbols-outlined">logout</span>
+						<span class="text">Đăng xuất</span>
+					</p>
+				</li>
+			</ul>
+
+			<div class="popup">
+				<div class="popup__main">
+					<div class="popup__main--right">
+						<div class="popup__content">
+							<div class="popup--top">
+								<p class="popup__title">Đăng xuất</p>
+								<div class="close-btn">
+									<span class="material-symbols-outlined">cancel</span>
+								</div>
+							</div>
+							<p class="popup__subtitle">Quý khách có chắc chắn muốn đăng xuất không?</p>
+							<!-- <div class="logout_img">
                             <img src="/imgs/information/logout_gb.png" alt="goodbye">
                            </div> -->
-                            <div class="popup__button">
-                                <button class="btn btn--outlined pri btn-cancel" type="button"
-                                    onclick="redirectTo('/account/mobile-account')">Hủy</button>
-                                <button class="btn btn--filled pri btn-logout" type="button"
-                                    onclick="redirectTo('/auth/logout')">Đăng xuất</button>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    <%- include('../../partials/app-bar') %>
-    <script src="/scripts/partials/header.js"></script>
-    <script src="/scripts/pages/account/mobile-account.js"></script>
+							<div class="popup__button">
+								<button class="btn btn--outlined pri btn-cancel" type="button" onclick="redirectTo('/account/mobile-account')">Hủy</button>
+								<button class="btn btn--filled pri btn-logout" type="button" onclick="redirectTo('/auth/logout')">Đăng xuất</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+	</div>
+
+	<%- include('../../partials/app-bar') %>
+
+	<script src="/scripts/pages/account/mobile-account.js"></script>
+
 </body>
 
 </html>

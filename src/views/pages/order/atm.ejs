@@ -2,41 +2,41 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/order/atm.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/order/atm.css">
 
-    <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header') %>
+	<%- include('../../partials/breadcrumb') %>
 
-    <main class="transaction-container">
-        <div class="transaction-box">
-            <div class="success">
-                <div class="success-logo">
-                    <span class="material-symbols-outlined">sweep</span>
-                </div>
-                <h3 class="success-text"><strong>ĐẶT HÀNG THÀNH CÔNG</strong></h3>
-            </div>
-            <div class="inner-box">
+	<main class="transaction-container">
+		<div class="transaction-box">
+			<div class="success">
+				<div class="success-logo">
+					<span class="material-symbols-outlined">sweep</span>
+				</div>
+				<h3 class="success-text"><strong>ĐẶT HÀNG THÀNH CÔNG</strong></h3>
+			</div>
+			<div class="inner-box">
 
 
-                <div class="thanks">
-                    Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
-                </div>
+				<div class="thanks">
+					Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
+				</div>
 
-                <div class="info-order">
-                    <div class="info-order__header--left">
-                        <p><strong>ĐƠN HÀNG:</strong></p>
-                        <p id="trans__id">#DH0001</p>
-                    </div>
-                    <!-- <div class="info-order__header">
+				<div class="info-order">
+					<div class="info-order__header--left">
+						<p><strong>ĐƠN HÀNG:</strong></p>
+						<p id="trans__id">#DH0001</p>
+					</div>
+					<!-- <div class="info-order__header">
                         <div class="info-order__header--left">
                             <p><strong>ĐƠN HÀNG:</strong></p>
                             <p id="trans__id">#DH0001</p>
@@ -47,103 +47,103 @@
                             <a href="#" id="btn-cancel">Hủy</a>
                         </div>
                     </div> -->
-                    <div class="info-order__bill">
-                        <span>- <strong>Người nhận hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
-                        <span>- <strong>Giao đến: </strong><span id="purchase-address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh</span></span>
-                        <span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
-                    </div>
-                </div>
+					<div class="info-order__bill">
+						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
+						<span>- <strong>Giao đến: </strong><span id="purchase-address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh</span></span>
+						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
+					</div>
+				</div>
 
-                <div class="purchase-status">Đơn hàng chưa được thanh toán</div>
+				<div class="purchase-status">Đơn hàng chưa được thanh toán</div>
 
-                <h4>Hình thức thanh toán: Chuyển khoản ngân hàng</h4>
+				<h4>Hình thức thanh toán: Chuyển khoản ngân hàng</h4>
 
-                <div class="pay_box">
-                    <div class="pay_bank_frame">
-                        <div class="pay_bank" id="bank-vietcombank">
-                            <img src="/imgs/transaction/Logo-Vietcombank.webp" alt="Vietcombank" id="btn-vietcombank">
-                        </div>
-                        <div class="pay_bank" id="bank-bidv">
-                            <img src="/imgs/transaction/Logo-BIDV.webp" alt="BIDV" id="btn-bidv">
-                        </div>
-                    </div>
-                    <div class="pay_info" id="pay_info-vietcombank">
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Ngân hàng:</div>
-                            <div class="pay_frame2">Vietcombank - NHTMCP Ngoại thương Việt Nam</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Số tài khoản:</div>
-                            <div class="pay_frame2">9964850620</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Thụ hưởng:</div>
-                            <div class="pay_frame2">Công ty cổ phần TECHTWO</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Chi nhánh:</div>
-                            <div class="pay_frame2">CN Đông Sài Gòn</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Nội dung chuyển khoản:</div>
-                            <div class="pay_frame2"><strong>DH0001</strong></div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Số tiền:</div>
-                            <div class="pay_frame2"><strong>25.500.000đ</strong></div>
-                        </div>
-                        <div class="pay_qr"><img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR"></div>
-                        <div class="pay_use">
-                            Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
-                        </div>
-                    </div>
-                    <div class="pay_info" id="pay_info-bidv">
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Ngân hàng:</div>
-                            <div class="pay_frame2">BIDV - NHTMCP Đầu tư và Phát triển Việt Nam</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Số tài khoản:</div>
-                            <div class="pay_frame2">3149235259</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Thụ hưởng:</div>
-                            <div class="pay_frame2">Công ty cổ phần TECHTWO</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Chi nhánh:</div>
-                            <div class="pay_frame2">CN Đông Sài Gòn</div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Nội dung chuyển khoản:</div>
-                            <div class="pay_frame2"><strong>DH0001</strong></div>
-                        </div>
-                        <div class="pay_info_frame">
-                            <div class="pay_frame1">Số tiền:</div>
-                            <div class="pay_frame2"><strong>25.500.000đ</strong></div>
-                        </div>
-                        <div class="pay_qr"><img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR"></div>
-                        <div class="pay_use">
-                            Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" id="btn-home-page" class="btn--outlined pri">Thanh toán sau</button>
+				<div class="pay_box">
+					<div class="pay_bank_frame">
+						<div class="pay_bank" id="bank-vietcombank">
+							<img src="/imgs/transaction/Logo-Vietcombank.webp" alt="Vietcombank" id="btn-vietcombank">
+						</div>
+						<div class="pay_bank" id="bank-bidv">
+							<img src="/imgs/transaction/Logo-BIDV.webp" alt="BIDV" id="btn-bidv">
+						</div>
+					</div>
+					<div class="pay_info" id="pay_info-vietcombank">
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Ngân hàng:</div>
+							<div class="pay_frame2">Vietcombank - NHTMCP Ngoại thương Việt Nam</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Số tài khoản:</div>
+							<div class="pay_frame2">9964850620</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Thụ hưởng:</div>
+							<div class="pay_frame2">Công ty cổ phần TECHTWO</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Chi nhánh:</div>
+							<div class="pay_frame2">CN Đông Sài Gòn</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Nội dung chuyển khoản:</div>
+							<div class="pay_frame2"><strong>DH0001</strong></div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Số tiền:</div>
+							<div class="pay_frame2"><strong>25.500.000đ</strong></div>
+						</div>
+						<div class="pay_qr"><img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR"></div>
+						<div class="pay_use">
+							Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
+						</div>
+					</div>
+					<div class="pay_info" id="pay_info-bidv">
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Ngân hàng:</div>
+							<div class="pay_frame2">BIDV - NHTMCP Đầu tư và Phát triển Việt Nam</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Số tài khoản:</div>
+							<div class="pay_frame2">3149235259</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Thụ hưởng:</div>
+							<div class="pay_frame2">Công ty cổ phần TECHTWO</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Chi nhánh:</div>
+							<div class="pay_frame2">CN Đông Sài Gòn</div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Nội dung chuyển khoản:</div>
+							<div class="pay_frame2"><strong>DH0001</strong></div>
+						</div>
+						<div class="pay_info_frame">
+							<div class="pay_frame1">Số tiền:</div>
+							<div class="pay_frame2"><strong>25.500.000đ</strong></div>
+						</div>
+						<div class="pay_qr"><img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR"></div>
+						<div class="pay_use">
+							Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
+						</div>
+					</div>
+				</div>
+				<button type="submit" id="btn-home-page" class="btn--outlined pri">Thanh toán sau</button>
 
-            </div>
+			</div>
 
 
-        </div>
-        </div>
-    </main>
+		</div>
+		</div>
+	</main>
 
-    <%- include('../../components/scrollup') %>
+	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-    <script src="/scripts/components/scrollup.js"></script>
-    <script src="/scripts/pages/notification/promotion.js"></script>
-    <script src="/scripts/pages/order/atm.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
+	<script src="/scripts/pages/notification/promotion.js"></script>
+	<script src="/scripts/pages/order/atm.js"></script>
 
 </body>
 
