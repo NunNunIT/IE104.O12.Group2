@@ -207,6 +207,18 @@ button.btn--outlined.pri {
     .btn-mark-all-read {
         font-size: 0.875rem;
     }
+
+    .noti-item__block .btn.btn--outlined.pri {
+        font-size: 0.8125rem;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .noti-item__block .btn.btn--filled.pri {
+        font-size: 0.8125rem;
+        height: 40px;
+        padding: 0 10px;
+    }
 }
 
 /*Responsive-tablet*/
@@ -269,6 +281,18 @@ button.btn--outlined.pri {
 
     .popup .popup__sub-title {
         font-size: 1rem;
+    }
+
+    .noti-item__block .btn.btn--outlined.pri {
+        font-size: 0.75rem;
+        height: 36px;
+        padding: 0 8px;
+    }
+
+    .noti-item__block .btn.btn--filled.pri {
+        font-size: 0.75rem;
+        height: 36px;
+        padding: 0 8px;
     }
 }
 
@@ -348,6 +372,14 @@ button.btn--outlined.pri {
 
     .close-btn .material-symbols-outlined {
         font-size: 16px;
+    }
+
+    .noti-item__block .btn.btn--outlined.pri {
+        height: 32px;
+    }
+
+    .noti-item__block .btn.btn--filled.pri {
+        height: 32px;
     }
 
 }
