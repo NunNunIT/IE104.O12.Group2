@@ -2,96 +2,97 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/site/privacy-policy.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/site/privacy-policy.css">
 
-    <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header') %>
+	<%- include('../../partials/breadcrumb',{breadcrumbs : [ ,{text : 'Chính sách bảo mật', link : 'http://127.0.0.1:3000/privacy-policy'}]}) %>
 
-    <main class="privacy-container">
-        <div class="privacy__content">
-            <div class="privacy__title">
-                <h1>CHÍNH SÁCH BẢO MẬT<h1>
-            </div>
-            <ol>
-                <li class="privacy__content-title">Mục đích và phạm vi thu thập thông tin</li>
-                <p>Việc thu thập thông tin của khách hàng mục đích quản lý Người Tiêu Dùng liên quan
-                    đến các hoạt động mua sản phẩm trên website và kịp thời xử lý các tình huống phát sinh
-                    (nếu có).</p>
-                <p>Thông tin cá nhân thu thập được sẽ chỉ được sử dụng trong việc kinh doanh bán sản phẩm
-                    chúng tôi và nhằm hỗ trợ khách hàng khi gặp những vẫn đề liên quan đến việc mua sản phẩm.</p>
-                <p>Thông tin cá nhân mà TECHTWO thu thập bao gồm:</p>
-                <ul>
-                    <li>Họ và tên</li>
-                    <li>Địa chỉ</li>
-                    <li>Số điện thoại</li>
-                    <li>Email</li>
-                </ul>
-                <p>Ngoài thông tin cá nhân là các thông tin về dịch vụ:</p>
-                <ul>
-                    <li>Tên sản phẩm</li>
-                    <li>Số lượng</li>
-                    <li>Thời gian giao nhận sản phẩm</li>
-                </ul>
-                <li class="privacy__content-title">Phạm vi sử dụng thông tin</li>
-                <p>Thông tin cá nhân thu thập được sẽ chỉ được TECHTWO sử dụng trong nội bộ và
-                    cho một hoặc tất cả các mục đích sau đây:</p>
-                <ul style="list-style-type: none;">
-                    <li>- Hỗ trợ khách hàng.</li>
-                    <li>- Cung cấp thông tin liên quan đến dịch vụ.</li>
-                    <li>- Xử lý đơn đặt hàng và cung cấp dịch vụ và thông tin qua website của chúng tôi theo yêu cầu của bạn.</li>
-                    <li>- Chúng tôi có thể sẽ gửi thông tin sản phẩm, dịch vụ mới, thông tin về các sự kiện sắp tới hoặc thông tin tuyển dụng nếu quý khách đăng ký nhận email thông báo.</li>
-                    <li>- Ngoài ra, chúng tôi sẽ sử dụng thông tin bạn cung cấp để hỗ trợ quản lý tài khoản khách hàng; xác nhận và thực hiện các giao dịch tài chính liên quan đến các khoản thanh toán trực tuyến của bạn.</li>
-                </ul>
-                <li class="privacy__content-title">Thời gian lưu trữ thông tin</li>
-                <p>Đối với thông tin cá nhân, TECHTWO chỉ xóa đi dữ liệu này nếu khách hàng có yêu cầu, khách hàng yêu cầu gửi mail về techtwo.customercare@gmail.com</p>
-                <li class="privacy__content-title">Những người hoặc tổ chức có thể được tiếp cận với thông tin cá nhân</li>
-                <p>Đối tượng được tiếp cận với thông tin cá nhân của khách hàng thuộc một trong những trường hợp sau:</p>
-                <ul style="list-style-type: none;">
-                    <li>- Cửa hàng điện máy TECHTWO.</li>
-                    <li>- Các đối tác có ký hợp động thực hiện 1 phần dịch vụ do TECHTWO ký kết.
-                        Các đối tác này sẽ nhận được những thông tin theo thỏa thuận hợp đồng (có thể 1 phần hoặc toàn bộ thông tin tuy theo điều khoản hợp đồng)
-                        để tiến hành hỗ trợ người dùng sử dụng dịch vụ do Công ty cung cấp.</li>
-                    <li>- Cung cấp cho cơ quan quản lý nhà nước có thẩm quyền khi có yêu cầu.</li>
-                </ul>
-                <li class="privacy__content-title">Địa chỉ của đơn vị thu thập và quản lý thông tin cá nhân</li>
-                <p>Của hàng điện máy TECHTWO.</p>
-                <ul style="list-style-type: none;">
-                    <li><span class="highlight">- Địa chỉ:</span> Khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh.</li>
-                    <li><span class="highlight">- Điện thoại:</span> 1900 123 789</li>
-                    <li><span class="highlight">- Website:</span> techtwo.com</li>
-                    <li><span class="highlight">- Email:</span> <a href="#">techtwo.customercare@gmail.com</a></li>
-                </ul>
-                <li class="privacy__content-title">Cơ chế tiếp nhận và giải quyết khiếu nại của người tiêu dùng liên quan đến việc thông tin cá nhân bị sử dụng sai mục đích hoặc phạm vi đã thông báo</li>
-                <p>Tại TECHTWO, việc bảo vệ thông tin cá nhân của bạn là rất quan trọng, bạn được đảm bảo
-                    rằng thông tin cung cấp cho chúng tôi sẽ được mật TECHTWO cam kết không chia sẻ, bán
-                    hoặc cho thuê thông tin cá nhân của bạn cho bất kỳ người nào khác. TECHTWO cam kết
-                    chỉ sử dụng các thông tin của bạn vào các trường hợp sau:</p>
-                <ul style="list-style-type: none;">
-                    <li>- Nâng cao chất lượng dịch vụ dành cho khách hàng.</li>
-                    <li>- Giải quyết các tranh chấp, khiếu nại.</li>
-                    <li>- Khi cơ quan pháp luật có yêu cầu. TECHTWO hiểu rằng quyền lợi của bạn trong việc
-                        bảo vệ thông tin cá nhân cũng chính là trách nhiệm của chúng tôi nên trong bất kỳ
-                        trường hợp có thắc mắc, góp ý nào liên quan đến chính sách bảo mật của TECHTWO,
-                        và liên quan đến việc thông tin cá nhân bị sử dụng sai mục đích hoặc phạm vi đã thông báo
-                        vui lòng liên hệ qua số hotline: <span class="highlight">1900 123 789</span> hoặc email: <a href="#">techtwo.customercare@gmail.com</a></li>
-                </ul>
-            </ol>
-        </div>
-    </main>
+	<main class="privacy-container">
+		<div class="privacy__content">
+			<div class="privacy__title">
+				<h1>CHÍNH SÁCH BẢO MẬT<h1>
+			</div>
+			<ol>
+				<li class="privacy__content-title">Mục đích và phạm vi thu thập thông tin</li>
+				<p>Việc thu thập thông tin của khách hàng mục đích quản lý Người Tiêu Dùng liên quan
+					đến các hoạt động mua sản phẩm trên website và kịp thời xử lý các tình huống phát sinh
+					(nếu có).</p>
+				<p>Thông tin cá nhân thu thập được sẽ chỉ được sử dụng trong việc kinh doanh bán sản phẩm
+					chúng tôi và nhằm hỗ trợ khách hàng khi gặp những vẫn đề liên quan đến việc mua sản phẩm.</p>
+				<p>Thông tin cá nhân mà TECHTWO thu thập bao gồm:</p>
+				<ul>
+					<li>Họ và tên</li>
+					<li>Địa chỉ</li>
+					<li>Số điện thoại</li>
+					<li>Email</li>
+				</ul>
+				<p>Ngoài thông tin cá nhân là các thông tin về dịch vụ:</p>
+				<ul>
+					<li>Tên sản phẩm</li>
+					<li>Số lượng</li>
+					<li>Thời gian giao nhận sản phẩm</li>
+				</ul>
+				<li class="privacy__content-title">Phạm vi sử dụng thông tin</li>
+				<p>Thông tin cá nhân thu thập được sẽ chỉ được TECHTWO sử dụng trong nội bộ và
+					cho một hoặc tất cả các mục đích sau đây:</p>
+				<ul style="list-style-type: none;">
+					<li>- Hỗ trợ khách hàng.</li>
+					<li>- Cung cấp thông tin liên quan đến dịch vụ.</li>
+					<li>- Xử lý đơn đặt hàng và cung cấp dịch vụ và thông tin qua website của chúng tôi theo yêu cầu của bạn.</li>
+					<li>- Chúng tôi có thể sẽ gửi thông tin sản phẩm, dịch vụ mới, thông tin về các sự kiện sắp tới hoặc thông tin tuyển dụng nếu quý khách đăng ký nhận email thông báo.</li>
+					<li>- Ngoài ra, chúng tôi sẽ sử dụng thông tin bạn cung cấp để hỗ trợ quản lý tài khoản khách hàng; xác nhận và thực hiện các giao dịch tài chính liên quan đến các khoản thanh toán trực tuyến của bạn.</li>
+				</ul>
+				<li class="privacy__content-title">Thời gian lưu trữ thông tin</li>
+				<p>Đối với thông tin cá nhân, TECHTWO chỉ xóa đi dữ liệu này nếu khách hàng có yêu cầu, khách hàng yêu cầu gửi mail về techtwo.customercare@gmail.com</p>
+				<li class="privacy__content-title">Những người hoặc tổ chức có thể được tiếp cận với thông tin cá nhân</li>
+				<p>Đối tượng được tiếp cận với thông tin cá nhân của khách hàng thuộc một trong những trường hợp sau:</p>
+				<ul style="list-style-type: none;">
+					<li>- Cửa hàng điện máy TECHTWO.</li>
+					<li>- Các đối tác có ký hợp động thực hiện 1 phần dịch vụ do TECHTWO ký kết.
+						Các đối tác này sẽ nhận được những thông tin theo thỏa thuận hợp đồng (có thể 1 phần hoặc toàn bộ thông tin tuy theo điều khoản hợp đồng)
+						để tiến hành hỗ trợ người dùng sử dụng dịch vụ do Công ty cung cấp.</li>
+					<li>- Cung cấp cho cơ quan quản lý nhà nước có thẩm quyền khi có yêu cầu.</li>
+				</ul>
+				<li class="privacy__content-title">Địa chỉ của đơn vị thu thập và quản lý thông tin cá nhân</li>
+				<p>Của hàng điện máy TECHTWO.</p>
+				<ul style="list-style-type: none;">
+					<li><span class="highlight">- Địa chỉ:</span> Khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh.</li>
+					<li><span class="highlight">- Điện thoại:</span> 1900 123 789</li>
+					<li><span class="highlight">- Website:</span> techtwo.com</li>
+					<li><span class="highlight">- Email:</span> <a href="#">techtwo.customercare@gmail.com</a></li>
+				</ul>
+				<li class="privacy__content-title">Cơ chế tiếp nhận và giải quyết khiếu nại của người tiêu dùng liên quan đến việc thông tin cá nhân bị sử dụng sai mục đích hoặc phạm vi đã thông báo</li>
+				<p>Tại TECHTWO, việc bảo vệ thông tin cá nhân của bạn là rất quan trọng, bạn được đảm bảo
+					rằng thông tin cung cấp cho chúng tôi sẽ được mật TECHTWO cam kết không chia sẻ, bán
+					hoặc cho thuê thông tin cá nhân của bạn cho bất kỳ người nào khác. TECHTWO cam kết
+					chỉ sử dụng các thông tin của bạn vào các trường hợp sau:</p>
+				<ul style="list-style-type: none;">
+					<li>- Nâng cao chất lượng dịch vụ dành cho khách hàng.</li>
+					<li>- Giải quyết các tranh chấp, khiếu nại.</li>
+					<li>- Khi cơ quan pháp luật có yêu cầu. TECHTWO hiểu rằng quyền lợi của bạn trong việc
+						bảo vệ thông tin cá nhân cũng chính là trách nhiệm của chúng tôi nên trong bất kỳ
+						trường hợp có thắc mắc, góp ý nào liên quan đến chính sách bảo mật của TECHTWO,
+						và liên quan đến việc thông tin cá nhân bị sử dụng sai mục đích hoặc phạm vi đã thông báo
+						vui lòng liên hệ qua số hotline: <span class="highlight">1900 123 789</span> hoặc email: <a href="#">techtwo.customercare@gmail.com</a></li>
+				</ul>
+			</ol>
+		</div>
+	</main>
 
-    <%- include('../../components/scrollup') %>
+	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-    <script src="/scripts/components/scrollup.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
+
 </body>
 
 </html>

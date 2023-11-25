@@ -39,10 +39,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="dropdown-help">
+				<div class="header__nav--disable">
+					<a href="http://127.0.0.1:3000/notification/account-update" class="noti--disable">
+						<span class="material-symbols-outlined">notifications</span>
+					</a>
 					<a href="#" class="help--disable">
 						<span class="material-symbols-outlined">help</span>
-						Hỗ trợ
 					</a>
 				</div>
 				<!-- Khi đã đăng nhập -->
@@ -66,11 +68,11 @@
 				<% } else { %>
 				<!-- Khi chưa đăng nhập  -->
 				<div class="header__auth">
-                    <span class="material-symbols-outlined">account_circle</span>
-                    <a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
-                    <span>|</span>
-                    <a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
-                </div>
+					<span class="material-symbols-outlined">account_circle</span>
+					<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
+					<span>|</span>
+					<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+				</div>
 				<!-- Kết thúc khi chưa đăng nhập -->
 				<% } %>
 			</div>
@@ -442,5 +444,3 @@
 		</a>
 	</div>
 </header>
-
-<script src="/scripts/partials/header.js"></script>
