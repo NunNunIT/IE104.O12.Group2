@@ -1,9 +1,9 @@
-const db = require('../config/db/connect');
+const db = require('../../config/db/connect');
 const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 
-const authAdmin = require('../models/admin/authAdmin.model')
+const authAdmin = require('../../models/admin/authAdmin.model')
 class adminController {
     // [GET] admin/login
     getLogin(req, res) {

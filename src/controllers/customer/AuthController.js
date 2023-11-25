@@ -1,8 +1,12 @@
-const { json } = require("express");
-const db = require("../config/db/connect");
-const auth = require("../models/customer/auth.model");
+const {
+  json
+} = require("express");
+const db = require("../../config/db/connect");
+const auth = require("../../models/customer/auth.model");
 const jwt = require("jsonwebtoken");
-const { promisify } = require("util");
+const {
+  promisify
+} = require("util");
 class AuthController {
   // [GET] auth/register
   register(req, res) {
@@ -34,51 +38,46 @@ class AuthController {
 
   // [POST] /login
   submitLogin(req, res) {
-    auth.loginPost(
-      req,
-      function (err, nonePhoneNumber, NotMatchPassword, success, id) {
-        if (err) res.render("./pages/site/404-error");
-        if (nonePhoneNumber) {
-          return res.json({
-            status: "error",
-            error: "Số điện thoại không tồn tại.",
-          });
-        }
-
-        if (NotMatchPassword) {
-          return res.json({
-            status: "error2",
-            error: "Mật khẩu không chính xác.",
-          });
-        }
-
-        if (success) {
-          const token = jwt.sign(
-            {
-              id,
-            },
-            process.env.JWT_SECRET,
-            {
-              expiresIn: process.env.JWT_EXPIRES,
-            }
-          );
-
-          console.log("the token is " + token);
-
-          const cookieOptions = {
-            expires: new Date(
-              Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 1000
-            ),
-            httpOnly: true,
-          };
-          res.cookie("userSave", token, cookieOptions);
-          res.json({
-            status: "success",
-            success: "Bạn đã đăng nhập thành công",
-          });
-        }
+    auth.loginPost(req, function (err, nonePhoneNumber, NotMatchPassword, success, id) {
+      if (err) res.render("./pages/site/404-error");
+      if (nonePhoneNumber) {
+        return res.json({
+          status: "error",
+          error: "Số điện thoại không tồn tại.",
+        });
       }
-    );
+
+      if (NotMatchPassword) {
+        return res.json({
+          status: "error2",
+          error: "Mật khẩu không chính xác.",
+        });
+      }
+
+      if (success) {
+        const token = jwt.sign({
+            id,
+          },
+          process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRES,
+          }
+        );
+
+        console.log("the token is " + token);
+
+        const cookieOptions = {
+          expires: new Date(
+            Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 1000
+          ),
+          httpOnly: true,
+        };
+        res.cookie("userSave", token, cookieOptions);
+        res.json({
+          status: "success",
+          success: "Bạn đã đăng nhập thành công",
+        });
+      }
+    });
   }
 
   logout = (req, res) => {
@@ -110,9 +109,9 @@ class AuthController {
         });
       } else if (success) {
         return res.json({
-            status: "success",
-            error: "Thành công.",
-            user_id: user_id
+          status: "success",
+          error: "Thành công.",
+          user_id: user_id
         })
       }
 

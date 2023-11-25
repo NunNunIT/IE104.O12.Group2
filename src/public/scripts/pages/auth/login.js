@@ -141,9 +141,9 @@ const validateInput = () => {
                 setError(password, back.error);
             }
             else {
-                form.submit();
-            }
-    
+                history.back();
+                location.reload()
+            }   
         })
     }
     

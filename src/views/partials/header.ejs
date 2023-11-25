@@ -50,8 +50,8 @@
 				<div class="dropdown-account">
 					<a href="http://127.0.0.1:3000/account/information">
 						<div class="header__auth">
-							<img src="/imgs/user_avt_img/<%= (user.user_avt_img) ? user.user_avt_img : 'default.png' %>" alt="avatar">
-							<span><%= user.user_name %></span>
+							<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar">
+							<span><%= user.user.user_name %></span>
 						</div>
 					</a>
 					<div class="dropdown-account__content-container">
@@ -82,28 +82,33 @@
 			<a href="http://127.0.0.1:3000/">
 				<img class="header__logo" src="/imgs/logo-blue.png">
 			</a>
-			<form class="header__search-bar" action="/form/submit" method="GET">
-				<input type="text" name="text" placeholder="Bạn tìm gì...">
+			<form class="header__search-bar" action="/search/results" method="GET">
+				<input type="search" name="searchKey" placeholder="Bạn tìm gì..." value="<%= (searchKey) ? searchKey : '' %>">
+				<button class="header__search-btn" type="submit">
+					<span class="material-symbols-outlined">search</span>
+				</button>
 			</form>
-			<button class="header__search-btn" type="submit" name="submit">
-				<span class="material-symbols-outlined">search</span>
-			</button>
 
 			<div class="dropdown-cart">
 				<a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
-						<div class="header__cart__number-badge" aria-hidden="true">31</div>
+						<% if (user.countCart) {%>
+							<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
+						<% } %>
 					</div>
 				</a>
 				<div class="dropdown-cart__content-container">
 					<div class="dropdown-cart__content">
 						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
+						<% if (user.countCart) { %>
+							<% let l = (user.countCart > 5) ? 5 : user.countCart %>
+							<% for (let i = 0; i < l; i++) { %>
+								<%- include('../components/cart-dropdown-item') %>
+							<% } %>	
+						<% } else {%>
+							Giỏ hàng bạn trống
+						<% } %>
 						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>
 						</a>
