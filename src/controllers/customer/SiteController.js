@@ -14,6 +14,7 @@ siteController.index = async (req, res) => {
     let newProducts = await index.getNewProducts(req)
     let discountProducts = await index.getDiscountProducts(req)
 
+    console.log (outstandingProducts)
     res.render('./pages/site/index', {
         header: header,
         user: header_user,

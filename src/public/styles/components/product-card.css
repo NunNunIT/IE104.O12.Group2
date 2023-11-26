@@ -18,7 +18,7 @@ a {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.product-card__block {
+.product__card-main {
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -41,7 +41,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 180px;
+    height: 200px;
     padding: 24px;
     background: white;
     border-radius: 8px 8px 0 0;
@@ -96,12 +96,13 @@ a {
 .product-bottom-details {
     overflow: hidden;
     border-top: 1px solid #eee;
-    padding: 12px;
+    padding: 14px 12px;
 }
 
-.product-bottom-details div {
-    float: left;
-    width: 50%;
+.product-bottom-details .product-price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .product-price {
@@ -116,7 +117,7 @@ a {
     text-decoration: line-through;
     display: inline-block;
     margin-right: 5px;
-    color: #ccc
+    color: var(--dark7);
 }
 
 .product-rate {
@@ -140,6 +141,14 @@ a {
 }
 
 @media only screen and (max-width: 64rem) {
+    .product-card {
+        width: 32%;
+    }
+
+    .seacrh-result__main-card {
+        gap: 2%;
+    }
+
     .product-details h4 a {
         font-size: 1rem;
     }
@@ -152,7 +161,7 @@ a {
 @media only screen and (max-width: 48rem) {
     .product-card {
         width: 32%;
-        height: 380px;
+        height: 390px;
     }
 
     .product-tumb {
@@ -171,7 +180,11 @@ a {
     }
 
     .product-bottom-details {
-        padding-top: 4px;
+        padding: 12px;
+    }
+
+    .product-price {
+        font-size: 1rem;
     }
 
     .product-catagory {
@@ -190,8 +203,9 @@ a {
     }
 
     .product-rate .material-symbols-outlined {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
+
 }
 
 @media only screen and (max-width: 26rem) {

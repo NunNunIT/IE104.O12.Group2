@@ -147,7 +147,7 @@
 		</section>
 		<section class="seacrh-result__main">
 			<div class="seacrh-result__main__heading">
-				<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight">118</span> kết quả cho từ khóa "<span class="seacrh-result__key">máy lạnh</span>"</p>
+				<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight"><%= productListResults.totalRow %></span> kết quả cho từ khóa "<span class="seacrh-result__key"><%= productListResults.searchKey ?? productListResults.category_name %></span>"</p>
 				<div class="seacrh-result__form-check">
 					<input type="checkbox" class="form-check-input" value="something">
 					<label class="form-check-label">Giảm giá</label>
@@ -207,13 +207,14 @@
 				</div>
 			</div>
 
-			<% if (products.totalRow) { %>
-			<div class="seacrh-result__main-card">
-				<% products.products.forEach(product => { %>
-				<% console.log(product) %>
-				<%- include('../../components/product-card', {product: product}) %>
-				<% }) %>
-			</div>
+			<% if (productListResults.totalRow) { %>
+				<div class="seacrh-result__main-card">
+					<div class="seacrh-result__main-card">
+						<% productListResults.products.slice().forEach(product => { %>
+						<%- include('../../components/product-card', {product: product}) %>
+						<% }) %>
+					</div>
+				</div>
 			<% } %>
 		</section>
 	</main>

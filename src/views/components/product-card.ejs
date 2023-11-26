@@ -1,7 +1,9 @@
 <div class="product-card">
-	<a class="carousel__card-main" href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+	<a class="product__card-main" href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
 		<div>
-			<div class="badge">-15%</div>
+			<% if (product.discount_amount) { %>
+			<div class="badge">-<%= product.discount_amount %>%</div>
+			<% } %>
 			<div class="product-tumb">
 				<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name ?? 'NaN' %>">
 			</div>
@@ -31,7 +33,13 @@
 					<p>(<%= product.product_rate %>)</p>
 				</div>
 				<% } %>
-				<h4><%= product.product_name ?? 'NaN' %></h4>
+				<h4>
+					<% if (product.product_name.length > 40) { %>
+					<%= product.product_name.substring(0, 40) + '...' %>
+					<% } else { %>
+					<%= product.product_name ?? 'NaN' %>
+					<% } %>
+				</h4>
 				<p><%= product.discount_description %></p>
 			</div>
 		</div>
@@ -39,9 +47,9 @@
 		<div class="product-bottom-details">
 			<div class="product-price">
 				<% if (product.discount_amount) { %>
-					<small><%= product.product_variant_price_currency %>đ</small><%= product.product_variant_price_after_discount_currency %>đ
-					<% } else { %>
-					<%= product.product_variant_price_currency %>đ
+				<%= product.product_variant_price_after_discount_currency %>đ<small><%= product.product_variant_price_currency %>đ</small>
+				<% } else { %>
+				<%= product.product_variant_price_currency %>đ
 				<% } %>
 			</div>
 		</div>

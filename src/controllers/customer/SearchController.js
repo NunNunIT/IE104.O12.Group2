@@ -9,20 +9,19 @@ searchController.results = async (req, res) => {
     let header = await index.header(req)
     let header_user = await index.header_user(req)
 
-    let products = 0
-
-    if (req.query.searchKey) {
-        products = await search.findProductsBySearchKey(req, 24)
-    }
+    let productListResults = 0
 
     if (req.query.category_id) {
-        products = await search.findProductsByCateId(req, 24)
+        productListResults = await search.findProductsByCateId(req, 24)
+    } else {
+        productListResults = await search.findProductsBySearchKey(req, 24)
     }
 
+    
     res.status(200).render('./pages/search/results', {
         header: header,
         user: header_user,
-        products: products,
+        productListResults: productListResults,
     })
 }
 

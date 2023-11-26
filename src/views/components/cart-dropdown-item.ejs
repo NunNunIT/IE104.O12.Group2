@@ -1,9 +1,16 @@
 <div class="cart-dropdown__block">
 	<a href="http://127.0.0.1:3000/search/<%= cart.product_variant_id %>?product_name=<%= cart.product_name %>&category_id=<%= cart.category_id %>&category_name=<%= cart.category_name %>" class="cart-dropdown__main">
 		<img class="cart-dropdown__img" src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name ?? 'NaN' %>">
-		<div class="noti-dropdown__content">
+		<div class="cart-dropdown__content">
 			<span><%= cart.product_name ?? 'NaN' %></span>
-			<span class="highlight"><%= cart.product_variant_price_currency ?? 'NaN'%>đ</span>
+			<div class="cart-dropdown__price">
+				<% if (cart.product_variant_price_after_discount){ %>
+					<%= cart.product_variant_price_after_discount ?? 'NaN'%>đ<small><%= cart.product_variant_price_currency ?? 'NaN' %>đ</small>
+				<% } else { %>
+					<%= cart.product_variant_price_currency ?? 'NaN'%>đ
+				<% } %>
+				
+			</div>
 		</div>
 	</a>
 </div>

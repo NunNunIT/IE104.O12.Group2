@@ -90,7 +90,7 @@ product.getProductFeedbacks = async (req) => {
     let params = req.params.product_variant_id
     let product_id = await product.getProductId(req)
 
-    let getProductFeedbacks = `SELECT * FROM view_product_feedback WHERE product_id = ${product_id}`
+    let getProductFeedbacks = `SELECT * FROM view_product_feedbacks WHERE product_id = ${product_id}`
 
     return new Promise((resolve, reject) => {
         db.query(getProductFeedbacks, (err, productFeedbacks) => {

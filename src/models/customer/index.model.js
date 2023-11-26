@@ -81,30 +81,10 @@ index.productCurrencyFormat = async (products) => {
 }
 
 
-index.getCateProducts = async (req, limit) => {
-    let category_id = await product.getCategoryId(req)
+index.getCateProducts = async (req, limit = 8) => {
+    let category_id = req.query.category_id ?? await product.getCategoryId(req)
 
-    let getRowSQL = `SELECT COUNT(*) as total FROM view_products WHERE category_id = ${category_id}`
-    let getCateProducts = `SELECT * FROM view_products WHERE category_id = ${category_id}`
-    
-
-    let searchKey = req.query.searchKey
-
-    // lấy trạng hiện tại page=?
-    let page = req.query.page ? req.query.page : 1
-
-    //truy vấn tính tổng số dòng trong một bảng
-    let rowData = await query(getRowSQL)
-    console.log ('rowData', rowData)
-    let totalRow = rowData[0].total
-
-    // tính số trang thực tế sẽ có
-    let totalPage = totalRow > 0 ? Math.ceil(totalRow / limit) : 1
-    // Kiểm tra đảm bảo rằng page là số nguyên hợp lệ từ 1 đến totalPage
-    page = page > 0 ? Math.floor(page) : 1
-    page = page <= totalPage ? Math.floor(page) : totalPage
-
-    let start = (page - 1) * limit
+    let getCateProducts = `SELECT * FROM view_products WHERE category_id = ${category_id} LIMIT 0, ${limit}`
 
     return new Promise((resolve, reject) => {
         db.query(getCateProducts, (err, cateProducts) => {
@@ -113,7 +93,7 @@ index.getCateProducts = async (req, limit) => {
                 resolve(0)
             } else {
                 cateProducts = index.productCurrencyFormat(cateProducts)
-                resolve(cateProducts, totalRow, totalPage, page, searchKey, limit)
+                resolve(cateProducts)
             }
         })
     })

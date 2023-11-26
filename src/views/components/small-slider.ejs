@@ -1,11 +1,12 @@
 <div class="slider-container">
 	<div class="slideshow-container">
 		<div class="slides">
-			<img src="/imgs/product_image/P1/P1_1.jpg" alt="P1_ 1">
-			<img src="/imgs/product_image/P1/P1_2.jpg" alt="P1_ 2">
-			<img src="/imgs/product_image/P1/P1_3.jpg" alt="P1_ 3">
-			<img src="/imgs/product_image/P1/P1_4.jpg" alt="P1_ 4">
-			<img src="/imgs/product_image/P1/P1_5.jpg" alt="P1_ 5">
+			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_1.jpg" alt="<%= product.product_name %>">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_2.jpg" alt="<%= product.product_name %>">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_3.jpg" alt="<%= product.product_name %>">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_4.jpg" alt="<%= product.product_name %>">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_5.jpg" alt="<%= product.product_name %>">
 		</div>
 		<a class="prev" onclick="changeSlide(-1)">&#10094;</a>
 		<a class="next" onclick="changeSlide(1)">&#10095;</a>
@@ -17,11 +18,11 @@
 
 	<div class="thumbnail-container">
 		<div class="thumbnails">
-			<img src="/imgs/product_image/P1/P1_1.jpg" alt="Thumbnail 1" onclick="currentSlide(1)">
-			<img src="/imgs/product_image/P1/P1_2.jpg" alt="Thumbnail 2" onclick="currentSlide(2)">
-			<img src="/imgs/product_image/P1/P1_3.jpg" alt="Thumbnail 3" onclick="currentSlide(3)">
-			<img src="/imgs/product_image/P1/P1_4.jpg" alt="Thumbnail 4" onclick="currentSlide(4)">
-			<img src="/imgs/product_image/P1/P1_5.jpg" alt="Thumbnail 5" onclick="currentSlide(5)">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_1.jpg" alt="<%= product.product_name %>" onclick="currentSlide(1)">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_2.jpg" alt="<%= product.product_name %>" onclick="currentSlide(1)">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_3.jpg" alt="<%= product.product_name %>" onclick="currentSlide(1)">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_4.jpg" alt="<%= product.product_name %>" onclick="currentSlide(1)">
+			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_5.jpg" alt="<%= product.product_name %>" onclick="currentSlide(1)">
 		</div>
 	</div>
 </div>

@@ -52,6 +52,7 @@
 				</div>
 				<div class="tip-products__content">
 					<% newProducts.slice(0, 12).forEach(newProduct => { %>
+					<% console.log(newProduct) %>
 					<%- include('../../components/product-card', { product: newProduct }) %>
 					<% }) %>
 				</div>

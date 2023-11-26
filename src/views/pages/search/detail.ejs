@@ -13,20 +13,36 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
+	<%- include('../../partials/header', {header: header}) %>
 	<%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
 
 	<main class="content-container">
 		<section class="title">
-			<h1>ABACSS</h1>
+			<h1><%= productInfo.product_name ?? 'NaN' %></h1>
 			<div class="title__rating">
+				<% if (productInfo.product_rate) { %>
 				<div>
-					<span class="material-symbols-outlined">star</span>
-					<span class="material-symbols-outlined">star</span>
-					<span class="material-symbols-outlined">star</span>
-					<span class="material-symbols-outlined">star</span>
-					<span class="material-symbols-outlined">star</span>
+					<!-- In ra số sao hiện có -->
+					<% const productRateInt = Math.floor(productInfo.product_rate) %>
+
+					<% for (let i = 0; i < productRateInt; i++) { %>
+					<span class="material-symbols-outlined">grade</span>
+					<% } %>
+
+					<!-- In ra số sao lẻ -->
+					<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+					<span class="material-symbols-outlined">star_half</span>
+					<% } else if (productInfo.product_rate - productRateInt < 0.5) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+					<% } %>
+
+					<!-- In ra số sao trống -->
+					<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% } %>
 				</div>
+				<% } %>
+				<p>(<%= productInfo.product_rate ?? 'NaN' %>)</p>
 				<p>168 lượt đánh giá</p>
 			</div>
 		</section>
@@ -35,7 +51,7 @@
 			<div class="detail--top">
 				<div class="detail--left">
 					<div class=" detail__slider">
-						<%- include('../../components/small-slider') %>
+						<%- include('../../components/small-slider', { product: productInfo }) %>
 					</div>
 					<div class="detail__policy policy">
 						<div>
@@ -69,10 +85,9 @@
 					</div>
 				</div>
 
-				<div class="detail--right">
-
+				<form class="detail--right" action="#" method="post">
 					<div class="detail__variant variant">
-						<h2>Loại sản phẩm</h2>
+						<h3>Loại sản phẩm</h3>
 						<div>
 							<a href="/search/1">
 								<span class="variant__title">Tivi 43 Inch</span>
@@ -88,12 +103,22 @@
 							</a>
 						</div>
 					</div>
+
+					<div class="detail__quantity quantity">
+						<h3>Số lượng</h3>
+						<div class="quantity__input-group">
+							<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
+							<input onchange="changeQuantity(event)" name="quantity" type="number" value="0" min="0" max="100" placeholder="0">
+							<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
+						</div>
+					</div>
+
 					<div class="detail__promo promo">
 						<div class="promo__header">
 							<div>
-								<p>Online giá rẻ quá</p>
-								<h2>10.990.000 VND</h2>
-								<p><del>14.390.000 VND</del> giảm đến 23%</p>
+								<p><%= productInfo.discount_description ?? 'NaN' %></p>
+								<h2><%= productInfo.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
+								<p><del><%= productInfo.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= productInfo.discount_amount ?? 'NaN' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -110,30 +135,21 @@
 								<li>Nhập mã MMSALE100 giảm ngay 1% tối đa 100.000đ khi thanh toán qua MOMO</li>
 							</ol>
 							<div>
-								<a class="detail__add-btn" href="#">Thêm giỏ hàng </a>
-								<a class="detail__buy-btn" href="#">MUA NGAY </a>
+								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
+								<button type="submit" class="detail__buy-btn">MUA NGAY</button>
 							</div>
 							<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 
-			<div class="detail--bottom">
+			<div class="detail--bottom default-description">
 				<div class="detail--left">
 					<div class="detail__description description">
 						<div class="description__item">
 							<h2>Thông tin sản phẩm</h2>
-							<!-- <p>Smart Tivi QLED 4K 43 inch Samsung QA43Q65A được mang lên trên mình thiết kế không viền 3 cạnh loại bỏ cảm giác hình ảnh bị giới hạn, chân tivi có dạng hình chữ L đẹp mắt và vững vàng.</p>
-                            <p>Tivi Samsung 43 inch phù hợp cho các không gian vừa như: phòng ngủ, phòng khách,...</p>
-                            <img src="/imgs/infor1.jpg" alt=""> -->
-						</div>
-						<div class="description__item">
-
-							<!-- <h2>Thông tin sản phẩm</h2>
-                            <p>Smart Tivi QLED 4K 43 inch Samsung QA43Q65A được mang lên trên mình thiết kế không viền 3 cạnh loại bỏ cảm giác hình ảnh bị giới hạn, chân tivi có dạng hình chữ L đẹp mắt và vững vàng.</p>
-                            <p>Tivi Samsung 43 inch phù hợp cho các không gian vừa như: phòng ngủ, phòng khách,...</p>
-                            <img src="/imgs/infor1.jpg" alt=""> -->
+							<%- productInfo.product_description ?? 'NaN' %>
 						</div>
 					</div>
 				</div>
@@ -169,8 +185,7 @@
 					</div>
 				</div>
 			</div>
-
-			<button class="detail__more-btn" type="button">Xem thêm</button>
+			<button onclick="showAll(event)" class="detail__more-btn" type="button">Xem thêm</button>
 		</section>
 
 		<section class="comments">
@@ -211,16 +226,18 @@
 	</div>
 	<% } %>
 
+	<%- include('../../components/success-modal', { action: 'Thêm vào giỏ hàng' }) %>
 	<%- include('../../components/image-modal') %>
 	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-	<script src="/scripts/components/scrollup.js"></script>
-	<script src="/scripts/components/carousel.js"></script>
 	<script src="/scripts/pages/search/detail.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/components/small-slider.js"></script>
 	<script src="/scripts/components/image-modal.js"></script>
+	<script src="/scripts/components/success-modal.js"></script>
+	<script src="/scripts/components/carousel.js"></script>
 
 </body>
 
