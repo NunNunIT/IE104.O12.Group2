@@ -41,7 +41,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 180px;
+    height: 200px;
     padding: 24px;
     background: white;
     border-radius: 8px 8px 0 0;
@@ -96,7 +96,7 @@ a {
 .product-bottom-details {
     overflow: hidden;
     border-top: 1px solid #eee;
-    padding: 24px 12px;
+    padding: 14px 12px;
 }
 
 .product-bottom-details .product-price {
@@ -117,7 +117,7 @@ a {
     text-decoration: line-through;
     display: inline-block;
     margin-right: 5px;
-    color: #ccc
+    color: var(--dark7);
 }
 
 .product-rate {
