@@ -35,7 +35,7 @@ searchController.detail = async (req, res) => {
     res.render('./pages/search/detail', {
         user: header_user,
         header: header,
-        productInfo: productInfo,
+        productInfo: productInfo[0],
         productDetails: productDetails,
         similarProducts: similarProducts,
     })

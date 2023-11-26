@@ -20,8 +20,6 @@
     padding: 12px;
     aspect-ratio: 1/1;
     object-fit: cover;
-    box-shadow: inset 0px 0px 0px 4px var(--blue1);
-    border-radius: 50%;
 }
 
 .cate__item h4 {

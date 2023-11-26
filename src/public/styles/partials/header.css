@@ -495,8 +495,6 @@
     width: 40px;
     height: 40px;
     padding: 4px;
-    box-shadow: inset 0px 0px 0px 2px var(--blue1);
-    border-radius: 50%;
     object-fit: contain;
 }
 

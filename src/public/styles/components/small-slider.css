@@ -12,8 +12,10 @@
 
 .slides img {
 	width: 100%;
+	max-height: 300px;
 	display: none;
 	border-radius: 8px;
+	object-fit: cover;
 }
 
 a.prev,
@@ -86,15 +88,31 @@ a.next:hover {
 	align-items: center;
 	position: absolute;
 	top: 72%;
-	left: 45%;
+	left: calc(50% - 40px);
 }
 
 .slider-counter p {
 	opacity: 1;
 }
 
-@media only screen and (max-width: 416px) {
+/* 1024px - Mini PC */
+@media only screen and (max-width: 64rem) {
+	.slides img {
+		max-height: 180px;
+	}
+
+	.slider-counter {
+		top: 50%;
+	}
+}
+
+/* 416px - Mobile */
+@media only screen and (max-width: 26rem) {
 	.thumbnails img {
 		width: 15%;
+	}
+
+	.slider-counter {
+		top: 67%;
 	}
 }

@@ -1,7 +1,9 @@
 <div class="product-card">
 	<a class="carousel__card-main" href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
 		<div>
-			<div class="badge">-15%</div>
+			<% if (product.discount_amount) { %>
+			<div class="badge">-<%= product.discount_amount %>%</div>
+			<% } %>
 			<div class="product-tumb">
 				<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name ?? 'NaN' %>">
 			</div>
@@ -37,7 +39,13 @@
 		</div>
 
 		<div class="product-bottom-details">
-			<div class="product-price"><small><%= product.product_variant_price_currency ?? 'NaN' %>đ</small><%= product.product_variant_price_after_discount ?? 'NaN' %>đ</div>
+			<div class="product-price">
+				<% if (product.discount_amount) { %>
+				<small><%= product.product_variant_price_currency %>đ</small><%= product.product_variant_price_after_discount_currency %>đ
+				<% } else { %>
+				<%= product.product_variant_price_currency %>đ
+				<% } %>
+			</div>
 		</div>
 	</a>
 
