@@ -207,14 +207,14 @@
 				</div>
 			</div>
 
+			<% if (products.totalRow) { %>
 			<div class="seacrh-result__main-card">
-				<%- include('../../components/product-card') %>
-				<%- include('../../components/product-card') %>
-				<%- include('../../components/product-card') %>
-				<%- include('../../components/product-card') %>
-				<%- include('../../components/product-card') %>
-				<%- include('../../components/product-card') %>
+				<% products.products.forEach(product => { %>
+				<% console.log(product) %>
+				<%- include('../../components/product-card', {product: product}) %>
+				<% }) %>
 			</div>
+			<% } %>
 		</section>
 	</main>
 
