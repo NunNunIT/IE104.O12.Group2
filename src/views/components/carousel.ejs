@@ -1,177 +1,72 @@
-<section class="wrapper">
-    <div class="carousel__label">
-        <h2 class="carousel__title"><%=title%></h2>
-        <div class="carousel__label-seemore">
-            <a href="/search/result">Xem tất cả</a>
-            <span class="material-symbols-outlined">
-                chevron_right
-            </span>
-        </div>
-    </div>
-    <div class="arrow">
-        <span class="material-symbols-outlined">
-            chevron_right
-        </span>
-    </div>
+<section class="wrapper-carousel">
+	<div class="carousel__label">
+		<h2 class="carousel__title"><%= title %></h2>
+		<div class="carousel__label-seemore">
+			<a href="/search/result?<%= seemore %>">Xem tất cả</a>
+			<span class="material-symbols-outlined"> chevron_right </span>
+		</div>
+	</div>
+	<span id="left" class="arrow left material-symbols-outlined"> chevron_left </span>
 
-    <div class="arrow">
-        <span class="material-symbols-outlined">
-            chevron_left
-        </span>
-    </div>
+	<div class="carousel__list">
+		<ul class="carousel">
+			<% products.forEach(function(product) { %>
+			<li class="carousel__card">
+				<a class="carousel__card-main" href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_id=<%= product.category_name %>">
+					<% if (product.discount_amount) { %>
+					<div class="carousel__card--badge">-<%= product.discount_amount %>%</div>
+					<% } %>
+					<div class="carousel__card--top">
+						<div class="carousel__card--img">
+							<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>" draggable="false">
+						</div>
+						<div class="carousel__card-details">
+							<span class="carousel__card-catagory"><%= product.category_name %></span>
+							<% if (product.product_rate) { %>
+							<div class="carousel__card-rate">
+								<!-- In ra số sao hiện có -->
+								<% const productRateInt = Math.floor(product.product_rate) %>
 
-    <div class="carousel__list">
-        <ul class="carousel">
-            <li class="carousel__card">
-                <a href="/search/1">
-                <div class="carousel__card--badge">-15%</div>
-                <div class="carousel__card--img">
-                    <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8" draggable="false">
-                </div>
-                <div class="carousel__card-details">
-                    <span class="carousel__card-catagory">Tiêu đề</span>
-                    <div class="carousel__card-rate">
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                    </div>
-                    <h4>Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8</h4>
-                    <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-                    <div class="carousel__card-bottom-details">
-                        <div class="carousel__card-price"><small>13.990.000đ</small>11.800.000đ</div>
-                    </div>
-                </div>
-            </a>
-            </li>
+								<% for (let i = 0; i < productRateInt; i++) { %>
+								<span class="material-symbols-outlined">grade</span>
+								<% } %>
 
-            <li class="carousel__card">
-                <a href="/search/1">
-                <div class="carousel__card--badge">-15%</div>
-                <div class="carousel__card--img">
-                    <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8" draggable="false">
-                </div>
-                <div class="carousel__card-details">
-                    <span class="carousel__card-catagory">Tiêu đề</span>
-                    <div class="carousel__card-rate">
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                    </div>
-                    <h4>Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8</h4>
-                    <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-                    <div class="carousel__card-bottom-details">
-                        <div class="carousel__card-price"><small>13.990.000đ</small>11.800.000đ</div>
-                    </div>
-                </div>
-            </a>
-            </li>
+								<!-- In ra số sao lẻ -->
+								<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+								<span class="material-symbols-outlined">star_half</span>
+								<% } else if (product.product_rate - productRateInt < 0.5) { %>
+								<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+								<% } %>
 
-            <li class="carousel__card">
-                <a href="/search/1">
-                <div class="carousel__card--badge">-15%</div>
-                <div class="carousel__card--img">
-                    <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8" draggable="false">
-                </div>
-                <div class="carousel__card-details">
-                    <span class="carousel__card-catagory">Tiêu đề</span>
-                    <div class="carousel__card-rate">
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                    </div>
-                    <h4>Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8</h4>
-                    <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-                    <div class="carousel__card-bottom-details">
-                        <div class="carousel__card-price"><small>13.990.000đ</small>11.800.000đ</div>
-                    </div>
-                </div>
-            </a>
-            </li>
+								<!-- In ra số sao trống -->
+								<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+								<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+								<% } %>
 
-            <li class="carousel__card">
-                <a href="/search/1">
-                <div class="carousel__card--badge">-15%</div>
-                <div class="carousel__card--img">
-                    <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8" draggable="false">
-                </div>
-                <div class="carousel__card-details">
-                    <span class="carousel__card-catagory">Tiêu đề</span>
-                    <div class="carousel__card-rate">
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                    </div>
-                    <h4>Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8</h4>
-                    <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-                    <div class="carousel__card-bottom-details">
-                        <div class="carousel__card-price"><small>13.990.000đ</small>11.800.000đ</div>
-                    </div>
-                </div>
-            </a>
-            </li>
+								<p>(<%= product.product_rate %>)</p>
+							</div>
+							<% } %>
 
-            <li class="carousel__card">
-                <a href="/search/1">
-                <div class="carousel__card--badge">-15%</div>
-                <div class="carousel__card--img">
-                    <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8" draggable="false">
-                </div>
-                <div class="carousel__card-details">
-                    <span class="carousel__card-catagory">Tiêu đề</span>
-                    <div class="carousel__card-rate">
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                    </div>
-                    <h4>Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8</h4>
-                    <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-                    <div class="carousel__card-bottom-details">
-                        <div class="carousel__card-price"><small>13.990.000đ</small>11.800.000đ</div>
-                    </div>
-                </div>
-            </a>
-            </li>
+							<h4><%= product.product_name %></h4>
+							<p><%= product.discount_description %></p>
+						</div>
+					</div>
 
-            <li class="carousel__card">
-                <a href="/search/1">
-                <div class="carousel__card--badge">-15%</div>
-                <div class="carousel__card--img">
-                    <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8" draggable="false">
-                </div>
-                <div class="carousel__card-details">
-                    <span class="carousel__card-catagory">Tiêu đề</span>
-                    <div class="carousel__card-rate">
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                        <span class="material-symbols-outlined">grade</span>
-                    </div>
-                    <h4>Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8</h4>
-                    <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-                    <div class="carousel__card-bottom-details">
-                        <div class="carousel__card-price"><small>13.990.000đ</small>11.800.000đ</div>
-                    </div>
-                </div>
-            </a>
-            </li>
-
-            
-        </ul>
-    </div>
-    <div class="arrow">
-        <span class="material-symbols-outlined">
-            chevron_right
-        </span>
-    </div>
+					<div class="carousel__card-bottom-details">
+						<div class="carousel__card-price">
+							<% if (product.discount_amount) { %>
+							<small><%= product.product_variant_price_currency %>đ</small><%= product.product_variant_price_after_discount_currency %>đ
+							<% } else { %>
+							<%= product.product_variant_price_currency %>đ
+							<% } %>
+						</div>
+					</div>
+				</a>
+			</li>
+			<% }) %>
+		</ul>
+	</div>
+	<span id="right" class="arrow right material-symbols-outlined">
+		chevron_right
+		</div>
 </section>

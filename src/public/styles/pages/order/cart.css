@@ -145,6 +145,12 @@ button {
     align-items: flex-end;
 }
 
+.cart__total-price div {
+    width: max-content;
+    display: inherit;
+    gap: 12px;
+}
+
 .cart__total-price h2 {
     color: var(--dollar-red);
     font-weight: 700;
@@ -218,6 +224,8 @@ button {
 
     .cart__feature button,
     .cart__order input {
+        width: max-content;
+        min-width: 50%;
         height: 48px;
     }
 }
@@ -265,7 +273,8 @@ button {
     }
 
     p,
-    .cart button {
+    .cart button,
+    del {
         font-size: 0.8125rem;
     }
 

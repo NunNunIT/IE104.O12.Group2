@@ -2,95 +2,95 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/order/momo.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/order/momo.css">
 
-    <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header') %>
+	<%- include('../../partials/breadcrumb') %>
 
-    <main class="momo-container">
-        <div class="momo_left-frame">
-            <div class="momo_left-box">
-                <div class="momo-box">
-                    <div class="momo-header">
-                        <img src="/imgs/transaction/momo.png" alt="momo">
-                        <h3 class="header-text"><strong>THANH TOÁN BẰNG MOMO</strong></h3>
-                    </div>
-                    <div class="inner-box">
-                        <div class="info-order">
-                            <div class="info-order__header">
-                                <div class="info-order__header--left">
-                                    <p><strong>ĐƠN HÀNG:</strong></p>
-                                    <p id="trans__id">#DH0001</p>
-                                </div>
-                            </div>
-                            <div class="info-order__bill">
-                                <span>- <strong>Người đặt hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
-                                <span>- <strong>Mã đơn hàng: </strong><span id="purchase-address">02OP2955875F</span></span>
-                                <span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
-                            </div>
-                        </div>
+	<main class="momo-container">
+		<div class="momo_left-frame">
+			<div class="momo_left-box">
+				<div class="momo-box">
+					<div class="momo-header">
+						<img src="/imgs/transaction/momo.png" alt="momo">
+						<h3 class="header-text"><strong>THANH TOÁN BẰNG MOMO</strong></h3>
+					</div>
+					<div class="inner-box">
+						<div class="info-order">
+							<div class="info-order__header">
+								<div class="info-order__header--left">
+									<p><strong>ĐƠN HÀNG:</strong></p>
+									<p id="trans__id">#DH0001</p>
+								</div>
+							</div>
+							<div class="info-order__bill">
+								<span>- <strong>Người đặt hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
+								<span>- <strong>Mã đơn hàng: </strong><span id="purchase-address">02OP2955875F</span></span>
+								<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
+							</div>
+						</div>
 
-                        <div class="purchase-status">Đơn hàng chưa được thanh toán</div>
-                    </div>
-                </div>
-            </div>
-            <div class="momo_left-cancel">Hủy bỏ</div>
-        </div>
+						<div class="purchase-status">Đơn hàng chưa được thanh toán</div>
+					</div>
+				</div>
+			</div>
+			<div class="momo_left-cancel">Hủy bỏ</div>
+		</div>
 
-        <div class="momo-qr">
-            <h4>Quét mã QR để thanh toán</h4>
-            <div class="scanning-box">
-                <img src="/imgs/transaction/momo_qr.png" alt="momo_qr">
-                <div class="image-container"></div>
-                <div class="border">
-                </div>
-            </div>
-            <div class="qr-instruct">
-                <div class="qr-instruct-1">
-                    <span class="material-symbols-outlined">qr_code_2</span>
-                    <div>Sử dụng App MoMo hoặc ứng dụng</div>
-                </div>
-                <div class="qr-instruct-1">
-                    <div>camera hỗ trợ QR code để quét mã</div>
-                </div>
-            </div>
-            <div class="qr-help">
+		<div class="momo-qr">
+			<h4>Quét mã QR để thanh toán</h4>
+			<div class="scanning-box">
+				<img src="/imgs/transaction/momo_qr.png" alt="momo_qr">
+				<div class="image-container"></div>
+				<div class="border">
+				</div>
+			</div>
+			<div class="qr-instruct">
+				<div class="qr-instruct-1">
+					<span class="material-symbols-outlined">qr_code_2</span>
+					<div>Sử dụng App MoMo hoặc ứng dụng</div>
+				</div>
+				<div class="qr-instruct-1">
+					<div>camera hỗ trợ QR code để quét mã</div>
+				</div>
+			</div>
+			<!-- <div class="qr-help">
                 <div>Gặp khó khăn khi thanh toán?</div>
                 <div class="help-instruction">
                     Xem Hướng dẫn
                 </div>
             </div>
         </div>
-        <!-- Add this HTML inside the <body> section -->
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <!-- Your modal content goes here -->
                 <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
                 <p>Modal content here...</p>
             </div>
-        </div>
+        </div> -->
 
-        <!-- Modify the "Xem Hướng dẫn" div to call the showPopup function -->
-        <div class="help-instruction" onclick="showPopup()">
+			<!-- Modify the "Xem Hướng dẫn" div to call the showPopup function -->
+			<!-- <div class="help-instruction" onclick="showPopup()">
             Xem Hướng dẫn
-        </div>
-        <div class="momo_left-cancel_ip">Hủy bỏ</div>
-    </main>
+        </div> -->
+			<div class="momo_left-cancel_ip">Hủy bỏ</div>
+	</main>
 
-    <%- include('../../components/scrollup') %>
+	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-    <script>
+	<script src="/scripts/partials/header.js"></script>
+
+	<!-- <script>
         // Function to show the popup
         function showPopup() {
             // Get the modal element
@@ -106,7 +106,7 @@
                 }
             };
         }
-    </script>
+    </script> -->
 
 </body>
 

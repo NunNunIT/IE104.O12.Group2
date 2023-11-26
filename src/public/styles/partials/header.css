@@ -606,12 +606,13 @@
     align-items: center;
 }
 
-.header--right--disable {
+.header__nav--disable {
     display: flex;
+    justify-content: flex-end;
     gap: 8px;
 }
 
-.header--right--disable .material-symbols-outlined {
+.header__nav--disable .material-symbols-outlined {
     font-size: 1.5rem;
 }
 
@@ -684,10 +685,6 @@
     }
 
     .header__support-info {
-        gap: 10px;
-    }
-
-    .header__about-account {
         gap: 10px;
     }
 

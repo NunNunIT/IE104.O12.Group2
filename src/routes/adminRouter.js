@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 
 // import controller
-const adminController = require('../controllers/adminController.js')
+const adminController = require('../controllers/admin/adminController')
 const adminMiddleware = require('../middleware/adminMiddleware.js')
 
 router.get('/login', adminMiddleware.checkAuth, adminController.getLogin)

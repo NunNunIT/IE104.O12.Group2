@@ -2,112 +2,112 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/order/credit.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/order/credit.css">
 
-    <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header') %>
-    <%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header') %>
+	<%- include('../../partials/breadcrumb') %>
 
-    <main class="transaction-container">
-        <div class="transaction-box">
-            <div class="success">
-                <div class="success-logo">
-                    <span class="material-symbols-outlined">sweep</span>
-                </div>
-                <h3 class="success-text"><strong>ĐẶT HÀNG THÀNH CÔNG</strong></h3>
-            </div>
-            <div class="inner-box">
-                <div class="thanks">
-                    Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
-                </div>
-                <div class="info-order">
-                    <div class="info-order__header">
-                        <div class="info-order__header--left">
-                            <p><strong>ĐƠN HÀNG:</strong></p>
-                            <p id="trans__id">#DH0001</p>
-                        </div>
-                        <div class="header--right">
+	<main class="transaction-container">
+		<div class="transaction-box">
+			<div class="success">
+				<div class="success-logo">
+					<span class="material-symbols-outlined">sweep</span>
+				</div>
+				<h3 class="success-text"><strong>ĐẶT HÀNG THÀNH CÔNG</strong></h3>
+			</div>
+			<div class="inner-box">
+				<div class="thanks">
+					Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
+				</div>
+				<div class="info-order">
+					<div class="info-order__header">
+						<div class="info-order__header--left">
+							<p><strong>ĐƠN HÀNG:</strong></p>
+							<p id="trans__id">#DH0001</p>
+						</div>
+						<!-- <div class="header--right">
                             <a href="#" id="btn-manage">Quản lý đơn hàng</a>
                             <p>|</p>
                             <a href="#" id="btn-cancel">Hủy</a>
-                        </div>
-                    </div>
-                    <div class="info-order__bill">
-                        <span>- <strong>Người nhận hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
-                        <span>- <strong>Giao đến: </strong><span id="purchase-address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh</span></span>
-                        <span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
-                    </div>
-                </div>
+                        </div> -->
+					</div>
+					<div class="info-order__bill">
+						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
+						<span>- <strong>Giao đến: </strong><span id="purchase-address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh</span></span>
+						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
+					</div>
+				</div>
 
-                <div class="purchase-status">Đơn hàng chưa được thanh toán</div>
+				<div class="purchase-status">Đơn hàng chưa được thanh toán</div>
 
-                <div class="pay_box">
-                    <div class="pay_bank_frame">
-                        <div class="pay_title">
-                            Thẻ Tín Dụng/ Ghi Nợ
-                        </div>
-                        <div class="pay_bank">
-                            <img src="/imgs/transaction/visa.png" alt="Visa">
-                        </div>
-                        <div class="pay_bank">
-                            <img src="/imgs/transaction/master.png" alt="Master Card">
-                        </div>
-                        <div class="pay_bank">
-                            <img src="/imgs/transaction/jcb.png" alt="JCB">
-                        </div>
-                    </div>
-                    <div class="input_frame">
-                        <div class="input_left">
-                            <div class="input_box--top">
-                                <div class="input_title">Số thẻ<span style="color:red">*</span></div>
-                                <div class="input-wrap">
-                                    <input id="NumberCard" type="text" name="NumberCard" class="input-field" autocomplete="off" onclick="normalCardImage()" />
-                                    <label>1234 5678 9101 2345</label>
-                                    <div class="error"></div>
-                                </div>
-                            </div>
-                            <div class="input_box--bot">
-                                <div class="input_box--mini">
-                                    <div class="input_title">Tháng/Năm hết hạn<span style="color:red">*</span></div>
-                                    <div class="input-wrap">
-                                        <input id="EndDate" type="text" name="EndDate" class="input-field" autocomplete="off" onclick="normalCardImage()" />
-                                        <label>MM/YY</label>
-                                        <div class="error"></div>
-                                    </div>
-                                </div>
-                                <div class="input_box--mini">
-                                    <div class="input_title">CSC<span style="color:red">*</span></div>
-                                    <div class="input-wrap">
-                                        <input id="CSC" type="text" name="CSC" class="input-field" autocomplete="off" onclick="updateCardImage()" />
-                                        <label>123</label>
-                                        <div class="error"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input_right">
-                            <img src="/imgs/transaction/card_vi.png" alt="Font of Visa Card">
-                        </div>
-                    </div>
-                    <button type="submit" id="btn-submit" class="btn--filled pri">Thanh toán</button>
-                    <button type="submit" id="btn-more" class="btn--outlined pri">Hủy giao dịch</button>
-                </div>
-            </div>
-    </main>
+				<div class="pay_box">
+					<div class="pay_bank_frame">
+						<div class="pay_title">
+							Thẻ Tín Dụng/ Ghi Nợ
+						</div>
+						<div class="pay_bank">
+							<img src="/imgs/transaction/visa.png" alt="Visa">
+						</div>
+						<div class="pay_bank">
+							<img src="/imgs/transaction/master.png" alt="Master Card">
+						</div>
+						<div class="pay_bank">
+							<img src="/imgs/transaction/jcb.png" alt="JCB">
+						</div>
+					</div>
+					<div class="input_frame">
+						<div class="input_left">
+							<div class="input_box--top">
+								<div class="input_title">Số thẻ<span style="color:red">*</span></div>
+								<div class="input-wrap">
+									<input id="NumberCard" type="text" placeholder="1234 5678 9101 2345" name="NumberCard" class="input-field" autocomplete="off" onclick="normalCardImage()" />
+									<!-- <label>1234 5678 9101 2345</label> -->
+									<div class="error"></div>
+								</div>
+							</div>
+							<div class="input_box--bot">
+								<div class="input_box--mini">
+									<div class="input_title">Tháng/Năm hết hạn<span style="color:red">*</span></div>
+									<div class="input-wrap">
+										<input id="EndDate" type="text" placeholder="MM/YY" name="EndDate" class="input-field" autocomplete="off" onclick="normalCardImage()" />
+										<!-- <label>MM/YY</label> -->
+										<div class="error"></div>
+									</div>
+								</div>
+								<div class="input_box--mini">
+									<div class="input_title">CSC<span style="color:red">*</span></div>
+									<div class="input-wrap">
+										<input id="CSC" type="text" placeholder="123" name="CSC" class="input-field" autocomplete="off" onclick="updateCardImage()" />
+										<!-- <label>123</label> -->
+										<div class="error"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="input_right">
+							<img src="/imgs/transaction/card_vi.png" alt="Font of Visa Card">
+						</div>
+					</div>
+					<button type="submit" id="btn-submit" class="btn--filled pri">Thanh toán</button>
+					<button type="submit" id="btn-more" class="btn--outlined pri">Hủy giao dịch</button>
+				</div>
+			</div>
+	</main>
 
-    <%- include('../../components/scrollup') %>
+	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-    <script src="/scripts/pages/order/credit.js"></script>
+	<script src="/scripts/pages/order/credit.js"></script>
 
 </body>
 
