@@ -26,19 +26,19 @@ searchController.results = async (req, res) => {
 // [GET] /search/:productId
 searchController.detail = async (req, res) => {
     let header = await index.header(req)
-    let cates = await index.getCates(req)
+    let header_user = await index.header_user(req)
 
-    let productDetail = await index.getProductDetail(req)
+    let productInfo = await index.getProductInfo(req)
+    let productDetails = await index.getProductDetails(req)
     let similarProducts = await index.getSimilarProducts(req)
 
     res.render('./pages/search/detail', {
-        user: header,
-        cates: cates,
-        searchKey: req.query.searchKey ?? '',
-        productDetail: productDetail,
+        user: header_user,
+        header: header,
+        productInfo: productInfo,
+        productDetails: productDetails,
         similarProducts: similarProducts,
     })
 }
-
 
 module.exports = searchController

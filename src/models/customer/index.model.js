@@ -86,28 +86,47 @@ index.getDiscountProducts = async (callback) => {
     })
 }
 
-index.getProductDetail = async (req, callback) => {
+index.getProductInfo = async (req, callback) => {
     let params = req.params.product_variant_id
-    let getProductDetail = `SELECT * FROM view_products WHERE product_variant_id = ${params}`
+    let getProductInfo = `SELECT * FROM view_products WHERE product_variant_id = ${params}`
 
     return new Promise((resolve, reject) => {
-        db.query(getProductDetail, (err, productDetail) => {
+        db.query(getProductInfo, (err, productInfo) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                productDetail.forEach((product) => {
+                productInfo.forEach((product) => {
                     product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
                     if (product.discount_amount) {
                         product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
                         product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
                     }
                 })
-                resolve(productDetail)
+                resolve(productInfo)
             }
         })
     })
 }
+
+index.getProductDetails = async (req, callback) => {
+    let params = req.params.product_variant_id
+    let getProductId = await query(`SELECT product_id FROM product_variants WHERE product_variant_id = ${params}`)
+    console.log('productId:', getProductId)
+    let getProductDetails = `SELECT * FROM product_details WHERE product_id = ${getProductId}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getProductDetails, (err, productDetails) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(productDetails)
+            }
+        })
+    })
+}
+
 
 index.getSimilarProducts = async (req) => {
     let params = req.query.category_id
@@ -228,7 +247,7 @@ index.header_user = async (req) => {
 }
 
 index.header = async (req) => {
-    let searchKey = req.query.searchKey ?? 0
+    let searchKey = req.query.searchKey ?? ''
     let cates = await index.getCates(req)
     let header = {searchKey, cates}
     return (header)
