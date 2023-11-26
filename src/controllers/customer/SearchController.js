@@ -32,6 +32,9 @@ searchController.detail = async (req, res) => {
     let productDetail = await index.getProductDetail(req)
     let similarProducts = await index.getSimilarProducts(req)
 
+    console.log(productDetail)
+    console.log(similarProducts)
+
     res.render('./pages/search/detail', {
         user: (header) ? header : 0,
         searchKey: req.query.searchKey ?? '',
