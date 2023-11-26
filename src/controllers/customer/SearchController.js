@@ -1,7 +1,7 @@
 const index = require('../../models/customer/index.model')
 const search = require('../../models/customer/search.model')
 
-const searchController = () => {}
+const searchController = () => { }
 
 // [GET] /search/results
 searchController.results = async (req, res) => {
