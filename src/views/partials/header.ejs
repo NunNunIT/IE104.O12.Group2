@@ -85,7 +85,7 @@
 				<img class="header__logo" src="/imgs/logo-blue.png">
 			</a>
 			<form class="header__search-bar" action="/search/results" method="GET">
-				<input type="search" name="searchKey" placeholder="Bạn tìm gì..." value="<%= (searchKey) ? searchKey : '' %>">
+				<input type="search" name="searchKey" placeholder="Bạn tìm gì..." value="<%= (header.searchKey) ?? '' %>">
 				<button class="header__search-btn" type="submit">
 					<span class="material-symbols-outlined">search</span>
 				</button>
@@ -96,7 +96,7 @@
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
 						<% if (user.countCart) {%>
-							<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
+						<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
 						<% } %>
 					</div>
 				</a>
@@ -104,12 +104,12 @@
 					<div class="dropdown-cart__content">
 						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
 						<% if (user.countCart) { %>
-							<% let l = (user.countCart > 5) ? 5 : user.countCart %>
-							<% for (let i = 0; i < l; i++) { %>
-								<%- include('../components/cart-dropdown-item') %>
-							<% } %>	
+						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
+						<% for (let i = 0; i < l; i++) { %>
+						<%- include('../components/cart-dropdown-item') %>
+						<% } %>
 						<% } else {%>
-							Giỏ hàng bạn trống
+						Giỏ hàng bạn trống
 						<% } %>
 						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>
@@ -127,86 +127,12 @@
 			<span class="material-symbols-outlined"> expand_more </span>
 			<div class="header__cate-dropdown cate-dropdown">
 				<div class="cate-dropdown__aside">
+					<% header.cates.forEach(cate => { %>
 					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
+						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
+						<p><%= cate.category_name %></p>
 					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
+					<% }) %>
 				</div>
 				<div class="cate-dropdown__content">
 					<div class="cate-dropdown__content-wrapper">

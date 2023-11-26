@@ -8,13 +8,25 @@ const search = function () {}
 
 search.findProducts = async (req, callback) => {
     // lấy từ khóa searchKey=?
-    const searchKey = req.query.searchKey
+    const searchKey = req.query.searchKey ?? 0
+    const category_id = req.query.category ?? 0
 
-    let getRowSQL = "SELECT COUNT(*) as total FROM products"
-    let getProductsSQL = "SELECT * FROM products"
+    let getRowSQL = `SELECT COUNT(*) as total FROM products`
+    let getProductsSQL = `SELECT * FROM products`
+    
+    if (searchKey || category_id) {
+        getRowSQL += ` WHERE`
+        getProductsSQL += ` WHERE`
+    }
+
     if (searchKey) {
-        getProductsSQL += " WHERE products.product_name LIKE '%" + searchKey + "%'"
-        getRowSQL += " WHERE products.product_name LIKE '%" + searchKey + "%'"
+        getProductsSQL += ` product_name LIKE '%` + searchKey + `%'`
+        getRowSQL += ` product_name LIKE '%` + searchKey + `%'`
+    }
+
+    if (category_id) {
+        getProductsSQL += ` category_id = ${params} `
+        getRowSQL += ` category_id = ${params}`
     }
 
     // lấy trạng hiện tại page=?
@@ -33,9 +45,15 @@ search.findProducts = async (req, callback) => {
 
     let start = (page - 1) * limit
 
-    db.query(getProductsSQL, (err, products) => {
-        if (err) console.error(err);
-        callback(products, totalRow, totalPage, page, searchKey, limit)
+    return new Promise((resolve, reject) => {
+        db.query(getProductsSQL, (err, products) => {
+            if (err) {
+                console.error(err);
+                resolve(0)
+            }
+            let productList = {products, totalRow, totalPage, page, limit}
+            resolve(productList)
+        })
     })
 }
 

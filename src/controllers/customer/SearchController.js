@@ -6,19 +6,20 @@ const searchController = () => {}
 // [GET] /search/results
 searchController.results = async (req, res) => {
     let header = await index.header(req)
-    let cates = await index.getCates(req)
+    let header_user = await index.header_user(req)
 
-    search.findProducts(req, function (products, totalRow, totalPage, page, searchKey, limit) {
-        res.status(200).render('./pages/search/results', {
-            user: header,
-            cates: cates,
-            products: products,
-            totalRow: totalRow,
-            totalPage: totalPage,
-            page: parseInt(page),
-            searchKey: req.query.searchKey ?? '',
-            limit: limit,
-        })
+    let products = await search.findProducts(req)
+
+    console.log({
+        header: header,
+        user: header_user,
+        products: products,
+    })
+
+    res.status(200).render('./pages/search/results', {
+        header: header,
+        user: header_user,
+        products: products,
     })
 }
 
@@ -26,10 +27,10 @@ searchController.results = async (req, res) => {
 searchController.detail = async (req, res) => {
     let header = await index.header(req)
     let cates = await index.getCates(req)
-    
+
     let productDetail = await index.getProductDetail(req)
     let similarProducts = await index.getSimilarProducts(req)
-    
+
     res.render('./pages/search/detail', {
         user: header,
         cates: cates,

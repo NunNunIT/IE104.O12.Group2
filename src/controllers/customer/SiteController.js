@@ -4,10 +4,11 @@ const {
 
 const index = require('../../models/customer/index.model')
 
-const siteController = () => {}
+const siteController = () => { }
 
 // [GET] /
 siteController.index = async (req, res) => {
+    let header_user = await index.header_user(req)
     let header = await index.header(req)
     let cates = await index.getCates(req)
     let outstandingProducts = await index.getOutstandingProducts(req)
@@ -15,9 +16,8 @@ siteController.index = async (req, res) => {
     let discountProducts = await index.getDiscountProducts(req)
 
     res.render('./pages/site/index', {
-        user: (header) ? header : 0,
-        searchKey: req.query.searchKey ?? '',
-        cates: cates,
+        header: header,
+        user: header_user,
         outstandingProducts: outstandingProducts,
         newProducts: newProducts,
         discountProducts: discountProducts,

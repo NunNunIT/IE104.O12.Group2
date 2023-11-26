@@ -111,7 +111,29 @@ index.getProductDetail = async (req, callback) => {
 
 index.getSimilarProducts = async (req) => {
     let params = req.query.category_id
+    console.log('category_id = ',params)
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_products WHERE category_id = ${params}`
     let getSimilarProducts = `SELECT * FROM view_products WHERE category_id = ${params}`
+    
+
+    let searchKey = req.query.searchKey
+
+    // lấy trạng hiện tại page=?
+    let page = req.query.page ? req.query.page : 1
+
+    //truy vấn tính tổng số dòng trong một bảng
+    let rowData = await query(getRowSQL)
+    console.log ('rowData', rowData)
+    let totalRow = rowData[0].total
+
+    let limit = 24
+    // tính số trang thực tế sẽ có
+    let totalPage = totalRow > 0 ? Math.ceil(totalRow / limit) : 1
+    // Kiểm tra đảm bảo rằng page là số nguyên hợp lệ từ 1 đến totalPage
+    page = page > 0 ? Math.floor(page) : 1
+    page = page <= totalPage ? Math.floor(page) : totalPage
+
+    let start = (page - 1) * limit
 
     return new Promise((resolve, reject) => {
         db.query(getSimilarProducts, (err, similarProducts) => {
@@ -126,7 +148,7 @@ index.getSimilarProducts = async (req) => {
                         product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
                     }
                 })
-                resolve(similarProducts)
+                resolve(similarProducts, totalRow, totalPage, page, searchKey, limit)
             }
         })
     })
@@ -188,7 +210,7 @@ index.getDetailCart = async (req) => {
     });
 };
 
-index.header = async (req) => {
+index.header_user = async (req) => {
     if (req.user) {
         let user = req.user
         let countCart = await index.getCountCart(req)
@@ -203,6 +225,13 @@ index.header = async (req) => {
     } else {
         return 0
     }
+}
+
+index.header = async (req) => {
+    let searchKey = req.query.searchKey ?? 0
+    let cates = await index.getCates(req)
+    let header = {searchKey, cates}
+    return (header)
 }
 
 module.exports = index
