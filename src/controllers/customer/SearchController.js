@@ -1,5 +1,6 @@
 const index = require('../../models/customer/index.model')
 const search = require('../../models/customer/search.model')
+const product = require('../../models/customer/product.model')
 
 const searchController = () => { }
 
@@ -28,8 +29,8 @@ searchController.detail = async (req, res) => {
     let header = await index.header(req)
     let header_user = await index.header_user(req)
 
-    let productInfo = await index.getProductInfo(req)
-    let productDetails = await index.getProductDetails(req)
+    let productInfo = await product.getProductInfo(req)
+    let productDetails = await product.getProductDetails(req)
     let similarProducts = await index.getSimilarProducts(req)
 
     res.render('./pages/search/detail', {
