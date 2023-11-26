@@ -111,7 +111,7 @@ index.getProductInfo = async (req, callback) => {
 
 index.getProductDetails = async (req, callback) => {
     let params = req.params.product_variant_id
-    let getProductId = await querry(`SELECT product_id FROM product_variants WHERE product_variantid = ${params}`)
+    let getProductId = await query(`SELECT product_id FROM product_variants WHERE product_variant_id = ${params}`)
     console.log('productId:', getProductId)
     let getProductDetails = `SELECT * FROM product_details WHERE product_id = ${getProductId}`
 
@@ -247,7 +247,7 @@ index.header_user = async (req) => {
 }
 
 index.header = async (req) => {
-    let searchKey = req.query.searchKey ?? 0
+    let searchKey = req.query.searchKey ?? ''
     let cates = await index.getCates(req)
     let header = {searchKey, cates}
     return (header)

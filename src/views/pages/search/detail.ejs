@@ -13,7 +13,7 @@
 
 <body>
 
-	<%#- include('../../partials/header') %>
+	<%- include('../../partials/header') %>
 	<%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
 
 	<main class="content-container">
@@ -207,7 +207,7 @@
 	</main>
 	<% if (!similarProducts) {} else { %>
 	<div class="similar-products">
-		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `category_id=${productDetail.category_id}`, products: similarProducts}) %>
+		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `category_id=${productInfo.category_id}`, products: similarProducts}) %>
 	</div>
 	<% } %>
 
