@@ -125,6 +125,21 @@ body {
     transition: color 0.3s;
 }
 
+.image-upload-label {
+    width: 40%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 8px;
+}
+
+.image-upload-container {
+    margin-bottom: 15px;
+}
+
 
 textarea {
     width: 100%;
@@ -158,6 +173,9 @@ textarea {
 
 /* 416px - Mobile */
 @media screen and (max-width: 26rem) {
+    .app-bar {
+        display: block;
+    }
 
     body {
         padding: 0;
@@ -168,6 +186,11 @@ textarea {
         padding: 12px;
 
     }
+
+    .image-upload-label {
+        font-size: 14px;
+    }
+    
 
     .product_name,
     .product_variant-name,

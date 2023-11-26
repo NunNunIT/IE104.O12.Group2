@@ -2,45 +2,45 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-  <link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
 
-  <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-  <%- include('../../partials/header') %>
-  <%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Trang cá nhân', link : '#'}, {text : 'Lịch sử đơn mua', link : 'http://127.0.0.1:3000/account/purchase'}]}) %>
+	<%- include('../../partials/header') %>
+	<%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Trang cá nhân', link : '#'}, {text : 'Lịch sử đơn mua', link : 'http://127.0.0.1:3000/account/purchase'}]}) %>
 
-  <main class="account-container">
-    <!-- side-bar -->
-    <%- include("../../components/sidebar_account") %>
+	<main class="account-container">
+		<!-- side-bar -->
+		<%- include("../../components/sidebar_account") %>
 
-    <section class="purchase__main">
-      <nav class="purchase__status">
-        <a href="#status-all" id="purchase__status-all">Tất cả</a>
-        <a href="#status-payment" id="purchase__status-payment">Chờ thanh toán</a>
-        <a href="#status-deliver" id="purchase__status-deliver">Đang giao hàng</a>
-        <a href="#status-finish" id="purchase__status-finish">Hoàn thành</a>
-        <a href="#status-cancel" id="purchase__status-cancel">Đã hủy</a>
-      </nav>
-      <div class="purchase__main__item">
-        <%- include('../../components/purchase-item') %>
-        <%- include('../../components/purchase-item') %>
-        <%- include('../../components/purchase-item') %>
-      </div>
-    </section>
-  </main>
+		<section class="purchase__main">
+			<nav class="purchase__status">
+				<a href="#status-all" id="purchase__status-all">Tất cả</a>
+				<a href="#status-payment" id="purchase__status-payment">Chờ thanh toán</a>
+				<a href="#status-deliver" id="purchase__status-deliver">Đang giao hàng</a>
+				<a href="#status-finish" id="purchase__status-finish">Hoàn thành</a>
+				<a href="#status-cancel" id="purchase__status-cancel">Đã hủy</a>
+			</nav>
+			<div class="purchase__main__item">
+				<%- include('../../components/purchase-item') %>
+				<%- include('../../components/purchase-item') %>
+				<%- include('../../components/purchase-item') %>
+			</div>
+		</section>
+	</main>
 
-  <%- include('../../components/scrollup') %>
-  <%- include('../../partials/footer') %>
-  <%- include('../../partials/app-bar') %>
+	<%- include('../../components/scrollup') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
 
-  <script src="/scripts/pages/account/purchaseHistory.js"></script>
+	<script src="/scripts/pages/account/purchaseHistory.js"></script>
 
 </body>
 

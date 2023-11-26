@@ -5,8 +5,9 @@
     display: inherit;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 4px;
     border-radius: 8px;
+    background-color: var(--white);
 }
 
 .cate__item:hover {
@@ -16,11 +17,11 @@
 
 .cate__item img {
     width: 80%;
+    padding: 12px;
     aspect-ratio: 1/1;
-    padding: 4px;
-    border-radius: 50%;
-    background-color: var(--blue1);
     object-fit: cover;
+    box-shadow: inset 0px 0px 0px 4px var(--blue1);
+    border-radius: 50%;
 }
 
 .cate__item h4 {

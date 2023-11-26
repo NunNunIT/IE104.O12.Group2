@@ -14,25 +14,21 @@ exports.isLoggedIn = async (req, res, next) => {
             console.log(decoded);
 
             // 2. Check if the user still exist
-            db.query('SELECT * FROM users WHERE user_id = ?', [decoded.id], (err, results) => {
+            db.query('SELECT * FROM view_user WHERE user_id = ?', [decoded.id], (err, results) => {
                 console.log(results);
                 if (!results) {
                     return next();
                 }
 
-                results.forEach((result)=>{
-                    result.user_birth_format = general.toDDMMYYYY(new Date(result.user_birth))
-                })
-
                 req.user = results[0];
-                next();
+                return next();
             });
         } catch (err) {
             console.log(err)
             return next();
         }
     } else {
-        res.status(401).redirect('/auth/login')
+        next();
     }
 }
 
@@ -42,7 +38,7 @@ exports.checkAuth = (req, res, next) => {
         res.redirect('/')
     }
     else {
-        next();
+        return next();
     }
 }
 
@@ -52,7 +48,7 @@ exports.checkUnAuth = (req, res, next) => {
         res.status(401).redirect('/')
     }
     else {
-        next();
+        return next();
     }
 }
 
@@ -67,7 +63,7 @@ exports.getLoggedIn = async (req, res, next) => {
             console.log(decoded);
 
             // 2. Check if the user still exist
-            db.query('SELECT * FROM users WHERE user_id = ?', [decoded.id], (err, results) => {
+            db.query('SELECT * FROM view_user WHERE user_id = ?', [decoded.id], (err, results) => {
                 console.log(results);
                 if (!results) {
                     return next();
@@ -78,7 +74,7 @@ exports.getLoggedIn = async (req, res, next) => {
                 })
 
                 req.user = results[0];
-                next();
+                return next();
             });
         } catch (err) {
             console.log(err)

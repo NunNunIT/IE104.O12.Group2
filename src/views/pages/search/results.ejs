@@ -2,228 +2,228 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-  <link rel="stylesheet" href="/styles/pages/search/results.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/search/results.css">
 
-  <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-  <%- include('../../partials/header') %>
+	<%- include('../../partials/header') %>
 
-  <main class="seacrh-result__container">
-    <section class="seacrh-result__filter">
-      <div class="seacrh-result__filter-normal">
-        <p class="seacrh-result__filter-normal__title">Bộ lọc:</p>
-        <div class="seacrh-result__filter-normal__content">
-          <p>Giá</p>
-          <span class="material-symbols-outlined dropdown-button">expand_more</span>
-          <form action="/search/results" method="GET" class="dropdown-content">
-            <div class="filter-list">
-              <div class="dropdown-options">
-                <input class="filter-option" type="radio" id="less-than-5m" name="less-than-5m" value="" />
-                <label class="filter-label">Dưới 5 triệu</label>
-              </div>
-              <div class="dropdown-options">
-                <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
-                <label class="filter-label">Từ 5tr - 10tr</label>
-              </div>
-              <div class="dropdown-options">
-                <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
-                <label class="filter-label">Từ 10tr - 15tr</label>
-              </div>
-              <div class="dropdown-options">
-                <input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
-                <label class="filter-label">Từ 15tr - 20tr</label>
-              </div>
-              <div class="dropdown-options">
-                <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
-                <label class="filter-label">Trên 20 triệu</label>
-              </div>
-          </form>
-          <div class="filter-dropdown__button">
-            <button class="btn btn--outlined pri" type="submit">Hủy bộ lọc này</button>
-            <button class="btn btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
-          </div>
-        </div>
-      </div>
+	<main class="seacrh-result__container">
+		<section class="seacrh-result__filter">
+			<div class="seacrh-result__filter-normal">
+				<p class="seacrh-result__filter-normal__title">Bộ lọc:</p>
+				<div class="seacrh-result__filter-normal__content">
+					<p>Giá</p>
+					<span class="material-symbols-outlined dropdown-button">expand_more</span>
+					<form action="/search/results" method="GET" class="dropdown-content">
+						<div class="filter-list">
+							<div class="dropdown-options">
+								<input class="filter-option" type="radio" id="less-than-5m" name="less-than-5m" value="" />
+								<label class="filter-label">Dưới 5 triệu</label>
+							</div>
+							<div class="dropdown-options">
+								<input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
+								<label class="filter-label">Từ 5tr - 10tr</label>
+							</div>
+							<div class="dropdown-options">
+								<input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
+								<label class="filter-label">Từ 10tr - 15tr</label>
+							</div>
+							<div class="dropdown-options">
+								<input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
+								<label class="filter-label">Từ 15tr - 20tr</label>
+							</div>
+							<div class="dropdown-options">
+								<input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
+								<label class="filter-label">Trên 20 triệu</label>
+							</div>
+					</form>
+					<div class="filter-dropdown__button">
+						<button class="btn btn--outlined pri" type="submit">Hủy bộ lọc này</button>
+						<button class="btn btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
+					</div>
+				</div>
+			</div>
 
-      <div class="seacrh-result__filter-normal__content">
-        <p>Phân loại</p>
-        <span class="material-symbols-outlined dropdown-button">expand_more</span>
-        <div class="dropdown-content">
-          <div class="filter-list">
-            <a href="#" class="dropdown-options">
-              <input class="filter-option" type="radio" id="" name="" value="" />
-              <label for="" class="filter-label">Phân loại 1</label>
-            </a>
-            <a href="#" class="dropdown-options">
-              <input class="filter-option" type="radio" id="" name="" value="" />
-              <label for="" class="filter-label">Phân loại 2</label>
-            </a>
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="" name="" value="" />
-              <label for="" class="filter-label">Phân loại 3</label>
-            </div>
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="" name="" value="" />
-              <label for="" class="filter-label">Phân loại 4</label>
-            </div>
-            <!-- <div class="dropdown-options">
+			<div class="seacrh-result__filter-normal__content">
+				<p>Phân loại</p>
+				<span class="material-symbols-outlined dropdown-button">expand_more</span>
+				<div class="dropdown-content">
+					<div class="filter-list">
+						<a href="#" class="dropdown-options">
+							<input class="filter-option" type="radio" id="" name="" value="" />
+							<label for="" class="filter-label">Phân loại 1</label>
+						</a>
+						<a href="#" class="dropdown-options">
+							<input class="filter-option" type="radio" id="" name="" value="" />
+							<label for="" class="filter-label">Phân loại 2</label>
+						</a>
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="" name="" value="" />
+							<label for="" class="filter-label">Phân loại 3</label>
+						</div>
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="" name="" value="" />
+							<label for="" class="filter-label">Phân loại 4</label>
+						</div>
+						<!-- <div class="dropdown-options">
                                 <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
                                 <label for="greater-than-20m" class="filter-label">Trên 20 triệu</label>
                             </div> -->
-          </div>
-          <div class="filter-dropdown__button">
-            <button class="btn btn--outlined pri" type="submit">Hủy bộ lọc này</button>
-            <button class="btn btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
-          </div>
-        </div>
-      </div>
-      <div class="seacrh-result__filter-normal__content">
-        <p>Tiện ích</p>
-        <span class="material-symbols-outlined dropdown-button">expand_more</span>
-        <div class="dropdown-content">
-          <div class="filter-list">
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
-              <label for="" class="filter-label">Tiện ích 1</label>
-            </div>
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
-              <label for="" class="filter-label">Tiện ích 2</label>
-            </div>
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
-              <label for="" class="filter-label">Tiện ích 3</label>
-            </div>
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
-              <label for="" class="filter-label">Tiện ích 4</label>
-            </div>
-            <div class="dropdown-options">
-              <input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
-              <label for="" class="filter-label">Tiện ích 5</label>
-            </div>
-          </div>
-          <div class="filter-dropdown__button">
-            <button class="btn btn--outlined pri" type="submit">Hủy bộ lọc này</button>
-            <button class="btn btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="seacrh-result__filter-brand">
-        <p class="seacrh-result__filter-brand__title">Thương hiệu:</p>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/LG.png" alt="LG">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/panasonic.png" alt="Panasonic">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/samsung.png" alt="Samsung">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/toshiba.png" alt="Toshiba">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/sharp.png" alt="Sharp">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/aqua.png" alt="Aqua">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/casper.png" alt="Casper">
-        </div>
-        <div class="seacrh-result__filter-brand__content">
-          <img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/electrolux.png" alt="Electrolux">
-        </div>
-      </div>
-    </section>
-    <section class="seacrh-result__main">
-      <div class="seacrh-result__main__heading">
-        <p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight">118</span> kết quả cho từ khóa "<span class="seacrh-result__key">máy lạnh</span>"</p>
-        <div class="seacrh-result__form-check">
-          <input type="checkbox" class="form-check-input" value="something">
-          <label class="form-check-label">Giảm giá</label>
-        </div>
-        <div class="seacrh-result__form-check">
-          <input type="checkbox" class="form-check-input" value="something">
-          <label class="form-check-label">Trả góp 0% - 1%</label>
-        </div>
-        <div class="seacrh-result__sort">
-          <p class="seacrh-result__sort-title">Sắp xếp theo:</p>
-          <div class="seacrh-result__sort-content">
-            <p>Nổi bật</p>
-            <span class="material-symbols-outlined">expand_more</span>
-          </div>
-          <div class="dropdown-content--sort">
-            <div class="dropdown-options">
-              <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
-              <label for="hot" class="sort-label">Nổi bật</label>
-            </div>
-            <hr />
-            <div class="dropdown-options">
-              <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
-              <label for="hot" class="sort-label">Bán chạy</label>
-            </div>
-            <hr />
-            <div class="dropdown-options">
-              <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
-              <label for="hot" class="sort-label">Giá cao đến thấp</label>
-            </div>
-            <hr />
-            <div class="dropdown-options">
-              <input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
-              <label for="hot" class="sort-label">Giá thấp đến cao</label>
-            </div>
-          </div>
-        </div>
-      </div>
+					</div>
+					<div class="filter-dropdown__button">
+						<button class="btn btn--outlined pri" type="submit">Hủy bộ lọc này</button>
+						<button class="btn btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
+					</div>
+				</div>
+			</div>
+			<div class="seacrh-result__filter-normal__content">
+				<p>Tiện ích</p>
+				<span class="material-symbols-outlined dropdown-button">expand_more</span>
+				<div class="dropdown-content">
+					<div class="filter-list">
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m" />
+							<label for="" class="filter-label">Tiện ích 1</label>
+						</div>
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
+							<label for="" class="filter-label">Tiện ích 2</label>
+						</div>
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
+							<label for="" class="filter-label">Tiện ích 3</label>
+						</div>
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
+							<label for="" class="filter-label">Tiện ích 4</label>
+						</div>
+						<div class="dropdown-options">
+							<input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
+							<label for="" class="filter-label">Tiện ích 5</label>
+						</div>
+					</div>
+					<div class="filter-dropdown__button">
+						<button class="btn btn--outlined pri" type="submit">Hủy bộ lọc này</button>
+						<button class="btn btn--filled pri" type="submit">Xem <strong>13</strong> sản phẩm</button>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="seacrh-result__filter-brand">
+				<p class="seacrh-result__filter-brand__title">Thương hiệu:</p>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/LG.png" alt="LG">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/panasonic.png" alt="Panasonic">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/samsung.png" alt="Samsung">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/toshiba.png" alt="Toshiba">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/sharp.png" alt="Sharp">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/aqua.png" alt="Aqua">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/casper.png" alt="Casper">
+				</div>
+				<div class="seacrh-result__filter-brand__content">
+					<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/electrolux.png" alt="Electrolux">
+				</div>
+			</div>
+		</section>
+		<section class="seacrh-result__main">
+			<div class="seacrh-result__main__heading">
+				<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight">118</span> kết quả cho từ khóa "<span class="seacrh-result__key">máy lạnh</span>"</p>
+				<div class="seacrh-result__form-check">
+					<input type="checkbox" class="form-check-input" value="something">
+					<label class="form-check-label">Giảm giá</label>
+				</div>
+				<div class="seacrh-result__form-check">
+					<input type="checkbox" class="form-check-input" value="something">
+					<label class="form-check-label">Trả góp 0% - 1%</label>
+				</div>
+				<div class="seacrh-result__sort">
+					<p class="seacrh-result__sort-title">Sắp xếp theo:</p>
+					<div class="seacrh-result__sort-content">
+						<p>Nổi bật</p>
+						<span class="material-symbols-outlined">expand_more</span>
+					</div>
+					<div class="dropdown-content--sort">
+						<div class="dropdown-options">
+							<input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+							<label for="hot" class="sort-label">Nổi bật</label>
+						</div>
+						<hr />
+						<div class="dropdown-options">
+							<input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+							<label for="hot" class="sort-label">Bán chạy</label>
+						</div>
+						<hr />
+						<div class="dropdown-options">
+							<input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+							<label for="hot" class="sort-label">Giá cao đến thấp</label>
+						</div>
+						<hr />
+						<div class="dropdown-options">
+							<input class="sort-option" type="radio" id="hot" name="sort" value="hot" />
+							<label for="hot" class="sort-label">Giá thấp đến cao</label>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <div class="seacrh-result__heading--disable">
-        <div class="seacrh-result__sort--disable">
-            <p class="seacrh-result__sort--disable">Nổi bật</p>
-            <hr />
-        </div>
-        
-        <p class="seacrh-result__sort--disable">Bán chạy</p>
-        <p class="seacrh-result__sort--disable">Giá <span class="material-symbols-outlined">swap_vert</span> </p>
-        <span class="material-symbols-outlined">filter_alt</span>
-      </div>
-      <div class="seacrh-result__form-check-disable__group">
-        <div class="seacrh-result__form-check-disable">
-          <input type="checkbox" class="form-check-input" value="something">
-          <label class="form-check-label">Giảm giá</label>
-        </div>
-        <div class="seacrh-result__form-check-disable">
-          <input type="checkbox" class="form-check-input" value="something">
-          <label class="form-check-label">Trả góp 0% - 1%</label>
-        </div>
-      </div>
+			<div class="seacrh-result__heading--disable">
+				<div class="seacrh-result__sort--disable">
+					<p class="seacrh-result__sort--disable">Nổi bật</p>
+					<hr />
+				</div>
 
-      <div class="seacrh-result__main-card">
-        <%- include('../../components/product-card') %>
-        <%- include('../../components/product-card') %>
-        <%- include('../../components/product-card') %>
-        <%- include('../../components/product-card') %>
-        <%- include('../../components/product-card') %>
-        <%- include('../../components/product-card') %>
-      </div>
-    </section>
-  </main>
+				<p class="seacrh-result__sort--disable">Bán chạy</p>
+				<p class="seacrh-result__sort--disable">Giá <span class="material-symbols-outlined">swap_vert</span> </p>
+				<span class="material-symbols-outlined">filter_alt</span>
+			</div>
+			<div class="seacrh-result__form-check-disable__group">
+				<div class="seacrh-result__form-check-disable">
+					<input type="checkbox" class="form-check-input" value="something">
+					<label class="form-check-label">Giảm giá</label>
+				</div>
+				<div class="seacrh-result__form-check-disable">
+					<input type="checkbox" class="form-check-input" value="something">
+					<label class="form-check-label">Trả góp 0% - 1%</label>
+				</div>
+			</div>
 
-  <%- include('../../components/scrollup') %>
-  <%- include('../../partials/footer') %>
-  <%- include('../../partials/app-bar') %>
+			<% if (products.totalRow) { %>
+			<div class="seacrh-result__main-card">
+				<% products.products.forEach(product => { %>
+				<% console.log(product) %>
+				<%- include('../../components/product-card', {product: product}) %>
+				<% }) %>
+			</div>
+			<% } %>
+		</section>
+	</main>
 
-  <script src="/scripts/pages/search/results.js"></script>
-  <script src="/scripts/components/scrollup.js"></script>
+	<%- include('../../components/scrollup') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
+
+	<script src="/scripts/pages/search/results.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
 
 </body>
 

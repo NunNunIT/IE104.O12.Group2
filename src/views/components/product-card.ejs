@@ -1,26 +1,44 @@
-  <div class="product-card">
-    <a href="/search/1" class="product-card__block">
-      <div>
-        <div class="badge">-15%</div>
-        <div class="product-tumb">
-          <img src="/imgs/product-card/may-lanh-panasonic-inverter-1-hp.png" alt="Máy lạnh Panasonic Inverter 1 HP CU/CS-XU9ZKH-8">
-        </div>
-        <div class="product-details">
-          <span class="product-catagory"><%#searchResults.name%></span>
-          <div class="product-rate">
-            <span class="material-symbols-outlined">grade</span>
-            <span class="material-symbols-outlined">grade</span>
-            <span class="material-symbols-outlined">grade</span>
-            <span class="material-symbols-outlined">grade</span>
-            <span class="material-symbols-outlined">grade</span>
-          </div>
-          <h4>Máy lạnh Panasonic Inverter CU/CS-XU9ZKH-8</h4>
-          <p>Giảm thêm 500.000₫ và Quà 1.300.000₫</p>
-        </div>
-      </div>
+<div class="product-card">
+	<a class="carousel__card-main" href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+		<div>
+			<div class="badge">-15%</div>
+			<div class="product-tumb">
+				<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name ?? 'NaN' %>">
+			</div>
+			<div class="product-details">
+				<span class="product-catagory"><%= product.category_name ?? 'NaN'%></span>
+				<% if (product.product_rate) { %>
+				<div class="product-rate">
+					<!-- In ra số sao hiện có -->
+					<% const productRateInt = Math.floor(product.product_rate) %>
 
-      <div class="product-bottom-details">
-        <div class="product-price"><small>13.990.000đ</small>11.800.000đ</div>
-      </div>
-    </a>
-  </div>
+					<% for (let i = 0; i < productRateInt; i++) { %>
+					<span class="material-symbols-outlined">grade</span>
+					<% } %>
+
+					<!-- In ra số sao lẻ -->
+					<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+					<span class="material-symbols-outlined">star_half</span>
+					<% } else if (product.product_rate - productRateInt < 0.5) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+					<% } %>
+
+					<!-- In ra số sao trống -->
+					<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% } %>
+
+					<p>(<%= product.product_rate %>)</p>
+				</div>
+				<% } %>
+				<h4><%= product.product_name ?? 'NaN' %></h4>
+				<p><%= product.discount_description %></p>
+			</div>
+		</div>
+
+		<div class="product-bottom-details">
+			<div class="product-price"><small><%= product.product_variant_price_currency ?? 'NaN' %>đ</small><%= product.product_variant_price_after_discount ?? 'NaN' %>đ</div>
+		</div>
+	</a>
+
+</div>

@@ -1,6 +1,6 @@
 @import url('/styles/general.css');
 @import url('/styles/partials/breadcrumb.css');
-@import url('/styles/components/slider02.css');
+@import url('/styles/components/small-slider.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/pagination.css');
 @import url('/styles/components/scrollup.css');
@@ -328,6 +328,7 @@ body {
     height: 48px;
     background-color: var(--white);
     border: 1px solid var(--outline-gray);
+    border-radius: 8px;
 }
 
 .comments__pagination {

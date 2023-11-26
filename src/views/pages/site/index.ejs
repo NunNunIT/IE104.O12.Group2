@@ -2,81 +2,33 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-  <link rel="stylesheet" href="/styles/pages/site/index.css">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="stylesheet" href="/styles/pages/site/index.css">
 
-  <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
-  <%- include('../../partials/header') %>
-  <%- include('../../components/slider') %>
+	<%- include('../../partials/header') %>
+	<%- include('../../components/slider') %>
 
 	<main class="content-container">
 		<section class="cate">
 			<h2 class="cate__title">Danh mục sản phẩm</h2>
 			<div class="cate__content">
+				<% if (header.cates) { %>
 				<div class="cate__carousel" id="cateCarousel">
+					<% for(let i = 0; i < header.cates.length; i +=2) { %>
 					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
+						<%- include ('../../components/cate-item', { cate: header.cates[i] }) %>
+						<%- include ('../../components/cate-item', { cate: header.cates[i + 1] }) %>
 					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
-					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item') %>
-						<%- include ('../../components/cate-item') %>
-					</div>
+					<% } %>
 				</div>
+				<% } %>
 				<button type="button" class="cate__button" id="catePrev"><span class="material-symbols-outlined"> chevron_left </span></button>
 				<button type="button" class="cate__button" id="cateNext"><span class="material-symbols-outlined"> chevron_right </span></button>
 			</div>
@@ -84,80 +36,60 @@
 
 		<section class="outstanding-products">
 			<div class="outstanding-products__img"></div>
-			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay'}) %>
+			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: 'outstandingProduct=true' ,products: outstandingProducts}) %>
 		</section>
 
-		<section class="tip-products-wrapper">
+		<% if(newProducts) { %>
+		<section class="tip-products-wrapper new-products">
 			<div class="tip-products__img"></div>
-				<div class="tip-products">
+			<div class="tip-products">
 				<div class="tip-products__label">
 					<h2 class="tip-products__title">Hàng mới về</h2>
 					<div class="tip-products__seemore">
-						<a href="/search/result">Xem tất cả</a>
-						<span class="material-symbols-outlined">
-							chevron_right
-						</span>
+						<a href="/search/result?newProduct=true">Xem tất cả</a>
+						<span class="material-symbols-outlined"> chevron_right </span>
 					</div>
 				</div>
 				<div class="tip-products__content">
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-				</div>
-			</div>
-        </section>
-
-		<section class="tip-products-wrapper3">
-			<div class="tip-products__img3"></div>
-				<div class="tip-products">
-				<div class="tip-products__label">
-					<h2 class="tip-products__title">Hàng mới về</h2>
-					<div class="tip-products__seemore">
-						<a href="/search/result">Xem tất cả</a>
-						<span class="material-symbols-outlined">
-							chevron_right
-						</span>
-					</div>
-				</div>
-				<div class="tip-products__content">
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
-					<%- include('../../components/product-card') %>
+					<% newProducts.slice(0, 12).forEach(newProduct => { %>
+					<%- include('../../components/product-card', { product: newProduct }) %>
+					<% }) %>
 				</div>
 			</div>
 		</section>
+		<% } %>
+
+		<% if(discountProducts) { %>
+		<section class="tip-products-wrapper sale-products">
+			<div class="tip-products__img3"></div>
+			<div class="tip-products">
+				<div class="tip-products__label">
+					<h2 class="tip-products__title">Giá tốt, giá rẻ, mua ngay</h2>
+					<div class="tip-products__seemore">
+						<a href="/search/result?discountProduct=true">Xem tất cả</a>
+						<span class="material-symbols-outlined"> chevron_right </span>
+					</div>
+				</div>
+				<div class="tip-products__content">
+					<% discountProducts.slice(0, 12).forEach(discountProduct => { %>
+					<%- include('../../components/product-card', { product: discountProduct }) %>
+					<% }) %>
+				</div>
+			</div>
+		</section>
+		<% } %>
+
 	</main>
 
-  <%- include('../../components/scrollup') %>
-  <%- include('../../partials/footer') %>
-  <%- include('../../partials/app-bar') %>
+	<%- include('../../components/scrollup') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
 
-  <script src="/scripts/components/carousel.js"></script>
-  <script src="/scripts/components/slider.js"></script>
-  <script src="/scripts/components/scrollup.js"></script>
-  <script src="/scripts/pages/site/index.js"></script>
+	<script src="/scripts/components/carousel.js"></script>
+	<script src="/scripts/components/slider.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
+	<script src="/scripts/pages/site/index.js"></script>
+
 </body>
 
 </html>
