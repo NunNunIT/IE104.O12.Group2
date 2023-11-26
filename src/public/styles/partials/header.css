@@ -477,7 +477,7 @@
 
 .cate-dropdown__item {
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 4px 12px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -495,8 +495,8 @@
     width: 40px;
     height: 40px;
     padding: 4px;
+    box-shadow: inset 0px 0px 0px 2px var(--blue1);
     border-radius: 50%;
-    background-color: var(--bg-blue-o30);
     object-fit: contain;
 }
 
