@@ -10,11 +10,11 @@ const siteController = () => { }
 siteController.index = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
-    let cates = await index.getCates(req)
     let outstandingProducts = await index.getOutstandingProducts(req)
     let newProducts = await index.getNewProducts(req)
     let discountProducts = await index.getDiscountProducts(req)
 
+    console.log(header_user)
     res.render('./pages/site/index', {
         header: header,
         user: header_user,
