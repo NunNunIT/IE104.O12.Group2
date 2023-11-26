@@ -122,15 +122,14 @@ section {
 }
 
 .outstanding-products,
-.tip-products-wrapper,
-.tip-products-wrapper3 {
+.tip-products-wrapper {
     padding: 12px;
     border-radius: 4px;
     display: inherit;
     flex-direction: column;
 }
 
-.tip-products-wrapper {
+.tip-products-wrapper.new-products {
     /* background-color: var(--white); */
     background: #3398fb;
     background: -moz-linear-gradient(top, #3398fb 0%, var(--primary-color-2) 100%);
@@ -138,7 +137,7 @@ section {
     background: linear-gradient(to right, #3398fb 0%, var(--primary-color-2) 100%);
 }
 
-.tip-products__img {
+.tip-products-wrapper.new-products .tip-products__img {
     background-image: url("/imgs/banner/bannerNew.png");
     /* The image used */
     height: 100px;
@@ -150,27 +149,7 @@ section {
     /* Resize the background image to cover the entire container */
 }
 
-.tip-products-wrapper2 {
-    /* background-color: var(--white); */
-    background: #4400eb;
-    background: -moz-linear-gradient(left, #4400eb 0%, #44e7f5 100%);
-    background: -webkit-linear-gradient(left, #4400eb 0%, #44e7f5 100%);
-    background: linear-gradient(to right, #4400eb 0%, #44e7f5 100%) !important;
-}
-
-.tip-products__img2 {
-    background-image: url("/imgs/banner/bannerTechno.png");
-    /* The image used */
-    height: 220px;
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-    /* Resize the background image to cover the entire container */
-}
-
-.tip-products-wrapper3 {
+.tip-products-wrapper.sale-products {
     /* background-color: var(--white); */
     background: #FFA62E;
     background: -moz-linear-gradient(left, #FFA62E 0%, #EA4C2D 100%);

@@ -1,8 +1,8 @@
-const {promisify} = require('util')
+const { promisify } = require('util')
 
 const index = require('../../models/customer/index.model')
 
-const siteController = () => {}
+const siteController = () => { }
 
 // [GET] /
 siteController.index = async (req, res) => {
@@ -15,11 +15,11 @@ siteController.index = async (req, res) => {
         index.getOutstandingProducts(function (err, outstandingProducts) {
             index.getNewProducts(function (err, newProducts) {
                 index.getDiscountProducts(function (err, discountProducts) {
-                    // console.log(cate[0], outstandingProducts[0], newProducts[0], discountProducts[0])
+                    console.log(cate[0], outstandingProducts[0], newProducts[0], discountProducts[0])
                     res.render('./pages/site/index', {
                         user: (header) ? header : 0,
                         searchKey: req.query.searchKey ?? '',
-                        cate: cate,
+                        cates: cate,
                         outstandingProducts: outstandingProducts,
                         newProducts: newProducts,
                         discountProducts: discountProducts,
@@ -44,7 +44,7 @@ siteController.privacyPolicy = (req, res) => {
     })
 }
 
-siteController.error= (req, res) => {
+siteController.error = (req, res) => {
     res.render('./pages/site/404-error', {
         user: (req.user) ? req.user : 0
     })
