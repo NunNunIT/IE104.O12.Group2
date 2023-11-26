@@ -3,6 +3,7 @@ const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model')
+const product = require('../../models/customer/product.model')
 
 const index = function () {}
 
@@ -29,13 +30,7 @@ index.getOutstandingProducts = async (callback) => {
                 console.log(err)
                 resolve(0)
             } else {
-                outstandingProducts.forEach((product) => {
-                    product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-                    if (product.discount_amount) {
-                        product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-                        product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-                    }
-                })
+                outstandingProducts = index.productCurrencyFormat(outstandingProducts)
                 resolve(outstandingProducts)
             }
         })
@@ -51,13 +46,7 @@ index.getNewProducts = async (callback) => {
             console.log(err)
             resolve(0)
         } else {
-            newProducts.forEach((product) => {
-                product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-                if (product.discount_amount) {
-                    product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-                    product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-                }
-            })
+            newProducts = index.productCurrencyFormat(newProducts)
             resolve(newProducts)
         }
     })
@@ -73,25 +62,30 @@ index.getDiscountProducts = async (callback) => {
             console.log(err)
             resolve(0)
         } else {
-            discountProducts.forEach((product) => {
-                product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-                if (product.discount_amount) {
-                    product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-                    product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-                }
-            })
+            discountProducts = index.productCurrencyFormat(discountProducts)
             resolve(discountProducts)
         }
     })
     })
 }
 
+index.productCurrencyFormat = async (products) => {
+    products.forEach((product) => {
+        product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
+        if (product.discount_amount) {
+            product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
+            product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
+        }
+    })
+    return products
+}
 
-index.getSimilarProducts = async (req) => {
-    let params = req.query.category_id
-    console.log('category_id = ',params)
-    let getRowSQL = `SELECT COUNT(*) as total FROM view_products WHERE category_id = ${params}`
-    let getSimilarProducts = `SELECT * FROM view_products WHERE category_id = ${params}`
+
+index.getCateProducts = async (req, limit) => {
+    let category_id = await product.getCategoryId(req)
+
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_products WHERE category_id = ${category_id}`
+    let getCateProducts = `SELECT * FROM view_products WHERE category_id = ${category_id}`
     
 
     let searchKey = req.query.searchKey
@@ -104,7 +98,6 @@ index.getSimilarProducts = async (req) => {
     console.log ('rowData', rowData)
     let totalRow = rowData[0].total
 
-    let limit = 24
     // tính số trang thực tế sẽ có
     let totalPage = totalRow > 0 ? Math.ceil(totalRow / limit) : 1
     // Kiểm tra đảm bảo rằng page là số nguyên hợp lệ từ 1 đến totalPage
@@ -114,19 +107,13 @@ index.getSimilarProducts = async (req) => {
     let start = (page - 1) * limit
 
     return new Promise((resolve, reject) => {
-        db.query(getSimilarProducts, (err, similarProducts) => {
+        db.query(getCateProducts, (err, cateProducts) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                similarProducts.forEach((product) => {
-                    product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-                    if (product.discount_amount) {
-                        product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-                        product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-                    }
-                })
-                resolve(similarProducts, totalRow, totalPage, page, searchKey, limit)
+                cateProducts = index.productCurrencyFormat(cateProducts)
+                resolve(cateProducts, totalRow, totalPage, page, searchKey, limit)
             }
         })
     })
@@ -175,13 +162,7 @@ index.getDetailCart = async (req) => {
                 console.log(err);
                 resolve(0);
             } else {
-                detailCart.forEach((product) => {
-                    product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-                    if (product.discount_amount) {
-                        product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-                        product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-                    }
-                })
+                detailCart = index.productCurrencyFormat(detailCart)
                 resolve(detailCart);
             }
         });

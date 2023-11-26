@@ -205,9 +205,9 @@
 			</div>
 		</section>
 	</main>
-	<% if (!similarProducts) {} else { %>
+	<% if (!cateProducts) {} else { %>
 	<div class="similar-products">
-		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `category_id=${productInfo.category_id}`, products: similarProducts}) %>
+		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `category_id=${productInfo.category_id}`, products: cateProducts}) %>
 	</div>
 	<% } %>
 

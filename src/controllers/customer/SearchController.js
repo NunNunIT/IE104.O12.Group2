@@ -9,7 +9,7 @@ searchController.results = async (req, res) => {
     let header = await index.header(req)
     let header_user = await index.header_user(req)
 
-    let products = await search.findProducts(req)
+    let products = await search.findProducts(req, 24)
 
     console.log({
         header: header,
@@ -30,15 +30,19 @@ searchController.detail = async (req, res) => {
     let header_user = await index.header_user(req)
 
     let productInfo = await product.getProductInfo(req)
+    let productImgs = await product.getProductImgs(req)
     let productDetails = await product.getProductDetails(req)
-    let similarProducts = await index.getSimilarProducts(req)
+    let productFeedbacks = await product.getProductFeedbacks(req)
+    let cateProducts = await index.getCateProducts(req, 8)
 
     res.render('./pages/search/detail', {
         user: header_user,
         header: header,
         productInfo: productInfo,
+        productImgs: productImgs,
         productDetails: productDetails,
-        similarProducts: similarProducts,
+        productFeedbacks: productFeedbacks,
+        cateProducts: cateProducts,
     })
 }
 
