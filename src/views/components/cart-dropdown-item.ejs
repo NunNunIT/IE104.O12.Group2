@@ -1,9 +1,9 @@
 <div class="cart-dropdown__block">
-  <a href="http://127.0.0.1:3000/search/:productID" class="cart-dropdown__main">
-    <img src="/imgs/smartTV.png" alt="img" class="cart-dropdown__img">
-    <div class="noti-dropdown__content">
-      <span>Smart Tivi QLED 4K 55 inch Samsung QA55Q65A</span>
-      <span class="highlight">11.800.000đ</span>
-    </div>
-  </a>
+	<a href="http://127.0.0.1:3000/search/<%= cart.product_variant_id %>?product_name=<%= cart.product_name %>&category_id=<%= cart.category_id %>&category_name=<%= cart.category_name %>" class="cart-dropdown__main">
+		<img class="cart-dropdown__img" src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name ?? 'NaN' %>">
+		<div class="noti-dropdown__content">
+			<span><%= cart.product_name ?? 'NaN' %></span>
+			<span class="highlight"><%= cart.product_variant_price_currency ?? 'NaN'%>đ</span>
+		</div>
+	</a>
 </div>

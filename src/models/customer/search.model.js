@@ -4,16 +4,16 @@ const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model')
 
-const search = function () {}
+const search = function () { }
 
 search.findProducts = async (req, callback) => {
     // lấy từ khóa searchKey=?
     const searchKey = req.query.searchKey ?? 0
     const category_id = req.query.category ?? 0
 
-    let getRowSQL = `SELECT COUNT(*) as total FROM products`
-    let getProductsSQL = `SELECT * FROM products`
-    
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_products`
+    let getProductsSQL = `SELECT * FROM view_products`
+
     if (searchKey || category_id) {
         getRowSQL += ` WHERE`
         getProductsSQL += ` WHERE`
@@ -51,7 +51,7 @@ search.findProducts = async (req, callback) => {
                 console.error(err);
                 resolve(0)
             }
-            let productList = {products, totalRow, totalPage, page, limit}
+            let productList = { products, totalRow, totalPage, page, limit }
             resolve(productList)
         })
     })

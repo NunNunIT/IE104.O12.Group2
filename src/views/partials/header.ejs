@@ -106,10 +106,10 @@
 						<% if (user.countCart) { %>
 						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
 						<% for (let i = 0; i < l; i++) { %>
-						<%- include('../components/cart-dropdown-item') %>
+						<%- include('../components/cart-dropdown-item', {cart: user.detailCarts[i]}) %>
 						<% } %>
-						<% } else {%>
-						Giỏ hàng bạn trống
+						<% } else { %>
+						<p>Giỏ hàng bạn trống</p>
 						<% } %>
 						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>

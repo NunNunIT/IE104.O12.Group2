@@ -19,12 +19,12 @@
 		<section class="cate">
 			<h2 class="cate__title">Danh mục sản phẩm</h2>
 			<div class="cate__content">
-				<% if (cates) { %>
+				<% if (header.cates) { %>
 				<div class="cate__carousel" id="cateCarousel">
-					<% for(let i = 0; i < cates.length; i +=2) { %>
+					<% for(let i = 0; i < header.cates.length; i +=2) { %>
 					<div class="cate__carousel-col">
-						<%- include ('../../components/cate-item', { cate: cates[i] }) %>
-						<%- include ('../../components/cate-item', { cate: cates[i + 1] }) %>
+						<%- include ('../../components/cate-item', { cate: header.cates[i] }) %>
+						<%- include ('../../components/cate-item', { cate: header.cates[i + 1] }) %>
 					</div>
 					<% } %>
 				</div>
@@ -67,9 +67,7 @@
 					<h2 class="tip-products__title">Giá tốt, giá rẻ, mua ngay</h2>
 					<div class="tip-products__seemore">
 						<a href="/search/result?discountProduct=true">Xem tất cả</a>
-						<span class="material-symbols-outlined">
-							chevron_right
-						</span>
+						<span class="material-symbols-outlined"> chevron_right </span>
 					</div>
 				</div>
 				<div class="tip-products__content">
