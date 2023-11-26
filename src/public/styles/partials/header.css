@@ -262,21 +262,22 @@ img.dropdown-noti__img--empty {
     border-radius: 8px 0 0 8px;
     display: flex;
     justify-content: space-between;
-    margin-left: 5%;
+    margin-left: 7%;
+    margin-right: 8%;
     border: none;
-    border: var(--outline-gray) 2px solid;
     border-right: none;
     align-items: center;
 }
 
 .header__search-btn {
-    width: 8%;
+    width: 12%;
     height: 100%;
     border-radius: 0 8px 8px 0;
     background-color: var(--primary-color-1);
     margin-right: 6%;
     border: none;
-    margin-left: -4px;
+    margin-left: -3px;
+    margin-right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,13 +289,14 @@ img.dropdown-noti__img--empty {
 
 
 .header__search-bar input {
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
+    width: calc(100%);
+    height: calc(100%);
     text-indent: 16px;
     outline-color: var(--primary-color-1);
     border-radius: 8px 0 0 8px;
     border: none;
     background-color: transparent;
+    border: var(--outline-gray) 2px solid;
 }
 
 
@@ -748,6 +750,10 @@ img.dropdown-cart__img--empty {
     .dropdown-noti__content-container {
         margin-left: -270px;
     }
+
+    .header__search-btn {
+        width: 20%;
+    }
 }
 
 /* 768px - Tablet */
@@ -778,22 +784,17 @@ img.dropdown-cart__img--empty {
         height: 90%;
         border-radius: 8px 0 0 8px;
         margin-left: 5%;
-        border: 1px solid var(--outline-gray);
-    }
-
-    .header__search-bar input {
-        text-indent: 8px;
-        height: calc(90% + 4px);
     }
 
     .header__search-btn {
-        width: 12%;
-        height: 90%;
-        border-radius: 0 8px 8px 0;
-        margin-right: 5%;
+        width: 18%;
     }
 
     .header__main .material-symbols-outlined {
+        font-size: 2rem;
+    }
+
+    .header__main .header__search-btn .material-symbols-outlined {
         font-size: 1.5rem;
     }
 
@@ -952,11 +953,15 @@ img.dropdown-cart__img--empty {
         width: 90%;
         height: 75%;
         margin-left: 0;
+        margin-right: 0;
     }
 
     .header__search-btn {
         width: 20%;
-        height: 75%;
+    }
+
+    .header__main .header__search-btn .material-symbols-outlined {
+        font-size: 1.25rem;
     }
 
     .header__support-info {

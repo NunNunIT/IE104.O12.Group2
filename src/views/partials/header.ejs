@@ -162,22 +162,20 @@
 						<%- include('../components/cart-dropdown-item', {cart: user.detailCarts[i]}) %>
 						<% } %>
 						<% } else { %>
-						<p>Giỏ hàng bạn trống</p>
+						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
+						<div class="dropdown-cart__content">
+							<div class="dropdown-cart--empty">
+								<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
+								<span class="empty-content__cart">Giỏ hàng trống</span>
+							</div>
+						</div>
+						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 						<% } %>
 						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>
 						</a>
 					</div>
 					<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập -->
-
-					<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
-					<!-- <div class="dropdown-cart__content">
-						<div class="dropdown-cart--empty">
-							<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
-							<span class="empty-content__cart">Giỏ hàng trống</span>
-						</div>
-					</div> -->
-					<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 					<% } %>
 				</div>
 			</div>
