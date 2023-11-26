@@ -1,4 +1,7 @@
-const db = require('../../config/db/connect')
+const db = require('../../config/db/connect');
+const util = require('node:util')
+const jwt = require('jsonwebtoken')
+const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model')
 
 const index = function () {}
@@ -75,6 +78,53 @@ index.getDiscountProducts = function (callback) {
     })
 }
 
+index.getProductDetail = async (req, callback) => {
+    let params = req.params.product_variant_id
+    let getProductDetail = `SELECT * FROM view_products WHERE product_variant_id = ${params}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getProductDetail, (err, productDetail) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                productDetail.forEach((product) => {
+                    product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
+                    if (product.discount_amount) {
+                        product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
+                        product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
+                    }
+                })
+                resolve(productDetail)
+            }
+        })
+    })
+}
+
+index.getSimilarProducts = function (req) {
+    let params = req.query.category_id
+    let getSimilarProducts = `SELECT * FROM view_products WHERE category_id = ${params}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getSimilarProducts, (err, similarProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                similarProducts.forEach((product) => {
+                    product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
+                    if (product.discount_amount) {
+                        product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
+                        product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
+                    }
+                })
+                resolve(similarProducts)
+            }
+        })
+    })
+}
+
+
 index.getCountCart = async (req) => {
     let getCountCart = "SELECT * FROM view_count_cart WHERE user_id = ?";
     const param = req.user.user_id;
@@ -135,7 +185,11 @@ index.header = async (req) => {
     let countCart = await index.getCountCart(req)
     let detailCarts = await index.getDetailCart(req)
     // console.log(user, countCart, detailCart)
-    let headers = {user, countCart, detailCarts}
+    let headers = {
+        user,
+        countCart,
+        detailCarts
+    }
     return (headers);
 }
 

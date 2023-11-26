@@ -9,7 +9,7 @@ searchController.results = async (req, res) => {
     if (req.user) {
         header = await index.header(req)
     }
-    search.findProducts(req, function(products, totalRow, totalPage, page, searchKey, limit ) {
+    search.findProducts(req, function (products, totalRow, totalPage, page, searchKey, limit) {
         res.status(200).render('./pages/search/results', {
             user: (header) ? header : 0,
             products: products,
@@ -29,10 +29,15 @@ searchController.detail = async (req, res) => {
         header = await index.header(req)
     }
 
+    let productDetail = await index.getProductDetail(req)
+    let similarProducts = await index.getSimilarProducts(req)
+    
     res.render('./pages/search/detail', {
         user: (header) ? header : 0,
+        searchKey: req.query.searchKey ?? '',
+        productDetail: productDetail,
+        similarProducts: similarProducts,
     })
-    
 }
 
 
