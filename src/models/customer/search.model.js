@@ -3,7 +3,7 @@ const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model');
-const { index } = require('../../controllers/customer/SiteController');
+const index = require('../../models/customer/index.model')
 
 const search = function () { }
 
@@ -40,32 +40,23 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
                 console.error(err);
                 resolve(0)
             }
-
+            products = index.productCurrencyFormat(products)
             let productList = { products, totalRow, totalPage, page, limit }
             resolve(productList)
         })
     })
 }
 
-search.findProductsBySearchKey = async (req, callback) => {
+search.findProductsByCateId = async (req, callback) => {
     // lấy từ khóa searchKey=?
-    const searchKey = req.query.searchKey ?? 0
-    const category_id = req.query.category ?? 0
+    const category_id = req.query.category_id ?? 0
 
     let getRowSQL = `SELECT COUNT(*) as total FROM view_products`
     let getProductsSQL = `SELECT * FROM view_products`
 
-    if (searchKey || category_id) {
-        getRowSQL += ` WHERE`
-        getProductsSQL += ` WHERE`
-    }
-
-    if (searchKey && category_id == 0) {
-        getProductsSQL += ` product_name LIKE '%` + searchKey + `%'`
-        getRowSQL += ` product_name LIKE '%` + searchKey + `%'`
-    } else if (searchKey == 0 && category_id == 0) {
-        getProductsSQL += ` category_id = ${params} `
-        getRowSQL += ` category_id = ${params}`
+    if (category_id) {
+        getProductsSQL += ` WHERE category_id = ${category_id} `
+        getRowSQL += ` WHERE category_id = ${category_id}`
     }
 
     // lấy trạng hiện tại page=?
@@ -90,6 +81,7 @@ search.findProductsBySearchKey = async (req, callback) => {
                 console.error(err);
                 resolve(0)
             }
+            products = index.productCurrencyFormat(products)
             let productList = { products, totalRow, totalPage, page, limit }
             resolve(productList)
         })

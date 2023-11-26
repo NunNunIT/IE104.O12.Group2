@@ -166,4 +166,4 @@ FROM
 LEFT JOIN feedbacks ON product_variants.product_variant_id = feedbacks.product_variant_id
 LEFT JOIN feedback_imgs ON feedbacks.feedback_id = feedback_imgs.feedback_id
 WHERE
-    feedbacks.feedback_is_display = 1
+    feedbacks.feedback_is_display = 1;

@@ -37,7 +37,13 @@
 		</div>
 
 		<div class="product-bottom-details">
-			<div class="product-price"><small><%= product.product_variant_price_currency ?? 'NaN' %>đ</small><%= product.product_variant_price_after_discount ?? 'NaN' %>đ</div>
+			<div class="product-price">
+				<% if (product.discount_amount) { %>
+					<small><%= product.product_variant_price_currency %>đ</small><%= product.product_variant_price_after_discount_currency %>đ
+					<% } else { %>
+					<%= product.product_variant_price_currency %>đ
+				<% } %>
+			</div>
 		</div>
 	</a>
 

@@ -36,7 +36,7 @@
 
 		<section class="outstanding-products">
 			<div class="outstanding-products__img"></div>
-			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: 'outstandingProduct=true' ,products: outstandingProducts}) %>
+			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: 'outstandingProduct=true' , products: outstandingProducts}) %>
 		</section>
 
 		<% if(newProducts) { %>
@@ -52,7 +52,6 @@
 				</div>
 				<div class="tip-products__content">
 					<% newProducts.slice(0, 12).forEach(newProduct => { %>
-					<% console.log(newProduct) %>
 					<%- include('../../components/product-card', { product: newProduct }) %>
 					<% }) %>
 				</div>
