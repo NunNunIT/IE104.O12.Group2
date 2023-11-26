@@ -6,45 +6,50 @@ const general = require('../../models/general.model')
 
 const index = function () {}
 
-index.getCate = function (callback) {
+index.getCates = async (callback) => {
     let getCate = "SELECT * FROM categories"
-    return db.query(getCate, (err, cate) => {
-        if (err) {
-            console.log(err)
-            return callback(1, 0)
-        } else {
-            return callback(0, cate)
-        }
+    return new Promise((resolve, reject) => {
+        return db.query(getCate, (err, cates) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(cates)
+            }
+        })
     })
 }
 
-index.getOutstandingProducts = function (callback) {
+index.getOutstandingProducts = async (callback) => {
     let getOutstandingProducts = "SELECT * FROM view_products ORDER BY product_view_count DESC LIMIT 0, 7"
 
-    db.query(getOutstandingProducts, (err, outstandingProducts) => {
-        if (err) {
-            console.log(err)
-            callback(1, 0)
-        } else {
-            outstandingProducts.forEach((product) => {
-                product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-                if (product.discount_amount) {
-                    product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-                    product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-                }
-            })
-            callback(0, outstandingProducts)
-        }
+    return new Promise((resolve, reject) => {
+        db.query(getOutstandingProducts, (err, outstandingProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                outstandingProducts.forEach((product) => {
+                    product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
+                    if (product.discount_amount) {
+                        product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
+                        product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
+                    }
+                })
+                resolve(outstandingProducts)
+            }
+        })
     })
 }
 
-index.getNewProducts = function (callback) {
+index.getNewProducts = async (callback) => {
     let getNewProducts = "SELECT * FROM view_new_products ORDER BY product_lastdate_added DESC"
 
+    return new Promise((resolve, reject) => {
     db.query(getNewProducts, (err, newProducts) => {
         if (err) {
             console.log(err)
-            callback(1, 0)
+            resolve(0)
         } else {
             newProducts.forEach((product) => {
                 product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
@@ -53,18 +58,20 @@ index.getNewProducts = function (callback) {
                     product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
                 }
             })
-            callback(0, newProducts)
+            resolve(newProducts)
         }
+    })
     })
 }
 
-index.getDiscountProducts = function (callback) {
+index.getDiscountProducts = async (callback) => {
     let getDiscountProducts = "SELECT * FROM view_products ORDER BY discount_amount DESC"
 
+    return new Promise((resolve, reject) => {
     db.query(getDiscountProducts, (err, discountProducts) => {
         if (err) {
             console.log(err)
-            callback(1, 0)
+            resolve(0)
         } else {
             discountProducts.forEach((product) => {
                 product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
@@ -73,8 +80,9 @@ index.getDiscountProducts = function (callback) {
                     product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
                 }
             })
-            callback(0, discountProducts)
+            resolve(discountProducts)
         }
+    })
     })
 }
 
@@ -101,7 +109,7 @@ index.getProductDetail = async (req, callback) => {
     })
 }
 
-index.getSimilarProducts = function (req) {
+index.getSimilarProducts = async (req) => {
     let params = req.query.category_id
     let getSimilarProducts = `SELECT * FROM view_products WHERE category_id = ${params}`
 
@@ -181,16 +189,20 @@ index.getDetailCart = async (req) => {
 };
 
 index.header = async (req) => {
-    let user = req.user
-    let countCart = await index.getCountCart(req)
-    let detailCarts = await index.getDetailCart(req)
-    // console.log(user, countCart, detailCart)
-    let headers = {
-        user,
-        countCart,
-        detailCarts
+    if (req.user) {
+        let user = req.user
+        let countCart = await index.getCountCart(req)
+        let detailCarts = await index.getDetailCart(req)
+        // console.log(user, countCart, detailCart)
+        let headers = {
+            user,
+            countCart,
+            detailCarts
+        }
+        return (headers);
+    } else {
+        return 0
     }
-    return (headers);
 }
 
 module.exports = index

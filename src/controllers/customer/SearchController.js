@@ -5,13 +5,13 @@ const searchController = () => {}
 
 // [GET] /search/results
 searchController.results = async (req, res) => {
-    let header;
-    if (req.user) {
-        header = await index.header(req)
-    }
+    let header = await index.header(req)
+    let cates = await index.getCates(req)
+
     search.findProducts(req, function (products, totalRow, totalPage, page, searchKey, limit) {
         res.status(200).render('./pages/search/results', {
-            user: (header) ? header : 0,
+            user: header,
+            cates: cates,
             products: products,
             totalRow: totalRow,
             totalPage: totalPage,
@@ -24,16 +24,15 @@ searchController.results = async (req, res) => {
 
 // [GET] /search/:productId
 searchController.detail = async (req, res) => {
-    let header;
-    if (req.user) {
-        header = await index.header(req)
-    }
-
+    let header = await index.header(req)
+    let cates = await index.getCates(req)
+    
     let productDetail = await index.getProductDetail(req)
     let similarProducts = await index.getSimilarProducts(req)
     
     res.render('./pages/search/detail', {
-        user: (header) ? header : 0,
+        user: header,
+        cates: cates,
         searchKey: req.query.searchKey ?? '',
         productDetail: productDetail,
         similarProducts: similarProducts,
