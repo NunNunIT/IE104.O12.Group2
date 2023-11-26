@@ -66,6 +66,13 @@ function changeQuantity(event) {
         input.value = input.min
 }
 
+// Open cart success modal
+const addCartBtn = document.querySelector('.detail__add-btn')
+addCartBtn.addEventListener('click', () => {
+    const cartSuccessModal = document.querySelector('.success-modal')
+    cartSuccessModal.style.display = 'flex'
+})
+
 // Run
 const commentImages = document.querySelectorAll('.comment__pictures img')
 commentImages.forEach(image => image.addEventListener('click', openImageModal))

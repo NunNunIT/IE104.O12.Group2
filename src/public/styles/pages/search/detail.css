@@ -6,6 +6,7 @@
 @import url('/styles/components/scrollup.css');
 @import url('/styles/components/carousel.css');
 @import url('/styles/components/image-modal.css');
+@import url('/styles/components/success-modal.css');
 
 body {
     width: 100vw;
@@ -229,6 +230,7 @@ input::-webkit-inner-spin-button {
 }
 
 .detail__buy-btn {
+    cursor: pointer;
     width: 50%;
     height: 48px;
     box-sizing: border-box;
@@ -242,6 +244,7 @@ input::-webkit-inner-spin-button {
 }
 
 .detail__add-btn {
+    cursor: pointer;
     width: 50%;
     height: 48px;
     box-sizing: border-box;
@@ -252,6 +255,11 @@ input::-webkit-inner-spin-button {
     text-align: center;
     color: var(--white);
     font-weight: 600;
+}
+
+.detail__buy-btn:hover,
+.detail__add-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .promo__contact {

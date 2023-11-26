@@ -135,7 +135,7 @@
 								<li>Nhập mã MMSALE100 giảm ngay 1% tối đa 100.000đ khi thanh toán qua MOMO</li>
 							</ol>
 							<div>
-								<button class="detail__add-btn">Thêm giỏ hàng</button>
+								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
 								<button type="submit" class="detail__buy-btn">MUA NGAY</button>
 							</div>
 							<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
@@ -226,16 +226,18 @@
 	</div>
 	<% } %>
 
+	<%- include('../../components/success-modal', { action: 'Thêm vào giỏ hàng' }) %>
 	<%- include('../../components/image-modal') %>
 	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-	<script src="/scripts/components/scrollup.js"></script>
-	<script src="/scripts/components/carousel.js"></script>
 	<script src="/scripts/pages/search/detail.js"></script>
+	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/components/small-slider.js"></script>
 	<script src="/scripts/components/image-modal.js"></script>
+	<script src="/scripts/components/success-modal.js"></script>
+	<script src="/scripts/components/carousel.js"></script>
 
 </body>
 
