@@ -1,6 +1,12 @@
+.slider-container {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	position: relative;
+}
+
 .slideshow-container {
 	max-width: 800px;
-	position: relative;
 	margin: auto;
 }
 
@@ -48,7 +54,6 @@ a.next:hover {
 
 .thumbnail-container {
 	text-align: center;
-	margin-top: 20px;
 }
 
 .thumbnails img {
@@ -68,21 +73,25 @@ a.next:hover {
 	opacity: 1;
 }
 
-.counter {
+.slider-counter {
+	width: 80px;
+	padding: 4px;
+	border: 1px solid var(--dark-gray-o50);
+	border-radius: 20px;
+	color: var(--white);
+	background-color: var(--dark9);
+	opacity: 0.6;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
-	top: 10px;
-	left: 50%;
-	transform: translateX(-50%);
-	font-size: 16px;
-	background-color: white;
-	color: black;
-	opacity: 0.5;
-	border: 1px solid rgb(60, 60, 66);
-	border-radius: 8px;
-	padding: 2px 2px;
+	top: 72%;
+	left: 45%;
 }
 
-
+.slider-counter p {
+	opacity: 1;
+}
 
 @media only screen and (max-width: 416px) {
 	.thumbnails img {
