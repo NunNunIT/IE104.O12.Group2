@@ -336,6 +336,16 @@ a {
     margin-top: 24px;
 }
 
+.search-results--empty {
+    display: flex;
+    justify-content: center;
+}
+
+.search-results--empty img {
+    object-fit: contain;
+    width: 50%;
+}
+
 @media only screen and (max-width: 64rem) {
     .dropdown-content--sort {
         top: 52%;
@@ -483,5 +493,9 @@ a {
 
     .product-details h4 {
         font-size: 1rem;
+    }
+
+    .search-results--empty img {
+        width: 80%;
     }
 }
