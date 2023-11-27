@@ -154,13 +154,20 @@ function toCurrency(money) {
 // Sự kiện onchange tính tổng tiền
 function calcTotalPrice(event) {
     const totalPrice = document.querySelector('.cart__total-price h2')
-    const cartItemsPrice = document.querySelectorAll('.cart-item__price')
+    let cartItems
+
+    if (window.innerWidth <= 416)
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    else
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
     let total = 0
-    cartItemsPrice.forEach(item => {
-        let itemPrice = Number(item.textContent.slice(0, -1).replaceAll('.', ''))
-
-        total += itemPrice
+    cartItems.forEach(item => {
+        console.log(item.querySelector('.checkbox'))
+        if (item.querySelector('.checkbox').checked == true) {
+            let itemPrice = Number(item.querySelector('.cart-item__price').textContent.slice(0, -1).replaceAll('.', ''))
+            total += Number(itemPrice)
+        }
     })
 
     totalPrice.innerHTML = toCurrency(total) + 'đ'
