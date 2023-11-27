@@ -18,8 +18,8 @@
 	<div class="thumbnail-container">
 		<% if (productImgs) { %>
 		<div class="thumbnails">
-			<% productImgs.forEach(product => { %>
-			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.image_name %>" alt="<%= product.image_name %>">
+			<% productImgs.forEach((product, index) => { %>
+			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.image_name %>" alt="<%= product.image_name %>" onclick="currentSlide('<%= index + 1 %>')">
 			<% }) %>
 		</div>
 		<% } %>

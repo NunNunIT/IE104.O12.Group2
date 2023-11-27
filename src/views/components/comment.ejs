@@ -17,7 +17,7 @@
 					<!-- In ra số sao lẻ -->
 					<% if (feedback.feedback_rate - feedbackRateInt >= 0.5 && feedback.feedback_rate - feedbackRateInt < 1) { %>
 					<span class="material-symbols-outlined">star_half</span>
-					<% } else if (feedback.product_rate != 5 && feedback.feedback_rate - feedbackRateInt < 0.5 && feedback.feedback_rate - feedbackRateInt >= 0) { %>
+					<% } else if (feedback.feedback_rate!= 5 && feedback.feedback_rate - feedbackRateInt < 0.5 && feedback.feedback_rate - feedbackRateInt >= 0) { %>
 					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
 					<% } %>
 
