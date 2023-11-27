@@ -1,19 +1,19 @@
-class NotificationsController {
+const index = require('../../models/customer/index.model')
 
-    // [GET] /notification/account-update
-    accountUpdate(req, res) {
-        res.render('./pages/notification/account-update', {
-            user: (req.user)? req.user : 0
-        })
-    }
+const notificationsController = () => { }
 
-    // [GET] /notification/promotion
-    promotion(req, res) {
-        res.render('./pages/notification/promotion', {
-            user: (req.user)? req.user : 0
-        })
-    }
-
+// [GET] /notification/account-update
+notificationsController.accountUpdate = async (req, res) => {
+    res.render('./pages/notification/account-update', {
+        user: (req.user) ? req.user : 0
+    })
 }
 
-module.exports = new NotificationsController()
+// [GET] /notification/promotion
+notificationsController.promotion = async (req, res) => {
+    res.render('./pages/notification/promotion', {
+        user: (req.user) ? req.user : 0
+    })
+}
+
+module.exports = notificationsController

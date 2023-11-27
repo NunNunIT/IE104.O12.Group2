@@ -97,15 +97,6 @@ index.getNewProducts = async (callback) => {
                 resolve(newProducts)
             }
         })
-        db.query(getNewProducts, (err, newProducts) => {
-            if (err) {
-                console.log(err)
-                resolve(0)
-            } else {
-                newProducts = index.productCurrencyFormat(newProducts)
-                resolve(newProducts)
-            }
-        })
     })
 }
 
@@ -113,15 +104,6 @@ index.getDiscountProducts = async (callback) => {
     let getDiscountProducts = "SELECT * FROM view_products ORDER BY discount_amount DESC"
 
     return new Promise((resolve, reject) => {
-        db.query(getDiscountProducts, (err, discountProducts) => {
-            if (err) {
-                console.log(err)
-                resolve(0)
-            } else {
-                discountProducts = index.productCurrencyFormat(discountProducts)
-                resolve(discountProducts)
-            }
-        })
         db.query(getDiscountProducts, (err, discountProducts) => {
             if (err) {
                 console.log(err)
@@ -150,7 +132,6 @@ index.getCateProducts = async (req, limit = 8) => {
                 resolve(0)
             } else {
                 cateProducts = index.productCurrencyFormat(cateProducts)
-
                 resolve(cateProducts)
             }
         })
