@@ -121,25 +121,26 @@ function cartSubmit(event) {
             .map(item => item.parentNode)
             .forEach(item => item.querySelectorAll('input, select').forEach(input => input.disabled = true))
 
-        const formData = new FormData(cartForm)
-        const transformedData = []
-        console.log(formData.getAll('variant'))
+        cartForm.submit()
 
-        formData.getAll('variant').forEach((variant, index) => {
-            transformedData.push({
-                variant: variant,
-                quantity: parseInt(formData.getAll('quantity')[index], 10)
-            })
-        })
+        // const formData = new FormData(cartForm)
+        // const transformedData = []
+        // console.log(formData.getAll('variant'))
 
-        // Use fetch to submit the data
-        fetch('/order/cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(transformedData),
-        })
+        // formData.getAll('variant').forEach((variant, index) => {
+        //     transformedData.push({
+        //         variant: variant,
+        //         quantity: parseInt(formData.getAll('quantity')[index], 10)
+        //     })
+        // })
+        //     // Use fetch to submit the data
+        //     fetch('/order/cart', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(transformedData),
+        //     })
     }
 }
 

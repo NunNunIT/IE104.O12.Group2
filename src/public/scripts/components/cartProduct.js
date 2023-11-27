@@ -30,12 +30,16 @@ function checkOne(event) {
 
         let totalPriceDel = 0
         cartItems.forEach(item => {
-            let unitPriceDel = item.querySelector('.cart-item__unit-price del').textContent.slice(0, -1).replaceAll('.', '')
+            let unitPriceDel = item.querySelector('.cart-item__unit-price del')
+            if (unitPriceDel) {
+                unitPriceDel = unitPriceDel.textContent.slice(0, -1).replaceAll('.', '')
+            }
             totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
         })
 
         const totalPriceDelEle = document.querySelector('.cart__total-price del')
-        totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
+        if (totalPriceDelEle)
+            totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
     }
 }
 

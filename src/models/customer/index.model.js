@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 
 
-const index = async function () {}
+const index = async function () { }
 
 index.productCurrencyFormat = async (products) => {
     products.forEach((product) => {
@@ -158,22 +158,6 @@ index.getVariantProducts = async (req) => {
     })
 }
 
-
-index.getCountCart = async (req) => {
-    let getCountCart = "SELECT * FROM view_count_cart WHERE user_id = ?";
-    const param = req.user.user_id;
-
-    return new Promise((resolve, reject) => {
-        db.query(getCountCart, param, (err, countCart) => {
-            if (err) {
-                console.log(err);
-                resolve(0);
-            } else {
-                resolve(countCart[0].count_cart);
-            }
-        });
-    });
-};
 
 index.getCountCart = async (req) => {
     let getCountCart = "SELECT * FROM view_count_cart WHERE user_id = ?";

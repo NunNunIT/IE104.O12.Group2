@@ -8,14 +8,11 @@ const orderController = require('../controllers/customer/orderController')
 const authMiddleware = require('../middleware/authMiddleware.js')
 
 router.get('/cart', authMiddleware.isLoggedIn, orderController.cart)
-router.post('/cart', authMiddleware.isLoggedIn, (req, res) => {
-    // res.send(1)
-    console.log(req.body)
-    // res.redirect('/')
-    // res.writeHead(302, { 'Location': '/order/information' })
-})
+router.post('/cart', authMiddleware.isLoggedIn, (req, res) => { })
 
 router.get('/information', authMiddleware.isLoggedIn, orderController.information)
+router.post('/information', authMiddleware.isLoggedIn, orderController.informationPost)
+
 router.get('/transaction', authMiddleware.isLoggedIn, orderController.transaction)
 router.get('/momo', authMiddleware.isLoggedIn, orderController.momo)
 router.get('/atm', authMiddleware.isLoggedIn, orderController.atm)

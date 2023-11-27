@@ -32,14 +32,16 @@
 		</section>
 
 		<section class="cart__content">
-			<form id="cart-form" method="post">
+			<form id="cart-form" action="/order/information" method="post">
 				<div class="cart__empty">
 					<img src="/imgs/cart/empty-cart.png" alt="">
 					<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
 				</div>
-				<%- include('../../components/cart-product') %>
-				<%- include('../../components/cart-product') %>
-				<%- include('../../components/cart-product') %>
+				<% if (detailCart) { %>
+				<% detailCart.forEach(cart => { %>
+				<%- include('../../components/cart-product', { cart: cart }) %>
+				<% }) %>
+				<% } %>
 			</form>
 		</section>
 
@@ -53,7 +55,9 @@
 					<div class="cart__total-price">
 						<div>
 							<p>Tổng tiền:</p>
+							<% if (detailCart.some(cart => cart.discount_amount)) { %>
 							<del>0đ</del>
+							<% } %>
 						</div>
 						<h2>0đ</h2>
 					</div>

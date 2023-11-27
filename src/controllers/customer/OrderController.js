@@ -6,15 +6,28 @@ const orderController = () => { }
 orderController.cart = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
+	let detailCart = await index.getDetailCart(req)
 
 	res.render('./pages/order/cart', {
 		header: header,
 		user: header_user,
+		detailCart: detailCart,
 	})
 }
 
 // [GET] /order/information
 orderController.information = async (req, res) => {
+	let header_user = await index.header_user(req)
+	let header = await index.header(req)
+
+	res.render('./pages/order/information', {
+		header: header,
+		user: header_user,
+	})
+}
+
+// [POST] /order/information
+orderController.informationPost = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
 
