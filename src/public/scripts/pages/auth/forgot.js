@@ -72,7 +72,7 @@ const validateInput = () => {
       user_phone: PhoneNumber.value.trim(),
     };
     console.log(forgot);
-    fetch("/auth/forgot", {
+    fetch("/auth/findUser", {
       method: "POST",
       body: JSON.stringify(forgot),
       headers: {
@@ -223,3 +223,7 @@ form_otp.addEventListener("submit", (e) => {
   e.preventDefault();
   window.location.href = "/auth/reset";
 });
+
+// Thêm "active" vào side-menu__ele 
+const appbar__element = document.querySelectorAll('.side-menu__ele');
+appbar__element[3].classList.add('active');

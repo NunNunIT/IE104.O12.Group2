@@ -30,6 +30,27 @@ accountController.feedback = async (req, res) => {
     })
 }
 
+accountController.checkUser = async (req, res) => {
+    auth.checkPassword(req, function (err, wrong, success) {
+        if (err) {
+            return res.json({
+                status: "error",
+                error: "Lỗi truy cập.",
+            })
+        } else if (wrong) {
+            return res.json({
+                status: "wrongPassword",
+                error: "Mật khẩu không chính xác!",
+            })
+        } else if (success) {
+            return res.json({
+                status: "success",
+                error: "Thành công.",
+            })
+        }
+    })
+}
+
 accountController.warrantyClaim = async (req, res) => {
     res.render('./pages/account/warranty-claim', {
         user: (req.user) ? req.user : 0

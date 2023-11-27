@@ -73,6 +73,22 @@ a {
 	padding: 12px 24px 12px 24px;
 }
 
+.purchase__status__cancel {
+	color: var(--dollar-red2);
+}
+
+.purchase__status__finished {
+	color: var(--green);
+}
+
+.purchase__status__delivering {
+	color: var(--primary-color-2);
+}
+
+.purchase__status_unpaid {
+	color: var(--fire-orange);
+}
+
 
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
