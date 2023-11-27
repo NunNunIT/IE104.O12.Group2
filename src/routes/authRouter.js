@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // import controller
-const AuthController = require('../controllers/AuthController')
+const AuthController = require('../controllers/customer/AuthController')
 const middleware = require('../middleware/authMiddleware')
 
 router.post('/findUser', AuthController.findUser)

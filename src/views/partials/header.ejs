@@ -25,11 +25,30 @@
 				</a>
 			</div>
 			<div class="header__about-account">
+				<!-- bắt đầu dropdown-noti -->
 				<div class="dropdown-noti">
 					<a href="http://127.0.0.1:3000/notification/account-update" class="header__nofitications">
 						<span class="material-symbols-outlined">notifications</span>
 						Thông báo
 					</a>
+					<!-- Khi chưa đăng nhập -->
+					<% if (!user) { %>
+					<!-- bắt đầu dropdown-noti khi chưa đăng nhập -->
+					<div class="dropdown-noti__content-container">
+						<div class="dropdown-noti__content">
+							<div class="dropdown-noti__unauth-user">
+								<img src="/imgs/unauth-user.png" alt="unauth-user" class="unauth-user__img">
+								<span class="unauth-content__noti">Đăng nhập để xem Thông báo</span>
+							</div>
+							<div class="unauth-content__btn">
+								<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
+								<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+							</div>
+						</div>
+					</div>
+					<!-- kết thúc dropdown-noti khi chưa đăng nhập -->
+					<% } else { %>
+					<!-- bắt đầu dropdown-noti khi đã đăng nhập -->
 					<div class="dropdown-noti__content-container">
 						<div class="dropdown-noti__content">
 							<div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
@@ -38,22 +57,40 @@
 							<a href="http://127.0.0.1:3000/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
 						</div>
 					</div>
+					<!-- kết thúc dropdown-noti khi đã đăng nhập -->
+
+					<!-- bắt đầu dropdown-noti khi đã đăng nhập__rỗng -->
+					<!-- <div class="dropdown-noti__content-container">
+						<div class="dropdown-noti__content">
+							<div class="dropdown-noti--empty">
+								<img src="/imgs/nothing-result.png" alt="empty" class="dropdown-noti__img--empty">
+								<span class="empty-content__noti">Bạn chưa có thông báo</span>
+							</div>
+						</div>
+					</div> -->
+					<!-- kết thúc dropdown-noti khi đã đăng nhập__rỗng -->
+					<% } %>
 				</div>
+				<!-- kết thúc dropdown-noti -->
+
+				<!-- Hiển thị khi responsive điện thoại -->
 				<div class="header__nav--disable">
 					<a href="http://127.0.0.1:3000/notification/account-update" class="noti--disable">
-						<span class="material-symbols-outlined">notifications</span>
+						<span class="material-symbols-outlined" title="Thông báo">notifications</span>
 					</a>
 					<a href="#" class="help--disable">
-						<span class="material-symbols-outlined">help</span>
+						<span class="material-symbols-outlined" title="Hỗ trợ">help</span>
 					</a>
 				</div>
+				<!-- Kết thúc hiển thị khi ở màn hình điện thoại -->
+
 				<!-- Khi đã đăng nhập -->
 				<% if (user) { %>
 				<div class="dropdown-account">
 					<a href="http://127.0.0.1:3000/account/information">
 						<div class="header__auth">
-							<img src="/imgs/user_avt_img/<%= (user.user_avt_img) ? user.user_avt_img : 'default.png' %>" alt="avatar">
-							<span><%= user.user_name %></span>
+							<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar">
+							<span><%= user.user.user_name %></span>
 						</div>
 					</a>
 					<div class="dropdown-account__content-container">
@@ -69,9 +106,9 @@
 				<!-- Khi chưa đăng nhập  -->
 				<div class="header__auth">
 					<span class="material-symbols-outlined">account_circle</span>
-					<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
+					<a href="http://127.0.0.1:3000/auth/login" class="header__auth-login">Đăng nhập</a>
 					<span>|</span>
-					<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+					<a href="http://127.0.0.1:3000/auth/register" class="header__auth-register">Đăng ký</a>
 				</div>
 				<!-- Kết thúc khi chưa đăng nhập -->
 				<% } %>
@@ -84,32 +121,62 @@
 			<a href="http://127.0.0.1:3000/">
 				<img class="header__logo" src="/imgs/logo-blue.png">
 			</a>
-			<form class="header__search-bar" action="/form/submit" method="GET">
-				<input type="text" name="text" placeholder="Bạn tìm gì...">
+			<form class="header__search-bar" action="/search/results" method="GET">
+				<input type="search" name="searchKey" placeholder="Bạn tìm gì..." value="<%= (header.searchKey) ?? '' %>">
+				<button class="header__search-btn" type="submit">
+					<span class="material-symbols-outlined">search</span>
+				</button>
 			</form>
-			<button class="header__search-btn" type="submit" name="submit">
-				<span class="material-symbols-outlined">search</span>
-			</button>
 
 			<div class="dropdown-cart">
 				<a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
-						<div class="header__cart__number-badge" aria-hidden="true">31</div>
+						<% if (user.countCart) {%>
+						<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
+						<% } %>
 					</div>
 				</a>
 				<div class="dropdown-cart__content-container">
+					<!-- Khi chưa đăng nhập -->
+					<% if (!user) { %>
+					<!-- dropdown giỏ hàng khi chưa đăng nhập -->
+					<div class="dropdown-cart__content">
+						<div class="dropdown-cart__unauth-user">
+							<img src="imgs/unauth-user.png" alt="unauth-user" class="unauth-user__img">
+							<span class="unauth-content__cart">Đăng nhập để xem Giỏ hàng</span>
+						</div>
+						<div class="unauth-content__btn">
+							<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
+							<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+						</div>
+					</div>
+					<!-- kết thúc dropdown giỏ hàng khi chưa đăng nhập -->
+					<% } else { %>
+					<!-- dropdown giỏ hàng khi đã đăng nhập -->
 					<div class="dropdown-cart__content">
 						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
-						<%- include('../components/cart-dropdown-item') %>
+						<% if (user.countCart) { %>
+						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
+						<% for (let i = 0; i < l; i++) { %>
+						<%- include('../components/cart-dropdown-item', {cart: user.detailCarts[i]}) %>
+						<% } %>
+						<% } else { %>
+						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
+						<div class="dropdown-cart__content">
+							<div class="dropdown-cart--empty">
+								<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
+								<span class="empty-content__cart">Giỏ hàng trống</span>
+							</div>
+						</div>
+						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
+						<% } %>
 						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>
 						</a>
 					</div>
+					<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập -->
+					<% } %>
 				</div>
 			</div>
 
@@ -122,86 +189,12 @@
 			<span class="material-symbols-outlined"> expand_more </span>
 			<div class="header__cate-dropdown cate-dropdown">
 				<div class="cate-dropdown__aside">
+					<% header.cates.forEach(cate => { %>
 					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
+						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
+						<p><%= cate.category_name %></p>
 					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/refrigerator.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
-					<div class="cate-dropdown__item">
-						<img src="/imgs/categories/cooker.png" alt="">
-						<p>Nồi cơm điện</p>
-					</div>
+					<% }) %>
 				</div>
 				<div class="cate-dropdown__content">
 					<div class="cate-dropdown__content-wrapper">

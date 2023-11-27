@@ -1,4 +1,5 @@
 .comment-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -25,6 +26,13 @@
     display: inherit;
     flex-direction: column;
     gap: 4px;
+}
+
+.comment__variant {
+    max-width: max-content;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: var(--bg-white-o80);
 }
 
 .comment__user-name {
@@ -60,6 +68,7 @@
     cursor: pointer;
     width: 60px;
     height: 60px;
+    border-radius: 4px;
     object-fit: cover;
 }
 

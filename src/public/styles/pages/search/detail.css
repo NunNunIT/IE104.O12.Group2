@@ -1,11 +1,12 @@
 @import url('/styles/general.css');
 @import url('/styles/partials/breadcrumb.css');
-@import url('/styles/components/slider02.css');
+@import url('/styles/components/small-slider.css');
 @import url('/styles/components/comment.css');
 @import url('/styles/components/pagination.css');
 @import url('/styles/components/scrollup.css');
 @import url('/styles/components/carousel.css');
 @import url('/styles/components/image-modal.css');
+@import url('/styles/components/success-modal.css');
 
 body {
     width: 100vw;
@@ -63,7 +64,7 @@ body {
     width: 50%;
     display: inherit;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
 .detail__policy {
@@ -76,6 +77,7 @@ body {
 }
 
 .detail__policy>div {
+    width: 50%;
     display: inherit;
     flex-direction: column;
     gap: 12px;
@@ -92,6 +94,10 @@ body {
     font-variation-settings: 'FILL' 1;
 }
 
+.policy__item .policy__savings {
+    color: var(--pink);
+}
+
 .policy__item p {
     text-align: left;
 }
@@ -102,6 +108,13 @@ body {
     gap: 12px;
 }
 
+
+.detail__variant h3,
+.detail__quantity h3 {
+    font-weight: 400;
+    color: var(--dark5);
+}
+
 .detail__variant div {
     display: inherit;
     justify-content: flex-start;
@@ -110,6 +123,7 @@ body {
 }
 
 .detail__variant a {
+    min-width: 120px;
     height: auto;
     display: inherit;
     flex-direction: column;
@@ -122,13 +136,57 @@ body {
     color: var(--black);
 }
 
-.detail__variant a:focus {
+.detail__variant a:hover {
     border: 1px solid var(--dollar-red);
+    font-weight: 600;
+    color: var(--dollar-red);
+}
+
+.variant-selected {
+    border: 1px solid var(--dollar-red) !important;
     font-weight: 600;
 
     & .variant__price {
         color: var(--dollar-red);
     }
+}
+
+.detail__quantity {
+    display: inherit;
+    align-items: center;
+    gap: 12px;
+}
+
+.quantity__input-group {
+    width: max-content;
+    display: inherit;
+    align-items: center;
+    border: 1px solid var(--outline-gray);
+    border-radius: 4px;
+}
+
+.quantity__input-group button {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity__input-group input {
+    width: 40px;
+    height: 32px;
+    border-left: 1px solid var(--outline-gray);
+    border-right: 1px solid var(--outline-gray);
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .detail__promo {
@@ -184,6 +242,7 @@ body {
 }
 
 .detail__buy-btn {
+    cursor: pointer;
     width: 50%;
     height: 48px;
     box-sizing: border-box;
@@ -197,8 +256,9 @@ body {
 }
 
 .detail__add-btn {
+    cursor: pointer;
     width: 50%;
-    height: auto;
+    height: 48px;
     box-sizing: border-box;
     padding: 12px;
     background-color: var(--primary-color-2);
@@ -209,6 +269,11 @@ body {
     font-weight: 600;
 }
 
+.detail__buy-btn:hover,
+.detail__add-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
 .promo__contact {
     text-align: center;
     font-size: 0.875rem;
@@ -217,6 +282,18 @@ body {
 .promo__contact span {
     color: var(--primary-color-1);
     font-weight: 500;
+}
+
+
+.default-description {
+    overflow: hidden;
+    max-height: 500px;
+    transition: max-height 0.5s ease;
+}
+
+.full-description {
+    max-height: none;
+    transition: max-height 0.5s ease;
 }
 
 .detail__description {
@@ -232,6 +309,7 @@ body {
 }
 
 .description__item img {
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
@@ -267,6 +345,7 @@ body {
 }
 
 .detail__more-btn {
+    cursor: pointer;
     height: 48px;
     background-color: var(--white);
     border: 2px solid var(--primary-color-1);
@@ -276,11 +355,20 @@ body {
     font-weight: 600;
 }
 
+.detail__more-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
 .comments,
 .comments__list {
     display: inherit;
     flex-direction: column;
     gap: 12px;
+}
+
+.comments__list {
+    justify-content: center;
+    align-items: center;
 }
 
 .comments__filter {
@@ -291,6 +379,11 @@ body {
     gap: 12px;
     background-color: var(--bg-pink);
     border: 1px solid var(--outline-pink);
+}
+
+.comment__not-found {
+    width: 20%;
+    height: 20%;
 }
 
 .filter__avg-rating {
@@ -324,11 +417,17 @@ body {
 }
 
 .filter__option button {
+    cursor: pointer;
     width: 12%;
     height: 48px;
     background-color: var(--white);
     border: 1px solid var(--outline-gray);
     border-radius: 8px;
+}
+
+.filter__option button:hover {
+    background-color: var(--bg-white-o50);
+    border: 1px solid var(--dollar-red);
 }
 
 .comments__pagination {
@@ -346,6 +445,12 @@ body {
     .content-container h2,
     .similar-products h2 {
         font-size: 1.25rem;
+    }
+
+    .detail__variant a {
+        min-width: 80px;
+        max-width: 120px;
+        padding: 12px 4px;
     }
 
     .content-container button {
@@ -375,6 +480,10 @@ body {
     .filter__option button {
         width: 15%;
     }
+
+    .quantity__input-group button {
+        height: 32px;
+    }
 }
 
 /* 768px - Tablet */
@@ -392,6 +501,11 @@ body {
     .content-container h2,
     .similar-products h2 {
         font-size: 1.125rem;
+    }
+
+    .content-container h3,
+    .similar-products h3 {
+        font-size: 1rem;
     }
 
     .content-container a,
@@ -440,8 +554,14 @@ body {
     }
 
     .detail__variant a {
+        min-width: 60px;
+        max-width: 100px;
         padding: 6px 4px;
         border-radius: 4px;
+    }
+
+    .quantity__input-group button {
+        height: 32px;
     }
 
     .detail__promo {
@@ -511,6 +631,7 @@ body {
     .detail--left,
     .detail--right {
         width: 100%;
+        gap: 12px;
     }
 
     .detail__policy {
@@ -519,6 +640,16 @@ body {
 
     .title__rating span {
         font-size: 1.25rem;
+    }
+
+    .detail__variant a {
+        min-width: 80px;
+        max-width: 120px;
+    }
+
+    .quantity__input-group button,
+    .quantity__input-group input {
+        height: 28px;
     }
 
     .detail__buy-btn,

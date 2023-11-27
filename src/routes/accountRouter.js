@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 // import controller
-const AccountController = require('../controllers/AccountController')
+const AccountController = require('../controllers/customer/AccountController')
 const authMiddleware = require('../middleware/authMiddleware.js')
 
 router.post('/checkUser', AccountController.checkUser)

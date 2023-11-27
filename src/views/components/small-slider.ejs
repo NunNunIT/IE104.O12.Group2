@@ -1,0 +1,27 @@
+<div class="slider-container">
+	<div class="slideshow-container">
+		<% if (productImgs) { %>
+		<div class="slides">
+			<% productImgs.forEach(product => { %>
+			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.image_name %>" alt="<%= product.image_name %>">
+			<% }) %>
+		</div>
+		<% } %>
+		<a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+		<a class="next" onclick="changeSlide(1)">&#10095;</a>
+	</div>
+
+	<div class="slider-counter">
+		<p>1/5</p>
+	</div>
+
+	<div class="thumbnail-container">
+		<% if (productImgs) { %>
+		<div class="thumbnails">
+			<% productImgs.forEach(product => { %>
+			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.image_name %>" alt="<%= product.image_name %>">
+			<% }) %>
+		</div>
+		<% } %>
+	</div>
+</div>

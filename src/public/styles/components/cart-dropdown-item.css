@@ -29,11 +29,29 @@
 
 .cart-dropdown__content {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     color: black;
 }
 
 .cart-dropdown__block .highlight {
     color: var(--primary-color-5);
+}
+
+.cart-dropdown__block small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+    color: var(--dark7);
+}
+
+.cart-dropdown__price {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: var(--dollar-red2);
+    font-weight: 500;
 }

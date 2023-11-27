@@ -3,23 +3,44 @@
 		<img class="comment__avatar" src="/imgs/infor1.jpg" alt="avatar">
 		<div>
 			<p class="comment__user-name">Tên người dùng</p>
+			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'NaN' %></button>
 			<div class="comment__stars">
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
-				<span class="material-symbols-outlined">star</span>
+				<% if (feedback.feedback_rate) { %>
+				<div>
+					<!-- In ra số sao hiện có -->
+					<% const feedbackRateInt = Math.floor(feedback.feedback_rate) %>
+
+					<% for (let i = 0; i < feedbackRateInt; i++) { %>
+					<span class="material-symbols-outlined">grade</span>
+					<% } %>
+
+					<!-- In ra số sao lẻ -->
+					<% if (feedback.feedback_rate - feedbackRateInt >= 0.5 && feedback.feedback_rate - feedbackRateInt < 1) { %>
+					<span class="material-symbols-outlined">star_half</span>
+					<% } else if (feedback.product_rate != 5 && feedback.feedback_rate - feedbackRateInt < 0.5 && feedback.feedback_rate - feedbackRateInt >= 0) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+					<% } %>
+
+					<!-- In ra số sao trống -->
+					<% for (let i = 0; i < Math.floor(5 - feedback.feedback_rate - 1); i++) {  %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% } %>
+				</div>
+				<% } %>
 			</div>
-			<p class="comment__time">2023-07-27 13:00</p>
+			<p class="comment__time"><%= feedback.feedback_date ?? 'NaN' %></p>
 		</div>
 	</div>
 	<div class="comment__content">
-		<p>Shop giao hàng rất nhanh và còn tư vấn nhiệt tình nữa. Chúc shop ngày càng có nhiều đơn hàng nhé Lần sau sẽ quay lại ủng hộ shop.! Hàng đẹp</p>
+		<p><%= feedback.feedback_content ?? 'null' %></p>
+		<% if (feedback.feedback_img_name) { %>
 		<div class="comment__pictures">
 			<img src="/imgs/infor1.jpg" alt="">
 			<img src="/imgs/infor1.jpg" alt="">
 			<img src="/imgs/infor1.jpg" alt="">
 			<img src="/imgs/infor1.jpg" alt="">
 		</div>
+		<% } %>
+
 	</div>
 </div>

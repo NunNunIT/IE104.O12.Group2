@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // import controller
-const OrderController = require('../controllers/OrderController')
+const OrderController = require('../controllers/customer/OrderController')
 const authMiddleware = require('../middleware/authMiddleware.js')
 
 router.get('/cart', authMiddleware.isLoggedIn, OrderController.cart)

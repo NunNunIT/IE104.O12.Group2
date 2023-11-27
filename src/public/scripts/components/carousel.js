@@ -1,7 +1,7 @@
-const wrapper = document.querySelector(".wrapper");
+const wrapper = document.querySelector(".wrapper-carousel");
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".carousel__card").offsetWidth;
-const arrowBtns = document.querySelectorAll(".wrapper .arrow");
+const arrowBtns = document.querySelectorAll(".wrapper-carousel .arrow");
 const carouselChildrens = [...carousel.children];
 let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
 // Get the number of cards that can fit in the carousel at once
@@ -9,7 +9,7 @@ let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
 // Insert copies of the last few cards to beginning of carousel for infinite scrolling
 carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
     carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-});+
+});
 // Insert copies of the first few cards to end of carousel for infinite scrolling
 carouselChildrens.slice(0, cardPerView).forEach(card => {
     carousel.insertAdjacentHTML("beforeend", card.outerHTML);
@@ -24,6 +24,8 @@ arrowBtns.forEach(btn => {
         carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
     });
 });
+
+
 const dragStart = (e) => {
     isDragging = true;
     carousel.classList.add("dragging");
@@ -41,6 +43,7 @@ const dragStop = () => {
     carousel.classList.remove("dragging");
 }
 const infiniteScroll = () => {
+    console.log(Math.ceil(carousel.scrollLeft), carousel.scrollWidth, carousel.offsetWidth)
     // If the carousel is at the beginning, scroll to the end
     if(carousel.scrollLeft === 0) {
         carousel.classList.add("no-transition");
@@ -48,7 +51,8 @@ const infiniteScroll = () => {
         carousel.classList.remove("no-transition");
     }
     // If the carousel is at the end, scroll to the beginning
-    else if(Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+    else if((Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth)
+    || (Math.ceil(carousel.scrollLeft)-1 === carousel.scrollWidth - carousel.offsetWidth)) {
         carousel.classList.add("no-transition");
         carousel.scrollLeft = carousel.offsetWidth;
         carousel.classList.remove("no-transition");
@@ -57,6 +61,7 @@ const infiniteScroll = () => {
     clearTimeout(timeoutId);
     if(!wrapper.matches(":hover")) autoPlay();
 }
+
 const autoPlay = () => {
     if(window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
     // Autoplay the carousel after every 2500 ms
