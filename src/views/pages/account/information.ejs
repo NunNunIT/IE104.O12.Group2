@@ -14,8 +14,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Trang cá nhân', link : '#'}, {text : 'Thông tin cá nhân', link : 'http://127.0.0.1:3000/account/information'}]}) %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Thông tin cá nhân', link : '/account/information' }] }) %>
 
 	<main class="account-container">
 		<%- include("../../components/sidebar_account") %>

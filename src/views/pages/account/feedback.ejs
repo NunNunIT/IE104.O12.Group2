@@ -14,7 +14,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Đánh giá', link : '' }] }) %>
 
 	<div class="feedback-wrapper">
 

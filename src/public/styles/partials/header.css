@@ -562,6 +562,12 @@ img.dropdown-cart__img--empty {
     color: var(--pink);
 }
 
+/* 
+.cate-dropdown__aside::-webkit-scrollbar,
+.cate-dropdown__content::-webkit-scrollbar {
+    display: none;
+} */
+
 .header__cate-dropdown {
     width: 80%;
     max-width: 1152px;

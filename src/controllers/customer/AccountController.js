@@ -8,7 +8,8 @@ accountController.information = async (req, res) => {
     let header = await index.header(req)
 
     res.render('./pages/account/information', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
@@ -18,7 +19,8 @@ accountController.purchaseHistory = async (req, res) => {
     let header = await index.header(req)
 
     res.render('./pages/account/purchase-history', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
@@ -28,7 +30,8 @@ accountController.purchaseDetail = async (req, res) => {
     let header = await index.header(req)
 
     res.render('./pages/account/purchase-detail', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 

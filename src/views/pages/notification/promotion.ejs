@@ -13,8 +13,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Thông báo', link : '#'}, {text : 'Thông tin khuyến mãi', link : 'http://127.0.0.1:3000/notification/promotion'}]}) %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Thông báo', link : '' }, { text : 'Thông tin khuyến mãi', link : '/notification/promotion' }] }) %>
 
 	<main class="nofi-container">
 		<aside class="aside-wrapper">
