@@ -3,8 +3,9 @@ const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model')
+const index = require('../../models/customer/index.model')
 
-const product = function () {}
+const product = function () { }
 
 product.getProductId = async (req) => {
     let params = req.params.product_variant_id
@@ -62,7 +63,8 @@ product.getProductVariants = async (req) => {
                 console.log(err)
                 resolve(0)
             } else {
-                resolve(productDetails)
+                // productVariants = index.productCurrencyFormat(productVariants)
+                resolve(productVariants)
             }
         })
     })

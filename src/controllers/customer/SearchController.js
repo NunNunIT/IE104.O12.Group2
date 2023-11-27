@@ -2,7 +2,7 @@ const index = require('../../models/customer/index.model')
 const search = require('../../models/customer/search.model')
 const product = require('../../models/customer/product.model')
 
-const searchController = () => {}
+const searchController = () => { }
 
 // [GET] /search/results
 searchController.results = async (req, res) => {
@@ -17,7 +17,7 @@ searchController.results = async (req, res) => {
         productListResults = await search.findProductsBySearchKey(req, 24)
     }
 
-    
+
     res.status(200).render('./pages/search/results', {
         header: header,
         user: header_user,
@@ -32,14 +32,17 @@ searchController.detail = async (req, res) => {
 
     let productInfo = await product.getProductInfo(req)
     let productImgs = await product.getProductImgs(req)
+    let productVariants = await product.getProductVariants(req)
     let productDetails = await product.getProductDetails(req)
     let productFeedbacks = await product.getProductFeedbacks(req)
     let cateProducts = await index.getCateProducts(req, 8)
 
+    console.log(productVariants)
     res.render('./pages/search/detail', {
         user: header_user,
         header: header,
         productInfo: productInfo,
+        productVariants: productVariants,
         productImgs: productImgs,
         productDetails: productDetails,
         productFeedbacks: productFeedbacks,

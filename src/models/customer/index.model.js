@@ -5,7 +5,7 @@ const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model')
 const product = require('../../models/customer/product.model')
 
-const index = function () {}
+const index = function () { }
 
 index.getCates = async (callback) => {
     let getCate = "SELECT * FROM categories"
@@ -41,15 +41,15 @@ index.getNewProducts = async (callback) => {
     let getNewProducts = "SELECT * FROM view_new_products ORDER BY product_lastdate_added DESC"
 
     return new Promise((resolve, reject) => {
-    db.query(getNewProducts, (err, newProducts) => {
-        if (err) {
-            console.log(err)
-            resolve(0)
-        } else {
-            newProducts = index.productCurrencyFormat(newProducts)
-            resolve(newProducts)
-        }
-    })
+        db.query(getNewProducts, (err, newProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                newProducts = index.productCurrencyFormat(newProducts)
+                resolve(newProducts)
+            }
+        })
     })
 }
 
@@ -57,15 +57,15 @@ index.getDiscountProducts = async (callback) => {
     let getDiscountProducts = "SELECT * FROM view_products ORDER BY discount_amount DESC"
 
     return new Promise((resolve, reject) => {
-    db.query(getDiscountProducts, (err, discountProducts) => {
-        if (err) {
-            console.log(err)
-            resolve(0)
-        } else {
-            discountProducts = index.productCurrencyFormat(discountProducts)
-            resolve(discountProducts)
-        }
-    })
+        db.query(getDiscountProducts, (err, discountProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                discountProducts = index.productCurrencyFormat(discountProducts)
+                resolve(discountProducts)
+            }
+        })
     })
 }
 
@@ -169,7 +169,7 @@ index.header_user = async (req) => {
 index.header = async (req) => {
     let searchKey = req.query.searchKey ?? ''
     let cates = await index.getCates(req)
-    let header = {searchKey, cates}
+    let header = { searchKey, cates }
     return (header)
 }
 

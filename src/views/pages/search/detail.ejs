@@ -13,10 +13,11 @@
 
 <body>
 
-	<%- include('../../partials/header', {header: header}) %>
+	<%- include('../../partials/header', {header: header, user: user}) %>
 	<%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
 
 	<main class="content-container">
+
 		<section class="title">
 			<h1><%= productInfo.product_name ?? 'NaN' %></h1>
 			<div class="title__rating">
@@ -32,7 +33,7 @@
 					<!-- In ra số sao lẻ -->
 					<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
 					<span class="material-symbols-outlined">star_half</span>
-					<% } else if (productInfo.product_rate - productRateInt < 0.5) { %>
+					<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
 					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
 					<% } %>
 
@@ -51,56 +52,51 @@
 			<div class="detail--top">
 				<div class="detail--left">
 					<div class=" detail__slider">
-						<%- include('../../components/small-slider', { product: productInfo }) %>
+						<%- include('../../components/small-slider', { productImgs: productImgs }) %>
 					</div>
 					<div class="detail__policy policy">
 						<div>
 							<div class="policy__item">
-								<span class="material-symbols-outlined">settings</span>
+								<span class="material-symbols-outlined">build</span>
 								<p>Lắp đặt miễn phí lúc giao hàng</p>
 							</div>
 							<div class="policy__item">
-								<span class="material-symbols-outlined">settings</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<span class="material-symbols-outlined">verified_user</span>
+								<p>Bảo hành chính hãng 3 năm, có người đến tận nhà</p>
 							</div>
 							<div class="policy__item">
-								<span class="material-symbols-outlined">settings</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<span class="material-symbols-outlined">cached</span>
+								<p>Hư gì đổi nấy 12 tháng tận nhà (miễn phí tháng đầu)</p>
 							</div>
 						</div>
 						<div>
 							<div class="policy__item">
-								<span class="material-symbols-outlined">settings</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<span class="material-symbols-outlined">local_shipping</span>
+								<p>Giao hàng tận nhà nhanh chóng</p>
 							</div>
 							<div class="policy__item">
-								<span class="material-symbols-outlined">settings</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<span class="material-symbols-outlined">library_books</span>
+								<p>Kèm theo sách hướng dẫn sử dụng</p>
 							</div>
 							<div class="policy__item">
-								<span class="material-symbols-outlined">settings</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<span class="material-symbols-outlined policy__savings">savings</span>
+								<p>Phí vật tư có thể phát sinh: 500.000đ</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<form class="detail--right" action="#" method="post">
+					<% if (productVariants) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>
 						<div>
-							<a href="/search/1">
-								<span class="variant__title">Tivi 43 Inch</span>
-								<span class="variant__price">10.990.000VND</span>
+							<% productVariants.forEach(variant => { %>
+							<a href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
+								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
+								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
 							</a>
-							<a href="/search/1">
-								<span class="variant__title">Tivi 43 Inch</span>
-								<span class="variant__price">10.990.000VND</span>
-							</a>
-							<a href="/search/1">
-								<span class="variant__title">Tivi 43 Inch</span>
-								<span class="variant__price">10.990.000VND</span>
-							</a>
+							<% }) %>
 						</div>
 					</div>
 
@@ -112,6 +108,7 @@
 							<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 						</div>
 					</div>
+					<% } %>
 
 					<div class="detail__promo promo">
 						<div class="promo__header">
@@ -155,34 +152,17 @@
 				</div>
 
 				<div class="detail--right">
+					<% if (productDetails) { %>
 					<div class="detail__specification specification">
 						<h2>Thông số kỹ thuật</h2>
+						<% productDetails.forEach(product => { %>
 						<div class="specification__item">
-							<p class="specification__type">Loại tivi</p>
-							<p class="specification__info">Smart Tivi QLED43 inch4K</p>
+							<p class="specification__type"><%= product.product_detail_name ?? 'NaN' %></p>
+							<p class="specification__info"><%= product.product_detail_value ?? 'NaN' %></p>
 						</div>
-						<div class="specification__item">
-							<p class="specification__type">Hệ điều hành</p>
-							<p class="specification__info">Tizen™</p>
-						</div>
-						<div class="specification__item">
-							<p class="specification__type">Ứng dụng phổ biến</p>
-							<p class="specification__info">
-								Clip TVFPT PlayGalaxy Play (Fim+)MP3 ZingMyTVNetflixPOPS KidsSpotifyTrình duyệt webVieONYouTube</p>
-						</div>
-						<div class="specification__item">
-							<p class="specification__type">Công nghệ hình ảnh</p>
-							<p class="specification__info">Ambient ModeBrightness/Color DetectionChuyển động mượt Motion Xcelerator TurboGiảm độ trễ chơi game Auto Low Latency Mode (ALLM)HDR10+Quantum DotQuantum HDRSuper Ultra Wide Game View & Game BarSupreme UHD Dimming</p>
-						</div>
-						<div class="specification__item">
-							<p class="specification__type">Điều khiển bằng giọng nói</p>
-							<p class="specification__info">Điều khiển bằng giọng nói</p>
-						</div>
-						<div class="specification__item">
-							<p class="specification__type">Công nghệ hình ảnh</p>
-							<p class="specification__info">Ambient ModeBrightness/Color DetectionChuyển động mượt Motion Xcelerator TurboGiảm độ trễ chơi game Auto Low Latency Mode (ALLM)HDR10+Quantum DotQuantum HDRSuper Ultra Wide Game View & Game BarSupreme UHD Dimming</p>
-						</div>
+						<% }) %>
 					</div>
+					<% } %>
 				</div>
 			</div>
 			<button onclick="showAll(event)" class="detail__more-btn" type="button">Xem thêm</button>
@@ -192,13 +172,30 @@
 			<h2>Đánh giá sản phẩm</h2>
 			<div class="comments__filter filter">
 				<div class="filter__avg-rating">
-					<p>4.5 trên 5</p>
+					<p><%= productInfo.product_rate ?? 'NaN' %> trên 5</p>
 					<div class="filter__stars">
-						<span class="material-symbols-outlined">star</span>
-						<span class="material-symbols-outlined">star</span>
-						<span class="material-symbols-outlined">star</span>
-						<span class="material-symbols-outlined">star</span>
-						<span class="material-symbols-outlined">star</span>
+						<% if (productInfo.product_rate) { %>
+						<div>
+							<!-- In ra số sao hiện có -->
+							<% const productRateInt = Math.floor(productInfo.product_rate) %>
+
+							<% for (let i = 0; i < productRateInt; i++) { %>
+							<span class="material-symbols-outlined">grade</span>
+							<% } %>
+
+							<!-- In ra số sao lẻ -->
+							<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+							<span class="material-symbols-outlined">star_half</span>
+							<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
+							<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+							<% } %>
+
+							<!-- In ra số sao trống -->
+							<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
+							<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+							<% } %>
+						</div>
+						<% } %>
 					</div>
 				</div>
 				<div class="filter__option">
@@ -211,16 +208,25 @@
 					<button onclick="chooseOption(event)" type="button">1 sao</button>
 				</div>
 			</div>
+
 			<div class="comments__list">
-				<%- include('../../components/comment') %>
-				<%- include('../../components/comment') %>
-			</div>
-			<div class="comments__pagination">
-				<%- include('../../components/pagination') %>
+				<% if (productFeedbacks.length) { %>
+				<% productFeedbacks.forEach(feedback => { %>
+				<%- include('../../components/comment', {feedback: feedback}) %>
+				<% }) %>
+				<div class="comments__pagination">
+					<%- include('../../components/pagination') %>
+				</div>
+				<% } else { %>
+				<img class="comment__not-found" src="/imgs/nothing-result.png" alt="">
+				<h2 class="comment__not-found-noti">Không tìm thấy đánh giá nào!</h2>
+				<% } %>
 			</div>
 		</section>
+
 	</main>
-	<% if (!cateProducts) {} else { %>
+
+	<% if (cateProducts) { %>
 	<div class="similar-products">
 		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `category_id=${productInfo.category_id}`, products: cateProducts}) %>
 	</div>
