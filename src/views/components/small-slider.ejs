@@ -1,13 +1,12 @@
 <div class="slider-container">
 	<div class="slideshow-container">
+		<% if (productImgs) { %>
 		<div class="slides">
-			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_1.jpg" alt="<%= product.product_name %>">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_2.jpg" alt="<%= product.product_name %>">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_3.jpg" alt="<%= product.product_name %>">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_4.jpg" alt="<%= product.product_name %>">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_5.jpg" alt="<%= product.product_name %>">
+			<% productImgs.forEach(product => { %>
+			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.image_name %>" alt="<%= product.image_name %>">
+			<% }) %>
 		</div>
+		<% } %>
 		<a class="prev" onclick="changeSlide(-1)">&#10094;</a>
 		<a class="next" onclick="changeSlide(1)">&#10095;</a>
 	</div>
@@ -17,12 +16,12 @@
 	</div>
 
 	<div class="thumbnail-container">
+		<% if (productImgs) { %>
 		<div class="thumbnails">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_1.jpg" alt="<%= product.product_name %>" onclick="currentSlide(1)">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_2.jpg" alt="<%= product.product_name %>" onclick="currentSlide(2)">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_3.jpg" alt="<%= product.product_name %>" onclick="currentSlide(3)">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_4.jpg" alt="<%= product.product_name %>" onclick="currentSlide(4)">
-			<img src="/imgs/product_image/P<%= product.product_id %>/P<%= product.product_id %>_5.jpg" alt="<%= product.product_name %>" onclick="currentSlide(5)">
+			<% productImgs.forEach(product => { %>
+			<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.image_name %>" alt="<%= product.image_name %>">
+			<% }) %>
 		</div>
+		<% } %>
 	</div>
 </div>

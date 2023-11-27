@@ -1,3 +1,38 @@
+// Change color when choose variant
+document.addEventListener("DOMContentLoaded", function () {
+    const variants = document.querySelectorAll('.detail__variant div a')
+
+    // Get the text content of the previously selected variant from localStorage
+    const selectedVariantText = localStorage.getItem('selectedVariantText')
+
+    // If there is a previously selected variant, apply the 'variant-selected' class
+    if (selectedVariantText) {
+        const selectedVariant = Array.from(variants).find(variant => variant.textContent === selectedVariantText)
+        if (selectedVariant) {
+            selectedVariant.classList.add('variant-selected')
+        }
+    } else {
+        // If no previously selected variant, set the first variant as selected by default
+        variants[0].classList.add('variant-selected')
+        localStorage.setItem('selectedVariantText', variants[0].textContent)
+    }
+
+    variants.forEach(variant => {
+        variant.addEventListener('click', (event) => {
+            // Remove 'variant-selected' class from all variants
+            variants.forEach(other => {
+                other.classList.remove('variant-selected')
+            })
+
+            // Add 'variant-selected' class to the clicked variant
+            variant.classList.add('variant-selected')
+
+            // Save the text content of the clicked variant to localStorage
+            localStorage.setItem('selectedVariantText', variant.textContent)
+        })
+    })
+})
+
 // choose comment filter option
 function chooseOption(event) {
     const buttons = document.querySelectorAll('.filter__option button')

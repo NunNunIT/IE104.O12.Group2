@@ -2,7 +2,7 @@ const index = require('../../models/customer/index.model')
 const search = require('../../models/customer/search.model')
 const product = require('../../models/customer/product.model')
 
-const searchController = () => {}
+const searchController = () => { }
 
 // [GET] /search/results
 searchController.results = async (req, res) => {
@@ -17,7 +17,7 @@ searchController.results = async (req, res) => {
         productListResults = await search.findProductsBySearchKey(req, 24)
     }
 
-    
+
     res.status(200).render('./pages/search/results', {
         header: header,
         user: header_user,

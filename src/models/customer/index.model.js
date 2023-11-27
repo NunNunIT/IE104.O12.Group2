@@ -36,7 +36,7 @@ index.getCates = async (req) => {
             const promises = [];
             cates.forEach(async (cate) => {
                 promises.push(
-                    index.getBestSellerProductsOfCates(Number(cate.category_id), 1).then((bestSellerProducts) => {
+                    index.getBestSellerProductsOfCates(Number(cate.category_id), 3).then((bestSellerProducts) => {
                         cate.bestSellerProductsOfCates = bestSellerProducts;
                     })
                 );
@@ -97,6 +97,15 @@ index.getNewProducts = async (callback) => {
                 resolve(newProducts)
             }
         })
+        db.query(getNewProducts, (err, newProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                newProducts = index.productCurrencyFormat(newProducts)
+                resolve(newProducts)
+            }
+        })
     })
 }
 
@@ -113,11 +122,21 @@ index.getDiscountProducts = async (callback) => {
                 resolve(discountProducts)
             }
         })
+        db.query(getDiscountProducts, (err, discountProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                discountProducts = index.productCurrencyFormat(discountProducts)
+                resolve(discountProducts)
+            }
+        })
     })
 }
 
 index.getCateProducts = async (req, limit = 8) => {
-    let category_id = req.query.category_id ?? await product.getCategoryId(req)
+    let category_id = await product.getCategoryId(req)
+    category_id = (req.query.category_id) != 0 ? req.query.category_id : category_id
 
     let getCateProducts = `SELECT * FROM view_products 
                             WHERE category_id = ${category_id} 

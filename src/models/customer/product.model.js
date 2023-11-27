@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
 
 
-const product = function () {}
+const product = function () { }
 
 product.getProductId = async (req) => {
     let params = req.params.product_variant_id
@@ -17,7 +17,7 @@ product.getProductId = async (req) => {
 }
 
 product.getCategoryId = async (req) => {
-    let params = req.params.product_variant_id ?? 0
+    let params = req.params.product_variant_id
 
     let getCategoryId = `SELECT category_id FROM view_products WHERE product_id = ${params}`
 
