@@ -92,7 +92,7 @@
 						<h3>Loại sản phẩm</h3>
 						<div>
 							<% variantProducts.forEach(variant => { %>
-							<a href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
+							<a class = "<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
 								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
 							</a>
@@ -104,7 +104,7 @@
 						<h3>Số lượng</h3>
 						<div class="quantity__input-group">
 							<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-							<input onchange="changeQuantity(event)" name="quantity" type="number" value="0" min="0" max="100" placeholder="0">
+							<input onchange="changeQuantity(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="0">
 							<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 						</div>
 					</div>
@@ -113,9 +113,14 @@
 					<div class="detail__promo promo">
 						<div class="promo__header">
 							<div>
-								<p><%= productInfo.discount_description ?? 'NaN' %></p>
-								<h2><%= productInfo.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
-								<p><del><%= productInfo.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= productInfo.discount_amount ?? 'NaN' %>%</p>
+								<% variantProducts.forEach(variant => { %>
+									<% if (variant.product_variant_id == product_variant_id) { %>
+										<p><%= variant.discount_description ?? 'NaN' %></p>
+										<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
+										<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
+									<% } %> 
+								<% }) %>
+					
 							</div>
 							<div>
 								<p>Kết thúc vào</p>

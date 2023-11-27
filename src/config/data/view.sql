@@ -93,6 +93,8 @@ FROM
 ) AS p
 WHERE
     view_products.product_id = p.product_id;
+
+    
 DROP VIEW IF EXISTS
     view_count_cart;
 CREATE VIEW view_count_cart AS SELECT
@@ -102,11 +104,14 @@ CREATE VIEW view_count_cart AS SELECT
 FROM
     carts,
     users
+
 LEFT JOIN customers ON users.user_id = customers.customer_id
 WHERE
     carts.customer_id = customers.customer_id
 GROUP BY
     customers.customer_id;
+
+
 DROP VIEW IF EXISTS
     view_cart;
 CREATE VIEW view_cart AS SELECT
@@ -120,8 +125,7 @@ WHERE
     carts.product_variant_id = view_products.product_variant_id
 ORDER BY
     carts.cart_added_date
-DESC
-    ;
+DESC;
 DROP VIEW IF EXISTS
     view_products_info;
 CREATE VIEW view_products_info AS SELECT
