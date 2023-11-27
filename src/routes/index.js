@@ -12,11 +12,10 @@ function route(app) {
     app.use('/admin', adminRouter)
     app.use('/search', searchRouter)
     app.use('/order', orderRouter)
-    app.use('/auth',  authRouter)
+    app.use('/auth', authRouter)
     app.use('/notification', notificationRouter)
     app.use('/account', accountRouter)
     app.use('/', siteRouter)
-
 
 }
 

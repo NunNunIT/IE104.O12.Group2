@@ -2,17 +2,19 @@ const express = require('express')
 const router = express.Router()
 
 // import controller
-const AuthController = require('../controllers/customer/AuthController')
+const authController = require('../controllers/customer/authController')
+
+// import middleware
 const middleware = require('../middleware/authMiddleware')
 
-router.get('/register', middleware.checkAuth, AuthController.register)
-router.post('/register', middleware.checkAuth, AuthController.submitRegister)
-router.get('/login', middleware.checkAuth, AuthController.login)
-router.post('/login', middleware.checkAuth, AuthController.submitLogin)
-router.get('/logout', middleware.checkUnAuth, AuthController.logout)
-router.get('/forgot', AuthController.forgotPassword)
-router.post('/forgot', AuthController.forgotPasswordPost)
-router.get('/reset', AuthController.resetPassword)
-// router.get('/resetAuth', AuthController.resetPasswordAuth)
+router.get('/register', middleware.checkAuth, authController.register)
+router.post('/register', middleware.checkAuth, authController.submitRegister)
+router.get('/login', middleware.checkAuth, authController.login)
+router.post('/login', middleware.checkAuth, authController.submitLogin)
+router.get('/logout', middleware.checkUnAuth, authController.logout)
+router.get('/forgot', authController.forgotPassword)
+router.post('/forgot', authController.forgotPasswordPost)
+router.get('/reset', authController.resetPassword)
+// router.get('/resetAuth', authController.resetPasswordAuth)
 
 module.exports = router
