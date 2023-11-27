@@ -1,21 +1,68 @@
+const general = require('../../models/general.model')
+const product = require('../../models/customer/product.model')
 const db = require('../../config/db/connect');
 const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
-const general = require('../../models/general.model')
-const product = require('../../models/customer/product.model')
 
-const index = function () { }
 
-index.getCates = async (callback) => {
-    let getCate = "SELECT * FROM categories"
+const index = async function () {}
+
+index.productCurrencyFormat = async (products) => {
+    products.forEach((product) => {
+        product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
+        if (product.discount_amount) {
+            product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
+            product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
+        }
+    })
+    return products
+}
+
+index.getCates = async (req) => {
+    let getCate = `SELECT categories.*, COUNT(product_id) AS category_count
+                FROM categories LEFT JOIN products
+                ON products.category_id = categories.category_id
+                AND category_is_display = 1
+                GROUP by category_id;
+                 `
+
     return new Promise((resolve, reject) => {
-        return db.query(getCate, (err, cates) => {
+        db.query(getCate, async (err, cates) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            }
+            const promises = [];
+            cates.forEach(async (cate) => {
+                promises.push(
+                    index.getBestSellerProductsOfCates(Number(cate.category_id), 3).then((bestSellerProducts) => {
+                        cate.bestSellerProductsOfCates = bestSellerProducts;
+                    })
+                );
+            });
+
+            await Promise.all(promises);
+            resolve(cates);
+        })
+    })
+}
+
+index.getBestSellerProductsOfCates = async (category_id, limit) => {
+    let getBestSellerProductsOfCates = `SELECT * FROM view_products 
+                            WHERE category_id = ${category_id} 
+                            ORDER BY product_variant_is_bestseller DESC
+                            LIMIT 0, ${limit}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getBestSellerProductsOfCates, (err, bestSellerProductsOfCates) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                resolve(cates)
+                bestSellerProductsOfCates = index.productCurrencyFormat(bestSellerProductsOfCates)
+                // console.log(bestSellerProductsOfCates)
+                resolve(bestSellerProductsOfCates)
             }
         })
     })
@@ -50,6 +97,15 @@ index.getNewProducts = async (callback) => {
                 resolve(newProducts)
             }
         })
+        db.query(getNewProducts, (err, newProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                newProducts = index.productCurrencyFormat(newProducts)
+                resolve(newProducts)
+            }
+        })
     })
 }
 
@@ -66,25 +122,26 @@ index.getDiscountProducts = async (callback) => {
                 resolve(discountProducts)
             }
         })
+        db.query(getDiscountProducts, (err, discountProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                discountProducts = index.productCurrencyFormat(discountProducts)
+                resolve(discountProducts)
+            }
+        })
     })
 }
-
-index.productCurrencyFormat = async (products) => {
-    products.forEach((product) => {
-        product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-        if (product.discount_amount) {
-            product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-            product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-        }
-    })
-    return products
-}
-
 
 index.getCateProducts = async (req, limit = 8) => {
-    let category_id = req.query.category_id ?? await product.getCategoryId(req)
+    let category_id = await product.getCategoryId(req)
+    category_id = (req.query.category_id) != 0 ? req.query.category_id : category_id
 
-    let getCateProducts = `SELECT * FROM view_products WHERE category_id = ${category_id} LIMIT 0, ${limit}`
+    let getCateProducts = `SELECT * FROM view_products 
+                            WHERE category_id = ${category_id} 
+                            ORDER BY product_variant_is_bestseller DESC
+                            LIMIT 0, ${limit}`
 
     return new Promise((resolve, reject) => {
         db.query(getCateProducts, (err, cateProducts) => {
@@ -93,7 +150,28 @@ index.getCateProducts = async (req, limit = 8) => {
                 resolve(0)
             } else {
                 cateProducts = index.productCurrencyFormat(cateProducts)
+
                 resolve(cateProducts)
+            }
+        })
+    })
+}
+
+index.getVariantProducts = async (req) => {
+    let params = req.params.product_variant_id
+    let product_id = await product.getProductId(req)
+
+    let getVariantProducts = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getVariantProducts, (err, variantProducts) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                variantProducts = index.productCurrencyFormat(variantProducts)
+                // console.log(variantProducts)
+                resolve(variantProducts)
             }
         })
     })
@@ -154,7 +232,6 @@ index.header_user = async (req) => {
         let user = req.user
         let countCart = await index.getCountCart(req)
         let detailCarts = await index.getDetailCart(req)
-        // console.log(user, countCart, detailCart)
         let headers = {
             user,
             countCart,
@@ -169,7 +246,10 @@ index.header_user = async (req) => {
 index.header = async (req) => {
     let searchKey = req.query.searchKey ?? ''
     let cates = await index.getCates(req)
-    let header = { searchKey, cates }
+    let header = {
+        searchKey,
+        cates
+    }
     return (header)
 }
 

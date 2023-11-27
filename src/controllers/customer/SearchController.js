@@ -32,18 +32,17 @@ searchController.detail = async (req, res) => {
 
     let productInfo = await product.getProductInfo(req)
     let productImgs = await product.getProductImgs(req)
-    let productVariants = await product.getProductVariants(req)
+    let variantProducts = await index.getVariantProducts(req)
     let productDetails = await product.getProductDetails(req)
     let productFeedbacks = await product.getProductFeedbacks(req)
     let cateProducts = await index.getCateProducts(req, 8)
 
-    console.log(productVariants)
     res.render('./pages/search/detail', {
         user: header_user,
         header: header,
         productInfo: productInfo,
-        productVariants: productVariants,
         productImgs: productImgs,
+        variantProducts: variantProducts,
         productDetails: productDetails,
         productFeedbacks: productFeedbacks,
         cateProducts: cateProducts,

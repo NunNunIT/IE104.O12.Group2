@@ -1,9 +1,10 @@
+const general = require('../../models/general.model')
+const index = require('../../models/customer/index.model')
 const db = require('../../config/db/connect');
 const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
-const general = require('../../models/general.model')
-const index = require('../../models/customer/index.model')
+
 
 const product = function () { }
 
@@ -46,25 +47,6 @@ product.getProductDetails = async (req) => {
                 resolve(0)
             } else {
                 resolve(productDetails)
-            }
-        })
-    })
-}
-
-product.getProductVariants = async (req) => {
-    let params = req.params.product_variant_id
-    let product_id = await product.getProductId(req)
-
-    let getProductVariants = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
-
-    return new Promise((resolve, reject) => {
-        db.query(getProductVariants, (err, productVariants) => {
-            if (err) {
-                console.log(err)
-                resolve(0)
-            } else {
-                // productVariants = index.productCurrencyFormat(productVariants)
-                resolve(productVariants)
             }
         })
     })

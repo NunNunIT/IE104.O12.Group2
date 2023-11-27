@@ -208,13 +208,11 @@
 			</div>
 
 			<% if (productListResults.totalRow) { %>
-				<div class="seacrh-result__main-card">
-					<div class="seacrh-result__main-card">
-						<% productListResults.products.slice().forEach(product => { %>
-						<%- include('../../components/product-card', {product: product}) %>
-						<% }) %>
-					</div>
-				</div>
+			<div class="seacrh-result__main-card">
+				<% productListResults.products.slice().forEach(product => { %>
+				<%- include('../../components/product-card', {product: product}) %>
+				<% }) %>
+			</div>
 			<% } %>
 		</section>
 	</main>

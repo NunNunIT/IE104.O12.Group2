@@ -87,11 +87,11 @@
 				</div>
 
 				<form class="detail--right" action="#" method="post">
-					<% if (productVariants) { %>
+					<% if (variantProducts) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>
 						<div>
-							<% productVariants.forEach(variant => { %>
+							<% variantProducts.forEach(variant => { %>
 							<a href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
 								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
