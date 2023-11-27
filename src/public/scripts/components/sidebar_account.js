@@ -1,7 +1,7 @@
 
 //Popup
-const modalBtns = document.querySelectorAll('.btn-warranty')
-const modals = document.querySelectorAll('.popup')
+const modalBtns = document.querySelectorAll('.btn-logout')
+const modals = document.querySelectorAll('.sidebar-account__popup')
 const closeBtns = document.querySelectorAll('.close-btn')
 const cancelBtns = document.querySelectorAll('.btn-cancel')
 
@@ -18,7 +18,7 @@ closeBtns.forEach((closeBtn) => {
     }
 })
 
-// Đóng popup khi chọn nút hủy
+// Đóng sidebar-account__popup khi chọn nút hủy
 cancelBtns.forEach((cancelBtn) => {
     cancelBtn.onclick = function () {
         modals[0].style.display = 'none'
