@@ -86,7 +86,7 @@
 					</div>
 				</div>
 
-				<form class="detail--right" action="#" method="post">
+				<form class="detail--right" action="/order/information" method="post">
 					<% if (variantProducts) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>
@@ -110,17 +110,15 @@
 					</div>
 					<% } %>
 
+					<% variantProducts.forEach(variant => { %>
+					<% if (variant.product_variant_id == product_variant_id) { %>
+					<% if (variant.discount_amount) { %>
 					<div class="detail__promo promo">
 						<div class="promo__header">
 							<div>
-								<% variantProducts.forEach(variant => { %>
-								<% if (variant.product_variant_id == product_variant_id) { %>
-								<p><%= variant.discount_description ?? 'NaN' %></p>
+								<p>Mua đi bạn ơi!</p>
 								<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
 								<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
-								<% } %>
-								<% }) %>
-
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -130,11 +128,12 @@
 						<div class="promo__content">
 							<h2>Khuyến mãi</h2>
 							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
+							<!-- Thêm discount description -->
 							<ol class="promo__list">
-								<li>Tặng thêm gói Gắn Kết truyền hình K+ (6 Tháng)</li>
-								<li>Tặng Bộ 5 ứng dụng giải trí</li>
-								<li>Tặng 10 năm bảo hành không lưu ảnh</li>
-								<li>Nhập mã MMSALE100 giảm ngay 1% tối đa 100.000đ khi thanh toán qua MOMO</li>
+								<li>Giao hàng nhanh chóng (tùy khu vực)</li>
+								<li>Mua càng nhiều, ưu đãi càng cao</li>
+								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024</li>
+								<li>Chi bán online</li>
 							</ol>
 							<div>
 								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
@@ -143,6 +142,35 @@
 							<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
 						</div>
 					</div>
+					<% } else { %>
+					<div class="detail__promo promo promo__no-discount">
+						<div class="promo__header">
+							<div>
+								<p>Mua đi bạn ơi!</p>
+								<h2><%= variant.product_variant_price_currency ?? 'NaN' %>đ</h2>
+							</div>
+							<div>
+							</div>
+						</div>
+						<div class="promo__content">
+							<h2>Mua ngay, thật nhiều ưu đãi!!!</h2>
+							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
+							<ol class="promo__list">
+								<li>Giao hàng nhanh chóng (tùy khu vực)</li>
+								<li>Mua càng nhiều, ưu đãi càng cao</li>
+								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024</li>
+								<li>Chỉ bán online</li>
+							</ol>
+							<div>
+								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
+								<button type="submit" class="detail__buy-btn">MUA NGAY</button>
+							</div>
+							<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
+						</div>
+					</div>
+					<% } %>
+					<% } %>
+					<% }) %>
 				</form>
 			</div>
 

@@ -1,8 +1,8 @@
 <div class="cart-item mobile-hidden">
-	<input onclick="checkOne(event)" type="checkbox" class="checkbox mobile-hidden">
+	<input onclick="checkOne(event); calcTotalPrice(event)" type="checkbox" class="checkbox mobile-hidden">
 	<div class="cart-item__product lg-col">
-		<img src="/imgs/slider/1.jpg" alt="">
-		<p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
+		<img src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name %>">
+		<p><%= cart.product_name ?? 'null' %>đ</p>
 	</div>
 
 	<div class="sm-col">
@@ -14,18 +14,20 @@
 	</div>
 
 	<div class="sm-col cart-item__unit-price">
+		<% if (cart.discount_amount) { %>
 		<del>160.000đ</del>
-		<p>80.000đ</p>
+		<% } %>
+		<p><%= cart.product_variant_price_currency ?? 'null' %>đ</p>
 	</div>
 
 	<div class="cart-item__quantity sm-col">
 		<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-		<input onchange="calcPrice(event); calcTotalPrice(event)" name="quantity" type="number" value="0">
+		<input onchange="calcPrice(event); calcTotalPrice(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="">
 		<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 	</div>
 
 	<div class="sm-col">
-		<p class="cart-item__price">0đ</p>
+		<p class="cart-item__price"><%= cart.product_variant_price_currency %>đ</p>
 	</div>
 
 	<div class="sm-col">
@@ -38,15 +40,17 @@
 	<div class="cart-item__product">
 		<img src="/imgs/slider/1.jpg" alt="">
 		<div class="cart-item__content">
-			<p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
+			<p><%= cart.product_name %></p>
 			<select class="cart-item__variants">
 				<option value="Gấu dâu">Gấu dâu</option>
 				<option value="Gấu sivi">Gấu sivi</option>
 				<option value="Gấu lá cây">Gấu lá cây</option>
 			</select>
 			<div class="cart-item__unit-price">
+				<% if (cart.discount_amount) { %>
 				<del>160.000đ</del>
-				<p> 80.000đ</p>
+				<% } %>
+				<p><%= cart.product_variant_price_currency ?? 'null' %>đ</p>
 			</div>
 			<div class="cart-item__quantity">
 				<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>

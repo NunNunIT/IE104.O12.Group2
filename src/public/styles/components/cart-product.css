@@ -14,7 +14,7 @@
 .cart-item__product img {
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
 }
 
