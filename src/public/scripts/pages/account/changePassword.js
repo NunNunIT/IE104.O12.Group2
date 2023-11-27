@@ -1,3 +1,7 @@
+// Thêm "active" vào side-menu__ele 
+const appbar__element = document.querySelectorAll('.side-menu__ele');
+appbar__element[3].classList.add('active');
+
 document.addEventListener('DOMContentLoaded', function () {
     const logoutButton = document.querySelector('#logout-btn');
     const popup = document.querySelector('#logout-popup');

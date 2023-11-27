@@ -299,6 +299,9 @@ img.dropdown-noti__img--empty {
     border: var(--outline-gray) 2px solid;
 }
 
+.header__search-bar input[type="search"]::-webkit-search-cancel-button{
+    -webkit-appearance:none;
+  }
 
 .header__nav .material-symbols-outlined {
     font-size: 1rem;
@@ -561,6 +564,12 @@ img.dropdown-cart__img--empty {
 .menu__promo span {
     color: var(--pink);
 }
+
+/* 
+.cate-dropdown__aside::-webkit-scrollbar,
+.cate-dropdown__content::-webkit-scrollbar {
+    display: none;
+} */
 
 .header__cate-dropdown {
     width: 80%;

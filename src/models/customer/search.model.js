@@ -11,13 +11,34 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     // lấy từ khóa searchKey=?
     const searchKey = req.query.searchKey ?? 0
 
-    let getRowSQL = `SELECT COUNT(*) as total FROM view_products`
-    let getProductsSQL = `SELECT * FROM view_products`
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_new_products`
+    let getProductsSQL = `SELECT * FROM view_new_products`
 
-    if (searchKey) {
-        getProductsSQL += ` WHERE product_name LIKE '%${searchKey}%'`
-        getRowSQL += ` WHERE product_name LIKE '%${searchKey}%'`
-    } 
+    if (req.query.hotProduct && req.query.newProduct) {
+        getProductsSQL += ` ORDER BY product_variant_is_bestseller DESC, product_view_count DESC, product_lastdate_added DESC`
+    } else if (req.query.hotProduct || req.query.newProduct) {
+        getProductsSQL += ` ORDER BY`
+        if (req.query.hotProduct) {
+        getProductsSQL += ` product_variant_is_bestseller DESC, product_view_count DESC`
+        } else if (req.query.newProduct) {
+            getProductsSQL += ` product_lastdate_added DESC`
+        }
+    }
+
+    if (searchKey && req.query.discount) {
+        getProductsSQL += ` WHERE product_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
+        getRowSQL += ` WHERE product_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
+    } else if (searchKey || req.query.discount) {
+        getProductsSQL += ` WHERE`
+        getRowSQL += ` WHERE`
+        if (searchKey) {
+            getProductsSQL += ` product_name LIKE '%${searchKey}%'`
+            getRowSQL += ` product_name LIKE '%${searchKey}%'`
+        } else {
+            getProductsSQL += ` discount_amount IS NOT NULL`
+            getRowSQL += ` discount_amount IS NOT NULL`
+        }
+    }
 
     // lấy trạng hiện tại page=?
     let page = req.query.page ? req.query.page : 1
@@ -52,13 +73,13 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     })
 }
 
-search.findProductsByCateId = async (req, callback) => {
+search.findProductsByCateId = async (req, limit = 24) => {
     // lấy từ khóa searchKey=?
     const category_id = req.query.category_id ?? 0
     const category_name = req.query.category_name ?? 0
 
-    let getRowSQL = `SELECT COUNT(*) as total FROM view_products`
-    let getProductsSQL = `SELECT * FROM view_products`
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_new_products`
+    let getProductsSQL = `SELECT * FROM view_new_products`
 
     if (category_id) {
         getProductsSQL += ` WHERE category_id = ${category_id} `
@@ -72,7 +93,6 @@ search.findProductsByCateId = async (req, callback) => {
     let rowData = await query(getRowSQL)
     let totalRow = rowData[0].total
 
-    let limit = 24
     // tính số trang thực tế sẽ có
     let totalPage = totalRow > 0 ? Math.ceil(totalRow / limit) : 1
     // Kiểm tra đảm bảo rằng page là số nguyên hợp lệ từ 1 đến totalPage

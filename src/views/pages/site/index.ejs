@@ -36,7 +36,7 @@
 
 		<section class="outstanding-products">
 			<div class="outstanding-products__img"></div>
-			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: 'outstandingProduct=true' , products: outstandingProducts}) %>
+			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: '?hotProduct=true' , products: outstandingProducts}) %>
 		</section>
 
 		<% if(newProducts) { %>
@@ -46,7 +46,7 @@
 				<div class="tip-products__label">
 					<h2 class="tip-products__title">Hàng mới về</h2>
 					<div class="tip-products__seemore">
-						<a href="/search/result?newProduct=true">Xem tất cả</a>
+						<a href="/search/results?newProduct=true">Xem tất cả</a>
 						<span class="material-symbols-outlined"> chevron_right </span>
 					</div>
 				</div>

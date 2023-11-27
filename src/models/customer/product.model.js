@@ -64,6 +64,7 @@ product.getProductImgs = async (req) => {
                 console.log(err)
                 resolve(0)
             } else {
+                console.log(productImgs)
                 resolve(productImgs)
             }
         })

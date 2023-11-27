@@ -21,11 +21,10 @@ a {
 .account-container {
     width: 80%;
     padding: 0;
-    margin: 130px 0 24px 0;
+    margin: 24px 0;
     display: flex;
     gap: 12px;
     align-items: flex-start;
-    padding-top: 32px;
 }
 
 .warranty__main {
@@ -36,7 +35,7 @@ a {
 }
 
 
-/*Responsive-small-laptop*/
+/* 1024px - Mini PC */
 @media only screen and (max-width: 64rem) {
     .purchase__status {
         padding: 12px 24px;
@@ -71,11 +70,11 @@ a {
     }
 }
 
-/*Responsive-tablet*/
+/* 768px - Tablet */
 @media only screen and (max-width: 48rem) {
     .account-container {
         width: 95%;
-        margin: 100px 0 24px 0;
+        margin: 16px 0;
         padding-top: 24px;
     }
 
@@ -150,16 +149,16 @@ a {
     }
 }
 
-/*Responsive-tablet*/
+/* 416px - Mobile*/
 @media only screen and (max-width: 26rem) {
     .account-aside {
-        display:none;
+        display: none;
     }
+
     .account-container {
         width: 100%;
-        margin: 100px 0 24px 0;
+        margin: 12px 0;
         padding-top: 24px;
-        /* gap: 0px; */
     }
 
     #sidebar {

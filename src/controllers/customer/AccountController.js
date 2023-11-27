@@ -4,29 +4,45 @@ const accountController = () => { }
 
 // [GET] /account/information
 accountController.information = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/account/information', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
 // [GET] /account/pruchase-history
 accountController.purchaseHistory = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/account/purchase-history', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
 // [GET] /account/pruchase-history
 accountController.purchaseDetail = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/account/purchase-detail', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
 // [GET] /account/feedback
 accountController.feedback = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/account/feedback', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
@@ -34,43 +50,62 @@ accountController.checkUser = async (req, res) => {
     auth.checkPassword(req, function (err, wrong, success) {
         if (err) {
             return res.json({
-                status: "error",
-                error: "Lỗi truy cập.",
+                status: 'error',
+                error: 'Lỗi truy cập.',
             })
         } else if (wrong) {
             return res.json({
-                status: "wrongPassword",
-                error: "Mật khẩu không chính xác!",
+                status: 'wrongPassword',
+                error: 'Mật khẩu không chính xác!',
             })
         } else if (success) {
             return res.json({
-                status: "success",
-                error: "Thành công.",
+                status: 'success',
+                error: 'Thành công.',
             })
         }
     })
 }
 
 accountController.warrantyClaim = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/account/warranty-claim', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
 accountController.changePassword = async (req, res) => {
-    res.render('./pages/account/changePassword')
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
+    res.render('./pages/account/changePassword', {
+        header: header,
+        user: header_user,
+    })
 }
 
 //GET /account/edit-information
 accountController.editInformation = async (req, res) => {
-    res.render("./pages/account/edit-information", {
-        user: (req.user) ? req.user : 0
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
+    res.render('./pages/account/edit-information', {
+        header: header,
+        user: header_user,
     })
 }
+
 //GET /account/sidebar_account
 accountController.mobileAccount = async (req, res) => {
-    res.render("./pages/account/mobile-account", {
-        user: (req.user) ? req.user : 0
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
+    res.render('./pages/account/mobile-account', {
+        header: header,
+        user: header_user,
     })
 }
 

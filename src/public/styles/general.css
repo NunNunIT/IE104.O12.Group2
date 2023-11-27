@@ -218,3 +218,9 @@ p {
     font-size: 16px;
     padding: 0 24px 0 24px;
 }
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+    display: none;
+}

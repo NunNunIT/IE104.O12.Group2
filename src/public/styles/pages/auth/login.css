@@ -34,7 +34,7 @@ input {
     min-height: 100vh;
     overflow: hidden;
     background-color: var(--bg-white);
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;

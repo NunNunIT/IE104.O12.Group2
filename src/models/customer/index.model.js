@@ -84,7 +84,7 @@ index.getOutstandingProducts = async (callback) => {
     })
 }
 
-index.getNewProducts = async (callback) => {
+index.getNewProducts = async (req) => {
     let getNewProducts = "SELECT * FROM view_new_products ORDER BY product_lastdate_added DESC"
 
     return new Promise((resolve, reject) => {

@@ -10,8 +10,9 @@
 </head>
 
 <body>
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1', link : 'đường dẫn 1'}, {text : 'tên biến 2', link : 'đường dẫn 2'}]}) %>
+
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Chính sách bảo hành', link : '' }] }) %>
 
 	<main class="account-container">
 		<!-- side-bar -->
