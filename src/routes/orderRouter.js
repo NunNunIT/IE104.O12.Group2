@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 // import controller
-const OrderController = require('../controllers/customer/OrderController')
+const orderController = require('../controllers/customer/orderController.js')
 const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/cart', authMiddleware.isLoggedIn, OrderController.cart)
+router.get('/cart', authMiddleware.isLoggedIn, orderController.cart)
 router.post('/cart', authMiddleware.isLoggedIn, (req, res) => {
     // res.send(1)
     console.log(req.body)
@@ -13,10 +13,11 @@ router.post('/cart', authMiddleware.isLoggedIn, (req, res) => {
     // res.writeHead(302, { 'Location': '/order/information' })
 })
 
-router.get('/information', authMiddleware.isLoggedIn, OrderController.information)
-router.get('/transaction', authMiddleware.isLoggedIn, OrderController.transaction)
-router.get('/momo', authMiddleware.isLoggedIn, OrderController.momo)
-router.get('/atm', authMiddleware.isLoggedIn, OrderController.atm)
-router.get('/credit', authMiddleware.isLoggedIn, OrderController.credit)
+router.post('/information', authMiddleware.isLoggedIn, orderController.information)
+// router.post('/information', authMiddleware.isLoggedIn, orderController.informationPost)
+router.get('/transaction', authMiddleware.isLoggedIn, orderController.transaction)
+router.get('/momo', authMiddleware.isLoggedIn, orderController.momo)
+router.get('/atm', authMiddleware.isLoggedIn, orderController.atm)
+router.get('/credit', authMiddleware.isLoggedIn, orderController.credit)
 
 module.exports = router;

@@ -1,56 +1,80 @@
-class OrderController {
+const {promisify} = require('util')
+
+// Tất cả controller dều khai báo cái này
+const index = require('../../models/customer/index.model')
+
+const orderController = () => { }
 
 	// [GET] /order/cart
-	cart(req, res) {
+	orderController.cart = async (req, res) => {
+		let header = await index.header(req)
+    	let header_user = await index.header_user(req)
+
 		res.render('./pages/order/cart', {
-			user: (req.user) ? req.user : 0
+			header: header,
+        	user: header_user,
 		})
 	}
 
-	// [GET] /order/information
-	information(req, res) {
+	// [POST] /order/information
+	orderController.information = async (req, res) => {
+		let header = await index.header(req)
+    	let header_user = await index.header_user(req)
+
 		res.render("./pages/order/information", {
-			user: (req.user) ? req.user : 0
+			header: header,
+        	user: header_user,
 		});
 	}
 
 	// [GET] /order/transaction
-	transaction(req, res) {
+	orderController.transaction = async (req, res) => {
 		const title = "Thanh toán";
+		let header = await index.header(req)
+    	let header_user = await index.header_user(req)
+
 		res.render("./pages/order/transaction", {
-			user: (req.user) ? req.user : 0
+			header: header,
+        	user: header_user,
 		});
 	}
 
 	// [GET] /order/atm
-	atm(req, res) {
+	orderController.atm = async (req, res) => {
 		const title = "Thanh toán ATM";
+		let header = await index.header(req)
+    	let header_user = await index.header_user(req)
+
 		res.render("./pages/order/atm", {
-			user: (req.user) ? req.user : 0
+			header: header,
+        	user: header_user,
 		});
 	}
 
 	// [GET] /order/momo
-	momo(req, res) {
+	orderController.momo = async (req, res) => {
 		const title = "Thanh toán MoMo";
+		let header = await index.header(req)
+    	let header_user = await index.header_user(req)
+
 		res.render("./pages/order/momo", {
-			user: (req.user) ? req.user : 0
+			header: header,
+        	user: header_user,
 		});
 	}
 
 	// [GET] /order/credit
-	credit(req, res) {
+	orderController.credit = async (req, res) => {
 		const title = "Thanh toán Tín dụng";
+		let header = await index.header(req)
+    	let header_user = await index.header_user(req)
+
 		res.render("./pages/order/credit", {
-			user: (req.user) ? req.user : 0
+			header: header,
+        	user: header_user,
 		});
 	}
 
-	// [GET] /order/warranty
-	warranty(req, res) {
-		const title = "Bảo hành sản phẩm";
-		res.render("./pages/order/warranty");
-	}
-}
 
-module.exports = new OrderController();
+module.exports = orderController
+
