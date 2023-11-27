@@ -19,10 +19,10 @@ body {
 .content-container,
 .similar-products {
     width: 80%;
-    padding: 24px;
+    padding: 12px;
     max-width: 1152px;
     margin: 24px auto;
-    border-radius: 12px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     gap: 24px;

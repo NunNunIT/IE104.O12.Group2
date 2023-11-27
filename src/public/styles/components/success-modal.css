@@ -18,7 +18,8 @@
 .succes-modal__content {
     z-index: 10000;
     width: 40%;
-    padding: 24px;
+    padding: 50px;
+    padding-bottom: 100px;
     border-radius: 16px;
     background-color: var(--white);
     display: inherit;
@@ -42,8 +43,8 @@
 }
 
 .succes-modal__content img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 /* 1024px - Tablet */

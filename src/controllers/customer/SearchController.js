@@ -27,6 +27,7 @@ searchController.results = async (req, res) => {
 
 // [GET] /search/:productId
 searchController.detail = async (req, res) => {
+    let product_variant_id = req.params.product_variant_id
     let header = await index.header(req)
     let header_user = await index.header_user(req)
 
@@ -40,6 +41,7 @@ searchController.detail = async (req, res) => {
     res.render('./pages/search/detail', {
         user: header_user,
         header: header,
+        product_variant_id: product_variant_id,
         productInfo: productInfo,
         productImgs: productImgs,
         variantProducts: variantProducts,
