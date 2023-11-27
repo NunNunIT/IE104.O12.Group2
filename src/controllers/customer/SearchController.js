@@ -32,6 +32,7 @@ searchController.detail = async (req, res) => {
 
     let productInfo = await product.getProductInfo(req)
     let productImgs = await product.getProductImgs(req)
+    let variantProducts = await index.getVariantProducts(req)
     let productDetails = await product.getProductDetails(req)
     let productFeedbacks = await product.getProductFeedbacks(req)
     let cateProducts = await index.getCateProducts(req, 8)
@@ -41,6 +42,7 @@ searchController.detail = async (req, res) => {
         header: header,
         productInfo: productInfo,
         productImgs: productImgs,
+        variantProducts: variantProducts,
         productDetails: productDetails,
         productFeedbacks: productFeedbacks,
         cateProducts: cateProducts,

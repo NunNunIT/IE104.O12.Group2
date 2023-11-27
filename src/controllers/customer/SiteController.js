@@ -14,7 +14,6 @@ siteController.index = async (req, res) => {
     let newProducts = await index.getNewProducts(req)
     let discountProducts = await index.getDiscountProducts(req)
 
-    console.log (outstandingProducts)
     res.render('./pages/site/index', {
         header: header,
         user: header_user,
@@ -22,13 +21,16 @@ siteController.index = async (req, res) => {
         newProducts: newProducts,
         discountProducts: discountProducts,
     })
-
 }
 
 //[GET] /about-us
-siteController.aboutUs = (req, res) => {
+siteController.aboutUs = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/site/about-us', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 

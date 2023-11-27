@@ -56,6 +56,7 @@ CREATE VIEW view_products AS SELECT
     categories.category_id,
     categories.category_name,
     product_variants.product_variant_id,
+    product_variants.product_variant_is_bestseller,
     MIN(
         product_variants.product_variant_price
     ) AS 'product_variant_price',

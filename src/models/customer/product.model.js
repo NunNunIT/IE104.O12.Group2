@@ -1,8 +1,10 @@
+const general = require('../../models/general.model')
+const index = require('../../models/customer/index.model')
 const db = require('../../config/db/connect');
 const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
-const general = require('../../models/general.model')
+
 
 const product = function () {}
 
@@ -15,7 +17,7 @@ product.getProductId = async (req) => {
 }
 
 product.getCategoryId = async (req) => {
-    let params = req.params.product_variant_id
+    let params = req.params.product_variant_id ?? 0
 
     let getCategoryId = `SELECT category_id FROM view_products WHERE product_id = ${params}`
 
@@ -40,24 +42,6 @@ product.getProductDetails = async (req) => {
 
     return new Promise((resolve, reject) => {
         db.query(getProductDetails, (err, productDetails) => {
-            if (err) {
-                console.log(err)
-                resolve(0)
-            } else {
-                resolve(productDetails)
-            }
-        })
-    })
-}
-
-product.getProductVariants = async (req) => {
-    let params = req.params.product_variant_id
-    let product_id = await product.getProductId(req)
-
-    let getProductVariants = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
-
-    return new Promise((resolve, reject) => {
-        db.query(getProductVariants, (err, productVariants) => {
             if (err) {
                 console.log(err)
                 resolve(0)
