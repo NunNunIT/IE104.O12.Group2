@@ -13,8 +13,7 @@ router.post('/cart', authMiddleware.isLoggedIn, (req, res) => {
     // res.writeHead(302, { 'Location': '/order/information' })
 })
 
-router.post('/information', authMiddleware.isLoggedIn, orderController.information)
-// router.post('/information', authMiddleware.isLoggedIn, orderController.informationPost)
+router.get('/information', authMiddleware.isLoggedIn, orderController.information)
 router.get('/transaction', authMiddleware.isLoggedIn, orderController.transaction)
 router.get('/momo', authMiddleware.isLoggedIn, orderController.momo)
 router.get('/atm', authMiddleware.isLoggedIn, orderController.atm)

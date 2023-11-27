@@ -2,17 +2,17 @@ const express = require('express')
 const router = express.Router()
 
 // import controller
-const AccountController = require('../controllers/customer/AccountController')
+const accountController = require('../controllers/customer/accountController')
 const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/information', authMiddleware.isLoggedIn, AccountController.information)
-router.get('/purchase', authMiddleware.isLoggedIn, AccountController.purchaseHistory)
-router.get('/purchase/:purchaseID', authMiddleware.isLoggedIn, AccountController.purchaseDetail)
-router.get('/feedback', authMiddleware.isLoggedIn, AccountController.feedback)
-router.get('/warranty-claim', authMiddleware.isLoggedIn, AccountController.warrantyClaim)
-router.get('/edit-information', authMiddleware.isLoggedIn, AccountController.editInformation)
-router.get('/mobile-account', authMiddleware.isLoggedIn, AccountController.mobileAccount)
-router.get('/changePassword', AccountController.changePassword)
+router.get('/information', authMiddleware.isLoggedIn, accountController.information)
+router.get('/purchase', authMiddleware.isLoggedIn, accountController.purchaseHistory)
+router.get('/purchase/:purchaseID', authMiddleware.isLoggedIn, accountController.purchaseDetail)
+router.get('/feedback', authMiddleware.isLoggedIn, accountController.feedback)
+router.get('/warranty-claim', authMiddleware.isLoggedIn, accountController.warrantyClaim)
+router.get('/edit-information', authMiddleware.isLoggedIn, accountController.editInformation)
+router.get('/mobile-account', authMiddleware.isLoggedIn, accountController.mobileAccount)
+router.get('/changePassword', accountController.changePassword)
 
 
 module.exports = router

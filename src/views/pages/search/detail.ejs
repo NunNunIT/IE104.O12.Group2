@@ -86,13 +86,13 @@
 					</div>
 				</div>
 
-				<form class="detail--right" action="/order/information" method="post">
+				<form class="detail--right" action="#" method="post">
 					<% if (variantProducts) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>
 						<div>
 							<% variantProducts.forEach(variant => { %>
-							<a class = "<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
+							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
 								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
 							</a>
@@ -114,13 +114,13 @@
 						<div class="promo__header">
 							<div>
 								<% variantProducts.forEach(variant => { %>
-									<% if (variant.product_variant_id == product_variant_id) { %>
-										<p><%= variant.discount_description ?? 'NaN' %></p>
-										<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
-										<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
-									<% } %> 
+								<% if (variant.product_variant_id == product_variant_id) { %>
+								<p><%= variant.discount_description ?? 'NaN' %></p>
+								<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
+								<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
+								<% } %>
 								<% }) %>
-					
+
 							</div>
 							<div>
 								<p>Kết thúc vào</p>

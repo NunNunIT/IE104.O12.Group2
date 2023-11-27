@@ -1,8 +1,5 @@
-const {
-    promisify
-} = require('util')
+const { promisify } = require('util')
 
-// Tất cả controller dều khai báo cái này
 const index = require('../../models/customer/index.model')
 
 const siteController = () => { }
@@ -27,11 +24,11 @@ siteController.index = async (req, res) => {
 //[GET] /about-us
 siteController.aboutUs = async (req, res) => {
     // Tất cả trang đều chạy cái này
-    let header_user = await index.header_user(req) 
+    let header_user = await index.header_user(req)
     let header = await index.header(req)
 
     res.render('./pages/site/about-us', {
-    // Tất cả trang đều trả về cái này
+        // Tất cả trang đều trả về cái này
         header: header,
         user: header_user,
     })

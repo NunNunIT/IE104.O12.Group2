@@ -2,10 +2,12 @@ const express = require('express')
 const router = express.Router();
 
 // import controller
-const SearchController = require('../controllers/customer/SearchController.js')
+const searchController = require('../controllers/customer/searchController.js')
+
+// import middleware
 const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/results', authMiddleware.getLoggedIn, SearchController.results)
-router.get('/:product_variant_id', authMiddleware.getLoggedIn, SearchController.detail)
+router.get('/results', authMiddleware.getLoggedIn, searchController.results)
+router.get('/:product_variant_id', authMiddleware.getLoggedIn, searchController.detail)
 
 module.exports = router
