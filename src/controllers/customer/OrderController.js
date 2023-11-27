@@ -5,6 +5,15 @@ const index = require('../../models/customer/index.model')
 
 const orderController = () => { }
 
+orderController.addCart = async (req, res) => {
+	// console.log('-------------------------------Gói gửi:'+ req.body.product_variant_id)
+	// let header_user = await index.header_user(req)
+	return res.json({
+		status: 'success',
+		error: 'Số điện thoại không tồn tại.',
+	})
+}
+
 // [GET] /order/cart
 orderController.cart = async (req, res) => {
 	let header_user = await index.header_user(req)

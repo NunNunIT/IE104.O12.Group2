@@ -141,7 +141,9 @@ const validateInput = () => {
                 setError(password, back.error);
             }
             else {
+                location.reload()
                 history.back();
+                location.reload()
                 location.reload()
             }   
         })
