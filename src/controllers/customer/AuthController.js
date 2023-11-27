@@ -95,7 +95,7 @@ authController.forgotPassword = async (req, res) => {
 	})
 }
 
-authController.forgotPasswordPost = async (req, res) => {
+authController.findUser = async (req, res) => {
 	auth.findNumberPhone(req, function (err, notFound, success, user_id) {
 		if (err) {
 			return res.json({
@@ -115,6 +115,28 @@ authController.forgotPasswordPost = async (req, res) => {
 			})
 		}
 
+	})
+}
+
+authController.forgotPasswordPost = async (req, res) => {
+	auth.findNumberPhone(req, function (err, notFound, success, user_id) {
+		if (err) {
+			return res.json({
+				status: "error",
+				error: "Lỗi truy cập.",
+			})
+		} else if (notFound) {
+			return res.json({
+				status: "notFound",
+				error: "Số điện thoại không tồn tại.",
+			})
+		} else if (success) {
+			return res.json({
+				status: "success",
+				error: "Thành công.",
+				user_id: user_id
+			})
+		}
 	})
 }
 
