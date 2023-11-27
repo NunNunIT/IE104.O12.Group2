@@ -7,14 +7,18 @@ const product = require('../../models/customer/product.model')
 
 const index = function () {}
 
-index.getCates = async (callback) => {
+index.getCates = async (req) => {
     let getCate = "SELECT * FROM categories"
     return new Promise((resolve, reject) => {
-        return db.query(getCate, (err, cates) => {
+        db.query(getCate, (err, cates) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
+                // cates.forEach(async cate => {
+                //     cate.cateProducts = await index.getCateProducts(req, cate_id = cate.category_id)
+                // })
+                console.log(cates)
                 resolve(cates)
             }
         })
@@ -81,8 +85,9 @@ index.productCurrencyFormat = async (products) => {
 }
 
 
-index.getCateProducts = async (req, limit = 8) => {
+index.getCateProducts = async (req, limit = 8, cate_id = 0) => {
     let category_id = req.query.category_id ?? await product.getCategoryId(req)
+    category_id = (cate_id) ?? category_id
 
     let getCateProducts = `SELECT * FROM view_products WHERE category_id = ${category_id} LIMIT 0, ${limit}`
 
