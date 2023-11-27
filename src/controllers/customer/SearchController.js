@@ -17,7 +17,6 @@ searchController.results = async (req, res) => {
         productListResults = await search.findProductsBySearchKey(req, 24)
     }
 
-
     res.status(200).render('./pages/search/results', {
         header: header,
         user: header_user,
