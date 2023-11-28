@@ -182,3 +182,21 @@ function changeDistrict(event) {
         })
     }
 }
+
+function submitOrderForm(event) {
+    event.preventDefault()
+    const orderForm = document.querySelector('#order-form')
+
+    const radios = orderForm.querySelectorAll('.pay-method__choose div input')
+    console.log(radios)
+    let radioValue
+    radios.forEach(radio => {
+        if (radio.checked == true)
+            radioValue = radio.value
+    })
+
+    orderForm.action = `/order/${radioValue}`
+
+    console.log(orderForm.action)
+    orderForm.submit()
+}
