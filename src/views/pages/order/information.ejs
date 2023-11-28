@@ -33,7 +33,7 @@
 			</div>
 		</section>
 
-		<form method="post" id="order-form">
+		<form onsubmit="submitOrderForm(event)" action="" method="post" id="order-form">
 			<section class="order-detail">
 				<div class="order-detail__customer">
 					<h2>Thông tin người nhận hàng</h2>
@@ -70,15 +70,15 @@
 					<h2>Phương thức thanh toán</h2>
 					<div class="pay-method__choose">
 						<div>
-							<input type="radio" id="radio1" name="pay-method" required>
+							<input type="radio" id="radio1" name="pay-method" value="momo" required>
 							<label for="radio1">Thanh toán qua MOMO</label>
 						</div>
 						<div>
-							<input type="radio" id="radio2" name="pay-method" required>
+							<input type="radio" id="radio2" name="pay-method" value="atm" required>
 							<label for="radio2">Thanh toán qua thẻ ATM</label>
 						</div>
 						<div>
-							<input type="radio" id="radio3" name="pay-method" required>
+							<input type="radio" id="radio3" name="pay-method" value="credit" required>
 							<label for="radio3">Thanh toán qua thẻ VISA</label>
 						</div>
 					</div>
@@ -106,7 +106,7 @@
 
 			<div class="order-pay__submit">
 				<p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br><a href="/privacy-policy">Điều khoản đặt hàng của TECHTWO.</a></p>
-				<button type="submit" form="order-form">Đặt hàng</button>
+				<button id="order-form-submit" type="submit" form="order-form">Đặt hàng</button>
 			</div>
 		</section>
 
