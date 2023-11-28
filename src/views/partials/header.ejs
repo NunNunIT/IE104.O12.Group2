@@ -20,7 +20,7 @@
 				</a>
 			</div>
 			<div>
-				<a href="http://127.0.0.1:3000/">
+				<a href="/">
 					<img class="header__logo--top" src="/imgs/logo-white.png">
 				</a>
 			</div>
@@ -41,8 +41,8 @@
 								<span class="unauth-content__noti">Đăng nhập để xem Thông báo</span>
 							</div>
 							<div class="unauth-content__btn">
-								<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
-								<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+								<a href="/auth/login">Đăng nhập</a>
+								<a href="/auth/register">Đăng ký</a>
 							</div>
 						</div>
 					</div>
@@ -54,7 +54,7 @@
 							<div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
 							<%- include('../components/noti-content-dropdown') %>
 							<%- include('../components/noti-content-dropdown') %>
-							<a href="http://127.0.0.1:3000/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
+							<a href="/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
 						</div>
 					</div>
 					<!-- kết thúc dropdown-noti khi đã đăng nhập -->
@@ -75,7 +75,7 @@
 
 				<!-- Hiển thị khi responsive điện thoại -->
 				<div class="header__nav--disable">
-					<a href="http://127.0.0.1:3000/notification/account-update" class="noti--disable">
+					<a href="/notification/account-update" class="noti--disable">
 						<span class="material-symbols-outlined" title="Thông báo">notifications</span>
 					</a>
 					<a href="#" class="help--disable">
@@ -87,7 +87,7 @@
 				<!-- Khi đã đăng nhập -->
 				<% if (user) { %>
 				<div class="dropdown-account">
-					<a href="http://127.0.0.1:3000/account/information">
+					<a href="/account/information">
 						<div class="header__auth">
 							<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar">
 							<span><%= user.user.user_name %></span>
@@ -95,9 +95,9 @@
 					</a>
 					<div class="dropdown-account__content-container">
 						<div class="dropdown-account__content">
-							<a href="http://127.0.0.1:3000/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
-							<a href="http://127.0.0.1:3000/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
-							<a href="http://127.0.0.1:3000/auth/logout" id="btn-dropdown-logout">Đăng xuất</a>
+							<a href="/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
+							<a href="/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
+							<a href="/auth/logout" id="btn-dropdown-logout">Đăng xuất</a>
 						</div>
 					</div>
 				</div>
@@ -106,9 +106,9 @@
 				<!-- Khi chưa đăng nhập  -->
 				<div class="header__auth">
 					<span class="material-symbols-outlined">account_circle</span>
-					<a href="http://127.0.0.1:3000/auth/login" class="header__auth-login">Đăng nhập</a>
+					<a href="/auth/login" class="header__auth-login">Đăng nhập</a>
 					<span>|</span>
-					<a href="http://127.0.0.1:3000/auth/register" class="header__auth-register">Đăng ký</a>
+					<a href="/auth/register" class="header__auth-register">Đăng ký</a>
 				</div>
 				<!-- Kết thúc khi chưa đăng nhập -->
 				<% } %>
@@ -118,7 +118,7 @@
 
 	<div class="header__container">
 		<div class="header__main">
-			<a href="http://127.0.0.1:3000/">
+			<a href="/">
 				<img class="header__logo" src="/imgs/logo-blue.png">
 			</a>
 			<form class="header__search-bar" action="/search/results" method="GET">
@@ -129,7 +129,7 @@
 			</form>
 
 			<div class="dropdown-cart">
-				<a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
+				<a href="/order/cart" class="header__cart-container" title="Giỏ hàng">
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
 						<% if (user.countCart) { %>
@@ -147,8 +147,8 @@
 							<span class="unauth-content__cart">Đăng nhập để xem Giỏ hàng</span>
 						</div>
 						<div class="unauth-content__btn">
-							<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
-							<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+							<a href="/auth/login">Đăng nhập</a>
+							<a href="/auth/register">Đăng ký</a>
 						</div>
 					</div>
 					<!-- kết thúc dropdown giỏ hàng khi chưa đăng nhập -->
@@ -171,7 +171,7 @@
 						</div>
 						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 						<% } %>
-						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
+						<a href="/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>
 						</a>
 					</div>
