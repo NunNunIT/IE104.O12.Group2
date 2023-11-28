@@ -23,12 +23,18 @@
 }
 
 .cate__item h4 {
+    white-space: nowrap; 
+    width: 80px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 1rem;
     text-align: center;
     color: var(--primary-color-2);
 }
 
 .cate__item p {
-    font-weight: 500;
+    /* font-weight: 500; */
     color: var(--del-gray);
 }
 

@@ -12,6 +12,7 @@ siteController.index = async (req, res) => {
     let newProducts = await index.getNewProducts(req)
     let discountProducts = await index.getDiscountProducts(req)
 
+    console.log(header)
     res.render('./pages/site/index', {
         header: header,
         user: header_user,
@@ -28,24 +29,30 @@ siteController.aboutUs = async (req, res) => {
     let header = await index.header(req)
 
     res.render('./pages/site/about-us', {
-        // Tất cả trang đều trả về cái này
         header: header,
         user: header_user,
     })
 }
 
 //[GET] /privacy-policy
-siteController.privacyPolicy = (req, res) => {
+siteController.privacyPolicy = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/site/privacy-policy', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
 
-siteController.error = (req, res) => {
+siteController.error = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
     res.render('./pages/site/404-error', {
-        user: (req.user) ? req.user : 0
+        header: header,
+        user: header_user,
     })
 }
-
 
 module.exports = siteController

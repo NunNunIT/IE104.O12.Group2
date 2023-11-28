@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     gap: 12px;
 
-    margin-top: 150px;
+    margin-top: 24px;
     background: var(--white);
     padding: 1.5rem;
     width: 80vw;
@@ -41,8 +41,8 @@ body {
 }
 
 .product-info img {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: auto;
     float: left;
     border-radius: 4px;
 }
@@ -170,11 +170,23 @@ textarea {
     color: white;
 }
 
+@media screen and (max-width: 48rem) {
+    .feedback-wrapper {
+        margin-top: 20px;
+    }
+}
+
 
 /* 416px - Mobile */
 @media screen and (max-width: 26rem) {
     .app-bar {
         display: block;
+    }
+    .product-info img {
+        height: 70px;
+        width: auto;
+        float: left;
+        border-radius: 4px;
     }
 
     body {
@@ -183,6 +195,7 @@ textarea {
 
     .feedback-wrapper {
         width: 100%;
+        margin-top: 12px;
         padding: 12px;
 
     }
@@ -221,16 +234,16 @@ textarea {
         font-size: 14px;
     }
 
-    button {
+    .popup__button button {
         height: 42px;
     }
 
-    button.btn--outlined.pri {
+    .popup__button button.btn--outlined.pri {
         font-size: 0.875rem;
         padding: 0 18px;
     }
 
-    button.btn--filled.pri {
+    .popup__button button.btn--filled.pri {
         font-size: 0.875rem;
         padding: 0 18px;
     }

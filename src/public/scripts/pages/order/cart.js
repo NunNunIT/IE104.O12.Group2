@@ -121,25 +121,26 @@ function cartSubmit(event) {
             .map(item => item.parentNode)
             .forEach(item => item.querySelectorAll('input, select').forEach(input => input.disabled = true))
 
-        const formData = new FormData(cartForm)
-        const transformedData = []
-        console.log(formData.getAll('variant'))
+        cartForm.submit()
 
-        formData.getAll('variant').forEach((variant, index) => {
-            transformedData.push({
-                variant: variant,
-                quantity: parseInt(formData.getAll('quantity')[index], 10)
-            })
-        })
+        // const formData = new FormData(cartForm)
+        // const transformedData = []
+        // console.log(formData.getAll('variant'))
 
-        // Use fetch to submit the data
-        fetch('/order/cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(transformedData),
-        })
+        // formData.getAll('variant').forEach((variant, index) => {
+        //     transformedData.push({
+        //         variant: variant,
+        //         quantity: parseInt(formData.getAll('quantity')[index], 10)
+        //     })
+        // })
+        //     // Use fetch to submit the data
+        //     fetch('/order/cart', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(transformedData),
+        //     })
     }
 }
 
@@ -154,13 +155,20 @@ function toCurrency(money) {
 // Sự kiện onchange tính tổng tiền
 function calcTotalPrice(event) {
     const totalPrice = document.querySelector('.cart__total-price h2')
-    const cartItemsPrice = document.querySelectorAll('.cart-item__price')
+    let cartItems
+
+    if (window.innerWidth <= 416)
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    else
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
     let total = 0
-    cartItemsPrice.forEach(item => {
-        let itemPrice = Number(item.textContent.slice(0, -1).replaceAll('.', ''))
-
-        total += itemPrice
+    cartItems.forEach(item => {
+        console.log(item.querySelector('.checkbox'))
+        if (item.querySelector('.checkbox').checked == true) {
+            let itemPrice = Number(item.querySelector('.cart-item__price').textContent.slice(0, -1).replaceAll('.', ''))
+            total += Number(itemPrice)
+        }
     })
 
     totalPrice.innerHTML = toCurrency(total) + 'đ'

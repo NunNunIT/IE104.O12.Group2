@@ -13,10 +13,10 @@
     <aside class=" account-aside" id="sidebar">
     <a href="#" class="avatar">
         <span class="image-container">
-            <img src="/imgs/user_avt_img/<%= (user.user_avt_img) ? user.user_avt_img : 'default.png' %>" alt="avatar" />
+            <img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar" />
         </span>
         <span class="user_name">
-            <h3><%= (user.user_name) ? user.user_name : '' %></h3>
+            <h3><%= (user.user.user_name) ? user.user.user_name : '' %></h3>
         </span>
     </a>
     <ul class="side-menu top">
@@ -48,7 +48,7 @@
     </ul>
     <ul class="side-menu">
         <li class="side-menu__ele">
-            <a href="/account/information">
+            <a href="/account/changePassword">
                 <span class="material-symbols-outlined">
                     settings
                 </span>
@@ -56,14 +56,14 @@
             </a>
         </li>
         <li class="side-menu__ele">
-            <p class="btn-warranty">
+            <p class="btn-logout">
                 <span class="material-symbols-outlined">logout</span>
                 <span class="text">Đăng xuất</span>
             </p>
         </li>
     </ul>
 
-    <div class="popup">
+    <div class="sidebar-account__popup">
         <div class="popup__main">
             <div class="popup__main--right">
                 <div class="popup__content">
@@ -80,7 +80,7 @@
                 <div class="popup__button">
                         <a href="/account/information"><button class="btn btn--outlined pri btn-cancel"
                             type="button">Hủy</button></a>
-                        <a href="/"><button class="btn btn--filled pri btn-logout" type="button">Đăng xuất</button></a>
+                        <a href="/auth/logout"><button class="btn btn--filled pri btn-logout" type="button">Đăng xuất</button></a>
                 </div>
                 </div>
             </div>

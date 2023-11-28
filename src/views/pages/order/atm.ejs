@@ -13,8 +13,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt phòng', link : '' }, { text : 'Thanh toán', link : '' }] }) %>
 
 	<main class="transaction-container">
 		<div class="transaction-box">
