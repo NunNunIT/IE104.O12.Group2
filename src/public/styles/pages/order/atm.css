@@ -24,6 +24,10 @@
     box-sizing: border-box;
 }
 
+button {
+    font-size: 1rem;
+}
+
 body,
 input {
     font-family: "Segoe UI", sans-serif;
