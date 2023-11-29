@@ -43,10 +43,9 @@ a {
 }
 
 .momo-container {
-    margin-top: 164px;
-    width: 100%;
+    margin: 24px 0;
+    width: 80%;
     height: 100%;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -433,6 +432,10 @@ label {
 
 @media (max-width: 48rem) {
 
+    .momo-container {
+        margin: 16px 0;
+    }
+
     .momo_left-frame {
         width: 50%;
     }
@@ -479,7 +482,7 @@ label {
     }
 
     .momo-container {
-        padding: 0;
+        margin: 12px 0;
         flex-direction: column;
     }
 
@@ -564,7 +567,7 @@ label {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     border-radius: 8px;
     margin-bottom: 3rem;
 }

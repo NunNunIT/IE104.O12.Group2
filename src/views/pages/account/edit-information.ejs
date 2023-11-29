@@ -16,9 +16,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb', {breadcrumbs : [{text : 'tên biến 1' , link : 'đường dẫn 1' }, {text
-            : 'tên biến 2' , link : 'đường dẫn 2' }]}) %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Sửa thông tin cá nhân', link : '/account/edit-information' }] }) %>
 
 	<main class="account-container">
 		<%- include("../../components/sidebar_account") %>
@@ -69,7 +68,7 @@
 			</div>
 		</section>
 
-		<div class="popup" id="logout-popup">
+		<div class="sidebar-account__popup" id="logout-popup">
 			<div class="logout-form">
 				<span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
 				<h1>Đăng xuất</h1>

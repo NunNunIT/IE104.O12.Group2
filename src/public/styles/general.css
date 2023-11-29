@@ -108,6 +108,11 @@
     box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 html {
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -217,4 +222,10 @@ p {
     border: 1px solid var(--primary-color-5);
     font-size: 16px;
     padding: 0 24px 0 24px;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+    display: none;
 }

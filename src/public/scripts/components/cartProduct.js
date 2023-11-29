@@ -15,6 +15,32 @@ function checkOne(event) {
 
     showSelectedNums()
     changeDel()
+
+    const cartItem = event.currentTarget.parentElement
+    const input = cartItem.querySelector('input')
+    triggerChangeEvent(input)
+
+    const checkbox = cartItem.querySelector('.checkbox')
+    if (checkbox.checked == true) {
+        let cartItems
+        if (window.innerWidth <= 416)
+            cartItems = document.querySelectorAll('.cart-item.mobile-display')
+        else
+            cartItems = document.querySelectorAll('.cart-item.mobile-hidden')
+
+        let totalPriceDel = 0
+        cartItems.forEach(item => {
+            let unitPriceDel = item.querySelector('.cart-item__unit-price del')
+            if (unitPriceDel) {
+                unitPriceDel = unitPriceDel.textContent.slice(0, -1).replaceAll('.', '')
+            }
+            totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
+        })
+
+        const totalPriceDelEle = document.querySelector('.cart__total-price del')
+        if (totalPriceDelEle)
+            totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
+    }
 }
 
 // Sự kiện onclick nút "Xóa" 1 item
@@ -67,9 +93,4 @@ function calcPrice(event) {
 
     const price = Number(input.value) * Number(unitPrice.textContent.slice(0, -1).replaceAll('.', ''))
     priceEle.innerHTML = toCurrency(price) + 'đ'
-
-    const unitPriceDel = cartItem.querySelector('.cart-item__unit-price del')
-    const totalPriceDel = document.querySelector('.cart__total-price del')
-    const priceDel = Number(input.value) * Number(unitPrice.textContent.slice(0, -1).replaceAll('.', ''))
-    totalPriceDel.innerHTML = toCurrency(priceDel) + 'đ'
 }

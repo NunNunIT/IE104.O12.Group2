@@ -13,8 +13,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb',{breadcrumbs : [{text : 'Trang cá nhân', link : '#'}, {text : 'Lịch sử đơn mua', link : 'http://127.0.0.1:3000/account/purchase'}]}) %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb',{ breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Lịch sử đơn mua', link : '/account/purchase' }] }) %>
 
 	<main class="account-container">
 		<!-- side-bar -->

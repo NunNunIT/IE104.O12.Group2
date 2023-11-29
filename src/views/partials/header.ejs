@@ -20,14 +20,14 @@
 				</a>
 			</div>
 			<div>
-				<a href="http://127.0.0.1:3000/">
+				<a href="/">
 					<img class="header__logo--top" src="/imgs/logo-white.png">
 				</a>
 			</div>
 			<div class="header__about-account">
 				<!-- bắt đầu dropdown-noti -->
 				<div class="dropdown-noti">
-					<a href="http://127.0.0.1:3000/notification/account-update" class="header__nofitications">
+					<a href="/notification/account-update" class="header__nofitications">
 						<span class="material-symbols-outlined">notifications</span>
 						Thông báo
 					</a>
@@ -41,8 +41,8 @@
 								<span class="unauth-content__noti">Đăng nhập để xem Thông báo</span>
 							</div>
 							<div class="unauth-content__btn">
-								<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
-								<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+								<a href="/auth/login">Đăng nhập</a>
+								<a href="/auth/register">Đăng ký</a>
 							</div>
 						</div>
 					</div>
@@ -54,7 +54,7 @@
 							<div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
 							<%- include('../components/noti-content-dropdown') %>
 							<%- include('../components/noti-content-dropdown') %>
-							<a href="http://127.0.0.1:3000/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
+							<a href="/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
 						</div>
 					</div>
 					<!-- kết thúc dropdown-noti khi đã đăng nhập -->
@@ -75,7 +75,7 @@
 
 				<!-- Hiển thị khi responsive điện thoại -->
 				<div class="header__nav--disable">
-					<a href="http://127.0.0.1:3000/notification/account-update" class="noti--disable">
+					<a href="/notification/account-update" class="noti--disable">
 						<span class="material-symbols-outlined" title="Thông báo">notifications</span>
 					</a>
 					<a href="#" class="help--disable">
@@ -87,7 +87,7 @@
 				<!-- Khi đã đăng nhập -->
 				<% if (user) { %>
 				<div class="dropdown-account">
-					<a href="http://127.0.0.1:3000/account/information">
+					<a href="/account/information">
 						<div class="header__auth">
 							<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar">
 							<span><%= user.user.user_name %></span>
@@ -95,9 +95,9 @@
 					</a>
 					<div class="dropdown-account__content-container">
 						<div class="dropdown-account__content">
-							<a href="http://127.0.0.1:3000/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
-							<a href="http://127.0.0.1:3000/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
-							<a href="http://127.0.0.1:3000/auth/logout" id="btn-dropdown-logout">Đăng xuất</a>
+							<a href="/account/information" id="btn-dropdown-account">Tài khoản của tôi</a>
+							<a href="/account/purchase" id="btn-dropdown-purchase-history">Lịch sử đơn mua</a>
+							<a href="/auth/logout" id="btn-dropdown-logout">Đăng xuất</a>
 						</div>
 					</div>
 				</div>
@@ -106,9 +106,9 @@
 				<!-- Khi chưa đăng nhập  -->
 				<div class="header__auth">
 					<span class="material-symbols-outlined">account_circle</span>
-					<a href="http://127.0.0.1:3000/auth/login" class="header__auth-login">Đăng nhập</a>
+					<a href="/auth/login" class="header__auth-login">Đăng nhập</a>
 					<span>|</span>
-					<a href="http://127.0.0.1:3000/auth/register" class="header__auth-register">Đăng ký</a>
+					<a href="/auth/register" class="header__auth-register">Đăng ký</a>
 				</div>
 				<!-- Kết thúc khi chưa đăng nhập -->
 				<% } %>
@@ -118,7 +118,7 @@
 
 	<div class="header__container">
 		<div class="header__main">
-			<a href="http://127.0.0.1:3000/">
+			<a href="/">
 				<img class="header__logo" src="/imgs/logo-blue.png">
 			</a>
 			<form class="header__search-bar" action="/search/results" method="GET">
@@ -129,10 +129,10 @@
 			</form>
 
 			<div class="dropdown-cart">
-				<a href="http://127.0.0.1:3000/order/cart" class="header__cart-container" title="Giỏ hàng">
+				<a href="/order/cart" class="header__cart-container" title="Giỏ hàng">
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
-						<% if (user.countCart) {%>
+						<% if (user.countCart) { %>
 						<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
 						<% } %>
 					</div>
@@ -147,8 +147,8 @@
 							<span class="unauth-content__cart">Đăng nhập để xem Giỏ hàng</span>
 						</div>
 						<div class="unauth-content__btn">
-							<a href="http://127.0.0.1:3000/auth/login">Đăng nhập</a>
-							<a href="http://127.0.0.1:3000/auth/register">Đăng ký</a>
+							<a href="/auth/login">Đăng nhập</a>
+							<a href="/auth/register">Đăng ký</a>
 						</div>
 					</div>
 					<!-- kết thúc dropdown giỏ hàng khi chưa đăng nhập -->
@@ -171,7 +171,7 @@
 						</div>
 						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 						<% } %>
-						<a href="http://127.0.0.1:3000/order/cart" class="btn-cart">
+						<a href="/order/cart" class="btn-cart">
 							<button class="btn btn--filled pri">Xem giỏ hàng</button>
 						</a>
 					</div>
@@ -187,243 +187,68 @@
 		<div class="menu__cate menu__item">
 			<p class="menu__item-p">Danh mục sản phẩm</p>
 			<span class="material-symbols-outlined"> expand_more </span>
+
 			<div class="header__cate-dropdown cate-dropdown">
-				<div class="cate-dropdown__aside">
-					<% header.cates.forEach(cate => { %>
+				<!-- <div class="cate-dropdown__aside"> -->
+				<% header.cates.forEach(cate => { %>
+				<div class="header__cate-dropdown-wrapper">
 					<div class="cate-dropdown__item">
 						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
-						<p><%= cate.category_name %></p>
+						<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
 					</div>
-					<% }) %>
-				</div>
-				<div class="cate-dropdown__content">
-					<div class="cate-dropdown__content-wrapper">
-						<div class="cate-dropdown__title">
-							<h4>Sản phẩm bán chạy nhất</h4>
-							<a href='/search/results'>
-								<p>Xem tất cả</p>
-								<span class="material-symbols-outlined"> chevron_right </span>
-							</a>
-						</div>
-						<div class="cate-dropdown__product">
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/refrigerator.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
-							<a href="/search/1">
-								<img src="/imgs/categories/cooker.png" alt="">
-								<div class="cate-dropdown__product-rating">
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<span class="material-symbols-outlined"> star </span>
-									<p>(5.0)</p>
-								</div>
-								<p class="cate-dropdown__product-name">Nồi cơm điện màu hồng cánh sen xinh xắn đáng iu cute...</p>
-								<p class="cate-dropdown__product-price">10.000.000đ <del>80.000.000đ</del></p>
-							</a>
+					<div class="cate-dropdown__content">
+						<div class="cate-dropdown__content-wrapper">
+							<div class="cate-dropdown__title">
+								<h4>Sản phẩm bán chạy nhất</h4>
+								<a href='/search/results'>
+									<p>Xem tất cả</p>
+									<span class="material-symbols-outlined"> chevron_right </span>
+								</a>
+							</div>
+							<div class="cate-dropdown__product">
+								<% cate.bestSellerProductsOfCates.forEach(product => { %>
+								<a href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+									<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
+									<div class="cate-dropdown__product-rating">
+										<% if (product.product_rate) { %>
+										<!-- In ra số sao hiện có -->
+										<% const productRateInt = Math.floor(product.product_rate) %>
+
+										<% for (let i = 0; i < productRateInt; i++) { %>
+										<span class="material-symbols-outlined">grade</span>
+										<% } %>
+
+										<!-- In ra số sao lẻ -->
+										<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+										<span class="material-symbols-outlined">star_half</span>
+										<% } else if (product.product_rate!= 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
+										<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+										<% } %>
+
+										<!-- In ra số sao trống -->
+										<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+										<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+										<% } %>
+										<% } %>
+										<p>(<%= product.product_rate %>)</p>
+									</div>
+									<p class="cate-dropdown__product-name"><%= product.product_name %></p>
+									<p class="cate-dropdown__product-price"><%= product.product_variant_price_currency %>đ<del><% product.discount_amount ? product.product_variant_price_after_discount_currency : '' %></del></p>
+								</a>
+								<% }) %>
+							</div>
 						</div>
 					</div>
 				</div>
+				<% }) %>
+				<!-- </div> -->
 			</div>
 		</div>
-		<a href="/search/results" class="menu__hot-product menu__item">
-			<p>Sản phẩm hot</p>
+		<a href="/search/results?hotProduct=true" class="menu__hot-product menu__item">
+			<p>Sản phẩm HOT</p>
 			<span class="material-symbols-outlined"> local_fire_department </span>
 		</a>
-		<a href="/search/results" class="menu__promo menu__item">
+		<a href="/search/results?discount=true" class="menu__promo menu__item">
 			<p>Khuyến mãi</p>
 			<span class="material-symbols-outlined"> savings </span>
 		</a>

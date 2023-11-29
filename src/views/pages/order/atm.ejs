@@ -13,8 +13,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt phòng', link : '' }, { text : 'Thanh toán', link : '' }] }) %>
 
 	<main class="transaction-container">
 		<div class="transaction-box">
@@ -128,7 +128,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="submit" id="btn-home-page" class="btn--outlined pri">Thanh toán sau</button>
+				<button type="button" id="btn-home-page" class="btn btn--outlined pri">Thanh toán sau</button>
 
 			</div>
 

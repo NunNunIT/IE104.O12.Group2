@@ -21,14 +21,14 @@ exports.isLoggedIn = async (req, res, next) => {
                 }
 
                 req.user = results[0];
-                return next();
+                next();
             });
         } catch (err) {
             console.log(err)
-            return next();
+            next();
         }
     } else {
-        next();
+        res.status(401).redirect('/auth/login')
     }
 }
 
@@ -53,7 +53,7 @@ exports.checkUnAuth = (req, res, next) => {
 }
 
 exports.getLoggedIn = async (req, res, next) => {
-    console.log(`isLoggedIn: ${req.cookies.userSave}`);
+    console.log(`getLoggedIn: ${req.cookies.userSave}`);
     if (req.cookies.userSave) {
         try {
             // 1. Verify the token
@@ -74,11 +74,11 @@ exports.getLoggedIn = async (req, res, next) => {
                 })
 
                 req.user = results[0];
-                return next();
+                next();
             });
         } catch (err) {
             console.log(err)
-            return next();
+            next();
         }
     } else {
         next();

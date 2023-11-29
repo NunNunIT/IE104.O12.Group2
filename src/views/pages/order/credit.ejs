@@ -13,8 +13,8 @@
 
 <body>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb') %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt phòng', link : '' }, { text : 'Thanh toán', link : '' }] }) %>
 
 	<main class="transaction-container">
 		<div class="transaction-box">
@@ -97,8 +97,8 @@
 							<img src="/imgs/transaction/card_vi.png" alt="Font of Visa Card">
 						</div>
 					</div>
-					<button type="submit" id="btn-submit" class="btn--filled pri">Thanh toán</button>
-					<button type="submit" id="btn-more" class="btn--outlined pri">Hủy giao dịch</button>
+					<button type="submit" id="btn-submit" class="btn btn--filled pri">Thanh toán</button>
+					<button type="submit" id="btn-more" class="btn btn--outlined pri">Hủy giao dịch</button>
 				</div>
 			</div>
 	</main>

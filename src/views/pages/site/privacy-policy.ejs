@@ -12,8 +12,8 @@
 </head>
 
 <body>
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb',{breadcrumbs : [ ,{text : 'Chính sách bảo mật', link : 'http://127.0.0.1:3000/privacy-policy'}]}) %>
+	<%- include('../../partials/header', { header: header, user: user }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Chính sách bảo mật', link : '/privacy-policy' }] }) %>
 
 	<main class="privacy-container">
 		<div class="privacy__content">

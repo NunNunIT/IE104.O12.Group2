@@ -53,6 +53,10 @@ a.next:hover {
 	color: black
 }
 
+.thumbnails {
+	display: flex;
+	justify-content: center;
+}
 
 .thumbnail-container {
 	text-align: center;
