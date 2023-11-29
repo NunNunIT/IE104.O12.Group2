@@ -95,10 +95,6 @@
     --yellow1: rgb(255, 193, 7, 0.1);
     --yellow5: #ffc107;
     --yellow6: #e5ad06;
-    /*
-        border-radius: 4px 8px 12px 16px
-        button border-radius: 8px
-    */
 }
 
 * {
@@ -225,7 +221,6 @@ p {
 }
 
 input[type=password]::-ms-reveal,
-input[type=password]::-ms-clear
-{
+input[type=password]::-ms-clear {
     display: none;
 }
