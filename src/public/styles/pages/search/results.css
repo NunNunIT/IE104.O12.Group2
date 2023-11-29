@@ -51,6 +51,7 @@ a {
 }
 
 .seacrh-result__sort--disable:hover {
+    cursor: pointer;
     color: var(--primary-color-2);
     border-bottom: 1px solid var(--primary-color-2);
     padding: 4px 24px 7px 24px;
@@ -130,6 +131,11 @@ a {
     flex-direction: column;
 }
 
+.filter-label.active {
+    color: var(--primary-color-1);
+    border-color: var(--primary-color-1);
+}
+
 .filter-label {
     color: black;
     padding: 8px 12px;
@@ -177,6 +183,11 @@ a {
     padding: 0;
     height: 44px;
     width: 140px;
+}
+
+#btn-filter:hover {
+    cursor: pointer;
+    color: var(--primary-color-2);
 }
 
 .filter-popup {

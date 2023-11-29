@@ -109,6 +109,14 @@ document.body.addEventListener('click', function (event) {
         sortedFilterItem = null;
     }
 });
+//thành phần bộ lọc
+const dropdownItems = document.querySelectorAll('.filter-label');
+dropdownItems.forEach((btn) => {
+    btn.onclick = function () {
+        btn.classList.add('active');
+    };
+});
+
 
 //sort-phone
 const sortBtns = document.querySelectorAll('.seacrh-result__sort--disable');
