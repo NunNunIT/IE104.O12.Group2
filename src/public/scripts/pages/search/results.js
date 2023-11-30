@@ -109,6 +109,63 @@ document.body.addEventListener('click', function (event) {
         sortedFilterItem = null;
     }
 });
+//thành phần bộ lọc
+const dropdownItems = document.querySelectorAll('.filter-label');
+dropdownItems.forEach((btn) => {
+    btn.onclick = function () {
+        btn.classList.add('active');
+    };
+});
 
+
+//sort-phone
+const sortBtns = document.querySelectorAll('.seacrh-result__sort--disable');
+let currentActiveBtn = sortBtns[0]; // Mặc định chọn phần tử đầu tiên
+
+currentActiveBtn.classList.add('active'); // Thêm class active mặc định
+
+sortBtns.forEach((btn) => {
+    btn.onclick = function () {
+        // Bỏ class 'active' khỏi phần tử hiện tại
+        currentActiveBtn.classList.remove('active');
+
+        // Thêm class 'active' vào phần tử được click
+        btn.classList.add('active');
+
+        // Gán phần tử hiện tại là phần tử mới được click
+        currentActiveBtn = btn;
+    };
+});
+
+
+
+
+//popup
+const modalBtn = document.getElementById('btn-filter');
+const modals = document.querySelectorAll('.filter-popup');
+const cancelBtn = document.getElementById('btn-filter-cancel');
+
+// Open the modal when the button is clicked
+modalBtn.onclick = function () {
+    modals.forEach((modal) => {
+        modal.classList.add('show');
+    });
+};
+
+// Close the modal when the cancel button is clicked
+cancelBtn.onclick = function () {
+    modals.forEach((modal) => {
+        modal.classList.remove('show');
+    });
+};
+
+// Close the modal when clicking anywhere on the window
+window.onclick = function (e) {
+    modals.forEach((modal) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+};
 
 

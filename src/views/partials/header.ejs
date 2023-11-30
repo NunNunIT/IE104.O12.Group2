@@ -159,7 +159,7 @@
 						<% if (user.countCart) { %>
 						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
 						<% for (let i = 0; i < l; i++) { %>
-						<%- include('../components/cart-dropdown-item', {cart: user.detailCarts[i]}) %>
+						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i]}) %>
 						<% } %>
 						<% } else { %>
 						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->

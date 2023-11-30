@@ -49,6 +49,7 @@ button {
 }
 
 .checkbox {
+    cursor: pointer;
     width: 20px;
     height: 20px;
 }
@@ -122,11 +123,21 @@ button {
 }
 
 .cart__checkall-btn {
+    cursor: pointer;
     background-color: var(--primary-color-1);
     color: var(--white);
 }
 
+.cart__checkall-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cart__del-btn {
+    cursor: pointer;
+}
+
 .cart__del-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--dollar-red);
     color: var(--white);
 }

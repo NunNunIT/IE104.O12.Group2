@@ -628,7 +628,7 @@ img.dropdown-cart__img--empty {
     left: 448px;
     background-color: var(--bg-white-o80);
     border-radius: 0 12px 12px 0;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .cate-dropdown__item {

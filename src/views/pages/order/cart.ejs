@@ -19,7 +19,7 @@
 	<main class="cart">
 		<section class="cart__title">
 			<div>
-				<input onclick="checkAll(event)" type="checkbox" class="checkbox" id="check-all">
+				<input onclick="checkAll(event); calcTotalPrice(event)" type="checkbox" class="checkbox" id="check-all">
 				<p class="mobile-display">Tất cả (<span class="selected-nums">0</span>)</p>
 			</div>
 			<h4 class="lg-col mobile-hidden">Sản phẩm</h4>
@@ -48,7 +48,7 @@
 		<section class="cart__footer">
 			<div>
 				<div class="cart__feature mobile-hidden">
-					<button onclick="checkAllBtn(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả (<span class="selected-nums">0</span>)</button>
+					<button onclick="checkAllBtn(event); calcTotalPrice(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả (<span class="selected-nums">0</span>)</button>
 					<button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn">Xóa</button>
 				</div>
 				<div class="cart__order">
