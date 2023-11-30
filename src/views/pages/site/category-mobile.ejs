@@ -17,10 +17,10 @@
 	<main class="category-container">
 		<h2>Danh mục sản phẩm</h2>
 		<% header.cates.forEach(cate => { %>
-		<div class="category__item">
+		<a class="category__item" href="/search/results?category_id=<%= cate.category_id %>&category_name=<%= cate.category_name %>">
 			<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
 			<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
-		</div>
+		</a>
 		<% }) %>
 	</main>
 
