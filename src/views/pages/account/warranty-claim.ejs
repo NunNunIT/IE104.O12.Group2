@@ -4,8 +4,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0..1,0" />
+
 	<link rel="stylesheet" href="/styles/pages/account/warranty-claim.css">
+
 	<title>TECHTWO.</title>
 </head>
 
@@ -15,16 +18,19 @@
 	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Chính sách bảo hành', link : '' }] }) %>
 
 	<main class="account-container">
+
 		<!-- side-bar -->
 		<%- include("../../components/sidebar_account") %>
+
 		<section class="warranty__main">
 			<div class="purchase__main__item">
-				<%- include('../../components/warranty-item') %>
-				<%- include('../../components/warranty-item') %>
-				<%- include('../../components/warranty-item') %>
+				<% purchaseHistory.forEach(order => { %>
+				<%- include('../../components/warranty-item', { order: order }) %>
+				<% }) %>
 			</div>
 			<%- include('../../components/popup-warranty') %>
 		</section>
+
 	</main>
 
 	<%- include('../../components/scrollup') %>
