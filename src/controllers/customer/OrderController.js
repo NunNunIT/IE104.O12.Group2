@@ -1,6 +1,7 @@
-const {promisify} = require('util')
+const { promisify } = require('util')
 const index = require('../../models/customer/index.model')
 const order = require('../../models/customer/order.model')
+const general = require('../../models/general.model')
 
 const orderController = () => { }
 
@@ -13,8 +14,8 @@ orderController.addCart = async (req, res) => {
 
 	if (result) {
 		return res.json({
-		status: 'success',
-	})
+			status: 'success',
+		})
 	} else {
 		return res.json({
 			status: 'error',
@@ -33,6 +34,7 @@ orderController.cart = async (req, res) => {
 		header: header,
 		user: header_user,
 		detailCart: detailCart,
+		toCurrency: general.toCurrency,
 	})
 }
 

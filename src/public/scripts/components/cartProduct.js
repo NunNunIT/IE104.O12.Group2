@@ -63,7 +63,7 @@ function triggerChangeEvent(element) {
 function minus(event) {
     const input = event.currentTarget.nextElementSibling
 
-    if (input.value > 0) {
+    if (input.value > 1) {
         input.value = Number(input.value) - 1
         triggerChangeEvent(input)
     }

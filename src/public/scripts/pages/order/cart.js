@@ -122,25 +122,6 @@ function cartSubmit(event) {
             .forEach(item => item.querySelectorAll('input, select').forEach(input => input.disabled = true))
 
         cartForm.submit()
-
-        // const formData = new FormData(cartForm)
-        // const transformedData = []
-        // console.log(formData.getAll('variant'))
-
-        // formData.getAll('variant').forEach((variant, index) => {
-        //     transformedData.push({
-        //         variant: variant,
-        //         quantity: parseInt(formData.getAll('quantity')[index], 10)
-        //     })
-        // })
-        //     // Use fetch to submit the data
-        //     fetch('/order/cart', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(transformedData),
-        //     })
     }
 }
 
@@ -164,7 +145,6 @@ function calcTotalPrice(event) {
 
     let total = 0
     cartItems.forEach(item => {
-        console.log(item.querySelector('.checkbox'))
         if (item.querySelector('.checkbox').checked == true) {
             let itemPrice = Number(item.querySelector('.cart-item__price').textContent.slice(0, -1).replaceAll('.', ''))
             total += Number(itemPrice)
@@ -172,6 +152,24 @@ function calcTotalPrice(event) {
     })
 
     totalPrice.innerHTML = toCurrency(total) + 'đ'
+
+    let totalPriceDel = 0
+    cartItems.forEach(item => {
+        let unitPriceDel = item.querySelector('.cart-item__unit-price del')
+        let checkbox = item.querySelector('.checkbox')
+        if (unitPriceDel && checkbox.checked)
+            unitPriceDel = unitPriceDel.textContent.slice(0, -1).replaceAll('.', '')
+        console.log(unitPriceDel)
+
+        totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
+    })
+
+    if (isNaN(totalPriceDel))
+        totalPriceDel = 0
+
+    const totalPriceDelEle = document.querySelector('.cart__total-price del')
+    if (totalPriceDelEle)
+        totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
 }
 
 // Hàm thực thi

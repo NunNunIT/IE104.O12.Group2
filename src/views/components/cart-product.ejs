@@ -1,5 +1,5 @@
 <div class="cart-item mobile-hidden">
-	<input onclick="checkOne(event); calcTotalPrice(event)" type="checkbox" class="checkbox mobile-hidden" %>">
+	<input onclick="checkOne(event); calcTotalPrice(event)" type="checkbox" class="checkbox mobile-hidden" placeholder="">
 	<div class="cart-item__product lg-col">
 		<img src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name %>">
 		<p><%= cart.product_name ?? 'null' %></p>
@@ -7,27 +7,35 @@
 
 	<div class="sm-col">
 		<select name="variant" class="cart-item__variants">
-			<option value="Gấu dâu">Gấu dâu</option>
-			<option value="Gấu sivi">Gấu sivi</option>
-			<option value="Gấu lá cây">Gấu lá cây</option>
+			<% if (cart.cart_product_variant) { %>
+			<% cart.cart_product_variant.forEach(variant => { %>
+			<option value="<%= variant.product_variant_name ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
+			<% }) %>
+			<% } %>
 		</select>
 	</div>
 
 	<div class="sm-col cart-item__unit-price">
 		<% if (cart.discount_amount) { %>
-		<del>160.000đ</del>
+		<del><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</del>
+		<p><%= toCurrency(cart.product_variant_price_after_discount) ?? 'null' %>đ</p>
+		<% } else { %>
+		<p><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</p>
 		<% } %>
-		<p><%= cart.product_variant_price_currency ?? 'null' %>đ</p>
 	</div>
 
 	<div class="cart-item__quantity sm-col">
 		<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-		<input onchange="calcPrice(event); calcTotalPrice(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="">
+		<input onchange="calcPrice(event); calcTotalPrice(event)" name="quantity" type="number" value="<%= cart.cart_quantity %>" min="1" max="100" placeholder="">
 		<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 	</div>
 
 	<div class="sm-col">
-		<p class="cart-item__price"><%= cart.product_variant_price_currency %>đ</p>
+		<% if (cart.discount_amount) { %>
+		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * cart.product_variant_price_after_discount) ?? 'null' %>đ</p>
+		<% } else { %>
+		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %>đ</p>
+		<% } %>
 	</div>
 
 	<div class="sm-col">
@@ -42,15 +50,18 @@
 		<div class="cart-item__content">
 			<p><%= cart.product_name %></p>
 			<select class="cart-item__variants">
-				<option value="Gấu dâu">Gấu dâu</option>
-				<option value="Gấu sivi">Gấu sivi</option>
-				<option value="Gấu lá cây">Gấu lá cây</option>
+				<% if (cart.cart_product_variant) { %>
+				<% cart.cart_product_variant.forEach(variant => { %>
+				<option value="<%= variant.product_variant_name ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
+				<% }) %>
+				<% } %>
 			</select>
 			<div class="cart-item__unit-price">
 				<% if (cart.discount_amount) { %>
-				<del>160.000đ</del>
+				<del><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</del>
+				<p><%= toCurrency(cart.product_variant_price_after_discount) ?? 'null' %>đ</p>
 				<% } %>
-				<p><%= cart.product_variant_price_currency ?? 'null' %>đ</p>
+				<p><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</p>
 			</div>
 			<div class="cart-item__quantity">
 				<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
