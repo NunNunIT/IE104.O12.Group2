@@ -29,12 +29,29 @@ function checkAllBtn(event) {
 
 // Sự kiện onclick nút 'Xóa' tất cả
 function deleteAllItem(event) {
-    const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
-    checkboxes.forEach((checkbox, index) => {
-        if (index % 2 == 0 && checkbox.checked == true) {
-            checkbox.parentNode.nextElementSibling.remove()
-            checkbox.parentNode.remove()
-        }
+    let cartItems
+    if (window.innerWidth <= 416)
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    else
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
+
+    const checkedItem = cartItems.filter(item => item.querySelector('.checkbox').checked == true)
+
+    const deleteArray = []
+    checkedItem.forEach(item => {
+        let productVariantId = item.querySelector('input[name="product_variant_id"]')
+        deleteArray.push({
+            product_variant_id: Number(productVariantId.value),
+        })
+        item.remove()
+    })
+
+    fetch('/order/cart/buy', {
+        body: JSON.stringify(deleteArray),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
     })
 
     showSelectedNums()
@@ -138,12 +155,9 @@ function cartSubmit(event) {
             })
         })
 
-        // Convert the array to a JSON string if needed
-        const jsonData = JSON.stringify(formDataArray)
-
         // Use jsonData in your fetch request
         fetch('/order/cart/buy', {
-            body: jsonData,
+            body: JSON.stringify(formDataArray),
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
