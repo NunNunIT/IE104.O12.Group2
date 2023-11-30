@@ -77,12 +77,9 @@ const quantity = document.getElementById('quantity').value
 console.log(product_variant_id, quantity)
 
 addCartBtn.addEventListener('click', () => {
-    const cartSuccessModal = document.querySelector('.success-modal')
-    cartSuccessModal.style.display = 'flex'
-
     const cart = {
         'product_variant_id': product_variant_id,
-        'quantity': quantity,
+        'cart_quantity': quantity,
     }
 
     console.log(cart)
@@ -97,9 +94,9 @@ addCartBtn.addEventListener('click', () => {
     .then(back => {
         if (back.status == "error") {
             window.alert('Vui lòng thử lại sau');
-        } else {
-            const countCart = document.querySelector('.header__cart__number-badge')
-            countCart.innerHTML = 'abc'
+        } else if (back.status == "success") {
+            const cartSuccessModal = document.querySelector('.success-modal')
+            cartSuccessModal.style.display = 'flex'
             location.reload()
         }
     })
