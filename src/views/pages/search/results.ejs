@@ -149,6 +149,12 @@
 			<div></div>
 			<% } %>
 		</section>
+		<div class="seacrh-result__heading--disable">
+			<p class="seacrh-result__sort--disable">Nổi bật</p>
+			<p class="seacrh-result__sort--disable">Bán chạy</p>
+			<p class="seacrh-result__sort--disable">Giá <span class="material-symbols-outlined">swap_vert</span> </p>
+			<span class="material-symbols-outlined" id="btn-filter">filter_alt</span>
+		</div>
 		<section class="seacrh-result__main">
 			<div class="seacrh-result__main__heading">
 				<% if (productListResults.searchKey ?? productListResults.category_name) { %>
@@ -157,12 +163,12 @@
 				<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight"><%= productListResults.totalRow %></span> kết quả
 					<% } %>
 				<div class="seacrh-result__form-check">
-					<input type="checkbox" class="form-check-input" value="something">
-					<label class="form-check-label">Giảm giá</label>
+					<input type="checkbox" class="form-check-input" value="something" id="form-check-input__discount">
+					<label class="form-check-label" for="form-check-input__discount">Giảm giá</label>
 				</div>
 				<div class="seacrh-result__form-check">
-					<input type="checkbox" class="form-check-input" value="something">
-					<label class="form-check-label">Trả góp 0% - 1%</label>
+					<input type="checkbox" class="form-check-input" value="something" id="form-check-input__installment">
+					<label class="form-check-label" for="form-check-input__installment">Trả góp 0% - 1%</label>
 				</div>
 				<div class="seacrh-result__sort">
 					<p class="seacrh-result__sort-title">Sắp xếp theo:</p>
@@ -192,13 +198,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="seacrh-result__heading--disable">
-				<p class="seacrh-result__sort--disable">Nổi bật</p>
-				<p class="seacrh-result__sort--disable">Bán chạy</p>
-				<p class="seacrh-result__sort--disable">Giá <span class="material-symbols-outlined">swap_vert</span> </p>
-				<span class="material-symbols-outlined" id="btn-filter">filter_alt</span>
 			</div>
 			<div class="filter-popup">
 				<form class="filter-popup__main">
