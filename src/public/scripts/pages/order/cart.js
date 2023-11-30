@@ -130,11 +130,11 @@ function cartSubmit(event) {
 
             // Create an object for each item and push it to the array
             formDataArray.push({
-                productVariantId: Number(productVariantId.value),
-                productQuantity: Number(productQuantity.value),
-                productUnitPriceBefore: Number(productUnitPriceBefore.value),
-                productUnitPriceAfter: Number(productUnitPriceAfter.value),
-                productPrice: Number(productPrice.value),
+                product_variant_id: Number(productVariantId.value),
+                product_quantity: Number(productQuantity.value),
+                product_variant_price_before: Number(productUnitPriceBefore.value),
+                product_variant_price_after: Number(productUnitPriceAfter.value),
+                product_price: Number(productPrice.value),
             })
         })
 
