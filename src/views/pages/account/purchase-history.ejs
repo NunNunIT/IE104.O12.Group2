@@ -22,11 +22,11 @@
 
 		<section class="purchase__main">
 			<nav class="purchase__status">
-				<a href="#status-all" id="purchase__status-all">Tất cả</a>
-				<a href="#status-payment" id="purchase__status-payment">Chờ thanh toán</a>
-				<a href="#status-deliver" id="purchase__status-deliver">Đang giao hàng</a>
-				<a href="#status-finish" id="purchase__status-finish">Hoàn thành</a>
-				<a href="#status-cancel" id="purchase__status-cancel">Đã hủy</a>
+				<a href="/account/purchase" id="purchase__status-all">Tất cả</a>
+				<a href="/account/purchase?order_status=Chờ thanh toán" id="purchase__status-payment">Chờ thanh toán</a>
+				<a href="/account/purchase?order_status=Đang giao hàng" id="purchase__status-deliver">Đang giao hàng</a>
+				<a href="/account/purchase?order_status=Hoàn thành" id="purchase__status-finish">Hoàn thành</a>
+				<a href="/account/purchase?order_status=Đã hủy" id="purchase__status-cancel">Đã hủy</a>
 			</nav>
 			<div class="purchase__main__item">
 				<%- include('../../components/purchase-item') %>

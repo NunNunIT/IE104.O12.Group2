@@ -1,3 +1,4 @@
+const account = require('../../models/customer/account.model')
 const index = require('../../models/customer/index.model')
 
 const accountController = () => { }
@@ -13,25 +14,60 @@ accountController.information = async (req, res) => {
     })
 }
 
-// [GET] /account/pruchase-history
-accountController.purchaseHistory = async (req, res) => {
+//GET /account/edit-information
+accountController.getEditInformation = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
 
-    res.render('./pages/account/purchase-history', {
+    res.render('./pages/account/edit-information', {
         header: header,
         user: header_user,
     })
 }
 
+//POST /account/edit-information
+accountController.editInformation = async (req, res) => {
+    console.log(req.body)
+    await account.updateInfo (req)
+
+    res.redirect('/account/information')
+}
+
+
 // [GET] /account/pruchase-history
-accountController.purchaseDetail = async (req, res) => {
+accountController.purchaseHistory = async (req, res) => {
+    let customer_id = req.user.customer_id
+    let order_status = req.query.order_status ?? 0
+    let order_id = req.params.order_id ?? 0
+    console.log(order_status)
+    
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+
+    let purchaseHistory = await account.getPurchaseHistory (customer_id, order_status, order_id)
+
+    res.render('./pages/account/purchase-history', {
+        header: header,
+        user: header_user,
+        purchaseHistory: purchaseHistory,
+    })
+}
+
+// [GET] /account/pruchase-history/detail
+accountController.purchaseDetail = async (req, res) => {
+    let customer_id = req.user.customer_id
+    let order_status = req.body.order_status
+    let order_id = req.params.order_id ?? 0
+    
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
+    let purchaseHistory = await account.getPurchaseHistory (customer_id, order_status, order_id)
 
     res.render('./pages/account/purchase-detail', {
         header: header,
         user: header_user,
+        purchaseHistory: purchaseHistory,
     })
 }
 
@@ -78,23 +114,19 @@ accountController.warrantyClaim = async (req, res) => {
 }
 
 accountController.changePassword = async (req, res) => {
+    let customer_id = req.user.customer_id
+    let order_status = req.body.order_status
+    let order_id = req.params.order_id ?? 0
+    
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+
+    let purchaseHistory = await account.getPurchaseHistory (customer_id, order_status, order_id)
 
     res.render('./pages/account/changePassword', {
         header: header,
         user: header_user,
-    })
-}
-
-//GET /account/edit-information
-accountController.editInformation = async (req, res) => {
-    let header_user = await index.header_user(req)
-    let header = await index.header(req)
-
-    res.render('./pages/account/edit-information', {
-        header: header,
-        user: header_user,
+        purchaseHistory: purchaseHistory,
     })
 }
 

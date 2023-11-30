@@ -1,15 +1,33 @@
 const {promisify} = require('util')
-
-// Tất cả controller dều khai báo cái này
 const index = require('../../models/customer/index.model')
+const order = require('../../models/customer/order.model')
 
 const orderController = () => { }
 
+orderController.addCart = async (req, res) => {
+	let customer_id = req.user.customer_id
+	let product_variant_id = req.body.product_variant_id
+	let cart_quantity = req.body.cart_quantity
+
+	let result = await order.addCart(customer_id, product_variant_id, cart_quantity)
+
+	if (result) {
+		return res.json({
+		status: 'success',
+	})
+	} else {
+		return res.json({
+			status: 'error',
+		})
+	}
+}
+
 // [GET] /order/cart
 orderController.cart = async (req, res) => {
+	customer_id = req.user.customer_id
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
-	let detailCart = await index.getDetailCart(req)
+	let detailCart = await order.getDetailCart(customer_id)
 
 	res.render('./pages/order/cart', {
 		header: header,
@@ -31,6 +49,7 @@ orderController.information = async (req, res) => {
 
 // [POST] /order/information
 orderController.informationPost = async (req, res) => {
+	console.log(req.body.product_variant_id)
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
 

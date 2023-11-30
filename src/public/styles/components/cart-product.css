@@ -70,6 +70,7 @@ input::-webkit-inner-spin-button {
 }
 
 .cart-item__quantity button {
+    cursor: pointer;
     width: 24px;
     height: 24px;
     display: inherit;
@@ -90,6 +91,7 @@ input::-webkit-inner-spin-button {
 }
 
 .cart-item__del-btn {
+    cursor: pointer;
     width: 60%;
     height: 48px;
     border-radius: 8px;
@@ -98,6 +100,7 @@ input::-webkit-inner-spin-button {
 .cart-item__del-btn:hover {
     background-color: var(--dollar-red);
     color: var(--white);
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 64rem) {

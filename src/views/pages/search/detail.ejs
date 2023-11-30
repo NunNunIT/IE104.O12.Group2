@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
 	<link rel="stylesheet" href="/styles/pages/search/detail.css">
 
-	<title>TECHTWO.</title>
+	<title>TECHTWO. <%= productInfo.product_name %></title>
 </head>
 
 <body>
@@ -58,35 +58,36 @@
 						<div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">build</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<p>Hỗ trợ lắp đặt miễn phí lúc giao hàng.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">verified_user</span>
-								<p>Bảo hành chính hãng 3 năm, có người đến tận nhà</p>
+								<p>Bảo hành chính hãng 3 năm, có người đến tận nhà.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">cached</span>
-								<p>Hư gì đổi nấy 12 tháng tận nhà (miễn phí tháng đầu)</p>
+								<p>Hư gì đổi nấy 12 tháng tận nhà (miễn phí tháng đầu).</p>
 							</div>
 						</div>
 						<div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">local_shipping</span>
-								<p>Giao hàng tận nhà nhanh chóng</p>
+								<p>Giao hàng tận nhà nhanh chóng.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">library_books</span>
-								<p>Kèm theo sách hướng dẫn sử dụng</p>
+								<p>Kèm theo sách hướng dẫn sử dụng.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined policy__savings">savings</span>
-								<p>Phí vật tư có thể phát sinh: 500.000đ</p>
+								<p>Phí vật tư có thể phát sinh: 500.000đ.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<form class="detail--right" action="/order/information" method="post">
+				<form id="buy-form" class="detail--right" action="/order/information" method="post">
+					<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>" />
 					<% if (variantProducts) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>
@@ -104,7 +105,7 @@
 						<h3>Số lượng</h3>
 						<div class="quantity__input-group">
 							<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-							<input onchange="changeQuantity(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="0">
+							<input id="quantity" onchange="changeQuantity(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="0">
 							<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 						</div>
 					</div>
@@ -130,10 +131,10 @@
 							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
 							<!-- Thêm discount description -->
 							<ol class="promo__list">
-								<li>Giao hàng nhanh chóng (tùy khu vực)</li>
-								<li>Mua càng nhiều, ưu đãi càng cao</li>
-								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024</li>
-								<li>Chi bán online</li>
+								<li>Giao hàng nhanh chóng (tùy khu vực).</li>
+								<li>Mua càng nhiều, ưu đãi càng cao.</li>
+								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024.</li>
+								<li>Chi bán online.</li>
 							</ol>
 							<div>
 								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>

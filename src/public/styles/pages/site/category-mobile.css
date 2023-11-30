@@ -1,0 +1,27 @@
+@import url("/styles/general.css");
+
+.category-container {
+    width: 100%;
+    padding: 0 24px 24px;
+    margin-top: 124px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category__item {
+    text-decoration: none;
+    width: 100%;
+    padding: 4px 0;
+    color: var(--black);
+    display: inherit;
+    align-items: center;
+    gap: 12px;
+}
+
+.category__item img {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    object-fit: contain;
+}

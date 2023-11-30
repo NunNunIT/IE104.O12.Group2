@@ -1,6 +1,7 @@
 const index = require('../../models/customer/index.model')
 const search = require('../../models/customer/search.model')
 const product = require('../../models/customer/product.model')
+const general = require('../../models/general.model')
 
 const searchController = () => { }
 
@@ -30,12 +31,12 @@ searchController.detail = async (req, res) => {
     let header = await index.header(req)
     let header_user = await index.header_user(req)
 
-    let productInfo = await product.getProductInfo(req)
-    let productImgs = await product.getProductImgs(req)
-    let variantProducts = await index.getVariantProducts(req)
-    let productDetails = await product.getProductDetails(req)
-    let productFeedbacks = await product.getProductFeedbacks(req)
-    let cateProducts = await index.getCateProducts(req, 8)
+    let productInfo = await product.getProductInfo(product_variant_id)
+    let productImgs = await product.getProductImgs(product_variant_id)
+    let variantProducts = await general.getVariantProducts(product_variant_id)
+    let productDetails = await product.getProductDetails(product_variant_id)
+    let productFeedbacks = await product.getProductFeedbacks(product_variant_id)
+    let cateProducts = await general.getCateProducts(req, product_variant_id, 8)
 
     res.render('./pages/search/detail', {
         user: header_user,

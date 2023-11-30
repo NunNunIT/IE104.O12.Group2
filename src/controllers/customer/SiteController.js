@@ -1,6 +1,7 @@
 const { promisify } = require('util')
 
 const index = require('../../models/customer/index.model')
+const general = require('../../models/general.model')
 
 const siteController = () => { }
 
@@ -8,11 +9,10 @@ const siteController = () => { }
 siteController.index = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
-    let outstandingProducts = await index.getOutstandingProducts(req)
-    let newProducts = await index.getNewProducts(req)
-    let discountProducts = await index.getDiscountProducts(req)
+    let outstandingProducts = await general.getOutstandingProducts(req)
+    let newProducts = await general.getNewProducts(req)
+    let discountProducts = await general.getDiscountProducts(req)
 
-    console.log(header)
     res.render('./pages/site/index', {
         header: header,
         user: header_user,
@@ -45,11 +45,23 @@ siteController.privacyPolicy = async (req, res) => {
     })
 }
 
+// [GET] /error
 siteController.error = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
 
     res.render('./pages/site/404-error', {
+        header: header,
+        user: header_user,
+    })
+}
+
+// [GET] /category
+siteController.category = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
+    res.render('./pages/site/category-mobile', {
         header: header,
         user: header_user,
     })

@@ -1,7 +1,6 @@
 @import url("/styles/general.css");
 @import url("/styles/partials/header.css");
 @import url("/styles/partials/breadcrumb.css");
-@import url("/styles/components/scrollup.css");
 @import url("/styles/components/product-card.css");
 
 * {

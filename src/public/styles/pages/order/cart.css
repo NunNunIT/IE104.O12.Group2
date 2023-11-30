@@ -48,7 +48,14 @@ button {
     border-bottom: 3px solid var(--outline-gray);
 }
 
+.cart__title div {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
 .checkbox {
+    cursor: pointer;
     width: 20px;
     height: 20px;
 }
@@ -57,7 +64,7 @@ button {
     width: 22%;
     display: inherit;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .sm-col {
@@ -122,11 +129,21 @@ button {
 }
 
 .cart__checkall-btn {
+    cursor: pointer;
     background-color: var(--primary-color-1);
     color: var(--white);
 }
 
+.cart__checkall-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cart__del-btn {
+    cursor: pointer;
+}
+
 .cart__del-btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--dollar-red);
     color: var(--white);
 }
@@ -206,7 +223,12 @@ button {
 /* 768px - Tablet */
 @media screen and (max-width: 48rem) {
     .cart {
+        width: 90%;
         gap: 24px;
+    }
+
+    .lg-col {
+        overflow: hidden;
     }
 
     h4 {

@@ -610,13 +610,6 @@ img.dropdown-cart__img--empty {
     display: flex;
 }
 
-.cate-dropdown__item {
-    width: 100%;
-    max-height: calc(100vh - 154px);
-    display: flex;
-    gap: 12px;
-}
-
 .cate-dropdown__content {
     width: 850px;
     min-height: 430px;
@@ -628,11 +621,13 @@ img.dropdown-cart__img--empty {
     left: 448px;
     background-color: var(--bg-white-o80);
     border-radius: 0 12px 12px 0;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .cate-dropdown__item {
     cursor: pointer;
+    width: 100%;
+    max-height: calc(100vh - 154px);
     padding: 4px 12px;
     display: flex;
     justify-content: flex-start;
