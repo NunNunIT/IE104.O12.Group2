@@ -57,14 +57,14 @@
 				<span class="material-symbols-outlined dropdown-button">expand_more</span>
 				<div class="dropdown-content">
 					<div class="filter-list">
-						<a href="#" class="dropdown-options">
+						<div class="dropdown-options">
 							<input class="filter-option" type="radio" id="" name="" value="" />
 							<label for="" class="filter-label">Phân loại 1</label>
-						</a>
-						<a href="#" class="dropdown-options">
+						</div>
+						<div class="dropdown-options">
 							<input class="filter-option" type="radio" id="" name="" value="" />
 							<label for="" class="filter-label">Phân loại 2</label>
-						</a>
+						</div>
 						<div class="dropdown-options">
 							<input class="filter-option" type="radio" id="" name="" value="" />
 							<label for="" class="filter-label">Phân loại 3</label>
@@ -152,10 +152,10 @@
 		<section class="seacrh-result__main">
 			<div class="seacrh-result__main__heading">
 				<% if (productListResults.searchKey ?? productListResults.category_name) { %>
-					<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight"><%= productListResults.totalRow %></span> kết quả cho từ khóa "<span class="seacrh-result__key"><%= productListResults.searchKey ?? productListResults.category_name %></span>"</p>
+				<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight"><%= productListResults.totalRow %></span> kết quả cho từ khóa "<span class="seacrh-result__key"><%= productListResults.searchKey ?? productListResults.category_name %></span>"</p>
 				<% } else { %>
-					<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight"><%= productListResults.totalRow %></span> kết quả
-				<% } %>
+				<p class="seacrh-result__main__count">Tìm thấy <span class="seacrh-result__highlight"><%= productListResults.totalRow %></span> kết quả
+					<% } %>
 				<div class="seacrh-result__form-check">
 					<input type="checkbox" class="form-check-input" value="something">
 					<label class="form-check-label">Giảm giá</label>
@@ -195,15 +195,117 @@
 			</div>
 
 			<div class="seacrh-result__heading--disable">
-				<div class="seacrh-result__sort--disable">
-					<p class="seacrh-result__sort--disable">Nổi bật</p>
-					<hr />
-				</div>
-
+				<p class="seacrh-result__sort--disable">Nổi bật</p>
 				<p class="seacrh-result__sort--disable">Bán chạy</p>
 				<p class="seacrh-result__sort--disable">Giá <span class="material-symbols-outlined">swap_vert</span> </p>
-				<span class="material-symbols-outlined">filter_alt</span>
+				<span class="material-symbols-outlined" id="btn-filter">filter_alt</span>
 			</div>
+			<div class="filter-popup">
+				<form class="filter-popup__main">
+					<div class="filter-popup__section">
+						<label><strong>Giá:</strong></label>
+						<div class="filter-popup__section__main">
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="less-than-5m" name="less-than-5m" value="" />
+								<label class="filter-label">Dưới 5 triệu</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m" />
+								<label class="filter-label">Từ 5tr - 10tr</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m" />
+								<label class="filter-label">Từ 10tr - 15tr</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m" />
+								<label class="filter-label">Từ 15tr - 20tr</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m" />
+								<label class="filter-label">Trên 20 triệu</label>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="filter-popup__section">
+						<label><strong>Phân loại:</strong></label>
+						<div class="filter-popup__section__main">
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Phân loại 1</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Phân loại 2</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Phân loại 3</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Phân loại 4</label>
+							</div>
+						</div>
+					</div>
+					<div class="filter-popup__section">
+						<label><strong>Tiện ích:</strong></label>
+						<div class="filter-popup__section__main">
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Tiện ích 1</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Tiện ích 2</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Tiện ích 3</label>
+							</div>
+							<div class="filter-popup-options">
+								<input class="filter-option" type="radio" id="" name="" value="" />
+								<label for="" class="filter-label">Tiện ích 4</label>
+							</div>
+						</div>
+					</div>
+					<div class="filter-popup__section">
+						<label><strong>Thương hiệu:</strong></label>
+						<div class="filter-popup__section__main">
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/LG.png" alt="LG">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/panasonic.png" alt="Panasonic">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/samsung.png" alt="Samsung">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/toshiba.png" alt="Toshiba">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/sharp.png" alt="Sharp">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/aqua.png" alt="Aqua">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/casper.png" alt="Casper">
+							</div>
+							<div class="seacrh-result__filter-brand__content">
+								<img class="seacrh-result__filter-brand__img" src="/imgs/logo-brand/electrolux.png" alt="Electrolux">
+							</div>
+						</div>
+					</div>
+					<div class="filter-popup__btn">
+						<button class="btn btn--outlined pri" id="btn-filter-cancel">Xóa bộ lọc</button>
+						<button class="btn btn--filled pri" type="submit">Áp dụng</button>
+					</div>
+				</form>
+			</div>
+
 			<div class="seacrh-result__form-check-disable__group">
 				<div class="seacrh-result__form-check-disable">
 					<input type="checkbox" class="form-check-input" value="something">
