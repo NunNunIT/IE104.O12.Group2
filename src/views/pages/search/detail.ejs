@@ -18,6 +18,36 @@
 
 	<main class="content-container">
 
+		<section class="title">
+			<h1><%= productInfo.product_name ?? 'NaN' %></h1>
+			<div class="title__rating">
+				<% if (productInfo.product_rate) { %>
+				<div>
+					<!-- In ra số sao hiện có -->
+					<% const productRateInt = Math.floor(productInfo.product_rate) %>
+
+					<% for (let i = 0; i < productRateInt; i++) { %>
+					<span class="material-symbols-outlined">grade</span>
+					<% } %>
+
+					<!-- In ra số sao lẻ -->
+					<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+					<span class="material-symbols-outlined">star_half</span>
+					<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+					<% } %>
+
+					<!-- In ra số sao trống -->
+					<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% } %>
+				</div>
+				<% } %>
+				<p>(<%= productInfo.product_rate ?? 'NaN' %>)</p>
+				<p>168 lượt đánh giá</p>
+			</div>
+		</section>
+
 		<section class="detail">
 			<div class="detail--top">
 				<div class="detail--left">
@@ -56,124 +86,93 @@
 					</div>
 				</div>
 
-				<form class="detail--right" action="/order/information" method="post">
-					<div class="title">
-						<h1><%= productInfo.product_name ?? 'NaN' %></h1>
-						<div class="title__rating">
-							<% if (productInfo.product_rate) { %>
-							<div>
-								<!-- In ra số sao hiện có -->
-								<% const productRateInt = Math.floor(productInfo.product_rate) %>
-
-								<% for (let i = 0; i < productRateInt; i++) { %>
-								<span class="material-symbols-outlined">grade</span>
-								<% } %>
-
-								<!-- In ra số sao lẻ -->
-								<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
-								<span class="material-symbols-outlined">star_half</span>
-								<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
-								<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
-								<% } %>
-
-								<!-- In ra số sao trống -->
-								<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
-								<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
-								<% } %>
-							</div>
-							<% } %>
-							<p>(<%= productInfo.product_rate ?? 'NaN' %>)</p>
-							<p>168 lượt đánh giá</p>
+				<form id="buy-form" class="detail--right" action="/order/information" method="post">
+					<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>" />
+					<% if (variantProducts) { %>
+					<div class="detail__variant variant">
+						<h3>Loại sản phẩm</h3>
+						<div>
+							<% variantProducts.forEach(variant => { %>
+							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
+								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
+								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
+							</a>
+							<% }) %>
 						</div>
 					</div>
 
-					<form id="buy-form" class="detail--right" action="/order/information" method="post">
-						<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>" />
-						<% if (variantProducts) { %>
-						<div class="detail__variant variant">
-							<h3>Loại sản phẩm</h3>
+					<div class="detail__quantity quantity">
+						<h3>Số lượng</h3>
+						<div class="quantity__input-group">
+							<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
+							<input id="quantity" onchange="changeQuantity(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="0">
+							<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
+						</div>
+					</div>
+					<% } %>
+
+					<% variantProducts.forEach(variant => { %>
+					<% if (variant.product_variant_id == product_variant_id) { %>
+					<% if (variant.discount_amount) { %>
+					<div class="detail__promo promo">
+						<div class="promo__header">
 							<div>
-								<% variantProducts.forEach(variant => { %>
-								<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
-									<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
-									<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
-								</a>
-								<% }) %>
+								<p>Mua đi bạn ơi!</p>
+								<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
+								<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
+							</div>
+							<div>
+								<p>Kết thúc vào</p>
+								<p>23:59 ngày 31/10</p>
 							</div>
 						</div>
-
-						<div class="detail__quantity quantity">
-							<h3>Số lượng</h3>
-							<div class="quantity__input-group">
-								<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-								<input id="quantity" onchange="changeQuantity(event)" name="quantity" type="number" value="1" min="1" max="100" placeholder="0">
-								<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
+						<div class="promo__content">
+							<h2>Khuyến mãi</h2>
+							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
+							<!-- Thêm discount description -->
+							<ol class="promo__list">
+								<li>Giao hàng nhanh chóng (tùy khu vực).</li>
+								<li>Mua càng nhiều, ưu đãi càng cao.</li>
+								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024.</li>
+								<li>Chi bán online.</li>
+							</ol>
+							<div>
+								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
+								<button type="submit" class="detail__buy-btn">MUA NGAY</button>
+							</div>
+							<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
+						</div>
+					</div>
+					<% } else { %>
+					<div class="detail__promo promo promo__no-discount">
+						<div class="promo__header">
+							<div>
+								<p>Mua đi bạn ơi!</p>
+								<h2><%= variant.product_variant_price_currency ?? 'NaN' %>đ</h2>
+							</div>
+							<div>
 							</div>
 						</div>
-						<% } %>
-
-						<% variantProducts.forEach(variant => { %>
-						<% if (variant.product_variant_id == product_variant_id) { %>
-						<% if (variant.discount_amount) { %>
-						<div class="detail__promo promo">
-							<div class="promo__header">
-								<div>
-									<p>Mua đi bạn ơi!</p>
-									<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
-									<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
-								</div>
-								<div>
-									<p>Kết thúc vào</p>
-									<p>23:59 ngày 31/10</p>
-								</div>
+						<div class="promo__content">
+							<h2>Mua ngay, thật nhiều ưu đãi!!!</h2>
+							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
+							<ol class="promo__list">
+								<li>Giao hàng nhanh chóng (tùy khu vực)</li>
+								<li>Mua càng nhiều, ưu đãi càng cao</li>
+								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024</li>
+								<li>Chỉ bán online</li>
+							</ol>
+							<div>
+								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
+								<button type="submit" class="detail__buy-btn">MUA NGAY</button>
 							</div>
-							<div class="promo__content">
-								<h2>Khuyến mãi</h2>
-								<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
-								<!-- Thêm discount description -->
-								<ol class="promo__list">
-									<li>Giao hàng nhanh chóng (tùy khu vực).</li>
-									<li>Mua càng nhiều, ưu đãi càng cao.</li>
-									<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024.</li>
-									<li>Chi bán online.</li>
-								</ol>
-								<div>
-									<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
-									<button type="submit" class="detail__buy-btn">MUA NGAY</button>
-								</div>
-								<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
-							</div>
+							<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
 						</div>
-						<% } else { %>
-						<div class="detail__promo promo promo__no-discount">
-							<div class="promo__header">
-								<div>
-									<p>Mua đi bạn ơi!</p>
-									<h2><%= variant.product_variant_price_currency ?? 'NaN' %>đ</h2>
-								</div>
-								<div>
-								</div>
-							</div>
-							<div class="promo__content">
-								<h2>Mua ngay, thật nhiều ưu đãi!!!</h2>
-								<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
-								<ol class="promo__list">
-									<li>Giao hàng nhanh chóng (tùy khu vực)</li>
-									<li>Mua càng nhiều, ưu đãi càng cao</li>
-									<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024</li>
-									<li>Chỉ bán online</li>
-								</ol>
-								<div>
-									<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
-									<button type="submit" class="detail__buy-btn">MUA NGAY</button>
-								</div>
-								<p class="promo__contact">Hoặc gọi đặt mua ngay: <span>0123456789</span> (7:30 - 22:00)</p>
-							</div>
-						</div>
-						<% } %>
-						<% } %>
-						<% }) %>
-					</form>
+					</div>
+					<% } %>
+					<% } %>
+					<% }) %>
+				</form>
 			</div>
 
 			<div class="detail--bottom default-description">
