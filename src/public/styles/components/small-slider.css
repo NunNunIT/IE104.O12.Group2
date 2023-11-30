@@ -76,7 +76,7 @@ a.next:hover {
 }
 
 .thumbnail-active {
-	border: 1.5px solid #007BFF;
+	box-shadow: inset 0px 0px 0px 1px var(--primary-color-2);
 }
 
 .thumbnails img:hover {
