@@ -15,12 +15,6 @@ const query = util.promisify(db.query).bind(db)
 const cfg = require('./src/config/index')
 const route = require('./src/routes/index')
 
-// app.use(session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: true,
-//     saveUninitialized: true,
-// }))
-
 // set view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');

@@ -11,8 +11,8 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     // lấy từ khóa searchKey=?
     const searchKey = req.query.searchKey ?? 0
 
-    let getRowSQL = `SELECT COUNT(*) as total FROM view_new_products`
-    let getProductsSQL = `SELECT * FROM view_new_products`
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_products_resume`
+    let getProductsSQL = `SELECT * FROM view_products_resume`
 
     if (req.query.hotProduct && req.query.newProduct) {
         getProductsSQL += ` ORDER BY product_variant_is_bestseller DESC, product_view_count DESC, product_lastdate_added DESC`
@@ -64,7 +64,7 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
                 resolve(0)
             }
 
-            products = index.productCurrencyFormat(products).then(products => {
+            products = general.productCurrencyFormat(products).then(products => {
                 let productList = {products, searchKey, totalRow, totalPage, page, limit}
                 resolve(productList)
             })
@@ -78,8 +78,8 @@ search.findProductsByCateId = async (req, limit = 24) => {
     const category_id = req.query.category_id ?? 0
     const category_name = req.query.category_name ?? 0
 
-    let getRowSQL = `SELECT COUNT(*) as total FROM view_new_products`
-    let getProductsSQL = `SELECT * FROM view_new_products`
+    let getRowSQL = `SELECT COUNT(*) as total FROM view_products_resume`
+    let getProductsSQL = `SELECT * FROM view_products_resume`
 
     if (category_id) {
         getProductsSQL += ` WHERE category_id = ${category_id} `
@@ -108,7 +108,7 @@ search.findProductsByCateId = async (req, limit = 24) => {
                 resolve(0)
             }
 
-            products = index.productCurrencyFormat(products).then(products => {
+            products = general.productCurrencyFormat(products).then(products => {
                 let productList = {products, category_id, category_name, totalRow, totalPage, page, limit }
                 resolve(productList)
             })
