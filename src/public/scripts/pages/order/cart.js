@@ -11,7 +11,7 @@ function checkAll(event) {
     changeDel()
 }
 
-// Sự kiện onclick nút "Chọn tất cả"
+// Sự kiện onclick nút 'Chọn tất cả'
 function checkAllBtn(event) {
     const checkAll = document.querySelector('#check-all')
     checkAll.checked = !checkAll.checked
@@ -27,7 +27,7 @@ function checkAllBtn(event) {
     changeDel()
 }
 
-// Sự kiện onclick nút "Xóa" tất cả
+// Sự kiện onclick nút 'Xóa' tất cả
 function deleteAllItem(event) {
     const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
     checkboxes.forEach((checkbox, index) => {
@@ -41,7 +41,7 @@ function deleteAllItem(event) {
     showEmptyNoti()
 }
 
-// Sự kiện onclick nút "Xóa" responsive điện thoại
+// Sự kiện onclick nút 'Xóa' responsive điện thoại
 function deleteMbItem(event) {
     const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
     checkboxes.forEach((checkbox, index) => {
@@ -55,7 +55,7 @@ function deleteMbItem(event) {
     showEmptyNoti()
 }
 
-// Hàm thay đổi màu nút "Xóa" tất cả
+// Hàm thay đổi màu nút 'Xóa' tất cả
 function changeDel() {
     const delBtn = document.querySelector('#del-btn')
     if (Array.from(document.querySelectorAll('.checkbox')).some(checkbox => checkbox.checked == true)) {
@@ -106,29 +106,67 @@ const lastCartItem = cartItems[cartItems.length - 1]
 lastCartItem.style.border = 'none'
 lastCartItem.style.padding = '0'
 
-// Sự kiện onclick nút "Đặt hàng"
+// Sự kiện onclick nút 'Đặt hàng'
 function cartSubmit(event) {
     event.preventDefault()
-    const cartForm = document.getElementById('cart-form')
 
-    const selectedCartItem = Array.from(document.querySelectorAll('.checkbox'))
-        .filter(item => item.checked == true && item.id != 'check-all')
-        .map(item => item.parentNode)
+    let cartItems
+    if (window.innerWidth <= 416)
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    else
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
-    if (selectedCartItem.length > 0) {
-        const unselectedCartItem = Array.from(document.querySelectorAll('.checkbox'))
-            .filter(item => item.checked == false && item.id != 'check-all')
-            .map(item => item.parentNode)
-            .forEach(item => item.querySelectorAll('input, select').forEach(input => input.disabled = true))
+    const checkedItem = cartItems.filter(item => item.querySelector('.checkbox').checked == true)
 
-        cartForm.submit()
+    if (checkedItem.length > 0) {
+        const formDataArray = []
+
+        checkedItem.forEach(item => {
+            let productVariantId = item.querySelector('input[name="product_variant_id"]')
+            let productQuantity = item.querySelector('input[name="product_quantity"]')
+            let productUnitPriceBefore = item.querySelector('input[name="product_variant_price_before"]')
+            let productUnitPriceAfter = item.querySelector('input[name="product_variant_price_after"]')
+            let productPrice = item.querySelector('input[name="product_price"]')
+
+            // Create an object for each item and push it to the array
+            formDataArray.push({
+                productVariantId: Number(productVariantId.value),
+                productQuantity: Number(productQuantity.value),
+                productUnitPriceBefore: Number(productUnitPriceBefore.value),
+                productUnitPriceAfter: Number(productUnitPriceAfter.value),
+                productPrice: Number(productPrice.value),
+            })
+        })
+
+        // Convert the array to a JSON string if needed
+        const jsonData = JSON.stringify(formDataArray)
+
+        // Use jsonData in your fetch request
+        fetch('/order/cart/buy', {
+            body: jsonData,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        // .then(res => res.json())
+        // .then(back => {
+        //     if (back.status == 'error') {
+        //     } else {
+        //         history.back()
+        //         location.reload()
+        //     }
+        // })
+
+        // const cartForm = document.getElementById('cart-form')
+        // cartForm.submit()
     }
 }
 
 // Chuyển đổi số thành tiền
 function toCurrency(money) {
     let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
-        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c
+        return i > 0 && c !== ',' && (a.length - i) % 3 === 0 ? '.' + c : c
     })
     return currency
 }
@@ -159,7 +197,6 @@ function calcTotalPrice(event) {
         let checkbox = item.querySelector('.checkbox')
         if (unitPriceDel && checkbox.checked)
             unitPriceDel = unitPriceDel.textContent.slice(0, -1).replaceAll('.', '')
-        console.log(unitPriceDel)
 
         totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
     })

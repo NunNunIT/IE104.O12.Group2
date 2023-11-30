@@ -5,6 +5,7 @@ const general = require('../../models/general.model')
 
 const orderController = () => { }
 
+// [POST] /order/addCart
 orderController.addCart = async (req, res) => {
 	let customer_id = req.user.customer_id
 	let product_variant_id = req.body.product_variant_id
@@ -36,6 +37,11 @@ orderController.cart = async (req, res) => {
 		detailCart: detailCart,
 		toCurrency: general.toCurrency,
 	})
+}
+
+// [POST] /order/cart/buy
+orderController.cartBuy = async (req, res) => {
+	console.log(req.body)
 }
 
 // [GET] /order/information
