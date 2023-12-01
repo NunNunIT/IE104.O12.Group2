@@ -1,9 +1,9 @@
 <div class="comment-container">
 	<div class="comment__info">
-		<img class="comment__avatar" src="/imgs/infor1.jpg" alt="avatar">
+		<img class="comment__avatar" src="/imgs/user_avt_img/<%= 'default.png' %>" alt="avatar">
 		<div>
-			<p class="comment__user-name">Tên người dùng</p>
-			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'NaN' %></button>
+			<p class="comment__user-name"><%= 'Nguyễn Văn A' %></p>
+			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'null' %></button>
 			<div class="comment__stars">
 				<% if (feedback.feedback_rate) { %>
 				<div>
@@ -28,7 +28,7 @@
 				</div>
 				<% } %>
 			</div>
-			<p class="comment__time"><%= feedback.feedback_date ?? 'NaN' %></p>
+			<p class="comment__time"><%= toDDMMYYYY(feedback.feedback_date) ?? 'null' %></p>
 		</div>
 	</div>
 	<div class="comment__content">

@@ -197,9 +197,10 @@ function calcTotalPrice(event) {
 
     let total = 0
     cartItems.forEach(item => {
-        if (item.querySelector('.checkbox').checked == true) {
-            let itemPrice = Number(item.querySelector('.cart-item__price').textContent.slice(0, -1).replaceAll('.', ''))
-            total += Number(itemPrice)
+        let checkbox = item.querySelector('.checkbox')
+        if (checkbox.checked) {
+            let itemPrice = Number(item.querySelector('.cart-item__unit-price p').textContent.slice(0, -1).replaceAll('.', ''))
+            total += Number(item.querySelector('.cart-item__quantity input').value) * Number(itemPrice)
         }
     })
 
@@ -207,17 +208,25 @@ function calcTotalPrice(event) {
 
     let totalPriceDel = 0
     cartItems.forEach(item => {
-        let unitPriceDel = item.querySelector('.cart-item__unit-price del')
         let checkbox = item.querySelector('.checkbox')
-        if (unitPriceDel && checkbox.checked)
-            unitPriceDel = unitPriceDel.textContent.slice(0, -1).replaceAll('.', '')
-
-        totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
+        if (checkbox.checked) {
+            if (item.querySelector('.cart-item__unit-price del')) {
+                let unitPriceDel = item.querySelector('.cart-item__unit-price del').textContent.slice(0, -1).replaceAll('.', '')
+                totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
+            } else {
+                let itemPrice = Number(item.querySelector('.cart-item__unit-price p').textContent.slice(0, -1).replaceAll('.', ''))
+                totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(itemPrice)
+            }
+        }
     })
 
     const totalPriceDelEle = document.querySelector('.cart__total-price del')
 
     if (isNaN(totalPriceDel)) {
+        totalPriceDel = 0
+        totalPriceDelEle.style.display = 'none'
+    }
+    else if (total == totalPriceDel) {
         totalPriceDel = 0
         totalPriceDelEle.style.display = 'none'
     } else {

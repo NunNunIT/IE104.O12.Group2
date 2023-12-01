@@ -240,6 +240,7 @@ button {
     }
 
     p,
+    del,
     .cart button {
         font-size: 0.8125rem;
     }
