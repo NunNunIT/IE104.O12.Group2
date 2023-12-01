@@ -43,7 +43,6 @@ const dragStop = () => {
     carousel.classList.remove("dragging");
 }
 const infiniteScroll = () => {
-    console.log(Math.ceil(carousel.scrollLeft), carousel.scrollWidth, carousel.offsetWidth)
     // If the carousel is at the beginning, scroll to the end
     if(carousel.scrollLeft === 0) {
         carousel.classList.add("no-transition");

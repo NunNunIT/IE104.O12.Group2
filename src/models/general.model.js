@@ -105,47 +105,6 @@ general.toCurrency = function (money) {
     return currency;
 }
 
-general.bookStatus = function (book_status) {
-    let book_status_mean = ''
-    switch (book_status) {
-        case -1:
-            book_status_mean = 'Đã hủy'
-            break
-
-        case 0:
-            book_status_mean = 'Chưa sử dụng'
-            break
-
-        case 1:
-            book_status_mean = 'Đã sử dụng'
-            break
-
-        default:
-            book_status_mean = 'Đang xử lý'
-            break
-    }
-    return book_status_mean
-}
-
-general.bookIsPaid = function (book_is_paid) {
-    let book_is_paid_mean = ''
-    switch (book_is_paid) {
-        case 0:
-            book_is_paid_mean = 'Chưa thanh toán'
-            break
-
-        case 1:
-            book_is_paid_mean = 'Đã thanh toán'
-            break
-
-        default:
-            book_is_paid_mean = 'Đang xử lý'
-            break
-    }
-    return book_is_paid_mean
-}
-
-
 general.getProductId = async (product_variant_id) => {
     let getProductId = `SELECT product_id FROM product_variants WHERE product_variant_id = ${product_variant_id}`
 

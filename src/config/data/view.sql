@@ -1,9 +1,79 @@
 -- Admin/dashboard
-DROP VIEW IF EXISTS
-    view_dashboard;
+DROP VIEW IF EXISTS view_dashboard;
 
-DROP VIEW IF EXISTS
-    view_total;
+CREATE VIEW view_dashboard AS
+SELECT dashboard_customer.customer_count,
+dashboard_order.quantity_sold,
+dashboard_order.revenue
+FROM (SELECT COUNT(*) as 'customer_count' FROM customers) dashboard_customer,
+(SELECT COUNT(*) as 'quantity_sold', SUM(orders.order_total_after) as 'revenue' FROM orders WHERE orders.order_is_payment=1) dashboard_order;
+
+
+DROP VIEW IF EXISTS view_getchart_revenue;
+
+CREATE VIEW view_getchart_revenue AS
+SELECT
+    success.year,
+    success.month,
+    success.order_success,
+    success.revenue,
+    cancel.order_cancel
+FROM
+    (
+    SELECT
+        YEAR(orders.order_date) AS 'year',
+        MONTH(orders.order_date) AS 'month',
+        COUNT(orders.order_id) AS 'order_success',
+        SUM(orders.order_total_after) AS 'revenue'
+    FROM
+        orders
+    WHERE
+        orders.order_is_payment = 1
+    GROUP BY
+        YEAR(orders.order_date),
+        MONTH(orders.order_date)
+) success
+LEFT JOIN(
+    SELECT
+        YEAR(orders.order_date) AS 'year',
+        MONTH(orders.order_date) AS 'month',
+        COUNT(orders.order_id) AS 'order_cancel'
+    FROM
+        orders
+    WHERE
+        orders.order_status = 'Đã hủy'
+    GROUP BY
+        YEAR(orders.order_date),
+        MONTH(orders.order_date)
+) cancel
+ON
+    (
+        cancel.year = success.year AND cancel.month = success.month
+    )
+
+DROP VIEW IF EXISTS view_getchart_top5_product;
+
+CREATE VIEW view_getchart_top5_product AS
+SELECT order_details.product_variant_id,
+		SUM(order_details.order_detail_quantity) as 'quantity_sold', 
+        SUM(order_details.order_detail_price_after * order_details.order_detail_quantity) as 'revenue'
+FROM orders
+LEFT JOIN order_details ON order_details.order_id = orders.order_id
+WHERE orders.order_status = 'Hoàn thành'
+GROUP BY order_details.product_variant_id
+
+
+DROP VIEW IF EXISTS view_cate_admin;
+
+CREATE VIEW view_cate_admin AS 
+SELECT 
+categories.*,
+COUNT(view_product_variants.product_id) as 'product_count', 
+SUM(order_details.order_detail_price_after*order_details.order_detail_quantity) as 'revenue'
+FROM categories 
+LEFT JOIN view_product_variants ON categories.category_id = view_product_variants.category_id
+LEFT JOIN order_details ON view_product_variants.product_variant_id = order_details.product_variant_id
+GROUP BY categories.category_id;
 
 
 DROP VIEW IF EXISTS
@@ -199,4 +269,15 @@ order_details LEFT JOIN view_product_variants
 ON order_details.product_variant_id = view_product_variants.product_variant_id
 
 
+DROP VIEW IF EXISTS view_notifications;
 
+CREATE VIEW view_notifications AS
+SELECT
+    notifications.*,
+    user_notification.user_id,
+    user_notification.users_notifications_is_read
+FROM
+    notifications
+LEFT JOIN user_notification ON notifications.notifications_id = user_notification.notifications_id
+WHERE
+    notifications.notifications_is_display = 1

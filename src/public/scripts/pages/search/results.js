@@ -1,3 +1,9 @@
+// Thêm "active" vào app-bar__element
+if (location.href === "http://127.0.0.1:3000/search/results?hotProduct=true") {
+    const appbar__element = document.querySelectorAll('.app-bar__element');
+    appbar__element[2].classList.add('active');
+}
+
 const filterItems = document.querySelectorAll('.seacrh-result__filter-normal__content');
 
 let selectedFilterItem = null;

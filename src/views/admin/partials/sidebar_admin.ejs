@@ -1,13 +1,13 @@
-<aside id="sidebar">
+<aside id="sidebar-admin">
     <div class="sidebar-header">
         <img src="/imgs/admin/logo-admin-white.png" alt="logo" />
         <span class="material-symbols-rounded" onclick="closeSidebar()">close</span>
     </div>
     <div class="side-content">
         <div class="profile">
-            <img class="profile-img bg-img" src="/imgs/admin/avt.jpg" alt="avt">
-            <h4>Admin Nhung</h4>
-            <small>Owner</small>
+            <img class="profile-img bg-img" src="/imgs/admin/<%= admin.admin_avt_img ?? avt_default.jpg %>" alt="avt_admin">
+            <h4>Admin <%= admin.admin_name %></h4>
+            <small><%= admin.admin_role %></small>
         </div>
 
         <div class="sidebar-list">

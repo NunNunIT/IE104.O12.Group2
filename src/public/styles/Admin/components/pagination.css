@@ -58,3 +58,18 @@
     opacity: 1;
     pointer-events: auto;
 }
+
+@media only screen and (max-width: 48rem) {
+    .table-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 70px;
+        padding: 4px 12px 8px 12px;
+    }
+  }
