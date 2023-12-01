@@ -19,7 +19,7 @@
 	<main class="content-container">
 
 		<section class="title">
-			<h1><%= productInfo.product_name ?? 'NaN' %></h1>
+			<h1><%= productInfo.product_name ?? 'null' %></h1>
 			<div class="title__rating">
 				<% if (productInfo.product_rate) { %>
 				<div>
@@ -43,8 +43,8 @@
 					<% } %>
 				</div>
 				<% } %>
-				<p>(<%= productInfo.product_rate ?? 'NaN' %>)</p>
-				<p>168 lượt đánh giá</p>
+				<p>(<%= productInfo.product_rate ?? 'null' %>)</p>
+				<p><%= productFeedbacks.length != 0 ? productFeedbacks.length : '100' %> lượt đánh giá</p>
 			</div>
 		</section>
 
@@ -118,8 +118,8 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
-								<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
+								<h2><%= variant.product_variant_price_after_discount_currency ?? 'null' %>đ</h2>
+								<p><del><%= variant.product_variant_price_currency ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -148,7 +148,7 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_currency ?? 'NaN' %>đ</h2>
+								<h2><%= variant.product_variant_price_currency ?? 'null' %>đ</h2>
 							</div>
 							<div>
 							</div>
@@ -180,7 +180,7 @@
 					<div class="detail__description description">
 						<div class="description__item">
 							<h2>Thông tin sản phẩm</h2>
-							<%- productInfo.product_description ?? 'NaN' %>
+							<%- productInfo.product_description ?? 'null' %>
 						</div>
 					</div>
 				</div>
@@ -191,8 +191,8 @@
 						<h2>Thông số kỹ thuật</h2>
 						<% productDetails.forEach(product => { %>
 						<div class="specification__item">
-							<p class="specification__type"><%= product.product_detail_name ?? 'NaN' %></p>
-							<p class="specification__info"><%= product.product_detail_value ?? 'NaN' %></p>
+							<p class="specification__type"><%= product.product_detail_name ?? 'null' %></p>
+							<p class="specification__info"><%= product.product_detail_value ?? 'null' %></p>
 						</div>
 						<% }) %>
 					</div>
@@ -206,29 +206,27 @@
 			<h2>Đánh giá sản phẩm</h2>
 			<div class="comments__filter filter">
 				<div class="filter__avg-rating">
-					<p><%= productInfo.product_rate ?? 'NaN' %> trên 5</p>
+					<p><%= productInfo.product_rate ?? 'null' %> trên 5</p>
 					<div class="filter__stars">
 						<% if (productInfo.product_rate) { %>
-						<div>
-							<!-- In ra số sao hiện có -->
-							<% const productRateInt = Math.floor(productInfo.product_rate) %>
+						<!-- In ra số sao hiện có -->
+						<% const productRateInt = Math.floor(productInfo.product_rate) %>
 
-							<% for (let i = 0; i < productRateInt; i++) { %>
-							<span class="material-symbols-outlined">grade</span>
-							<% } %>
+						<% for (let i = 0; i < productRateInt; i++) { %>
+						<span class="material-symbols-outlined">grade</span>
+						<% } %>
 
-							<!-- In ra số sao lẻ -->
-							<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
-							<span class="material-symbols-outlined">star_half</span>
-							<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
-							<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
-							<% } %>
+						<!-- In ra số sao lẻ -->
+						<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+						<span class="material-symbols-outlined">star_half</span>
+						<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
+						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+						<% } %>
 
-							<!-- In ra số sao trống -->
-							<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
-							<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
-							<% } %>
-						</div>
+						<!-- In ra số sao trống -->
+						<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
+						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+						<% } %>
 						<% } %>
 					</div>
 				</div>
@@ -246,7 +244,7 @@
 			<div class="comments__list">
 				<% if (productFeedbacks.length) { %>
 				<% productFeedbacks.forEach(feedback => { %>
-				<%- include('../../components/comment', {feedback: feedback}) %>
+				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: toDDMMYYYY }) %>
 				<% }) %>
 				<div class="comments__pagination">
 					<%- include('../../components/pagination') %>
