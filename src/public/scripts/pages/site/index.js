@@ -1,6 +1,6 @@
 // Thêm "active" vào app-bar__element
-const appbar__element = document.querySelectorAll('.app-bar__element');
-appbar__element[0].classList.add('active');
+const appbarEle = document.querySelectorAll('.app-bar__element')
+appbarEle[0].classList.add('active')
 
 
 document.addEventListener('DOMContentLoaded', function () {

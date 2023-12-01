@@ -610,13 +610,6 @@ img.dropdown-cart__img--empty {
     display: flex;
 }
 
-.cate-dropdown__item {
-    width: 100%;
-    max-height: calc(100vh - 154px);
-    display: flex;
-    gap: 12px;
-}
-
 .cate-dropdown__content {
     width: 850px;
     min-height: 430px;
@@ -633,6 +626,8 @@ img.dropdown-cart__img--empty {
 
 .cate-dropdown__item {
     cursor: pointer;
+    width: 100%;
+    max-height: calc(100vh - 154px);
     padding: 4px 12px;
     display: flex;
     justify-content: flex-start;
@@ -716,6 +711,7 @@ img.dropdown-cart__img--empty {
 }
 
 .cate-dropdown__product-name {
+    width: 100%;
     text-align: left;
 }
 

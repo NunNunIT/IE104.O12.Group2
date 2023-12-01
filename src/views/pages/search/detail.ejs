@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/search/detail.css">
 
 	<title>TECHTWO. <%= productInfo.product_name %></title>
@@ -19,7 +19,7 @@
 	<main class="content-container">
 
 		<section class="title">
-			<h1><%= productInfo.product_name ?? 'NaN' %></h1>
+			<h1><%= productInfo.product_name ?? 'null' %></h1>
 			<div class="title__rating">
 				<% if (productInfo.product_rate) { %>
 				<div>
@@ -43,8 +43,8 @@
 					<% } %>
 				</div>
 				<% } %>
-				<p>(<%= productInfo.product_rate ?? 'NaN' %>)</p>
-				<p>168 lượt đánh giá</p>
+				<p>(<%= productInfo.product_rate ?? 'null' %>)</p>
+				<p><%= productFeedbacks.length != 0 ? productFeedbacks.length : '100' %> lượt đánh giá</p>
 			</div>
 		</section>
 
@@ -58,36 +58,36 @@
 						<div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">build</span>
-								<p>Lắp đặt miễn phí lúc giao hàng</p>
+								<p>Hỗ trợ lắp đặt miễn phí lúc giao hàng.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">verified_user</span>
-								<p>Bảo hành chính hãng 3 năm, có người đến tận nhà</p>
+								<p>Bảo hành chính hãng 3 năm, có người đến tận nhà.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">cached</span>
-								<p>Hư gì đổi nấy 12 tháng tận nhà (miễn phí tháng đầu)</p>
+								<p>Hư gì đổi nấy 12 tháng tận nhà (miễn phí tháng đầu).</p>
 							</div>
 						</div>
 						<div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">local_shipping</span>
-								<p>Giao hàng tận nhà nhanh chóng</p>
+								<p>Giao hàng tận nhà nhanh chóng.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined">library_books</span>
-								<p>Kèm theo sách hướng dẫn sử dụng</p>
+								<p>Kèm theo sách hướng dẫn sử dụng.</p>
 							</div>
 							<div class="policy__item">
 								<span class="material-symbols-outlined policy__savings">savings</span>
-								<p>Phí vật tư có thể phát sinh: 500.000đ</p>
+								<p>Phí vật tư có thể phát sinh: 500.000đ.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<form id = "buy-form" class="detail--right" action="/order/information" method="post">
-					<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>" />
+				<form id="buy-form" class="detail--right" action="/order/information" method="post">
+					<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>">
 					<% if (variantProducts) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>
@@ -118,8 +118,8 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_after_discount_currency ?? 'NaN' %>đ</h2>
-								<p><del><%= variant.product_variant_price_currency ?? 'NaN' %>đ</del> giảm đến <%= variant.discount_amount ?? 'NaN' %>%</p>
+								<h2><%= variant.product_variant_price_after_discount_currency ?? 'null' %>đ</h2>
+								<p><del><%= variant.product_variant_price_currency ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -131,10 +131,10 @@
 							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
 							<!-- Thêm discount description -->
 							<ol class="promo__list">
-								<li>Giao hàng nhanh chóng (tùy khu vực)</li>
-								<li>Mua càng nhiều, ưu đãi càng cao</li>
-								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024</li>
-								<li>Chi bán online</li>
+								<li>Giao hàng nhanh chóng (tùy khu vực).</li>
+								<li>Mua càng nhiều, ưu đãi càng cao.</li>
+								<li>Cơ hội trúng Iphone 15 mỗi ngày, áp dụng từ ngày 30/02/2024.</li>
+								<li>Chi bán online.</li>
 							</ol>
 							<div>
 								<button type="button" class="detail__add-btn">Thêm giỏ hàng</button>
@@ -148,7 +148,7 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_currency ?? 'NaN' %>đ</h2>
+								<h2><%= variant.product_variant_price_currency ?? 'null' %>đ</h2>
 							</div>
 							<div>
 							</div>
@@ -180,7 +180,7 @@
 					<div class="detail__description description">
 						<div class="description__item">
 							<h2>Thông tin sản phẩm</h2>
-							<%- productInfo.product_description ?? 'NaN' %>
+							<%- productInfo.product_description ?? 'null' %>
 						</div>
 					</div>
 				</div>
@@ -191,8 +191,8 @@
 						<h2>Thông số kỹ thuật</h2>
 						<% productDetails.forEach(product => { %>
 						<div class="specification__item">
-							<p class="specification__type"><%= product.product_detail_name ?? 'NaN' %></p>
-							<p class="specification__info"><%= product.product_detail_value ?? 'NaN' %></p>
+							<p class="specification__type"><%= product.product_detail_name ?? 'null' %></p>
+							<p class="specification__info"><%= product.product_detail_value ?? 'null' %></p>
 						</div>
 						<% }) %>
 					</div>
@@ -206,29 +206,27 @@
 			<h2>Đánh giá sản phẩm</h2>
 			<div class="comments__filter filter">
 				<div class="filter__avg-rating">
-					<p><%= productInfo.product_rate ?? 'NaN' %> trên 5</p>
+					<p><%= productInfo.product_rate ?? 'null' %> trên 5</p>
 					<div class="filter__stars">
 						<% if (productInfo.product_rate) { %>
-						<div>
-							<!-- In ra số sao hiện có -->
-							<% const productRateInt = Math.floor(productInfo.product_rate) %>
+						<!-- In ra số sao hiện có -->
+						<% const productRateInt = Math.floor(productInfo.product_rate) %>
 
-							<% for (let i = 0; i < productRateInt; i++) { %>
-							<span class="material-symbols-outlined">grade</span>
-							<% } %>
+						<% for (let i = 0; i < productRateInt; i++) { %>
+						<span class="material-symbols-outlined">grade</span>
+						<% } %>
 
-							<!-- In ra số sao lẻ -->
-							<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
-							<span class="material-symbols-outlined">star_half</span>
-							<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
-							<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
-							<% } %>
+						<!-- In ra số sao lẻ -->
+						<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+						<span class="material-symbols-outlined">star_half</span>
+						<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
+						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+						<% } %>
 
-							<!-- In ra số sao trống -->
-							<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
-							<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
-							<% } %>
-						</div>
+						<!-- In ra số sao trống -->
+						<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
+						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+						<% } %>
 						<% } %>
 					</div>
 				</div>
@@ -246,7 +244,7 @@
 			<div class="comments__list">
 				<% if (productFeedbacks.length) { %>
 				<% productFeedbacks.forEach(feedback => { %>
-				<%- include('../../components/comment', {feedback: feedback}) %>
+				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: toDDMMYYYY }) %>
 				<% }) %>
 				<div class="comments__pagination">
 					<%- include('../../components/pagination') %>

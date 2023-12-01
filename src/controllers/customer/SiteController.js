@@ -45,11 +45,23 @@ siteController.privacyPolicy = async (req, res) => {
     })
 }
 
+// [GET] /error
 siteController.error = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
 
     res.render('./pages/site/404-error', {
+        header: header,
+        user: header_user,
+    })
+}
+
+// [GET] /category
+siteController.category = async (req, res) => {
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+
+    res.render('./pages/site/category-mobile', {
         header: header,
         user: header_user,
     })

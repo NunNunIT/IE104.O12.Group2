@@ -48,6 +48,7 @@ searchController.detail = async (req, res) => {
         productDetails: productDetails,
         productFeedbacks: productFeedbacks,
         cateProducts: cateProducts,
+        toDDMMYYYY: general.toDDMMYYYY
     })
 }
 
