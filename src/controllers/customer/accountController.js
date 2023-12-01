@@ -42,7 +42,6 @@ accountController.purchaseHistory = async (req, res) => {
     let customer_id = req.user.customer_id
     let order_status = req.query.order_status ?? 0
     let order_id = req.params.order_id ?? 0
-    console.log(order_status)
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)

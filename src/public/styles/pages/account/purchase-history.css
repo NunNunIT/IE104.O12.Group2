@@ -52,14 +52,20 @@ a {
 }
 
 .purchase__status a {
-	padding: 12px 24px 13px 24px;
+	padding: 12px 24px 12px 24px;
 }
 
 .purchase__status a:hover {
 	cursor: pointer;
 	color: var(--primary-color-1);
 	border-bottom: 2px solid var(--primary-color-1);
-	padding: 12px 24px;
+	padding: 12px 24px 10px 24px;
+}
+
+.purchase__status a.active {
+	color: var(--primary-color-1);
+	border-bottom: 2px solid var(--primary-color-1);
+	padding: 12px 24 10px 24px;
 }
 
 
@@ -73,22 +79,18 @@ a {
 	padding: 12px 24px 12px 24px;
 }
 
-.purchase__status__cancel {
-	color: var(--dollar-red2);
+.purchase-empty {
+	margin: 24px auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 12px;
 }
 
-.purchase__status__finished {
-	color: var(--green);
+.purchase-empty img {
+	object-fit: contain;
+	width: 15%;
 }
-
-.purchase__status__delivering {
-	color: var(--primary-color-2);
-}
-
-.purchase__status_unpaid {
-	color: var(--fire-orange);
-}
-
 
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
@@ -125,8 +127,7 @@ a {
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
 	.account-container {
-		width: 95%;
-		margin: 140px 0 24px 0;
+		width: 90%;
 	}
 
 	h2 {
@@ -189,6 +190,24 @@ a {
 	}
 
 	.purchase__status a {
+		font-size: 0.8125rem;
+	}
+}
+
+@media only screen and (max-width: 26rem) {
+	#purchase-item__product-name {
+		font-size: 1rem;
+	}
+
+	.noti-item__button .btn.btn--outlined.pri,
+	.noti-item__button .btn.btn--filled.pri {
+		font-size: 0.875rem;
+		height: 44px;
+		padding: 0 20px;
+	}
+
+	#purchase-item__variant,
+	#purchase-item__amount {
 		font-size: 0.8125rem;
 	}
 }

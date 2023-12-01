@@ -65,30 +65,7 @@
 					<span class="material-symbols-outlined">local_mall</span>
 					<span>THÔNG TIN SẢN PHẨM</span>
 				</h5>
-				<div class="purchase-detail__element">
-					<div class="purchase-detail__element--left">
-						<img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-detail__product-img">
-						<div class="purchase-detail__product-detail">
-							<h4 id="purchase-detail__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-							<p id="purchase-detail__variant">Phân loại hàng: 55 inch</p>
-							<p id="purchase-detail__amount">x1</p>
-						</div>
-					</div>
-					<h5 id="purchase-detail__price"><small>13.990.000đ</small>11.800.000đ</h5>
-				</div>
-				<hr />
-				<div class="purchase-detail__element">
-					<div class="purchase-detail__element--left">
-						<img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-detail__product-img">
-						<div class="purchase-detail__product-detail">
-							<h4 id="purchase-detail__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-							<p id="purchase-detail__variant">Phân loại hàng: 55 inch</p>
-							<p id="purchase-detail__amount">x1</p>
-						</div>
-					</div>
-					<h5 id="purchase-detail__price"><small>13.990.000đ</small>11.800.000đ</h5>
-				</div>
-				<hr />
+				<%- include('../../components/purchase-detail-item')%>
 				<div class="purchase-detail__order-price">
 					<p>
 						<span>Tạm tính:</span>
@@ -102,6 +79,37 @@
 						<span>Số tiền đã thanh toán:</span>
 						<span id="paid-amount">23.600.000đ</span>
 					</p>
+				</div>
+				<div class="purchase-detail__button">
+					<!-- nút hủy khi status là "Chờ thanh toán" -->
+					<a href="#">
+						<div class="btn btn--outlined pri cancel">Hủy</div>
+					</a>
+					<!-- end -->
+
+					<!-- nút thanh toán khi status là "Chờ thanh toán" -->
+					<a href="#">
+						<div class="btn btn--filled pri">Thanh toán</div>
+					</a>
+					<!-- end -->
+
+					<!-- nút đánh giá khi status là "Hoàn thành" -->
+					<a href="#">
+						<div class="btn btn--filled pri">Đánh giá</div>
+					</a>
+					<!-- end -->
+
+					<!-- nút đánh giá khi status là "Hoàn thành" và đã đánh giá-->
+					<a href="#">
+						<div class="btn btn--filled pri">Xem Đánh giá</div>
+					</a>
+					<!-- end -->
+
+					<!-- nút đánh giá khi status là "Đang giao hàng"-->
+					<a href="#">
+						<div class="btn btn--filled pri disable">Đánh giá</div>
+					</a>
+					<!-- end -->
 				</div>
 			</div>
 		</section>
