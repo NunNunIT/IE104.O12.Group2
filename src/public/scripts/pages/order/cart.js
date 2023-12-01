@@ -215,12 +215,15 @@ function calcTotalPrice(event) {
         totalPriceDel += Number(item.querySelector('.cart-item__quantity input').value) * Number(unitPriceDel)
     })
 
-    if (isNaN(totalPriceDel))
-        totalPriceDel = 0
-
     const totalPriceDelEle = document.querySelector('.cart__total-price del')
-    if (totalPriceDelEle)
+
+    if (isNaN(totalPriceDel)) {
+        totalPriceDel = 0
+        totalPriceDelEle.style.display = 'none'
+    } else {
         totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
+        totalPriceDelEle.style.display = 'flex'
+    }
 }
 
 // Hàm thực thi

@@ -156,34 +156,34 @@ p {
     display: inline-block;
     padding: 0;
     border-radius: 8px;
+}
 
-    & .status-layer {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 24px;
-        border-radius: inherit;
+.btn .status-layer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: inherit;
+}
 
-        & span {
-            /* font-weight: bold; */
-            margin: auto;
-        }
-    }
+.btn .status-layer span {
+    /* font-weight: bold; */
+    margin: auto;
+}
 
-    &:hover {
-        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
-    }
+.btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
 
-    &:active {
-        box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
+.btn:active {
+    box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
 
-        & .status-layer {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    }
+.btn:active .status-layer {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .btn.btn--filled.pri {
