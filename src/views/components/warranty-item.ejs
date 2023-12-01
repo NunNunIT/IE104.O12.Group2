@@ -1,47 +1,38 @@
 <div class="purchase-item">
-    <div class="purchase-item--top">
-        <div class="purchase-item__info">
-            <h5>Đơn hàng:</h5>
-            <p id="purchase-item__id">#DH0001</p>
-        </div>
-        <p class="purchase-item__date">Ngày mua: 11/11/2023</p>
-    </div>
-    <hr />
-    <div class="purchase-item__main">
-        <div class="purchase-item__element">
-            <div class="purchase-item__element--left">
-                <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-item__product-img">
-                <div class="purchase-item__product-detail">
-                    <h4 id="purchase-item__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-                    <p id="purchase-item__variant">Phân loại hàng: 55 inch</p>
-                    <p id="purchase-item__amount">x1</p>
-                </div>
-            </div>
-            <p class="btn-warranty">Yêu cầu bảo hành</p>
-        </div>
-        <hr />
-        <div class="purchase-item__element">
-            <div class="purchase-item__element--left">
-                <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-item__product-img">
-                <div class="purchase-item__product-detail">
-                    <h4 id="purchase-item__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-                    <p id="purchase-item__variant">Phân loại hàng: 55 inch</p>
-                    <p id="purchase-item__amount">x1</p>
-                </div>
-            </div>
-            <p class="btn-warranty">Yêu cầu bảo hành</p>
-        </div>
-    </div>
-    <!-- <hr /> -->
-    <div class="purchase-item--bottom">
-        <!-- <div class="purchase-item__total">
+	<div class="purchase-item--top">
+		<div class="purchase-item__info">
+			<h5>Đơn hàng:</h5>
+			<p id="purchase-item__id">#DH<%= order.order_id ?? 'null' %></p>
+		</div>
+		<p class="purchase-item__date">Ngày mua: <%= toDDMMYYYY(new Date(order.order_date)) ?? '01/01/01' %></p>
+	</div>
+	<hr />
+	<div class="purchase-item__main">
+		<% order.order_details.forEach(orderDetail => { %>
+		<div class="purchase-item__element">
+			<div class="purchase-item__element--left">
+				<img src="/imgs/product_image/P<%= orderDetail.product_id %>/<%= orderDetail.product_avt_img %>" alt="<%= orderDetail.product_name %>" class="purchase-item__product-img">
+				<div class="purchase-item__product-detail">
+					<h4 id="purchase-item__product-name"><%= orderDetail.product_name ?? 'null' %></h4>
+					<p id="purchase-item__variant">Phân loại hàng: <%= orderDetail.product_variant_name ?? 'null' %></p>
+					<p id="purchase-item__amount">Số lượng: <%= orderDetail.order_detail_quantity ?? 'null' %></p>
+				</div>
+			</div>
+			<p class="btn-warranty">Yêu cầu bảo hành</p>
+		</div>
+		<hr />
+		<% }) %>
+	</div>
+	<!-- <hr /> -->
+	<div class="purchase-item--bottom">
+		<!-- <div class="purchase-item__total">
             <p>Thành tiền:</p>
             <h2 id="purchase-item__total-price">23.600.000đ</h2>
         </div> -->
-        <div class="noti-item__button">
-            <!-- <button class="btn--outlined pri popup-btn" type="submit">Xem chi tiết</button> -->
-            <!-- <button class="btn--filled pri btn-use" type="submit">Yêu cầu bảo hành</button> -->
-        </div>
-    </div>
+		<div class="noti-item__button">
+			<!-- <button class="btn--outlined pri popup-btn" type="submit">Xem chi tiết</button> -->
+			<!-- <button class="btn--filled pri btn-use" type="submit">Yêu cầu bảo hành</button> -->
+		</div>
+	</div>
 
 </div>

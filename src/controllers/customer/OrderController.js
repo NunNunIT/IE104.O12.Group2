@@ -1,9 +1,11 @@
-const {promisify} = require('util')
+const { promisify } = require('util')
 const index = require('../../models/customer/index.model')
 const order = require('../../models/customer/order.model')
+const general = require('../../models/general.model')
 
 const orderController = () => { }
 
+// [POST] /order/addCart
 orderController.addCart = async (req, res) => {
 	let customer_id = req.user.customer_id
 	let product_variant_id = req.body.product_variant_id
@@ -13,8 +15,8 @@ orderController.addCart = async (req, res) => {
 
 	if (result) {
 		return res.json({
-		status: 'success',
-	})
+			status: 'success',
+		})
 	} else {
 		return res.json({
 			status: 'error',
@@ -33,7 +35,18 @@ orderController.cart = async (req, res) => {
 		header: header,
 		user: header_user,
 		detailCart: detailCart,
+		toCurrency: general.toCurrency,
 	})
+}
+
+// [POST] /order/cart/buy
+orderController.cartBuy = async (req, res) => {
+	console.log(req.body)
+}
+
+// [POST] /order/cart/delete
+orderController.cartDelete = async (req, res) => {
+	console.log(req.body)
 }
 
 // [GET] /order/information

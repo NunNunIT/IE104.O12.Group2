@@ -26,37 +26,38 @@
 					<div class="purchase-item--top">
 						<div class="purchase-item__info">
 							<h3>Thông tin cá nhân</h3>
-
 						</div>
 						<h3 class="purchase-item__status"> <a href="/account/edit-information">Sửa</a></h3>
 					</div>
 					<div class="purchase-item__main">
 						<div class="purchase-item__element">
 							<div class="purchase-item__product-detail">
-
-								<h5 id="purchase-item__product-name">Tên người dùng: </h5><span><%= (user.user.user_name) ? user.user.user_name : '' %></span>
+								<h5 id="purchase-item__product-name">Tên người dùng: </h5>
+								<span><%= user.user.user_name ?? 'Nguyễn Văn A' %></span>
 								<hr />
 
-								<h5 id="purchase-item__product-name">Ngày sinh: </h5><span><%= (user.user.user_birth_format) ? user.user.user_birth_format : '' %></span>
+								<h5 id="purchase-item__product-name">Ngày sinh: </h5>
+								<span><%= toDDMMYYYY(new Date(user.user.user_birth)) ?? '01/01/01' %></span>
 								<hr />
 
-								<h5 id="purchase-item__product-name">Giới tính: </h5><span><%= (user.user.user_sex) ? user.user.user_sex : '' %></span>
+								<h5 id="purchase-item__product-name">Giới tính: </h5>
+								<span><%= user.user.user_sex ?? 'Không rõ' %></span>
 								<hr />
 
-								<h5 id="purchase-item__product-name">Email: </h5><span><%= (user.user.user_email) ? user.user.user_email : '' %></span>
+								<h5 id="purchase-item__product-name">Email: </h5>
+								<span><%= user.user.user_email ?? 'example@mail.com' %></span>
 								<hr />
 
-								<h5 id="purchase-item__product-name">Số điện thoại: </h5><span><%= (user.user.user_phone) ? user.user.user_phone : '' %></span>
+								<h5 id="purchase-item__product-name">Số điện thoại: </h5>
+								<span><%= user.user.user_phone ?? '0123456789' %></span>
 								<hr />
 
-								<h5 id="purchase-item__product-name">Địa chỉ: </h5><span><%= (user.user.user_address) ? user.user.user_address : '' %></span>
+								<h5 id="purchase-item__product-name">Địa chỉ: </h5>
+								<span><%= user.user.user_address ?? 'Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh' %></span>
 								<hr />
-
 							</div>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</section>

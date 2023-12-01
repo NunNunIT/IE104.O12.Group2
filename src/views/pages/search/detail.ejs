@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/search/detail.css">
 
 	<title>TECHTWO. <%= productInfo.product_name %></title>
@@ -87,7 +87,7 @@
 				</div>
 
 				<form id="buy-form" class="detail--right" action="/order/information" method="post">
-					<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>" />
+					<input id="product_variant_id" type="hidden" name="product_variant_id" value="<%= product_variant_id %>">
 					<% if (variantProducts) { %>
 					<div class="detail__variant variant">
 						<h3>Loại sản phẩm</h3>

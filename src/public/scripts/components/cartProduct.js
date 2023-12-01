@@ -46,8 +46,20 @@ function checkOne(event) {
 // Sự kiện onclick nút "Xóa" 1 item
 function removeItem(event) {
     const cartItem = event.currentTarget.parentElement.parentElement
-    console.log(cartItem)
+    let productVariantId = cartItem.querySelector('input[name="product_variant_id"]')
+    const deleteArray = []
+    deleteArray.push({
+        product_variant_id: Number(productVariantId.value),
+    })
     cartItem.remove()
+
+    fetch('/order/cart/buy', {
+        body: JSON.stringify(deleteArray),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
 
     showSelectedNums()
     showEmptyNoti()
@@ -63,7 +75,7 @@ function triggerChangeEvent(element) {
 function minus(event) {
     const input = event.currentTarget.nextElementSibling
 
-    if (input.value > 0) {
+    if (input.value > 1) {
         input.value = Number(input.value) - 1
         triggerChangeEvent(input)
     }
