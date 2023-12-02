@@ -16,6 +16,7 @@ router.get('/logout', adminMiddleware.checkUnAuth, authAdminController.getLogout
 
 // admin dashboard
 router.get('/dashboard', adminMiddleware.isLoggedIn, dashboardAdminController.getDashboard)
+router.get('/dashboard/getChart', adminMiddleware.isLoggedIn, dashboardAdminController.getChart)
 router.get('/', adminMiddleware.isLoggedIn, dashboardAdminController.getDashboard)
 
 // admin cate management
