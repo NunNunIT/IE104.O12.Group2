@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 var parseUrl = require('body-parser')
-let encodeUrl = parseUrl.urlencoded({ extended: false })
 
 // import controller
 const siteController = require('../controllers/customer/siteController.js')

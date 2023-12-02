@@ -120,34 +120,6 @@ general.getCategoryId = async (product_id) => {
     return category_id[0].category_id
 }
 
-
-general.productCurrencyFormat = async (products) => {
-    products.forEach((product) => {
-        product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-        if (product.discount_amount) {
-            product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-            product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-        }
-    })
-    return products
-}
-
-general.purchaseCurrencyFormat = async (orders) => {
-    orders.forEach((order) => {
-        order.order_total_before_currency = general.toCurrency(Number(order.order_total_before))
-        order.order_total_after_currency = general.toCurrency(Number(order.order_total_after))
-    })
-    return orders
-}
-
-general.purchaseDetailCurrencyFormat = async (order_details) => {
-    order_details.forEach((order_detail) => {
-        order_detail.order_detail_price_before_currency = general.toCurrency(Number(order_detail.order_detail_price_before))
-        order_detail.order_detail_price_after_currency = general.toCurrency(Number(order_detail.order_detail_price_after))
-    })
-    return order_details
-}
-
 general.getCates = async (req) => {
     let getCate = `SELECT categories.*, COUNT(product_id) AS category_count
                 FROM categories LEFT JOIN products
@@ -189,8 +161,6 @@ general.getBestSellerProductsOfCates = async (category_id, limit) => {
                 console.log(err)
                 resolve(0)
             } else {
-                bestSellerProductsOfCates = general.productCurrencyFormat(bestSellerProductsOfCates)
-                // console.log(bestSellerProductsOfCates)
                 resolve(bestSellerProductsOfCates)
             }
         })
@@ -206,7 +176,6 @@ general.getOutstandingProducts = async () => {
                 console.log(err)
                 resolve(0)
             } else {
-                outstandingProducts = general.productCurrencyFormat(outstandingProducts)
                 resolve(outstandingProducts)
             }
         })
@@ -222,7 +191,6 @@ general.getNewProducts = async () => {
                 console.log(err)
                 resolve(0)
             } else {
-                newProducts = general.productCurrencyFormat(newProducts)
                 resolve(newProducts)
             }
         })
@@ -238,7 +206,6 @@ general.getDiscountProducts = async () => {
                 console.log(err)
                 resolve(0)
             } else {
-                discountProducts = general.productCurrencyFormat(discountProducts)
                 resolve(discountProducts)
             }
         })
@@ -261,7 +228,6 @@ general.getCateProducts = async (req, product_variant_id, limit = 8) => {
                 console.log(err)
                 resolve(0)
             } else {
-                cateProducts = general.productCurrencyFormat(cateProducts)
                 resolve(cateProducts)
             }
         })
@@ -280,11 +246,19 @@ general.getVariantProducts = async (product_variant_id) => {
                 console.log(err)
                 resolve(0)
             } else {
-                variantProducts = general.productCurrencyFormat(variantProducts)
                 resolve(variantProducts)
             }
         })
     })
+}
+
+general.formatFunction = async () => {
+    let formatFunction = {
+        toCurrency : general.toCurrency,
+        toDDMMYYYY: general.toDDMMYY,
+    }
+
+    return formatFunction;
 }
 
 
