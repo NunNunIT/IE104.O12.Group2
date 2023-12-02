@@ -7,7 +7,9 @@ body {
     background: var(--white-gray);
     min-height: 100vh;
     width: 100vw;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .feedback-wrapper {

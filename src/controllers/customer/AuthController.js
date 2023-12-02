@@ -82,7 +82,7 @@ authController.submitLogin = async (req, res) => {
 
 authController.logout = async (req, res) => {
     res.cookie('userSave', 'logout', {
-        expires: new Date(Date.now() + 2 * 1000),
+        expires: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
         httpOnly: true,
     })
     res.status(200).redirect('/')
