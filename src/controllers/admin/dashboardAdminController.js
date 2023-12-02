@@ -7,7 +7,7 @@ dashboardController.getDashboard = async (req, res) =>{
     const title = 'DASHBOARD'
     let admin = req.admin
     let summary = await dashboard.getSummary()
-    res.status(200).render('./admin/pages/admin', {
+    res.status(200).render('./admin/pages/cate_view_admin', {
         admin: admin,
         title: title,
         summary: summary,
