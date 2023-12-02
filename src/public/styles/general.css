@@ -150,6 +150,10 @@ p {
     text-align: justify;
 }
 
+ul li {
+    list-style: none;
+}
+
 .btn {
     cursor: pointer;
     height: 48px;

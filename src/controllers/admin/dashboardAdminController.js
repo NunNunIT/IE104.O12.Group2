@@ -1,7 +1,7 @@
 const dashboard = require('../../models/admin/dashboardAdmin.model')
 const general = require('../../models/general.model')
 
-const dashboardController = () => {}
+const dashboardController = () => { }
 
 // [GET] admin/dashboard OR admin/
 dashboardController.getDashboard = async (req, res) => {
@@ -29,7 +29,7 @@ dashboardController.getChart = async (req, res) => {
         status: 'success',
         chartTop5Data: chartTop5,
         chartRevenueData: chartRevenue,
-        gen
+        toCurrency: general.toCurrency,
     })
 }
 
