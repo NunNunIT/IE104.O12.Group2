@@ -155,14 +155,19 @@ function cartSubmit(event) {
             })
         })
 
+        let formDataArrayString = JSON.stringify(formDataArray)
+
+        localStorage.setItem('formDataArray', formDataArrayString)
+        window.location.href = 'http://localhost:3000/order/information'
+
         // Use jsonData in your fetch request
-        fetch('/order/cart/buy', {
-            body: JSON.stringify(formDataArray),
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+        // fetch('/order/cart/buy', {
+        //     body: JSON.stringify(formDataArray),
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // })
         // .then(res => res.json())
         // .then(back => {
         //     if (back.status == 'error') {

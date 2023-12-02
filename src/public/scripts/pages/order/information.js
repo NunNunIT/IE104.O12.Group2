@@ -1,3 +1,8 @@
+let cartData = localStorage.getItem('formDataArray')
+
+let cartDataString = JSON.parse(cartData)
+console.log(cartDataString)
+
 let isNameValid
 let isPhoneNumberValid
 
