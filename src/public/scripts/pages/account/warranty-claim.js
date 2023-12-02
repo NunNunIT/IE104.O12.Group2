@@ -1,17 +1,17 @@
 const appbar__element = document.querySelectorAll('.side-menu__ele');
 appbar__element[2].classList.add('active');
 
-//Popup
+// Popup
 const openBtn = document.querySelectorAll('.btn-warranty')
 const popup = document.querySelectorAll('.popup')
 const closeBtn = document.querySelectorAll('.close-btn')
 const cancelBtn = document.querySelectorAll('.btn-cancel')
 
-// openBtn.forEach((btn) => {
-//     btn.onclick = function () {
-//         popup[0].style.display = 'block'
-//     }
-// })
+openBtn.forEach((btn) => {
+    btn.onclick = function () {
+        popup[0].style.display = 'block'
+    }
+})
 
 // Đóng popup khi chọn dấu x
 closeBtn.forEach((closeBtn) => {
