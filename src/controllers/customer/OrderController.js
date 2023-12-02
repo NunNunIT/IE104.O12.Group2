@@ -39,20 +39,9 @@ orderController.cart = async (req, res) => {
 	})
 }
 
-// [POST] /order/cart/buy
-orderController.cartBuy = async (req, res) => {
-	console.log(req.body)
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
-	
-	res.render('./pages/order/information', {
-		header: header,
-		user: header_user,
-	})
-}
-
 // [POST] /order/cart/delete
 orderController.cartDelete = async (req, res) => {
+
 	console.log(req.body)
 }
 

@@ -13,4 +13,18 @@ dashboard.getSummary = async (req, res) => {
     return summary[0]
 }
 
+dashboard.getChartTop5 = async (req, res) => {
+    let getChartTop5 = `SELECT * FROM view_getchart_top5_product`
+
+    let chartTop5 = await query(getChartTop5)
+    return chartTop5
+}
+
+dashboard.getChartRevenue = async (req, res) => {
+    let getChartRevenue = `SELECT * FROM view_getchart_revenue`
+
+    let chartRevenue = await query(getChartRevenue)
+    return chartRevenue
+}
+
 module.exports = dashboard

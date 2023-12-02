@@ -43,4 +43,8 @@ order.getDetailCart = async (customer_id) => {
     })
 }
 
+order.cartDelete = async (order_informations) => {
+    let cartDelete = ``
+}
+
 module.exports = order
