@@ -94,7 +94,10 @@ addCartBtn.addEventListener('click', () => {
             } else if (back.status == "success") {
                 const cartSuccessModal = document.querySelector('.success-modal')
                 cartSuccessModal.style.display = 'flex'
-                location.reload()
+                setTimeout(() => {
+                    cartSuccessModal.style.display = 'none'
+                    location.reload()
+                }, 1500)
             }
         })
 })

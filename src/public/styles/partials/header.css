@@ -617,8 +617,8 @@ img.dropdown-cart__img--empty {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 168px;
-    left: 448px;
+    top: 166px;
+    left: 438px;
     background-color: var(--bg-white-o80);
     border-radius: 0 12px 12px 0;
     /* overflow-y: scroll; */
