@@ -14,7 +14,6 @@
 	z-index: 9998;
 	transition: .3s ease;
 	overflow-x: hidden;
-	scrollbar-width: none;
 	border-radius: 8px;
 }
 

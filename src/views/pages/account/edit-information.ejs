@@ -2,13 +2,11 @@
 <html lang="vi-VN">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-	<!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
 
-	<link rel="stylesheet" href="/styles/pages/account/information.css">
+
 	<link rel="stylesheet" href="/styles/pages/account/edit-information.css">
 
 	<title>TECHTWO.</title>
@@ -32,61 +30,55 @@
 
 									</div>
 								</div>
-								<form action="/account/edit-information" method="POST">
-								<div class="purchase-item__main">
-									<div class="purchase-item__element">
+						
+								<form id="editForm" action="/account/edit-information" method="POST">
+									<div class="purchase-item__main">
+										<div class="purchase-item__element">
 											<div class="purchase-item__product-detail">
-												
 												<h5 id="purchase-item__product-name">Tên người dùng: </h5>
-												<input type="text" name="user_name" value="Vi Thị Hương" />
-												<hr/>
-
-												<h5 id="purchase-item__product-name">Ngày sinh: </h5><input type="text"
-													name="user_birth" value="24/10/2023" />
+												<input type="text" id="userName" name="user_name" value="Vi Thị Hương" oninput="checkUserName()" />
+												<span id="userNameError" class="error-message"></span>
 												<hr />
-
-												<h5 id="purchase-item__product-name">Giới tính: </h5><input type="text"
-													name="user_sex" value="Nữ" />
+			
+												<h5 id="purchase-item__product-name">Ngày sinh: </h5>
+												<input type="date" id="userBirth" name="user_birth" value="2023-10-24" />
+												<span id="userBirthError" class="error-message"></span>
 												<hr />
-
-												<h5 id="purchase-item__product-name">Email: </h5><input type="text"
-													name="user_email" value="vithihuong384@gmail.com" />
+			
+												<h5 id="purchase-item__product-name">Giới tính: </h5>
+												<select id="userSex" name="user_sex">
+													<option value="Nam">Nam</option>
+													<option value="Nữ">Nữ</option>
+												</select>
 												<hr />
-
-												<h5 id="purchase-item__product-name">Số điện thoại: </h5><input
-													type="text" name="user_phone" value="0352060384" />
+			
+												<h5 id="purchase-item__product-name">Email: </h5>
+												<input type="email" id="userEmail" name="user_email" value="vithihuong384@gmail.com" oninput="checkUserEmail()" />
+												<span id="userEmailError" class="error-message"></span>
 												<hr />
-
-												<h5 id="purchase-item__product-name">Địa chỉ: </h5><input type="text"
-													name="user_address" value="An Bình, Dĩ An, Bình Dương" />
+			
+												<h5 id="purchase-item__product-name">Số điện thoại: </h5>
+												<input type="tel" id="userPhone" name="user_phone" pattern="[0-9]{10}" value="0352060384" oninput="checkUserPhone()" />
+												<span id="userPhoneError" class="error-message"></span>
 												<hr />
-
+			
+												<h5 id="purchase-item__product-name">Địa chỉ: </h5>
+												<input type="text" id="userAddress" name="user_address" value="An Bình, Dĩ An, Bình Dương" />
+												<hr />
+			
 												<div class="popup__button">
-													<a href="/account/information"><button
-															class="btn btn--outlined pri btn-cancel"
-															type="button">Hủy</button></a>
-													<button class="btn btn--filled pri" type="submit">Lưu</button>
+													<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
+													<button class="btn btn--filled pri" type="button" onclick="saveData()">Lưu</button>
 												</div>
-											
+											</div>
 										</div>
 									</div>
-								</form>	
+								</form>
 								</div>
 
 							</div>
 						</div>
 					</section>
-
-					<div class="sidebar-account__popup" id="logout-popup">
-						<div class="logout-form">
-							<span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
-							<h1>Đăng xuất</h1>
-							<p>Bạn có chắc chắn muốn đăng xuất không?</p>
-							<img src="/imgs/information/bye.png" alt="Hình ảnh đăng xuất">
-							<button id="confirm-button">Đăng xuất</button>
-							<button id="cancel-button">Hủy</button>
-						</div>
-					</div>
 
 			</main>
 			<%- include('../../partials/app-bar') %>
