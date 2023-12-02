@@ -31,7 +31,7 @@ input {
 
 main {
     width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     overflow: hidden;
     background-color: var(--bg-white);
     padding: 2rem;

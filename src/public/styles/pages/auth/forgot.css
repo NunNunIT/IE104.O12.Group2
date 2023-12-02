@@ -64,7 +64,7 @@ input[type="number"] {
 
 main {
     width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     overflow: hidden;
     background-color: var(--bg-white);
     padding: 2rem;
@@ -443,7 +443,15 @@ label {
         font-size: 1.2rem;
     }
 
-    /* form {
-        /* padding: 1rem 2rem 1.5rem;
-    } */
+    body, input {
+        font-size: 0.875rem;
+    }
+
+    .input-wrap {
+        height: 60px;
+    }
+
+    input[type="number"] {
+        height: 4rem;
+    }
 }

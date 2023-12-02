@@ -454,7 +454,7 @@ label {
     }
 
     .info-order__bill {
-        font-size: 1rem;
+        font-size: 0.825rem;
     }
 
     .purchase-status {
@@ -510,6 +510,10 @@ label {
     .momo-qr {
         width: 90%;
         margin: 20px;
+    }
+
+    .momo-qr h4{
+        font-size: 1.2rem;
     }
 
     .momo_left-cancel {
