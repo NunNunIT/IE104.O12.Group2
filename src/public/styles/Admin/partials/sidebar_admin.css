@@ -1,5 +1,5 @@
 /* ---------- SIDEBAR ---------- */
-#sidebar {
+#sidebar-admin {
   grid-area: sidebar;
   height: 100%;
   background: var(--dark-gray);
@@ -9,6 +9,10 @@
   background-size: cover;
   overflow-y: auto;
   transition: all 0.5s;
+}
+
+#sidebar-admin::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar-header {
@@ -50,6 +54,7 @@
   display: inline-block;
   margin: 0 auto .5rem auto;
   border: 3px solid var(--primary-color-1);
+  background-color: var(--white);
 }
 
 .profile h4 {
@@ -104,7 +109,7 @@
 }
 
 @media screen and (max-width: 64rem) {
-  #sidebar {
+  #sidebar-admin {
     display: none;
   }
 

@@ -1,7 +1,7 @@
 // SIDEBAR TOGGLE
 
 let sidebarOpen = false;
-const sidebar = document.getElementById('sidebar');
+const sidebar = document.getElementById('sidebar-admin');
 
 function openSidebar() {
   if (!sidebarOpen) {

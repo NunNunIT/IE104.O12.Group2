@@ -31,15 +31,23 @@ index.getShortCart = async (customer_id) => {
     return(shortCart);
 };
 
+index.getNoti = async (user_id) => {
+    let getNoti = `SELECT * FROM view_notifications WHERE user_id = ${user_id}`;
+    let noti = await query(getNoti)
+    return (noti);
+}
+
 index.header_user = async (req) => {
     if (req.user) {
         let user = req.user
         let countCart = await index.getCountCart(req.user.customer_id)
         let shortCarts = await index.getShortCart(req.user.customer_id)
+        let noti = await index.getNoti(req.user.user_id)
         let headers = {
             user,
             countCart,
-            shortCarts
+            shortCarts,
+            noti,
         }
         return (headers);
     } else {

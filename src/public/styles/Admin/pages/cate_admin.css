@@ -108,7 +108,7 @@ body {
   gap: 12px;
 }
 
-.feature button {
+.feature-btn {
   display: flex;
   height: 36px;
   border: none;
@@ -120,17 +120,27 @@ body {
   line-height: 24px;
 }
 
-.feature button span {
+.feature-btn span {
   font-size: 16px;
   padding: 4px;
 }
 
-.feature .addBtn {
+.feature-btn.downloadBtn {
+  background-color: var(--green5);
+
+}
+
+.feature-btn.downloadBtn:hover {
+  background-color: var(--green7);
+}
+
+
+.feature-btn.addBtn {
   background-color: var(--blue5);
 
 }
 
-.feature .addBtn:hover {
+.feature-btn.addBtn:hover {
   background-color: var(--blue7);
 }
 
@@ -143,51 +153,57 @@ body {
   background-color: var(--red7);
 }
 
-.main-container table {
+.main-container .table-display .table-reponsive{
   border-collapse: collapse;
   text-align: left;
   width: 100%;
 }
 
-table .heading {
+.table-reponsive .heading {
   background: var(--dark4);
   color: var(--white);
 }
 
-table .heading th:hover {
+.table-reponsive .heading th:hover {
   background: var(--dark6);
 }
 
-table tr th {
+.table-reponsive tr th {
   padding: 12px 8px;
   vertical-align: middle;
 }
 
-table tr th:nth-child(1),
-table tr th:nth-child(2),
-table tr th:nth-child(8) {
+.table-reponsive tr th:nth-child(1),
+.table-reponsive tr th:nth-child(2),
+.table-reponsive tr th:nth-child(8) {
   text-align: center;
   padding: 0px 8px;
 }
 
-table tr td {
+.table-reponsive tr td {
   padding: 12px 8px;
   color: var(--black);
   vertical-align: middle;
 }
 
-table tr td:nth-child(1),
-table tr td:nth-child(2) {
+.table-reponsive tr td.empty {
+  padding: 12px 8px;
+  color: var(--black);
+  vertical-align: middle;
+}
+
+.table-reponsive tr td:nth-child(1),
+.table-reponsive tr td:nth-child(2) {
   padding: 0px 8px;
   text-align: center;
 }
 
-table tr td:nth-child(2),
-table tr td:nth-child(3) {
+.table-reponsive tr td:nth-child(2),
+.table-reponsive tr td:nth-child(3) {
   font-weight: 500;
 }
 
-table tbody tr td img {
+.table-reponsive tbody tr td img {
   vertical-align: middle;
   width: 60px;
   height: 60px;
@@ -449,3 +465,43 @@ input::-webkit-outer-spin-button {
   color: var(--red5);
   background: var(--red1);
 }
+
+@media only screen and (max-width: 48rem) {
+  .table-display{
+    overflow-y:scroll;
+  }
+  
+  .table-display .table-reponsive{
+    width: 80rem;
+  }
+}
+
+@media only screen and (max-width: 26rem) {
+  .feature-btn{
+    padding: 6px 4px 6px 4px;
+  }
+
+  .feature-btn p{
+    display: none;
+  }
+
+  .main-container {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .table-display .table-reponsive{
+    margin-bottom: 70px;
+    margin-top: 70px;
+  }
+
+  .main-container .filterEntries{
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 100%;
+  }
+}
+
+
+

@@ -23,13 +23,19 @@
 
             <div class="filterEntries">
                 <div class="feature">
-                    <button class="addBtn">
+                    <button class="feature-btn downloadBtn">
+                        <span class="material-symbols-rounded">
+                            download
+                        </span>
+                        <p>Tải</p>
+                    </button>
+                    <button class="feature-btn addBtn">
                         <span class="material-symbols-rounded">
                             add
                         </span>
                         <p>Thêm</p>
                     </button>
-                    <button class="deleteBtn">
+                    <button class="feature-btn deleteBtn">
                         <span class="material-symbols-rounded">
                             delete
                         </span>
@@ -46,15 +52,15 @@
                     <form active="" method="get" role="form">
                         <input type="search" class="searchTerm" name="searchKey"
                             id="search" placeholder="Enter"
-                            value="<%= (searchKey) ? searchKey: '' %>">
+                            value="<%= (data.searchKey) ? data.searchKey: '' %>">
                     </form>
                 </div>
             </div>
 
             <!-- </header> -->
 
-            <div class="table-reponsive">
-                <table>
+            <div class="table-display">
+                <table class="table-reponsive">
                     <thead>
                         <tr class="heading">
                             <th><input type="checkbox" class="checkbox"></th>
@@ -70,34 +76,34 @@
                     </thead>
 
                     <tbody class="userInfo">
-                        <% if (!categories[0]) { %>
+                        <% if (!data.categories[0]) { %>
                         <tr>
-                            <td class="empty" colspan="9" align="center">Không
+                            <td class="empty" colspan="9">Không
                                 có kết quả trả về</td>
                         </tr>
                         <% } else { %>
-                        <% categories.forEach(function(category) { %>
+                        <% data.categories.forEach(function(category) { %>
                         <tr class="employeeDetails">
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>
-                                <%= category.category_id %>
+                                <%= category.category_id ?? 'Null' %>
                             </td>
                             <td>
-                                <img src="/imgs/admin/pic1.png" alt="cate_img">
-                                <%= category.category_name %>
+                                <img src="/imgs/categories/<%= category.category_img ?? 'default.png' %>" alt="<%= category.category_name ?? 'Null' %>">
+                                <%= category.category_name ?? 'Null' %>
                             </td>
-                            <td>30</td>
-                            <td>50</td>
-                            <td>1.900.900đ</td>
-                            <td>no</td>
+                            <td><%= category.product_count ?? 'Null' %></td>
+                            <td><%= category.revenue ?? '0' %>đ</td>
+                            <td><%= category.category_name ?? 'Null' %>đ</td>
+                            <td><%= category.category_name ?? 'Null' %></td>
                             <td class="status bad">
-                                <p>Hết hàng</p>
+                                <p><%= category.category_name ?? 'Null' %></p>
                             </td>
                             <td>
-                                <a>Sửa</a>
-                                <a>Xóa</a>
-                                <!-- <button>Sửa</button>
-                                <button>Xóa</button> -->
+                                <!-- <a>Sửa</a>
+                                <a>Xóa</a> -->
+                                <button>Sửa</button>
+                                <button>Xóa</button>
                             </td>
                         </tr>
                         <% }) %>
@@ -105,7 +111,7 @@
                         <% } %>
                     </tbody>
                 </table>
-                <%- include('../components/pagination') %>
+                <%- include('../components/pagination', {pagination : data}) %>
             </div>
 
 
@@ -151,7 +157,7 @@
             </div>
 
             <div class="popup-footer">
-                <button form="myForm" class="submitBtn">Submit</button>
+                <button form="myForm" class="submitBtn">Lưu</button>
             </div>
         </div>
 

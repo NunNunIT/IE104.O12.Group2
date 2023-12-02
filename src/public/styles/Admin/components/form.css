@@ -1,0 +1,101 @@
+.form-control-single-number {
+    font-size: 1.75rem;
+    text-align: center
+}
+
+.form-check-label {
+    margin-top: .125rem
+}
+
+.form-check .form-check-label {
+    margin-top: 0
+}
+
+.form-check-input {
+    margin-top: .1875rem
+}
+
+.form-check-text {
+    display: block
+}
+
+.form-check-img {
+    max-width: 100%;
+    height: auto
+}
+
+.form-check-input,.form-check-label,label.form-control {
+    cursor: pointer
+}
+
+.form-check-input:focus {
+    box-shadow: none
+}
+
+.form-check-input~.form-check-label .form-check-default {
+    display: block
+}
+
+.form-check-input~.form-check-label .form-check-active {
+    display: none
+}
+
+.form-check-input:checked~.form-check-label .form-check-default {
+    display: none
+}
+
+.form-check-input:checked~.form-check-label .form-check-active {
+    display: block
+}
+
+.form-check-reverse {
+    padding-left: 0;
+    padding-right: 1.5rem
+}
+
+.form-check-reverse .form-check-input {
+    float: right;
+    margin-left: 0;
+    margin-right: -1.5rem
+}
+
+.form-check-input.is-valid,.was-validated .form-check-input:valid {
+    border: 1px solid rgba(231,234,243,.7)
+}
+
+.form-check-input.is-valid~.form-check-label,.was-validated .form-check-input:valid~.form-check-label {
+    color: #677788
+}
+
+.form-check-primary .form-check-input:checked {
+    background-color: #377dff;
+    border-color: #377dff
+}
+
+.input-group-add-field {
+    position: relative;
+    margin-top: 1rem
+}
+
+.input-group-add-field-delete {
+    position: absolute;
+    top: .75rem;
+    right: -1.25rem;
+    color: #ed4c78
+}
+
+.input-group-add-field-delete:hover {
+    color: #ea2c60
+}
+
+.form-label-secondary {
+    font-size: .8125rem;
+    color: #8c98a4
+}
+
+.form-label-link {
+    font-weight: 600;
+    font-size: .875rem;
+    margin-bottom: .5rem
+}
+
