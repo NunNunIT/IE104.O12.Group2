@@ -58,8 +58,8 @@ a {
 .purchase__status a:hover {
 	cursor: pointer;
 	color: var(--primary-color-1);
-	border-bottom: 2px solid var(--primary-color-1);
-	padding: 12px 24px 10px 24px;
+	/* border-bottom: 2px solid var(--primary-color-1); */
+	padding: 12px 24px 12px 24px;
 }
 
 .purchase__status a.active {

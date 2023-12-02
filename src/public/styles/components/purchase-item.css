@@ -137,7 +137,15 @@ small {
 
 .purchase-item__button {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.purchase-item__button--right {
+    display: flex;
+    justify-content: flex-end;
     gap: 8px;
+    width: 100%;
 }
 
 .purchase-item__button .btn.btn--outlined.pri,
@@ -153,6 +161,12 @@ small {
 .purchase-item__button .btn.btn--outlined.pri.cancel {
     border-color: var(--dollar-red);
     color: var(--dollar-red);
+}
+
+.purchase-item__button .btn.btn--outlined.pri.cancel:hover {
+    border-color: var(--dollar-red);
+    background-color: var(--dollar-red);
+    color: white;
 }
 
 .purchase-item__button .btn.btn--filled.pri.disable {

@@ -47,7 +47,7 @@ accountController.purchaseHistory = async (req, res) => {
     let header = await index.header(req)
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
-
+    
     res.render('./pages/account/purchase-history', {
         header: header,
         user: header_user,

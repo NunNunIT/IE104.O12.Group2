@@ -42,41 +42,52 @@
 			<p>Thành tiền:</p>
 			<h2 id="purchase-item__total-price">23.600.000đ</h2>
 		</div>
+
 		<div class="purchase-item__button">
-			<% if (purchaseHistory.order_status === 'Đã hủy') { %>
-			<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+			<% if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
 			<a href="#">
 				<div class="btn btn--outlined pri cancel">Hủy</div>
 			</a>
-			<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
-			<a href="http://127.0.0.1:3000/account/purchase/<%= purchaseHistory.order_id %>">
-				<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
-			</a>
-			<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
-			<a href="http://127.0.0.1:3000/account/purchase/:orderID">
-				<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
-			</a>
 			<% } %>
 
-			<% if (purchaseHistory.order_status === 'Đã hủy') { %>
-			<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
-			<a href="http://127.0.0.1:3000/account/purchase/<%= purchaseHistory.order_id %>">
-				<div class="btn btn--filled pri popup-btn">Xem chi tiết</div>
-			</a>
-			<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
-			<a href="#">
-				<div class="btn btn--filled pri">Đánh giá</div>
-			</a>
-			<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
-			<a href="#">
-				<div class="btn btn--filled pri disable">Đánh giá</div>
-			</a>
-			<!-- nút xem đánh giá khi đã đánh giá -->
-			<!-- <a href="#">
-        <div class="btn btn--filled pri">Xem Đánh giá</div>
-      </a> -->
-			<!-- end nút xem đánh giá -->
-			<% } %>
+			<div class="purchase-item__button--right">
+				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+					<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+					<a href="http://127.0.0.1:3000/account/purchase/:orderID">
+						<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+					</a>
+		
+					<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
+					<a href="http://127.0.0.1:3000/account/purchase/<%= purchaseHistory.order_id %>">
+						<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+					</a>
+					<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
+					<a href="http://127.0.0.1:3000/account/purchase/:orderID">
+						<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+					</a>
+					<% } %>
+		
+					<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+					<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+					<a href="#">
+						<div class="btn btn--filled pri popup-btn">Thanh toán</div>
+					</a>
+					<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
+					<a href="#">
+						<div class="btn btn--filled pri">Đánh giá</div>
+					</a>
+					<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
+					<a href="#">
+						<div class="btn btn--filled pri disable">Đánh giá</div>
+					</a>
+					<!-- nút xem đánh giá khi đã đánh giá -->
+					<!-- <a href="#">
+				<div class="btn btn--filled pri">Xem Đánh giá</div>
+			  </a> -->
+					<!-- end nút xem đánh giá -->
+					<% } %>
+			</div>
+			
 		</div>
 	</div>
 
