@@ -37,7 +37,7 @@
 								<hr />
 
 								<h5 id="purchase-item__product-name">Ngày sinh: </h5>
-								<span><%= toDDMMYYYY(new Date(user.user.user_birth)) ?? '01/01/01' %></span>
+								<span><%= formatFunction.toDDMMYYYY(new Date(user.user.user_birth)) ?? '01/01/01' %></span>
 								<hr />
 
 								<h5 id="purchase-item__product-name">Giới tính: </h5>
