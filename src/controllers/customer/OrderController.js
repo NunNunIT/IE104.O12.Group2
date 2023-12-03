@@ -39,13 +39,9 @@ orderController.cart = async (req, res) => {
 	})
 }
 
-// [POST] /order/cart/buy
-orderController.cartBuy = async (req, res) => {
-	console.log(req.body)
-}
-
 // [POST] /order/cart/delete
 orderController.cartDelete = async (req, res) => {
+
 	console.log(req.body)
 }
 
@@ -53,6 +49,10 @@ orderController.cartDelete = async (req, res) => {
 orderController.information = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
+	let information = req.body
+	console.log(req.body)
+	console.log(information)
+	
 
 	res.render('./pages/order/information', {
 		header: header,

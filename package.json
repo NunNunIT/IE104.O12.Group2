@@ -27,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "status": "^0.0.13",
+    "url": "^0.11.3",
     "util": "^0.12.5"
   },
   "devDependencies": {

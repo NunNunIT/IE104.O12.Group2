@@ -1,3 +1,5 @@
+<% console.log(user) %>
+
 <header class="header">
 	<nav class="header__nav">
 		<div class="header__nav-container">
@@ -185,19 +187,21 @@
 		</div>
 	</div>
 
-	<div class="header__menu menu">
-		<div class="menu__cate menu__item">
-			<p class="menu__item-p">Danh mục sản phẩm</p>
-			<span class="material-symbols-outlined"> expand_more </span>
+	<ul class="header__menu menu">
+		<li>
+			<div class="menu__cate menu__item">
+				<p class="menu__item-p">Danh mục sản phẩm</p>
+				<span class="material-symbols-outlined"> expand_more </span>
+			</div>
 
-			<div class="header__cate-dropdown cate-dropdown">
-				<!-- <div class="cate-dropdown__aside"> -->
+			<ul class="header__cate-dropdown cate-dropdown">
 				<% header.cates.forEach(cate => { %>
-				<div class="header__cate-dropdown-wrapper">
-					<div class="cate-dropdown__item">
+				<li class="header__cate-dropdown-wrapper">
+					<a href="" class="cate-dropdown__item">
 						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
 						<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
-					</div>
+					</a>
+
 					<div class="cate-dropdown__content">
 						<div class="cate-dropdown__content-wrapper">
 							<div class="cate-dropdown__title">
@@ -241,21 +245,27 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</li>
 				<% }) %>
-				<!-- </div> -->
-			</div>
-		</div>
-		<a href="/search/results?hotProduct=true" class="menu__hot-product menu__item">
-			<p>Sản phẩm HOT</p>
-			<span class="material-symbols-outlined"> local_fire_department </span>
-		</a>
-		<a href="/search/results?discount=true" class="menu__promo menu__item">
-			<p>Khuyến mãi</p>
-			<span class="material-symbols-outlined"> savings </span>
-		</a>
-		<a href="/about-us" class="menu__about-us menu__item">
-			<p>Về chúng tôi</p>
-		</a>
-	</div>
+			</ul>
+		</li>
+		<li>
+			<a href="/search/results?hotProduct=true" class="menu__hot-product menu__item">
+				<p>Sản phẩm HOT</p>
+				<span class="material-symbols-outlined"> local_fire_department </span>
+			</a>
+		</li>
+		<li>
+			<a href="/search/results?discount=true" class="menu__promo menu__item">
+				<p>Khuyến mãi</p>
+				<span class="material-symbols-outlined"> savings </span>
+			</a>
+		</li>
+		<li>
+			<a href="/about-us" class="menu__about-us menu__item">
+				<p>Về chúng tôi</p>
+			</a>
+		</li>
+	</ul>
+
 </header>
