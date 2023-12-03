@@ -234,37 +234,37 @@ general.getCateProducts = async (req, product_variant_id, limit = 8) => {
     })
 }
 
-general.getProductVariant = async (product_variant_id) => {
+general.getVariantProduct = async (product_variant_id) => {
     // let params = req.params.product_variant_id
     let product_id = await general.getProductId(product_variant_id)
 
-    let getProductVariant = `SELECT * FROM view_product_variants WHERE product_variant_id = ${product_variant_id}`
+    let getVariantProduct = `SELECT * FROM view_product_variants WHERE product_variant_id = ${product_variant_id}`
 
     return new Promise((resolve, reject) => {
-        db.query(getProductVariant, (err, productVariant) => {
+        db.query(getVariantProduct, (err, variantProduct) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                resolve(productVariant)
+                resolve(variantProduct)
             }
         })
     })
 }
 
-general.getVariantProducts = async (product_variant_id) => {
+general.getProductVariants = async (product_variant_id) => {
     // let params = req.params.product_variant_id
     let product_id = await general.getProductId(product_variant_id)
 
-    let getVariantProducts = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
+    let getProductVariants = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
 
     return new Promise((resolve, reject) => {
-        db.query(getVariantProducts, (err, variantProducts) => {
+        db.query(getProductVariants, (err, productVariants) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                resolve(variantProducts)
+                resolve(productVariants)
             }
         })
     })

@@ -32,7 +32,7 @@ order.getDetailCart = async (customer_id) => {
         const promises = [];
         listCart.forEach(async(cart) => {
         promises.push(
-            general.getVariantProducts(cart.product_variant_id).then((variant) => {
+            general.getProductVariants(cart.product_variant_id).then((variant) => {
                 cart.cart_product_variant = variant
             })
         );
