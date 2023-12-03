@@ -160,10 +160,11 @@
 					<!-- dropdown giỏ hàng khi đã đăng nhập -->
 					<div class="dropdown-cart__content">
 						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
+						<% console.log('----------------------------', user) %>
 						<% if (user.countCart) { %>
 						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
 						<% for (let i = 0; i < l; i++) { %>
-						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i]}) %>
+						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i], toCurrency: formatFunction.toCurrency }) %>
 						<% } %>
 						<% } else { %>
 						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
