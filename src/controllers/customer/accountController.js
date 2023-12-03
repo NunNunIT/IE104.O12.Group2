@@ -8,11 +8,12 @@ const accountController = () => { }
 accountController.information = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     res.render('./pages/account/information', {
         header: header,
         user: header_user,
-        toDDMMYYYY: general.toDDMMYYYY,
+        formatFunction: formatFunction,
     })
 }
 
@@ -20,11 +21,12 @@ accountController.information = async (req, res) => {
 accountController.getEditInformation = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     res.render('./pages/account/edit-information', {
         header: header,
         user: header_user,
-        toDDMMYYYY: general.toDDMMYYYY,
+        formatFunction: formatFunction,
     })
 }
 
@@ -45,6 +47,7 @@ accountController.purchaseHistory = async (req, res) => {
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
     
@@ -52,6 +55,7 @@ accountController.purchaseHistory = async (req, res) => {
         header: header,
         user: header_user,
         purchaseHistory: purchaseHistory,
+        formatFunction: formatFunction,
     })
 }
 
@@ -63,6 +67,7 @@ accountController.purchaseDetail = async (req, res) => {
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
 
@@ -70,17 +75,24 @@ accountController.purchaseDetail = async (req, res) => {
         header: header,
         user: header_user,
         purchaseHistory: purchaseHistory,
+        formatFunction: formatFunction,
     })
 }
 
 // [GET] /account/feedback
 accountController.feedback = async (req, res) => {
+    let order_id = req.query.order_id
+
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
+    let orderDetails = await account.getDetailPurchaseHistorys(order_id)
 
     res.render('./pages/account/feedback', {
         header: header,
         user: header_user,
+        formatFunction: formatFunction,
+        orderDetails: orderDetails,
     })
 }
 
@@ -114,6 +126,7 @@ accountController.warrantyClaim = async (req, res) => {
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
 
@@ -121,10 +134,11 @@ accountController.warrantyClaim = async (req, res) => {
         header: header,
         user: header_user,
         purchaseHistory: purchaseHistory,
-        toDDMMYYYY: general.toDDMMYYYY,
+        formatFunction: formatFunction,
     })
 }
 
+//GET /account/changePassword
 accountController.changePassword = async (req, res) => {
     let customer_id = req.user.customer_id
     let order_status = req.body.order_status
@@ -133,12 +147,9 @@ accountController.changePassword = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
 
-    let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
-
     res.render('./pages/account/changePassword', {
         header: header,
         user: header_user,
-        purchaseHistory: purchaseHistory,
     })
 }
 
