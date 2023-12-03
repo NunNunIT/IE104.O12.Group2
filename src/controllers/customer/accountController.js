@@ -50,6 +50,7 @@ accountController.purchaseHistory = async (req, res) => {
     let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
+    console.log('hyhyhyhy', purchaseHistory)
     
     res.render('./pages/account/purchase-history', {
         header: header,
@@ -96,6 +97,34 @@ accountController.feedback = async (req, res) => {
     })
 }
 
+// [POST] /account/feedback
+accountController.feedbackPost = async (req, res) => {
+    let order_id = req.body.order_id
+    let feedbackBody = req.body.feedbackBody
+    let error = 0
+
+    let header_user = await index.header_user(req)
+    let header = await index.header(req)
+    
+    feedbackBody.forEach(feedback => {
+        account.feedbackPost(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
+            if(err) {
+                error = 1 
+            }
+        })
+    }) 
+    
+    if (error) {
+        res.status(404).json ({
+            status: 'error',
+        })
+    } else {
+        res.status(200).json ({
+            status: 'success',
+        })
+    }
+}
+
 accountController.checkUser = async (req, res) => {
     auth.checkPassword(req, function (err, wrong, success) {
         if (err) {
@@ -122,7 +151,6 @@ accountController.warrantyClaim = async (req, res) => {
     let customer_id = req.user.customer_id
     let order_status = req.query.order_status ?? 0
     let order_id = req.params.order_id ?? 0
-    console.log(order_status)
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
@@ -141,8 +169,6 @@ accountController.warrantyClaim = async (req, res) => {
 //GET /account/changePassword
 accountController.changePassword = async (req, res) => {
     let customer_id = req.user.customer_id
-    let order_status = req.body.order_status
-    let order_id = req.params.order_id ?? 0
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)

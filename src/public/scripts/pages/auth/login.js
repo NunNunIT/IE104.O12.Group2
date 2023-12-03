@@ -99,8 +99,6 @@ const validateInput = () => {
 
     let isAllValid = true;
 
-
-
     if (PhoneNumberValue === '') {
         setError(phoneNumber, 'Vui lòng nhập số điện thoại!');
         isAllValid = false;
@@ -121,6 +119,7 @@ const validateInput = () => {
         setSuccess(password);
     }
 
+    console.log('His', history.back())
 
     if (isAllValid) {
         const login = {
@@ -141,7 +140,7 @@ const validateInput = () => {
                 setError(password, back.error);
             }
             else {
-                history.back();
+                window.history.back()
                 location.reload()
             }   
         })

@@ -76,49 +76,66 @@ orderController.information = async (req, res) => {
 
 // [POST] /order/information
 orderController.informationPost = async (req, res) => {
-	console.log(req.body.orderInformation)
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
-	let formatFunction = await general.formatFunction()
+	let orderInformation = req.body
+	console.log('Nhung cần', orderInformation)
 
 	let customer_id = req.user.customer_id
-	let buyerInfo = req.body.orderInformation.buyerInfo
-	let orderDetails = req.body.orderInformation.orderDetail
+	let orderInfo = orderInformation.orderInfo
+	let orderDetails = orderInformation.orderDetails
 
-	order.insertOrder(customer_id, buyerInfo, orderDetails, async (err, success, order_id, payment_method_id) => {
+	order.insertOrder(customer_id, orderInfo, orderDetails, function (err, success, order_id, paying_method_id) {
 		if (err) {
 			return res.status(404).json({
 				status: 'error',
 			})
-		} else {
-			let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
-
+		} else if (success) {
 			order.deleteCart(customer_id, orderDetails, function (err, success) { })
-
-			if (payment_method_id == 1) {
-				res.render('./pages/order/atm', {
-					header: header,
-					user: header_user,
-					formatFunction: formatFunction,
-					purchase: purchase,
-				})
-			} else if (payment_method_id == 2) {
-				res.render('./pages/order/atm', {
-					header: header,
-					user: header_user,
-					formatFunction: formatFunction,
-					purchase: purchase,
-				})
-			} else {
-				res.render('./pages/order/momo', {
-					header: header,
-					user: header_user,
-					formatFunction: formatFunction,
-					purchase: purchase,
-				})
-			}
+			res.status(200).json ({
+				status: 'success',
+				order_id: order_id,
+				paying_method_id: orderInfo.paying_method_id,
+			})
 		}
 	})
+}
+
+// [GET] /order/payment?paying_method_id=x&order_id=y
+
+orderController.payment = async (req, res) => {
+	let paying_method_id = req.query.paying_method_id
+	let order_id = req.query.order_id
+
+	console.log(paying_method_id, order_id)
+
+	let customer_id = req.user.customer_id
+	let header_user = await index.header_user(req)
+	let header = await index.header(req)
+	let formatFunction = await general.formatFunction()
+
+	let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
+
+	if (paying_method_id == 1) {
+		res.render('./pages/order/atm', {
+			header: header,
+			user: header_user,
+			formatFunction: formatFunction,
+			purchase: purchase,
+		})
+	} else if (paying_method_id == 2) {
+		res.render('./pages/order/atm', {
+			header: header,
+			user: header_user,
+			formatFunction: formatFunction,
+			purchase: purchase,
+		})
+	} else {
+		res.render('./pages/order/momo', {
+			header: header,
+			user: header_user,
+			formatFunction: formatFunction,
+			purchase: purchase,
+		})
+	}
 }
 
 // [GET] /order/atm

@@ -29,17 +29,17 @@
 			<div class="order-product__content"></div>
 		</section>
 
-		<form onsubmit="submitOrderForm(event)" action="" method="post" id="order-form">
+		<form onsubmit="submitOrderForm(event)" id="order-form">
 			<section class="order-detail">
 				<div class="order-detail__customer">
 					<h2>Thông tin người nhận hàng</h2>
 					<div>
 						<div class="order-detail__input">
-							<input onchange="validateName(event)" type="text" placeholder="Họ và tên" required>
+							<input name="buyerName" value="<%= user.user.user_name ?? '' %>" onchange="validateName(event)" type="text" placeholder="Họ và tên" required>
 							<p class="error">Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!</p>
 						</div>
 						<div class="order-detail__input">
-							<input onchange="validatePhoneNumber(event)" type="text" placeholder="Số điện thoại" required>
+							<input name="buyerPhone" value="<%= user.user.user_phone ?? '' %>" onchange="validatePhoneNumber(event)" type="text" placeholder="Số điện thoại" required>
 							<p class="error">Số điện thoại không hợp lệ!</p>
 						</div>
 					</div>
@@ -48,17 +48,17 @@
 				<div class="order-detail__location location">
 					<h2>Địa chỉ nhận hàng</h2>
 					<div class="location__input-group">
-						<input onchange="changeProvince(event)" class="location__select" type="text" list="province" placeholder="Tỉnh/Thành phố" required>
+						<input name="province" onchange="changeProvince(event)" class="location__select" type="text" list="province" placeholder="Tỉnh/Thành phố" required>
 						<datalist id="province">
 							<option value="Hồ Chí Minh">
 							<option value="Vũng Tàu">
 						</datalist>
 
-						<input onchange="changeDistrict(event)" class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
+						<input name="district" onchange="changeDistrict(event)" class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
 						<datalist id="district"> </datalist>
-						<input class="location__select" type="text" list="ward" placeholder="Phường/xã" required>
+						<input name="ward" class="location__select" type="text" list="ward" placeholder="Phường/xã" required>
 						<datalist id="ward"> </datalist>
-						<input type="text" placeholder="Địa chỉ" required>
+						<input name="address" type="text" placeholder="Địa chỉ" required>
 					</div>
 				</div>
 
@@ -66,15 +66,15 @@
 					<h2>Phương thức thanh toán</h2>
 					<div class="pay-method__choose">
 						<div>
-							<input type="radio" id="radio1" name="pay-method" value="momo" required>
+							<input type="radio" id="radio1" name="pay-method" value="1" required>
 							<label for="radio1">Thanh toán qua MOMO</label>
 						</div>
 						<div>
-							<input type="radio" id="radio2" name="pay-method" value="atm" required>
+							<input type="radio" id="radio2" name="pay-method" value="2" required>
 							<label for="radio2">Thanh toán qua thẻ ATM</label>
 						</div>
 						<div>
-							<input type="radio" id="radio3" name="pay-method" value="credit" required>
+							<input type="radio" id="radio3" name="pay-method" value="3" required>
 							<label for="radio3">Thanh toán qua thẻ VISA</label>
 						</div>
 					</div>

@@ -29,8 +29,7 @@ function showAll(event) {
         description.classList.remove('default-description')
         description.classList.add('full-description')
         button.innerHTML = 'Ẩn bớt'
-    }
-    else if (description.classList.contains('full-description')) {
+    } else if (description.classList.contains('full-description')) {
         description.classList.remove('full-description')
         description.classList.add('default-description')
         button.innerHTML = 'Xem thêm'
@@ -39,7 +38,9 @@ function showAll(event) {
 
 // Tạo sự kiện change cho phần tử
 function triggerChangeEvent(element) {
-    var event = new Event('change', { bubbles: true })
+    var event = new Event('change', {
+        bubbles: true
+    })
     element.dispatchEvent(event)
 }
 
@@ -69,6 +70,7 @@ function changeQuantity(event) {
 // Open cart success modal
 const formAddCart = document.getElementById('buy-form')
 const addCartBtn = document.querySelector('.detail__add-btn')
+const buyNowBtn = document.querySelector('.detail__buy-btn')
 const cartSuccessModal = document.querySelector('.success-modal')
 
 addCartBtn.addEventListener('click', () => {
@@ -81,12 +83,12 @@ addCartBtn.addEventListener('click', () => {
     }
 
     fetch("/order/addCart", {
-        method: "POST",
-        body: JSON.stringify(cart),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+            method: "POST",
+            body: JSON.stringify(cart),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
         .then(res => res.json())
         .then(back => {
             if (back.status == "error") {
@@ -100,6 +102,21 @@ addCartBtn.addEventListener('click', () => {
                 }, 1500)
             }
         })
+})
+
+buyNowBtn.addEventListener('click', () => {
+    const product_variant_id = document.getElementById('product_variant_id').value
+    const quantity = document.getElementById('quantity').value
+
+    const formDataArray = [{
+        'product_variant_id': Number(product_variant_id),
+        'cart_quantity': Number(quantity),
+    }]
+
+    let formDataArrayString = JSON.stringify(formDataArray)
+
+    localStorage.setItem('formDataArray', formDataArrayString)
+    window.location.href = 'http://localhost:3000/order/information'
 })
 
 // Run
