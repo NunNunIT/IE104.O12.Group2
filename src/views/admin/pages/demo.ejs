@@ -1,0 +1,516 @@
+<!-- <script>
+            window.hs_config = {"autopath":"@@autopath","deleteLine":"hs-builder:delete","deleteLine:build":"hs-builder:build-delete","deleteLine:dist":"hs-builder:dist-delete","previewMode":false,"startPath":"/index.html","vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},"layoutBuilder":{"extend":{"switcherSupport":true},"header":{"layoutMode":"default","containerMode":"container-fluid"},"sidebarLayout":"default"},"themeAppearance":{"layoutSkin":"default","sidebarSkin":"default","styles":{"colors":{"primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144","gray":{"100":"#f9fafc","900":"#1e2022"}},"font":"Inter"}},"languageDirection":{"lang":"en"},"skipFilesFromBundle":{"dist":["assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","assets/js/demo.js"],"build":["assets/css/theme.css","assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js","assets/js/demo.js","assets/css/theme-dark.css","assets/css/docs.css","assets/vendor/icon-set/style.css","assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js","assets/js/demo.js"]},"minifyCSSFiles":["assets/css/theme.css","assets/css/theme-dark.css"],"copyDependencies":{"dist":{"*assets/js/theme-custom.js":""},"build":{"*assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"assets/css"}},"buildFolder":"","replacePathsToCDN":{},"directoryNames":{"src":"./src","dist":"./dist","build":"./build"},"fileNames":{"dist":{"js":"theme.min.js","css":"theme.min.css"},"build":{"css":"theme.min.css","js":"theme.min.js","vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}},"fileTypes":"jpg|png|svg|mp4|webm|ogv|json"}
+            window.hs_config.gulpRGBA = (p1) => {
+  const options = p1.split(',')
+  const hex = options[0].toString()
+  const transparent = options[1].toString()
+
+  var c;
+  if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+    c= hex.substring(1).split('');
+    if(c.length== 3){
+      c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+    }
+    c= '0x'+c.join('');
+    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + transparent + ')';
+  }
+  throw new Error('Bad Hex');
+}
+            window.hs_config.gulpDarken = (p1) => {
+  const options = p1.split(',')
+
+  let col = options[0].toString()
+  let amt = -parseInt(options[1])
+  var usePound = false
+
+  if (col[0] == "#") {
+    col = col.slice(1)
+    usePound = true
+  }
+  var num = parseInt(col, 16)
+  var r = (num >> 16) + amt
+  if (r > 255) {
+    r = 255
+  } else if (r < 0) {
+    r = 0
+  }
+  var b = ((num >> 8) & 0x00FF) + amt
+  if (b > 255) {
+    b = 255
+  } else if (b < 0) {
+    b = 0
+  }
+  var g = (num & 0x0000FF) + amt
+  if (g > 255) {
+    g = 255
+  } else if (g < 0) {
+    g = 0
+  }
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+}
+            window.hs_config.gulpLighten = (p1) => {
+  const options = p1.split(',')
+
+  let col = options[0].toString()
+  let amt = parseInt(options[1])
+  var usePound = false
+
+  if (col[0] == "#") {
+    col = col.slice(1)
+    usePound = true
+  }
+  var num = parseInt(col, 16)
+  var r = (num >> 16) + amt
+  if (r > 255) {
+    r = 255
+  } else if (r < 0) {
+    r = 0
+  }
+  var b = ((num >> 8) & 0x00FF) + amt
+  if (b > 255) {
+    b = 255
+  } else if (b < 0) {
+    b = 0
+  }
+  var g = (num & 0x0000FF) + amt
+  if (g > 255) {
+    g = 255
+  } else if (g < 0) {
+    g = 0
+  }
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+}
+            </script> -->
+        </head>
+
+        <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
+          <!-- 
+          <script src="./assets/js/hs.theme-appearance.js"></script>
+        
+          <script src="./assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script> -->
+        
+          <!-- End Welcome Message Modal -->
+        
+          <!-- Export Products Modal -->
+          <div class="modal fade" id="exportProductsModal" tabindex="-1" aria-labelledby="exportProductsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title" id="exportProductsModalLabel">Export products</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- End Header -->
+        
+                <!-- Body -->
+                <div class="modal-body">
+                  <p>This CSV file can update all product information. To update just inventory quantites use the <a
+                      class="link" href="#">CSV file for inventory.</a></p>
+        
+                  <div class="mb-4">
+                    <label class="form-label">Export</label>
+        
+                    <div class="d-grid gap-2">
+                      <!-- Form Check -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio1"
+                          checked>
+                        <label class="form-check-label" for="exportProductsRadio1">
+                          Current page
+                        </label>
+                      </div>
+                      <!-- End Form Check -->
+        
+                      <!-- Form Check -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio2">
+                        <label class="form-check-label" for="exportProductsRadio2">
+                          All products
+                        </label>
+                      </div>
+                      <!-- End Form Check -->
+        
+                      <!-- Form Check -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio3">
+                        <label class="form-check-label" for="exportProductsRadio3">
+                          Selected: 20 products
+                        </label>
+                      </div>
+                      <!-- End Form Check -->
+                    </div>
+                  </div>
+        
+                  <label class="form-label">Export as</label>
+        
+                  <!-- Form Check -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exportProductsAsRadio" id="exportProductsAsRadio1"
+                      checked>
+                    <label class="form-check-label" for="exportProductsAsRadio1">
+                      CSV for Excel, Numbers, or other spreadsheet programs
+                    </label>
+                  </div>
+                  <!-- End Form Check -->
+        
+                  <!-- Form Check -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exportProductsAsRadio" id="exportProductsAsRadio2">
+                    <label class="form-check-label" for="exportProductsAsRadio2">
+                      Plain CSV file
+                    </label>
+                  </div>
+                  <!-- End Form Check -->
+                </div>
+                <!-- End Body -->
+        
+                <!-- Footer -->
+                <div class="ooter gap-3">
+                  <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                  <button type="button" class="btn btn-primary">Export products</button>
+                </div>
+                <!-- End Footer -->
+              </div>
+            </div>
+          </div>
+          <!-- End Export Products Modal -->
+        
+          <!-- Import Products Modal -->
+          <div class="modal fade" id="importProductsModal" tabindex="-1" aria-labelledby="importProductsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title" id="importProductsModalLabel">Import products by CSV</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- End Header -->
+        
+                <!-- Body -->
+                <div class="modal-body">
+                  <p><a class="link" href="#">Download a sample CSV template</a> to see an example of the format required.</p>
+        
+                  <!-- Dropzone -->
+                  <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card mb-4">
+                    <div class="dz-message">
+                      <img class="avatar avatar-xl avatar-4x3 mb-3" src="./assets/svg/illustrations/oc-browse.svg"
+                        alt="Image Description" data-hs-theme-appearance="default">
+                      <img class="avatar avatar-xl avatar-4x3 mb-3" src="./assets/svg/illustrations-light/oc-browse.svg"
+                        alt="Image Description" data-hs-theme-appearance="dark">
+        
+                      <h5>Drag and drop your file here</h5>
+        
+                      <p class="mb-2">or</p>
+        
+                      <span class="btn btn-white btn-sm">Browse files</span>
+                    </div>
+                  </div>
+                  <!-- End Dropzone -->
+        
+                  <!-- Form Check -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="overwriteCurrentProductsCheckbox">
+                    <label class="form-check-label" for="overwriteCurrentProductsCheckbox">
+                      Overwrite any current products that have the same handle. Existing values will be used for any missing
+                      columns. <a href="#">Learn more</a>
+                    </label>
+                  </div>
+                  <!-- End Form Check -->
+                </div>
+                <!-- End Body -->
+        
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                  <button type="button" class="btn btn-primary">Upload and continue</button>
+                </div>
+                <!-- End Footer -->
+              </div>
+            </div>
+          </div>
+        
+          <!-- End Import Products Modal -->
+        
+          <!-- Product Filter Modal -->
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEcommerceProductFilter"
+            aria-labelledby="offcanvasEcommerceProductFilterLabel">
+            <div class="offcanvas-header">
+              <h4 id="offcanvasEcommerceProductFilterLabel" class="mb-0">Filters</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <span class="text-cap small">Product vendor</span>
+        
+              <div class="row">
+                <div class="col-6">
+                  <div class="d-grid gap-2 mb-2">
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio1">
+                      <label class="form-check-label" for="productVendorFilterRadio1">Google</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio2">
+                      <label class="form-check-label" for="productVendorFilterRadio2">Topman</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio3">
+                      <label class="form-check-label" for="productVendorFilterRadio3">RayBan</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio4">
+                      <label class="form-check-label" for="productVendorFilterRadio4">Mango</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio5">
+                      <label class="form-check-label" for="productVendorFilterRadio5">Calvin Klein</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio6">
+                      <label class="form-check-label" for="productVendorFilterRadio6">Givenchy</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio7">
+                      <label class="form-check-label" for="productVendorFilterRadio7">Asos</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio8">
+                      <label class="form-check-label" for="productVendorFilterRadio8">Apple</label>
+                    </div>
+                    <!-- End Form Check -->
+                  </div>
+                </div>
+        
+                <div class="col-6">
+                  <div class="d-grid gap-2 mb-2">
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio9">
+                      <label class="form-check-label" for="productVendorFilterRadio9">Times</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio10">
+                      <label class="form-check-label" for="productVendorFilterRadio10">Asos</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio11">
+                      <label class="form-check-label" for="productVendorFilterRadio11">Nike Jordan</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio12">
+                      <label class="form-check-label" for="productVendorFilterRadio12">VA RVCA</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio13">
+                      <label class="form-check-label" for="productVendorFilterRadio13">Levis</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio14">
+                      <label class="form-check-label" for="productVendorFilterRadio14">Beats</label>
+                    </div>
+                    <!-- End Form Check -->
+        
+                    <!-- Form Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                        id="productVendorFilterRadio15">
+                      <label class="form-check-label" for="productVendorFilterRadio15">Clarks</label>
+                    </div>
+                    <!-- End Form Check -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Row -->
+        
+              <a class="link mt-2" href="javascript:;">
+                <i class="bi-x"></i> Clear
+              </a>
+        
+              <hr>
+        
+              <span class="text-cap small">Availability</span>
+        
+              <div class="d-grid gap-2 mb-2">
+                <!-- Form Check -->
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                    id="productAvailabilityFilterRadio1">
+                  <label class="form-check-label" for="productAvailabilityFilterRadio1">Available on Online Store</label>
+                </div>
+                <!-- End Form Check -->
+        
+                <!-- Form Check -->
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="productAvailabilityFilterRadio" value=""
+                    id="productAvailabilityFilterRadio2">
+                  <label class="form-check-label" for="productAvailabilityFilterRadio2">Unavailable on Online Store</label>
+                </div>
+                <!-- End Form Check -->
+              </div>
+        
+              <a class="link mt-2" href="javascript:;">
+                <i class="bi-x"></i> Clear
+              </a>
+        
+              <hr>
+        
+              <span class="text-cap small">Tagged with</span>
+        
+              <div class="mb-2">
+                <input type="text" class="form-control" name="tagsName" id="tagsLabel" placeholder="Enter tags here"
+                  aria-label="Enter tags here">
+              </div>
+        
+              <a class="link mt-2" href="javascript:;">
+                <i class="bi-x"></i> Clear
+              </a>
+        
+              <hr>
+        
+              <span class="text-cap small">Product type</span>
+        
+              <div class="d-grid gap-2 mb-2">
+                <!-- Form Check -->
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="productTypeFilterRadio" value=""
+                    id="productTypeFilterRadio1">
+                  <label class="form-check-label" for="productTypeFilterRadio1">Shoes</label>
+                </div>
+                <!-- End Form Check -->
+        
+                <!-- Form Check -->
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="productTypeFilterRadio" value=""
+                    id="productTypeFilterRadio2">
+                  <label class="form-check-label" for="productTypeFilterRadio2">Accessories</label>
+                </div>
+                <!-- End Form Check -->
+        
+                <!-- Form Check -->
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="productTypeFilterRadio" value=""
+                    id="productTypeFilterRadio3">
+                  <label class="form-check-label" for="productTypeFilterRadio3">Clothing</label>
+                </div>
+                <!-- End Form Check -->
+        
+                <!-- Form Check -->
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="productTypeFilterRadio" value=""
+                    id="productTypeFilterRadio4">
+                  <label class="form-check-label" for="productTypeFilterRadio4">Electronics</label>
+                </div>
+                <!-- End Form Check -->
+              </div>
+        
+              <a class="link mt-2" href="javascript:;">
+                <i class="bi-x"></i> Clear
+              </a>
+        
+              <hr>
+        
+              <span class="text-cap small">Collection</span>
+        
+              <!-- Input Group -->
+              <div class="input-group input-group-merge mb-2">
+                <div class="input-group-prepend input-group-text">
+                  <i class="bi-search"></i>
+                </div>
+        
+                <input type="search" class="form-control" placeholder="Search for collections"
+                  aria-label="Search for collections">
+              </div>
+              <!-- End Input Group -->
+        
+              <!-- Form Check -->
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" value="" id="productCollectionFilterRadio1">
+                <label class="form-check-label" for="productCollectionFilterRadio1">Home page</label>
+              </div>
+              <!-- End Form Check -->
+        
+              <a class="link mt-2" href="javascript:;">
+                <i class="bi-x"></i> Clear
+              </a>
+            </div>
+            <!-- End Body -->
+        
+            <!-- Footer -->
+            <div class="offcanvas-footer">
+              <div class="row gx-2">
+                <div class="col">
+                  <div class="d-grid">
+                    <button type="button" class="btn btn-white">Clear all filters</button>
+                  </div>
+                </div>
+                <!-- End Col -->
+        
+                <div class="col">
+                  <div class="d-grid">
+                    <button type="button" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+            </div>
+            <!-- End Footer -->
+          </div>
+          <!-- End Product Filter Modal -->
+        
+          <!-- End Style Switcher JS -->
+        </body>
+        
+        </html>

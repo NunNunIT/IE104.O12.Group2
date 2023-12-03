@@ -116,13 +116,13 @@ body {
 /* tablet */
 
 @media screen and (max-width: 64rem) {
-  .main-cards--top {
+  .main-cards {
     grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 0;
   }
 
-  .main-cards--bottom {
+  .main-cards {
     grid-template-columns: 1fr;
     width: auto;
     gap: 10px;

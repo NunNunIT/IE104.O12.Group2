@@ -22,4 +22,8 @@
   .menu-icon {
     display: inline;
   }
+
+  .header-admin-left h2 {
+    font-size: 1rem
+  }
 }

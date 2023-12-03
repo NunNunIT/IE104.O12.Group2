@@ -713,6 +713,7 @@ img.dropdown-cart__img--empty {
 }
 
 .cate-dropdown__product-name {
+    width: 100%;
     text-align: left;
 }
 

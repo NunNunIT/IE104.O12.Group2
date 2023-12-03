@@ -168,6 +168,10 @@ button {
     gap: 12px;
 }
 
+.cart__total-price del {
+    display: none;
+}
+
 .cart__total-price h2 {
     color: var(--dollar-red);
     font-weight: 700;
@@ -236,6 +240,7 @@ button {
     }
 
     p,
+    del,
     .cart button {
         font-size: 0.8125rem;
     }

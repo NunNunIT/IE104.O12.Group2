@@ -71,18 +71,14 @@ const formAddCart = document.getElementById('buy-form')
 const addCartBtn = document.querySelector('.detail__add-btn')
 const cartSuccessModal = document.querySelector('.success-modal')
 
-const product_variant_id = document.getElementById('product_variant_id').value
-const quantity = document.getElementById('quantity').value
-
-console.log(product_variant_id, quantity)
-
 addCartBtn.addEventListener('click', () => {
+    const product_variant_id = document.getElementById('product_variant_id').value
+    const quantity = document.getElementById('quantity').value
+
     const cart = {
         'product_variant_id': product_variant_id,
         'cart_quantity': quantity,
     }
-
-    console.log(cart)
 
     fetch("/order/addCart", {
         method: "POST",
@@ -90,16 +86,17 @@ addCartBtn.addEventListener('click', () => {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(res => res.json())
-    .then(back => {
-        if (back.status == "error") {
-            window.alert('Vui lòng thử lại sau');
-        } else if (back.status == "success") {
-            const cartSuccessModal = document.querySelector('.success-modal')
-            cartSuccessModal.style.display = 'flex'
-            location.reload()
-        }
     })
+        .then(res => res.json())
+        .then(back => {
+            if (back.status == "error") {
+                window.alert('Vui lòng thử lại sau');
+            } else if (back.status == "success") {
+                const cartSuccessModal = document.querySelector('.success-modal')
+                cartSuccessModal.style.display = 'flex'
+                location.reload()
+            }
+        })
 })
 
 // Run
