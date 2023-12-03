@@ -1,8 +1,6 @@
-const inputs = document.querySelectorAll(".reset__input-field");
-const toggle_btn = document.querySelectorAll(".reset__toggle");
-const main = document.querySelector("main");
+const resetInputs = document.querySelectorAll(".reset__input-field");
 
-inputs.forEach((inp) => {
+resetInputs.forEach((inp) => {
   inp.addEventListener("focus", () => {
     inp.classList.add("active");
   });
@@ -57,57 +55,57 @@ toggleConfirmPasswordButton.addEventListener("click", function () {
   }
 });
 
-const form = document.getElementById("form");
+const resetForm = document.getElementById("form_reset");
 const Password = document.getElementById("Password");
 
-form.addEventListener("submit", (e) => {
+resetForm.addEventListener("submit", (e) => {
   e.preventDefault();
   validateInput();
 });
 
-const setError = (element, message) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(`.reset__error`);
+const resetError = (element, message) => {
+  const inputControlReset = element.parentElement;
+  const errorDisplayReset = inputControlReset.querySelector(`.reset__error`);
 
-  errorDisplay.innerText = message;
-  inputControl.classList.add("error");
-  inputControl.classList.remove("error");
+  errorDisplayReset.innerText = message;
+  inputControlReset.classList.add("error");
+  inputControlReset.classList.remove("error");
 };
 
-const setSuccess = (element) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(`.reset__error`);
+const resetSuccess = (element) => {
+  const inputControlReset = element.parentElement;
+  const errorDisplayReset = inputControlReset.querySelector(`.reset__error`);
 
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
+  errorDisplayReset.innerText = "";
+  inputControlReset.classList.add("success");
+  inputControlReset.classList.remove("error");
 };
 
-const validateInput = () => {
+const resetValidateInput = () => {
   const PasswordValue = Password.value.trim();
   const confirmPasswordValue = confirmPasswordInput.value.trim();
 
   let isAllValid = true;
 
   if (PasswordValue === "") {
-    setError(Password, "Vui lòng nhập mật khẩu!");
+    resetError(Password, "Vui lòng nhập mật khẩu!");
     isAllValid = false;
   } else if (PasswordValue.length < 8) {
-    setError(Password, "Mật khẩu phải ít nhất 8 ký tự!");
+    resetError(Password, "Mật khẩu phải ít nhất 8 ký tự!");
     isAllValid = false;
   } else {
-    setSuccess(Password, "Hợp lệ");
+    resetSuccess(Password, "Hợp lệ");
   }
 
   // Validate confirm password
   if (confirmPasswordValue === "") {
-    setError(confirmPasswordInput, "Vui lòng xác nhận mật khẩu!");
+    resetError(confirmPasswordInput, "Vui lòng xác nhận mật khẩu!");
     isAllValid = false;
   } else if (confirmPasswordValue !== PasswordValue) {
-    setError(confirmPasswordInput, "Mật khẩu xác nhận không khớp!");
+    resetError(confirmPasswordInput, "Mật khẩu xác nhận không khớp!");
     isAllValid = false;
   } else {
-    setSuccess(confirmPasswordInput, "Hợp lệ");
+    resetSuccess(confirmPasswordInput, "Hợp lệ");
   }
 
   if (isAllValid) {
@@ -124,9 +122,9 @@ const validateInput = () => {
       .then((res) => res.json())
       .then((back) => {
         if (back.status == "error2") {
-          setError(Password, back.error);
+          resetError(Password, back.error);
         } else {
-          form.submit();
+          resetForm.submit();
         }
       });
   }

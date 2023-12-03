@@ -39,6 +39,7 @@ orderController.cart = async (req, res) => {
 		detailCart: detailCart,
 		formatFunction: formatFunction,
 	})
+	console.log('------------------------', detailCart);
 }
 
 // [POST] /order/cart/delete
