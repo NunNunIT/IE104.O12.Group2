@@ -321,6 +321,7 @@
 				<% productListResults.products.slice().forEach(product => { %>
 				<%- include('../../components/product-card', {product: product}) %>
 				<% }) %>
+				<%- include('../../components/pagination', {pagination: productListResults}) %>
 			</div>
 			<% } else { %>
 			<div class="search-results--empty">

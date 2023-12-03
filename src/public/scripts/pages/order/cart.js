@@ -141,17 +141,11 @@ function cartSubmit(event) {
         checkedItem.forEach(item => {
             let productVariantId = item.querySelector('input[name="product_variant_id"]')
             let productQuantity = item.querySelector('input[name="product_quantity"]')
-            let productUnitPriceBefore = item.querySelector('input[name="product_variant_price_before"]')
-            let productUnitPriceAfter = item.querySelector('input[name="product_variant_price_after"]')
-            let productPrice = item.querySelector('input[name="product_price"]')
 
             // Create an object for each item and push it to the array
             formDataArray.push({
                 product_variant_id: Number(productVariantId.value),
                 product_quantity: Number(productQuantity.value),
-                product_variant_price_before: Number(productUnitPriceBefore.value),
-                product_variant_price_after: Number(productUnitPriceAfter.value),
-                product_price: Number(productPrice.value),
             })
         })
 
@@ -159,26 +153,6 @@ function cartSubmit(event) {
 
         localStorage.setItem('formDataArray', formDataArrayString)
         window.location.href = 'http://localhost:3000/order/information'
-
-        // Use jsonData in your fetch request
-        // fetch('/order/cart/buy', {
-        //     body: JSON.stringify(formDataArray),
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        // .then(res => res.json())
-        // .then(back => {
-        //     if (back.status == 'error') {
-        //     } else {
-        //         history.back()
-        //         location.reload()
-        //     }
-        // })
-
-        // const cartForm = document.getElementById('cart-form')
-        // cartForm.submit()
     }
 }
 

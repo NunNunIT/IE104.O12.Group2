@@ -320,8 +320,6 @@ const fetchOrderPost = function () {
         orderDetails: cartDataString,
     }
 
-    console.log(`TrongJS `, orderInformation)
-
     fetch ('/order/information', {
         method: 'POST',
         body: JSON.stringify(orderInformation),

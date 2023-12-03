@@ -195,9 +195,8 @@ const validateInput = () => {
                             "Content-Type": "application/json"
                         }
                     })
-                    
-                    history.back();
-                    location.reload()
+
+                    window.location.href ='/'
                 }
             })
     }

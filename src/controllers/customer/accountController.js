@@ -50,6 +50,7 @@ accountController.purchaseHistory = async (req, res) => {
     let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
+    console.log('hyhyhyhy', purchaseHistory)
     
     res.render('./pages/account/purchase-history', {
         header: header,

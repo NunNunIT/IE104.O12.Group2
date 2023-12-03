@@ -86,12 +86,11 @@ order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
 }
 
 order.insertOrderDetails = async (order_id, orderDetails, callback) => {
-    console.log(orderDetails)
-    let insertOrderDetails = `INSERT INTO order_details (order_id, product_variant_id, order_detail_quantity, order_detail_price_before, order_detail_price_after) 
-    VALUES (${order_id}, ${orderDetails[0].product_variant_id}, ${orderDetails[0].product_quantity}, ${orderDetails[0].product_variant_price_before * orderDetails[0].product_quantity}, ${orderDetails[0].product_variant_price_after * orderDetails[0].product_quantity})`
+    let insertOrderDetails = `INSERT INTO order_details (order_id, product_variant_id, order_detail_quantity) 
+    VALUES (${order_id}, ${orderDetails[0].product_variant_id}, ${orderDetails[0].product_quantity})`
 
     for (let i = 1; i < orderDetails.length; i++) {
-        insertOrderDetails += ` ,(${order_id}, ${orderDetails[i].product_variant_id}, ${orderDetails[i].product_quantity}, ${orderDetails[i].product_variant_price_before * orderDetails[i].product_quantity}, ${orderDetails[i].product_variant_price_after * orderDetails[i].product_quantity})`
+        insertOrderDetails += ` ,(${order_id}, ${orderDetails[i].product_variant_id}, ${orderDetails[i].product_quantity})`
     }
 
     db.query(insertOrderDetails, (err, result) => {
