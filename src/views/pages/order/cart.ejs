@@ -39,7 +39,7 @@
 				</div>
 				<% if (detailCart) { %>
 				<% detailCart.forEach(cart => { %>
-				<%- include('../../components/cart-product', { cart: cart, toCurrency: toCurrency }) %>
+				<%- include('../../components/cart-product', { cart: cart, toCurrency: formatFunction.toCurrency }) %>
 				<% }) %>
 				<% } %>
 			</form>

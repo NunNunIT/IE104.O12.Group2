@@ -2,7 +2,7 @@ const db = require('../config/db/connect');
 const util = require('node:util')
 const query = util.promisify(db.query).bind(db)
 
-const general = function () {}
+const general = function () { }
 
 // Hàm xử lý datetỉme ---> Thứ x, ngày x tháng x năm x
 general.toXDDMMYYYY = function (datetime) {
@@ -102,7 +102,7 @@ general.toCurrency = function (money) {
     let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
         return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c;
     });
-    return currency;
+    return currency + 'đ';
 }
 
 general.getProductId = async (product_variant_id) => {
@@ -272,7 +272,7 @@ general.getProductVariants = async (product_variant_id) => {
 
 general.formatFunction = async () => {
     let formatFunction = {
-        toCurrency : general.toCurrency,
+        toCurrency: general.toCurrency,
         toDDMMYYYY: general.toDDMMYY,
     }
 
