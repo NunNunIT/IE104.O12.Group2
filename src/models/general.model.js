@@ -272,8 +272,9 @@ general.getProductVariants = async (product_variant_id) => {
 
 general.formatFunction = async () => {
     let formatFunction = {
-        toCurrency: general.toCurrency,
-        toDDMMYYYY: general.toDDMMYY,
+        toCurrency : general.toCurrency,
+        toDDMMYYYY: general.toDDMMYYYY,
+        toHHMM: general.toHHMM,
     }
 
     return formatFunction;

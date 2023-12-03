@@ -44,14 +44,13 @@ accountController.purchaseHistory = async (req, res) => {
     let customer_id = req.user.customer_id
     let order_status = req.query.order_status ?? 0
     let order_id = req.params.order_id ?? 0
-    console.log(order_status)
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
-
+    
     res.render('./pages/account/purchase-history', {
         header: header,
         user: header_user,
@@ -63,7 +62,7 @@ accountController.purchaseHistory = async (req, res) => {
 // [GET] /account/pruchase-history/detail
 accountController.purchaseDetail = async (req, res) => {
     let customer_id = req.user.customer_id
-    let order_status = req.body.order_status
+    let order_status = req.body.order_status ?? 0
     let order_id = req.params.order_id ?? 0
 
     let header_user = await index.header_user(req)
@@ -75,7 +74,7 @@ accountController.purchaseDetail = async (req, res) => {
     res.render('./pages/account/purchase-detail', {
         header: header,
         user: header_user,
-        purchaseHistory: purchaseHistory,
+        purchaseHistory: purchaseHistory[0],
         formatFunction: formatFunction,
     })
 }
