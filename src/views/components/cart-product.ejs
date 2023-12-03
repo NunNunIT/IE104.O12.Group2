@@ -20,8 +20,8 @@
 		<% if (cart.discount_amount) { %>
 		<input type="hidden" name="product_variant_price_before" value="<%= cart.product_variant_price %>" placeholder="">
 		<del><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</del>
-		<input type="hidden" name="product_variant_price_after" value="<%= cart.product_variant_price_after_discount %>" placeholder="">
-		<p class="cart-item__unit-price-number"><%= toCurrency(cart.product_variant_price_after_discount) ?? 'null' %>đ</p>
+		<input type="hidden" name="product_variant_price_after" value="<%= parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100) %>" placeholder="">
+		<p class="cart-item__unit-price-number"><%= toCurrency(parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %>đ</p>
 		<% } else { %>
 		<input type="hidden" name="product_variant_price_before" value="" placeholder="">
 		<input type="hidden" name="product_variant_price_after" value="<%= cart.product_variant_price %>" placeholder="">
@@ -37,8 +37,8 @@
 
 	<div class="sm-col">
 		<% if (cart.discount_amount) { %>
-		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * cart.product_variant_price_after_discount %>" placeholder="">
-		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * cart.product_variant_price_after_discount) ?? 'null' %>đ</p>
+		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100) %>" placeholder="">
+		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %>đ</p>
 		<% } else { %>
 		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * cart.product_variant_price %>" placeholder="">
 		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %>đ</p>
@@ -68,8 +68,8 @@
 				<% if (cart.discount_amount) { %>
 				<input type="hidden" name="product_variant_price_before" value="<%= cart.product_variant_price %>" placeholder="">
 				<del><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</del>
-				<input type="hidden" name="product_variant_price_after" value="<%= cart.product_variant_price_after_discount %>" placeholder="">
-				<p class="cart-item__unit-price-number"><%= toCurrency(cart.product_variant_price_after_discount) ?? 'null' %>đ</p>
+				<input type="hidden" name="product_variant_price_after" value="<%= parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100) %>" placeholder="">
+				<p class="cart-item__unit-price-number"><%= toCurrency(parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %>đ</p>
 				<% } else { %>
 				<input type="hidden" name="product_variant_price_before" value="" placeholder="">
 				<input type="hidden" name="product_variant_price_after" value="<%= cart.product_variant_price %>" placeholder="">
