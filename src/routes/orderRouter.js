@@ -12,13 +12,15 @@ router.post('/addCart', authMiddleware.isLoggedIn, orderController.addCart)
 router.get('/information', authMiddleware.isLoggedIn, orderController.information)
 router.post('/information', authMiddleware.isLoggedIn, orderController.informationPost)
 
-router.get('/momo', authMiddleware.isLoggedIn, orderController.momo)
-router.post('/momo', authMiddleware.isLoggedIn, orderController.momo)
+router.get('/payment', authMiddleware.isLoggedIn, orderController.payment)
 
-router.get('/atm', authMiddleware.isLoggedIn, orderController.atm)
-router.post('/atm', authMiddleware.isLoggedIn, orderController.atm)
+// router.get('/momo', authMiddleware.isLoggedIn, orderController.momo)
+// router.post('/momo', authMiddleware.isLoggedIn, orderController.momo)
 
-router.get('/credit', authMiddleware.isLoggedIn, orderController.credit)
-router.post('/credit', authMiddleware.isLoggedIn, orderController.credit)
+// router.get('/atm', authMiddleware.isLoggedIn, orderController.atm)
+// router.post('/atm', authMiddleware.isLoggedIn, orderController.atm)
+
+// router.get('/credit', authMiddleware.isLoggedIn, orderController.credit)
+// router.post('/credit', authMiddleware.isLoggedIn, orderController.credit)
 
 module.exports = router;

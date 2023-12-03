@@ -59,34 +59,48 @@ order.deleteCart = function (customer_id, productsDeleteCart, callback) {
     })
 }
 
-order.insertOrder = function (customer_id, buyerInfo, orderDetails, callback) {
+order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
     let insertOrder = `INSERT INTO orders (customer_id, order_name, order_phone, order_delivery_address, order_note, paying_method_id)
-                        VALUES (${customer_id}, '${buyerInfo.order_name}', '${buyerInfo.order_phone}', '${buyerInfo.order_delivery_address}', '${buyerInfo.order_note}', ${buyerInfo.paying_method_id})`
+                        VALUES (${customer_id}, '${orderInfo.order_name}', '${orderInfo.order_phone}', '${orderInfo.order_delivery_address}', '${orderInfo.order_note}', ${orderInfo.paying_method_id})`
     
-    let insertOrderDetails = `INSERT INTO order_details (order_id, product_variant_id, order_detail_quantity, order_detail_price_before, order_detail_after_before) 
-    VALUES (?, ${orderDetails[0].product_variant_id}, ${orderDetails[0].order_detail_quantity}, ${orderDetails[0].order_detail_price_before}, ${orderDetails[0].order_detail_after_before}})`
+    console.log(insertOrder)
 
-
-    orderDetails.forEach(function(orderDetail) {
-        insertOrderDetails += ` ,(?, ${orderDetails[0].product_variant_id}, ${orderDetails[0].order_detail_quantity}, ${orderDetails[0].order_detail_price_before}, ${orderDetails[0].order_detail_after_before}})`
-    })
-
-    db.query (insertOrder, (err, order) => {
+    db.query (insertOrder, (err, result) => {
         if (err) {
             console.error(err);
             callback(1, 0, 0, 0);
         } else {
-            db.query (insertOrderDetails, [order.order_id] , (err, orderDetails) => {
-                if (err) {
-                    console.error(err);
+            let order_id = result.insertId ?? 0;
+
+            console.log('order mới dc thêm', result.insertId);
+            order.insertOrderDetails(order_id, orderDetails, function(error, success) {
+                if (error) {
+                    console.log(error);
                     callback(1, 0, 0, 0);
                 } else {
-                    callback(0, 1, order.order_id, order.paying_method_id);
+                    callback(0, 1, order_id);
                 }
             })
         }
     })
+}
 
+order.insertOrderDetails = async (order_id, orderDetails, callback) => {
+    let insertOrderDetails = `INSERT INTO order_details (order_id, product_variant_id, order_detail_quantity) 
+    VALUES (${order_id}, ${orderDetails[0].product_variant_id}, ${orderDetails[0].product_quantity})`
+
+    for (let i = 1; i < orderDetails.length; i++) {
+        insertOrderDetails += ` ,(${order_id}, ${orderDetails[i].product_variant_id}, ${orderDetails[i].product_quantity})`
+    }
+
+    db.query(insertOrderDetails, (err, result) => {
+        if (err) {
+            console.log(err);
+            callback(1, 0)
+        } else {
+            callback(0, 1)
+        }
+    })
 }
 
 module.exports = order

@@ -71,6 +71,24 @@
                                         <strong><u> Gửi lại mã OTP</u></strong>
                                     </a>
                                 </div>
+                                
+                                <div class="reset__input-wrap">
+                                    <input id="Password" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+                                    <label>Mật khẩu mới<span style="color:red">*</span></label>
+                                    <span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+                                            visibility</span>
+                                    </span>
+                                    <div class="reset__error"></div>
+                                </div>
+        
+                                <div class="reset__input-wrap">
+                                    <input id="ConfirmPassword" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+                                    <label>Xác nhận mật khẩu mới<span style="color:red">*</span></label>
+                                    <span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+                                            visibility</span>
+                                    </span>
+                                    <div class="reset__error"></div>
+                                </div>
                                 <input type="submit" value="Xác nhận" class="forgot__sign-btn" />
                                 <div class="back">
                                     <a href="/auth/login">Hủy</a>

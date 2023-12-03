@@ -60,9 +60,45 @@ document.addEventListener('DOMContentLoaded', function () {
   // Sự kiện nhấn nút "Đăng xuất"
   document.getElementById('confirm-button').addEventListener('click', confirmLogout);
   
-  
 
-  
+  document.addEventListener('DOMContentLoaded', function () {
+    const editInfoLink = document.querySelector('p.purchase-item__status a');
+
+    editInfoLink.addEventListener('click', function (event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+
+        // Tìm phần tử có class "purchase-item__product-detail"
+        const productDetail = document.querySelector('.purchase-item__product-detail');
+        // Tìm phần tử có class "change_Password"
+        const changePassword = document.querySelector('.change_Password');
+
+        // Ẩn phần tử "purchase-item__product-detail"
+        productDetail.style.display = 'none';
+        // Hiển thị phần tử "change_Password"
+        changePassword.style.display = 'block';
+        editInfoLink.style.display = 'none';
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const cancelButton = document.querySelector('.btn-cancel');
+
+  cancelButton.addEventListener('click', function (event) {
+      event.preventDefault(); // Ngăn chặn hành động mặc định của nút
+
+      // Tìm phần tử có class "purchase-item__product-detail"
+      const productDetail = document.querySelector('.purchase-item__product-detail');
+      // Tìm phần tử có class "change_Password"
+      const changePassword = document.querySelector('.change_Password');
+
+      // Hiển thị phần tử "purchase-item__product-detail"
+      productDetail.style.display = 'block';
+      // Ẩn phần tử "change_Password"
+      changePassword.style.display = 'none';
+  });
+});
+
 
 
 

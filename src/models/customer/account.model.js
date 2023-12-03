@@ -80,4 +80,17 @@ account.getDetailPurchaseHistorys = async (order_id) => {
     })
 }
 
+account.feedbackPost = async (product_variant_id, customer_id, order_id, feedback_rate, feedback_content, callback) => {
+    let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id} ${feedback_rate}, '${feedback_content}')` 
+
+    db.query(insertFeedback, (err, result) => {
+        if (err) {
+            console.log(err);
+            callback(1, 0)
+        } else {
+            callback(0, 1)
+        }
+    })
+}
+
 module.exports = account

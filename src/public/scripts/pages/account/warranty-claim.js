@@ -1,4 +1,3 @@
-// Thêm "active" vào side-menu__ele 
 const appbar__element = document.querySelectorAll('.side-menu__ele');
 appbar__element[2].classList.add('active');
 
