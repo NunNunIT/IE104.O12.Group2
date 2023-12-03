@@ -42,7 +42,9 @@ account.checkPassword = async (req, callback) => {
 }
 
 account.getPurchaseHistory = async (customer_id, order_status, order_id) => {
-    let getPurchaseHistorys = `SELECT * FROM orders WHERE customer_id = ${customer_id}`
+    let getPurchaseHistorys = `SELECT * 
+                                FROM orders LEFT JOIN paying_methods ON orders.payment_method_id = paying_methods.payment_method_id
+                                WHERE customer_id = ${customer_id}`
 
     if (order_id) {
         getPurchaseHistorys += ` AND order_id = ${order_id}`

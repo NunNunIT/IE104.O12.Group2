@@ -2,7 +2,7 @@
 <html lang="vi-VN">
 
 <head>
-	
+
 
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
 
@@ -20,68 +20,93 @@
 	<main class="account-container">
 		<%- include("../../components/sidebar_account") %>
 
-					<section class="purchase__main" id="info">
-						<div class="purchase__main__item">
-							<div class="purchase-item">
-								<div class="purchase-item--top">
-									<div class="purchase-item__info">
-										<h3>Thông tin cá nhân</h3>
+		<section class="purchase__main" id="info">
+			<div class="purchase__main__item">
+				<div class="purchase-item">
+					<div class="purchase-item--top">
+						<div class="purchase-item__info">
+							<h3>Thông tin cá nhân</h3>
 
+						</div>
+					</div>
+
+					<form id="editForm" action="/account/edit-information" method="POST">
+						<div class="purchase-item__main">
+							<div class="purchase-item__element">
+								<div class="purchase-item__product-detail">
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Tên người dùng:</h5>
+										</label>
+										<input type="text" id="userName" name="userName" autocomplete="off" placeholder="Nhập tên" value="Vi Thị Hương" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
+
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Ngày sinh:</h5>
+										</label>
+										<input type="date" id="userBirth" name="userBirth" autocomplete="off" placeholder="Nhập ngày sinh" value="2023-10-24" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
+
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Giới tính:</h5>
+										</label>
+										<select id="userSex" name="userSex" title="Chọn giới tính">
+											<option value="Nam">Nam</option>
+											<option value="Nữ">Nữ</option>
+										</select>
+										<hr />
+									</div>
+
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Email:</h5>
+										</label>
+										<input type="text" id="userEmail" name="userEmail" autocomplete="off" placeholder="Nhập email" value="vithihuong384@gmail.com" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
+
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Số điện thoại:</h5>
+										</label>
+										<input type="text" id="userPhone" name="userPhone" pattern="[0-9]{10}" autocomplete="off" placeholder="Nhập số điện thoại" value="0987654321" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
+
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Địa chỉ:</h5>
+										</label>
+										<input type="text" id="userAddress" name="userAddress" autocomplete="off" placeholder="An Bình, Dĩ An, Bình Dương" value="An Bình, Dĩ An, Bình Dương" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
+
+									<div class="popup__button">
+										<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
+										<button type="submit" class="btn btn--filled pri" type="button">Lưu</button>
 									</div>
 								</div>
-						
-								<form id="editForm" action="/account/edit-information" method="POST">
-									<div class="purchase-item__main">
-										<div class="purchase-item__element">
-											<div class="purchase-item__product-detail">
-												<h5 id="purchase-item__product-name">Tên người dùng: </h5>
-												<input type="text" id="userName" name="user_name" value="Vi Thị Hương" oninput="checkUserName()" />
-												<span id="userNameError" class="error-message"></span>
-												<hr />
-			
-												<h5 id="purchase-item__product-name">Ngày sinh: </h5>
-												<input type="date" id="userBirth" name="user_birth" value="2023-10-24" />
-												<span id="userBirthError" class="error-message"></span>
-												<hr />
-			
-												<h5 id="purchase-item__product-name">Giới tính: </h5>
-												<select id="userSex" name="user_sex">
-													<option value="Nam">Nam</option>
-													<option value="Nữ">Nữ</option>
-												</select>
-												<hr />
-			
-												<h5 id="purchase-item__product-name">Email: </h5>
-												<input type="email" id="userEmail" name="user_email" value="vithihuong384@gmail.com" oninput="checkUserEmail()" />
-												<span id="userEmailError" class="error-message"></span>
-												<hr />
-			
-												<h5 id="purchase-item__product-name">Số điện thoại: </h5>
-												<input type="tel" id="userPhone" name="user_phone" pattern="[0-9]{10}" value="0352060384" oninput="checkUserPhone()" />
-												<span id="userPhoneError" class="error-message"></span>
-												<hr />
-			
-												<h5 id="purchase-item__product-name">Địa chỉ: </h5>
-												<input type="text" id="userAddress" name="user_address" value="An Bình, Dĩ An, Bình Dương" />
-												<hr />
-			
-												<div class="popup__button">
-													<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
-													<button class="btn btn--filled pri" type="button" onclick="saveData()">Lưu</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</form>
-								</div>
+							</div>
+						</div>
+					</form>
+				</div>
 
 			</div>
 			</div>
 		</section>
 
-			</main>
-			<%- include('../../partials/app-bar') %>
-				<%- include('../../partials/footer') %>
+	</main>
+	<%- include('../../partials/app-bar') %>
+	<%- include('../../partials/footer') %>
 
 	<script src="/scripts/pages/account/information.js"></script>
 	<script src="/scripts/pages/account/edit-information.js"></script>

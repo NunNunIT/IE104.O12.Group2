@@ -1,67 +1,113 @@
 const inputs = document.querySelectorAll('.purchase-item__product-detail input');
 
-inputs.forEach(function (input) {
-    // Lưu trạng thái ban đầu của mỗi input
-    const originalColor = getComputedStyle(input).color;
-    const originalHrDisplay = getComputedStyle(input.nextElementSibling).display;
+// 
+const form = document.getElementById('editForm');
+const userName = document.getElementById('userName');
+const userEmail = document.getElementById('userEmail');
+const userPhone = document.getElementById('userPhone');
 
-    input.addEventListener('focus', function () {
-        // Ẩn hr và đổi màu chữ thành đen khi input được focus
-        input.nextElementSibling.style.opacity = '0';
-        input.style.color = 'black';
-    });
-
-    input.addEventListener('blur', function () {
-        // Khôi phục trạng thái ban đầu khi input mất focus
-        input.nextElementSibling.style.display = originalHrDisplay;
-        input.style.color = originalColor;
-    });
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    validateInput();
 });
 
-function checkUserName() {
-    const userNameInput = document.getElementById('userName');
-    const userNameError = document.getElementById('userNameError');
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error-message');
 
-    if (!isValidName(userNameInput.value)) {
-        userNameError.textContent = 'Tên không thể chứa số hoặc các kí tự đặc biệt';
-        userNameError.style.color = 'red';
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('error');
+};
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error-message');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
+const isValidPhoneNumber = phoneNumber => {
+    const re = /^[0-9]{10}$/;
+    return re.test(String(phoneNumber).trim());
+};
+
+const isValidEmail = email => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+};
+
+const validateInput = () => {
+    const userNameValue = userName.value.trim();
+    const userEmailValue = userEmail.value.trim();
+    const userPhoneValue = userPhone.value.trim();
+
+    let isAllValid = true;
+
+    if (userNameValue === '') {
+        setError(userName, 'Vui lòng nhập họ tên!');
+        isAllValid = false;
     } else {
-        userNameError.textContent = '';
+        setSuccess(userName);
     }
-}
 
-function checkUserEmail() {
-    const userEmailInput = document.getElementById('userEmail');
-    const userEmailError = document.getElementById('userEmailError');
-
-    if (!isValidEmail(userEmailInput.value)) {
-        userEmailError.textContent = 'Sai định dạng email';
-        userEmailError.style.color = 'red';
+    if (userEmailValue === '') {
+        setError(userEmail, 'Vui lòng nhập email!');
+        isAllValid = false;
+    } else if (!isValidEmail(userEmailValue)) {
+        setError(userEmail, 'Email không đúng định dạng!');
+        isAllValid = false;
     } else {
-        userEmailError.textContent = '';
+        setSuccess(userEmail);
     }
-}
 
-function checkUserPhone() {
-    const userPhoneInput = document.getElementById('userPhone');
-    const userPhoneError = document.getElementById('userPhoneError');
-
-    if (!isValidPhone(userPhoneInput.value)) {
-        userPhoneError.textContent = 'Sai định dạng số điện thoại';
-        userPhoneError.style.color = 'red';
+    if (userPhoneValue === '') {
+        setError(userPhone, 'Vui lòng nhập số điện thoại!');
+        isAllValid = false;
+    } else if (!isValidPhoneNumber(userPhoneValue)) {
+        setError(userPhone, 'Số điện thoại không đúng định dạng!');
+        isAllValid = false;
     } else {
-        userPhoneError.textContent = '';
+        setSuccess(userPhone);
     }
-}
 
-function isValidName(name) {
-    return /^[a-zA-Z\s]+$/.test(name);
-}
+    // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
+    if (isAllValid) {
+        const form = {
+            user_name: userName.value.trim(),
+            user_email: userEmail.value.trim(),
+            user_phone: userPhone.value.trim()
+        };
 
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+        fetch("/account/information", {
+                method: "POST",
+                body: JSON.stringify(register),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(res => res.json())
+            .then(back => {
+                if (back.status == "error") {
+                    setError(phoneNumber, back.error);
+                } else {
+                    const login = {
+                        phoneNumber: phoneNumber.value.trim(),
+                        password: password.value.trim()
+                    }
 
-function isValidPhone(phone) {
-    return /^\d{10}$/.test(phone);
-}
+                    fetch('/auth/login', {
+                        method: 'POST',
+                        body: JSON.stringify(login),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    
+                    history.back();
+                    location.reload()
+                }
+            })
+    }
+};

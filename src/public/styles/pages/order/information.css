@@ -234,8 +234,13 @@ input::-webkit-calendar-picker-indicator {
     }
 
     label,
-    p {
+    p,
+    del {
         font-size: 0.8125rem;
+    }
+
+    .order-container {
+        width: 90%;
     }
 
     .location__input-group input,
@@ -270,12 +275,9 @@ input::-webkit-calendar-picker-indicator {
     }
 
     label,
-    p {
+    p,
+    del {
         font-size: 0.8125rem;
-    }
-
-    .order-container {
-        width: 90%;
     }
 }
 

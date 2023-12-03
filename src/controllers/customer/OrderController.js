@@ -45,15 +45,15 @@ orderController.cart = async (req, res) => {
 orderController.deleteCart = async (req, res) => {
 	let customer_id = req.user.customer_id
 	console.log(req.body)
-	let productsDeleteCart = req.body 
-	
+	let productsDeleteCart = req.body
+
 	order.deleteCart(customer_id, productsCartDelete, function (err, success) {
 		if (success) {
-			return res.status(200).json ({
+			return res.status(200).json({
 				status: 'success',
 			})
 		} else {
-			return res.status(404).json ({
+			return res.status(404).json({
 				status: 'error',
 			})
 		}
@@ -86,13 +86,13 @@ orderController.informationPost = async (req, res) => {
 
 	order.insertOrder(customer_id, buyerInfo, orderDetails, async (err, success, order_id, payment_method_id) => {
 		if (err) {
-			return res.status(404).json ({
+			return res.status(404).json({
 				status: 'error',
 			})
 		} else {
-			let purchase = await account.getPurchaseHistory (customer_id, 0, order_id)
-			
-			order.deleteCart(customer_id, orderDetails, function(err, success) {})
+			let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
+
+			order.deleteCart(customer_id, orderDetails, function (err, success) { })
 
 			if (payment_method_id == 1) {
 				res.render('./pages/order/atm', {
