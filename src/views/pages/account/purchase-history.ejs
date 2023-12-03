@@ -17,22 +17,31 @@
 	<%- include('../../partials/breadcrumb',{ breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Lịch sử đơn mua', link : '/account/purchase' }] }) %>
 
 	<main class="account-container">
-		<!-- side-bar -->
 		<%- include("../../components/sidebar_account") %>
-
 		<section class="purchase__main">
-			<nav class="purchase__status">
-				<a href="/account/purchase" id="purchase__status-all">Tất cả</a>
-				<a href="/account/purchase?order_status=Chờ thanh toán" id="purchase__status-payment">Chờ thanh toán</a>
-				<a href="/account/purchase?order_status=Đang giao hàng" id="purchase__status-deliver">Đang giao hàng</a>
-				<a href="/account/purchase?order_status=Hoàn thành" id="purchase__status-finish">Hoàn thành</a>
-				<a href="/account/purchase?order_status=Đã hủy" id="purchase__status-cancel">Đã hủy</a>
-			</nav>
-			<div class="purchase__main__item">
-				<%- include('../../components/purchase-item') %>
-				<%- include('../../components/purchase-item') %>
-				<%- include('../../components/purchase-item') %>
+			<div class="purchase__status-container">
+				<nav class="purchase__status">
+					<a href="/account/purchase" id="purchase__status-all">Tất cả</a>
+					<a href="/account/purchase?order_status=Chờ thanh toán" id="purchase__status-payment">Chờ thanh toán</a>
+					<a href="/account/purchase?order_status=Đang giao hàng" id="purchase__status-deliver">Đang giao hàng</a>
+					<a href="/account/purchase?order_status=Hoàn thành" id="purchase__status-finish">Hoàn thành</a>
+					<a href="/account/purchase?order_status=Đã hủy" id="purchase__status-cancel">Đã hủy</a>
+				</nav>
 			</div>
+
+			<div class="purchase__main__item">
+				<% if (purchaseHistory && purchaseHistory.length > 0) { %>
+				<% purchaseHistory.forEach(purchase => { %>
+				<%- include('../../components/purchase-item', { purchaseHistory: purchase, toCurrency: formatFunction.toCurrency }) %>
+				<% }) %>
+				<% } else { %>
+				<div class="purchase-empty">
+					<img src="/imgs/empty_order.png" alt="empty_order">
+					<p>Chưa có đơn hàng</p>
+				</div>
+				<% } %>
+			</div>
+
 		</section>
 	</main>
 
@@ -40,6 +49,7 @@
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
+	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/pages/account/purchaseHistory.js"></script>
 
 </body>

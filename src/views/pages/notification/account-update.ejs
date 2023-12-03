@@ -12,11 +12,11 @@
 </head>
 
 <body>
-
 	<%- include('../../partials/header', { header: header }) %>
 	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Thông báo', link : '' }, { text : 'Cập nhật tài khoản', link : '' }] }) %>
 
 	<main class="nofi-container">
+		<% console.log(user) %>
 		<aside class="aside-wrapper">
 			<div class="aside-wrapper__aside-info">
 				<img class="aside-wrapper__aside-avatar" src="/imgs/avatar.png" alt="avatar" />
