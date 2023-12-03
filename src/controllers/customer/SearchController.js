@@ -36,7 +36,7 @@ searchController.detail = async (req, res) => {
 
     let productInfo = await product.getProductInfo(product_variant_id)
     let productImgs = await product.getProductImgs(product_variant_id)
-    let variantProducts = await general.getVariantProducts(product_variant_id)
+    let variantProducts = await general.getProductVariants(product_variant_id)
     let productDetails = await product.getProductDetails(product_variant_id)
     let productFeedbacks = await product.getProductFeedbacks(product_variant_id)
     let cateProducts = await general.getCateProducts(req, product_variant_id, 8)

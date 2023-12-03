@@ -5,12 +5,12 @@ const index = require('../models/customer/index.model')
 const order = require('../models/customer/order.model')
 const general = require('../models/general.model')
 
-const generalController = () => {}
+const generalController = () => { }
 
 // [GET] /general/product_variant_info?product_variant_id=x
 generalController.getProductVariantInfo = async (req, res) => {
     let product_variant_id = req.query.product_variant_id
-    let productVariantInfo = await general.getVariantProducts(product_variant_id)
+    let productVariantInfo = await general.getVariantProduct(product_variant_id)
 
     if (productVariantInfo) {
         return res.status(200).json({

@@ -2,7 +2,7 @@ const db = require('../config/db/connect');
 const util = require('node:util')
 const query = util.promisify(db.query).bind(db)
 
-const general = function () {}
+const general = function () { }
 
 // Hàm xử lý datetỉme ---> Thứ x, ngày x tháng x năm x
 general.toXDDMMYYYY = function (datetime) {
@@ -102,7 +102,7 @@ general.toCurrency = function (money) {
     let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
         return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c;
     });
-    return currency;
+    return currency + 'đ';
 }
 
 general.getProductId = async (product_variant_id) => {
@@ -234,19 +234,37 @@ general.getCateProducts = async (req, product_variant_id, limit = 8) => {
     })
 }
 
-general.getVariantProducts = async (product_variant_id) => {
+general.getVariantProduct = async (product_variant_id) => {
     // let params = req.params.product_variant_id
     let product_id = await general.getProductId(product_variant_id)
 
-    let getVariantProducts = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
+    let getVariantProduct = `SELECT * FROM view_product_variants WHERE product_variant_id = ${product_variant_id}`
 
     return new Promise((resolve, reject) => {
-        db.query(getVariantProducts, (err, variantProducts) => {
+        db.query(getVariantProduct, (err, variantProduct) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                resolve(variantProducts)
+                resolve(variantProduct)
+            }
+        })
+    })
+}
+
+general.getProductVariants = async (product_variant_id) => {
+    // let params = req.params.product_variant_id
+    let product_id = await general.getProductId(product_variant_id)
+
+    let getProductVariants = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getProductVariants, (err, productVariants) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(productVariants)
             }
         })
     })

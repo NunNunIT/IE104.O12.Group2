@@ -1,8 +1,3 @@
-let cartData = localStorage.getItem('formDataArray')
-
-let cartDataString = JSON.parse(cartData)
-console.log(cartDataString)
-
 let isNameValid
 let isPhoneNumberValid
 
@@ -204,4 +199,105 @@ function submitOrderForm(event) {
 
     console.log(orderForm.action)
     orderForm.submit()
+}
+
+const toCurrency = function (money) {
+    let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
+        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c
+    })
+    return currency + 'đ'
+}
+
+// fetch data
+let cartData = localStorage.getItem('formDataArray')
+
+let cartDataString = JSON.parse(cartData)
+
+if (cartDataString.length) {
+    let orderProductContent = document.querySelector('.order-product__content')
+
+    cartDataString.forEach(product => {
+        let elementHidden = document.createElement('div')
+
+        fetch(`/general/product_variant_info?product_variant_id=${product.product_variant_id}`)
+            .then(res => res.json())
+            .then(data => {
+                let productId = data.productVariantInfo[0].product_id ?? 'null'
+                let productAvtImg = data.productVariantInfo[0].product_avt_img ?? 'null'
+                let productName = data.productVariantInfo[0].product_name ?? 'null'
+                let productVariantName = data.productVariantInfo[0].product_variant_name ?? 'null'
+                let productQuantity = product.product_quantity
+                let productDiscount = data.productVariantInfo[0].discount_amount
+                let productVariantPrice = data.productVariantInfo[0].product_variant_price
+
+                elementHidden.classList.add('product', 'mobile-hidden')
+                elementHidden.innerHTML = `
+                    <div class="product__view order-product__col-big">
+                        <img src="/imgs/product_image/P${productId}/${productAvtImg}" alt="${productName}">
+                        <p>${productName}</p>
+                    </div>
+
+                    <div class="order-product__col">
+                        <p>${productVariantName}</p>
+                    </div>
+
+                    <div class="order-product__col">
+                        <del class="product__unit-price-del">${productDiscount ? toCurrency(productVariantPrice) : ''}</del>    
+                        <p class="product__unit-price">${toCurrency(productVariantPrice - parseInt(productVariantPrice * productDiscount / 100))}</p>
+                    </div>
+
+                    <div class="order-product__col">
+                        <p class="product__quantity">${productQuantity}</p>
+                    </div>
+
+                    <div class="product__price order-product__col">
+                        <p>${toCurrency(productQuantity * (productVariantPrice - parseInt(productVariantPrice * productDiscount / 100)))}</p>
+                    </div>
+                    `
+
+                let elementDisplay = document.createElement('div')
+                elementDisplay.classList.add('product', 'mobile-display')
+                elementDisplay.innerHTML = `
+                    <img src="/imgs/product_image/P${productId}/${productAvtImg}" alt="${productName}">
+                    <div class="product__content">
+                        <p class="product__name">${productName}</p>
+                        <p class="product__variant">Phân loại: ${productVariantName}</p>
+                        <div>
+                            <p class="product__unit-price"><del class="product__unit-price-del">${productDiscount ? toCurrency(productVariantPrice) : ''}</del>${toCurrency(productVariantPrice - parseInt(productVariantPrice * productDiscount / 100))}</p>
+                            <p>Số lượng: <span class="product__quantity">${productQuantity}</span></p>
+                        </div>
+                    </div>
+                    `
+
+                orderProductContent.appendChild(elementHidden)
+                orderProductContent.appendChild(elementDisplay)
+            })
+            .then(() => {
+                // calc total price
+                const orderPayDel = document.querySelector('.order-pay__total-del')
+                const orderPay = document.querySelector('.order-pay__total')
+                let orderProduct
+
+                if (window.innerWidth == 416)
+                    orderProduct = document.querySelectorAll('.product.mobile-display')
+                else
+                    orderProduct = document.querySelectorAll('.product.mobile-hidden')
+
+                let totalOrderPayDel = 0
+                let totalOrderPay = 0
+                orderProduct.forEach(product => {
+                    let delEle = product.querySelector('del').textContent
+
+                    if (delEle)
+                        totalOrderPayDel += Number(product.querySelector('.product__quantity').textContent) * Number(delEle.slice(0, -1).replaceAll('.', ''))
+                    else
+                        totalOrderPayDel += Number(product.querySelector('.product__quantity').textContent) * Number(product.querySelector('.product__unit-price').textContent.slice(0, -1).replaceAll('.', ''))
+
+                    totalOrderPay += Number(product.querySelector('.product__quantity').textContent) * Number(product.querySelector('.product__unit-price').textContent.slice(0, -1).replaceAll('.', ''))
+                })
+
+                orderPayDel.innerHTML = toCurrency(totalOrderPayDel)
+                orderPay.innerHTML = toCurrency(totalOrderPay)
+            })
+    })
 }
