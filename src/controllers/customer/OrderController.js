@@ -113,26 +113,28 @@ orderController.payment = async (req, res) => {
 
 	let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
 
+	console.log(purchase)
+
 	if (paying_method_id == 1) {
 		res.render('./pages/order/atm', {
 			header: header,
 			user: header_user,
 			formatFunction: formatFunction,
-			purchase: purchase,
+			purchase: purchase[0],
 		})
 	} else if (paying_method_id == 2) {
 		res.render('./pages/order/atm', {
 			header: header,
 			user: header_user,
 			formatFunction: formatFunction,
-			purchase: purchase,
+			purchase: purchase[0],
 		})
 	} else {
 		res.render('./pages/order/momo', {
 			header: header,
 			user: header_user,
 			formatFunction: formatFunction,
-			purchase: purchase,
+			purchase: purchase[0],
 		})
 	}
 }
