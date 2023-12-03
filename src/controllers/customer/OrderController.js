@@ -52,7 +52,7 @@ orderController.information = async (req, res) => {
 	let information = req.body
 	console.log(req.body)
 	console.log(information)
-	
+
 
 	res.render('./pages/order/information', {
 		header: header,

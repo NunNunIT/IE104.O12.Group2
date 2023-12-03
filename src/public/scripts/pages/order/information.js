@@ -1,8 +1,3 @@
-let cartData = localStorage.getItem('formDataArray')
-
-let cartDataString = JSON.parse(cartData)
-console.log(cartDataString)
-
 let isNameValid
 let isPhoneNumberValid
 
@@ -205,3 +200,60 @@ function submitOrderForm(event) {
     console.log(orderForm.action)
     orderForm.submit()
 }
+
+// fetch data
+let cartData = localStorage.getItem('formDataArray')
+
+let cartDataString = JSON.parse(cartData)
+console.log(cartDataString)
+
+if (cartDataString.length) {
+    let orderProductContent = document.querySelector('.order-product__content')
+
+    cartDataString.forEach(product => {
+        console.log(product)
+        let elementHidden = document.createElement('div')
+        elementHidden.classList.add('product', 'mobile-hidden')
+        elementHidden.innerHTML = `
+        <div class="product__view order-product__col-big">
+            <img src="/imgs/slider/1.jpg" alt="">
+            <p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
+        </div>
+
+        <div class="order-product__col">
+            <p>Gấu dâu</p>
+        </div>
+
+        <div class="order-product__col">
+            <p><del>160.000đ</del> 80.000đ</p>
+        </div>
+
+        <div class="order-product__col">
+            <p>2</p>
+        </div>
+
+        <div class="product__price order-product__col">
+            <p>80.000đ</p>
+        </div>
+        `
+
+        let elementDisplay = document.createElement('div')
+        elementDisplay.classList.add('product', 'mobile-display')
+        elementDisplay.innerHTML = `
+        <img src="/imgs/slider/1.jpg" alt="">
+        <div class="product__content">
+            <p class="product__name">Túi Đeo Chéo Hình Mèo Lucifer...</p>
+            <p class="product__variant">Phân loại: Gấu dâu</p>
+            <div>
+                <p class="product__unit-price"><del>160.000đ</del> 80.000đ</p>
+                <p class="product__quantity">Số lượng: 1</p>
+            </div>
+        </div>
+        `
+
+        orderProductContent.appendChild(elementHidden)
+        orderProductContent.appendChild(elementDisplay)
+    })
+
+}
+// let orderInfoProduct = ejs.render()
