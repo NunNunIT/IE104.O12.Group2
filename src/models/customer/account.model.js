@@ -43,7 +43,7 @@ account.checkPassword = async (req, callback) => {
 
 account.getPurchaseHistory = async (customer_id, order_status, order_id) => {
     let getPurchaseHistorys = `SELECT * 
-                                FROM orders LEFT JOIN paying_methods ON orders.payment_method_id = paying_methods.payment_method_id
+                                FROM orders LEFT JOIN paying_methods ON orders.paying_method_id = paying_methods.paying_method_id
                                 WHERE customer_id = ${customer_id}`
 
     if (order_id) {
@@ -77,6 +77,19 @@ account.getDetailPurchaseHistorys = async (order_id) => {
 
     return new Promise(async (resolve, reject) => {
         resolve(detailPurchaseHistorys);
+    })
+}
+
+account.feedbackPost = async (product_variant_id, customer_id, order_id, feedback_rate, feedback_content, callback) => {
+    let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id} ${feedback_rate}, '${feedback_content}')` 
+
+    db.query(insertFeedback, (err, result) => {
+        if (err) {
+            console.log(err);
+            callback(1, 0)
+        } else {
+            callback(0, 1)
+        }
     })
 }
 
