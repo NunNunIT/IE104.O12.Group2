@@ -2,13 +2,11 @@
 <html lang="vi-VN">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-	<!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
 
-	<link rel="stylesheet" href="/styles/pages/account/information.css">
+
 	<link rel="stylesheet" href="/styles/pages/account/edit-information.css">
 
 	<title>TECHTWO.</title>
@@ -28,60 +26,83 @@
 					<div class="purchase-item--top">
 						<div class="purchase-item__info">
 							<h3>Thông tin cá nhân</h3>
+
 						</div>
 					</div>
-					<form action="/account/edit-information" method="POST">
+
+					<form id="editForm" action="/account/edit-information" method="POST">
 						<div class="purchase-item__main">
 							<div class="purchase-item__element">
 								<div class="purchase-item__product-detail">
-									<h5 id="purchase-item__product-name">Tên người dùng: </h5>
-									<input type="text" name="user_name" value="<%= user.user.user_name ?? 'Nguyễn Văn A' %>" />
-									<hr />
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Tên người dùng:</h5>
+										</label>
+										<input type="text" id="userName" name="userName" autocomplete="off" placeholder="Nhập tên" value="Vi Thị Hương" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
 
-									<h5 id="purchase-item__product-name">Ngày sinh: </h5>
-									<input type="text" name="user_birth" value="<%= toDDMMYYYY(new Date(user.user.user_birth)) ?? '01/01/01' %>" />
-									<hr />
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Ngày sinh:</h5>
+										</label>
+										<input type="date" id="userBirth" name="userBirth" autocomplete="off" placeholder="Nhập ngày sinh" value="2023-10-24" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
 
-									<h5 id="purchase-item__product-name">Giới tính: </h5>
-									<input type="text" name="user_sex" value="<%= user.user.user_sex ?? 'Không rõ' %>" />
-									<hr />
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Giới tính:</h5>
+										</label>
+										<select id="userSex" name="userSex" title="Chọn giới tính">
+											<option value="Nam">Nam</option>
+											<option value="Nữ">Nữ</option>
+										</select>
+										<hr />
+									</div>
 
-									<h5 id="purchase-item__product-name">Email: </h5>
-									<input type="text" name="user_email" value="<%= user.user.user_email ?? 'example@mail.com' %>" />
-									<hr />
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Email:</h5>
+										</label>
+										<input type="text" id="userEmail" name="userEmail" autocomplete="off" placeholder="Nhập email" value="vithihuong384@gmail.com" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
 
-									<h5 id="purchase-item__product-name">Số điện thoại: </h5>
-									<input type="text" name="user_phone" value="<%= user.user.user_phone ?? '0123456789' %>" />
-									<hr />
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Số điện thoại:</h5>
+										</label>
+										<input type="text" id="userPhone" name="userPhone" pattern="[0-9]{10}" autocomplete="off" placeholder="Nhập số điện thoại" value="0987654321" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
 
-									<h5 id="purchase-item__product-name">Địa chỉ: </h5>
-									<input type="text" name="user_address" value="<%= user.user.user_address ?? 'Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh' %>" />
-									<hr />
+									<div class="purchase-item__product-name">
+										<label>
+											<h5>Địa chỉ:</h5>
+										</label>
+										<input type="text" id="userAddress" name="userAddress" autocomplete="off" placeholder="An Bình, Dĩ An, Bình Dương" value="An Bình, Dĩ An, Bình Dương" />
+										<div class="error-message"></div>
+										<hr />
+									</div>
 
 									<div class="popup__button">
 										<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
-										<button class="btn btn--filled pri" type="submit">Lưu</button>
+										<button type="submit" class="btn btn--filled pri" type="button">Lưu</button>
 									</div>
-
 								</div>
 							</div>
+						</div>
 					</form>
 				</div>
 
 			</div>
 			</div>
 		</section>
-
-		<div class="sidebar-account__popup" id="logout-popup">
-			<div class="logout-form">
-				<span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
-				<h1>Đăng xuất</h1>
-				<p>Bạn có chắc chắn muốn đăng xuất không?</p>
-				<img src="/imgs/information/bye.png" alt="Hình ảnh đăng xuất">
-				<button id="confirm-button">Đăng xuất</button>
-				<button id="cancel-button">Hủy</button>
-			</div>
-		</div>
 
 	</main>
 	<%- include('../../partials/app-bar') %>
