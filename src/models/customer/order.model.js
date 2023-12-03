@@ -61,7 +61,7 @@ order.deleteCart = function (customer_id, productsDeleteCart, callback) {
 
 order.insertOrder = function (customer_id, buyerInfo, orderDetails, callback) {
     let insertOrder = `INSERT INTO orders (customer_id, order_name, order_phone, order_delivery_address, order_note, paying_method_id)
-                        VALUES (${customer_id}, '${buyerInfo.order_name}', '${buyerInfo.order_phone}', '${buyerInfo.order_delivery_address}', '${buyerInfo.order_note}', ${buyerInfo.payment_method_id})`
+                        VALUES (${customer_id}, '${buyerInfo.order_name}', '${buyerInfo.order_phone}', '${buyerInfo.order_delivery_address}', '${buyerInfo.order_note}', ${buyerInfo.paying_method_id})`
     
     let insertOrderDetails = `INSERT INTO order_details (order_id, product_variant_id, order_detail_quantity, order_detail_price_before, order_detail_after_before) 
     VALUES (?, ${orderDetails[0].product_variant_id}, ${orderDetails[0].order_detail_quantity}, ${orderDetails[0].order_detail_price_before}, ${orderDetails[0].order_detail_after_before}})`
@@ -81,7 +81,7 @@ order.insertOrder = function (customer_id, buyerInfo, orderDetails, callback) {
                     console.error(err);
                     callback(1, 0, 0, 0);
                 } else {
-                    callback(0, 1, order.order_id, order.payment_method_id);
+                    callback(0, 1, order.order_id, order.paying_method_id);
                 }
             })
         }
