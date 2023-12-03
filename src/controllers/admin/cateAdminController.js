@@ -1,3 +1,4 @@
+const general = require ('../../models/general.model')
 const cate = require ('../../models/admin/cateAdmin.model') 
 
 const cateAdminController = () => { }
@@ -12,11 +13,24 @@ cateAdminController.getCategories = async (req, res) =>{
     let limit = 10
 
     let categories = await cate.getCategories(searchKey, page, limit)
-    console.log(categories)
+    let formatFunction = await general.formatFunction()
+
     res.status(200).render('admin/pages/cate_admin',{
         title: title,
         admin: admin,
         data: categories,
+        formatFunction: formatFunction, 
+    })
+}
+
+cateAdminController.addCategories = async (req, res) =>{
+    const title = 'QUẢN LÝ DANH MỤC SẢN PHẨM'
+    // lấy từ khóa searchKey=?
+    let admin = req.admin
+
+    res.status(200).render('admin/pages/cate_view_admin',{
+        title: title,
+        admin: admin,
     })
 }
 

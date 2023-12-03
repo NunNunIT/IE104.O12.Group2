@@ -2,8 +2,32 @@
 @import url("/styles/pages/account/information.css");
 
 
+.error {
+    display: flex;
+    /* color: var(--red);
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translateY(-0%);
+    pointer-events: none;
+    transition: 0.4s; */
+}
+
+  
 .purchase-item__product-detail hr {
     opacity: 1;
+}
+
+#userSex {
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#userBirth {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    gap: 12px;
+    padding: 0;
 }
 .popup__button {
     display: flex;
@@ -20,17 +44,16 @@
     color: white;
 }
 
- .purchase-item__product-detail input[type="text"] {
+ .purchase-item__product-detail input, select {
     height: 40px; 
     font-size: 16px;
-    text-indent: 8px;
     outline-color: var(--primary-color-1);
   }
 
   .purchase-item__product-detail input {
-   
+    padding: 8px;
+    width: 60%;
     border-radius: 8px;
-    color: var(--del-gray);
 }
 
 
@@ -38,6 +61,12 @@
 #purchase-item__product-name {
     margin-bottom: 12px;
 }
+
+.error-message {
+    color: red;
+    font-size: 13px;
+}
+
 
 @media only screen and (max-width: 26rem){
 
@@ -47,9 +76,13 @@
         font-size: 14px !important;
     }
 
-    input[type="text"] {
+    .purchase-item__product-detail input { 
         font-size: 14px;
       }
+
+      #userSex {
+        font-size: 0.875rem;
+    }
 
     button {
         height: 42px !important;

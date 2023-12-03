@@ -2,6 +2,7 @@ const { promisify } = require('util')
 const index = require('../../models/customer/index.model')
 const order = require('../../models/customer/order.model')
 const general = require('../../models/general.model')
+const account = require('../../models/customer/account.model')
 
 const orderController = () => { }
 
@@ -30,59 +31,92 @@ orderController.cart = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
 	let detailCart = await order.getDetailCart(customer_id)
+	let formatFunction = await general.formatFunction()
 
 	res.render('./pages/order/cart', {
 		header: header,
 		user: header_user,
 		detailCart: detailCart,
-		toCurrency: general.toCurrency,
+		formatFunction: formatFunction,
 	})
 }
 
 // [POST] /order/cart/delete
-orderController.cartDelete = async (req, res) => {
-
+orderController.deleteCart = async (req, res) => {
+	let customer_id = req.user.customer_id
 	console.log(req.body)
+	let productsDeleteCart = req.body
+
+	order.deleteCart(customer_id, productsCartDelete, function (err, success) {
+		if (success) {
+			return res.status(200).json({
+				status: 'success',
+			})
+		} else {
+			return res.status(404).json({
+				status: 'error',
+			})
+		}
+	})
 }
 
 // [GET] /order/information
 orderController.information = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
-	let information = req.body
-	console.log(req.body)
-	console.log(information)
-
+	let formatFunction = await general.formatFunction()
 
 	res.render('./pages/order/information', {
 		header: header,
 		user: header_user,
+		formatFunction: formatFunction,
 	})
 }
 
 // [POST] /order/information
 orderController.informationPost = async (req, res) => {
-	console.log(req.body.product_variant_id)
+	console.log(req.body.orderInformation)
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
+	let formatFunction = await general.formatFunction()
 
-	res.render('./pages/order/information', {
-		header: header,
-		user: header_user,
-	})
-}
+	let customer_id = req.user.customer_id
+	let buyerInfo = req.body.orderInformation.buyerInfo
+	let orderDetails = req.body.orderInformation.orderDetail
 
-// [GET] /order/transaction
-orderController.transaction = async (req, res) => {
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
+	order.insertOrder(customer_id, buyerInfo, orderDetails, async (err, success, order_id, payment_method_id) => {
+		if (err) {
+			return res.status(404).json({
+				status: 'error',
+			})
+		} else {
+			let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
 
-	const title = 'Thanh toán'
+			order.deleteCart(customer_id, orderDetails, function (err, success) { })
 
-	res.render('./pages/order/transaction', {
-		header: header,
-		user: header_user,
-		title,
+			if (payment_method_id == 1) {
+				res.render('./pages/order/atm', {
+					header: header,
+					user: header_user,
+					formatFunction: formatFunction,
+					purchase: purchase,
+				})
+			} else if (payment_method_id == 2) {
+				res.render('./pages/order/atm', {
+					header: header,
+					user: header_user,
+					formatFunction: formatFunction,
+					purchase: purchase,
+				})
+			} else {
+				res.render('./pages/order/momo', {
+					header: header,
+					user: header_user,
+					formatFunction: formatFunction,
+					purchase: purchase,
+				})
+			}
+		}
 	})
 }
 

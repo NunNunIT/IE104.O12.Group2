@@ -63,7 +63,6 @@ a {
     width: 100%;
 }
 
-/*  */
 .purchase-item__product-detail h5 {
     display: inline !important;
     margin-right: 10px;
@@ -73,14 +72,14 @@ a {
     display: inline !important;
   }
 
-  #purchase-item__product-name {
+  .purchase-item__product-name {
 	margin-bottom: 8px;
   }
   
   .purchase-item__product-detail hr {
 	opacity: 0;
     width: calc(100% - 15px); /* Điều chỉnh chiều rộng của hr */
-    margin: 1px 0 20px 0 !important;
+    margin: 1px 0 12px 0 !important;
 
   }
   
@@ -170,9 +169,9 @@ a {
         font-size: 14px;
     }
 
-	.purchase-item__product-detail>h5 + span {
-        font-size: 14px;
-    }
+	.purchase-item__product-name {
+		font-size: 0.875rem;
+	}
 
 	button {
 		height: 42px;

@@ -12,19 +12,20 @@ siteController.index = async (req, res) => {
     let outstandingProducts = await general.getOutstandingProducts(req)
     let newProducts = await general.getNewProducts(req)
     let discountProducts = await general.getDiscountProducts(req)
+    let formatFunction = await general.formatFunction()
 
-    res.render('./pages/site/index', {
+    res.status(200).render('./pages/site/index', {
         header: header,
         user: header_user,
         outstandingProducts: outstandingProducts,
         newProducts: newProducts,
         discountProducts: discountProducts,
+        formatFunction: formatFunction,
     })
 }
 
 //[GET] /about-us
 siteController.aboutUs = async (req, res) => {
-    // Tất cả trang đều chạy cái này
     let header_user = await index.header_user(req)
     let header = await index.header(req)
 

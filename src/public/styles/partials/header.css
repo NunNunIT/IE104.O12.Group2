@@ -531,7 +531,6 @@ img.dropdown-cart__img--empty {
 }
 
 .header__menu .menu__cate:hover+.header__cate-dropdown .header__cate-dropdown-wrapper:first-of-type .cate-dropdown__content {
-    width: 63%;
     display: flex;
 }
 
@@ -632,7 +631,7 @@ img.dropdown-cart__img--empty {
     flex-direction: column;
     position: fixed;
     left: 26%;
-    top: 110%;
+    top: 108%;
 }
 
 .cate-dropdown__item:hover {

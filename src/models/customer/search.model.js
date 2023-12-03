@@ -5,7 +5,7 @@ const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model');
 const index = require('../../models/customer/index.model')
 
-const search = function () { }
+const search = function () {}
 
 search.findProductsBySearchKey = async (req, limit = 24) => {
     // lấy từ khóa searchKey=?
@@ -19,7 +19,7 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     } else if (req.query.hotProduct || req.query.newProduct) {
         getProductsSQL += ` ORDER BY`
         if (req.query.hotProduct) {
-        getProductsSQL += ` product_variant_is_bestseller DESC, product_view_count DESC`
+            getProductsSQL += ` product_variant_is_bestseller DESC, product_view_count DESC`
         } else if (req.query.newProduct) {
             getProductsSQL += ` product_lastdate_added DESC`
         }
@@ -56,7 +56,7 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     let start = (page - 1) * limit
 
     getProductsSQL += ` LIMIT ${start}, ${limit}`
-    
+
     return new Promise((resolve, reject) => {
         db.query(getProductsSQL, (err, products) => {
             if (err) {
@@ -64,11 +64,16 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
                 resolve(0)
             }
 
-            products = general.productCurrencyFormat(products).then(products => {
-                let productList = {products, searchKey, totalRow, totalPage, page, limit}
-                resolve(productList)
-            })
-          
+            let productList = {
+                products,
+                searchKey,
+                totalRow,
+                totalPage,
+                page,
+                limit
+            }
+            resolve(productList)
+
         })
     })
 }
@@ -108,10 +113,16 @@ search.findProductsByCateId = async (req, limit = 24) => {
                 resolve(0)
             }
 
-            products = general.productCurrencyFormat(products).then(products => {
-                let productList = {products, category_id, category_name, totalRow, totalPage, page, limit }
+                let productList = {
+                    products,
+                    category_id,
+                    category_name,
+                    totalRow,
+                    totalPage,
+                    page,
+                    limit
+                }
                 resolve(productList)
-            })
 
         })
     })
