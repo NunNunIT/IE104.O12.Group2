@@ -5,7 +5,7 @@ const index = require('../models/customer/index.model')
 const order = require('../models/customer/order.model')
 const general = require('../models/general.model')
 
-const generalController = () => {}
+const generalController = () => { }
 
 // [GET] /general/product_variant_info?product_variant_id=x
 generalController.getProductVariantInfo = async (req, res) => {

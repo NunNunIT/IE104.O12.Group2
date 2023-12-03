@@ -211,48 +211,59 @@ if (cartDataString.length) {
     let orderProductContent = document.querySelector('.order-product__content')
 
     cartDataString.forEach(product => {
-        console.log(product)
         let elementHidden = document.createElement('div')
-        elementHidden.classList.add('product', 'mobile-hidden')
-        elementHidden.innerHTML = `
-        <div class="product__view order-product__col-big">
-            <img src="/imgs/slider/1.jpg" alt="">
-            <p>Túi Đeo Chéo Hình Mèo Lucifer...</p>
-        </div>
 
-        <div class="order-product__col">
-            <p>Gấu dâu</p>
-        </div>
+        fetch(`/general/product_variant_info?product_variant_id=${product.product_variant_id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.productVariantInfo)
+                let productId = data.productVariantInfo[0].product_id ?? 'null'
+                let productAvtImg = data.productVariantInfo[0].product_avt_img ?? 'null'
+                let productName = data.productVariantInfo[0].product_name ?? 'null'
+                let productVariantName = data.productVariantInfo[0].product_variant_name ?? 'null'
+                let productQuantity = product.product_quantity
 
-        <div class="order-product__col">
-            <p><del>160.000đ</del> 80.000đ</p>
-        </div>
+                elementHidden.classList.add('product', 'mobile-hidden')
+                elementHidden.innerHTML = `
+                    <div class="product__view order-product__col-big">
+                        <img src="/imgs/product_image/${productId}/${productAvtImg}" alt="${productName}">
+                        <p>${productName}</p>
+                    </div>
 
-        <div class="order-product__col">
-            <p>2</p>
-        </div>
+                    <div class="order-product__col">
+                        <p>${productVariantName}</p>
+                    </div>
 
-        <div class="product__price order-product__col">
-            <p>80.000đ</p>
-        </div>
-        `
+                    <div class="order-product__col">
+                        <p><del>160.000</del> 80.000</p>
+                    </div>
 
-        let elementDisplay = document.createElement('div')
-        elementDisplay.classList.add('product', 'mobile-display')
-        elementDisplay.innerHTML = `
-        <img src="/imgs/slider/1.jpg" alt="">
-        <div class="product__content">
-            <p class="product__name">Túi Đeo Chéo Hình Mèo Lucifer...</p>
-            <p class="product__variant">Phân loại: Gấu dâu</p>
-            <div>
-                <p class="product__unit-price"><del>160.000đ</del> 80.000đ</p>
-                <p class="product__quantity">Số lượng: 1</p>
-            </div>
-        </div>
-        `
+                    <div class="order-product__col">
+                        <p>${productQuantity}</p>
+                    </div>
 
-        orderProductContent.appendChild(elementHidden)
-        orderProductContent.appendChild(elementDisplay)
+                    <div class="product__price order-product__col">
+                        <p>80.000</p>
+                    </div>
+                    `
+
+                let elementDisplay = document.createElement('div')
+                elementDisplay.classList.add('product', 'mobile-display')
+                elementDisplay.innerHTML = `
+                    <img src="/imgs/product_image/${productId}/${productAvtImg}" alt="${productName}">
+                    <div class="product__content">
+                        <p class="product__name">${productName}</p>
+                        <p class="product__variant">Phân loại: ${productVariantName}</p>
+                        <div>
+                            <p class="product__unit-price"><del>160.000</del> 80.000</p>
+                            <p class="product__quantity">Số lượng: ${productQuantity}</p>
+                        </div>
+                    </div>
+                    `
+
+                orderProductContent.appendChild(elementHidden)
+                orderProductContent.appendChild(elementDisplay)
+            })
     })
 
 }
