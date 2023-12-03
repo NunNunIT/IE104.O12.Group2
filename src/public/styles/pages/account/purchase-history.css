@@ -92,6 +92,123 @@ a {
 	width: 15%;
 }
 
+/*popup*/
+.purchase-cancel__popup {
+	display: none;
+	position: fixed;
+	padding-top: 32px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+	overflow-y: auto;
+}
+
+.purchase-cancel__popup__main {
+	position: relative;
+	background-color: #FAFAFA;
+	border-radius: 8px;
+	margin: auto;
+	width: 40%;
+}
+
+.purchase-cancel__popup .close-btn {
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	color: var(--primary-color-1);
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.purchase-cancel__popup .close-btn:hover {
+	color: var(--primary-color-2);
+	cursor: pointer;
+}
+
+.close-btn .material-symbols-outlined {
+	font-variation-settings:
+		'FILL' 1
+}
+
+.purchase-cancel__popup__img {
+	object-fit: contain;
+	width: 100%;
+	border-radius: 8px;
+}
+
+.purchase-cancel__popup__content-main {
+	display: flex;
+	padding: 32px;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.purchase-cancel__popup--top {
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+.purchase-cancel__popup .purchase-cancel__popup__title {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.purchase-cancel__popup .purchase-cancel__popup__sub-title {
+	font-size: 1.125rem;
+	font-weight: 500;
+}
+
+.purchase-cancel__popup p {
+	margin-bottom: 6px;
+}
+
+.purchase-cancel__popup__content-title {
+	display: flex;
+	flex-direction: column;
+}
+
+.purchase-cancel__popup .popup__note {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	border: 0.5px solid var(--fire-orange);
+	padding: 24px 16px;
+	border-radius: 4px;
+	background-color: var(--yellow-light);
+}
+
+.purchase-cancel__popup .cancel-reasons {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin: 12px 8px 0;
+}
+
+.purchase-cancel__popup .cancel-reason__item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.purchase-cancel__popup input[type='radio'] {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	vertical-align: middle;
+}
+
+.purchase-cancel__popup .button {
+	margin-top: 24px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 4px;
+}
+
+
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
 	.purchase__status {

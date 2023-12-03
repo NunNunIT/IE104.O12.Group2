@@ -17,21 +17,33 @@
 	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Lịch sử đơn mua', link : '/account/purchase' }, { text : 'Chi tiết đơn mua', link : '' }] }) %>
 
 	<main class="account-container">
-		<!-- side-bar -->
 		<%- include("../../components/sidebar_account") %>
 
 		<section class="purchase-detail__main">
 			<div class="purchase-detail--top">
 				<div class="purchase-detail__info">
 					<h4>Chi tiết đơn hàng:</h4>
-					<p id="purchase-detail__id">#DH0001</p>
+					<p id="purchase-detail__id">#DH00<%= purchaseHistory.order_id ?? 'NaN' %></p>
 				</div>
-				<p class="purchase-detail__status">Đã nhận hàng</p>
+				<div class="purchase-detail__status-container">
+					<span class="material-symbols-outlined">
+						<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+						cancel
+						<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+						payment
+						<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
+						done_all
+						<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
+						local_shipping
+						<% } %>
+					</span>
+					<p class="purchase-detail__status"><%= purchaseHistory.order_status ?? 'NaN' %></p>
+				</div>
 			</div>
 			<div class="purchase-detail__date-time">
 				<p>Đặt lúc:</p>
-				<p id="purchase-detail__time">11:11</p>
-				<p id="purchase-detail__date">05/11/2023</p>
+				<p id="purchase-detail__time"><%= formatFunction.toHHMM(new Date(purchaseHistory.order_date)) ?? 'NaN' %></p>
+				<p id="purchase-detail__date"><%= formatFunction.toDDMMYYYY(new Date(purchaseHistory.order_date)) ?? 'NaN' %></p>
 			</div>
 			<div class="purchase-detail__order-info">
 				<div class="purchase-detail__order-info__user">
@@ -41,15 +53,15 @@
 					</h5>
 					<div class="purchase-detail__order-info__user-detail">
 						<span class="order-info__label">Người nhận:</span>
-						<p id="user-detail__name">Phan Nguyễn Hải Yến</p>
+						<p id="user-detail__name"><%= purchaseHistory.order_name ?? 'NaN' %></p>
 					</div>
 					<div class="purchase-detail__order-info__user-detail">
 						<span class="order-info__label">Số điện thoại:</span>
-						<p id="user-detail__phone">0795849949</p>
+						<p id="user-detail__phone"><%= purchaseHistory.order_phone ?? 'NaN' %></p>
 					</div>
 					<div class="purchase-detail__order-info__user-detail">
 						<span class="order-info__label">Địa chỉ:</span>
-						<p id="user-detail__address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh.</p>
+						<p id="user-detail__address"><%= purchaseHistory.order_delivery_address ?? 'NaN' %></p>
 					</div>
 				</div>
 				<div class="purchase-detail__order-info__payment">
@@ -57,7 +69,7 @@
 						<span class="material-symbols-outlined">credit_card</span>
 						<span>HÌNH THỨC THANH TOÁN</span>
 					</h5>
-					<p id="order-info__payment-detail">Thanh toán qua thẻ tín dụng</p>
+					<p id="order-info__payment-detail"><%= purchaseHistory.paying_method_name ?? 'NaN'%></p>
 				</div>
 			</div>
 			<div class="purchase-detail__bill">
@@ -65,22 +77,23 @@
 					<span class="material-symbols-outlined">local_mall</span>
 					<span>THÔNG TIN SẢN PHẨM</span>
 				</h5>
-				<%- include('../../components/purchase-detail-item')%>
+				<% let totalAmount = 0; %>
+				<% purchaseHistory.order_details.forEach(purchaseDetail => { %>
+				<%- include('../../components/purchase-detail-item', { purchaseDetail: purchaseDetail, toCurrency: formatFunction.toCurrency }) %>
+				<% totalAmount += parseFloat(purchaseDetail.order_detail_price_after); %>
+				<% }) %>
 				<div class="purchase-detail__order-price">
 					<p>
-						<span>Tạm tính:</span>
-						<span id="temp-amount">23.600.000đ</span>
-					</p>
-					<p>
 						<span>Thành tiền:</span>
-						<span id="total-amount">23.600.000đ</span>
+						<span id="total-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
 					<p class="purchase-detail__final">
 						<span>Số tiền đã thanh toán:</span>
-						<span id="paid-amount">23.600.000đ</span>
+						<span id="paid-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
 				</div>
 				<div class="purchase-detail__button">
+					<% if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
 					<!-- nút hủy khi status là "Chờ thanh toán" -->
 					<a href="#">
 						<div class="btn btn--outlined pri cancel">Hủy</div>
@@ -92,24 +105,21 @@
 						<div class="btn btn--filled pri">Thanh toán</div>
 					</a>
 					<!-- end -->
-
-					<!-- nút đánh giá khi status là "Hoàn thành" -->
-					<a href="#">
-						<div class="btn btn--filled pri">Đánh giá</div>
-					</a>
-					<!-- end -->
-
-					<!-- nút đánh giá khi status là "Hoàn thành" và đã đánh giá-->
-					<a href="#">
-						<div class="btn btn--filled pri">Xem Đánh giá</div>
-					</a>
-					<!-- end -->
-
+					<% } %>
+					<% if (purchaseHistory.order_status === 'Đang giao hàng') { %>
 					<!-- nút đánh giá khi status là "Đang giao hàng"-->
 					<a href="#">
 						<div class="btn btn--filled pri disable">Đánh giá</div>
 					</a>
 					<!-- end -->
+					<% } %>
+					<% if (purchaseHistory.order_status === 'Hoàn thành') { %>
+					<!-- nút đánh giá khi status là "Hoàn thành"-->
+					<a href="#">
+						<div class="btn btn--filled pri">Đánh giá</div>
+					</a>
+					<!-- end -->
+					<% } %>
 				</div>
 			</div>
 		</section>
@@ -119,7 +129,7 @@
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>
 
-	<!-- <script src="/scripts/account/purchase.js"></script> -->
+	<script src="/scripts/pages/account/purchaseDetail.js"></script>
 
 </body>
 

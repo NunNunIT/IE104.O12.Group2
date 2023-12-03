@@ -51,12 +51,6 @@ hr {
 	gap: 4px;
 }
 
-.purchase-detail__status {
-	color: var(--green);
-	font-weight: 500;
-	font-size: 1.125rem;
-}
-
 .purchase-detail__status p {
 	font-size: 1.125rem;
 }
@@ -174,6 +168,7 @@ hr {
 .purchase-detail__element--left {
 	display: flex;
 	align-items: flex-start;
+	align-items: center;
 	gap: 12px;
 }
 
@@ -258,6 +253,12 @@ small {
 	color: var(--dollar-red);
 }
 
+.purchase-detail__button .btn.btn--outlined.pri.cancel:hover {
+	border-color: var(--dollar-red);
+	background-color: var(--dollar-red);
+	color: white;
+}
+
 .purchase-detail__button .btn.btn--filled.pri.disable {
 	background-color: var(--dark7);
 }
@@ -265,6 +266,38 @@ small {
 .purchase-detail__button .btn.btn--filled.pri.disable:hover {
 	cursor: default;
 	box-shadow: none;
+}
+
+.purchase-detail__status-container {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+}
+
+.purchase-detail__status {
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.purchase-detail__status-container.cancel {
+	color: var(--dollar-red2);
+}
+
+.purchase-detail__status-container.finished {
+	color: var(--green);
+}
+
+.purchase-detail__status-container.delivering {
+	color: var(--primary-color-2);
+}
+
+.purchase-detail__status-container.unpaid {
+	color: var(--dark7);
+}
+
+.purchase-detail__img {
+	object-fit: contain;
+	width: 20%;
 }
 
 

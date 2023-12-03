@@ -38,6 +38,7 @@
     --dollar-red: #D0021C;
     --dollar-red2: #EA4C2D;
     --fire-orange: #FF9F40;
+    --yellow-light: #ffefdf;
     --dark-blue: #114A91;
 
     --scroll-thumb: #828282;
@@ -296,11 +297,11 @@ ul li {
 .btn-white {
     --bs-btn-color: var(--dark7);
     --bs-btn-bg: #fff;
-    --bs-btn-border-color: rgba(231,234,243,.7);
+    --bs-btn-border-color: rgba(231, 234, 243, .7);
     --bs-btn-hover-color: #2f6ad9;
     --bs-btn-hover-bg: #fff;
-    --bs-btn-hover-border-color: rgba(231,234,243,.7);
-    --bs-btn-focus-shadow-rgb: rgba(140,152,164,.25);
+    --bs-btn-hover-border-color: rgba(231, 234, 243, .7);
+    --bs-btn-focus-shadow-rgb: rgba(140, 152, 164, .25);
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #2c64cc;
     --bs-btn-active-border-color: #295ebf;

@@ -4,7 +4,7 @@
 			<h5>Đơn hàng:</h5>
 			<p id="purchase-item__id">#DH<%= order.order_id ?? 'null' %></p>
 		</div>
-		<p class="purchase-item__date">Ngày mua: <%= toDDMMYYYY(new Date(order.order_date)) ?? '01/01/01' %></p>
+		<p class="purchase-item__date">Ngày mua: <%= formatFunction.toDDMMYYYY(new Date(order.order_date)) ?? '01/01/01' %></p>
 	</div>
 	<hr />
 	<div class="purchase-item__main">
