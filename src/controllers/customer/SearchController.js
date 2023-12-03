@@ -9,6 +9,7 @@ const searchController = () => { }
 searchController.results = async (req, res) => {
     let header = await index.header(req)
     let header_user = await index.header_user(req)
+    let formatFunction = await general.formatFunction()
 
     let productListResults = 0
 
@@ -22,6 +23,7 @@ searchController.results = async (req, res) => {
         header: header,
         user: header_user,
         productListResults: productListResults,
+        formatFunction: formatFunction,
     })
 }
 
@@ -30,6 +32,7 @@ searchController.detail = async (req, res) => {
     let product_variant_id = req.params.product_variant_id
     let header = await index.header(req)
     let header_user = await index.header_user(req)
+    let formatFunction = await general.formatFunction()
 
     let productInfo = await product.getProductInfo(product_variant_id)
     let productImgs = await product.getProductImgs(product_variant_id)
@@ -38,7 +41,7 @@ searchController.detail = async (req, res) => {
     let productFeedbacks = await product.getProductFeedbacks(product_variant_id)
     let cateProducts = await general.getCateProducts(req, product_variant_id, 8)
 
-    res.render('./pages/search/detail', {
+    res.status(200).render('./pages/search/detail', {
         user: header_user,
         header: header,
         product_variant_id: product_variant_id,
@@ -48,7 +51,7 @@ searchController.detail = async (req, res) => {
         productDetails: productDetails,
         productFeedbacks: productFeedbacks,
         cateProducts: cateProducts,
-        toDDMMYYYY: general.toDDMMYYYY
+        formatFunction: formatFunction,
     })
 }
 

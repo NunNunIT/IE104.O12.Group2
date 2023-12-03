@@ -20,6 +20,7 @@ router.get('/dashboard/getChart', adminMiddleware.isLoggedIn, dashboardAdminCont
 router.get('/', adminMiddleware.isLoggedIn, dashboardAdminController.getDashboard)
 
 // admin cate management
+router.get('/categories_admin/add', adminMiddleware.isLoggedIn, cateAdminController.addCategories)
 router.get('/categories_admin', adminMiddleware.isLoggedIn, cateAdminController.getCategories)
 // router.get('/categories_admin/delete/:id', adminMiddleware.isLoggedIn, adminController.deleteCategory)
 // router.get('/orders_admin', adminMiddleware.isLoggedIn, adminController.getOrders)

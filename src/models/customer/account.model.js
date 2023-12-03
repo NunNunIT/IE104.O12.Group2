@@ -54,7 +54,6 @@ account.getPurchaseHistory = async (customer_id, order_status, order_id) => {
     getPurchaseHistorys += ` ORDER BY order_date DESC`
 
     let purchaseHistorys = await query(getPurchaseHistorys)
-        purchaseHistorys = await general.purchaseCurrencyFormat(purchaseHistorys)
 
     return new Promise(async (resolve, reject) => {
         const promises = [];
@@ -75,7 +74,6 @@ account.getDetailPurchaseHistorys = async (order_id) => {
     let detailPurchaseHistorys = await query(getDetailPurchaseHistorys)
 
     return new Promise(async (resolve, reject) => {
-        detailPurchaseHistorys = await general.purchaseDetailCurrencyFormat(detailPurchaseHistorys)
         resolve(detailPurchaseHistorys);
     })
 }

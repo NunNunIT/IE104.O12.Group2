@@ -28,7 +28,12 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb breadcrumb-no-gutter">
                                             <li class="breadcrumb-item"><a class="breadcrumb-link"
-                                                    href="./ecommerce-products.html" previewlistener="true">Sản phẩm</a>
+                                                    href="/admin/categories_admin" previewlistener="true">Sản phẩm</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <span class="material-symbols-rounded">
+                                                    chevron_right
+                                                </span>
                                             </li>
                                             <li class="breadcrumb-item active" aria-current="page">Thêm sản phẩm</li>
                                         </ol>
@@ -44,105 +49,108 @@
 
                         <div class="row">
                             <div class="col-lg-8 mb-3 mb-lg-0">
-                                <!-- Card -->
-                                <div class="card mb-3 mb-lg-5">
-                                    <!-- Header -->
-                                    <div class="card-header">
-                                        <h4 class="card-header-title">Thông tin sản phẩm</h4>
-                                    </div>
-                                    <!-- End Header -->
-
-                                    <!-- Body -->
-                                    <div class="card-body">
-                                        <!-- Form -->
-                                        <div class="mb-4">
-                                            <label for="productNameLabel" class="form-label">Tên sản phẩm <i
-                                                    class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top"
-                                                    aria-label="Products are the goods or services you sell."></i></label>
-
-                                            <input type="text" class="form-control" name="productName"
-                                                id="productNameLabel" placeholder="Shirt, t-shirts, etc."
-                                                aria-label="Shirt, t-shirts, etc." value="Tiro track jacket">
+                                <div class="main-form">
+                                    <!-- Card -->
+                                    <div class="card mb-3 mb-lg-5">
+                                        <!-- Header -->
+                                        <div class="card-header">
+                                            <h4 class="card-header-title">Thông tin sản phẩm</h4>
                                         </div>
-                                        <!-- End Form -->
+                                        <!-- End Header -->
 
-                                        <!-- Form -->
-                                        <div class="mb-4">
-                                            <label for="categoryLabel-ts-control" class="form-label"
-                                                id="categoryLabel-ts-label">Thuộc loại danh mục</label>
+                                        <!-- Body -->
+                                        <div class="card-body">
+                                            <!-- Form -->
+                                            <div class="mb-4">
+                                                <label for="productNameLabel" class="form-label">Tên sản phẩm <i
+                                                        class="bi-question-circle text-body ms-1"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        aria-label="Products are the goods or services you sell."></i></label>
 
-                                            <!-- Select -->
-                                            <div class="tom-select-custom">
-                                                <select class="js-select form-select tomselected ts-hidden-accessible"
-                                                    autocomplete="off" id="categoryLabel" data-hs-tom-select-options="{
+                                                <input type="text" class="form-control" name="productName"
+                                                    id="productNameLabel" placeholder="Shirt, t-shirts, etc."
+                                                    aria-label="Shirt, t-shirts, etc." value="Tiro track jacket">
+                                            </div>
+                                            <!-- End Form -->
+
+                                            <!-- Form -->
+                                            <div class="mb-4">
+                                                <label for="categoryLabel-ts-control" class="form-label"
+                                                    id="categoryLabel-ts-label">Thuộc loại danh mục</label>
+
+                                                <!-- Select -->
+                                                <div class="tom-select-custom">
+                                                    <select
+                                                        class="js-select form-select tomselected ts-hidden-accessible"
+                                                        autocomplete="off" id="categoryLabel"
+                                                        data-hs-tom-select-options="{
                                               &quot;searchInDropdown&quot;: false,
                                               &quot;hideSearch&quot;: true,
                                               &quot;placeholder&quot;: &quot;Select category&quot;
                                             }" tabindex="-1">
 
-                                                    <option value="Shoes">Shoes</option>
-                                                    <option value="Electronics">Electronics</option>
-                                                    <option value="Others">Others</option>
-                                                    <option value="Clothing">Clothing</option>
-                                                </select>
+                                                        <option value="Shoes">Shoes</option>
+                                                        <option value="Electronics">Electronics</option>
+                                                        <option value="Others">Others</option>
+                                                        <option value="Clothing">Clothing</option>
+                                                    </select>
+                                                </div>
+                                                <!-- End Select -->
                                             </div>
-                                            <!-- End Select -->
-                                        </div>
-                                        <!-- Form -->
+                                            <!-- Form -->
 
-                                        <label class="form-label">Mô tả sản phẩm </label>
+                                            <label class="form-label">Mô tả sản phẩm </label>
 
-                                        <!-- Quill -->
-                                        <div class="quill-custom">
-                                            <div class="ql-toolbar ql-snow"><span class="ql-formats">
-                                                    <button type="button" class="ql-bold">
-                                                        <span class="material-symbols-outlined">
-                                                            format_bold
-                                                        </span>
-                                                    </button>
-                                                    <button type="button" class="ql-italic">
-                                                        <span class="material-symbols-outlined">
-                                                            format_italic
-                                                        </span>
-                                                    </button>
-                                                    <button type="button" class="ql-underline">
-                                                        <span class="material-symbols-outlined">
-                                                            format_underlined
-                                                        </span>
-                                                    </button>
-                                                    <button type="button" class="ql-strike">
-                                                        <span class="material-symbols-outlined">
-                                                            format_strikethrough
-                                                        </span>
-                                                    </button><button type="button" class="ql-link">
-                                                        <span class="material-symbols-outlined">
-                                                            link
-                                                        </span>
-                                                    </button>
-                                                    <button type="button" class="ql-image">
-                                                        <span class="material-symbols-outlined">
-                                                            image
-                                                        </span>
-                                                    </button>
-                                                    <button type="button" class="ql-blockquote">
-                                                        <span class="material-symbols-outlined">
-                                                            format_quote
-                                                        </span>
-                                                    </button>
-                                                    <button type="button" class="ql-code">
-                                                        <span class="material-symbols-outlined">
-                                                            code
-                                                        </span>
-                                                    </button><button type="button" class="ql-list" value="bullet">
-                                                        <span class="material-symbols-outlined">
-                                                            list
-                                                        </span>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                            <div class="js-quill ql-container ql-snow hs-quill-initialized"
-                                                style="height: 15rem;" data-hs-quill-options="{
+                                            <!-- Quill -->
+                                            <div class="quill-custom">
+                                                <div class="ql-toolbar ql-snow"><span class="ql-formats">
+                                                        <button type="button" class="ql-bold">
+                                                            <span class="material-symbols-outlined">
+                                                                format_bold
+                                                            </span>
+                                                        </button>
+                                                        <button type="button" class="ql-italic">
+                                                            <span class="material-symbols-outlined">
+                                                                format_italic
+                                                            </span>
+                                                        </button>
+                                                        <button type="button" class="ql-underline">
+                                                            <span class="material-symbols-outlined">
+                                                                format_underlined
+                                                            </span>
+                                                        </button>
+                                                        <button type="button" class="ql-strike">
+                                                            <span class="material-symbols-outlined">
+                                                                format_strikethrough
+                                                            </span>
+                                                        </button><button type="button" class="ql-link">
+                                                            <span class="material-symbols-outlined">
+                                                                link
+                                                            </span>
+                                                        </button>
+                                                        <button type="button" class="ql-image">
+                                                            <span class="material-symbols-outlined">
+                                                                image
+                                                            </span>
+                                                        </button>
+                                                        <button type="button" class="ql-blockquote">
+                                                            <span class="material-symbols-outlined">
+                                                                format_quote
+                                                            </span>
+                                                        </button>
+                                                        <button type="button" class="ql-code">
+                                                            <span class="material-symbols-outlined">
+                                                                code
+                                                            </span>
+                                                        </button><button type="button" class="ql-list" value="bullet">
+                                                            <span class="material-symbols-outlined">
+                                                                list
+                                                            </span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                                <div class="js-quill ql-container ql-snow hs-quill-initialized"
+                                                    style="height: 15rem;" data-hs-quill-options="{
                                        &quot;placeholder&quot;: &quot;Type your description...&quot;,
                                         &quot;modules&quot;: {
                                           &quot;toolbar&quot;: [
@@ -150,52 +158,56 @@
                                           ]
                                         }
                                        }">
-                                                <div class="ql-editor ql-blank" data-gramm="false"
-                                                    contenteditable="true" data-placeholder="Type your description..."
-                                                    spellcheck="false">
-                                                    <p><br></p>
+                                                    <div class="ql-editor ql-blank" data-gramm="false"
+                                                        contenteditable="true"
+                                                        data-placeholder="Type your description..." spellcheck="false">
+                                                        <p><br></p>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!-- End Quill -->
                                         </div>
-                                        <!-- End Quill -->
+                                        <!-- Body -->
                                     </div>
-                                    <!-- Body -->
-                                </div>
-                                <!-- End Card -->
+                                    <!-- End Card -->
 
-                                <!-- Card -->
-                                <div class="card mb-3 mb-lg-5">
-                                    <!-- Header -->
-                                    <div class="card-header card-header-content-between">
-                                        <h4 class="card-header-title">Ảnh</h4>
-                                    </div>
-                                    <!-- End Header -->
+                                    <!-- Card -->
+                                    <div class="card mb-3 mb-lg-5">
+                                        <!-- Header -->
+                                        <div class="card-header card-header-content-between">
+                                            <h4 class="card-header-title">Ảnh</h4>
+                                        </div>
+                                        <!-- End Header -->
 
-                                    <!-- Body -->
-                                    <div class="card-body">
-                                        <!-- Dropzone -->
-                                        <div id="attachFilesNewProjectLabel"
-                                            class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable">
-                                            <div class="dz-message">
-                                                <img class="avatar avatar-xl avatar-4x3 mb-3"
-                                                    src="./assets/svg/illustrations/oc-browse.svg"
-                                                    alt="Image Description" data-hs-theme-appearance="default">
-                                                <img class="avatar avatar-xl avatar-4x3 mb-3"
-                                                    src="./assets/svg/illustrations-light/oc-browse.svg"
-                                                    alt="Image Description" data-hs-theme-appearance="dark">
+                                        <!-- Body -->
+                                        <div class="card-body">
+                                            <!-- Dropzone -->
+                                            <div id="attachFilesNewProjectLabel"
+                                                class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable">
+                                                <div class="dz-message">
+                                                    <img class="img-upload" src="/imgs/admin/img-upload.svg"
+                                                        alt="Image Description" data-hs-theme-appearance="default">
 
-                                                <h5>Drag and drop your file here</h5>
+                                                    <h5>Kéo và thả hình ảnh tại đây</h5>
 
-                                                <p>or</p>
+                                                    <p>hoặc</p>
 
-                                                <span class="btn btn-white btn-sm">Browse files</span>
+                                                    <div class="dz-message-btn">
+                                                        <span class="btn-admin btn-white"><span
+                                                                class="material-symbols-rounded">
+                                                                upload
+                                                            </span>
+                                                            <p>Tải file lên tại đây</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <!-- End Dropzone -->
                                         </div>
-                                        <!-- End Dropzone -->
+                                        <!-- Body -->
                                     </div>
-                                    <!-- Body -->
+                                    <!-- End Card -->
                                 </div>
-                                <!-- End Card -->
 
                                 <!-- Card -->
                                 <div class="card">
@@ -252,80 +264,62 @@
                     </div>
                     <!-- End Col -->
 
-                    
-                                <!-- Card -->
-                                <div class="card">
-                                    <!-- Header -->
-                                    <div class="card-header">
-                                        <h4 class="card-header-title">Chi tiết sản phẩm</h4>
-                                    </div>
-                                    <!-- End Header -->
 
-                                    <!-- Body -->
-                                    <div class="card-body">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
+                    <!-- Card -->
+                    <div class="card">
+                        <!-- Header -->
+                        <div class="card-header">
+                            <h4 class="card-header-title">Chi tiết sản phẩm</h4>
+                        </div>
+                        <!-- End Header -->
 
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-
-                                    <!-- Container For Input Field -->
-                                    <div id="addAnotherOptionFieldContainer"></div>
-
-                                    <a href="javascript:;" class="js-create-field form-link">
-                                        <i class="bi-plus"></i> Add another option
-                                    </a>
-                                </div>
-
-                                <!-- Add Another Option Input Field -->
-                                <div id="addAnotherOptionFieldTemplate" style="display: none;">
-                                    <div class="row mb-4">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
-
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-                                </div>
-                                <!-- End Add Another Option Input Field -->
+                        <!-- Body -->
+                        <div class="card-body">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Enter tags"
+                                    aria-label="Enter tags">
                             </div>
-                            <!-- Body -->
-                        </div>
-                        <!-- End Card -->
-                    </div>
-                    <!-- End Col -->
 
-
-    <div class="position-fixed start-50 bottom-0 translate-middle-x w-100 zi-99 mb-3" style="max-width: 40rem;">
-        <!-- Card -->
-        <div class="card card-sm bg-dark border-dark mx-2">
-            <div class="card-body">
-                <div class="row justify-content-center justify-content-sm-between">
-                    <div class="col-auto">
-                        <div class="d-flex gap-3">
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Enter tags"
+                                    aria-label="Enter tags">
+                            </div>
+                            <!-- End Col -->
                         </div>
+                        <!-- End Row -->
+
+                        <!-- Container For Input Field -->
+                        <div id="addAnotherOptionFieldContainer"></div>
+
+                        <a href="javascript:;" class="js-create-field form-link">
+                            <i class="bi-plus"></i> Add another option
+                        </a>
                     </div>
-                    <!-- End Col -->
-                </div>
-                <!-- End Row -->
-            </div>
-        </div>
-        <!-- End Card -->
+
+                    <!-- Add Another Option Input Field -->
+                    <div id="addAnotherOptionFieldTemplate" style="display: none;">
+                        <div class="row mb-4">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Enter tags"
+                                    aria-label="Enter tags">
+                            </div>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Enter tags"
+                                    aria-label="Enter tags">
+                            </div>
+                            <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                    </div>
+                    <!-- End Add Another Option Input Field -->
     </div>
+    <!-- Body -->
+    </div>
+    <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
     </div>
     </main>
     <!-- End Main -->
