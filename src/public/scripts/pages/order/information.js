@@ -8,8 +8,7 @@ function validateName(event) {
     if (nameRegex.test(name.value) == false) {
         name.nextElementSibling.style.display = 'block'
         isNameValid = false
-    }
-    else {
+    } else {
         name.nextElementSibling.style.display = 'none'
         isNameValid = true
     }
@@ -27,8 +26,7 @@ function validatePhoneNumber(event) {
     if (vnPhoneNumberRegex.test(phoneNumber.value) == false) {
         phoneNumber.nextElementSibling.style.display = 'block'
         isPhoneNumberValid = false
-    }
-    else {
+    } else {
         phoneNumber.nextElementSibling.style.display = 'none'
         isPhoneNumberValid = true
     }
@@ -44,12 +42,12 @@ const orderForm = document.querySelector('#order-form')
 orderForm.addEventListener('submit', (event) => {
     event.preventDefault()
     if (isNameValid && isPhoneNumberValid == true)
+
         orderForm.submit()
 })
 
 // Select địa chỉ
-const districtsAndWardsHCMC = [
-    {
+const districtsAndWardsHCMC = [{
         district: "Quận 1",
         wards: ["Phường Bến Thành", "Phường Cầu Kho", "Phường Cầu Ông Lãnh", "Phường Cô Giang", "Phường Đa Kao"]
     },
@@ -91,8 +89,7 @@ const districtsAndWardsHCMC = [
     }
 ]
 
-const districtsAndWardsVungTau = [
-    {
+const districtsAndWardsVungTau = [{
         district: "Quận 1",
         wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
     },
@@ -147,15 +144,13 @@ function changeProvince(event) {
             option.value = item.district
             districtDatalist.appendChild(option)
         })
-    }
-    else if (event.currentTarget.value == 'Vũng Tàu') {
+    } else if (event.currentTarget.value == 'Vũng Tàu') {
         districtsAndWardsVungTau.forEach(item => {
             let option = document.createElement('option')
             option.value = item.district
             districtDatalist.appendChild(option)
         })
-    }
-    else {
+    } else {
         clearWard()
     }
 }
@@ -173,8 +168,7 @@ function changeDistrict(event) {
             option.value = ward
             wardDatalist.appendChild(option)
         })
-    }
-    else if (provinceValue == 'Vũng Tàu') {
+    } else if (provinceValue == 'Vũng Tàu') {
         districtsAndWardsVungTau.find(ele => ele.district == districtValue).wards.forEach(ward => {
             let option = document.createElement('option')
             option.value = ward
@@ -187,18 +181,17 @@ function submitOrderForm(event) {
     event.preventDefault()
     const orderForm = document.querySelector('#order-form')
 
-    const radios = orderForm.querySelectorAll('.pay-method__choose div input')
-    console.log(radios)
-    let radioValue
-    radios.forEach(radio => {
-        if (radio.checked == true)
-            radioValue = radio.value
-    })
+    // const radios = orderForm.querySelectorAll('.pay-method__choose div input')
+    // console.log(radios)
+    // let radioValue
+    // radios.forEach(radio => {
+    //     if (radio.checked == true)
+    //         radioValue = radio.value
+    // })
 
-    orderForm.action = `/order/${radioValue}`
-
-    console.log(orderForm.action)
-    orderForm.submit()
+    // orderForm.action = `/order/${radioValue}`
+    // console.log(orderForm.action)
+    fetchOrderPost()
 }
 
 const toCurrency = function (money) {
@@ -300,4 +293,58 @@ if (cartDataString.length) {
                 orderPay.innerHTML = toCurrency(totalOrderPay)
             })
     })
+}
+
+// fetch POST to payment
+
+const fetchOrderPost = function () {
+    const order_name = document.querySelector('input[name="buyerName"]').value
+    const order_phone = document.querySelector('input[name="buyerPhone"]').value
+    const order_province = document.querySelector('input[name="province"]').value
+    const order_district = document.querySelector('input[name="district"]').value
+    const order_ward = document.querySelector('input[name="ward"]').value
+    const order_address = document.querySelector('input[name="address"]').value
+    // const buyerAddress = document.querySelector('input[name="address"]').value
+    const paying_method_id = getSelectedValue()
+
+    const orderInfo = {
+        order_name: order_name,
+        order_phone: order_phone,
+        order_delivery_address: order_address + ' ' + order_ward + ' ' + order_district + ' ' + order_province,
+        order_note : '',
+        paying_method_id : paying_method_id
+    }
+
+    const orderInformation = {
+        orderInfo: orderInfo,
+        orderDetails: cartDataString,
+    }
+
+    console.log(`TrongJS `, orderInformation)
+
+    fetch ('/order/information', {
+        method: 'POST',
+        body: JSON.stringify(orderInformation),
+        headers: { 'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(back => {
+        if (back.status === 'error') {
+            window.alert('Vui lòng thử lại sau')
+        } else if (back.status === 'success') {
+            window.location.href = `http://localhost:3000/order/payment?paying_method_id=${back.paying_method_id}&order_id=${back.order_id}`
+        }
+    })
+}
+
+function getSelectedValue() {
+    var radioButtons = document.getElementsByName('pay-method');
+
+    for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            var selectedValue = radioButtons[i].value;
+            console.log("Selected Value: " + selectedValue);
+            return selectedValue;
+        }
+    }
 }
