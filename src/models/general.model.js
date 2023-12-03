@@ -234,6 +234,24 @@ general.getCateProducts = async (req, product_variant_id, limit = 8) => {
     })
 }
 
+general.getProductVariant = async (product_variant_id) => {
+    // let params = req.params.product_variant_id
+    let product_id = await general.getProductId(product_variant_id)
+
+    let getProductVariant = `SELECT * FROM view_product_variants WHERE product_variant_id = ${product_variant_id}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getProductVariant, (err, productVariant) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(productVariant)
+            }
+        })
+    })
+}
+
 general.getVariantProducts = async (product_variant_id) => {
     // let params = req.params.product_variant_id
     let product_id = await general.getProductId(product_variant_id)
