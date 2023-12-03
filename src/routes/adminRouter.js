@@ -16,9 +16,11 @@ router.get('/logout', adminMiddleware.checkUnAuth, authAdminController.getLogout
 
 // admin dashboard
 router.get('/dashboard', adminMiddleware.isLoggedIn, dashboardAdminController.getDashboard)
+router.get('/dashboard/getChart', adminMiddleware.isLoggedIn, dashboardAdminController.getChart)
 router.get('/', adminMiddleware.isLoggedIn, dashboardAdminController.getDashboard)
 
 // admin cate management
+router.get('/categories_admin/add', adminMiddleware.isLoggedIn, cateAdminController.addCategories)
 router.get('/categories_admin', adminMiddleware.isLoggedIn, cateAdminController.getCategories)
 // router.get('/categories_admin/delete/:id', adminMiddleware.isLoggedIn, adminController.deleteCategory)
 // router.get('/orders_admin', adminMiddleware.isLoggedIn, adminController.getOrders)

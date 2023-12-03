@@ -1,21 +1,40 @@
-const dashboard = require ('../../models/admin/dashboardAdmin.model') 
+const dashboard = require('../../models/admin/dashboardAdmin.model')
+const general = require('../../models/general.model')
 
 const dashboardController = () => { }
 
 // [GET] admin/dashboard OR admin/
-dashboardController.getDashboard = async (req, res) =>{
+dashboardController.getDashboard = async (req, res) => {
     const title = 'DASHBOARD'
     let admin = req.admin
     let summary = await dashboard.getSummary()
-    res.status(200).render('./admin/pages/admin', {
+    res.status(200).render('./admin/pages/dashboard_admin', {
         admin: admin,
         title: title,
         summary: summary,
+        toCurrency: general.toCurrency,
+    })
+}
+
+dashboardController.getChart = async (req, res) => {
+    // let chartTop5 = ''
+    // let chartRevenue = ''
+
+    let chartTop5 = await dashboard.getChartTop5()
+    let chartRevenue = await dashboard.getChartRevenue()
+
+    console.log('-----------', chartTop5, chartRevenue)
+
+    return res.json({
+        status: 'success',
+        chartTop5Data: chartTop5,
+        chartRevenueData: chartRevenue,
+        toCurrency: general.toCurrency,
     })
 }
 
 // [GET] /categories_admin/searchkey=?&page=?
-dashboardController.getCategory = async (req, res) =>{
+dashboardController.getCategory = async (req, res) => {
     const title = 'QUẢN LÝ DANH MỤC SẢN PHẨM'
     // lấy từ khóa searchKey=?
     let searchKey = req.query.searchKey
@@ -70,13 +89,13 @@ dashboardController.getCategory = async (req, res) =>{
 }
 
 // [POST] /categories_admin/delete/:id
-dashboardController.deleteCategory = async (req, res) =>{
+dashboardController.deleteCategory = async (req, res) => {
 
 }
 
 
 // [GET] /category
-dashboardController.getOrders = async (req, res) =>{
+dashboardController.getOrders = async (req, res) => {
     const title = 'QUẢN LÝ ĐƠN HÀNG';
     const sql = 'SELECT * FROM view_dashboard';
     res.render('admin/pages/orders_admin', {

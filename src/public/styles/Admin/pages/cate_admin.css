@@ -4,7 +4,7 @@
 @import url("/styles/admin/components/pagination.css");
 
 body {
-  background-color: var(--bg-white);
+  background-color: var(--white);
   color: var(--black);
 }
 
@@ -66,24 +66,26 @@ body {
 .main-container .filterEntries {
   display: flex;
   justify-content: space-between;
+  gap: 0.5em;
+  margin-top: 0.5rem;
   align-items: center;
   background: var(--white);
-  border-radius: 4px 4px 0 0;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid var(--dark8);
+  border-bottom: none;
   padding: 8px 8px 12px 8px;
 }
 
 .search {
   position: relative;
   display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--dark8) ;
 }
 
 .searchTerm {
-  border: 1px solid var(--dark7);
-  padding: 5px;
-  border-radius: 0 5px 5px 0;
+  padding: 8px;
   outline: none;
-  color: var(--dark5);
-  height: 36px;
 }
 
 .searchTerm:focus {
@@ -91,15 +93,14 @@ body {
 }
 
 .searchButton {
+  background: transparent;
   width: 40px;
-  height: 36px;
-  background: var(--blue5);
   text-align: center;
-  padding: 4px;
-  color: var(--bg-white);
+  color: gray;
   border-radius: 5px 0 0 5px;
   cursor: pointer;
   font-size: 20px;
+  height: 1.5;
 }
 
 .main-container .feature {
@@ -125,47 +126,20 @@ body {
   padding: 4px;
 }
 
-.feature-btn.downloadBtn {
-  background-color: var(--green5);
-
-}
-
-.feature-btn.downloadBtn:hover {
-  background-color: var(--green7);
-}
-
-
-.feature-btn.addBtn {
-  background-color: var(--blue5);
-
-}
-
-.feature-btn.addBtn:hover {
-  background-color: var(--blue7);
-}
-
-.feature .deleteBtn {
-  background-color: var(--red5);
-
-}
-
-.feature .deleteBtn:hover {
-  background-color: var(--red7);
-}
-
-.main-container .table-display .table-reponsive{
+.main-container .table-display .table-reponsive {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
+  border: 1px solid var(--dark8);
 }
 
 .table-reponsive .heading {
-  background: var(--dark4);
+  background:  var(--primary-color-4);
   color: var(--white);
 }
 
 .table-reponsive .heading th:hover {
-  background: var(--dark6);
+  background: #677788;
 }
 
 .table-reponsive tr th {
@@ -175,6 +149,7 @@ body {
 
 .table-reponsive tr th:nth-child(1),
 .table-reponsive tr th:nth-child(2),
+.table-reponsive tr th:nth-child(4),
 .table-reponsive tr th:nth-child(8) {
   text-align: center;
   padding: 0px 8px;
@@ -193,7 +168,8 @@ body {
 }
 
 .table-reponsive tr td:nth-child(1),
-.table-reponsive tr td:nth-child(2) {
+.table-reponsive tr td:nth-child(2),
+.table-reponsive tr td:nth-child(4) {
   padding: 0px 8px;
   text-align: center;
 }
@@ -201,6 +177,12 @@ body {
 .table-reponsive tr td:nth-child(2),
 .table-reponsive tr td:nth-child(3) {
   font-weight: 500;
+}
+
+.table-reponsive tr td:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .table-reponsive tbody tr td img {
@@ -241,22 +223,6 @@ table td button {
   outline: none;
   border-radius: 4px;
   background: transparent;
-}
-
-table td button:first-child {
-  background: var(--green5);
-}
-
-table td button:first-child:hover {
-  background: var(--green7);
-}
-
-table td button:last-child {
-  background: var(--red5);
-}
-
-table td button:last-child:hover {
-  background: var(--red7);
 }
 
 table tbody tr .empty {
@@ -391,7 +357,7 @@ table tbody tr .empty {
 
 .imgholder .img {
   width: 100%;
-  height: 100%; 
+  height: 100%;
 }
 
 form .inputFieldContainer .name-field {
@@ -467,21 +433,33 @@ input::-webkit-outer-spin-button {
 }
 
 @media only screen and (max-width: 48rem) {
-  .table-display{
-    overflow-y:scroll;
+  .table-display {
+    overflow-y: scroll;
   }
-  
-  .table-display .table-reponsive{
+
+  .table-display .table-reponsive {
     width: 80rem;
+  }
+
+  .filterEntries {
+    flex-direction: column-reverse;
+  }
+
+  .option-button-group {
+    width: 100%;
+  }
+
+  .search {
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 26rem) {
-  .feature-btn{
+  .feature-btn {
     padding: 6px 4px 6px 4px;
   }
 
-  .feature-btn p{
+  .feature-btn p {
     display: none;
   }
 
@@ -490,18 +468,212 @@ input::-webkit-outer-spin-button {
     padding: 12px;
   }
 
-  .table-display .table-reponsive{
+  .table-reponsive {
     margin-bottom: 70px;
-    margin-top: 70px;
-  }
-
-  .main-container .filterEntries{
-    position: fixed;
-    top: 70px;
-    right: 0;
-    width: 100%;
+    width: 60rem!important;
   }
 }
 
+.main-header {
+  border-bottom: 0.0625rem solid rgba(231, 234, 243, .7);
+}
 
+.main-header-title {
+  margin-bottom: 0.5rem;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.row>* {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  /* width: 100%; */
+  /* max-width: 100%; */
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y);
+}
+
+.text-dark {
+  color: #1e2022 !important;
+}
+
+.badge {
+  line-height: normal;
+}
+
+.bg-soft-dark {
+  background-color: rgba(19, 33, 68, .1) !important;
+}
+
+.text-dark {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+}
+
+.ms-2 {
+  margin-left: 0.5rem !important;
+}
+
+.badge {
+  --bs-badge-padding-x: 0.65em;
+  --bs-badge-padding-y: 0.35em;
+  --bs-badge-font-size: 0.75em;
+  --bs-badge-font-weight: 700;
+  --bs-badge-color: #fff;
+  --bs-badge-border-radius: 0.3125rem;
+  display: inline-block;
+  padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+  font-size: var(--bs-badge-font-size);
+  font-weight: var(--bs-badge-font-weight);
+  line-height: 1;
+  color: var(--bs-badge-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--bs-badge-border-radius);
+}
+
+.text-body {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity)) !important;
+}
+
+.main-header-tabs {
+  margin-bottom: -2rem;
+  border-bottom-width: 0;
+}
+
+.nav {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-color: #132144;
+  --bs-nav-link-hover-color: #1366ff;
+  --bs-nav-link-disabled-color: #bdc5d1;
+  display: -ms-flexbox;
+  display: flex;
+  /* height: 70px; */
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.export-import {
+  display: flex;
+}
+
+.export-import>a {
+  width: auto;
+  text-decoration: none;
+  padding: 0 1rem 0 0;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-item {
+  /* height: 100%; */
+  padding: 0.5rem 1rem;
+}
+
+.nav-item .nav-link {
+  color: gray;
+}
+
+.nav-item.active {
+  border-bottom: 5px solid var(--primary-color-1);
+
+}
+
+.nav-item.active .nav-link {
+  color: var(--primary-color-1);
+  font-weight: 600;
+}
+
+
+body a {
+  text-decoration: none;
+}
+
+.option-button-group {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.table .btn {
+  white-space: nowrap;
+}
+
+.dropdown-menu{
+  list-style: none;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  color: black;
+}
+
+.dropdown-menu li span {
+  /* text-decoration: none; */
+  /* font-size: 16px; */
+  /* display: block; */
+  color: black;
+}
+
+.dropdown-menu> li {
+  float: left;
+  position: relative;
+}
+
+.dropdown-menu > li > ul.dropdown_menu_list {
+  position: absolute;
+  list-style: none;
+  display: none;
+  top: 48px;
+  right: 0;
+  width: 150px;
+  background: #fff;
+  background-clip: padding-box;
+  border: 0 solid var(--bs-border-color-translucent);
+  border-radius: 0.5rem;
+}
+
+.dropdown_menu_list li{
+  padding: 1rem
+}
+
+.dropdown-menu > li:hover > ul.dropdown_menu_list {
+  z-index: 100;
+  display: block;
+}
+
+.dropdown-menu-toggle {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid gray;
+  color: var(--dark-8);
+}
+
+.dropdown-menu-toggle span{
+  color: var(--dark-8);
+}
 

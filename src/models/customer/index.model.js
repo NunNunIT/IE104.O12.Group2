@@ -27,7 +27,6 @@ index.getShortCart = async (customer_id) => {
     let getShortCart = `SELECT * FROM view_cart WHERE customer_id = ${customer_id}`;
     let shortCart = await query(getShortCart)
 
-    shortCart = await general.productCurrencyFormat(shortCart)
     return(shortCart);
 };
 
@@ -40,12 +39,11 @@ index.getNoti = async (user_id) => {
 index.header_user = async (req) => {
     if (req.user) {
         let user = req.user
-        let countCart = await index.getCountCart(req.user.customer_id)
         let shortCarts = await index.getShortCart(req.user.customer_id)
         let noti = await index.getNoti(req.user.user_id)
         let headers = {
             user,
-            countCart,
+            countCart : shortCarts.length,
             shortCarts,
             noti,
         }
