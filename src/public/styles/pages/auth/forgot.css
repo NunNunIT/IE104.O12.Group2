@@ -14,7 +14,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: var(--dark7);
+    color: var(--dark7)
 }
 
 *,
@@ -64,7 +64,7 @@ input[type="number"] {
 
 main {
     width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     overflow: hidden;
     background-color: var(--bg-white);
     padding: 2rem;
@@ -348,6 +348,94 @@ label {
 
 
 
+  form .reset__sign-in-form {
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    .reset__sign-btn:hover {
+        background-color: var(--primary-color-2);
+    }
+
+    .reset__input-field {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #bbb;
+        padding: 0;
+        font-size: 0.95rem;
+        color: var(--black);
+        transition: 0.4s;
+        }
+        
+        .reset__input-field.active {
+        border-bottom-color: var(--black);
+        }
+        
+        .reset__input-field.active+label {
+        font-size: 0.95rem;
+        top: -2px;
+        }
+        
+        .reset__sign-btn {
+        display: inline-block;
+        width: 100%;
+        height: 43px;
+        background-color: var(--primary-color-1);
+        color: var(--white);
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        transition: 0.3s;
+        }
+
+        .reset__input-wrap {
+            position: relative;
+            height: 37px;
+            margin-bottom: 2rem;
+            }
+            
+        .reset__input-wrap .reset__error {
+            color: var(--red);
+            font-size: 0.8rem;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            transform: translateY(-0%);
+            pointer-events: none;
+            transition: 0.4s;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -443,7 +531,15 @@ label {
         font-size: 1.2rem;
     }
 
-    /* form {
-        /* padding: 1rem 2rem 1.5rem;
-    } */
+    body, input {
+        font-size: 0.875rem;
+    }
+
+    .input-wrap {
+        height: 60px;
+    }
+
+    input[type="number"] {
+        height: 4rem;
+    }
 }

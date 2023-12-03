@@ -1,5 +1,5 @@
-/*popup*/
-.popup {
+/*popup-warranty*/
+.popup-warranty {
     display: none;
     position: fixed;
     padding-top: 64px;
@@ -13,7 +13,7 @@
     overflow-y: auto;
 }
 
-.popup .material-symbols-outlined {
+.popup-warranty .material-symbols-outlined {
     font-variation-settings:
         'FILL' 1,
         'wght' 300,
@@ -21,7 +21,7 @@
         'opsz' 24
 }
 
-.popup .material-symbols-outlined:hover {
+.popup-warranty .material-symbols-outlined:hover {
     color: var(--primary-color-2);
 }
 
@@ -70,12 +70,12 @@
     justify-content: space-between;
 }
 
-.popup .popup__title {
+.popup-warranty .popup__title {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.popup .popup__subtitle {
+.popup-warranty .popup__subtitle {
     margin: 4px 0;
 }
 
