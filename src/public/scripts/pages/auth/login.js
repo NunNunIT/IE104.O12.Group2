@@ -119,8 +119,6 @@ const validateInput = () => {
         setSuccess(password);
     }
 
-    console.log('His', history.back())
-
     if (isAllValid) {
         const login = {
             phoneNumber: phoneNumber.value.trim(),
@@ -133,14 +131,15 @@ const validateInput = () => {
                 "Content-Type": "application/json"
             }
         }).then (res => res.json()).then (back => {
+            console.log(back)
             if (back.status == "error"){
                 setError(phoneNumber, back.error);
             }
             else if (back.status == "error2") {
                 setError(password, back.error);
             }
-            else {
-                window.location.href ='/'
+            else if (back.status == "success") {
+                window.location.href = "/"
             }   
         })
     }

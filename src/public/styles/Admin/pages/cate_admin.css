@@ -196,6 +196,10 @@ body {
   text-align: center;
 }
 
+.table-reponsive tr td:last-child .dropdown-menu{
+  display: inline-block;
+}
+
 .table-reponsive tr td:nth-child(2),
 .table-reponsive tr td:nth-child(3) {
   font-weight: 500;
@@ -275,7 +279,11 @@ table tbody tr .empty {
   }
 
   .table-display .table-reponsive {
-    width: 80rem;
+    width: 60rem!important;
+  }
+
+  .table-display::-webkit-scrollbar {
+    display: none;
   }
 
   .filterEntries {
@@ -521,8 +529,8 @@ a.admin-a {
   display: block;
 }
 
-.dropdown-menu-toggle span{
+/* .dropdown-menu-toggle span{
   color: var(--dark-8);
   padding: 2rem;
-}
+} */
 

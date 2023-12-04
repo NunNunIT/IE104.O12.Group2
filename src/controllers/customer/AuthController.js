@@ -38,7 +38,7 @@ authController.login = async (req, res) => {
 
 // [POST] /login
 authController.submitLogin = async (req, res) => {
-    auth.loginPost(req, function (err, nonePhoneNumber, NotMatchPassword, success, id) {
+    await auth.loginPost(req, function (err, nonePhoneNumber, NotMatchPassword, success, id) {
         if (err) res.render('./pages/site/404-error')
         if (nonePhoneNumber) {
             return res.json({
@@ -70,7 +70,7 @@ authController.submitLogin = async (req, res) => {
                 httpOnly: true,
             }
             res.cookie('userSave', token, cookieOptions)
-            res.json({
+            return res.json({
                 status: 'success',
                 success: 'Bạn đã đăng nhập thành công',
             })
