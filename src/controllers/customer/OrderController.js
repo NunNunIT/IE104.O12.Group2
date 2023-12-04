@@ -146,6 +146,7 @@ orderController.payment = async (req, res) => {
   }
   console.log("&&&&&&&&&&&&&&&&&&&&&&&", purchase[0]);
   console.log("$$$$$$$$$$$$$$$$$$$$$$$", purchase[0].order_details);
+  console.log("----------userx-------------", header_user);
 };
 
 // [GET] /order/atm

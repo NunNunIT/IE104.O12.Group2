@@ -38,56 +38,68 @@
 										<label>
 											<h5>Tên người dùng:</h5>
 										</label>
-										<input type="text" id="userName" name="userName" autocomplete="off" placeholder="Nhập tên" value="Vi Thị Hương" />
+										<div class="userName">
+											<input type="text" id="userName" name="userName" autocomplete="off" placeholder="Nhập tên" value= "<%= user.user.user_name %>" />
+										</div>
 										<div class="error-message"></div>
-										<hr />
+										<!-- <hr /> -->
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label>
 											<h5>Ngày sinh:</h5>
 										</label>
-										<input type="date" id="userBirth" name="userBirth" autocomplete="off" placeholder="Nhập ngày sinh" value="2023-10-24" />
+										<div class="userBirth">
+											<input type="date" id="userBirth" name="userBirth" autocomplete="off" placeholder="Nhập ngày sinh" value="<%= user.user.user_birth %>" />
+										</div>
 										<div class="error-message"></div>
-										<hr />
+										<!-- <hr /> -->
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label>
 											<h5>Giới tính:</h5>
 										</label>
-										<select id="userSex" name="userSex" title="Chọn giới tính">
-											<option value="Nam">Nam</option>
-											<option value="Nữ">Nữ</option>
-										</select>
-										<hr />
+										<div class="userSex">
+											<select id="userSex" name="userSex" title="Chọn giới tính">
+												<option value="Nữ">Nữ</option>
+												<option value="Nam">Nam</option>
+											</select>
+										</div>
+										<!-- <hr /> -->
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label>
 											<h5>Email:</h5>
 										</label>
-										<input type="text" id="userEmail" name="userEmail" autocomplete="off" placeholder="Nhập email" value="vithihuong384@gmail.com" />
+										<div class="userEmail">
+											<input type="text" id="userEmail" name="userEmail" autocomplete="off" placeholder="Nhập email" value="<%= user.user.user_email %>" />
+										</div>
 										<div class="error-message"></div>
-										<hr />
+										<!-- <hr /> -->
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label>
 											<h5>Số điện thoại:</h5>
 										</label>
-										<input type="text" id="userPhone" name="userPhone" pattern="[0-9]{10}" autocomplete="off" placeholder="Nhập số điện thoại" value="0987654321" />
+										<div class="userPhone">
+											<input type="text" id="userPhone" name="userPhone" pattern="[0-9]{10}" autocomplete="off" placeholder="Nhập số điện thoại" value="<%= user.user.user_phone %>" />
+										</div>
 										<div class="error-message"></div>
-										<hr />
+										<!-- <hr /> -->
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label>
 											<h5>Địa chỉ:</h5>
 										</label>
-										<input type="text" id="userAddress" name="userAddress" autocomplete="off" placeholder="An Bình, Dĩ An, Bình Dương" value="An Bình, Dĩ An, Bình Dương" />
+										<div class="userAddress">
+											<input type="text" id="userAddress" name="userAddress" autocomplete="off" placeholder="An Bình, Dĩ An, Bình Dương" value="<%= user.user.user_address %>" />
+										</div>
 										<div class="error-message"></div>
-										<hr />
+										<!-- <hr /> -->
 									</div>
 
 									<div class="popup__button">
