@@ -96,7 +96,6 @@
 							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
 								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
-								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
 							</a>
 							<% }) %>
 						</div>
