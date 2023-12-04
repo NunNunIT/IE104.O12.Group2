@@ -175,7 +175,7 @@
 				</form>
 			</div>
 
-			<div class="detail--bottom default-description">
+			<div class="detail--bottom default">
 				<div class="detail--left">
 					<div class="detail__description description">
 						<div class="description__item">
@@ -241,7 +241,7 @@
 				</div>
 			</div>
 
-			<div class="comments__list">
+			<div class="comments__list default">
 				<% if (productFeedbacks.length) { %>
 				<% productFeedbacks.forEach(feedback => { %>
 				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: toDDMMYYYY }) %>
@@ -249,6 +249,9 @@
 				<div class="comments__pagination">
 					<%- include('../../components/pagination') %>
 				</div>
+				<% if (productFeedbacks.length > 5) { %>
+				<button onclick="showAllComment(event)" class="comment__more-btn" type="button">Xem thêm</button>
+				<% } %>
 				<% } else { %>
 				<img class="comment__not-found" src="/imgs/nothing-result.png" alt="">
 				<h2 class="comment__not-found-noti">Không tìm thấy đánh giá nào!</h2>
