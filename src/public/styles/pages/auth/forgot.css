@@ -76,8 +76,8 @@ main {
 .box {
     position: relative;
     width: 100%;
-    max-width: 720px;
-    height: 450px;
+    max-width: 720px; /*50%*/
+    height: 450px; /*550*/
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
@@ -297,6 +297,11 @@ label {
 }
 
 .Step2 {
+    display: none;
+    flex-direction: column;
+}
+
+.Step3 {
     display: none;
     flex-direction: column;
 }

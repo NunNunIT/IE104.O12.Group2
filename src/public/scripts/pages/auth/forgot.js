@@ -218,12 +218,13 @@ document
     });
   });
 
-const form_otp = document.getElementById("form_otp");
-form_otp.addEventListener("submit", (e) => {
+const form_reset = document.getElementById("form_otp");
+form_reset.addEventListener("submit", (e) => {
   e.preventDefault();
-  window.location.href = "/auth/reset";
+  document.querySelector("#form_otp").style.display = "none";
+  document.querySelector(".Step3").style.display = "block";
 });
 
-// Thêm "active" vào side-menu__ele 
-const appbar__element = document.querySelectorAll('.side-menu__ele');
-appbar__element[3].classList.add('active');
+// Thêm "active" vào side-menu__ele
+const appbar__element = document.querySelectorAll(".side-menu__ele");
+appbar__element[3].classList.add("active");

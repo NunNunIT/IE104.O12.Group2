@@ -20,6 +20,7 @@ a {
 
 .account-container {
     width: 80%;
+    max-width: 1152px;
     padding: 0;
     margin: 24px 0;
     display: flex;

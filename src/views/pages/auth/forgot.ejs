@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </form>
-                <form id="form_otp" action="/" autocomplete="off" method="post">
+                <form id="form_otp" action="/" autocomplete="off">
                     <div class="Step2">
                         <div class="logo_clock">
                             <div class="logo">
@@ -71,28 +71,48 @@
                                         <strong><u> Gửi lại mã OTP</u></strong>
                                     </a>
                                 </div>
-                                
-                                <div class="reset__input-wrap">
-                                    <input id="Password" type="password" name="Password" class="reset__input-field" autocomplete="off" />
-                                    <label>Mật khẩu mới<span style="color:red">*</span></label>
-                                    <span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
-                                            visibility</span>
-                                    </span>
-                                    <div class="reset__error"></div>
-                                </div>
-        
-                                <div class="reset__input-wrap">
-                                    <input id="ConfirmPassword" type="password" name="Password" class="reset__input-field" autocomplete="off" />
-                                    <label>Xác nhận mật khẩu mới<span style="color:red">*</span></label>
-                                    <span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
-                                            visibility</span>
-                                    </span>
-                                    <div class="reset__error"></div>
-                                </div>
                                 <input type="submit" value="Xác nhận" class="forgot__sign-btn" />
                                 <div class="back">
                                     <a href="/auth/login">Hủy</a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form id="form_reset" action="/" autocomplete="off" method="post">
+                    <div class="Step3">
+                        <div class="logo_clock">
+                            <div class="logo">
+                                <a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
+                            </div> 
+                            <!-- <div class="clock" id="countdown">
+                            <span id="timer"></span>
+                            </div> -->
+                        </div> 
+                        <div class="reset__main">
+                            <div class="heading">
+                                <h2>Đặt lại mật khẩu</h2>
+                            </div>
+                            <div class="reset__input-wrap">
+                                <input id="Password" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+                                <label>Mật khẩu mới<span style="color:red">*</span></label>
+                                <span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+                                        visibility</span>
+                                </span>
+                                <div class="reset__error"></div>
+                            </div>
+                            
+                            <div class="reset__input-wrap">
+                                <input id="ConfirmPassword" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+                                <label>Xác nhận mật khẩu mới<span style="color:red">*</span></label>
+                                <span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+                                        visibility</span>
+                                </span>
+                                <div class="reset__error"></div>
+                            </div>
+                            <input type="submit" value="Xác nhận" class="reset__sign-btn" />
+                            <div class="back">
+                                <a href="/auth/login">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -108,6 +128,7 @@
     <%- include('../../partials/app-bar') %>
 
     <script src="/scripts/pages/auth/forgot.js"></script>
+    <script src="/scripts/pages/auth/reset.js"></script>
     <script src="https://unpkg.com/gsap@3.9.1"></script>
 
 </body>
