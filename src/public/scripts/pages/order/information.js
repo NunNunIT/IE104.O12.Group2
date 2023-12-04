@@ -48,67 +48,67 @@ orderForm.addEventListener('submit', (event) => {
 
 // Select địa chỉ
 const districtsAndWardsHCMC = [{
-        district: "Quận 1",
-        wards: ["Phường Bến Thành", "Phường Cầu Kho", "Phường Cầu Ông Lãnh", "Phường Cô Giang", "Phường Đa Kao"]
-    },
-    {
-        district: "Quận 2",
-        wards: ["Phường An Phú", "Phường Bình An", "Phường Bình Khánh", "Phường Bình Trưng Đông", "Phường Bình Trưng Tây"]
-    },
-    {
-        district: "Quận 3",
-        wards: ["Phường 7", "Phường 8", "Phường 9", "Phường 10", "Phường 11"]
-    },
-    {
-        district: "Quận 4",
-        wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
-    },
-    {
-        district: "Quận 5",
-        wards: ["Phường 14", "Phường 15", "Phường 16", "Phường 17", "Phường 18"]
-    },
-    {
-        district: "Quận 6",
-        wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
-    },
-    {
-        district: "Quận 7",
-        wards: ["Phường Tân Thuận Đông", "Phường Tân Thuận Tây", "Phường Tân Kiểng", "Phường Tân Hưng", "Phường Bình Thuận"]
-    },
-    {
-        district: "Quận 8",
-        wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
-    },
-    {
-        district: "Quận 9",
-        wards: ["Phường Long Bình", "Phường Long Thạnh Mỹ", "Phường Tân Phú", "Phường Hiệp Phú", "Phường Tăng Nhơn Phú A"]
-    },
-    {
-        district: "Quận 10",
-        wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
-    }
+    district: "Quận 1",
+    wards: ["Phường Bến Thành", "Phường Cầu Kho", "Phường Cầu Ông Lãnh", "Phường Cô Giang", "Phường Đa Kao"]
+},
+{
+    district: "Quận 2",
+    wards: ["Phường An Phú", "Phường Bình An", "Phường Bình Khánh", "Phường Bình Trưng Đông", "Phường Bình Trưng Tây"]
+},
+{
+    district: "Quận 3",
+    wards: ["Phường 7", "Phường 8", "Phường 9", "Phường 10", "Phường 11"]
+},
+{
+    district: "Quận 4",
+    wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
+},
+{
+    district: "Quận 5",
+    wards: ["Phường 14", "Phường 15", "Phường 16", "Phường 17", "Phường 18"]
+},
+{
+    district: "Quận 6",
+    wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
+},
+{
+    district: "Quận 7",
+    wards: ["Phường Tân Thuận Đông", "Phường Tân Thuận Tây", "Phường Tân Kiểng", "Phường Tân Hưng", "Phường Bình Thuận"]
+},
+{
+    district: "Quận 8",
+    wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
+},
+{
+    district: "Quận 9",
+    wards: ["Phường Long Bình", "Phường Long Thạnh Mỹ", "Phường Tân Phú", "Phường Hiệp Phú", "Phường Tăng Nhơn Phú A"]
+},
+{
+    district: "Quận 10",
+    wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
+}
 ]
 
 const districtsAndWardsVungTau = [{
-        district: "Quận 1",
-        wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
-    },
-    {
-        district: "Quận 2",
-        wards: ["Phường 6", "Phường 7", "Phường 8", "Phường 9", "Phường 10"]
-    },
-    {
-        district: "Quận 3",
-        wards: ["Phường 11", "Phường 12", "Phường 13", "Phường 14", "Phường 15"]
-    },
-    {
-        district: "Quận 4",
-        wards: ["Phường 16", "Phường 17", "Phường 18", "Phường 19", "Phường 20"]
-    },
-    {
-        district: "Quận 5",
-        wards: ["Phường 21", "Phường 22", "Phường 23", "Phường 24", "Phường 25"]
-    }
+    district: "Quận 1",
+    wards: ["Phường 1", "Phường 2", "Phường 3", "Phường 4", "Phường 5"]
+},
+{
+    district: "Quận 2",
+    wards: ["Phường 6", "Phường 7", "Phường 8", "Phường 9", "Phường 10"]
+},
+{
+    district: "Quận 3",
+    wards: ["Phường 11", "Phường 12", "Phường 13", "Phường 14", "Phường 15"]
+},
+{
+    district: "Quận 4",
+    wards: ["Phường 16", "Phường 17", "Phường 18", "Phường 19", "Phường 20"]
+},
+{
+    district: "Quận 5",
+    wards: ["Phường 21", "Phường 22", "Phường 23", "Phường 24", "Phường 25"]
+}
 ]
 
 // Xóa danh sách quận/huyện
@@ -205,6 +205,7 @@ const toCurrency = function (money) {
 let cartData = localStorage.getItem('formDataArray')
 
 let cartDataString = JSON.parse(cartData)
+console.log(cartDataString)
 
 if (cartDataString.length) {
     let orderProductContent = document.querySelector('.order-product__content')
@@ -304,6 +305,7 @@ const fetchOrderPost = function () {
     const order_district = document.querySelector('input[name="district"]').value
     const order_ward = document.querySelector('input[name="ward"]').value
     const order_address = document.querySelector('input[name="address"]').value
+    const order_note = document.querySelector('textarea[name="note"]').value
     // const buyerAddress = document.querySelector('input[name="address"]').value
     const paying_method_id = getSelectedValue()
 
@@ -311,8 +313,8 @@ const fetchOrderPost = function () {
         order_name: order_name,
         order_phone: order_phone,
         order_delivery_address: order_address + ' ' + order_ward + ' ' + order_district + ' ' + order_province,
-        order_note : '',
-        paying_method_id : paying_method_id
+        order_note: order_note,
+        paying_method_id: paying_method_id,
     }
 
     const orderInformation = {
@@ -320,19 +322,19 @@ const fetchOrderPost = function () {
         orderDetails: cartDataString,
     }
 
-    fetch ('/order/information', {
+    fetch('/order/information', {
         method: 'POST',
         body: JSON.stringify(orderInformation),
-        headers: { 'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
     })
-    .then(res => res.json())
-    .then(back => {
-        if (back.status === 'error') {
-            window.alert('Vui lòng thử lại sau')
-        } else if (back.status === 'success') {
-            window.location.href = `http://localhost:3000/order/payment?paying_method_id=${back.paying_method_id}&order_id=${back.order_id}`
-        }
-    })
+        .then(res => res.json())
+        .then(back => {
+            if (back.status === 'error') {
+                window.alert('Vui lòng thử lại sau')
+            } else if (back.status === 'success') {
+                window.location.href = `http://localhost:3000/order/payment?paying_method_id=${back.paying_method_id}&order_id=${back.order_id}`
+            }
+        })
 }
 
 function getSelectedValue() {
