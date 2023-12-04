@@ -14,7 +14,7 @@
 <body>
 
 	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng', link : '' }, { text : 'Điền thông tin đặt phòng', link : '' }] }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng', link : '' }, { text : 'Điền thông tin đặt hàng', link : '' }] }) %>
 
 	<main class="order-container">
 		<section class="order-product">
@@ -60,6 +60,11 @@
 						<datalist id="ward"> </datalist>
 						<input name="address" type="text" placeholder="Địa chỉ" required>
 					</div>
+				</div>
+
+				<div class="order-detail__note note">
+					<h2>Yêu cầu kèm theo</h2>
+					<textarea class="note__text-area" name="note" placeholder="Hãy nhập yêu cầu kèm theo (tùy chọn)..."></textarea>
 				</div>
 
 				<div class="order-detail__pay-method pay-method">
