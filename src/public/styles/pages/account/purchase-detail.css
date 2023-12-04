@@ -305,10 +305,19 @@ small {
 	.purchase-detail__order-info {
 		grid-template-columns: none;
 	}
+
+	.purchase-detail__order-price p {
+		width: 100%;
+	}
+
+	.order-info__label {
+		font-size: 0.875rem;
+	}
 }
 
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
+
 	.account-container {
 		width: 90%;
 	}
@@ -318,10 +327,6 @@ small {
 	}
 
 	p {
-		font-size: 0.875rem;
-	}
-
-	.order-info__label {
 		font-size: 0.875rem;
 	}
 
@@ -349,10 +354,6 @@ small {
 		font-size: 0.875rem;
 	}
 
-	.purchase-detail__order-price p {
-		width: 100%;
-	}
-
 	small {
 		font-size: 0.75rem;
 	}
@@ -361,5 +362,3 @@ small {
 		gap: 8px;
 	}
 }
-
-@media only screen and (max-width: 40rem) {}

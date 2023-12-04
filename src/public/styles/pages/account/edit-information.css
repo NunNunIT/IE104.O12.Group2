@@ -14,7 +14,50 @@
     transition: 0.4s; */
 }
 
-  
+.userName {
+    width: 50%;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.userBirth {
+    width: 50%;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.userSex {
+    width: 50%;
+    border-bottom: 2px solid #eaeaea;
+    
+}
+
+.userEmail {
+    width: 50%;
+    border-bottom: 2px solid #eaeaea;
+    
+}
+
+.userPhone {
+    width: 50%;
+    border-bottom: 2px solid #eaeaea;
+    
+}
+
+.userAddress {
+    width: 50%;
+    border-bottom: 2px solid #eaeaea;
+    
+}
+
+.purchase-item__product-name {
+    display: flex;
+    flex-direction: row;
+}
+
+.purchase-item__product-name label{
+    display: flex;
+    width: 20%;
+}
+
 .purchase-item__product-detail hr {
     opacity: 1;
 }
@@ -52,7 +95,7 @@
 
   .purchase-item__product-detail input {
     padding: 8px;
-    width: 60%;
+    width: 100%;
     border-radius: 8px;
 }
 

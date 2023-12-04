@@ -73,7 +73,8 @@ a {
   }
 
   .purchase-item__product-name {
-	margin-bottom: 8px;
+	/* margin-bottom: 8px; */
+	padding: 8px;
   }
   
   .purchase-item__product-detail hr {
@@ -91,6 +92,15 @@ a {
 	margin-bottom: 5px;
 }
 
+.purchase-item__product-name {
+    display: flex;
+    flex-direction: row;
+}
+
+.purchase-item__product-name label{
+    display: flex;
+    width: 20%;
+}
 
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
