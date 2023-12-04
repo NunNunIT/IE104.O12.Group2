@@ -121,7 +121,7 @@ orderController.payment = async (req, res) => {
 			purchase: purchase,
 		})
 	} else if (paying_method_id == 2) {
-		res.render('./pages/order/atm', {
+		res.render('./pages/order/credit', {
 			header: header,
 			user: header_user,
 			formatFunction: formatFunction,

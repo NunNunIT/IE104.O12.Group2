@@ -18,6 +18,7 @@
     --primary-color-3: #02e5f6;
     --primary-color-4: #092a3b;
     --primary-color-5: #fbb72c;
+    --primary-color-6: #f09235;
     --white-gray: #f9f9f9;
     --bg-white: #f1f1f1;
     --bg-gray: #f5f6f8;
@@ -204,10 +205,14 @@ ul li {
 }
 
 .btn.btn--filled.sec {
-    background-color: var(--primary-color-5);
+    background-color: var(--primary-color-6);
     color: white;
     font-size: 16px;
     padding: 0 24px 0 24px;
+}
+
+.btn.btn--filled.sec:hover {
+    background-color: orange;
 }
 
 .btn.btn--outlined.pri {
@@ -220,8 +225,8 @@ ul li {
 
 .btn.btn--outlined.sec {
     background-color: white;
-    color: var(--primary-color-5);
-    border: 1px solid var(--primary-color-5);
+    color: var(--primary-color-6);
+    border: 1px solid var(--primary-color-6);
     font-size: 16px;
     padding: 0 24px 0 24px;
 }

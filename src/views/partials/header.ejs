@@ -175,7 +175,7 @@
 						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 						<% } %>
 						<a href="/order/cart" class="btn-cart">
-							<button class="btn btn--filled pri">Xem giỏ hàng</button>
+							<div class="btn btn--filled pri">Xem giỏ hàng</div>
 						</a>
 					</div>
 					<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập -->
@@ -238,7 +238,8 @@
 										<p>(<%= product.product_rate %>)</p>
 									</div>
 									<p class="cate-dropdown__product-name"><%= product.product_name %></p>
-									<p class="cate-dropdown__product-price"><%= product.product_variant_price_currency %>đ<del><% product.discount_amount ? product.product_variant_price_after_discount_currency : '' %></del></p>
+									<% const discountedPriceCate = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+									<p class="cate-dropdown__product-price"><%= formatFunction.toCurrency(product.product_variant_price) %><del><% product.discount_amount ? formatFunction.toCurrency(discountedPriceCate) : '' %></del></p>
 								</a>
 								<% }) %>
 							</div>
