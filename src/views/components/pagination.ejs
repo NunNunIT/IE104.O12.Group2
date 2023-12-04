@@ -1,38 +1,44 @@
 <% if (pagination.totalPage != 1) { %>
 <div class="pagination">
-	<% if (pagination.page != 1) { %>
-	<% if (pagination.searchKey) { %><a href="?page=<%= pagination.page > 2 ? pagination.page - 1 : 1 %>&searchKey=<%= pagination.searchKey %>"><span class="material-symbols-rounded">
-			chevron_left
-		</span></a>
-	<% } else { %><a href="?page=<%= pagination.page > 2 ? pagination.page - 1 : 1 %>"><span class="material-symbols-rounded">
-			chevron_left
-		</span></a>
 
+	<div class="pagination-container">
+		<% if (pagination.page != 1) { %>
+		<% if (pagination.searchKey) { %>
+		<a href="?page=<%= pagination.page > 2 ? pagination.page - 1 : 1 %>&searchKey=<%= pagination.searchKey %>">
+			<span class="material-symbols-rounded"> chevron_left </span>
+		</a>
+		<% } else { %>
+		<a href="?page=<%= pagination.page > 2 ? pagination.page - 1 : 1 %>">
+			<span class="material-symbols-rounded"> chevron_left </span>
+		</a>
+		<% } %>
+		<% } %>
 
-	<% } %>
+		<% for (i = 1; i <= pagination.totalPage; i++) { %>
+		<% if (pagination.searchKey) { %>
+		<a href="?page=<%= i %>&searchKey=<%= pagination.searchKey %>" class="<%= pagination.page == i ? 'active' : '' %>">
+			<%= i %>
+		</a>
+		<% } else { %>
+		<a href="?page=<%= i %>" class="<%= pagination.page == i ? 'active' : '' %>">
+			<%= i %>
+		</a>
+		<% } %>
 
-	<% } %>
-	<% for (i = 1; i <= pagination.totalPage; i++) { %>
-	<% if (pagination.searchKey) { %><a href="?page=<%= i %>&searchKey=<%= pagination.searchKey %>" class="<%= pagination.page == i ? 'active' : '' %>">
-		<%= i %>
-	</a>
-	<% } else { %><a href="?page=<%= i %>" class="<%= pagination.page == i ? 'active' : '' %>">
-		<%= i %>
-	</a>
+		<% } %>
 
+		<% if (pagination.page != pagination.totalPage) { %>
+		<% if (pagination.searchKey) { %>
+		<a href="?page=<%= pagination.page < pagination.totalPage ? pagination.page + 1 : pagination.totalPage %>&searchKey=<%= pagination.searchKey %>">
+			<span class="material-symbols-rounded"> chevron_right </span>
+		</a>
+		<% } else { %>
+		<a href="?page=<%= pagination.page < pagination.totalPage ? pagination.page + 1 : pagination.totalPage %>">
+			<span class="material-symbols-rounded"> chevron_right </span>
+		</a>
+		<% } %>
+		<% } %>
+	</div>
 
-	<% } %>
-
-	<% } %>
-	<% if (pagination.page != pagination.totalPage) { %>
-	<% if (pagination.searchKey) { %><a href="?page=<%= page < pagination.totalPage ? page + 1 : pagination.totalPage %>&searchKey=<%= pagination.searchKey %>"><span class="material-symbols-rounded">
-			chevron_right
-		</span></a>
-	<% } else { %><a href="?page=<%= pagination.page < pagination.totalPage ? pagination.page + 1 : pagination.totalPage %>"><span class="material-symbols-rounded">
-			chevron_right
-		</span></a>
-	<% } %>
-
-	<% } %>
-
-	<% } %>
+</div>
+<% } %>
