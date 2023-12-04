@@ -42,6 +42,7 @@ searchController.detail = async (req, res) => {
     let cateProducts = await general.getCateProducts(req, product_variant_id, 8)
     let notCateProducts = await general.getNotCateProducts(req, product_variant_id, 12)
 
+    console.log(productDetails)
     res.status(200).render('./pages/search/detail', {
         user: header_user,
         header: header,

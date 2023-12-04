@@ -28,13 +28,19 @@
 
 
 				<div class="thanks">
-					Cảm ơn <strong> Anh Lý Phi Lân </strong> đã cho TECHTWO cơ hội được phục vụ.
+					Cảm ơn <strong>
+						<% if (purchase.user_sex === 'Nam') { %>
+							Anh
+						  <% } else { %>
+							Chị
+						  <% } %>
+						<%=purchase.order_name%> </strong> đã cho TECHTWO cơ hội được phục vụ.
 				</div>
 
 				<div class="info-order">
 					<div class="info-order__header--left">
 						<p><strong>ĐƠN HÀNG:</strong></p>
-						<p id="trans__id">#DH0001</p>
+						<p id="trans__id">#DH00<%=purchase.order_id%></p>
 					</div>
 					<!-- <div class="info-order__header">
                         <div class="info-order__header--left">
@@ -48,9 +54,17 @@
                         </div>
                     </div> -->
 					<div class="info-order__bill">
-						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
-						<span>- <strong>Giao đến: </strong><span id="purchase-address">KTX khu A, ĐHQG-HCM, khu phố 6, phường Linh Trung, thành phố Thủ Đức, thành phố Hồ Chí Minh</span></span>
-						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
+						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
+						<span>- <strong>Giao đến: </strong><span id="purchase-address"><%=purchase.order_delivery_address%></span></span>
+						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">
+						<% if (purchase.order_details.length > 0) { %>
+							<% let totalAmount = 0; %>
+							<% purchase.order_details.forEach(detail => { %>
+							  <% totalAmount += detail.order_detail_price_after; %>
+							<% }); %>
+							<%= formatFunction.toCurrency(totalAmount) %>
+						  <% } %>	
+						</span></span>
 					</div>
 				</div>
 
@@ -86,11 +100,19 @@
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Nội dung chuyển khoản:</div>
-							<div class="pay_frame2"><strong>DH0001</strong></div>
+							<div class="pay_frame2"><strong>DH00<%=purchase.order_id%></strong></div>
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tiền:</div>
-							<div class="pay_frame2"><strong>25.500.000đ</strong></div>
+							<div class="pay_frame2"><strong>
+							<% if (purchase.order_details.length > 0) { %>
+								<% let totalAmount = 0; %>
+								<% purchase.order_details.forEach(detail => { %>
+								  <% totalAmount += detail.order_detail_price_after; %>
+								<% }); %>
+								<%= formatFunction.toCurrency(totalAmount) %>
+							  <% } %>
+							</strong></div>
 						</div>
 						<div class="pay_qr"><img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR"></div>
 						<div class="pay_use">
@@ -116,11 +138,19 @@
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Nội dung chuyển khoản:</div>
-							<div class="pay_frame2"><strong>DH0001</strong></div>
+							<div class="pay_frame2"><strong>DH00<%=purchase.order_id%></strong></div>
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tiền:</div>
-							<div class="pay_frame2"><strong>25.500.000đ</strong></div>
+							<div class="pay_frame2"><strong>
+								<% if (purchase.order_details.length > 0) { %>
+									<% let totalAmount = 0; %>
+									<% purchase.order_details.forEach(detail => { %>
+									  <% totalAmount += detail.order_detail_price_after; %>
+									<% }); %>
+									<%= formatFunction.toCurrency(totalAmount) %>
+								  <% } %>
+							</strong></div>
 						</div>
 						<div class="pay_qr"><img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR"></div>
 						<div class="pay_use">

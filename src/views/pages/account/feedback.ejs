@@ -26,7 +26,7 @@
 				<h4 class="product_name"><%= orderDetail.product_name %></h4>
 				<p class="product_variant-name">Phân loại: <%= orderDetail.product_variant_name %></p>
 				<div class="price_quantity">
-					<p class="price"><del><%= orderDetail.order_detail_price_before %></del> <%= orderDetail.order_detail_price_after %></p>
+					<p class="price"><del><%= formatFunction.toCurrency(orderDetail.order_detail_price_before) %></del> <strong><%= formatFunction.toCurrency(orderDetail.order_detail_price_after) %></strong></p>
 					<p class="quantity">x<%= orderDetail.order_detail_quantity %></p>
 				</div>
 
@@ -59,8 +59,8 @@
 			<textarea name="opinion" cols="30" rows="8" placeholder="Đánh giá của bạn..."></textarea>
 			<% }) %>
 			<div class="popup__button">
-				<a href="/account/purchase"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
-				<a href="/account/purchase"><button class="btn btn--filled pri btn-logout" type="button">Gửi đánh giá</button></a>
+				<a href="/account/purchase"><button class="btn btn--outlined sec btn-cancel" type="button">Hủy</button></a>
+				<a href="/account/purchase"><button class="btn btn--filled sec btn-logout" type="button">Gửi đánh giá</button></a>
 			</div>
 		</form>
 	</div>

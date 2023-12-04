@@ -32,7 +32,6 @@ accountController.getEditInformation = async (req, res) => {
 
 //POST /account/edit-information
 accountController.editInformation = async (req, res) => {
-    console.log(req.body)
     await account.updateInfo(req)
 
     res.redirect('/account/information')
@@ -50,8 +49,7 @@ accountController.purchaseHistory = async (req, res) => {
     let formatFunction = await general.formatFunction()
 
     let purchaseHistory = await account.getPurchaseHistory(customer_id, order_status, order_id)
-    console.log('hyhyhyhy', purchaseHistory)
-    
+
     res.render('./pages/account/purchase-history', {
         header: header,
         user: header_user,
@@ -105,21 +103,21 @@ accountController.feedbackPost = async (req, res) => {
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
-    
+
     feedbackBody.forEach(feedback => {
         account.feedbackPost(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
-            if(err) {
-                error = 1 
+            if (err) {
+                error = 1
             }
         })
-    }) 
-    
+    })
+
     if (error) {
-        res.status(404).json ({
+        res.status(404).json({
             status: 'error',
         })
     } else {
-        res.status(200).json ({
+        res.status(200).json({
             status: 'success',
         })
     }
@@ -172,10 +170,12 @@ accountController.changePassword = async (req, res) => {
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     res.render('./pages/account/changePassword', {
         header: header,
         user: header_user,
+        formatFunction: formatFunction,
     })
 }
 

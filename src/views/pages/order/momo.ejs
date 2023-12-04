@@ -29,13 +29,20 @@
 							<div class="info-order__header">
 								<div class="info-order__header--left">
 									<p><strong>ĐƠN HÀNG:</strong></p>
-									<p id="trans__id">#DH0001</p>
+									<p id="trans__id">#DH00<%=purchase.order_id%></p>
 								</div>
 							</div>
 							<div class="info-order__bill">
-								<span>- <strong>Người đặt hàng: </strong><span id="purchase-info">Lý Phi Lân</span></span>
-								<span>- <strong>Mã đơn hàng: </strong><span id="purchase-address">02OP2955875F</span></span>
-								<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">25.500.000đ</span></span>
+								<span>- <strong>Người đặt hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
+								<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">
+									<% if (purchase.order_details.length > 0) { %>
+										<% let totalAmount = 0; %>
+										<% purchase.order_details.forEach(detail => { %>
+										  <% totalAmount += detail.order_detail_price_after; %>
+										<% }); %>
+										<%= formatFunction.toCurrency(totalAmount) %>
+									  <% } %>	
+								</span></span>
 							</div>
 						</div>
 
@@ -107,6 +114,7 @@
             };
         }
     </script> -->
+	<script src="/scripts/pages/order/momo.js"></script>
 
 </body>
 
