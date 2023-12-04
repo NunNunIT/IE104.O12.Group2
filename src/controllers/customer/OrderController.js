@@ -89,7 +89,7 @@ orderController.informationPost = async (req, res) => {
 			})
 		} else if (success) {
 			order.deleteCart(customer_id, orderDetails, function (err, success) { })
-			res.status(200).json ({
+			res.status(200).json({
 				status: 'success',
 				order_id: order_id,
 				paying_method_id: orderInfo.paying_method_id,

@@ -161,7 +161,7 @@ function toCurrency(money) {
     let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
         return i > 0 && c !== ',' && (a.length - i) % 3 === 0 ? '.' + c : c
     })
-    return currency
+    return currency + 'đ'
 }
 
 // Sự kiện onchange tính tổng tiền
@@ -183,7 +183,7 @@ function calcTotalPrice(event) {
         }
     })
 
-    totalPrice.innerHTML = toCurrency(total) + 'đ'
+    totalPrice.innerHTML = toCurrency(total)
 
     let totalPriceDel = 0
     cartItems.forEach(item => {
@@ -209,7 +209,7 @@ function calcTotalPrice(event) {
         totalPriceDel = 0
         totalPriceDelEle.style.display = 'none'
     } else {
-        totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
+        totalPriceDelEle.innerHTML = toCurrency(totalPriceDel)
         totalPriceDelEle.style.display = 'flex'
     }
 }

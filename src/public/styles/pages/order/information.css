@@ -103,6 +103,7 @@ input::-webkit-calendar-picker-indicator {
     padding: 0px 12px;
     border: 1px solid var(--outline-gray);
     border-radius: 8px;
+    font-size: 1rem;
 }
 
 .error {
@@ -246,6 +247,7 @@ input::-webkit-calendar-picker-indicator {
     .location__input-group input,
     .order-detail__input input {
         height: 40px;
+        font-size: 0.8125rem;
     }
 
     .location__input-group input::placeholder,
@@ -264,8 +266,9 @@ input::-webkit-calendar-picker-indicator {
     }
 }
 
-/* 640px - Large Mobile */
-@media screen and (max-width: 40rem) {
+/* 416px - Mobile */
+@media screen and (max-width: 26rem) {
+
     h2 {
         font-size: 1rem;
     }
@@ -279,10 +282,12 @@ input::-webkit-calendar-picker-indicator {
     del {
         font-size: 0.8125rem;
     }
-}
 
-/* 416px - Mobile */
-@media screen and (max-width: 26rem) {
+    .location__input-group input,
+    .order-detail__input input {
+        font-size: 0.8125rem;
+    }
+
     .mobile-display {
         display: flex;
     }

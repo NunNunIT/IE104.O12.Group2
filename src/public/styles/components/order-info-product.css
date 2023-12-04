@@ -58,6 +58,7 @@
 
     .product p {
         text-align: left;
+        font-weight: 500;
     }
 
     .product__name {
