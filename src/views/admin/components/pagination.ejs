@@ -11,7 +11,7 @@
 
 
   <% if (pagination.totalPage != 1) { %>
-  <div class="pagination">
+  <div class="admin-pagination">
     <% if (pagination.page != 1) { %>
     <% if (pagination.searchKey) { %><a href="?page=<%= pagination.page > 2 ? pagination.page - 1 : 1 %>&searchKey=<%= pagination.searchKey %>"><span class="material-symbols-rounded">
         chevron_left
@@ -19,10 +19,6 @@
     <% } else { %><a href="?page=<%= pagination.page > 2 ? pagination.page - 1 : 1 %>"><span class="material-symbols-rounded">
         chevron_left
       </span></a>
-
-
-
-
 
     <% } %>
 

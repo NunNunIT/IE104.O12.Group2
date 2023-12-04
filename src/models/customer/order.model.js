@@ -87,10 +87,10 @@ order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
 
 order.insertOrderDetails = async (order_id, orderDetails, callback) => {
     let insertOrderDetails = `INSERT INTO order_details (order_id, product_variant_id, order_detail_quantity) 
-    VALUES (${order_id}, ${orderDetails[0].product_variant_id}, ${orderDetails[0].product_quantity})`
+    VALUES (${order_id}, ${orderDetails[0].product_variant_id}, ${orderDetails[0].order_detail_quantity})`
 
     for (let i = 1; i < orderDetails.length; i++) {
-        insertOrderDetails += ` ,(${order_id}, ${orderDetails[i].product_variant_id}, ${orderDetails[i].product_quantity})`
+        insertOrderDetails += ` ,(${order_id}, ${orderDetails[i].product_variant_id}, ${orderDetails[i].order_detail_quantity})`
     }
 
     db.query(insertOrderDetails, (err, result) => {

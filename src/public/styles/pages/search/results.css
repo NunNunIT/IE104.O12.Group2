@@ -396,7 +396,7 @@ a {
 .dropdown-content--sort {
     display: none;
     position: absolute;
-    top: 43%;
+    top: 44%;
     right: 150px;
     background-color: var(--white-gray);
     width: 240px;
@@ -450,7 +450,7 @@ a {
 
 @media only screen and (max-width: 64rem) {
     .dropdown-content--sort {
-        top: 56%;
+        top: 67%;
         right: 11%;
     }
 }
@@ -506,7 +506,7 @@ a {
 
 
     .dropdown-content--sort {
-        top: 65%;
+        top: 59.5%;
         right: 6%;
     }
 

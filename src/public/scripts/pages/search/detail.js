@@ -25,13 +25,28 @@ function openImageModal(event) {
 function showAll(event) {
     const button = event.currentTarget
     const description = document.querySelector('.detail--bottom')
-    if (description.classList.contains('default-description')) {
-        description.classList.remove('default-description')
-        description.classList.add('full-description')
+    if (description.classList.contains('default')) {
+        description.classList.remove('default')
+        description.classList.add('full')
         button.innerHTML = 'Ẩn bớt'
-    } else if (description.classList.contains('full-description')) {
-        description.classList.remove('full-description')
-        description.classList.add('default-description')
+    } else if (description.classList.contains('full')) {
+        description.classList.remove('full')
+        description.classList.add('default')
+        button.innerHTML = 'Xem thêm'
+    }
+}
+
+// show all description
+function showAllComment(event) {
+    const button = event.currentTarget
+    const comment = document.querySelector('.comments__list')
+    if (comment.classList.contains('default')) {
+        comment.classList.remove('default')
+        comment.classList.add('full')
+        button.innerHTML = 'Ẩn bớt'
+    } else if (comment.classList.contains('full')) {
+        comment.classList.remove('full')
+        comment.classList.add('default')
         button.innerHTML = 'Xem thêm'
     }
 }
@@ -83,12 +98,12 @@ addCartBtn.addEventListener('click', () => {
     }
 
     fetch("/order/addCart", {
-            method: "POST",
-            body: JSON.stringify(cart),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
+        method: "POST",
+        body: JSON.stringify(cart),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
         .then(res => res.json())
         .then(back => {
             if (back.status == "error") {
@@ -110,7 +125,7 @@ buyNowBtn.addEventListener('click', () => {
 
     const formDataArray = [{
         'product_variant_id': Number(product_variant_id),
-        'cart_quantity': Number(quantity),
+        'order_detail_quantity': Number(quantity),
     }]
 
     let formDataArrayString = JSON.stringify(formDataArray)

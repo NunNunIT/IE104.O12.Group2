@@ -95,7 +95,8 @@
 							<% variantProducts.forEach(variant => { %>
 							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
-								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
+								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
+								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
 							</a>
 							<% }) %>
 						</div>
@@ -118,8 +119,9 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_after_discount_currency ?? 'null' %>đ</h2>
-								<p><del><%= variant.product_variant_price_currency ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
+								<% const discountedPrice = Math.round(variant.product_variant_price - variant.product_variant_price * (variant.discount_amount / 100)) %>
+								<h2><%= formatFunction.toCurrency(discountedPrice) ?? 'null' %>đ</h2>
+								<p><del><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -148,7 +150,7 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_currency ?? 'null' %>đ</h2>
+								<h2><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></h2>
 							</div>
 							<div>
 							</div>
@@ -175,7 +177,7 @@
 				</form>
 			</div>
 
-			<div class="detail--bottom default-description">
+			<div class="detail--bottom default">
 				<div class="detail--left">
 					<div class="detail__description description">
 						<div class="description__item">
@@ -241,14 +243,17 @@
 				</div>
 			</div>
 
-			<div class="comments__list">
+			<div class="comments__list default">
 				<% if (productFeedbacks.length) { %>
 				<% productFeedbacks.forEach(feedback => { %>
-				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: toDDMMYYYY }) %>
+				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: formatFunction.toDDMMYYYY }) %>
 				<% }) %>
 				<div class="comments__pagination">
-					<%- include('../../components/pagination') %>
+					<%#- include('../../components/pagination') %>
 				</div>
+				<% if (productFeedbacks.length > 5) { %>
+				<button onclick="showAllComment(event)" class="comment__more-btn" type="button">Xem thêm</button>
+				<% } %>
 				<% } else { %>
 				<img class="comment__not-found" src="/imgs/nothing-result.png" alt="">
 				<h2 class="comment__not-found-noti">Không tìm thấy đánh giá nào!</h2>
@@ -260,8 +265,28 @@
 
 	<% if (cateProducts) { %>
 	<div class="similar-products">
-		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `?category_id=${productInfo.category_id}`, products: cateProducts}) %>
+		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `?category_id=${productInfo.category_id}`, products: cateProducts, toCurrency: formatFunction.toCurrency }) %>
 	</div>
+	<% } %>
+
+	<% if(notCateProducts) { %>
+		<section class="tip-products-wrapper new-products">
+			<div class="tip-products__img"></div>
+			<div class="tip-products">
+				<div class="tip-products__label">
+					<h2 class="tip-products__title">Sản phẩm khác</h2>
+					<div class="tip-products__seemore">
+						<a href="/search/results?searchKey=">Xem tất cả</a>
+						<span class="material-symbols-outlined"> chevron_right </span>
+					</div>
+				</div>
+				<div class="tip-products__content">
+					<% notCateProducts.forEach(notCateProduct => { %>
+					<%- include('../../components/product-card', { product: notCateProduct, toCurrency: formatFunction.toCurrency }) %>
+					<% }) %>
+				</div>
+			</div>
+		</section>
 	<% } %>
 
 	<%- include('../../components/success-modal', { action: 'Thêm vào giỏ hàng' }) %>

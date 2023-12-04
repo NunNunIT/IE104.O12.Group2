@@ -18,6 +18,9 @@ function route(app) {
     app.use('/account', accountRouter)
     app.use('/general', generalRouter)
     app.use('/', siteRouter)
+    app.use((req, res) => {
+        res.status(404).render('../views/pages/site/404-error.ejs');
+      });
 }
 
 module.exports = route

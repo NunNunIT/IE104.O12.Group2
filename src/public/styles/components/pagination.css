@@ -1,21 +1,39 @@
 .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.pagination-container {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.pagination button {
+.pagination-container a {
     height: 48px;
     width: 48px;
     box-sizing: border-box;
     padding: 8px;
     border-radius: 8px;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 0px 0px 1px var(--fire-orange);
+    color: var(--black);
+    font-weight: 500;
 }
 
-.pagination span {
+.pagination-container .active {
+    background-color: var(--fire-orange);
+    color: var(--white);
+}
+
+.pagination-container span {
     font-size: 2rem;
-    color: var(--primary-color-1);
+    color: var(--black);
 }
 
 /* 768px - Tablet */
@@ -24,12 +42,12 @@
         gap: 8px;
     }
 
-    .pagination button {
+    .pagination-container a {
         height: 36px;
         width: 36px;
     }
 
-    .pagination span {
+    .pagination-container span {
         font-size: 1.8rem;
     }
 }
