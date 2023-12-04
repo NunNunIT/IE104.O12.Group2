@@ -187,8 +187,7 @@ section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1.3%;
+    justify-content: space-between;
     margin-top: 24px;
 }
 
@@ -216,10 +215,6 @@ section {
 @media only screen and (max-width: 48rem) {
     .content-container {
         width: 90%;
-    }
-
-    .tip-products__content {
-        gap: 2%;
     }
 
     .cate__button {

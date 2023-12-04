@@ -31,3 +31,38 @@ function addStatusClasses() {
 document.addEventListener("DOMContentLoaded", function () {
     addStatusClasses();
 });
+
+// Thêm sự kiện click cho nút hủy mua hàng
+const purchaseCancelBtns = document.querySelectorAll(".btn.btn--outlined.pri.cancel");
+const purchaseCancelModals = document.querySelectorAll(".purchase-cancel__popup");
+const purchaseCancelCloseBtns = document.querySelectorAll(".purchase-cancel__popup .close-btn");
+const purchaseCancelConfirmBtns = document.querySelectorAll(".btn.btn--outlined.pri.cancel-purchase");
+
+purchaseCancelBtns.forEach((cancelBtn, index) => {
+    cancelBtn.addEventListener("click", function () {
+        purchaseCancelModals[index].style.display = "block";
+    });
+});
+
+// Đóng popup khi chọn dấu x
+purchaseCancelCloseBtns.forEach((closeBtn, index) => {
+    closeBtn.addEventListener("click", function () {
+        purchaseCancelModals[index].style.display = "none";
+    });
+});
+
+// Đóng popup khi chọn nút hủy
+purchaseCancelConfirmBtns.forEach((closeBtn, index) => {
+    closeBtn.addEventListener("click", function () {
+        purchaseCancelModals[index].style.display = "none";
+    });
+});
+
+// Đóng popup khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
+window.addEventListener("click", function (e) {
+    purchaseCancelModals.forEach((modal) => {
+        if (e.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+});

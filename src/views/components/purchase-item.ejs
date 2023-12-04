@@ -52,7 +52,11 @@
 	<div class="purchase-item--bottom">
 		<div class="purchase-item__total">
 			<p>Thành tiền:</p>
-			<h2 id="purchase-item__total-price"><%= toCurrency(totalAmount) %></h2>
+			<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+			<h2 class="purchase-item__total-price cancelled"><del><%= toCurrency(totalAmount) %></del></h2>
+			<% } else { %>
+			<h2 class="purchase-item__total-price"><%= toCurrency(totalAmount) %></h2>
+			<% } %>
 		</div>
 
 		<div class="purchase-item__button">
