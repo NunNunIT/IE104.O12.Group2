@@ -7,6 +7,7 @@
 
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
 	<link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
+	<link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
 
 	<title>TECHTWO.</title>
 </head>
@@ -95,9 +96,58 @@
 				<div class="purchase-detail__button">
 					<% if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
 					<!-- nút hủy khi status là "Chờ thanh toán" -->
-					<a href="#">
-						<div class="btn btn--outlined pri cancel">Hủy</div>
-					</a>
+					<div class="btn btn--outlined pri cancel">Hủy</div>
+					<div class="purchase-cancel__popup">
+						<div class="purchase-cancel__popup__main">
+							<div class="purchase-cancel__popup__content-main">
+								<div class="purchase-cancel__popup__content-title">
+									<div class="purchase-cancel__popup--top">
+										<p class="purchase-cancel__popup__title">Lý do hủy</p>
+										<div class="close-btn">
+											<span class="material-symbols-outlined">cancel</span>
+										</div>
+									</div>
+								</div>
+								<div class="popup__note">
+									<span class="material-symbols-outlined">info</span>
+									<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
+								</div>
+								<form id="cancel_popup" action="/order/cancel_order" method="post">
+									<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
+									<div class="cancel-reasons">
+										<div class="cancel-reason__item">
+											<input type="radio" class="cancel-reason__input" value="1" id="update" name="selector">
+											<label class="cancel-reason__label" for="update">Tôi muốn cập nhật địa chỉ/sđt nhận hàng.</label>
+										</div>
+										<div class="cancel-reason__item">
+											<input type="radio" class="cancel-reason__input" value="2" id="change" name="selector">
+											<label class="cancel-reason__label" for="change">Tôi muốn thay đổi sản phẩm.</label>
+										</div>
+										<div class="cancel-reason__item">
+											<input type="radio" class="cancel-reason__input" value="3" id="cancel-reason__input-payment" name="selector">
+											<label class="cancel-reason__label" for="cancel-reason__input-payment">Thủ tục thanh toán rắc rối.</label>
+										</div>
+										<div class="cancel-reason__item">
+											<input type="radio" class="cancel-reason__input" value="4" id="cancel-reason__input-price" name="selector">
+											<label class="cancel-reason__label" for="cancel-reason__input-price">Tôi tìm thấy nơi khác giá tốt hơn.</label>
+										</div>
+										<div class="cancel-reason__item">
+											<input type="radio" class="cancel-reason__input" value="5" id="cancel-reason__input-need" name="selector">
+											<label class="cancel-reason__label" for="cancel-reason__input-need">Tôi không có nhu cầu mua nữa.</label>
+										</div>
+										<div class="cancel-reason__item">
+											<input type="radio" class="cancel-reason__input" value="6" id="cancel-reason__input-no-reason" name="selector">
+											<label class="cancel-reason__label" for="cancel-reason__input-no-reason">Tôi không tìm thấy lý do hủy phù hợp.</label>
+										</div>
+									</div>
+									<div class="button">
+										<div class="btn btn--outlined pri cancel-purchase">Trở lại</div>
+										<button type="submit" class="btn btn--filled pri">Xác nhận</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 					<!-- end -->
 
 					<!-- nút thanh toán khi status là "Chờ thanh toán" -->
