@@ -265,6 +265,26 @@
 	</div>
 	<% } %>
 
+	<% if(notCateProducts) { %>
+		<section class="tip-products-wrapper new-products">
+			<div class="tip-products__img"></div>
+			<div class="tip-products">
+				<div class="tip-products__label">
+					<h2 class="tip-products__title">Sản phẩm khác</h2>
+					<div class="tip-products__seemore">
+						<a href="/search/results?searchKey=">Xem tất cả</a>
+						<span class="material-symbols-outlined"> chevron_right </span>
+					</div>
+				</div>
+				<div class="tip-products__content">
+					<% notCateProducts.forEach(notCateProduct => { %>
+					<%- include('../../components/product-card', { product: notCateProduct, toCurrency: formatFunction.toCurrency }) %>
+					<% }) %>
+				</div>
+			</div>
+		</section>
+	<% } %>
+
 	<%- include('../../components/success-modal', { action: 'Thêm vào giỏ hàng' }) %>
 	<%- include('../../components/image-modal') %>
 	<%- include('../../components/scrollup') %>

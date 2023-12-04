@@ -145,7 +145,7 @@ function cartSubmit(event) {
             // Create an object for each item and push it to the array
             formDataArray.push({
                 product_variant_id: Number(productVariantId.value),
-                product_quantity: Number(productQuantity.value),
+                order_detail_quantity: Number(productQuantity.value),
             })
         })
 

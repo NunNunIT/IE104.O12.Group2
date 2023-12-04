@@ -110,7 +110,7 @@ buyNowBtn.addEventListener('click', () => {
 
     const formDataArray = [{
         'product_variant_id': Number(product_variant_id),
-        'cart_quantity': Number(quantity),
+        'order_detail_quantity': Number(quantity),
     }]
 
     let formDataArrayString = JSON.stringify(formDataArray)
