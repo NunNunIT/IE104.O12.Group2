@@ -219,7 +219,7 @@ if (cartDataString.length) {
                 let productAvtImg = data.productVariantInfo[0].product_avt_img ?? 'null'
                 let productName = data.productVariantInfo[0].product_name ?? 'null'
                 let productVariantName = data.productVariantInfo[0].product_variant_name ?? 'null'
-                let productQuantity = product.product_quantity
+                let productQuantity = product.order_detail_quantity
                 let productDiscount = data.productVariantInfo[0].discount_amount
                 let productVariantPrice = data.productVariantInfo[0].product_variant_price
 

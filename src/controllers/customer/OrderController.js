@@ -118,6 +118,8 @@ orderController.payment = async (req, res) => {
 
 	let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
 
+	console.log(purchase)
+
 	if (paying_method_id == 1) {
 		res.render("./pages/order/momo", {
 			header: header,

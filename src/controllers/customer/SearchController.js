@@ -40,6 +40,7 @@ searchController.detail = async (req, res) => {
     let productDetails = await product.getProductDetails(product_variant_id)
     let productFeedbacks = await product.getProductFeedbacks(product_variant_id)
     let cateProducts = await general.getCateProducts(req, product_variant_id, 8)
+    let notCateProducts = await general.getNotCateProducts(req, product_variant_id, 12)
 
     console.log(productDetails)
     res.status(200).render('./pages/search/detail', {
@@ -52,6 +53,7 @@ searchController.detail = async (req, res) => {
         productDetails: productDetails,
         productFeedbacks: productFeedbacks,
         cateProducts: cateProducts,
+        notCateProducts: notCateProducts,
         formatFunction: formatFunction,
     })
 }

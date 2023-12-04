@@ -13,12 +13,12 @@
     color: var(--black);
 }
 
-.table-footer .pagination {
+.table-footer .admin-pagination {
     display: flex;
 }
 
 
-.table-footer .pagination a {
+.table-footer .admin-pagination a {
     width: 48px;
     padding: 8px 4px;
     color: var(--primary-color-1);
@@ -33,29 +33,29 @@
     text-align: center;
 }
 
-.table-footer .pagination a span {
+.table-footer .admin-pagination a span {
     color: var(--primary-color-1);
     padding: 4px 4px;
     font-size: 16px;
     text-align: center;
 }
 
-.pagination a.active,
-.pagination a:hover,
-.pagination a:active span,
-.pagination a:hover span{
+.admin-pagination a.active,
+.admin-pagination a:hover,
+.admin-pagination a:active span,
+.admin-pagination a:hover span{
     text-decoration: none;
     background: var(--primary-color-1);
     color: var(--white);
 }
 
 
-.pagination a.act:first-child {
+.admin-pagination a.act:first-child {
     opacity: 1;
     pointer-events: auto;
 }
 
-.pagination a.act:last-child {
+.admin-pagination a.act:last-child {
     opacity: 1;
     pointer-events: auto;
 }
