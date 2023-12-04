@@ -145,10 +145,11 @@ body {
 .variant-selected {
     border: 1px solid var(--dollar-red) !important;
     font-weight: 600;
+}
 
-    & .variant__price {
-        color: var(--dollar-red);
-    }
+.variant-selected .variant__price {
+    color: var(--dollar-red);
+    text-align: center;
 }
 
 .detail__quantity {

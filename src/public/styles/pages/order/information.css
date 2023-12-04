@@ -113,7 +113,8 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .order-detail__location,
-.order-detail__pay-method {
+.order-detail__pay-method,
+.order-detail__note {
     display: inherit;
     flex-direction: column;
     gap: 12px;
@@ -150,6 +151,17 @@ input::-webkit-calendar-picker-indicator {
 
 .location__select::placeholder {
     color: var(--primary-color-2) !important;
+}
+
+.note__text-area {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--outline-gray);
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pay-method__choose {
@@ -255,7 +267,8 @@ input::-webkit-calendar-picker-indicator {
     }
 
     .location__input-group input,
-    .order-detail__input input {
+    .order-detail__input input,
+    .note__text-area {
         height: 40px;
         font-size: 0.8125rem;
     }
@@ -294,7 +307,8 @@ input::-webkit-calendar-picker-indicator {
     }
 
     .location__input-group input,
-    .order-detail__input input {
+    .order-detail__input input,
+    .note__text-area {
         font-size: 0.8125rem;
     }
 
