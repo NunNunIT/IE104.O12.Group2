@@ -93,7 +93,9 @@ addCartBtn.addEventListener('click', () => {
         .then(back => {
             if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
-            } else if (back.status == 'success') {
+            } else if (back.status = "NotAuth") {
+                window.location.href = "http://localhost:3000/auth/login"
+            } else if (back.status == "success") {
                 const cartSuccessModal = document.querySelector('.success-modal')
                 cartSuccessModal.style.display = 'flex'
                 setTimeout(() => {

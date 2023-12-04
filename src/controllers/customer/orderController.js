@@ -8,9 +8,24 @@ const orderController = () => { }
 
 // [POST] /order/addCart
 orderController.addCart = async (req, res) => {
-	let customer_id = req.user.customer_id
+	let customer_id = 0
+
+	if (req.user) {
+		customer_id = req.user.customer_id ?? 0
+	} else {
+		return res.status(401).json({
+			status: "NotAuth",
+		})
+	}
+
 	let product_variant_id = req.body.product_variant_id
 	let cart_quantity = req.body.cart_quantity
+
+	if (!customer_id) {
+		return res.status(401).json({
+			status: "NotAuth",
+		})
+	}
 
 	let result = await order.addCart(
 		customer_id,
