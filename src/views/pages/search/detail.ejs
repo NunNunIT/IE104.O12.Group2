@@ -95,7 +95,7 @@
 							<% variantProducts.forEach(variant => { %>
 							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
-								<span class="variant__price"><%= variant.product_variant_price_currency ?? 'null' %>đ</span>
+								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
 							</a>
 							<% }) %>
 						</div>
@@ -118,8 +118,8 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_after_discount_currency ?? 'null' %>đ</h2>
-								<p><del><%= variant.product_variant_price_currency ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
+								<h2><%= formatFunction.toCurrency(variant.product_variant_price - (parseInt(variant.product_variant_price * variant.discount_amount / 100))) ?? 'null' %></h2>
+								<p><del><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -148,7 +148,7 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= variant.product_variant_price_currency ?? 'null' %>đ</h2>
+								<h2><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></h2>
 							</div>
 							<div>
 							</div>
