@@ -396,8 +396,26 @@ input::-webkit-inner-spin-button {
 }
 
 .comments__list {
-    justify-content: center;
+    max-height: 500px;
+    overflow-y: scroll;
     align-items: center;
+}
+
+.comments__list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comments__list::-webkit-scrollbar-track {
+    background: var(--bg-white);
+}
+
+.comments__list::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--scroll-thumb);
+}
+
+.comments__list::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .comments__filter {

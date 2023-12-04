@@ -36,21 +36,6 @@ function showAll(event) {
     }
 }
 
-// show all description
-function showAllComment(event) {
-    const button = event.currentTarget
-    const comment = document.querySelector('.comments__list')
-    if (comment.classList.contains('default')) {
-        comment.classList.remove('default')
-        comment.classList.add('full')
-        button.innerHTML = 'Ẩn bớt'
-    } else if (comment.classList.contains('full')) {
-        comment.classList.remove('full')
-        comment.classList.add('default')
-        button.innerHTML = 'Xem thêm'
-    }
-}
-
 // Tạo sự kiện change cho phần tử
 function triggerChangeEvent(element) {
     var event = new Event('change', {
@@ -123,7 +108,6 @@ addCartBtn.addEventListener('click', () => {
                         const countCartEle = document.querySelector('.header__cart__number-badge')
                         countCartEle.innerHTML = back.countCart
                     })
-
             }
         })
 })
