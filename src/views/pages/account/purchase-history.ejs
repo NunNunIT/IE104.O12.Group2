@@ -31,7 +31,7 @@
 
 			<div class="purchase__main__item">
 				<% if (purchaseHistory && purchaseHistory.length > 0) { %>
-				<% purchaseHistory.forEach(purchase => { %>				
+				<% purchaseHistory.forEach(purchase => { %>
 				<%- include('../../components/purchase-item', { purchaseHistory: purchase, toCurrency: formatFunction.toCurrency }) %>
 				<% }) %>
 				<% } else { %>
@@ -51,6 +51,7 @@
 
 	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/pages/account/purchaseHistory.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

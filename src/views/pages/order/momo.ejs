@@ -35,14 +35,14 @@
 							<div class="info-order__bill">
 								<span>- <strong>Người đặt hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
 								<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">
-									<% if (purchase.order_details.length > 0) { %>
+										<% if (purchase.order_details.length > 0) { %>
 										<% let totalAmount = 0; %>
 										<% purchase.order_details.forEach(detail => { %>
-										  <% totalAmount += detail.order_detail_price_after; %>
+										<% totalAmount += detail.order_detail_price_after; %>
 										<% }); %>
 										<%= formatFunction.toCurrency(totalAmount) %>
-									  <% } %>	
-								</span></span>
+										<% } %>
+									</span></span>
 							</div>
 						</div>
 
@@ -115,6 +115,7 @@
         }
     </script> -->
 	<script src="/scripts/pages/order/momo.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 
