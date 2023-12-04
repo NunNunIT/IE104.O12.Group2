@@ -1,6 +1,4 @@
-const {
-    promisify
-} = require('util')
+const { promisify } = require('util')
 const index = require('../models/customer/index.model')
 const order = require('../models/customer/order.model')
 const general = require('../models/general.model')

@@ -97,24 +97,33 @@ addCartBtn.addEventListener('click', () => {
         'cart_quantity': quantity,
     }
 
-    fetch("/order/addCart", {
-        method: "POST",
+    fetch('/order/addCart', {
+        method: 'POST',
         body: JSON.stringify(cart),
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         }
     })
         .then(res => res.json())
         .then(back => {
-            if (back.status == "error") {
+            if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
-            } else if (back.status == "success") {
+            } else if (back.status == 'success') {
                 const cartSuccessModal = document.querySelector('.success-modal')
                 cartSuccessModal.style.display = 'flex'
                 setTimeout(() => {
                     cartSuccessModal.style.display = 'none'
-                    location.reload()
                 }, 1500)
+
+                fetch('/general/count_cart', {
+                    method: 'GET',
+                })
+                    .then(res => res.json())
+                    .then(back => {
+                        const countCartEle = document.querySelector('.header__cart__number-badge')
+                        countCartEle.innerHTML = back.countCart
+                    })
+
             }
         })
 })
