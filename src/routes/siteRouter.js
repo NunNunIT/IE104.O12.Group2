@@ -9,10 +9,10 @@ const siteController = require('../controllers/customer/siteController.js')
 // import middleware
 const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/category', authMiddleware.getLoggedIn, siteController.category)
-router.get('/about-us', authMiddleware.getLoggedIn, siteController.aboutUs)
-router.get('/privacy-policy', authMiddleware.getLoggedIn, siteController.privacyPolicy)
-router.get('/error', authMiddleware.getLoggedIn, siteController.error)
-router.get('/', authMiddleware.getLoggedIn, siteController.index)
+router.get('/category', siteController.category)
+router.get('/about-us', siteController.aboutUs)
+router.get('/privacy-policy', siteController.privacyPolicy)
+router.get('/error', siteController.error)
+router.get('/', siteController.index)
 
 module.exports = router

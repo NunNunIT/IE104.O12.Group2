@@ -572,6 +572,9 @@ input::-webkit-inner-spin-button {
 
 /* 768px - Tablet */
 @media screen and (max-width: 48rem) {
+    .tip-products-wrapper {
+        width: 90%;
+    }
 
     .content-container,
     .similar-products {

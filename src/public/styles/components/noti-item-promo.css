@@ -85,13 +85,13 @@
     display: flex;
     justify-content: flex-end;
     position: relative;
-    color: var(--primary-color-2);
+    color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
 }
 
 .close-btn:hover {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--primary-color-2);
     cursor: pointer;
 }
 

@@ -25,7 +25,7 @@ exports.isLoggedIn = async (req, res, next) => {
             });
         } catch (err) {
             console.log(err)
-            next();
+            res.status(401).redirect('/auth/login')
         }
     } else {
         res.status(401).redirect('/auth/login')
