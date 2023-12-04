@@ -52,7 +52,28 @@ section {
 .cate__carousel {
     display: inherit;
     gap: 8px;
-    transition: transform 0.5s ease-in-out;
+    /* transition: scroll-behavior 0.5s ease-in-out; */
+    /* scroll-behavior: smooth; */
+    position: relative;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+}
+
+.cate__carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cate__carousel::-webkit-scrollbar-track {
+    background: var(--bg-white);
+}
+
+.cate__carousel::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--scroll-thumb);
+}
+
+.cate__carousel::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .cate__carousel-col {
@@ -60,6 +81,7 @@ section {
     display: inherit;
     flex-direction: column;
     gap: 8px;
+    scroll-snap-align: start;
 }
 
 .cate__button {

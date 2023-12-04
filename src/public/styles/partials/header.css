@@ -557,7 +557,7 @@ img.dropdown-cart__img--empty {
 }
 
 .active-menu-item {
-    color: var(--primary-color-2);
+    color: var(--primary-color-2) !important;
     box-shadow: inset 0 -2px 0 0 var(--primary-color-2);
 }
 
