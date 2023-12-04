@@ -129,4 +129,31 @@ END //
 DELIMITER ;
 
 
+DROP TRIGGER IF EXISTS insert_after_feedbacks;
 
+DELIMITER
+    //
+CREATE TRIGGER insert_after_feedbacks AFTER INSERT ON
+    feedbacks FOR EACH ROW
+BEGIN
+    DECLARE avg_rate DECIMAL(10, 1) ;
+    DECLARE product_id INT(11) ;
+    DECLARE product_variant_id INT(11);
+   
+    SET product_variant_id = NEW.product_variant_id;
+    
+    SET product_id = (SELECT product_variants.product_id 
+    FROM product_variants 
+    WHERE product_variants.product_variant_id = product_variant_id);
+    
+    SET avg_rate =  (SELECT AVG(feedbacks.feedback_rate) 
+     FROM feedbacks, product_variants 
+     WHERE feedbacks.product_variant_id = product_variants.product_variant_id 
+     AND product_variants.product_id = product_id 
+     GROUP BY product_variants.product_id);
+    
+    UPDATE products 
+    SET products.product_rate = avg_rate
+    WHERE products.product_id = product_id;
+END //
+DELIMITER ; 

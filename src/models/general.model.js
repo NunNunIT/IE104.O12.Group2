@@ -239,18 +239,18 @@ general.getNotCateProducts = async (req, product_variant_id, limit = 8) => {
     let category_id = await general.getCategoryId(product_id)
     category_id = (req.query.category_id) != 0 ? req.query.category_id : category_id
 
-    let getCateProducts = `SELECT * FROM view_products_resume 
+    let getNotCateProducts = `SELECT * FROM view_products_resume 
                             WHERE NOT(category_id = ${category_id}) 
                             ORDER BY product_variant_is_bestseller DESC
                             LIMIT 0, ${limit}`
 
     return new Promise((resolve, reject) => {
-        db.query(getCateProducts, (err, cateProducts) => {
+        db.query(getNotCateProducts, (err, notCateProducts) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                resolve(cateProducts)
+                resolve(notCateProducts)
             }
         })
     })
