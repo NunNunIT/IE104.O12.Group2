@@ -36,7 +36,7 @@
 
 		<section class="outstanding-products">
 			<div class="outstanding-products__img"></div>
-			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: '?hotProduct=true' , products: outstandingProducts}) %>
+			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: '?hotProduct=true' , products: outstandingProducts, toCurrency: formatFunction.toCurrency}) %>
 		</section>
 
 		<% if(newProducts) { %>
@@ -52,8 +52,7 @@
 				</div>
 				<div class="tip-products__content">
 					<% newProducts.slice(0, 12).forEach(newProduct => { %>
-					<% console.log(newProduct) %>
-					<%- include('../../components/product-card', { product: newProduct }) %>
+					<%- include('../../components/product-card', { product: newProduct, toCurrency: formatFunction.toCurrency }) %>
 					<% }) %>
 				</div>
 			</div>
@@ -73,7 +72,7 @@
 				</div>
 				<div class="tip-products__content">
 					<% discountProducts.slice(0, 12).forEach(discountProduct => { %>
-					<%- include('../../components/product-card', { product: discountProduct }) %>
+					<%- include('../../components/product-card', { product: discountProduct, toCurrency: formatFunction.toCurrency }) %>
 					<% }) %>
 				</div>
 			</div>

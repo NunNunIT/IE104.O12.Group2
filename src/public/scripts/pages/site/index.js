@@ -2,6 +2,9 @@
 const appbarEle = document.querySelectorAll('.app-bar__element')
 appbarEle[0].classList.add('active')
 
+function calculateDiscountedPrice(originalPrice, discountAmount) {
+    return Math.round(originalPrice - originalPrice * (discountAmount / 100));
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('cateCarousel')

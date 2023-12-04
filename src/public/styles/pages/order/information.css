@@ -126,6 +126,10 @@ input::-webkit-calendar-picker-indicator {
     gap: 12px;
 }
 
+.location__select {
+    font-size: 1rem;
+}
+
 .location__input-group input {
     width: 48%;
     height: 48px;
@@ -133,6 +137,7 @@ input::-webkit-calendar-picker-indicator {
     padding: 0px 12px;
     border: 1px solid var(--outline-gray);
     border-radius: 8px;
+    font-size: 1rem;
 }
 
 .location__select {
@@ -202,6 +207,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .order-pay__submit button {
+    cursor: pointer;
     width: 27%;
     padding: 12px;
     font-size: 1.25rem;
@@ -209,6 +215,10 @@ input::-webkit-calendar-picker-indicator {
     background-color: var(--primary-color-5);
     color: var(--white);
     border-radius: 8px;
+}
+
+.order-pay__submit button:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .order-pay__submit a {

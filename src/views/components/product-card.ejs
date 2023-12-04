@@ -34,8 +34,8 @@
 				</div>
 				<% } %>
 				<h4>
-					<% if (product.product_name.length > 40) { %>
-					<%= product.product_name.substring(0, 40) + '...' %>
+					<% if (product.product_name.length > 35) { %>
+					<%= product.product_name.substring(0, 35) + '...' %>
 					<% } else { %>
 					<%= product.product_name ?? 'NaN' %>
 					<% } %>
@@ -47,9 +47,10 @@
 		<div class="product-bottom-details">
 			<div class="product-price">
 				<% if (product.discount_amount) { %>
-				<%= product.product_variant_price_after_discount_currency %>đ<small><%= product.product_variant_price_currency %>đ</small>
+				<% const discountedPrice = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+				<%= toCurrency(discountedPrice) %><small><%= toCurrency(product.product_variant_price) %></small>
 				<% } else { %>
-				<%= product.product_variant_price_currency %>đ
+				<%= toCurrency(product.product_variant_price) %>
 				<% } %>
 			</div>
 		</div>

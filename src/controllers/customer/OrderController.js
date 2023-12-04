@@ -132,7 +132,7 @@ orderController.payment = async (req, res) => {
 			formatFunction: formatFunction,
 			purchase: purchase[0],
 		})
-	} else {
+	} else if (paying_method_id == 3) {
 		res.render("./pages/order/credit", {
 			header: header,
 			user: header_user,
@@ -146,6 +146,7 @@ orderController.payment = async (req, res) => {
 orderController.atm = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
+	let formatFunction = await general.formatFunction()
 
 	const title = "Thanh toán ATM"
 
@@ -153,6 +154,7 @@ orderController.atm = async (req, res) => {
 		header: header,
 		user: header_user,
 		title,
+		formatFunction: formatFunction
 	})
 }
 
@@ -160,6 +162,7 @@ orderController.atm = async (req, res) => {
 orderController.momo = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
+	let formatFunction = await general.formatFunction()
 
 	const title = "Thanh toán MoMo"
 
@@ -167,6 +170,7 @@ orderController.momo = async (req, res) => {
 		header: header,
 		user: header_user,
 		title,
+		formatFunction: formatFunction
 	})
 }
 
@@ -174,6 +178,7 @@ orderController.momo = async (req, res) => {
 orderController.credit = async (req, res) => {
 	let header_user = await index.header_user(req)
 	let header = await index.header(req)
+	let formatFunction = await general.formatFunction()
 
 	const title = "Thanh toán Tín dụng"
 
@@ -181,6 +186,7 @@ orderController.credit = async (req, res) => {
 		header: header,
 		user: header_user,
 		title,
+		formatFunction: formatFunction
 	})
 }
 

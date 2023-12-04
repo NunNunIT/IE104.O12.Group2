@@ -96,6 +96,7 @@
 							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
 								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
+								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
 							</a>
 							<% }) %>
 						</div>
@@ -118,8 +119,9 @@
 						<div class="promo__header">
 							<div>
 								<p>Mua đi bạn ơi!</p>
-								<h2><%= formatFunction.toCurrency(variant.product_variant_price - (parseInt(variant.product_variant_price * variant.discount_amount / 100))) ?? 'null' %></h2>
-								<p><del><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
+								<% const discountedPrice = Math.round(variant.product_variant_price - variant.product_variant_price * (variant.discount_amount / 100)) %>
+								<h2><%= formatFunction.toCurrency(discountedPrice) ?? 'null' %>đ</h2>
+								<p><del><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
@@ -244,7 +246,7 @@
 			<div class="comments__list default">
 				<% if (productFeedbacks.length) { %>
 				<% productFeedbacks.forEach(feedback => { %>
-				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: toDDMMYYYY }) %>
+				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: formatFunction.toDDMMYYYY }) %>
 				<% }) %>
 				<div class="comments__pagination">
 					<%- include('../../components/pagination') %>
@@ -263,7 +265,7 @@
 
 	<% if (cateProducts) { %>
 	<div class="similar-products">
-		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `?category_id=${productInfo.category_id}`, products: cateProducts}) %>
+		<%- include('../../components/carousel', {title: 'Sản phẩm tương tự', seemore: `?category_id=${productInfo.category_id}`, products: cateProducts, toCurrency: formatFunction.toCurrency }) %>
 	</div>
 	<% } %>
 

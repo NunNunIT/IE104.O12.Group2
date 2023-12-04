@@ -101,7 +101,7 @@
 								</div>
 							</div>
 							<div class="button">
-								<div class="btn btn--outlined pri cancel-purchase">Hủy</div>
+								<div class="btn btn--outlined pri cancel-purchase">Trở lại</div>
 								<button type="submit" class="btn btn--filled pri">Xác nhận</button>
 							</div>
 						</form>
@@ -133,13 +133,11 @@
 					<div class="btn btn--filled pri popup-btn">Thanh toán</div>
 				</a>
 				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
-				<a href="#">
+				<a href="/account/feedback?order_id=<%= purchaseHistory.order_id %>">
 					<div class="btn btn--filled pri">Đánh giá</div>
 				</a>
 				<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
-				<a href="#">
-					<div class="btn btn--filled pri disable">Đánh giá</div>
-				</a>
+				<div class="btn btn--filled pri disable">Đánh giá</div>
 				<!-- nút xem đánh giá khi đã đánh giá -->
 				<!-- <a href="#">
 				<div class="btn btn--filled pri">Xem Đánh giá</div>
