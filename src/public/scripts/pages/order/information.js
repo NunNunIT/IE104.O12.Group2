@@ -205,6 +205,7 @@ const toCurrency = function (money) {
 let cartData = localStorage.getItem('formDataArray')
 
 let cartDataString = JSON.parse(cartData)
+console.log(cartDataString)
 
 if (cartDataString.length) {
     let orderProductContent = document.querySelector('.order-product__content')

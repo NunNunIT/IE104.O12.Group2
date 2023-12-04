@@ -191,18 +191,18 @@ input::-webkit-calendar-picker-indicator {
     width: 50%;
     display: inherit;
     flex-direction: column;
-    gap: 12px;
+    gap: 4px;
 }
 
 .order-pay__price-container div {
     display: inherit;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 24px;
 }
 
 .order-pay__price-container div p {
-    width: 60%;
+    width: max-content;
     text-align: right;
 }
 
