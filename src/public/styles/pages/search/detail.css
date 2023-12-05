@@ -248,6 +248,24 @@ input::-webkit-inner-spin-button {
     border-radius: 8px;
 }
 
+.promo__content hr {
+    border: none;
+    height: 3px;
+    width: 100%;
+    background-image: repeating-linear-gradient(to right,
+            blue 0%,
+            blue 25%,
+            white 25%,
+            white 50%,
+            red 50%,
+            red 75%,
+            white 75%,
+            white 100%);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 40px 2px;
+}
+
 .promo__list {
     padding-left: 16px;
     line-height: 1.8;
@@ -327,8 +345,8 @@ input::-webkit-inner-spin-button {
 
 .description__item img {
     width: 100% !important;
-    height: 200px;
-    object-fit: cover;
+    height: fit-content !important;
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -368,18 +386,6 @@ input::-webkit-inner-spin-button {
     border: 2px solid var(--primary-color-1);
     border-radius: 8px;
     color: var(--primary-color-1);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.comment__more-btn {
-    cursor: pointer;
-    width: 100%;
-    height: 48px;
-    background-color: var(--white);
-    border: 2px solid var(--fire-orange);
-    border-radius: 8px;
-    color: var(--fire-orange);
     font-size: 1.25rem;
     font-weight: 600;
 }

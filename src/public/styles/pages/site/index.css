@@ -60,20 +60,7 @@ section {
 }
 
 .cate__carousel::-webkit-scrollbar {
-    height: 8px;
-}
-
-.cate__carousel::-webkit-scrollbar-track {
-    background: var(--bg-white);
-}
-
-.cate__carousel::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background: var(--scroll-thumb);
-}
-
-.cate__carousel::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    display: none;
 }
 
 .cate__carousel-col {
