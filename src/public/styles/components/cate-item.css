@@ -16,18 +16,17 @@
 }
 
 .cate__item img {
-    width: 80%;
+    width: 100%;
     padding: 12px;
     aspect-ratio: 1/1;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .cate__item h4 {
-    white-space: nowrap; 
-    width: 80px; 
+    white-space: nowrap;
+    width: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
-
     font-size: 1rem;
     text-align: center;
     color: var(--primary-color-2);
@@ -66,5 +65,9 @@
 
     .cate__item p {
         display: none;
+    }
+
+    .cate__item img {
+        padding: 4px;
     }
 }
