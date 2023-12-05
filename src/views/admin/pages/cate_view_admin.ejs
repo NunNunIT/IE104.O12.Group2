@@ -24,10 +24,10 @@
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col-sm mb-2 mb-sm-0">
-							<%- include('../partials/breadcrumb.ejs', breadcrumb = [{text: 'Sản phẩm',link: '/admin/categories_admin'}, {text: 'Thêm sản phẩm', link: '#'}]) %>
+							<%- include('../partials/breadcrumb.ejs', breadcrumb = [{text: 'Danh mục sản phẩm',link: '/admin/categories_admin'}, {text: 'Thêm', link: '#'}]) %>
 
 							<div class="page-header-title">
-								<h1>Thêm sản phẩm</h1>
+								<h1>Thêm danh mục sản phẩm</h1>
 								<button class="btn-admin btn-primary">Lưu</button>
 							</div>
 
@@ -45,7 +45,7 @@
 							<div class="card mb-3 mb-lg-5">
 								<!-- Header -->
 								<div class="card-header">
-									<h4 class="card-header-title">Thông tin sản phẩm</h4>
+									<h4 class="card-header-title">Thông tin danh mục sản phẩm</h4>
 								</div>
 								<!-- End Header -->
 
@@ -53,52 +53,12 @@
 								<div class="card-body">
 									<!-- Form -->
 									<div class="mb-4">
-										<label for="productNameLabel" class="form-label">Tên sản phẩm <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell."></i></label>
+										<label for="productNameLabel" class="form-label">Tên danh mục sản phẩm <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell."></i></label>
 
-										<input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Nhập tên sản phẩm" value="">
+										<input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Nhập tên danh mục sản phẩm" value="">
 									</div>
 									<!-- End Form -->
 
-									<!-- Form -->
-									<div class="mb-4">
-										<label for="categoryLabel-ts-control" class="form-label" id="categoryLabel-ts-label">Thuộc loại danh mục</label>
-
-										<!-- Select -->
-										<div class="tom-select-custom">
-											<select class="js-select form-select tomselected ts-hidden-accessible" autocomplete="off" id="categoryLabel" data-hs-tom-select-options="{
-                                              &quot;searchInDropdown&quot;: false,
-                                              &quot;hideSearch&quot;: true,
-                                              &quot;placeholder&quot;: &quot;Select category&quot;
-                                            }" tabindex="-1">
-
-												<option value="Máy lạnh">Máy lạnh</option>
-												<option value="Tủ lạnh">Tủ lạnh</option>
-												<option value="Tivi">Tivi</option>
-												<option value="Nồi cơm điện">Nồi cơm điện</option>
-											</select>
-										</div>
-										<!-- End Select -->
-									</div>
-									<!-- Form -->
-
-									<label class="form-label">Mô tả sản phẩm </label>
-
-									<!-- Quill -->
-									<div class="quill-custom">
-										<div class="ql-toolbar ql-snow">
-											<button type="button"><span class="material-symbols-rounded"> format_bold </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_italic </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_underlined </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_strikethrough </span></button>
-											<button type="button"><span class="material-symbols-rounded"> link </span></button>
-											<button type="button"><span class="material-symbols-rounded"> image </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_quote </span></button>
-											<button type="button"><span class="material-symbols-rounded"> code </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_list_bulleted </span></button>
-										</div>
-										<textarea name="" placeholder="Nhập mô tả sản phẩm..."></textarea>
-									</div>
-									<!-- End Quill -->
 								</div>
 								<!-- Body -->
 							</div>
@@ -134,65 +94,7 @@
 							<!-- End Card -->
 						</div>
 
-						<div class="main-form">
-							<!-- Card -->
-							<div class="card variants">
-								<!-- Header -->
-								<div class="card-header">
-									<h4 class="card-header-title">Biến thể</h4>
-								</div>
-								<!-- End Header -->
-
-								<!-- Body -->
-								<div class="card-body">
-									<div class="card-item">
-										<div>
-											<input type="text" class="form-control" placeholder="Tên biến thể">
-										</div>
-
-										<div>
-											<input type="text" class="form-control" placeholder="Nhập giá tiền">
-										</div>
-									</div>
-									<!-- End Col -->
-								</div>
-								<!-- End Row -->
-
-								<!-- Container For Input Field -->
-								<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm thông số khác </button>
-
-							</div>
-
-							<!-- Card -->
-							<div class="card details">
-								<!-- Header -->
-								<div class="card-header">
-									<h4 class="card-header-title">Chi tiết sản phẩm</h4>
-								</div>
-								<!-- End Header -->
-
-								<!-- Body -->
-								<div class="card-body">
-									<div class="card-item">
-										<div class="col-sm-8">
-											<input type="text" class="form-control" placeholder="Tên thông số">
-										</div>
-
-										<div class="col-sm-8">
-											<input type="text" class="form-control" placeholder="Giá trị thông số">
-										</div>
-									</div>
-									<!-- End Col -->
-								</div>
-								<!-- End Row -->
-
-								<!-- Container For Input Field -->
-								<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm thông số khác </button>
-							</div>
-						</div>
-						<!-- End Add Another Option Input Field -->
-					</div>
-					<!-- Body -->
+		
 				</div>
 				<!-- End Card -->
 			</div>
