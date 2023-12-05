@@ -88,12 +88,12 @@ addCartBtn.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         }
-    })
-        .then(res => res.json())
+    }).then(res => res.json())
         .then(back => {
+            // console.log('###########', back)
             if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
-            } else if (back.status = "NotAuth") {
+            } else if (back.status == "NotAuth") {
                 window.location.href = "http://localhost:3000/auth/login"
             } else if (back.status == "success") {
                 const cartSuccessModal = document.querySelector('.success-modal')
@@ -106,9 +106,9 @@ addCartBtn.addEventListener('click', () => {
                     method: 'GET',
                 })
                     .then(res => res.json())
-                    .then(back => {
+                    .then(back2 => {
                         const countCartEle = document.querySelector('.header__cart__number-badge')
-                        countCartEle.innerHTML = back.countCart
+                        countCartEle.innerHTML = back2.countCart
                     })
             }
         })

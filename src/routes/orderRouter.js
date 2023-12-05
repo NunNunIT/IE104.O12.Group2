@@ -7,7 +7,7 @@ const authMiddleware = require('../middleware/authMiddleware.js')
 
 router.get('/cart', authMiddleware.isLoggedIn, orderController.cart)
 router.post('/cart/delete', authMiddleware.isLoggedIn, orderController.deleteCart)
-router.post('/addCart', orderController.addCart)
+router.post('/addCart', authMiddleware.isLoggedIn, orderController.addCart)
 
 router.get('/information', authMiddleware.isLoggedIn, orderController.information)
 router.post('/information', authMiddleware.isLoggedIn, orderController.informationPost)

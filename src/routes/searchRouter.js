@@ -7,7 +7,7 @@ const searchController = require('../controllers/customer/searchController.js')
 // import middleware
 const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/results', searchController.results)
-router.get('/:product_variant_id', searchController.detail)
+router.get('/results',authMiddleware.getLoggedIn, searchController.results)
+router.get('/:product_variant_id', authMiddleware.getLoggedIn, searchController.detail)
 
 module.exports = router

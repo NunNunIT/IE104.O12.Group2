@@ -11,7 +11,7 @@ orderController.addCart = async (req, res) => {
 	let customer_id = 0
 
 	if (req.user) {
-		customer_id = req.user.customer_id ?? 0
+		customer_id = req.user.customer_id
 	} else {
 		return res.status(401).json({
 			status: "NotAuth",
@@ -21,11 +21,11 @@ orderController.addCart = async (req, res) => {
 	let product_variant_id = req.body.product_variant_id
 	let cart_quantity = req.body.cart_quantity
 
-	if (!customer_id) {
-		return res.status(401).json({
-			status: "NotAuth",
-		})
-	}
+	// if (!customer_id) {
+	// 	return res.status(401).json({
+	// 		status: "NotAuth",
+	// 	})
+	// }
 
 	let result = await order.addCart(
 		customer_id,
