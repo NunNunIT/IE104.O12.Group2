@@ -10,16 +10,16 @@
 
 <body>
 
-	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/header') %>
 
 	<div class="mobile-account-container">
 		<aside class="account-aside" id="sidebar">
 			<a href="#" class="avatar">
 				<span class="image-container">
-					<img src="/imgs/avatar.png" alt="avatar" />
+					<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar <%= (user.user.user_name) ? user.user.user_name : '' %>" />
 				</span>
 				<span class="user_name">
-					<h5>HuongVi</h5>
+					<h5><%= (user.user.user_name) ? user.user.user_name : '' %></h5>
 				</span>
 			</a>
 
@@ -95,6 +95,7 @@
 	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/pages/account/mobile-account.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

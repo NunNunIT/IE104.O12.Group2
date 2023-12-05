@@ -433,7 +433,8 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1.3%;
     margin-top: 24px;
 }
 
@@ -551,6 +552,10 @@ a {
         font-size: 0.75rem;
         height: 40px;
         width: 120px;
+    }
+
+    .seacrh-result__main-card {
+        gap: 2%;
     }
 }
 

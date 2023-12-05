@@ -28,11 +28,11 @@
 				<div class="thanks">
 					Cảm ơn <strong>
 						<% if (user.user.user_sex === 'Nam') { %>
-							Anh
-						  <% } else { %>
-							Chị
-						  <% } %>
-						  <%= console.log(purchase.user_sex) %>
+						Anh
+						<% } else { %>
+						Chị
+						<% } %>
+						<%= console.log(purchase.user_sex) %>
 						<%=purchase.order_name%> </strong> đã cho TECHTWO cơ hội được phục vụ.
 				</div>
 				<div class="info-order">
@@ -51,14 +51,14 @@
 						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
 						<span>- <strong>Giao đến: </strong><span id="purchase-address"><%=purchase.order_delivery_address%></span></span>
 						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">
-							<% if (purchase.order_details.length > 0) { %>
+								<% if (purchase.order_details.length > 0) { %>
 								<% let totalAmount = 0; %>
 								<% purchase.order_details.forEach(detail => { %>
-								  <% totalAmount += detail.order_detail_price_after; %>
+								<% totalAmount += detail.order_detail_price_after; %>
 								<% }); %>
 								<%= formatFunction.toCurrency(totalAmount) %>
-							  <% } %>
-						</span></span>
+								<% } %>
+							</span></span>
 					</div>
 				</div>
 
@@ -123,6 +123,7 @@
 	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/pages/order/credit.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

@@ -189,20 +189,21 @@ WHERE
     products.product_is_display = 1
 GROUP BY
     products.product_id;
+
+
 DROP VIEW IF EXISTS
     view_count_cart;
 CREATE VIEW view_count_cart AS SELECT
     customers.customer_id,
     users.user_id,
-    COUNT(*) AS 'count_cart'
+    COUNT(carts.product_variant_id) AS 'count_cart'
 FROM
-    carts,
-    users
-LEFT JOIN customers ON users.user_id = customers.customer_id
-WHERE
-    carts.customer_id = customers.customer_id
+users LEFT JOIN customers ON users.user_id = customers.customer_id
+LEFT JOIN carts ON carts.customer_id = customers.customer_id
 GROUP BY
     customers.customer_id;
+
+
 DROP VIEW IF EXISTS
     view_cart;
 CREATE VIEW view_cart AS SELECT
@@ -261,7 +262,7 @@ WHERE
 DROP VIEW IF EXISTS
     view_orders;
 
-CREATE VIEW view_order AS
+CREATE VIEW view_orders AS
 SELECT orders.*, paying_methods.paying_method_name
 FROM 
 orders LEFT JOIN paying_methods

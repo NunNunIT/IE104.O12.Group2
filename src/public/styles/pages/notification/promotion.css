@@ -352,11 +352,6 @@ button.btn--outlined.pri {
         font-size: 0.75rem;
     }
 
-    .popup__content-main {
-        padding: 20px;
-        gap: 8px;
-    }
-
     .popup .popup__title {
         font-size: 1rem;
     }
@@ -380,6 +375,13 @@ button.btn--outlined.pri {
 
     .noti-item__block .btn.btn--filled.pri {
         height: 32px;
+    }
+
+    .popup__main {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        border-radius: 8px 8px 0 0;
     }
 
 }

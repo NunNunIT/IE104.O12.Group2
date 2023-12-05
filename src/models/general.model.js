@@ -137,7 +137,7 @@ general.getCates = async (req) => {
             const promises = [];
             cates.forEach(async (cate) => {
                 promises.push(
-                    general.getBestSellerProductsOfCates(Number(cate.category_id), 3).then((bestSellerProducts) => {
+                    general.getBestSellerProductsOfCates(Number(cate.category_id), 8).then((bestSellerProducts) => {
                         cate.bestSellerProductsOfCates = bestSellerProducts;
                     })
                 );

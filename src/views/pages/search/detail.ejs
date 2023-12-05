@@ -242,7 +242,7 @@
 				</div>
 			</div>
 
-			<div class="comments__list default">
+			<div class="comments__list">
 				<% if (productFeedbacks.length) { %>
 				<% productFeedbacks.forEach(feedback => { %>
 				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: formatFunction.toDDMMYYYY }) %>
@@ -251,7 +251,6 @@
 					<%#- include('../../components/pagination') %>
 				</div>
 				<% if (productFeedbacks.length > 5) { %>
-				<button onclick="showAllComment(event)" class="comment__more-btn" type="button">Xem thêm</button>
 				<% } %>
 				<% } else { %>
 				<img class="comment__not-found" src="/imgs/nothing-result.png" alt="">
@@ -299,6 +298,7 @@
 	<script src="/scripts/components/image-modal.js"></script>
 	<script src="/scripts/components/success-modal.js"></script>
 	<script src="/scripts/components/carousel.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

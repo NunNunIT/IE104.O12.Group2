@@ -130,18 +130,17 @@ const validateInput = () => {
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then (res => res.json()).then (back => {
-            console.log(back)
-            if (back.status == "error"){
+        }).then(res => res.json()).then(back => {
+            if (back.status == "error") {
                 setError(phoneNumber, back.error);
             }
             else if (back.status == "error2") {
                 setError(password, back.error);
             }
-            else if (back.status == "success") {
-                window.location.href = "/"
+            else {
+                window.location.href ='/'
             }   
         })
     }
-    
+
 };
