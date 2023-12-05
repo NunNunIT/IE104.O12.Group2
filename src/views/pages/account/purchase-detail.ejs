@@ -90,7 +90,7 @@
 						<span id="total-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
 					<p class="purchase-detail__final">
-						<span>Số tiền đã thanh toán:</span>
+						<span>Tổng tiền:</span>
 						<span id="paid-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
 				</div>
@@ -113,7 +113,8 @@
 									<span class="material-symbols-outlined">info</span>
 									<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
 								</div>
-								<form action="">
+								<form action="" id="cancel_popup">
+									<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
 									<div class="cancel-reasons">
 										<div class="cancel-reason__item">
 											<input type="radio" class="cancel-reason__input" value="1" id="update" name="selector">
@@ -150,21 +151,21 @@
 					</div>
 
 					<!-- nút thanh toán khi status là "Chờ thanh toán" -->
-					<a href="#">
+					<a href="/order/payment?paying_method_id=<%= purchaseHistory.paying_method_id %>&order_id=<%= purchaseHistory.order_id %>">
 						<div class="btn btn--filled pri">Thanh toán</div>
 					</a>
 					<!-- end -->
 					<% } %>
 					<% if (purchaseHistory.order_status === 'Đang giao hàng') { %>
 					<!-- nút đánh giá khi status là "Đang giao hàng"-->
-					<a href="#">
+					<a>
 						<div class="btn btn--filled pri disable">Đánh giá</div>
 					</a>
 					<!-- end -->
 					<% } %>
 					<% if (purchaseHistory.order_status === 'Hoàn thành') { %>
 					<!-- nút đánh giá khi status là "Hoàn thành"-->
-					<a href="#">
+					<a href="/account/feedback?order_id=<%= purchaseHistory.order_id %>">
 						<div class="btn btn--filled pri">Đánh giá</div>
 					</a>
 					<!-- end -->

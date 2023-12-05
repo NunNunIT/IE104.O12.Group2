@@ -50,7 +50,7 @@
 
 					<% } else { %>
 					<div class="dropdown-noti__content-container">
-						<% if (user.noti) { %>
+						<% if (user.noti.length > 0) { %>
 						<div class="dropdown-noti__content">
 							<div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
 							<% let l = (user.noti.length > 4) ? 4 : user.noti.length %>
@@ -58,34 +58,21 @@
 							<%- include('../components/noti-content-dropdown', {noti: user.noti[i]}) %>
 							<% } %>
 							<a href="/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
-							<% } else { %>
-							<!-- bắt đầu dropdown-noti khi đã đăng nhập__rỗng -->
-							<div class="dropdown-noti__content">
-								<div class="dropdown-noti--empty">
-									<img src="/imgs/nothing-result.png" alt="empty" class="dropdown-noti__img--empty">
-									<span class="empty-content__noti">Bạn chưa có thông báo</span>
-								</div>
-							</div>
-							<!-- kết thúc dropdown-noti khi đã đăng nhập__rỗng -->
-							<% } %>
 						</div>
+						<% } else { %>
+						<!-- bắt đầu dropdown-noti khi đã đăng nhập__rỗng -->
+						<div class="dropdown-noti__content">
+							<div class="dropdown-noti--empty">
+								<img src="/imgs/nothing-result.png" alt="empty" class="dropdown-noti__img--empty">
+								<span class="empty-content__noti">Bạn chưa có thông báo</span>
+							</div>
+						</div>
+						<!-- kết thúc dropdown-noti khi đã đăng nhập__rỗng -->
+						<% } %>
 					</div>
-					<!-- kết thúc dropdown-noti khi đã đăng nhập -->
 					<% } %>
 				</div>
-				<!-- kết thúc dropdown-noti -->
-
-				<!-- Hiển thị khi responsive điện thoại -->
-				<div class="header__nav--disable">
-					<a href="/notification/account-update" class="noti--disable">
-						<span class="material-symbols-outlined" title="Thông báo">notifications</span>
-					</a>
-					<a href="#" class="help--disable">
-						<span class="material-symbols-outlined" title="Hỗ trợ">help</span>
-					</a>
-				</div>
-				<!-- Kết thúc hiển thị khi ở màn hình điện thoại -->
-
+				<!-- kết thúc dropdown-noti khi đã đăng nhập -->
 				<!-- Khi đã đăng nhập -->
 				<% if (user) { %>
 				<div class="dropdown-account">
@@ -116,6 +103,18 @@
 				<% } %>
 			</div>
 		</div>
+		<!-- kết thúc dropdown-noti -->
+
+		<!-- Hiển thị khi responsive điện thoại -->
+		<div class="header__nav--disable">
+			<a href="/notification/account-update" class="noti--disable">
+				<span class="material-symbols-outlined" title="Thông báo">notifications</span>
+			</a>
+			<a href="#" class="help--disable">
+				<span class="material-symbols-outlined" title="Hỗ trợ">help</span>
+			</a>
+		</div>
+		<!-- Kết thúc hiển thị khi ở màn hình điện thoại -->
 	</nav>
 
 	<div class="header__container">
@@ -157,9 +156,8 @@
 					<% } else { %>
 					<!-- dropdown giỏ hàng khi đã đăng nhập -->
 					<div class="dropdown-cart__content">
-						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
-						<% console.log('----------------------------', user) %>
 						<% if (user.countCart) { %>
+						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
 						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
 						<% for (let i = 0; i < l; i++) { %>
 						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i], toCurrency: formatFunction.toCurrency }) %>

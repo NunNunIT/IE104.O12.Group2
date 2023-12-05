@@ -75,25 +75,24 @@ cancelForm.addEventListener('submit', e => {
 
     //Kiểm tra dữ liệu nhập vào
     const order_id = {
-        order_id : document.querySelector('input[name=order_id]').value
+        order_id: document.querySelector('input[name=order_id]').value
     }
 
-    console.log(order_id)
-    fetch('/order/cancel_order', { 
+    fetch('/order/cancel_order', {
         method: 'POST',
         body: JSON.stringify(order_id),
         headers: {
             "Content-Type": "application/json"
         }
     }).then(res => res.json())
-    .then(back => {
-        if (back.status == "error") {
-            // Pop up vui lòng thử lại sau
+        .then(back => {
+            if (back.status == "error") {
+                // Pop up vui lòng thử lại sau
 
-        } else if (back.status == "success") {
-            // Pop up đã hủy thành công
+            } else if (back.status == "success") {
+                // Pop up đã hủy thành công
 
-            location.reload()
-        }
-    })
+                location.reload()
+            }
+        })
 });

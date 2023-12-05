@@ -41,10 +41,12 @@ siteController.aboutUs = async (req, res) => {
 siteController.privacyPolicy = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     res.render('./pages/site/privacy-policy', {
         header: header,
         user: header_user,
+        formatFunction: formatFunction,
     })
 }
 
