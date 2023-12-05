@@ -23,23 +23,19 @@
 			<div class="title__rating">
 				<% if (productInfo.product_rate) { %>
 				<div>
-					<!-- In ra số sao hiện có -->
-					<% const productRateInt = Math.floor(productInfo.product_rate) %>
-
-					<% for (let i = 0; i < productRateInt; i++) { %>
-					<span class="material-symbols-outlined">grade</span>
+					<% for (let i = 0; i < Math.floor(productInfo.product_rate); i++) { %>
+					<span class="material-symbols-outlined">star</span>
 					<% } %>
 
-					<!-- In ra số sao lẻ -->
-					<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+					<% if (productInfo.product_rate % 1 !== 0.5) { %>
+					<% if (productInfo.product_rate - Math.floor(productInfo.product_rate) > 0) { %>
 					<span class="material-symbols-outlined">star_half</span>
-					<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
-					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
 					<% } %>
-
-					<!-- In ra số sao trống -->
-					<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
-					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% for (let i = 0; i < Math.floor(5 - Math.ceil(productInfo.product_rate)); i++) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+					<% } %>
+					<% } else { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
 					<% } %>
 				</div>
 				<% } %>
@@ -119,18 +115,19 @@
 							<div>
 								<p>Mua đi bạn ơi!</p>
 								<% const discountedPrice = Math.round(variant.product_variant_price - variant.product_variant_price * (variant.discount_amount / 100)) %>
-								<h2><%= formatFunction.toCurrency(discountedPrice) ?? 'null' %>đ</h2>
+								<h2><%= formatFunction.toCurrency(discountedPrice) ?? 'null' %></h2>
 								<p><del><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %>đ</del> giảm đến <%= variant.discount_amount ?? 'null' %>%</p>
 							</div>
 							<div>
 								<p>Kết thúc vào</p>
-								<p>23:59 ngày 31/10</p>
+								<p><%= formatFunction.toDDMMYYYY(variant.discount_end_date) %></p>
 							</div>
 						</div>
 						<div class="promo__content">
 							<h2>Khuyến mãi</h2>
+							<p><%= variant.discount_description %></p>
+							<hr>
 							<p>Giá và khuyến mãi có thể sẽ kết thúc sớm hơn dự kiến.</p>
-							<!-- Thêm discount description -->
 							<ol class="promo__list">
 								<li>Giao hàng nhanh chóng (tùy khu vực).</li>
 								<li>Mua càng nhiều, ưu đãi càng cao.</li>
@@ -209,25 +206,19 @@
 				<div class="filter__avg-rating">
 					<p><%= productInfo.product_rate ?? 'null' %> trên 5</p>
 					<div class="filter__stars">
-						<% if (productInfo.product_rate) { %>
-						<!-- In ra số sao hiện có -->
-						<% const productRateInt = Math.floor(productInfo.product_rate) %>
-
-						<% for (let i = 0; i < productRateInt; i++) { %>
-						<span class="material-symbols-outlined">grade</span>
+						<% for (let i = 0; i < Math.floor(productInfo.product_rate); i++) { %>
+						<span class="material-symbols-outlined">star</span>
 						<% } %>
 
-						<!-- In ra số sao lẻ -->
-						<% if (productInfo.product_rate - productRateInt >= 0.5 && productInfo.product_rate - productRateInt < 1) { %>
+						<% if (productInfo.product_rate % 1 !== 0.5) { %>
+						<% if (productInfo.product_rate - Math.floor(productInfo.product_rate) > 0) { %>
 						<span class="material-symbols-outlined">star_half</span>
-						<% } else if (productInfo.product_rate!= 5 && productInfo.product_rate - productRateInt < 0.5 && productInfo.product_rate - productRateInt >= 0) { %>
-						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
 						<% } %>
-
-						<!-- In ra số sao trống -->
-						<% for (let i = 0; i < Math.floor(5 - productInfo.product_rate - 1); i++) {  %>
-						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+						<% for (let i = 0; i < Math.floor(5 - Math.ceil(productInfo.product_rate)); i++) { %>
+						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
 						<% } %>
+						<% } else { %>
+						<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
 						<% } %>
 					</div>
 				</div>
@@ -247,9 +238,6 @@
 				<% productFeedbacks.forEach(feedback => { %>
 				<%- include('../../components/comment', { feedback: feedback, toDDMMYYYY: formatFunction.toDDMMYYYY }) %>
 				<% }) %>
-				<div class="comments__pagination">
-					<%#- include('../../components/pagination') %>
-				</div>
 				<% if (productFeedbacks.length > 5) { %>
 				<% } %>
 				<% } else { %>
