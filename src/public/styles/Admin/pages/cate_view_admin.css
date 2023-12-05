@@ -173,7 +173,6 @@ body {
 }
 
 .quill-custom .ql-toolbar.ql-snow {
-    padding: 0.75rem 1rem;
     border-top-left-radius: 0.3125rem;
     border-top-right-radius: 0.3125rem;
 }
@@ -184,7 +183,6 @@ body {
 }
 
 .quill-custom .ql-toolbar.ql-snow {
-    padding: 0.75rem 1rem;
     border-top-left-radius: 0.3125rem;
     border-top-right-radius: 0.3125rem;
 }
@@ -212,6 +210,38 @@ body {
 .ql-snow .ql-formats {
     display: inline-block;
     vertical-align: middle;
+}
+
+.quill-custom textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border: 0.5px solid var(--dark8);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ql-toolbar {
+    display: flex;
+    gap: 8px;
+}
+
+.ql-toolbar span {
+    font-size: 20px;
+    padding: 4px;
+}
+
+.ql-toolbar button {
+    background-color: var(--white);
+}
+
+.ql-toolbar button:hover {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-color-1);
+    background-color: var(--bg-white);
 }
 
 .ql-snow * {
@@ -254,13 +284,41 @@ body {
     border-radius: 0.3125rem;
 }
 
+.variants .card-body,
+.details .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-item {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+}
+
+.add-another-btn {
+    cursor: pointer;
+    padding: 12px;
+    font-weight: 600;
+    color: var(--primary-color-2);
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-another-btn:hover {
+    color: var(--blue3);
+}
+
 .quill-custom .ql-formats:first-child button {
     margin-right: 0.25rem;
 }
 
 .ql-snow .ql-toolbar button,
 .ql-snow.ql-toolbar button {
-    background: 0 0;
     border: none;
     cursor: pointer;
     display: inline-block;
@@ -287,9 +345,13 @@ body {
 .dz-dropzone .dz-message {
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-.dz-dropzone .dz-message p{
+.dz-dropzone .dz-message p {
     width: 100%;
     text-align: center;
     color: var(--dark6);
@@ -397,22 +459,40 @@ body {
     border-radius: 0;
 }
 
+select:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+}
+
 input[type="text"]:focus {
     border-color: #86b7fe;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
 }
 
-input[type="textarea"] {
-    
-}
-
-input[type="textarea"]:focus {
+textarea:focus {
     border-color: #86b7fe;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
 }
 
 .tom-select-custom .form-select option {
     padding: 0.5rem 2.5rem 0.5rem 1rem;
+}
+
+@media only screen and (max-width: 64rem) {
+    .btn-admin {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 48rem) {
+    .btn-admin {
+        width: 100%;
+    }
+
+    .form-control {
+        padding: 8px 12px;
+    }
 }
