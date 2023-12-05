@@ -157,3 +157,17 @@ BEGIN
     WHERE products.product_id = product_id;
 END //
 DELIMITER ; 
+
+DROP TRIGGER IF EXISTS after_insert_users;
+
+DELIMITER //
+CREATE TRIGGER after_insert_users
+AFTER INSERT
+ON users FOR EACH ROW
+BEGIN
+    INSERT INTO customers (user_id)
+    VALUES (NEW.user_id);
+END;
+//
+DELIMITER ;
+

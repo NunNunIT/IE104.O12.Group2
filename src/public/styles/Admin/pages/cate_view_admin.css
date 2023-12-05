@@ -2,9 +2,10 @@
 @import url("/styles/admin/partials/sidebar_admin.css");
 @import url("/styles/admin/partials/header_admin.css");
 @import url("/styles/admin/components/pagination.css");
+@import url("/styles/admin/partials/breadcrumb.css");
 
 body {
-    background-color: var(--bg-white);
+    background-color: var(--white);
     color: var(--black);
 }
 
@@ -70,38 +71,15 @@ body {
       } */
 }
 
-.page-header .breadcrumb {
-    margin-bottom: 0.25rem;
-}
-
-.page-header .breadcrumb {
-    margin-bottom: 0.25rem;
-}
-
-.breadcrumb {
-    --bs-breadcrumb-padding-x: 0;
-    --bs-breadcrumb-padding-y: 0;
-    --bs-breadcrumb-margin-bottom: 1rem;
-    --bs-breadcrumb-bg: transparent;
-    --bs-breadcrumb-divider-color: #97a4af;
-    --bs-breadcrumb-item-padding-x: 0.5rem;
-    --bs-breadcrumb-item-active-color: #8c98a4;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: var(--bs-breadcrumb-padding-y) var(--bs-breadcrumb-padding-x);
-    margin-bottom: var(--bs-breadcrumb-margin-bottom);
-    font-size: var(--bs-breadcrumb-font-size);
-    list-style: none;
-    background-color: var(--bs-breadcrumb-bg);
-    border-radius: var(--bs-breadcrumb-border-radius);
-}
-
 .page-header {
     border-bottom: 0.0625rem solid var(--dark8);
-    padding-bottom: 2rem;
+    padding-bottom: 0.5rem;
     margin-bottom: 2.25rem;
+}
+
+.page-header-title {
+    display: flex;
+    justify-content: space-between;
 }
 
 .row {
@@ -417,4 +395,24 @@ body {
     width: 6.5625rem;
     height: auto;
     border-radius: 0;
+}
+
+input[type="text"]:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+
+input[type="textarea"] {
+    
+}
+
+input[type="textarea"]:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+
+.tom-select-custom .form-select option {
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
 }
