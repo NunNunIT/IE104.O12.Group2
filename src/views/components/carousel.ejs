@@ -21,7 +21,7 @@
 							<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>" draggable="false">
 						</div>
 						<div class="carousel__card-details">
-							<span class="carousel__card-catagory"><%= product.category_name %></span>
+							<span class="carousel__card-catagory"><%= product.category_name ?? 'null' %></span>
 							<% if (product.product_rate) { %>
 							<div class="carousel__card-rate">
 								<% for (let i = 0; i < Math.floor(product.product_rate); i++) { %>
@@ -42,11 +42,11 @@
 							</div>
 							<% } %>
 
-							<h4>
+							<h4 title="<%= product.product_name ?? 'Null' %>">
 								<% if (product.product_name.length > 30) { %>
 								<%= product.product_name.substring(0, 30) + '...' %>
 								<% } else { %>
-								<%= product.product_name ?? 'NaN' %>
+								<%= product.product_name ?? 'null' %>
 								<% } %>
 							</h4>
 							<p><%= product.discount_description %></p>
