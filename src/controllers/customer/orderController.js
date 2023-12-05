@@ -63,7 +63,8 @@ orderController.cart = async (req, res) => {
 // [POST] /order/cart/delete
 orderController.deleteCart = async (req, res) => {
 	let customer_id = req.user.customer_id
-	let productsDeleteCart = req.body
+	let productsCartDelete = req.body
+	console.log(productsCartDelete)
 
 	order.deleteCart(customer_id, productsCartDelete, function (err, success) {
 		if (success) {
@@ -161,17 +162,17 @@ orderController.payment = async (req, res) => {
 orderController.cancelOrder = async (req, res) => {
 	let order_id = req.body.order_id;
 
-	await order.updateCancelOrder (order_id, function (err, success) {
+	await order.updateCancelOrder(order_id, function (err, success) {
 		if (err) {
-			res.status(404).json ({
+			res.status(404).json({
 				status: 'error',
 			})
 		} else {
-			res.status(200).json ({
+			res.status(200).json({
 				status: 'success',
 			})
 		}
-	}) 
+	})
 }
 
 module.exports = orderController

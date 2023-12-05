@@ -47,19 +47,29 @@ function checkOne(event) {
 function removeItem(event) {
     const cartItem = event.currentTarget.parentElement.parentElement
     let productVariantId = cartItem.querySelector('input[name="product_variant_id"]')
-    const deleteArray = []
-    deleteArray.push({
+    const productsCartDelete = []
+    productsCartDelete.push({
         product_variant_id: Number(productVariantId.value),
     })
     cartItem.remove()
 
-    fetch('/order/cart/buy', {
-        body: JSON.stringify(deleteArray),
+    fetch('/order/cart/delete', {
+        body: JSON.stringify(productsCartDelete),
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
     })
+        .then(() => {
+            fetch('/general/count_cart', {
+                method: 'GET',
+            })
+                .then(res => res.json())
+                .then(back2 => {
+                    const countCartEle = document.querySelector('.header__cart__number-badge')
+                    countCartEle.innerHTML = back2.countCart
+                })
+        })
 
     showSelectedNums()
     showEmptyNoti()
