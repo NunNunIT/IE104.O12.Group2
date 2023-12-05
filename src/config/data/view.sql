@@ -28,7 +28,7 @@ FROM
     FROM
         orders
     WHERE
-        orders.order_is_payment = 1
+        orders.order_is_paid = 1
     GROUP BY
         YEAR(orders.order_date),
         MONTH(orders.order_date)

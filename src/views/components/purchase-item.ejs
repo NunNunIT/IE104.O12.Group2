@@ -134,7 +134,7 @@
 
 				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
 				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
-				<a href="#">
+				<a href="/order/payment?paying_method_id=<%= purchaseHistory.paying_method_id %>&order_id=<%= purchaseHistory.order_id %>">
 					<div class="btn btn--filled pri popup-btn">Thanh toán</div>
 				</a>
 				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
