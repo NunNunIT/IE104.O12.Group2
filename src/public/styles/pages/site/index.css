@@ -52,28 +52,12 @@ section {
 .cate__carousel {
     display: inherit;
     gap: 8px;
-    /* transition: scroll-behavior 0.5s ease-in-out; */
-    /* scroll-behavior: smooth; */
-    position: relative;
     overflow-x: scroll;
     scroll-snap-type: x proximity;
 }
 
 .cate__carousel::-webkit-scrollbar {
-    height: 8px;
-}
-
-.cate__carousel::-webkit-scrollbar-track {
-    background: var(--bg-white);
-}
-
-.cate__carousel::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background: var(--scroll-thumb);
-}
-
-.cate__carousel::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    display: none;
 }
 
 .cate__carousel-col {
@@ -95,8 +79,8 @@ section {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 175px;
-    left: 8px;
+    top: 45%;
+    left: 1%;
 }
 
 .cate__button span {
@@ -104,7 +88,7 @@ section {
 }
 
 #cateNext {
-    left: 1070px;
+    left: 94%;
 }
 
 .cate__button:hover {
@@ -278,7 +262,7 @@ section {
     }
 
     .cate__carousel-col {
-        width: 48px;
+        width: 80px;
     }
 
     .cate__item {
