@@ -2,273 +2,207 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <title>Admin</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <link rel="stylesheet" href="/styles/admin/pages/cate_view_admin.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<title>Admin</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+	<link rel="stylesheet" href="/styles/admin/pages/cate_view_admin.css">
 </head>
 
 <body>
-    <div class="grid-container">
-        <!-- Header -->
-        <%- include('../partials/sidebar_admin') %>
-            <!-- Sidebar -->
-            <%- include('../partials/header_admin', title) %>
-                <!-- Main -->
-                <main class="main-container">
-                    <!-- Page Header -->
-                    <div class="content container-fluid">
-                        <!-- Page Header -->
-                        <div class="page-header">
-                            <div class="row align-items-center">
-                                <div class="col-sm mb-2 mb-sm-0">
-                                    <%- include('../partials/breadcrumb.ejs', breadcrumb = [{text: 'Sản phẩm',link: '/admin/categories_admin'}, {text: 'Thêm sản phẩm', link: '#'}]) %>
+	<div class="grid-container">
+		<!-- Header -->
+		<%- include('../partials/sidebar_admin') %>
+		<!-- Sidebar -->
+		<%- include('../partials/header_admin', title) %>
+		<!-- Main -->
+		<main class="main-container">
+			<!-- Page Header -->
+			<div class="content container-fluid">
+				<!-- Page Header -->
+				<div class="page-header">
+					<div class="row align-items-center">
+						<div class="col-sm mb-2 mb-sm-0">
+							<%- include('../partials/breadcrumb.ejs', breadcrumb = [{text: 'Sản phẩm',link: '/admin/categories_admin'}, {text: 'Thêm sản phẩm', link: '#'}]) %>
 
-                                    <div class="page-header-title">
-                                        <h1>Thêm sản phẩm</h1>
-                                        <button class="btn-admin btn-primary">Lưu</button>
-                                    </div>
-                                    
-                                </div>
-                                <!-- End Col -->
-                            </div>
-                            <!-- End Row -->
-                        </div>
-                        <!-- End Page Header -->
+							<div class="page-header-title">
+								<h1>Thêm sản phẩm</h1>
+								<button class="btn-admin btn-primary">Lưu</button>
+							</div>
 
-                        <div class="row">
-                            <div class="col-lg-8 mb-3 mb-lg-0">
-                                <div class="main-form">
-                                    <!-- Card -->
-                                    <div class="card mb-3 mb-lg-5">
-                                        <!-- Header -->
-                                        <div class="card-header">
-                                            <h4 class="card-header-title">Thông tin sản phẩm</h4>
-                                        </div>
-                                        <!-- End Header -->
+						</div>
+						<!-- End Col -->
+					</div>
+					<!-- End Row -->
+				</div>
+				<!-- End Page Header -->
 
-                                        <!-- Body -->
-                                        <div class="card-body">
-                                            <!-- Form -->
-                                            <div class="mb-4">
-                                                <label for="productNameLabel" class="form-label">Tên sản phẩm <i
-                                                        class="bi-question-circle text-body ms-1"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        aria-label="Products are the goods or services you sell."></i></label>
+				<div class="row">
+					<div class="col-lg-8 mb-3 mb-lg-0">
+						<div class="main-form">
+							<!-- Card -->
+							<div class="card mb-3 mb-lg-5">
+								<!-- Header -->
+								<div class="card-header">
+									<h4 class="card-header-title">Thông tin sản phẩm</h4>
+								</div>
+								<!-- End Header -->
 
-                                                <input type="text" class="form-control" name="productName"
-                                                    id="productNameLabel" placeholder="Nhập tên sản phẩm"
-                                                    value="">
-                                            </div>
-                                            <!-- End Form -->
+								<!-- Body -->
+								<div class="card-body">
+									<!-- Form -->
+									<div class="mb-4">
+										<label for="productNameLabel" class="form-label">Tên sản phẩm <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell."></i></label>
 
-                                            <!-- Form -->
-                                            <div class="mb-4">
-                                                <label for="categoryLabel-ts-control" class="form-label"
-                                                    id="categoryLabel-ts-label">Thuộc loại danh mục</label>
+										<input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Nhập tên sản phẩm" value="">
+									</div>
+									<!-- End Form -->
 
-                                                <!-- Select -->
-                                                <div class="tom-select-custom">
-                                                    <select
-                                                        class="js-select form-select tomselected ts-hidden-accessible"
-                                                        autocomplete="off" id="categoryLabel"
-                                                        data-hs-tom-select-options="{
+									<!-- Form -->
+									<div class="mb-4">
+										<label for="categoryLabel-ts-control" class="form-label" id="categoryLabel-ts-label">Thuộc loại danh mục</label>
+
+										<!-- Select -->
+										<div class="tom-select-custom">
+											<select class="js-select form-select tomselected ts-hidden-accessible" autocomplete="off" id="categoryLabel" data-hs-tom-select-options="{
                                               &quot;searchInDropdown&quot;: false,
                                               &quot;hideSearch&quot;: true,
                                               &quot;placeholder&quot;: &quot;Select category&quot;
                                             }" tabindex="-1">
 
-                                                        <option value="Shoes">Shoes</option>
-                                                        <option value="Electronics">Electronics</option>
-                                                        <option value="Others">Others</option>
-                                                        <option value="Clothing">Clothing</option>
-                                                    </select>
-                                                </div>
-                                                <!-- End Select -->
-                                            </div>
-                                            <!-- Form -->
+												<option value="Máy lạnh">Máy lạnh</option>
+												<option value="Tủ lạnh">Tủ lạnh</option>
+												<option value="Tivi">Tivi</option>
+												<option value="Nồi cơm điện">Nồi cơm điện</option>
+											</select>
+										</div>
+										<!-- End Select -->
+									</div>
+									<!-- Form -->
 
-                                            <label class="form-label">Mô tả sản phẩm </label>
+									<label class="form-label">Mô tả sản phẩm </label>
 
-                                            <!-- Quill -->
-                                            <div class="quill-custom">
-                                                <div class="ql-toolbar ql-snow"><span class="ql-formats"><button type="button" class="ql-bold"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button><button type="button" class="ql-italic"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line> <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line> <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line> </svg></button><button type="button" class="ql-underline"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect> </svg></button><button type="button" class="ql-strike"><svg viewBox="0 0 18 18"> <line class="ql-stroke ql-thin" x1="15.5" x2="2.5" y1="8.5" y2="9.5"></line> <path class="ql-fill" d="M9.007,8C6.542,7.791,6,7.519,6,6.5,6,5.792,7.283,5,9,5c1.571,0,2.765.679,2.969,1.309a1,1,0,0,0,1.9-.617C13.356,4.106,11.354,3,9,3,6.2,3,4,4.538,4,6.5a3.2,3.2,0,0,0,.5,1.843Z"></path> <path class="ql-fill" d="M8.984,10C11.457,10.208,12,10.479,12,11.5c0,0.708-1.283,1.5-3,1.5-1.571,0-2.765-.679-2.969-1.309a1,1,0,1,0-1.9.617C4.644,13.894,6.646,15,9,15c2.8,0,5-1.538,5-3.5a3.2,3.2,0,0,0-.5-1.843Z"></path> </svg></button><button type="button" class="ql-link"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line> <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path> <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path> </svg></button><button type="button" class="ql-image"><svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="10" width="12" x="3" y="4"></rect> <circle class="ql-fill" cx="6" cy="7" r="1"></circle> <polyline class="ql-even ql-fill" points="5 12 5 11 7 9 8 10 11 7 13 9 13 12 5 12"></polyline> </svg></button><button type="button" class="ql-blockquote"><svg viewBox="0 0 18 18"> <rect class="ql-fill ql-stroke" height="3" width="3" x="4" y="5"></rect> <rect class="ql-fill ql-stroke" height="3" width="3" x="11" y="5"></rect> <path class="ql-even ql-fill ql-stroke" d="M7,8c0,4.031-3,5-3,5"></path> <path class="ql-even ql-fill ql-stroke" d="M14,8c0,4.031-3,5-3,5"></path> </svg></button><button type="button" class="ql-code"><svg viewBox="0 0 18 18"> <polyline class="ql-even ql-stroke" points="5 7 3 9 5 11"></polyline> <polyline class="ql-even ql-stroke" points="13 7 15 9 13 11"></polyline> <line class="ql-stroke" x1="10" x2="8" y1="5" y2="13"></line> </svg></button><button type="button" class="ql-list" value="bullet"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line> <line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line> <line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line> <line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line> <line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line> <line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line> </svg></button></span></div><div class="js-quill ql-container ql-snow hs-quill-initialized" style="height: 15rem;" data-hs-quill-options="{
-                                                     &quot;placeholder&quot;: &quot;Type your description...&quot;,
-                                                      &quot;modules&quot;: {
-                                                        &quot;toolbar&quot;: [
-                                                          [&quot;bold&quot;, &quot;italic&quot;, &quot;underline&quot;, &quot;strike&quot;, &quot;link&quot;, &quot;image&quot;, &quot;blockquote&quot;, &quot;code&quot;, {&quot;list&quot;: &quot;bullet&quot;}]
-                                                        ]
-                                                      }
-                                                     }"><div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Type your description..." spellcheck="true"><p>1234assa56789sd0-=</p></div><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: -0.8px; left: -0.8px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: -0.8px; left: -0.8px; pointer-events: none; z-index: auto;" class="dnXmp"></grammarly-extension><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
-                                              </div>
-                                            <!-- End Quill -->
-                                        </div>
-                                        <!-- Body -->
-                                    </div>
-                                    <!-- End Card -->
+									<!-- Quill -->
+									<div class="quill-custom">
+										<div class="ql-toolbar ql-snow">
+											<button type="button"><span class="material-symbols-rounded"> format_bold </span></button>
+											<button type="button"><span class="material-symbols-rounded"> format_italic </span></button>
+											<button type="button"><span class="material-symbols-rounded"> format_underlined </span></button>
+											<button type="button"><span class="material-symbols-rounded"> format_strikethrough </span></button>
+											<button type="button"><span class="material-symbols-rounded"> link </span></button>
+											<button type="button"><span class="material-symbols-rounded"> image </span></button>
+											<button type="button"><span class="material-symbols-rounded"> format_quote </span></button>
+											<button type="button"><span class="material-symbols-rounded"> code </span></button>
+											<button type="button"><span class="material-symbols-rounded"> format_list_bulleted </span></button>
+										</div>
+										<textarea name="" placeholder="Nhập mô tả sản phẩm..."></textarea>
+									</div>
+									<!-- End Quill -->
+								</div>
+								<!-- Body -->
+							</div>
+							<!-- End Card -->
 
-                                    <!-- Card -->
-                                    <div class="card mb-3 mb-lg-5">
-                                        <!-- Header -->
-                                        <div class="card-header card-header-content-between">
-                                            <h4 class="card-header-title">Ảnh</h4>
-                                        </div>
-                                        <!-- End Header -->
+							<!-- Card -->
+							<div class="card mb-3 mb-lg-5">
+								<!-- Header -->
+								<div class="card-header card-header-content-between">
+									<h4 class="card-header-title">Ảnh</h4>
+								</div>
+								<!-- End Header -->
 
-                                        <!-- Body -->
-                                        <div class="card-body">
-                                            <!-- Dropzone -->
-                                            <div id="attachFilesNewProjectLabel"
-                                                class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable">
-                                                <div class="dz-message">
-                                                    <img class="img-upload" src="/imgs/admin/img-upload.svg"
-                                                        alt="Image Description" data-hs-theme-appearance="default">
+								<!-- Body -->
+								<div class="card-body">
+									<!-- Dropzone -->
+									<div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable">
+										<div class="dz-message">
+											<img class="img-upload" src="/imgs/admin/img-upload.svg" alt="Image Description" data-hs-theme-appearance="default">
+											<h5>Kéo và thả hình ảnh tại đây</h5>
+											<p>hoặc</p>
+											<div class="dz-message-btn">
+												<span class="btn-admin btn-white"><span class="material-symbols-rounded"> upload </span>
+													<p>Tải file lên tại đây</p>
+												</span>
+											</div>
+										</div>
+									</div>
+									<!-- End Dropzone -->
+								</div>
+								<!-- Body -->
+							</div>
+							<!-- End Card -->
+						</div>
 
-                                                    <h5>Kéo và thả hình ảnh tại đây</h5>
+						<div class="main-form">
+							<!-- Card -->
+							<div class="card variants">
+								<!-- Header -->
+								<div class="card-header">
+									<h4 class="card-header-title">Biến thể</h4>
+								</div>
+								<!-- End Header -->
 
-                                                    <p>hoặc</p>
+								<!-- Body -->
+								<div class="card-body">
+									<div class="card-item">
+										<div>
+											<input type="text" class="form-control" placeholder="Tên biến thể">
+										</div>
 
-                                                    <div class="dz-message-btn">
-                                                        <span class="btn-admin btn-white"><span
-                                                                class="material-symbols-rounded">
-                                                                upload
-                                                            </span>
-                                                            <p>Tải file lên tại đây</p>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Dropzone -->
-                                        </div>
-                                        <!-- Body -->
-                                    </div>
-                                    <!-- End Card -->
-                                </div>
+										<div>
+											<input type="text" class="form-control" placeholder="Nhập giá tiền">
+										</div>
+									</div>
+									<!-- End Col -->
+								</div>
+								<!-- End Row -->
 
-                                <!-- Card -->
-                                <div class="card">
-                                    <!-- Header -->
-                                    <div class="card-header">
-                                        <h4 class="card-header-title">Biến thể</h4>
-                                    </div>
-                                    <!-- End Header -->
+								<!-- Container For Input Field -->
+								<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm thông số khác </button>
 
-                                    <!-- Body -->
-                                    <div class="card-body">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
+							</div>
 
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
+							<!-- Card -->
+							<div class="card details">
+								<!-- Header -->
+								<div class="card-header">
+									<h4 class="card-header-title">Chi tiết sản phẩm</h4>
+								</div>
+								<!-- End Header -->
 
-                                    <!-- Container For Input Field -->
-                                    <div id="addAnotherOptionFieldContainer"></div>
+								<!-- Body -->
+								<div class="card-body">
+									<div class="card-item">
+										<div class="col-sm-8">
+											<input type="text" class="form-control" placeholder="Tên thông số">
+										</div>
 
-                                    <a href="javascript:;" class="js-create-field form-link">
-                                        <i class="bi-plus"></i> Add another option
-                                    </a>
-                                </div>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" placeholder="Giá trị thông số">
+										</div>
+									</div>
+									<!-- End Col -->
+								</div>
+								<!-- End Row -->
 
-                                <!-- Add Another Option Input Field -->
-                                <div id="addAnotherOptionFieldTemplate" style="display: none;">
-                                    <div class="row mb-4">
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
+								<!-- Container For Input Field -->
+								<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm thông số khác </button>
+							</div>
+						</div>
+						<!-- End Add Another Option Input Field -->
+					</div>
+					<!-- Body -->
+				</div>
+				<!-- End Card -->
+			</div>
+			<!-- End Col -->
+	</div>
+	<!-- Body -->
 
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Enter tags"
-                                                aria-label="Enter tags">
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-                                </div>
-                                <!-- End Add Another Option Input Field -->
-                            </div>
-                            <!-- Body -->
-                        </div>
-                        <!-- End Card -->
-                    </div>
-                    <!-- End Col -->
-
-
-                    <!-- Card -->
-                    <div class="card">
-                        <!-- Header -->
-                        <div class="card-header">
-                            <h4 class="card-header-title">Chi tiết sản phẩm</h4>
-                        </div>
-                        <!-- End Header -->
-
-                        <!-- Body -->
-                        <div class="card-body">
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="Enter tags"
-                                    aria-label="Enter tags">
-                            </div>
-
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="Enter tags"
-                                    aria-label="Enter tags">
-                            </div>
-                            <!-- End Col -->
-                        </div>
-                        <!-- End Row -->
-
-                        <!-- Container For Input Field -->
-                        <div id="addAnotherOptionFieldContainer"></div>
-
-                        <a href="javascript:;" class="js-create-field form-link">
-                            <i class="bi-plus"></i> Add another option
-                        </a>
-                    </div>
-
-                    <!-- Add Another Option Input Field -->
-                    <div id="addAnotherOptionFieldTemplate" style="display: none;">
-                        <div class="row mb-4">
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="Enter tags"
-                                    aria-label="Enter tags">
-                            </div>
-
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="Enter tags"
-                                    aria-label="Enter tags">
-                            </div>
-                            <!-- End Col -->
-                        </div>
-                        <!-- End Row -->
-                    </div>
-                    <!-- End Add Another Option Input Field -->
-    </div>
-    <!-- Body -->
-    </div>
-    <!-- End Card -->
-    </div>
-    <!-- End Col -->
-
-    </div>
-    </main>
-    <!-- End Main -->
-
-    </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="/scripts/admin/cate_admin.js"></script>
-    <script src="/scripts/admin/index_admin.js"></script>
+	<!-- Scripts -->
+	<script src="/scripts/admin/cate_view_admin.js"></script>
+	<script src="/scripts/admin/index_admin.js"></script>
 </body>
 
 </html>
