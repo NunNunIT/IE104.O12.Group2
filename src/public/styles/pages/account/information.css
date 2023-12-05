@@ -115,6 +115,11 @@ a {
 	#purchase-item__price {
 		gap: 8px;
 	}
+
+	.purchase-item__product-name label{
+		/* display: flex; */
+		width: 45%;
+	}
 }
 
 /*Responsive-tablet*/
@@ -162,6 +167,11 @@ a {
 		font-size: 0.875rem;
 		padding: 0 18px;
 	}
+
+	.purchase-item__product-name label{
+		/* display: flex; */
+		width: 45%;
+	}
 }
 
 @media only screen and (max-width: 26rem) {
@@ -181,6 +191,11 @@ a {
 
 	.purchase-item__product-name {
 		font-size: 0.875rem;
+	}
+
+	.purchase-item__product-name label{
+		/* display: flex; */
+		width: 45%;
 	}
 
 	button {

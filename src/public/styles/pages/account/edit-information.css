@@ -140,4 +140,9 @@
         font-size: 0.875rem !important;
         padding: 0 18px !important;
     }
+
+    .purchase-item__product-name label{
+        width: 40%;
+        align-items: center;
+    }
 }
