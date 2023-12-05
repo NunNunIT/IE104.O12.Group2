@@ -60,10 +60,14 @@ order.deleteCart = function (customer_id, productsDeleteCart, callback) {
 }
 
 order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
-    let insertOrder = `INSERT INTO orders (customer_id, order_name, order_phone, order_delivery_address, order_note, paying_method_id)
+    let insertOrder = ''
+    if (orderInfo.paying_method_id != 1) {
+        insertOrder = `INSERT INTO orders (customer_id, order_name, order_phone, order_delivery_address, order_note, paying_method_id)
                         VALUES (${customer_id}, '${orderInfo.order_name}', '${orderInfo.order_phone}', '${orderInfo.order_delivery_address}', '${orderInfo.order_note}', ${orderInfo.paying_method_id})`
-    
-    console.log(insertOrder)
+    } else {
+        insertOrder = `INSERT INTO orders (customer_id, order_name, order_phone, order_delivery_address, order_note, paying_method_id, order_is_paid, order_paying_date, order_status)
+                        VALUES (${customer_id}, '${orderInfo.order_name}', '${orderInfo.order_phone}', '${orderInfo.order_delivery_address}', '${orderInfo.order_note}', 1, 1, ${new Date()} ,'Đang giao hàng')`
+    }
 
     db.query (insertOrder, (err, result) => {
         if (err) {
@@ -99,6 +103,20 @@ order.insertOrderDetails = async (order_id, orderDetails, callback) => {
             callback(1, 0)
         } else {
             callback(0, 1)
+        }
+    })
+}
+
+order.updateCancelOrder = async (order_id, callback) => {
+    let updateCancelOrder = `UPDATE orders 
+                            SET orders.order_status = 'Đã hủy'
+                            WHERE orders.order_id = ${order_id}`
+    db.query (updateCancelOrder, (err, result) => {
+        if (err) {
+            console.log (err);
+            callback(1, 0);
+        } else {
+            callback(0, 1);
         }
     })
 }

@@ -28,14 +28,15 @@
 
 
 				<div class="thanks">
-							Cảm ơn <strong>
+					Cảm ơn <strong>
 						<% if (user.user.user_sex === 'Nam') { %>
-							Anh
-						  <% } else { %>
-							Chị
-							<!-- <%= user.user_sex %> -->
-						  <% } %>
-						<%=purchase.order_name%> </strong> đã cho TECHTWO cơ hội được phục vụ.
+						Anh
+						<% } else { %>
+						Chị
+						<!-- <%= user.user_sex %> -->
+						<% } %>
+						<%=purchase.order_name%>
+					</strong> đã cho TECHTWO cơ hội được phục vụ.
 				</div>
 
 				<div class="info-order">
@@ -58,14 +59,14 @@
 						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
 						<span>- <strong>Giao đến: </strong><span id="purchase-address"><%=purchase.order_delivery_address%></span></span>
 						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">
-						<% if (purchase.order_details.length > 0) { %>
-							<% let totalAmount = 0; %>
-							<% purchase.order_details.forEach(detail => { %>
-							  <% totalAmount += detail.order_detail_price_after; %>
-							<% }); %>
-							<%= formatFunction.toCurrency(totalAmount) %>
-						  <% } %>	
-						</span></span>
+								<% if (purchase.order_details.length > 0) { %>
+								<% let totalAmount = 0; %>
+								<% purchase.order_details.forEach(detail => { %>
+								<% totalAmount += detail.order_detail_price_after; %>
+								<% }); %>
+								<%= formatFunction.toCurrency(totalAmount) %>
+								<% } %>
+							</span></span>
 					</div>
 				</div>
 
@@ -106,14 +107,14 @@
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tiền:</div>
 							<div class="pay_frame2"><strong>
-							<% if (purchase.order_details.length > 0) { %>
-								<% let totalAmount = 0; %>
-								<% purchase.order_details.forEach(detail => { %>
-								  <% totalAmount += detail.order_detail_price_after; %>
-								<% }); %>
-								<%= formatFunction.toCurrency(totalAmount) %>
-							  <% } %>
-							</strong></div>
+									<% if (purchase.order_details.length > 0) { %>
+									<% let totalAmount = 0; %>
+									<% purchase.order_details.forEach(detail => { %>
+									<% totalAmount += detail.order_detail_price_after; %>
+									<% }); %>
+									<%= formatFunction.toCurrency(totalAmount) %>
+									<% } %>
+								</strong></div>
 						</div>
 						<div class="pay_qr"><img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR"></div>
 						<div class="pay_use">
@@ -144,14 +145,14 @@
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tiền:</div>
 							<div class="pay_frame2"><strong>
-								<% if (purchase.order_details.length > 0) { %>
+									<% if (purchase.order_details.length > 0) { %>
 									<% let totalAmount = 0; %>
 									<% purchase.order_details.forEach(detail => { %>
-									  <% totalAmount += detail.order_detail_price_after; %>
+									<% totalAmount += detail.order_detail_price_after; %>
 									<% }); %>
 									<%= formatFunction.toCurrency(totalAmount) %>
-								  <% } %>
-							</strong></div>
+									<% } %>
+								</strong></div>
 						</div>
 						<div class="pay_qr"><img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR"></div>
 						<div class="pay_use">
@@ -175,6 +176,7 @@
 	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/pages/notification/promotion.js"></script>
 	<script src="/scripts/pages/order/atm.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

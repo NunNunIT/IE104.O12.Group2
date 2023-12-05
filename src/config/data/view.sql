@@ -258,6 +258,14 @@ LEFT JOIN feedback_imgs ON feedbacks.feedback_id = feedback_imgs.feedback_id
 WHERE
     feedbacks.feedback_is_display = 1;
 
+DROP VIEW IF EXISTS
+    view_orders;
+
+CREATE VIEW view_order AS
+SELECT orders.*, paying_methods.paying_method_name
+FROM 
+orders LEFT JOIN paying_methods
+ON orders.paying_method_id = paying_methods.paying_method_id
 
 DROP VIEW IF EXISTS
     view_order_detail;

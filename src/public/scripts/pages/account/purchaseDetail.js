@@ -31,3 +31,69 @@ function addStatusClasses() {
 document.addEventListener("DOMContentLoaded", function () {
     addStatusClasses();
 });
+
+// Thêm sự kiện click cho nút hủy mua hàng
+const purchaseCancelBtns = document.querySelectorAll(".btn.btn--outlined.pri.cancel");
+const purchaseCancelModals = document.querySelectorAll(".purchase-cancel__popup");
+const purchaseCancelCloseBtns = document.querySelectorAll(".purchase-cancel__popup .close-btn");
+const purchaseCancelConfirmBtns = document.querySelectorAll(".btn.btn--outlined.pri.cancel-purchase");
+
+purchaseCancelBtns.forEach((cancelBtn, index) => {
+    cancelBtn.addEventListener("click", function () {
+        purchaseCancelModals[index].style.display = "block";
+    });
+});
+
+// Đóng popup khi chọn dấu x
+purchaseCancelCloseBtns.forEach((closeBtn, index) => {
+    closeBtn.addEventListener("click", function () {
+        purchaseCancelModals[index].style.display = "none";
+    });
+});
+
+// Đóng popup khi chọn nút hủy
+purchaseCancelConfirmBtns.forEach((closeBtn, index) => {
+    closeBtn.addEventListener("click", function () {
+        purchaseCancelModals[index].style.display = "none";
+    });
+});
+
+// Đóng popup khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
+window.addEventListener("click", function (e) {
+    purchaseCancelModals.forEach((modal) => {
+        if (e.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+
+const cancelForm = document.getElementById('cancel_popup')
+
+cancelForm.addEventListener('submit', e => {
+    //Ngăn chặn việc gửi form nếu có bất kỳ trường nào không hợp lệ
+    e.preventDefault();
+
+    //Kiểm tra dữ liệu nhập vào
+    const order_id = {
+        order_id : document.querySelector('input[name=order_id]').value
+    }
+
+    console.log(order_id)
+    fetch('/order/cancel_order', { 
+        method: 'POST',
+        body: JSON.stringify(order_id),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json())
+    .then(back => {
+        if (back.status == "error") {
+            // Pop up vui lòng thử lại sau
+
+        } else if (back.status == "success") {
+            // Pop up đã hủy thành công
+
+            location.reload()
+        }
+    })
+});

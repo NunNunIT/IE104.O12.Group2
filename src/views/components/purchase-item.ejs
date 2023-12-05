@@ -52,7 +52,11 @@
 	<div class="purchase-item--bottom">
 		<div class="purchase-item__total">
 			<p>Thành tiền:</p>
-			<h2 id="purchase-item__total-price"><%= toCurrency(totalAmount) %></h2>
+			<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+			<h2 class="purchase-item__total-price cancelled"><del><%= toCurrency(totalAmount) %></del></h2>
+			<% } else { %>
+			<h2 class="purchase-item__total-price"><%= toCurrency(totalAmount) %></h2>
+			<% } %>
 		</div>
 
 		<div class="purchase-item__button">
@@ -73,7 +77,8 @@
 							<span class="material-symbols-outlined">info</span>
 							<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
 						</div>
-						<form action="">
+						<form id="cancel_popup">
+							<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
 							<div class="cancel-reasons">
 								<div class="cancel-reason__item">
 									<input type="radio" class="cancel-reason__input" value="1" id="update" name="selector">

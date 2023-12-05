@@ -28,10 +28,12 @@ siteController.index = async (req, res) => {
 siteController.aboutUs = async (req, res) => {
     let header_user = await index.header_user(req)
     let header = await index.header(req)
+    let formatFunction = await general.formatFunction()
 
     res.render('./pages/site/about-us', {
         header: header,
         user: header_user,
+        formatFunction: formatFunction,
     })
 }
 

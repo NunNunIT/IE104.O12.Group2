@@ -34,8 +34,8 @@
 				</div>
 				<% } %>
 				<h4>
-					<% if (product.product_name.length > 35) { %>
-					<%= product.product_name.substring(0, 35) + '...' %>
+					<% if (product.product_name.length > 30) { %>
+					<%= product.product_name.substring(0, 30) + '...' %>
 					<% } else { %>
 					<%= product.product_name ?? 'NaN' %>
 					<% } %>

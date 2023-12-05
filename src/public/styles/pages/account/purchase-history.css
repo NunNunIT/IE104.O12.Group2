@@ -96,7 +96,6 @@ a {
 .purchase-cancel__popup {
 	display: none;
 	position: fixed;
-	padding-top: 32px;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -105,6 +104,7 @@ a {
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 9999;
 	overflow-y: auto;
+	padding-top: 10%;
 }
 
 .purchase-cancel__popup__main {
@@ -241,6 +241,29 @@ a {
 
 }
 
+@media only screen and (max-width: 64rem) {
+	.purchase-cancel__popup {
+		padding-top: 20%;
+	}
+
+	.purchase-cancel__popup__main {
+		width: 60%;
+	}
+
+	.purchase__status a {
+		font-size: 0.8125rem;
+		padding: 8px 8px 9px 8px;
+	}
+
+	#purchase__status-all,
+	#purchase__status-payment,
+	#purchase__status-deliver,
+	#purchase__status-finish,
+	#purchase__status-cancel {
+		padding: 8px 8px 9px 8px;
+	}
+}
+
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {
 	.account-container {
@@ -327,4 +350,31 @@ a {
 	#purchase-item__amount {
 		font-size: 0.8125rem;
 	}
+
+	.purchase-cancel__popup__main {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		border-radius: 8px 8px 0 0;
+	}
+
+	.purchase-item__button .btn.btn--outlined.pri,
+	.purchase-item__button .btn.btn--filled.pri {
+		width: 120px;
+		padding: 0 12px 0 12px;
+	}
+
+	.purchase-item__button .btn.btn--outlined.pri.cancel {
+		display: none;
+	}
+
+	#purchase__status-finish,
+	#purchase__status-cancel {
+		display: none;
+	}
+
+	.purchase-detail__order-info__user>div {
+		grid-template-columns: 32% auto;
+	}
+
 }

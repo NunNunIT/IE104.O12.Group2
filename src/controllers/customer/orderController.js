@@ -8,9 +8,24 @@ const orderController = () => { }
 
 // [POST] /order/addCart
 orderController.addCart = async (req, res) => {
-	let customer_id = req.user.customer_id
+	let customer_id = 0
+
+	if (req.user) {
+		customer_id = req.user.customer_id
+	} else {
+		return res.status(401).json({
+			status: "NotAuth",
+		})
+	}
+
 	let product_variant_id = req.body.product_variant_id
 	let cart_quantity = req.body.cart_quantity
+
+	// if (!customer_id) {
+	// 	return res.status(401).json({
+	// 		status: "NotAuth",
+	// 	})
+	// }
 
 	let result = await order.addCart(
 		customer_id,
@@ -106,7 +121,6 @@ orderController.informationPost = async (req, res) => {
 }
 
 // [GET] /order/payment?paying_method_id=x&order_id=y
-
 orderController.payment = async (req, res) => {
 	let paying_method_id = req.query.paying_method_id
 	let order_id = req.query.order_id
@@ -144,66 +158,20 @@ orderController.payment = async (req, res) => {
 	}
 }
 
-// [GET] /order/atm
-orderController.atm = async (req, res) => {
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
-	let formatFunction = await general.formatFunction()
+orderController.cancelOrder = async (req, res) => {
+	let order_id = req.body.order_id;
 
-	const title = "Thanh toán ATM"
-
-	res.render("./pages/order/atm", {
-		header: header,
-		user: header_user,
-		title,
-		formatFunction: formatFunction
-	})
-}
-
-// [GET] /order/momo
-orderController.momo = async (req, res) => {
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
-	let formatFunction = await general.formatFunction()
-
-	const title = "Thanh toán MoMo"
-
-	res.render("./pages/order/momo", {
-		header: header,
-		user: header_user,
-		title,
-		formatFunction: formatFunction
-	})
-}
-
-// [GET] /order/credit
-orderController.credit = async (req, res) => {
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
-	let formatFunction = await general.formatFunction()
-
-	const title = "Thanh toán Tín dụng"
-
-	res.render("./pages/order/credit", {
-		header: header,
-		user: header_user,
-		title,
-		formatFunction: formatFunction
-	})
-}
-
-// [GET] /order/warranty
-orderController.warranty = async (req, res) => {
-	let header_user = await index.header_user(req)
-	let header = await index.header(req)
-
-	const title = "Bảo hành sản phẩm"
-
-	res.render("./pages/order/warranty", {
-		header: header,
-		user: header_user,
-		title,
-	})
+	await order.updateCancelOrder (order_id, function (err, success) {
+		if (err) {
+			res.status(404).json ({
+				status: 'error',
+			})
+		} else {
+			res.status(200).json ({
+				status: 'success',
+			})
+		}
+	}) 
 }
 
 module.exports = orderController

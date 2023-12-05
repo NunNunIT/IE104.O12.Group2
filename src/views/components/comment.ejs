@@ -33,6 +33,8 @@
 	</div>
 	<div class="comment__content">
 		<p><%= feedback.feedback_content ?? 'null' %></p>
+		<% console.log('----------------------------------') %>
+		<% console.log(feedback) %>
 		<% if (feedback.feedback_img_name) { %>
 		<div class="comment__pictures">
 			<img src="/imgs/infor1.jpg" alt="">

@@ -119,8 +119,6 @@ const validateInput = () => {
         setSuccess(password);
     }
 
-    console.log('His', history.back())
-
     if (isAllValid) {
         const login = {
             phoneNumber: phoneNumber.value.trim(),
@@ -132,18 +130,17 @@ const validateInput = () => {
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then (res => res.json()).then (back => {
-            if (back.status == "error"){
+        }).then(res => res.json()).then(back => {
+            if (back.status == "error") {
                 setError(phoneNumber, back.error);
             }
             else if (back.status == "error2") {
                 setError(password, back.error);
             }
             else {
-                window.history.back()
-                location.reload()
-            }   
+                window.location.href = '/'
+            }
         })
     }
-    
+
 };

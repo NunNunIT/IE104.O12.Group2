@@ -43,10 +43,7 @@
     --yellow-light: #ffefdf;
     --dark-blue: #114A91;
 
-    --border-color-1: rgba(0, 0, 0, 0.175);
-    --box-shadow-1: 0 8px 60px 0 rgba(103, 151, 255, .11), 0 12px 90px 0 rgba(103, 151, 255, .11);
-
-    --scroll-thumb: #828282;
+    --scroll-thumb: #bababa;
     --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
 
     --dark1: #0000004d;
@@ -110,14 +107,25 @@
     box-sizing: border-box;
 }
 
-body::-webkit-scrollbar {
-    overflow-x: hidden;
+::-webkit-scrollbar {
     overflow-y: scroll;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark7);
 }
 
 html {
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 h1 {

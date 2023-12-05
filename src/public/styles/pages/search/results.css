@@ -396,7 +396,7 @@ a {
 .dropdown-content--sort {
     display: none;
     position: absolute;
-    top: 44%;
+    top: 390px;
     right: 150px;
     background-color: var(--white-gray);
     width: 240px;
@@ -477,10 +477,6 @@ a {
         border-radius: 8px;
     }
 
-    .seacrh-result__main-card {
-        gap: 2%;
-    }
-
     .seacrh-result__form-check {
         font-size: 12px;
     }
@@ -556,6 +552,10 @@ a {
         font-size: 0.75rem;
         height: 40px;
         width: 120px;
+    }
+
+    .seacrh-result__main-card {
+        gap: 2%;
     }
 }
 
