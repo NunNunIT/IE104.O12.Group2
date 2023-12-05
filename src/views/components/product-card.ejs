@@ -28,7 +28,7 @@
 					<p>(<%= product.product_rate %>)</p>
 				</div>
 				<% } %>
-				<h4>
+				<h4 title="<%= product.product_name ?? 'NaN' %>">
 					<% if (product.product_name.length > 30) { %>
 					<%= product.product_name.substring(0, 30) + '...' %>
 					<% } else { %>

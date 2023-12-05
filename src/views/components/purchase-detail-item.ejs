@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<h5 id="purchase-detail__price">
-		<% if (purchaseDetail.order_detail_price_before) { %>
+		<% if (purchaseDetail.order_detail_price_before > purchaseDetail.order_detail_price_after) { %>
 		<small><%= toCurrency(purchaseDetail.order_detail_price_before) %></small>
 		<% } %>
 		<%= toCurrency(purchaseDetail.order_detail_price_after) %>

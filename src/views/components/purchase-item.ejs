@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			<h5 id="purchase-item__price">
-				<% if (orderDetail.order_detail_price_before) { %>
+				<% if (orderDetail.order_detail_price_before > orderDetail.order_detail_price_after) { %>
 				<small><%= toCurrency(orderDetail.order_detail_price_before) %></small>
 				<% } %>
 				<%= toCurrency(orderDetail.order_detail_price_after) %>
