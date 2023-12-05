@@ -90,7 +90,6 @@ addCartBtn.addEventListener('click', () => {
         }
     }).then(res => res.json())
         .then(back => {
-            // console.log('###########', back)
             if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
             } else if (back.status == "NotAuth") {

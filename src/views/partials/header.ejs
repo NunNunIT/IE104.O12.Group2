@@ -134,7 +134,7 @@
 				<a href="/order/cart" class="header__cart-container" title="Giỏ hàng">
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
-						<% if (user.countCart) { %>
+						<% if (user) { %>
 						<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
 						<% } %>
 					</div>
@@ -166,11 +166,9 @@
 						<% } %>
 						<% } else { %>
 						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
-						<div class="dropdown-cart__content">
-							<div class="dropdown-cart--empty">
-								<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
-								<span class="empty-content__cart">Giỏ hàng trống</span>
-							</div>
+						<div class="dropdown-cart--empty">
+							<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
+							<span class="empty-content__cart">Giỏ hàng trống</span>
 						</div>
 						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 						<% } %>
