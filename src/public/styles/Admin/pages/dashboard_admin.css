@@ -115,7 +115,7 @@ body {
 
 /* tablet */
 
-@media screen and (max-width: 64rem) {
+@media screen and (max-width: 48rem) {
   .main-cards {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -137,7 +137,15 @@ body {
 
 /* phone */
 
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 26rem) {
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .main-container::-webkit-scrollbar {
+    display: none;
+  }
+  
     .charts {
       grid-template-columns: 1fr;
       margin-top: 30px;
