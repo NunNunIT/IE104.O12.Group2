@@ -261,7 +261,7 @@ WHERE
 DROP VIEW IF EXISTS
     view_orders;
 
-CREATE VIEW view_order AS
+CREATE VIEW view_orders AS
 SELECT orders.*, paying_methods.paying_method_name
 FROM 
 orders LEFT JOIN paying_methods
