@@ -17,6 +17,8 @@
 ## Giới thiệu
 Trong thời đại hiện đại, sự tiện lợi và linh hoạt trong việc mua sắm trực tuyến ngày càng trở thành một xu hướng phổ biến. Đối với lĩnh vực điện máy, việc tạo ra một website bán hàng chuyên nghiệp không chỉ là một cơ hội kinh doanh mà còn là cách để đáp ứng nhu cầu ngày càng cao của khách hàng.
 
+Vì vậy, nhóm quyết định chọn đề tài "Xây dựng website cửa hàng điện máy TECHTWO.".
+
 ## Tính năng
 |ID	|Tên tác nhân |	Mô tả tác nhân|
 |:---:|:-------------:|:-----:|
