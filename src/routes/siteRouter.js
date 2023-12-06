@@ -13,6 +13,7 @@ router.get('/category', authMiddleware.getLoggedIn, siteController.category)
 router.get('/about-us', authMiddleware.getLoggedIn, siteController.aboutUs)
 router.get('/privacy-policy', authMiddleware.getLoggedIn, siteController.privacyPolicy)
 router.get('/error', authMiddleware.getLoggedIn, siteController.error)
+router.get('/feature_development', siteController.development)
 router.get('/', authMiddleware.getLoggedIn, siteController.index)
 
 module.exports = router

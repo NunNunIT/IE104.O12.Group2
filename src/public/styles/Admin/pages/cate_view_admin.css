@@ -56,19 +56,43 @@ body {
 /* tablet */
 
 @media screen and (max-width: 64rem) {
-    .main-cards--top {
+    
+    
+    .main-container::-webkit-scrollbar{
+        display: none;
+    }
+    
+    .main-form {
         grid-template-columns: 1fr;
         gap: 10px;
         margin-bottom: 0;
+    }
+
+    .page-header-title button {
+        width: 90px;
     }
 }
 
 /* phone */
 
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 26rem) {
     /* .header-left {
         display: none;
       } */
+    
+      h1 {
+        font-size: 1.25rem;
+    }
+    
+    .ql-toolbar {
+        gap: 0px!important;
+    }
+    
+    .page-header-title {
+        display: block;
+        justify-content: none;
+    }
+
 }
 
 .page-header {

@@ -31,6 +31,10 @@ body {
   color: var(--black);
 }
 
+.main-container::-webkit-scrollbar {
+  display: none;
+}
+
 /* ---------- MEDIA QUERIES ---------- */
 
 /* Mini pc */

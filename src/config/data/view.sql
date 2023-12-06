@@ -68,7 +68,7 @@ DROP VIEW IF EXISTS view_cate_admin;
 CREATE VIEW view_cate_admin AS 
 SELECT 
 categories.*,
-COUNT(view_product_variants.product_id) as 'product_count', 
+COUNT(DISTINCT view_product_variants.product_id) as 'product_count', 
 SUM(order_details.order_detail_price_after*order_details.order_detail_quantity) as 'revenue'
 FROM categories 
 LEFT JOIN view_product_variants ON categories.category_id = view_product_variants.category_id
