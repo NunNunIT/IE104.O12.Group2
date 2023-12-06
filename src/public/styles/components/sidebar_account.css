@@ -7,26 +7,26 @@
 
 /* side-bar */
 #sidebar {
-	display: flex;
-	flex-direction: column;
-	width: 345px;
-	background: white;
-	z-index: 9998;
-	transition: .3s ease;
-	overflow-x: hidden;
-	border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 345px;
+    background: white;
+    z-index: 9998;
+    transition: .3s ease;
+    overflow-x: hidden;
+    border-radius: 8px;
 }
 
 #sidebar .material-symbols-outlined {
-	margin-right: 8px;
+    margin-right: 8px;
 }
 
 
 span.image-container img {
-	width: 7rem;
-	height: 7rem;
-	border-radius: 50%;
-	object-fit: cover;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .avatar {
@@ -36,71 +36,71 @@ span.image-container img {
     align-items: center;
     text-align: center;
     text-decoration: none;
-  }
-  
-  .image-container {
-    margin-bottom: 5px; 
-  }
-  
-  .user_name {
+}
+
+.image-container {
+    margin-bottom: 5px;
+}
+
+.user_name {
     color: #333;
-    text-align:center;
-  }
-  
+    text-align: center;
+}
+
 
 
 /* Định dạng màu đỏ cho menu active */
 #sidebar .side-menu__ele.active a {
-    color: var( --primary-color-1);
+    color: var(--primary-color-1);
 }
 
 
 
 
 #sidebar .side-menu.top li a:hover {
-	color: var(--primary-color-2);
+    color: var(--primary-color-2);
 }
 
 #sidebar .side-menu li a:hover {
-	color: var(--primary-color-2);
+    color: var(--primary-color-2);
 }
 
 
 #sidebar .side-menu {
-	width: 100%;
-	margin-top: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 #sidebar .side-menu li {
-	height: 48px;
-	background: transparent;
-	margin-left: 6px;
-	border-radius: 48px 0 0 48px;
-	padding: 4px;
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
 }
 
 #sidebar .side-menu li a {
-	width: 100%;
-	height: 100%;
-	background: white;
-	display: flex;
-	align-items: center;
-	border-radius: 48px;
-	font-size: 16px;
-	color: var(--dark);
-	white-space: nowrap;
-	overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow-x: hidden;
 }
 
 
 #sidebar .side-menu li a.logout {
-	color: var(--red);
+    color: var(--red);
 }
 
 #sidebar .side-menu li a .bx {
-	min-width: calc(60px - ((4px + 6px) * 2));
-	display: flex;
-	justify-content: center;
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
 }
 
 /*sidebar-account__popup*/
@@ -112,9 +112,9 @@ span.image-container img {
     height: 100%;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.5);
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .sidebar-account__popup .material-symbols-outlined {
@@ -196,18 +196,18 @@ span.image-container img {
 }
 
 .logout_img {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: inherit;
-	height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: 300px;
 }
 
 
 .logout_img img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .popup__button {
@@ -226,30 +226,35 @@ span.image-container img {
 }
 
 .btn-logout {
-	display: flex;
-	align-items: center;
-	color: red;
+    display: flex;
+    align-items: center;
+    color: red;
+}
+
+.btn-logout:hover {
+    cursor: pointer;
+    color: var(--dollar-red);
 }
 
 @media only screen and (max-width: 64rem) {
-	.sidebar-account__popup {
-		padding-top: 30%;
-	}
+    .sidebar-account__popup {
+        padding-top: 30%;
+    }
 }
 
 @media only screen and (max-width: 48rem) {
-	.sidebar-account__popup {
-		padding-top: 25%;
-	}
+    .sidebar-account__popup {
+        padding-top: 25%;
+    }
 
-	.logout_img {
-		height: 250px;
-	}
-	
+    .logout_img {
+        height: 250px;
+    }
+
 }
 
 @media only screen and (max-width: 26rem) {
-	#sidebar {
-		display: none;
-	}
+    #sidebar {
+        display: none;
+    }
 }

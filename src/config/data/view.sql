@@ -6,7 +6,7 @@ SELECT dashboard_customer.customer_count,
 dashboard_order.quantity_sold,
 dashboard_order.revenue
 FROM (SELECT COUNT(*) as 'customer_count' FROM customers) dashboard_customer,
-(SELECT COUNT(*) as 'quantity_sold', SUM(orders.order_total_after) as 'revenue' FROM orders WHERE orders.order_is_payment=1) dashboard_order;
+(SELECT COUNT(*) as 'quantity_sold', SUM(orders.order_total_after) as 'revenue' FROM orders WHERE orders.order_is_paid=1) dashboard_order;
 
 
 DROP VIEW IF EXISTS view_getchart_revenue;
@@ -49,7 +49,7 @@ LEFT JOIN(
 ON
     (
         cancel.year = success.year AND cancel.month = success.month
-    )
+    );
 
 DROP VIEW IF EXISTS view_getchart_top5_product;
 
@@ -60,7 +60,7 @@ SELECT order_details.product_variant_id,
 FROM orders
 LEFT JOIN order_details ON order_details.order_id = orders.order_id
 WHERE orders.order_status = 'Hoàn thành'
-GROUP BY order_details.product_variant_id
+GROUP BY order_details.product_variant_id;
 
 
 DROP VIEW IF EXISTS view_cate_admin;
@@ -189,20 +189,21 @@ WHERE
     products.product_is_display = 1
 GROUP BY
     products.product_id;
+
+
 DROP VIEW IF EXISTS
     view_count_cart;
 CREATE VIEW view_count_cart AS SELECT
     customers.customer_id,
     users.user_id,
-    COUNT(*) AS 'count_cart'
+    COUNT(carts.product_variant_id) AS 'count_cart'
 FROM
-    carts,
-    users
-LEFT JOIN customers ON users.user_id = customers.customer_id
-WHERE
-    carts.customer_id = customers.customer_id
+users LEFT JOIN customers ON users.user_id = customers.customer_id
+LEFT JOIN carts ON carts.customer_id = customers.customer_id
 GROUP BY
     customers.customer_id;
+
+
 DROP VIEW IF EXISTS
     view_cart;
 CREATE VIEW view_cart AS SELECT
@@ -265,7 +266,7 @@ CREATE VIEW view_orders AS
 SELECT orders.*, paying_methods.paying_method_name
 FROM 
 orders LEFT JOIN paying_methods
-ON orders.paying_method_id = paying_methods.paying_method_id
+ON orders.paying_method_id = paying_methods.paying_method_id;
 
 DROP VIEW IF EXISTS
     view_order_detail;
@@ -274,7 +275,7 @@ CREATE VIEW view_order_detail AS
 SELECT order_details.*, view_product_variants.product_id, view_product_variants.product_name, view_product_variants.product_avt_img, view_product_variants.product_variant_name
 FROM 
 order_details LEFT JOIN view_product_variants
-ON order_details.product_variant_id = view_product_variants.product_variant_id
+ON order_details.product_variant_id = view_product_variants.product_variant_id;
 
 
 DROP VIEW IF EXISTS view_notifications;
@@ -288,4 +289,4 @@ FROM
     notifications
 LEFT JOIN user_notification ON notifications.notifications_id = user_notification.notifications_id
 WHERE
-    notifications.notifications_is_display = 1
+    notifications.notifications_is_display = 1;

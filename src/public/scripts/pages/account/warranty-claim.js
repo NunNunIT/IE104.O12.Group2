@@ -1,37 +1,57 @@
-const appbar__element = document.querySelectorAll(".side-menu__ele");
-appbar__element[2].classList.add("active");
+const appbar__element = document.querySelectorAll('.side-menu__ele')
+appbar__element[2].classList.add('active')
 
 // Popup
-const warrantyBtns = document.querySelectorAll(".btn-warranty");
-const warrantyPopup = document.querySelectorAll(".popup-warranty");
-const warrantyCloseBtn = document.querySelectorAll(".close-btn");
-const warrantyCancelBtn = document.querySelectorAll(".btn-cancel");
+const warrantyBtns = Array.from(document.querySelectorAll('.btn-warranty'))
+const warrantyPopups = Array.from(document.querySelectorAll('.popup-warranty'))
+const warrantyCloseBtns = Array.from(document.querySelectorAll('.close-btn'))
+const warrantyCancelBtns = Array.from(document.querySelectorAll('.btn-cancel'))
 
 warrantyBtns.forEach((btn) => {
-  btn.onclick = function () {
-    warrantyPopup[0].style.display = "block";
-  };
-});
+	btn.addEventListener('click', (event) => {
+		// warrantyPopups[index].style.display = 'block'
+		const current = event.currentTarget
+		const warrantyPopup = current.nextElementSibling
+		warrantyPopup.style.display = 'block'
+	})
+})
 
 // Đóng popup khi chọn dấu x
-warrantyCloseBtn.forEach((closeBtn) => {
-  closeBtn.onclick = function () {
-    warrantyPopup[0].style.display = "none";
-  };
-});
+warrantyCloseBtns.forEach((closeBtn) => {
+	closeBtn.addEventListener('click', (event) => {
+		const current = event.currentTarget
+		const warrantyPopup = current.parentElement.parentElement.parentElement.parentElement.parentElement
+		warrantyPopup.style.display = 'none'
+	})
+})
 
 // Đóng popup khi chọn nút hủy
-warrantyCancelBtn.forEach((cancelBtn) => {
-  cancelBtn.onclick = function () {
-    warrantyPopup[0].style.display = "none";
-  };
-});
+warrantyCancelBtns.forEach((cancelBtn) => {
+	cancelBtn.addEventListener('click', (event) => {
+		const current = event.currentTarget
+		const warrantyPopup = current.parentElement.parentElement.parentElement.parentElement.parentElement
+		warrantyPopup.style.display = 'none'
+	})
+})
 
 // Đóng popup khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
-window.onclick = function (e) {
-  warrantyPopup.forEach((modal) => {
-    if (e.target == modal) {
-      modal.style.display = "none";
-    }
-  });
-};
+window.addEventListener('click', (event) => {
+	warrantyPopups.forEach((modal) => {
+		if (event.target == modal) {
+			modal.style.display = 'none'
+		}
+	})
+})
+
+// Nút submit
+const warrantyForms = Array.from(document.querySelectorAll('.warranty-form'))
+warrantyForms.forEach(form => {
+	form.addEventListener('submit', (event) => {
+		event.preventDefault()
+		const successPopup = document.querySelector('.success-modal')
+		const warrantyPopup = form.parentElement.parentElement.parentElement
+		warrantyPopup.style.display = 'none'
+		successPopup.style.display = 'flex'
+		setTimeout(() => successPopup.style.display = 'none', 1500)
+	})
+})

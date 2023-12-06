@@ -138,8 +138,8 @@ const validateInput = () => {
                 setError(password, back.error);
             }
             else {
-                window.location.href = '/'
-            }
+                window.location.href ='/'
+            }   
         })
     }
 

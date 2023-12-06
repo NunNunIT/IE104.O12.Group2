@@ -13,20 +13,23 @@
 </head>
 
 <body>
-	<%- include('../../partials/header', { header: header }) %> <%- include('../../partials/breadcrumb', { breadcrumbs: [ { text: 'Trang cá nhân', link: '/account/information' }, { text: 'Chính sách bảo hành', link:'' } ] }) %>
+	<%- include('../../partials/header', { header: header }) %>
+	<%- include('../../partials/breadcrumb', { breadcrumbs: [ { text: 'Trang cá nhân', link: '/account/information' }, { text: 'Chính sách bảo hành', link:'' } ] }) %>
 
 	<main class="account-container">
 		<%- include("../../components/sidebar_account") %>
 		<section class="warranty__main">
 			<div class="purchase__main__item">
 				<% purchaseHistory.forEach(order => { %>
+				<% if (order.order_status == 'Hoàn thành') { %>
 				<%- include('../../components/warranty-item', { order: order }) %>
+				<% } %>
 				<% }) %>
 			</div>
-			<% include('../../components/popup-warranty') %>
 		</section>
 	</main>
 
+	<%- include('../../components/success-modal', { action: 'Gửi yêu cầu bảo hành' }) %>
 	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>

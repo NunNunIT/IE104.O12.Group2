@@ -37,24 +37,34 @@ function deleteAllItem(event) {
 
     const checkedItem = cartItems.filter(item => item.querySelector('.checkbox').checked == true)
 
-    const deleteArray = []
+    const productsCartDelete = []
     checkedItem.forEach(item => {
         let productVariantId = item.querySelector('input[name="product_variant_id"]')
-        deleteArray.push({
+        productsCartDelete.push({
             product_variant_id: Number(productVariantId.value),
         })
         item.remove()
     })
 
-    fetch('/order/cart/buy', {
-        body: JSON.stringify(deleteArray),
+    console.log(productsCartDelete)
+    fetch('/order/cart/delete', {
+        body: JSON.stringify(productsCartDelete),
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
     })
+        .then(() => {
+            fetch('/general/count_cart', {
+                method: 'GET',
+            })
+                .then(res => res.json())
+                .then(back2 => {
+                    const countCartEle = document.querySelector('.header__cart__number-badge')
+                    countCartEle.innerHTML = back2.countCart
+                })
+        })
 
-    showSelectedNums()
     showEmptyNoti()
 }
 
@@ -119,9 +129,11 @@ if (window.innerWidth <= 416)
 else
     cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
-const lastCartItem = cartItems[cartItems.length - 1]
-lastCartItem.style.border = 'none'
-lastCartItem.style.padding = '0'
+if (cartItems.length) {
+    const lastCartItem = cartItems[cartItems.length - 1]
+    lastCartItem.style.border = 'none'
+    lastCartItem.style.padding = '0'
+}
 
 // Sự kiện onclick nút 'Đặt hàng'
 function cartSubmit(event) {
