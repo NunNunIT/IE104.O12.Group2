@@ -1,5 +1,7 @@
-# IE104.O12.Group2
+# IE104.O12.Group2 - ĐỒ ÁN XÂY DỰNG WEBSITE CỬA HÀNG ĐIỆN MÁY TECHTWO.
 
+* Trường Đại học Công nghệ Thông tin, Đại học Quốc gia Thành phố Hồ Chí Minh (ĐHQG-HCM)
+* Khoa: Khoa học và kỹ thuật thông tin (KTTT)
 * GVHD: ThS. Võ Tấn Khoa
 * Nhóm sinh viên thực hiện: Nhóm 2
 
