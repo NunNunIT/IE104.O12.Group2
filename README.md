@@ -32,39 +32,39 @@ Vì vậy, nhóm quyết định chọn đề tài "Xây dựng website cửa h�
 
 
 
-|Mã chức năng	|	Tên chức năng	|	Tác nhân	|
-|:---:|:-------------:|:-----:|
+|Mã chức năng	|	Tên chức năng	|	Tác nhân	| Hoàn thành |
+|:---:|:-------------:|:-----:|:-----:|
 ||	UC1. Unauthenticated User Module	(Mô-đun Người dùng chưa xác thực)					||
-|	UC1.01	|	Đăng ký tài khoản khách hàng	|	Unauthenticated User 	|
-|	UC1.02	|	Đăng nhập tài khoản 	|	Unauthenticated User	|
-|	UC1.03	|	Quên mật khẩu	|	Unauthenticated User 	|
-|	UC1.04	|	Tìm kiếm sản phẩm	|	Unauthenticated User 	|
-|	UC1.05	|	Xem danh sách sản phẩm	|	Unauthenticated User 	|
-|	UC1.06	|	Xem chi tiết sản phẩm	|	Unauthenticated User 	|
-|	UC1.07	|	Sử dụng bộ lọc	|	Unauthenticated User	|
+|	UC1.01	|	Đăng ký tài khoản khách hàng	|	Unauthenticated User 	| 100%|
+|	UC1.02	|	Đăng nhập tài khoản 	|	Unauthenticated User	| 100%|
+|	UC1.03	|	Quên mật khẩu	|	Unauthenticated User 	| 100%|
+|	UC1.04	|	Tìm kiếm sản phẩm	|	Unauthenticated User 	| 100%|
+|	UC1.05	|	Xem danh sách sản phẩm	|	Unauthenticated User 	| 100%|
+|	UC1.06	|	Xem chi tiết sản phẩm	|	Unauthenticated User 	| 100%|
+|	UC1.07	|	Sử dụng bộ lọc	|	Unauthenticated User	| 0%|
 ||	UC2. Authenticated User Module	 (Mô-đun Người dùng đã xác thực)					||
-|	UC2.01	|	Xem thông tin cá nhân	|	Authentication User	|
-|	UC2.02	|	Sửa thông tin cá nhân	|	Authentication User	|
-|	UC2.03	|	Xem thông báo	|	Authentication User	|
-|	UC2.04	|	Đổi mật khẩu	|	Authentication User	|
-|	UC2.05	|	Đăng xuất	|	Authentication User	|
+|	UC2.01	|	Xem thông tin cá nhân	|	Authentication User	| 100%|
+|	UC2.02	|	Sửa thông tin cá nhân	|	Authentication User	| 100%|
+|	UC2.03	|	Xem thông báo	|	Authentication User	| 100%|
+|	UC2.04	|	Đổi mật khẩu	|	Authentication User	| 100%|
+|	UC2.05	|	Đăng xuất	|	Authentication User	| 100%|
 ||	UC3. Customer Module (Mô-đun Khách hàng)					||
-|	UC3.01	|	Thêm vào giỏ hàng	|	Customer	|
-|	UC3.02	|	Quản lý giỏ hàng	|	Customer	|
-|	UC3.03	|	Đặt hàng	|	Customer	|
-|	UC3.04	|	Thanh toán	|	Customer	|
-|	UC3.05	|	Xem lịch sử đơn mua	|	Customer	|
-|	UC3.06	|	Hủy đơn	|	Customer	|
-|	UC3.07	|	Đánh giá	|	Customer	|
-|	UC3.08	|	Yêu cầu bảo hành	|	Customer	|
+|	UC3.01	|	Thêm vào giỏ hàng	|	Customer	| 100%|
+|	UC3.02	|	Quản lý giỏ hàng	|	Customer	| 100%|
+|	UC3.03	|	Đặt hàng	|	Customer	| 100%|
+|	UC3.04	|	Thanh toán	|	Customer	| 100%|
+|	UC3.05	|	Xem lịch sử đơn mua	|	Customer	| 100%|
+|	UC3.06	|	Hủy đơn	|	Customer	| 100%|
+|	UC3.07	|	Đánh giá	|	Customer	| 100%|
+|	UC3.08	|	Yêu cầu bảo hành	|	Customer	| 50%|
 ||	UC4. Staff Module (Mô-đun Nhân viên)||
-|	UC4.01	|	Quản lý đơn hàng	|	Staff, Admin	|
-|	UC4.02	|	Quản lý bình luận	|	Staff, Admin	|
+|	UC4.01	|	Quản lý đơn hàng	|	Staff, Admin	| 0%|
+|	UC4.02	|	Quản lý bình luận	|	Staff, Admin	| 0%|
 ||	UC5. Admin Module (Mô-đun Quản trị viên)||
-|	UC5.01	|	Quản lý sản phẩm	|	Admin	|
-|	UC5.02	|	Quản lý nhân viên	|	Admin	|
-|	UC5.03	|	Quản lý khuyến mãi	|	Admin	|
-|	UC5.04	|	Thống kê	|	Admin	|
+|	UC5.01	|	Quản lý sản phẩm	|	Admin	| 10%|
+|	UC5.02	|	Quản lý nhân viên	|	Admin	| 0%|
+|	UC5.03	|	Quản lý khuyến mãi	|	Admin	| 0%|
+|	UC5.04	|	Thống kê	|	Admin	| 100%|
 
 
 ## Công nghệ sử dụng
