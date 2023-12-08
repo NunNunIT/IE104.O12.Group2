@@ -5,6 +5,8 @@
 * GVHD: ThS. Võ Tấn Khoa
 * Nhóm sinh viên thực hiện: Nhóm 2
 
+## FORM đóng góp ý kiến: [Form đóng góp ý kiến](https://forms.gle/zCPqAjYzTPvj2MMY8)
+
 ## Danh sách thành viên
 |STT | Họ tên | MSSV|
 |:---:|:-------------:|:-----:|
