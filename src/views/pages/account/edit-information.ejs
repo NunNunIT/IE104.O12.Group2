@@ -24,7 +24,7 @@
 						</div>
 					</div>
 
-					<form id="editForm" action="/edit-account/information" method="POST">
+					<form id="editForm" action="/account/edit-information" method="POST">
 						<div class="purchase-item__main">
 							<div class="purchase-item__element">
 								<div class="purchase-item__product-detail">
@@ -93,7 +93,7 @@
 
 									<div class="popup__button">
 										<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
-										<button type="submit" class="btn btn--filled pri" type="button">Lưu</button>
+										<button type="submit" id="saveButton" class="btn btn--filled pri">Lưu</button>
 									</div>
 								</div>
 							</div>
@@ -106,7 +106,6 @@
 		</section>
 
 	</main>
-
 	<%- include('../../partials/app-bar') %>
 	<%- include('../../partials/footer') %>
 
