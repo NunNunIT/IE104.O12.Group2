@@ -1,10 +1,8 @@
-const inputs = document.querySelectorAll('.purchase-item__product-detail input');
-
-// 
 const form = document.getElementById('editForm');
 const userName = document.getElementById('userName');
 const userEmail = document.getElementById('userEmail');
 const userPhone = document.getElementById('userPhone');
+const userAddress = document.getElementById('userAddress');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -29,6 +27,11 @@ const setSuccess = element => {
     inputControl.classList.remove('error');
 };
 
+const isValidUserName = userName => {
+    const re = /^[a-zA-Z\sàáạảãăắằẵặẳâầấậẩẫđèéẹẻẽêềếệểễòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữìíịỉĩỳýỵỷỹ]+$/;
+    return re.test(String(userName).trim());
+};
+
 const isValidPhoneNumber = phoneNumber => {
     const re = /^[0-9]{10}$/;
     return re.test(String(phoneNumber).trim());
@@ -43,11 +46,15 @@ const validateInput = () => {
     const userNameValue = userName.value.trim();
     const userEmailValue = userEmail.value.trim();
     const userPhoneValue = userPhone.value.trim();
+    const userAddressValue = userAddress.value.trim();
 
     let isAllValid = true;
 
     if (userNameValue === '') {
         setError(userName, 'Vui lòng nhập họ tên!');
+        isAllValid = false;
+    } else if (!isValidUserName(userNameValue)) {
+        setError(userName, 'Họ tên không đúng định dạng!');
         isAllValid = false;
     } else {
         setSuccess(userName);
@@ -73,41 +80,15 @@ const validateInput = () => {
         setSuccess(userPhone);
     }
 
+    if (userAddressValue === '') {
+        setError(userAddress, 'Vui lòng nhập địa chỉ!');
+        isAllValid = false;
+    } else {
+        setSuccess(userAddress);
+    }
+
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
     if (isAllValid) {
-        const form = {
-            user_name: userName.value.trim(),
-            user_email: userEmail.value.trim(),
-            user_phone: userPhone.value.trim()
-        };
-
-        fetch("/account/information", {
-                method: "POST",
-                body: JSON.stringify(register),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(res => res.json())
-            .then(back => {
-                if (back.status == "error") {
-                    setError(phoneNumber, back.error);
-                } else {
-                    const login = {
-                        phoneNumber: phoneNumber.value.trim(),
-                        password: password.value.trim()
-                    }
-
-                    fetch('/auth/login', {
-                        method: 'POST',
-                        body: JSON.stringify(login),
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    })
-                    
-                    history.back();
-                    location.reload()
-                }
-            })
+        form.submit();
     }
 };
