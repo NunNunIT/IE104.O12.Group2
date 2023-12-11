@@ -1,6 +1,4 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header-small.css");
-@import url("/styles/partials/footer.css");
 
 #eye-open {
     font-variation-settings:
@@ -78,16 +76,13 @@ main {
     position: relative;
     width: 100%;
     max-width: 720px;
-    /*50%*/
     height: 450px;
-    /*550*/
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
 }
 
 .inner-box {
-    /* border: 2px solid black; */
     position: absolute;
     width: calc(100% - 4.1rem);
     height: calc(100% - 4.1rem);
@@ -121,9 +116,7 @@ form {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     transition: opacity 0.02s 0.4s;
-    /* gap: 12px; */
 }
-
 
 .heading h2 {
     font-size: 2.0rem;
@@ -162,7 +155,6 @@ form {
     font-size: 0.95rem;
     color: var(--black);
     transition: 0.4s;
-    /* margin-left: 100px; */
 }
 
 label {
@@ -196,7 +188,6 @@ label {
     border-radius: 12px;
     font-size: 1.2rem;
     font-weight: 500;
-    /* margin-bottom: 1rem; */
     transition: 0.3s;
     display: flex;
     justify-content: center;
@@ -309,7 +300,6 @@ label {
     flex-direction: column;
 }
 
-
 .logo {
     display: flex;
     align-items: center;
@@ -340,21 +330,7 @@ label {
 
 .centered-text {
     position: fixed;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    /* Các thuộc tính khác tùy thuộc vào thiết kế của bạn */
 }
-
-
-
-
-
-
-
-
-
-
 
 form .reset__sign-in-form {
     opacity: 0;
@@ -420,34 +396,6 @@ form .reset__sign-in-form {
     transition: 0.4s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 64rem) {
     .box {
         height: auto;
@@ -471,12 +419,7 @@ form .reset__sign-in-form {
 
     form {
         max-width: revert;
-        /* padding: 1.5rem 2.5rem 2rem; */
         transition: transform 0.8s ease-in-out, opacity 0.45s linear;
-    }
-
-    .heading {
-        /* margin: 0.75rem 0; */
     }
 
     input[type="number"] {
@@ -487,18 +430,9 @@ form .reset__sign-in-form {
         transform: translateX(100%);
     }
 
-    /* main.sign-up-mode form.sign-in-form {
-        transform: translateX(-100%);
-    } */
-
-    /* main.sign-up-mode form.sign-up-form {
-        transform: translateX(0%);
-    } */
-
     .carousel {
         display: none;
     }
-
 
     .images-wrapper {
         display: none;

@@ -1,10 +1,6 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
 @import url("/styles/components/purchase-item.css");
 @import url("/styles/components/sidebar_account.css");
-@import url("/styles/partials/app-bar.css");
 
 body {
 	width: 100%;
@@ -36,7 +32,7 @@ a {
 	width: 100%;
 }
 
-.purchase-item--top{
+.purchase-item--top {
 	margin-bottom: 20px !important;
 }
 
@@ -52,7 +48,7 @@ a {
 
 .purchase-item__status {
 	font-size: 1.25rem;
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .purchase-item__status a {
@@ -60,32 +56,33 @@ a {
 }
 
 .purchase-item__product-detail {
-    width: 100%;
+	width: 100%;
 }
 
 .purchase-item__product-detail h5 {
-    display: inline !important;
-    margin-right: 10px;
-  }
-  
-  .purchase-item__product-detail span {
-    display: inline !important;
-  }
+	display: inline !important;
+	margin-right: 10px;
+}
 
-  .purchase-item__product-name {
+.purchase-item__product-detail span {
+	display: inline !important;
+}
+
+.purchase-item__product-name {
 	/* margin-bottom: 8px; */
 	padding: 8px;
-  }
-  
-  .purchase-item__product-detail hr {
-	opacity: 0;
-    width: calc(100% - 15px); /* Điều chỉnh chiều rộng của hr */
-    margin: 1px 0 12px 0 !important;
+}
 
-  }
-  
+.purchase-item__product-detail hr {
+	opacity: 0;
+	width: calc(100% - 15px);
+	/* Điều chỉnh chiều rộng của hr */
+	margin: 1px 0 12px 0 !important;
+
+}
+
 .purchase-item__product-detail {
-    gap: 0 !important;
+	gap: 0 !important;
 }
 
 .purchase-item__product-detail>h5 {
@@ -93,13 +90,13 @@ a {
 }
 
 .purchase-item__product-name {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
-.purchase-item__product-name label{
-    display: flex;
-    width: 20%;
+.purchase-item__product-name label {
+	display: flex;
+	width: 20%;
 }
 
 /*Responsive-small-laptop*/
@@ -148,7 +145,7 @@ a {
 		gap: 8px;
 	}
 
-	
+
 	button {
 		height: 42px;
 	}
@@ -171,13 +168,13 @@ a {
 		padding: 0;
 	}
 
-	.purchase-item--top h3{
+	.purchase-item--top h3 {
 		font-size: 16px;
 	}
 
 	.purchase-item__product-detail h5 {
-        font-size: 14px;
-    }
+		font-size: 14px;
+	}
 
 	.purchase-item__product-name {
 		font-size: 0.875rem;

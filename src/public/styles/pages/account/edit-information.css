@@ -1,7 +1,6 @@
 @import url("/styles/general.css");
 @import url("/styles/pages/account/information.css");
 
-
 .userName {
     width: 50%;
     border-bottom: 2px solid #eaeaea;

@@ -1,9 +1,6 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/breadcrumb.css');
 @import url('/styles/components/small-slider.css');
 @import url('/styles/components/comment.css');
-@import url('/styles/components/pagination.css');
-@import url('/styles/components/scrollup.css');
 @import url('/styles/components/carousel.css');
 @import url('/styles/components/image-modal.css');
 @import url('/styles/components/success-modal.css');
