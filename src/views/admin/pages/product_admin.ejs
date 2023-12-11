@@ -24,7 +24,7 @@
 			<div class="main-header">
 				<div class="row">
 					<div class="">
-						<h3 class="main-header-title">Sản phẩm <span class="badge bg-soft-dark text-dark"><%= data.totalRow %></span></h3>
+						<h3 class="main-header-title">Sản phẩm <span class="main-header__badge"><%= data.totalRow %></span></h3>
 						<div class="export-import">
 							<a class="admin-a text-body" href="#" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
 								<span class="material-symbols-rounded"> download </span> Xuất file
@@ -48,15 +48,15 @@
 				<!-- End Row -->
 
 				<!-- Nav -->
-				<ul class="nav main-header-tabs" id="pageHeaderTab" role="tablist">
-					<li class="nav-item active">
-						<a class="admin-a nav-link active" href="#">Tất cả (26)</a>
+				<ul class="main__nav main-header__tabs nav" id="pageHeaderTab" role="tablist">
+					<li class="nav__item active">
+						<a class="admin-a nav__link active" href="#">Tất cả (58)</a>
 					</li>
-					<li class="nav-item">
-						<a class="admin-a nav-link disabled" href="#" tabindex="-1">Hiện (10)</a>
+					<li class="nav__item">
+						<a class="admin-a nav__link disabled" href="#" tabindex="-1">Hiện (10)</a>
 					</li>
-					<li class="admin-a nav-item">
-						<a class="admin-a nav-link disabled" href="#" tabindex="-1">Ẩn (12)</a>
+					<li class="admin-a nav__item">
+						<a class="admin-a nav__link disabled" href="#" tabindex="-1">Ẩn (12)</a>
 					</li>
 				</ul>
 				<!-- End Nav -->
@@ -64,12 +64,9 @@
 			<!-- End Nav Scroller -->
 			<!-- End Page Header -->
 
-			<div class="filterEntries">
-				<div id="datatableCounterInfo">
-					<div class="option-button-group">
-						<div>
-							<!-- (<span id="datatableCounter">20</span> được chọn) -->
-						</div>
+			<div class="main__filter">
+				<div>
+					<div class="filter__btn-group">
 						<a class="admin-a btn-admin btn-outline-danger" href="#">
 							<span class="material-symbols-rounded"> delete_forever </span>
 							<p>Xóa</p>
@@ -85,22 +82,22 @@
 					</div>
 				</div>
 
-				<div class="search">
+				<div class="main__search search">
 					<form active="" method="get" role="form">
-						<button type="submit" class="searchButton">
+						<button type="submit" class="search__button">
 							<span class="material-symbols-rounded"> search </span>
 						</button>
-						<input type="search" class="searchTerm" name="searchKey" id="search" placeholder="Enter" value="<%= (data.searchKey) ? data.searchKey: '' %>">
+						<input type="search" class="search__term" name="searchKey" id="search" placeholder="Enter" value="<%= (data.searchKey) ? data.searchKey: '' %>">
 					</form>
 				</div>
 			</div>
 
 			<!-- </header> -->
 
-			<div class="table-display">
-				<table class="table-reponsive">
+			<div class="main__table-display">
+				<table class="main__table-responsive table">
 					<thead>
-						<tr class="heading">
+						<tr class="table__heading">
 							<th><input type="checkbox" class="checkbox"></th>
 							<th>#ID
 								<span class="material-symbols-rounded"> arrow_drop_down </span>
@@ -121,7 +118,7 @@
 						</tr>
 					</thead>
 
-					<tbody class="userInfo">
+					<tbody class="table__user-info">
 						<% if (!data.totalRow) { %>
 						<tr>
 							<td class="empty" colspan="9">Không có kết quả trả về</td>
@@ -143,11 +140,11 @@
 							</td>
 							<td>
 								<!-- Button Group -->
-								<ul class="dropdown-menu">
+								<ul class="action__dropdown dropdown">
 									<li>
 										<span class="dropdown-menu-toggle material-symbols-rounded"> more_vert </span>
 
-										<ul class="dropdown_menu_list">
+										<ul class="dropdown__list">
 											<li>
 												<a class="admin-a" href="#">Sửa</a>
 											</li>
