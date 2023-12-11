@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 05:56 AM
+-- Generation Time: Dec 11, 2023 at 04:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -95,6 +95,7 @@ CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(100) NOT NULL,
   `category_img` varchar(100) NOT NULL,
+  `categorry_type` varchar(50) NOT NULL DEFAULT 'Điện máy',
   `category_added_date` date NOT NULL DEFAULT current_timestamp(),
   `category_is_display` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
@@ -103,31 +104,31 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `category_name`, `category_img`, `category_added_date`, `category_is_display`) VALUES
-(1, 'Máy lạnh', 'may_lanh.png', '2023-11-17', 1),
-(2, 'Máy giặt', 'may_giat.png', '2023-11-17', 1),
-(3, 'Tivi', 'tivi.png', '2023-11-17', 1),
-(4, 'Điện thoại', 'dien_thoai.png', '2023-11-17', 1),
-(5, 'Laptop', 'laptop.png', '2023-11-17', 1),
-(6, 'Tablet', 'tablet.png', '2023-11-17', 1),
-(7, 'Tủ lạnh', 'tu_lanh.png', '2023-11-17', 1),
-(8, 'Nồi cơm', 'noi_com.png', '2023-11-17', 1),
-(9, 'Nồi chiên', 'noi_chien.png', '2023-11-17', 1),
-(10, 'Bếp điện', 'bep_dien.png', '2023-11-17', 1),
-(11, 'Máy sấy', 'may_say.png', '2023-11-17', 1),
-(12, 'Máy lọc nước', 'may_loc_nuoc.png', '2023-11-17', 1),
-(13, 'Quạt điều hòa', 'quat_dieu_hoa.png', '2023-11-17', 1),
-(14, 'Quạt', 'quat.png', '2023-11-17', 1),
-(15, 'Tủ đông', 'tu_dong.png', '2023-11-17', 1),
-(16, 'Máy nước nóng', 'may_nuoc_nong.png', '2023-11-17', 1),
-(17, 'Máy lọc không khí', 'may_loc_khong_khi.png', '2023-11-17', 1),
-(18, 'Bếp hồng ngoại', 'bep_hong_ngoai.png', '2023-11-17', 1),
-(19, 'Bếp từ', 'bep_tu.png', '2023-11-17', 1),
-(20, 'Bếp ga', 'bep_ga.png', '2023-11-17', 1),
-(21, 'Bình đun siêu tốc', 'binh_dun_sieu_toc.png', '2023-11-17', 1),
-(22, 'Máy xay sinh tố', 'may_xay_sinh_to.png', '2023-11-17', 1),
-(23, 'Máy ép trái cây', 'may_ep_trai_cay.png', '2023-11-17', 1),
-(24, 'Máy in', 'may_in.png', '2023-11-17', 1);
+INSERT INTO `categories` (`category_id`, `category_name`, `category_img`, `categorry_type`, `category_added_date`, `category_is_display`) VALUES
+(1, 'Máy lạnh', 'may_lanh.png', 'Điện máy', '2023-11-17', 1),
+(2, 'Máy giặt', 'may_giat.png', 'Điện máy', '2023-11-17', 1),
+(3, 'Tivi', 'tivi.png', 'Điện tử', '2023-11-17', 1),
+(4, 'Điện thoại', 'dien_thoai.png', 'Điện tử', '2023-11-17', 1),
+(5, 'Laptop', 'laptop.png', 'Điện tử', '2023-11-17', 1),
+(6, 'Tablet', 'tablet.png', 'Điện tử', '2023-11-17', 1),
+(7, 'Tủ lạnh', 'tu_lanh.png', 'Điện máy', '2023-11-17', 1),
+(8, 'Nồi cơm', 'noi_com.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(9, 'Nồi chiên', 'noi_chien.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(10, 'Bếp điện', 'bep_dien.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(11, 'Máy sấy', 'may_say.png', 'Gia dụng', '2023-11-17', 1),
+(12, 'Máy lọc nước', 'may_loc_nuoc.png', 'Gia dụng', '2023-11-17', 1),
+(13, 'Quạt điều hòa', 'quat_dieu_hoa.png', 'Gia dụng', '2023-11-17', 1),
+(14, 'Quạt', 'quat.png', 'Gia dụng', '2023-11-17', 1),
+(15, 'Tủ đông', 'tu_dong.png', 'Điện máy', '2023-11-17', 1),
+(16, 'Máy nước nóng', 'may_nuoc_nong.png', 'Điện máy', '2023-11-17', 1),
+(17, 'Máy lọc không khí', 'may_loc_khong_khi.png', 'Gia dụng', '2023-11-17', 1),
+(18, 'Bếp hồng ngoại', 'bep_hong_ngoai.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(19, 'Bếp từ', 'bep_tu.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(20, 'Bếp ga', 'bep_ga.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(21, 'Bình đun siêu tốc', 'binh_dun_sieu_toc.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(22, 'Máy xay sinh tố', 'may_xay_sinh_to.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(23, 'Máy ép trái cây', 'may_ep_trai_cay.png', 'Đồ dùng nhà bếp', '2023-11-17', 1),
+(24, 'Máy in', 'may_in.png', 'Điện máy', '2023-11-17', 1);
 
 -- --------------------------------------------------------
 
@@ -2252,6 +2253,32 @@ CREATE TABLE `view_order_detail` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `view_products_admin`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_products_admin` (
+`product_id` int(11)
+,`product_name` varchar(100)
+,`product_avt_img` varchar(100)
+,`product_rate` float
+,`product_view_count` int(11)
+,`product_period` int(11)
+,`category_id` int(11)
+,`category_name` varchar(100)
+,`product_variant_id` int(11)
+,`product_variant_name` varchar(100)
+,`product_variant_price` float
+,`product_variant_available` int(11)
+,`product_variant_is_bestseller` tinyint(1)
+,`discount_amount` float
+,`discount_description` text
+,`product_count` bigint(21)
+,`revenue` decimal(42,0)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `view_products_info`
 -- (See below for the actual view)
 --
@@ -2405,7 +2432,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_cate_admin`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_cate_admin`  AS SELECT `categories`.`category_id` AS `category_id`, `categories`.`category_name` AS `category_name`, `categories`.`category_img` AS `category_img`, `categories`.`category_added_date` AS `category_added_date`, `categories`.`category_is_display` AS `category_is_display`, count(`view_product_variants`.`product_id`) AS `product_count`, sum(`order_details`.`order_detail_price_after` * `order_details`.`order_detail_quantity`) AS `revenue` FROM ((`categories` left join `view_product_variants` on(`categories`.`category_id` = `view_product_variants`.`category_id`)) left join `order_details` on(`view_product_variants`.`product_variant_id` = `order_details`.`product_variant_id`)) GROUP BY `categories`.`category_id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_cate_admin`  AS SELECT `categories`.`category_id` AS `category_id`, `categories`.`category_name` AS `category_name`, `categories`.`category_img` AS `category_img`, `categories`.`category_added_date` AS `category_added_date`, `categories`.`category_is_display` AS `category_is_display`, count(distinct `view_product_variants`.`product_id`) AS `product_count`, sum(`order_details`.`order_detail_price_after` * `order_details`.`order_detail_quantity`) AS `revenue` FROM (((`categories` left join `view_product_variants` on(`categories`.`category_id` = `view_product_variants`.`category_id`)) left join `order_details` on(`view_product_variants`.`product_variant_id` = `order_details`.`product_variant_id`)) left join `orders` on(`order_details`.`order_id` = `orders`.`order_id` and `orders`.`order_is_paid` = 1)) GROUP BY `categories`.`category_id` ;
 
 -- --------------------------------------------------------
 
@@ -2487,6 +2514,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `view_order_detail`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_order_detail`  AS SELECT `order_details`.`order_id` AS `order_id`, `order_details`.`product_variant_id` AS `product_variant_id`, `order_details`.`order_detail_quantity` AS `order_detail_quantity`, `order_details`.`order_detail_price_before` AS `order_detail_price_before`, `order_details`.`order_detail_price_after` AS `order_detail_price_after`, `view_product_variants`.`product_id` AS `product_id`, `view_product_variants`.`product_name` AS `product_name`, `view_product_variants`.`product_avt_img` AS `product_avt_img`, `view_product_variants`.`product_variant_name` AS `product_variant_name` FROM (`order_details` left join `view_product_variants` on(`order_details`.`product_variant_id` = `view_product_variants`.`product_variant_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_products_admin`
+--
+DROP TABLE IF EXISTS `view_products_admin`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_products_admin`  AS SELECT `view_product_variants`.`product_id` AS `product_id`, `view_product_variants`.`product_name` AS `product_name`, `view_product_variants`.`product_avt_img` AS `product_avt_img`, `view_product_variants`.`product_rate` AS `product_rate`, `view_product_variants`.`product_view_count` AS `product_view_count`, `view_product_variants`.`product_period` AS `product_period`, `view_product_variants`.`category_id` AS `category_id`, `view_product_variants`.`category_name` AS `category_name`, `view_product_variants`.`product_variant_id` AS `product_variant_id`, `view_product_variants`.`product_variant_name` AS `product_variant_name`, `view_product_variants`.`product_variant_price` AS `product_variant_price`, `view_product_variants`.`product_variant_available` AS `product_variant_available`, `view_product_variants`.`product_variant_is_bestseller` AS `product_variant_is_bestseller`, `view_product_variants`.`discount_amount` AS `discount_amount`, `view_product_variants`.`discount_description` AS `discount_description`, count(distinct `view_product_variants`.`product_variant_id`) AS `product_count`, sum(`order_details`.`order_detail_price_after` * `order_details`.`order_detail_quantity`) AS `revenue` FROM ((`view_product_variants` left join `order_details` on(`view_product_variants`.`product_variant_id` = `order_details`.`product_variant_id`)) left join `orders` on(`order_details`.`order_id` = `orders`.`order_id` and `orders`.`order_is_paid` = 1)) GROUP BY `view_product_variants`.`product_id` ;
 
 -- --------------------------------------------------------
 

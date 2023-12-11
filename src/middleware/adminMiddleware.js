@@ -14,7 +14,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
             // 2. Check if the admin still exist
             db.query('SELECT * FROM admin WHERE admin_id = ?', [decoded.id], (err, results) => {
-                console.log(results);
+                // console.log(results);
                 if (!results) {
                     return next();
                 }

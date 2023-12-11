@@ -15,7 +15,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
             // 2. Check if the user still exist
             db.query('SELECT * FROM view_user WHERE user_id = ?', [decoded.id], (err, results) => {
-                console.log(results);
+                // console.log(results);
                 if (!results) {
                     return next();
                 }
@@ -64,7 +64,7 @@ exports.getLoggedIn = async (req, res, next) => {
 
             // 2. Check if the user still exist
             db.query('SELECT * FROM view_user WHERE user_id = ?', [decoded.id], (err, results) => {
-                console.log(results);
+                // console.log(results);
                 if (!results) {
                     return next();
                 }
