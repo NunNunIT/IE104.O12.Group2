@@ -14,16 +14,19 @@
 
 <body>
 	<div class="grid-container">
-		<!-- Header -->
-		<%- include('../partials/sidebar_admin') %>
+
 		<!-- Sidebar -->
+		<%- include('../partials/sidebar_admin') %>
+
+		<!-- Header -->
 		<%- include('../partials/header_admin', title) %>
+
 		<!-- Main -->
 		<main class="main-container">
 			<!-- Page Header -->
 			<div class="main-header">
 				<div class="row">
-					<div class="">
+					<div>
 						<h3 class="main-header-title">Danh mục sản phẩm <span class="badge bg-soft-dark text-dark"><%= data.totalRow %></span></h3>
 						<div class="export-import">
 							<a class="admin-a text-body" href="#" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
@@ -36,8 +39,7 @@
 					</div>
 					<!-- End Col -->
 
-					<div class="">
-
+					<div>
 						<a class="admin-a btn-admin btn-primary" href="/admin/categories_admin/add">
 							<span class="material-symbols-rounded"> add </span>
 							<p>Thêm</p>
@@ -67,9 +69,6 @@
 			<div class="filterEntries">
 				<div id="datatableCounterInfo">
 					<div class="option-button-group">
-						<div>
-							<!-- (<span id="datatableCounter">20</span> được chọn) -->
-						</div>
 						<a class="admin-a btn-admin btn-outline-danger" href="#">
 							<span class="material-symbols-rounded"> delete_forever </span>
 							<p>Xóa</p>
@@ -160,8 +159,11 @@
 						<% } %>
 					</tbody>
 				</table>
+
 				<%- include('../components/pagination', {pagination : data}) %>
+
 		</main>
+
 	</div>
 	<!-- End Main -->
 
