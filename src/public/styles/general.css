@@ -254,6 +254,9 @@ ul li {
     font-size: 0.875rem;
     text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-admin:focus {
