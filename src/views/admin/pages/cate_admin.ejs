@@ -23,16 +23,17 @@
 
 		<!-- Main -->
 		<main class="main-container">
+
 			<!-- Page Header -->
 			<div class="main-header">
 				<div class="row">
 					<div>
-						<h3 class="main-header-title">Danh mục sản phẩm <span class="badge bg-soft-dark text-dark"><%= data.totalRow %></span></h3>
+						<h3 class="main-header__title">Danh mục sản phẩm <span class="main-header__badge"><%= data.totalRow %></span></h3>
 						<div class="export-import">
-							<a class="admin-a text-body" href="#" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
+							<a class="admin-a text-body" href="#">
 								<span class="material-symbols-rounded"> download </span> Xuất file
 							</a>
-							<a class="admin-a text-body" href="#" data-bs-toggle="modal" data-bs-target="#importProductsModal">
+							<a class="admin-a text-body" href="#">
 								<span class="material-symbols-rounded"> upload_file </span> Nhập file
 							</a>
 						</div>
@@ -50,15 +51,15 @@
 				<!-- End Row -->
 
 				<!-- Nav -->
-				<ul class="nav main-header-tabs" id="pageHeaderTab" role="tablist">
-					<li class="nav-item active">
-						<a class="admin-a nav-link active" href="#">Tất cả (26)</a>
+				<ul class="main__nav main-header__tabs nav" id="pageHeaderTab" role="tablist">
+					<li class="nav__item active">
+						<a class="admin-a nav__link active" href="#">Tất cả (26)</a>
 					</li>
-					<li class="nav-item">
-						<a class="admin-a nav-link disabled" href="#" tabindex="-1">Hiện (10)</a>
+					<li class="nav__item">
+						<a class="admin-a nav__link" href="#" tabindex="-1">Hiện (10)</a>
 					</li>
-					<li class="admin-a nav-item">
-						<a class="admin-a nav-link disabled" href="#" tabindex="-1">Ẩn (12)</a>
+					<li class="admin-a nav__item">
+						<a class="admin-a nav__link" href="#" tabindex="-1">Ẩn (12)</a>
 					</li>
 				</ul>
 				<!-- End Nav -->
@@ -66,9 +67,9 @@
 			<!-- End Nav Scroller -->
 			<!-- End Page Header -->
 
-			<div class="filterEntries">
-				<div id="datatableCounterInfo">
-					<div class="option-button-group">
+			<div class="main__filter">
+				<div>
+					<div class="filter__btn-group">
 						<a class="admin-a btn-admin btn-outline-danger" href="#">
 							<span class="material-symbols-rounded"> delete_forever </span>
 							<p>Xóa</p>
@@ -84,40 +85,34 @@
 					</div>
 				</div>
 
-				<div class="search">
-					<form active="" method="get" role="form">
-						<button type="submit" class="searchButton">
+				<div class="main__search search">
+					<form action="" method="get" role="form">
+						<button type="submit" class="search__button">
 							<span class="material-symbols-rounded"> search </span>
 						</button>
-						<input type="search" class="searchTerm" name="searchKey" id="search" placeholder="Enter" value="<%= (data.searchKey) ? data.searchKey: '' %>">
+						<input type="search" class="search__term" name="searchKey" id="search" placeholder="Enter" value="<%= (data.searchKey) ? data.searchKey: '' %>">
 					</form>
 				</div>
 			</div>
 
-			<!-- </header> -->
-
-			<div class="table-display">
-				<table class="table-reponsive">
+			<div class="main__table-display">
+				<table class="main__table-responsive table">
 					<thead>
-						<tr class="heading">
+						<tr class="table__heading">
 							<th><input type="checkbox" class="checkbox"></th>
-							<th>#ID
-								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							<th>#ID <span class="material-symbols-rounded"> arrow_drop_down </span>
 							</th>
-							<th>Tên danh mục
-								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							<th>Tên danh mục <span class="material-symbols-rounded"> arrow_drop_down </span>
 							</th>
-							<th>Số sản phẩm
-								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							<th>Số sản phẩm <span class="material-symbols-rounded"> arrow_drop_down </span>
 							</th>
-							<th>Doanh thu
-								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							<th>Doanh thu <span class="material-symbols-rounded"> arrow_drop_down </span>
 							</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 
-					<tbody class="userInfo">
+					<tbody class="table__user-info">
 						<% if (!data.categories[0]) { %>
 						<tr>
 							<td class="empty" colspan="9">Không có kết quả trả về</td>
@@ -126,41 +121,32 @@
 						<% data.categories.forEach(function(category) { %>
 						<tr class="employeeDetails">
 							<td><input type="checkbox" class="checkbox"></td>
-							<td> <%= category.category_id ?? 'Null' %> </td>
+							<td> <%= category.category_id ?? 'null' %> </td>
 							<td>
-								<img src="/imgs/categories/<%= category.category_img ?? 'default.png' %>" alt="<%= category.category_name ?? 'Null' %>">
-								<%= category.category_name ?? 'Null' %>
+								<img src="/imgs/categories/<%= category.category_img ?? 'default.png' %>" alt="<%= category.category_name ?? 'null' %>">
+								<%= category.category_name ?? 'null' %>
 							</td>
-							<td> <%= category.product_count ?? 'Null' %> </td>
+							<td> <%= category.product_count ?? 'null' %> </td>
 							<td> <%= formatFunction.toCurrency(Number(category.revenue)) %></td>
-							<td>
-								<!-- Button Group -->
-								<ul class="dropdown-menu">
+							<td class="action">
+								<ul class="action__dropdown dropdown">
 									<li>
-										<span class="dropdown-menu-toggle material-symbols-rounded"> more_vert </span>
-
-										<ul class="dropdown_menu_list">
-											<li>
-												<a class="admin-a" href="#">Sửa</a>
-											</li>
-											<li>
-												<a class="admin-a" href="#">Ẩn</a>
-											</li>
-											<li>
-												<a class="admin-a" href="#">Xóa</a>
-											</li>
+										<span class="material-symbols-rounded"> more_vert </span>
+										<ul class="dropdown__list">
+											<li> <a class="admin-a" href="#">Sửa</a> </li>
+											<li> <a class="admin-a" href="#">Ẩn</a> </li>
+											<li> <a class="admin-a" href="#">Xóa</a> </li>
 										</ul>
 									</li>
 								</ul>
-								<!-- End Button Group -->
 							</td>
 						</tr>
 						<% }) %>
 						<% } %>
 					</tbody>
 				</table>
-
 				<%- include('../components/pagination', {pagination : data}) %>
+			</div>
 
 		</main>
 
