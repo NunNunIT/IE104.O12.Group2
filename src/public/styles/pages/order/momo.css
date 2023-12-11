@@ -1,7 +1,4 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
 
 .momo-logo .material-symbols-outlined {
     font-variation-settings:
@@ -513,7 +510,7 @@ label {
         margin: 20px;
     }
 
-    .momo-qr h4{
+    .momo-qr h4 {
         font-size: 1.2rem;
     }
 
