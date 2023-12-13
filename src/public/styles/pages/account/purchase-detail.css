@@ -1,4 +1,5 @@
 @import url("/styles/general.css");
+@import url("/styles/components/sidebar_account.css");
 
 body {
 	width: 100%;
