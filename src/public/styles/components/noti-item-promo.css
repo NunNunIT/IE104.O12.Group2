@@ -10,7 +10,6 @@
 
 .noti-item__block.read {
     background-color: white;
-    /* Màu nền khi đã đọc */
 }
 
 .noti-item__img {
@@ -49,7 +48,6 @@
     flex-direction: row;
     gap: 12px;
     color: #6F7979;
-    /* font-size: 12px; */
 }
 
 .noti-item__button {
@@ -85,13 +83,13 @@
     display: flex;
     justify-content: flex-end;
     position: relative;
-    color: var(--primary-color-2);
+    color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
 }
 
 .close-btn:hover {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--primary-color-2);
     cursor: pointer;
 }
 

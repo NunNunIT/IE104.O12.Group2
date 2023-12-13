@@ -1,49 +1,151 @@
 <div class="purchase-item">
-  <div class="purchase-item--top">
-    <div class="purchase-item__info">
-      <h5>Đơn hàng:</h5>
-      <p id="purchase-item__id">#DH0001</p>
-    </div>
-    <p class="purchase-item__status">Hoàn thành</p>
-  </div>
-  <hr />
-  <div class="purchase-item__main">
-    <div class="purchase-item__element">
-      <div class="purchase-item__element--left">
-        <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-item__product-img">
-        <div class="purchase-item__product-detail">
-          <h4 id="purchase-item__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A</h4>
-          <p id="purchase-item__variant">Phân loại hàng: 55 inch</p>
-          <p id="purchase-item__amount">x1</p>
-        </div>
-      </div>
-      <h5 id="purchase-item__price"><small>13.990.000đ</small>11.800.000đ</h5>
-    </div>
-    <hr />
-    <div class="purchase-item__element">
-      <div class="purchase-item__element--left">
-        <img src="/imgs/product-item/tivi-samsung.png" alt="product" class="purchase-item__product-img">
-        <div class="purchase-item__product-detail">
-          <h4 id="purchase-item__product-name">Smart Tivi QLED 4K 55 inch Samsung QA55Q65A </h4>
-          <p id="purchase-item__variant">Phân loại hàng: 55 inch</p>
-          <p id="purchase-item__amount">x1</p>
-        </div>
-      </div>
-      <h5 id="purchase-item__price"><small>13.990.000đ</small>11.800.000đ</h5>
-    </div>
-  </div>
-  <hr />
-  <div class="purchase-item--bottom">
-    <div class="purchase-item__total">
-      <p>Thành tiền:</p>
-      <h2 id="purchase-item__total-price">23.600.000đ</h2>
-    </div>
-    <div class="noti-item__button">
-      <a href="http://127.0.0.1:3000/account/purchase/:orderID">
-        <button class="btn btn--outlined pri popup-btn">Xem chi tiết</button>
-      </a>
-      <button class="btn btn--filled pri btn-use">Đánh giá</button>
-    </div>
-  </div>
+	<div class="purchase-item--top">
+		<div class="purchase-item__info">
+			<h5>Đơn hàng:</h5>
+			<p id="purchase-item__id">#DH00<%= purchaseHistory.order_id %></p>
+		</div>
+		<div class="purchase-item__status-container">
+			<span class="material-symbols-outlined">
+				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+				cancel
+				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+				payment
+				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
+				done_all
+				<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
+				local_shipping
+				<% } %>
+			</span>
+			<p class="purchase-item__status"><%= purchaseHistory.order_status %></p>
+		</div>
 
+
+	</div>
+	<hr />
+	<!-- Chi tiết đơn hàng -->
+	<div class="purchase-item__main">
+		<% let totalAmount = 0; %>
+		<% purchaseHistory.order_details.forEach(orderDetail => { %>
+		<!-- Mỗi sản phẩm trong đơn hàng -->
+		<div class="purchase-item__element">
+			<div class="purchase-item__element--left">
+				<img src="/imgs/product_image/P<%= orderDetail.product_id %>/<%= orderDetail.product_avt_img %>" alt="product_img" class="purchase-item__product-img">
+				<div class="purchase-item__product-detail">
+					<h4 id="purchase-item__product-name"><%= orderDetail.product_name %></h4>
+					<p id="purchase-item__variant">Phân loại hàng: <%= orderDetail.product_variant_name %></p>
+					<p id="purchase-item__amount">x<%= orderDetail.order_detail_quantity %></p>
+				</div>
+			</div>
+			<h5 id="purchase-item__price">
+				<% if (orderDetail.order_detail_price_before > orderDetail.order_detail_price_after) { %>
+				<small><%= toCurrency(orderDetail.order_detail_price_before) %></small>
+				<% } %>
+				<%= toCurrency(orderDetail.order_detail_price_after) %>
+			</h5>
+		</div>
+		<hr />
+		<% totalAmount += parseFloat(orderDetail.order_detail_price_after); %>
+		<% }) %>
+		<!-- End mỗi sản phẩm trong đơn hàng -->
+	</div>
+
+	<div class="purchase-item--bottom">
+		<div class="purchase-item__total">
+			<p>Thành tiền:</p>
+			<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+			<h2 class="purchase-item__total-price cancelled"><del><%= toCurrency(totalAmount) %></del></h2>
+			<% } else { %>
+			<h2 class="purchase-item__total-price"><%= toCurrency(totalAmount) %></h2>
+			<% } %>
+		</div>
+
+		<div class="purchase-item__button">
+			<% if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+			<div class="btn btn--outlined pri cancel">Hủy</div>
+			<div class="purchase-cancel__popup">
+				<div class="purchase-cancel__popup__main">
+					<div class="purchase-cancel__popup__content-main">
+						<div class="purchase-cancel__popup__content-title">
+							<div class="purchase-cancel__popup--top">
+								<p class="purchase-cancel__popup__title">Lý do hủy</p>
+								<div class="close-btn">
+									<span class="material-symbols-outlined">cancel</span>
+								</div>
+							</div>
+						</div>
+						<div class="popup__note">
+							<span class="material-symbols-outlined">info</span>
+							<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
+						</div>
+						<form id="cancel_popup">
+							<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
+							<div class="cancel-reasons">
+								<div class="cancel-reason__item">
+									<input type="radio" class="cancel-reason__input" value="1" id="update" name="selector">
+									<label class="cancel-reason__label" for="update">Tôi muốn cập nhật địa chỉ/sđt nhận hàng.</label>
+								</div>
+								<div class="cancel-reason__item">
+									<input type="radio" class="cancel-reason__input" value="2" id="change" name="selector">
+									<label class="cancel-reason__label" for="change">Tôi muốn thay đổi sản phẩm.</label>
+								</div>
+								<div class="cancel-reason__item">
+									<input type="radio" class="cancel-reason__input" value="3" id="cancel-reason__input-payment" name="selector">
+									<label class="cancel-reason__label" for="cancel-reason__input-payment">Thủ tục thanh toán rắc rối.</label>
+								</div>
+								<div class="cancel-reason__item">
+									<input type="radio" class="cancel-reason__input" value="4" id="cancel-reason__input-price" name="selector">
+									<label class="cancel-reason__label" for="cancel-reason__input-price">Tôi tìm thấy nơi khác giá tốt hơn.</label>
+								</div>
+								<div class="cancel-reason__item">
+									<input type="radio" class="cancel-reason__input" value="5" id="cancel-reason__input-need" name="selector">
+									<label class="cancel-reason__label" for="cancel-reason__input-need">Tôi không có nhu cầu mua nữa.</label>
+								</div>
+								<div class="cancel-reason__item">
+									<input type="radio" class="cancel-reason__input" value="6" id="cancel-reason__input-no-reason" name="selector">
+									<label class="cancel-reason__label" for="cancel-reason__input-no-reason">Tôi không tìm thấy lý do hủy phù hợp.</label>
+								</div>
+							</div>
+							<div class="button">
+								<div class="btn btn--outlined pri cancel-purchase">Trở lại</div>
+								<button type="submit" class="btn btn--filled pri">Xác nhận</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<% } %>
+
+			<div class="purchase-item__button--right">
+				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+				<a href="/account/purchase/<%= purchaseHistory.order_id %>">
+					<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+				</a>
+
+				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
+				<a href="/account/purchase/<%= purchaseHistory.order_id %>">
+					<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+				</a>
+				<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
+				<a href="/account/purchase/<%= purchaseHistory.order_id %>">
+					<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+				</a>
+				<% } %>
+
+				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
+				<a href="/order/payment?paying_method_id=<%= purchaseHistory.paying_method_id %>&order_id=<%= purchaseHistory.order_id %>">
+					<div class="btn btn--filled pri popup-btn">Thanh toán</div>
+				</a>
+				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
+				<a href="/account/feedback?order_id=<%= purchaseHistory.order_id %>">
+					<div class="btn btn--filled pri">Đánh giá</div>
+				</a>
+				<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
+				<div class="btn btn--filled pri disable">Đánh giá</div>
+				<% } %>
+			</div>
+
+		</div>
+	</div>
 </div>

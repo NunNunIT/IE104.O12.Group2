@@ -2,95 +2,132 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/auth/forgot.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/pages/auth/forgot.css">
 
-    <title>TECHTWO.</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
 
-    <%- include('../../partials/header-small') %>
+	<%- include('../../partials/header-small') %>
 
-    <main>
-        <div class="box">
-            <div class="inner-box">
-                <form id="form" action="/" autocomplete="off" class="forgot__sign-in-form" method="post">
-                    <div class="Step1">
-                        <div class="logo_clock">
-                            <div class="logo">
-                                <a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
-                            </div> 
-                            <div class="clock" id="countdown">
-                            <!-- <span id="timer"></span> -->
-                            </div> 
-                        </div>    
-                    <div class="heading"><h2>Đặt lại mật khẩu</h2></div>
-                        <div class="actual-form">
-                            <div class="forgot__input-wrap">
-                                <input id="PhoneNumber" type="text" name="PhoneNumber" class="forgot__input-field" autocomplete="off" />
-                                <label>Số điện thoại<span style="color:red">*</span></label>
-                                <div class="forgot__error"></div>
-                            </div>
-                            <input type="submit" value="Xác nhận" class="forgot__sign-btn" />
-                            <div class="back">
-                                <a href="/auth/login">Trở lại</a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <form id="form_otp" action="/" autocomplete="off" method="post">
-                    <div class="Step2">
-                        <div class="logo_clock">
-                            <div class="logo">
-                                <a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
-                            </div> 
-                            <div class="clock" id="countdown">
-                            <!-- <span id="timer"></span> -->
-                        </div>
-                    </div> 
+	<main>
+		<div class="box">
+			<div class="inner-box">
+				<form id="form" action="/" autocomplete="off" class="forgot__sign-in-form" method="post">
+					<div class="Step1">
+						<div class="logo_clock">
+							<div class="logo">
+								<a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
+							</div>
+							<div class="clock" id="countdown"> </div>
+						</div>
+						<div class="heading">
+							<h2>Đặt lại mật khẩu</h2>
+						</div>
+						<div class="actual-form">
+							<div class="forgot__input-wrap">
+								<input id="PhoneNumber" type="text" name="PhoneNumber" class="forgot__input-field" autocomplete="off" />
+								<label>Số điện thoại<span style="color:red">*</span></label>
+								<div class="forgot__error"></div>
+							</div>
+							<input type="submit" value="Xác nhận" class="forgot__sign-btn" />
+							<div class="back">
+								<a href="/auth/login">Trở lại</a>
+							</div>
+						</div>
+					</div>
+				</form>
+				<form id="form_otp" action="/" autocomplete="off">
+					<div class="Step2">
+						<div class="logo_clock">
+							<div class="logo">
+								<a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
+							</div>
+							<div class="clock" id="countdown"> </div>
+						</div>
 
-                        <div class="actual-form">
-                            <div class="otp">
-                                <div class="heading"><h2>Nhập mã OTP</h2></div>
-                                <div class="heading"><h6>Mã OTP đã được gửi đến thiết bị của bạn.</h6></div>
-                                    <div class="input-wrap">
-                                        <input type="number" id="otp1" maxlength=1 oninput="moveToNext(this, 'otp2')" />
-                                        <input type="number" id="otp2" maxlength=1 oninput="moveToNext(this, 'otp3')" />
-                                        <input type="number" id="otp3" maxlength=1 oninput="moveToNext(this, 'otp4')" />
-                                        <input type="number" id="otp4" maxlength=1 oninput="moveToNext(this, 'otp5')" />
-                                        <input type="number" id="otp5" maxlength=1 oninput="moveToNext(this, 'otp6')" />
-                                        <input type="number" id="otp6" maxlength=1 />
-                                    </div>
-                                <div class="send-again">
-                                    <span>Bạn không nhận được mã OTP?</span>
-                                    <a href="#" id="resendLink">
-                                        <strong><u> Gửi lại mã OTP</u></strong>
-                                    </a>
-                                </div>
-                                <input type="submit" value="Xác nhận" class="forgot__sign-btn" />
-                                <div class="back">
-                                    <a href="/auth/login">Hủy</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                </div>
-            </div>
+						<div class="actual-form">
+							<div class="otp">
+								<div class="heading">
+									<h2>Nhập mã OTP</h2>
+								</div>
+								<div class="heading">
+									<h6>Mã OTP đã được gửi đến thiết bị của bạn.</h6>
+								</div>
+								<div class="input-wrap">
+									<input type="text" id="otp1" maxlength=1 oninput="moveToNext(this, 'otp2')" />
+									<input type="text" id="otp2" maxlength=1 oninput="moveToNext(this, 'otp3')" />
+									<input type="text" id="otp3" maxlength=1 oninput="moveToNext(this, 'otp4')" />
+									<input type="text" id="otp4" maxlength=1 oninput="moveToNext(this, 'otp5')" />
+									<input type="text" id="otp5" maxlength=1 oninput="moveToNext(this, 'otp6')" />
+									<input type="text" id="otp6" maxlength=1 />
+								</div>
+								<div class="send-again">
+									<span>Bạn không nhận được mã OTP?</span>
+									<a href="#" id="resendLink">
+										<strong><u> Gửi lại mã OTP</u></strong>
+									</a>
+								</div>
+								<input type="submit" value="Xác nhận" class="forgot__sign-btn" />
+								<div class="back">
+									<a href="/auth/login">Hủy</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<form id="form_reset" action="/" autocomplete="off" method="post">
+					<div class="Step3">
+						<div class="logo_clock">
+							<div class="logo">
+								<a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
+							</div>
+						</div>
+						<div class="reset__main">
+							<div class="heading">
+								<h2>Đặt lại mật khẩu</h2>
+							</div>
+							<div class="reset__input-wrap">
+								<input id="Password" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+								<label>Mật khẩu mới<span style="color:red">*</span></label>
+								<span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+										visibility</span>
+								</span>
+								<div class="reset__error"></div>
+							</div>
 
-            </div>
-    </main>
+							<div class="reset__input-wrap">
+								<input id="ConfirmPassword" type="password" name="Password" class="reset__input-field" autocomplete="off" />
+								<label>Xác nhận mật khẩu mới<span style="color:red">*</span></label>
+								<span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+										visibility</span>
+								</span>
+								<div class="reset__error"></div>
+							</div>
+							<input type="submit" value="Xác nhận" class="reset__sign-btn" />
+							<div class="back">
+								<a href="/auth/login">Hủy</a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
 
-    <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
-    <%- include('../../partials/app-bar') %>
+	<%- include('../../components/scrollup') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
 
-    <script src="/scripts/pages/auth/forgot.js"></script>
-    <script src="https://unpkg.com/gsap@3.9.1"></script>
+	<script src="/scripts/pages/auth/forgot.js"></script>
+	<script src="/scripts/pages/auth/reset.js"></script>
+	<script src="https://unpkg.com/gsap@3.9.1"></script>
 
 </body>
 

@@ -1,44 +1,40 @@
 <div class="comment-container">
 	<div class="comment__info">
-		<img class="comment__avatar" src="/imgs/infor1.jpg" alt="avatar">
+		<img class="comment__avatar" src="/imgs/user_avt_img/<%= 'default.png' %>" alt="avatar">
 		<div>
-			<p class="comment__user-name">Tên người dùng</p>
-			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'NaN' %></button>
+			<p class="comment__user-name"><%= 'Nguyễn Văn A' %></p>
+			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'null' %></button>
 			<div class="comment__stars">
 				<% if (feedback.feedback_rate) { %>
 				<div>
-					<!-- In ra số sao hiện có -->
-					<% const feedbackRateInt = Math.floor(feedback.feedback_rate) %>
-
-					<% for (let i = 0; i < feedbackRateInt; i++) { %>
-					<span class="material-symbols-outlined">grade</span>
+					<% for (let i = 0; i < Math.floor(feedback.feedback_rate); i++) { %>
+					<span class="material-symbols-outlined">star</span>
 					<% } %>
 
-					<!-- In ra số sao lẻ -->
-					<% if (feedback.feedback_rate - feedbackRateInt >= 0.5 && feedback.feedback_rate - feedbackRateInt < 1) { %>
+					<% if (feedback.feedback_rate % 1 !== 0.5) { %>
+					<% if (feedback.feedback_rate - Math.floor(feedback.feedback_rate) > 0) { %>
 					<span class="material-symbols-outlined">star_half</span>
-					<% } else if (feedback.feedback_rate!= 5 && feedback.feedback_rate - feedbackRateInt < 0.5 && feedback.feedback_rate - feedbackRateInt >= 0) { %>
-					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
 					<% } %>
-
-					<!-- In ra số sao trống -->
-					<% for (let i = 0; i < Math.floor(5 - feedback.feedback_rate - 1); i++) {  %>
-					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% for (let i = 0; i < Math.floor(5 - Math.ceil(feedback.feedback_rate)); i++) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+					<% } %>
+					<% } else { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
 					<% } %>
 				</div>
+				<p>(<%= feedback.feedback_rate %>)</p>
 				<% } %>
 			</div>
-			<p class="comment__time"><%= feedback.feedback_date ?? 'NaN' %></p>
+			<p class="comment__time"><%= toDDMMYYYY(feedback.feedback_date) ?? 'null' %></p>
 		</div>
 	</div>
 	<div class="comment__content">
 		<p><%= feedback.feedback_content ?? 'null' %></p>
 		<% if (feedback.feedback_img_name) { %>
 		<div class="comment__pictures">
-			<img src="/imgs/infor1.jpg" alt="">
-			<img src="/imgs/infor1.jpg" alt="">
-			<img src="/imgs/infor1.jpg" alt="">
-			<img src="/imgs/infor1.jpg" alt="">
+			<img src="/imgs/feedbacks/default.jpg" alt="comment-image">
+			<img src="/imgs/feedbacks/default.jpg" alt="comment-image">
+			<img src="/imgs/feedbacks/default.jpg" alt="comment-image">
 		</div>
 		<% } %>
 

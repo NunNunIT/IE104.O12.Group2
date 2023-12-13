@@ -14,8 +14,6 @@ function updateCounter(n) {
   const currentSlide = n
   const counter = document.querySelector('.slider-counter p')
   counter.textContent = `${currentSlide}/${totalSlides}`
-  console.log(counter.textContent)
-
 }
 
 function showSlides(n) {

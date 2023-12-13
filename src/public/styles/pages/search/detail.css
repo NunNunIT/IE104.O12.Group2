@@ -1,12 +1,10 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/breadcrumb.css');
 @import url('/styles/components/small-slider.css');
 @import url('/styles/components/comment.css');
-@import url('/styles/components/pagination.css');
-@import url('/styles/components/scrollup.css');
 @import url('/styles/components/carousel.css');
 @import url('/styles/components/image-modal.css');
 @import url('/styles/components/success-modal.css');
+@import url('/styles/components/product-card.css');
 
 body {
     width: 100vw;
@@ -145,10 +143,11 @@ body {
 .variant-selected {
     border: 1px solid var(--dollar-red) !important;
     font-weight: 600;
+}
 
-    & .variant__price {
-        color: var(--dollar-red);
-    }
+.variant-selected .variant__price {
+    color: var(--dollar-red);
+    text-align: center;
 }
 
 .detail__quantity {
@@ -205,14 +204,6 @@ input::-webkit-inner-spin-button {
     background: linear-gradient(to right, #3398fb 0%, var(--primary-color-2) 100%);
 }
 
-/* .promo__no-discount div h2 {
-    color: var(--primary-color-2);
-}
-
-.promo__no-discount .promo__content {
-    padding: 0;
-} */
-
 .promo__header {
     display: inherit;
     justify-content: space-between;
@@ -244,6 +235,24 @@ input::-webkit-inner-spin-button {
     background-color: var(--white);
     padding: 12px;
     border-radius: 8px;
+}
+
+.promo__content hr {
+    border: none;
+    height: 3px;
+    width: 100%;
+    background-image: repeating-linear-gradient(to right,
+            blue 0%,
+            blue 25%,
+            white 25%,
+            white 50%,
+            red 50%,
+            red 75%,
+            white 75%,
+            white 100%);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 40px 2px;
 }
 
 .promo__list {
@@ -300,13 +309,13 @@ input::-webkit-inner-spin-button {
 }
 
 
-.default-description {
+.default {
     overflow: hidden;
     max-height: 500px;
     transition: max-height 0.5s ease;
 }
 
-.full-description {
+.full {
     max-height: none;
     transition: max-height 0.5s ease;
 }
@@ -325,8 +334,8 @@ input::-webkit-inner-spin-button {
 
 .description__item img {
     width: 100% !important;
-    height: 200px;
-    object-fit: cover;
+    height: fit-content !important;
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -382,8 +391,26 @@ input::-webkit-inner-spin-button {
 }
 
 .comments__list {
-    justify-content: center;
+    max-height: 500px;
+    overflow-y: scroll;
     align-items: center;
+}
+
+.comments__list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comments__list::-webkit-scrollbar-track {
+    background: var(--bg-white);
+}
+
+.comments__list::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--scroll-thumb);
+}
+
+.comments__list::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .comments__filter {
@@ -450,6 +477,61 @@ input::-webkit-inner-spin-button {
     justify-content: center;
 }
 
+.tip-products-wrapper {
+    width: 80%;
+    max-width: 1152px;
+    margin-bottom: 24px;
+    padding: 12px;
+    border-radius: 4px;
+    display: inherit;
+    flex-direction: column;
+}
+
+.tip-products-wrapper.new-products {
+    background: #3398fb;
+    background: -moz-linear-gradient(top, #3398fb 0%, var(--primary-color-2) 100%);
+    background: -webkit-linear-gradient(top, #3398fb 0%, var(--primary-color-2) 100%);
+    background: linear-gradient(to right, #3398fb 0%, var(--primary-color-2) 100%);
+}
+
+.tip-products__label {
+    display: flex;
+    padding: 12px 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+.tip-products__seemore {
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.tip-products__seemore a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+}
+
+.tip-products__seemore:hover a,
+.tip-products__seemore:hover {
+    color: yellow;
+}
+
+.tip-products__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.3%;
+}
+
+.tip-products__item {
+    flex: 0 0 19%;
+}
+
 /* 1024px - Mini PC */
 @media screen and (max-width: 64rem) {
 
@@ -503,6 +585,9 @@ input::-webkit-inner-spin-button {
 
 /* 768px - Tablet */
 @media screen and (max-width: 48rem) {
+    .tip-products-wrapper {
+        width: 90%;
+    }
 
     .content-container,
     .similar-products {

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/styles/pages/account/feedback.css">
 
@@ -15,20 +16,19 @@
 <body>
 
 	<%- include('../../partials/header', { header: header }) %>
-	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Đánh giá', link : '' }] }) %>
+	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân', link : '/account/information' }, { text : 'Lịch sử đơn mua', link : '/account/purchase' }, { text : 'Đánh giá', link : '' }] }) %>
 
 	<div class="feedback-wrapper">
-
 		<h3>ĐÁNH GIÁ SẢN PHẨM</h3>
-
+		<% orderDetails.forEach(orderDetail => { %>
 		<div class="product-info">
-			<img src="/imgs/product_image/P6/P6_1.jpg" alt="Ảnh sản phẩm">
+			<img src="/imgs/product_image/P<%= orderDetail.product_id %>/<%= orderDetail.product_avt_img %>" alt="<%= orderDetail.product_name %>">
 			<div class="product-details">
-				<h4 class="product_name">Bếp từ hồng ngoại lắp âm Pramie 2108</h4>
-				<p class="product_variant-name">Phân loại: Trắng</p>
+				<h4 class="product_name"><%= orderDetail.product_name %></h4>
+				<p class="product_variant-name">Phân loại: <%= orderDetail.product_variant_name %></p>
 				<div class="price_quantity">
-					<p class="price"><del>160.000đ</del> 80.000đ</p>
-					<p class="quantity">Số lượng: 2</p>
+					<p class="price"><del><%= formatFunction.toCurrency(orderDetail.order_detail_price_before) %></del> <strong><%= formatFunction.toCurrency(orderDetail.order_detail_price_after) %></strong></p>
+					<p class="quantity">x<%= orderDetail.order_detail_quantity %></p>
 				</div>
 
 			</div>
@@ -58,11 +58,11 @@
 			</div>
 
 			<textarea name="opinion" cols="30" rows="8" placeholder="Đánh giá của bạn..."></textarea>
+			<% }) %>
 			<div class="popup__button">
-				<a href="/account/purchase"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
-				<a href="/account/purchase"><button class="btn btn--filled pri btn-logout" type="button">Gửi đánh giá</button></a>
+				<a href="/account/purchase"><button class="btn btn--outlined sec btn-cancel" type="button">Hủy</button></a>
+				<a href="/account/purchase"><button class="btn btn--filled sec btn-logout" type="button">Gửi đánh giá</button></a>
 			</div>
-
 		</form>
 	</div>
 
@@ -72,6 +72,7 @@
 
 	<script src="/scripts/pages/account/feedback.js"></script>
 	<script src="/scripts/pages/account/information.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

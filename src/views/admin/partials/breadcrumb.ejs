@@ -1,0 +1,17 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="breadcrumb-link"
+                href="<%= breadcrumb[0].link %>" previewlistener="true"><%= breadcrumb[0].text %></a>
+        </li>
+
+        <% for(let i = 1; i < breadcrumb.length; i++) { %>
+            <li class="breadcrumb-item">
+                <span class="material-symbols-rounded">
+                    chevron_right
+                </span>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"><%= breadcrumb[i].text %></li>
+        <% } %>
+
+    </ol>
+</nav>

@@ -2,7 +2,7 @@ const db = require('../config/db/connect');
 const util = require('node:util')
 const query = util.promisify(db.query).bind(db)
 
-const general = function () {}
+const general = function () { }
 
 // Hàm xử lý datetỉme ---> Thứ x, ngày x tháng x năm x
 general.toXDDMMYYYY = function (datetime) {
@@ -59,12 +59,10 @@ general.toDDthangMMnamYYYY = function (datetime) {
 
 // Hàm xử lý datetime ---> DD/MM/YYYY
 general.toDDMMYYYY = function (datetime) {
-    console.log(datetime)
     let date = datetime.getDate()
     if (date < 10) {
         date = "0" + datetime.getDate()
     }
-    console.log(datetime.getMonth())
     let month = datetime.getMonth()
     if (month < 10) {
         month = "0" + datetime.getMonth()
@@ -102,49 +100,8 @@ general.toCurrency = function (money) {
     let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
         return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c;
     });
-    return currency;
+    return currency + 'đ';
 }
-
-general.bookStatus = function (book_status) {
-    let book_status_mean = ''
-    switch (book_status) {
-        case -1:
-            book_status_mean = 'Đã hủy'
-            break
-
-        case 0:
-            book_status_mean = 'Chưa sử dụng'
-            break
-
-        case 1:
-            book_status_mean = 'Đã sử dụng'
-            break
-
-        default:
-            book_status_mean = 'Đang xử lý'
-            break
-    }
-    return book_status_mean
-}
-
-general.bookIsPaid = function (book_is_paid) {
-    let book_is_paid_mean = ''
-    switch (book_is_paid) {
-        case 0:
-            book_is_paid_mean = 'Chưa thanh toán'
-            break
-
-        case 1:
-            book_is_paid_mean = 'Đã thanh toán'
-            break
-
-        default:
-            book_is_paid_mean = 'Đang xử lý'
-            break
-    }
-    return book_is_paid_mean
-}
-
 
 general.getProductId = async (product_variant_id) => {
     let getProductId = `SELECT product_id FROM product_variants WHERE product_variant_id = ${product_variant_id}`
@@ -159,34 +116,6 @@ general.getCategoryId = async (product_id) => {
 
     let category_id = await query(getCategoryId)
     return category_id[0].category_id
-}
-
-
-general.productCurrencyFormat = async (products) => {
-    products.forEach((product) => {
-        product.product_variant_price_currency = general.toCurrency(Number(product.product_variant_price))
-        if (product.discount_amount) {
-            product.product_variant_price_after_discount = product.product_variant_price * (100 - product.discount_amount) / 100
-            product.product_variant_price_after_discount_currency = general.toCurrency(Number(product.product_variant_price_after_discount))
-        }
-    })
-    return products
-}
-
-general.purchaseCurrencyFormat = async (orders) => {
-    orders.forEach((order) => {
-        order.order_total_before_currency = general.toCurrency(Number(order.order_total_before))
-        order.order_total_after_currency = general.toCurrency(Number(order.order_total_after))
-    })
-    return orders
-}
-
-general.purchaseDetailCurrencyFormat = async (order_details) => {
-    order_details.forEach((order_detail) => {
-        order_detail.order_detail_price_before_currency = general.toCurrency(Number(order_detail.order_detail_price_before))
-        order_detail.order_detail_price_after_currency = general.toCurrency(Number(order_detail.order_detail_price_after))
-    })
-    return order_details
 }
 
 general.getCates = async (req) => {
@@ -206,7 +135,7 @@ general.getCates = async (req) => {
             const promises = [];
             cates.forEach(async (cate) => {
                 promises.push(
-                    general.getBestSellerProductsOfCates(Number(cate.category_id), 3).then((bestSellerProducts) => {
+                    general.getBestSellerProductsOfCates(Number(cate.category_id), 8).then((bestSellerProducts) => {
                         cate.bestSellerProductsOfCates = bestSellerProducts;
                     })
                 );
@@ -230,8 +159,6 @@ general.getBestSellerProductsOfCates = async (category_id, limit) => {
                 console.log(err)
                 resolve(0)
             } else {
-                bestSellerProductsOfCates = general.productCurrencyFormat(bestSellerProductsOfCates)
-                // console.log(bestSellerProductsOfCates)
                 resolve(bestSellerProductsOfCates)
             }
         })
@@ -247,7 +174,6 @@ general.getOutstandingProducts = async () => {
                 console.log(err)
                 resolve(0)
             } else {
-                outstandingProducts = general.productCurrencyFormat(outstandingProducts)
                 resolve(outstandingProducts)
             }
         })
@@ -263,7 +189,6 @@ general.getNewProducts = async () => {
                 console.log(err)
                 resolve(0)
             } else {
-                newProducts = general.productCurrencyFormat(newProducts)
                 resolve(newProducts)
             }
         })
@@ -279,7 +204,6 @@ general.getDiscountProducts = async () => {
                 console.log(err)
                 resolve(0)
             } else {
-                discountProducts = general.productCurrencyFormat(discountProducts)
                 resolve(discountProducts)
             }
         })
@@ -302,30 +226,79 @@ general.getCateProducts = async (req, product_variant_id, limit = 8) => {
                 console.log(err)
                 resolve(0)
             } else {
-                cateProducts = general.productCurrencyFormat(cateProducts)
                 resolve(cateProducts)
             }
         })
     })
 }
 
-general.getVariantProducts = async (product_variant_id) => {
-    // let params = req.params.product_variant_id
+general.getNotCateProducts = async (req, product_variant_id, limit = 8) => {
     let product_id = await general.getProductId(product_variant_id)
+    let category_id = await general.getCategoryId(product_id)
+    category_id = (req.query.category_id) != 0 ? req.query.category_id : category_id
 
-    let getVariantProducts = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
+    let getNotCateProducts = `SELECT * FROM view_products_resume 
+                            WHERE NOT(category_id = ${category_id}) 
+                            ORDER BY product_variant_is_bestseller DESC
+                            LIMIT 0, ${limit}`
 
     return new Promise((resolve, reject) => {
-        db.query(getVariantProducts, (err, variantProducts) => {
+        db.query(getNotCateProducts, (err, notCateProducts) => {
             if (err) {
                 console.log(err)
                 resolve(0)
             } else {
-                variantProducts = general.productCurrencyFormat(variantProducts)
-                resolve(variantProducts)
+                resolve(notCateProducts)
             }
         })
     })
+}
+
+
+general.getVariantProduct = async (product_variant_id) => {
+    // let params = req.params.product_variant_id
+    let product_id = await general.getProductId(product_variant_id)
+
+    let getVariantProduct = `SELECT * FROM view_product_variants WHERE product_variant_id = ${product_variant_id}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getVariantProduct, (err, variantProduct) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(variantProduct)
+            }
+        })
+    })
+}
+
+general.getProductVariants = async (product_variant_id) => {
+    // let params = req.params.product_variant_id
+    let product_id = await general.getProductId(product_variant_id)
+
+    let getProductVariants = `SELECT * FROM view_product_variant_detail WHERE product_id = ${product_id}`
+
+    return new Promise((resolve, reject) => {
+        db.query(getProductVariants, (err, productVariants) => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(productVariants)
+            }
+        })
+    })
+}
+
+general.formatFunction = async () => {
+    let formatFunction = {
+        toCurrency: general.toCurrency,
+        toDDMMYYYY: general.toDDMMYYYY,
+        toHHMM: general.toHHMM,
+    }
+
+    return formatFunction;
 }
 
 

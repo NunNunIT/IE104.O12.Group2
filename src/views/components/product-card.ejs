@@ -11,31 +11,26 @@
 				<span class="product-catagory"><%= product.category_name ?? 'NaN'%></span>
 				<% if (product.product_rate) { %>
 				<div class="product-rate">
-					<!-- In ra số sao hiện có -->
-					<% const productRateInt = Math.floor(product.product_rate) %>
-
-					<% for (let i = 0; i < productRateInt; i++) { %>
-					<span class="material-symbols-outlined">grade</span>
+					<% for (let i = 0; i < Math.floor(product.product_rate); i++) { %>
+					<span class="material-symbols-outlined">star</span>
 					<% } %>
 
-					<!-- In ra số sao lẻ -->
-					<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+					<% if (product.product_rate % 1 !== 0.5) { %>
+					<% if (product.product_rate - Math.floor(product.product_rate) > 0) { %>
 					<span class="material-symbols-outlined">star_half</span>
-					<% } else if (product.product_rate != 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
-					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
 					<% } %>
-
-					<!-- In ra số sao trống -->
-					<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
-					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+					<% for (let i = 0; i < Math.floor(5 - Math.ceil(product.product_rate)); i++) { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
 					<% } %>
-
+					<% } else { %>
+					<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">star</span>
+					<% } %>
 					<p>(<%= product.product_rate %>)</p>
 				</div>
 				<% } %>
-				<h4>
-					<% if (product.product_name.length > 40) { %>
-					<%= product.product_name.substring(0, 40) + '...' %>
+				<h4 title="<%= product.product_name ?? 'NaN' %>">
+					<% if (product.product_name.length > 30) { %>
+					<%= product.product_name.substring(0, 30) + '...' %>
 					<% } else { %>
 					<%= product.product_name ?? 'NaN' %>
 					<% } %>
@@ -47,9 +42,10 @@
 		<div class="product-bottom-details">
 			<div class="product-price">
 				<% if (product.discount_amount) { %>
-				<%= product.product_variant_price_after_discount_currency %>đ<small><%= product.product_variant_price_currency %>đ</small>
+				<% const discountedPrice = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+				<%= toCurrency(discountedPrice) %><small><%= toCurrency(product.product_variant_price) %></small>
 				<% } else { %>
-				<%= product.product_variant_price_currency %>đ
+				<%= toCurrency(product.product_variant_price) %>
 				<% } %>
 			</div>
 		</div>

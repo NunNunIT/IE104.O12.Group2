@@ -9,11 +9,10 @@ router.get('/information', authMiddleware.isLoggedIn, accountController.informat
 router.get('/edit-information', authMiddleware.isLoggedIn, accountController.getEditInformation)
 router.post('/edit-information', authMiddleware.isLoggedIn, accountController.editInformation)
 router.get('/purchase', authMiddleware.isLoggedIn, accountController.purchaseHistory)
-router.get('/purchase/:purchaseID', authMiddleware.isLoggedIn, accountController.purchaseDetail)
+router.get('/purchase/:order_id', authMiddleware.isLoggedIn, accountController.purchaseDetail)
 router.get('/feedback', authMiddleware.isLoggedIn, accountController.feedback)
 router.get('/warranty-claim', authMiddleware.isLoggedIn, accountController.warrantyClaim)
 router.get('/mobile-account', authMiddleware.isLoggedIn, accountController.mobileAccount)
 router.get('/changePassword', authMiddleware.isLoggedIn, accountController.changePassword)
-
 
 module.exports = router

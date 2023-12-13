@@ -10,7 +10,6 @@
 
 .noti-item__block.read {
     background-color: white;
-    /* Màu nền khi đã đọc */
 }
 
 .noti-item__img {
@@ -51,7 +50,7 @@
     color: #6F7979;
 }
 
-.noti-item__date-time p{
+.noti-item__date-time p {
     font-size: 1rem;
 }
 
@@ -59,7 +58,7 @@
 .popup {
     display: none;
     position: fixed;
-    padding-top: 50px;
+    padding-top: 140px;
     left: 0;
     top: 0;
     width: 100%;
@@ -80,13 +79,13 @@
 
 .close-btn {
     float: right;
-    color: var(--primary-color-2);
+    color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
 }
 
 .close-btn:hover {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--primary-color-2);
     cursor: pointer;
 }
 
@@ -125,16 +124,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 35px;
-    /* justify-content: space-between; */
 }
-
-/* .vertical-line {
-    border-left: 0.8px solid var(--outline-variant);
-    height: 300px;
-    margin: 0 49%;
-    align-items: center;
-    justify-content: center;
-} */
 
 .popup__content--left {
     display: flex;

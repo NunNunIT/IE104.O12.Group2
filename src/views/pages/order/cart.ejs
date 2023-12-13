@@ -3,9 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/order/cart.css">
 
 	<title>TECHTWO.</title>
@@ -19,7 +20,7 @@
 	<main class="cart">
 		<section class="cart__title">
 			<div>
-				<input onclick="checkAll(event); calcTotalPrice(event)" type="checkbox" class="checkbox" id="check-all">
+				<input onclick="checkAll(event); calcTotalPrice(event)" type="checkbox" class="checkbox" id="check-all" placeholder="">
 				<p class="mobile-display">Tất cả (<span class="selected-nums">0</span>)</p>
 			</div>
 			<h4 class="lg-col mobile-hidden">Sản phẩm</h4>
@@ -32,14 +33,20 @@
 		</section>
 
 		<section class="cart__content">
-			<form id="cart-form" action="/order/information" method="post">
+			<div class="lds-ring">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<form id="cart-form" class="loading-hidden" action="/order/cart/buy" method="post">
 				<div class="cart__empty">
-					<img src="/imgs/cart/empty-cart.png" alt="">
+					<img src="/imgs/cart/empty-cart.png" alt="Giỏ hàng trống">
 					<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
 				</div>
 				<% if (detailCart) { %>
 				<% detailCart.forEach(cart => { %>
-				<%- include('../../components/cart-product', { cart: cart }) %>
+				<%- include('../../components/cart-product', { cart: cart, toCurrency: formatFunction.toCurrency }) %>
 				<% }) %>
 				<% } %>
 			</form>
@@ -61,7 +68,7 @@
 						</div>
 						<h2>0đ</h2>
 					</div>
-					<input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng">
+					<input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng" placeholder="">
 				</div>
 			</div>
 			<p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="/privacy-policy">chính sách đặt hàng</a> của TECHTWO.</p>
@@ -75,6 +82,8 @@
 	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/components/cartProduct.js"></script>
 	<script src="/scripts/pages/order/cart.js"></script>
+	<script src="/scripts/partials/header.js"></script>
+
 </body>
 
 </html>

@@ -1,9 +1,4 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
-@import url("/styles/partials/app-bar.css");
-@import url("/styles/components/scrollup.css");
 @import url("/styles/components/noti-item-account.css");
 
 body {
@@ -318,5 +313,33 @@ body {
 
     .noti-item__block .btn.btn--outlined.pri {
         height: 32px;
+    }
+
+    .popup__content--left {
+        display: none;
+    }
+
+    .popup__main {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .popup .popup__title {
+        font-size: 1.125rem;
+    }
+
+    .popup .popup__details-title {
+        font-size: 1rem;
+    }
+
+    .popup .popup__details-content {
+        margin-bottom: 4px;
+        font-size: 0.8125rem;
+    }
+
+    .close-btn .material-symbols-outlined {
+        font-size: 1rem;
     }
 }

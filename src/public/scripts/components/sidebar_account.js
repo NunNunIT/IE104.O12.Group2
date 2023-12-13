@@ -1,4 +1,3 @@
-
 //Popup
 const modalBtns = document.querySelectorAll('.btn-logout')
 const modals = document.querySelectorAll('.sidebar-account__popup')

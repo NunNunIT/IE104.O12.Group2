@@ -2,9 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0..1,0");
 @import url("/styles/partials/header.css");
 @import url("/styles/partials/header-small.css");
+@import url("/styles/partials/breadcrumb.css");
 @import url("/styles/partials/footer.css");
 @import url("/styles/partials/app-bar.css");
 @import url("/styles/components/scrollup.css");
+@import url("/styles/components/pagination.css");
 
 :root {
     --white: #ffffff;
@@ -17,6 +19,7 @@
     --primary-color-3: #02e5f6;
     --primary-color-4: #092a3b;
     --primary-color-5: #fbb72c;
+    --primary-color-6: #f09235;
     --white-gray: #f9f9f9;
     --bg-white: #f1f1f1;
     --bg-gray: #f5f6f8;
@@ -38,10 +41,14 @@
     --dollar-red: #D0021C;
     --dollar-red2: #EA4C2D;
     --fire-orange: #FF9F40;
+    --yellow-light: #ffefdf;
     --dark-blue: #114A91;
 
-    --scroll-thumb: #828282;
+    --scroll-thumb: #bababa;
     --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(0, 0, 0, 0.1) inset;
+
+    --border-color-1: rgba(0, 0, 0, 0.175);
+    --box-shadow-1: 0 8px 60px 0 rgba(103, 151, 255, .11), 0 12px 90px 0 rgba(103, 151, 255, .11);
 
     --dark1: #0000004d;
     --dark2: #181c20;
@@ -85,7 +92,7 @@
     --blue3: #00aae4;
     --blue4: #0892d0;
     --blue5: #007aff;
-    --blue6: #1592a5;
+    --blue6: #377dff;
     --blue7: #004f98;
     --blue8: #0033aa;
     --blue9: #1034a6;
@@ -104,14 +111,25 @@
     box-sizing: border-box;
 }
 
-body::-webkit-scrollbar {
-    overflow-x: hidden;
+::-webkit-scrollbar {
     overflow-y: scroll;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark7);
 }
 
 html {
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 h1 {
@@ -150,40 +168,44 @@ p {
     text-align: justify;
 }
 
+ul li {
+    list-style: none;
+}
+
 .btn {
     cursor: pointer;
     height: 48px;
     display: inline-block;
     padding: 0;
     border-radius: 8px;
+}
 
-    & .status-layer {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 24px;
-        border-radius: inherit;
+.btn .status-layer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: inherit;
+}
 
-        & span {
-            /* font-weight: bold; */
-            margin: auto;
-        }
-    }
+.btn .status-layer span {
+    /* font-weight: bold; */
+    margin: auto;
+}
 
-    &:hover {
-        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
-    }
+.btn:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
 
-    &:active {
-        box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
-            0 0 2px 0 rgba(0, 0, 0, 0.2);
+.btn:active {
+    box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, 0.2),
+        0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
 
-        & .status-layer {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    }
+.btn:active .status-layer {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .btn.btn--filled.pri {
@@ -198,10 +220,14 @@ p {
 }
 
 .btn.btn--filled.sec {
-    background-color: var(--primary-color-5);
+    background-color: var(--primary-color-6);
     color: white;
     font-size: 16px;
     padding: 0 24px 0 24px;
+}
+
+.btn.btn--filled.sec:hover {
+    background-color: orange;
 }
 
 .btn.btn--outlined.pri {
@@ -214,10 +240,74 @@ p {
 
 .btn.btn--outlined.sec {
     background-color: white;
-    color: var(--primary-color-5);
-    border: 1px solid var(--primary-color-5);
+    color: var(--primary-color-6);
+    border: 1px solid var(--primary-color-6);
     font-size: 16px;
     padding: 0 24px 0 24px;
+}
+
+
+.btn-admin {
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--outline-gray);
+    font-size: 0.875rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-admin:focus {
+    box-shadow: 0 0 0 0 rgba(var(--dark7), 0.5);
+}
+
+.btn-admin p {
+    padding: 0 0 0 4px;
+    text-align: center;
+}
+
+.btn-primary {
+    color: var(--white);
+    background-color: var(--blue6);
+}
+
+.btn-primary:hover {
+    background-color: var(--blue8);
+}
+
+.btn-primary:active {
+    background-color: var(--blue5);
+    border-color: var(--blue9);
+}
+
+.btn-white {
+    color: var(--dark7);
+    border-color: var(--outline-gray);
+}
+
+.btn-white:hover {
+    box-shadow: inset 0px 0px 0px 1px var(--primary-color-2);
+    color: var(--primary-color-2);
+}
+
+.btn-outline-danger {
+    color: var(--dollar-red);
+    border-color: var(--dollar-red);
+}
+
+.btn-outline-danger:hover {
+    color: var(--white);
+    background-color: var(--dollar-red);
+    border-color: var(--dollar-red);
+}
+
+.btn-outline-danger:active {
+    background-color: var(--dollar-red);
+    border-color: var(--dollar-red);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 input[type=password]::-ms-reveal,

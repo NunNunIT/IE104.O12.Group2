@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/pages/site/404-error.css">
+
+	<title>TECHTWO. Feature development </title>
+</head>
+
+<style>
+	span.history-back {
+		color: var(--primary-color-1);
+		font-weight: 700;
+	}
+
+	span.history-back:hover {
+		cursor: pointer;
+		color: var(--primary-color-5);
+	}
+</style>
+
+<body>
+
+	<main class="error-container">
+		<img class="error__img" src="/imgs/other_page/feature_development.png" alt="feature_development">
+		<h1>Xin lỗi, tính năng đang được phát triển!</h1>
+		<div class="error__back-to-home-page">
+			<span onclick="goback()" class="history-back">
+				<!-- <img src="/imgs/logo-white.png" alt="logo" title="Quay lại"> -->
+				Quay lại
+			</span>
+		</div>
+	</main>
+
+</body>
+<script>
+	function goback() {
+		history.back()
+	}
+</script>
+
+</html>

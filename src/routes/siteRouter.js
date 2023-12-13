@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 var parseUrl = require('body-parser')
-let encodeUrl = parseUrl.urlencoded({ extended: false })
 
 // import controller
 const siteController = require('../controllers/customer/siteController.js')
@@ -14,6 +13,7 @@ router.get('/category', authMiddleware.getLoggedIn, siteController.category)
 router.get('/about-us', authMiddleware.getLoggedIn, siteController.aboutUs)
 router.get('/privacy-policy', authMiddleware.getLoggedIn, siteController.privacyPolicy)
 router.get('/error', authMiddleware.getLoggedIn, siteController.error)
+router.get('/feature_development', siteController.development)
 router.get('/', authMiddleware.getLoggedIn, siteController.index)
 
 module.exports = router

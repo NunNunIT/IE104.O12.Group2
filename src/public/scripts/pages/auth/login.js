@@ -99,8 +99,6 @@ const validateInput = () => {
 
     let isAllValid = true;
 
-
-
     if (PhoneNumberValue === '') {
         setError(phoneNumber, 'Vui lòng nhập số điện thoại!');
         isAllValid = false;
@@ -121,7 +119,6 @@ const validateInput = () => {
         setSuccess(password);
     }
 
-
     if (isAllValid) {
         const login = {
             phoneNumber: phoneNumber.value.trim(),
@@ -133,18 +130,16 @@ const validateInput = () => {
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then (res => res.json()).then (back => {
-            if (back.status == "error"){
+        }).then(res => res.json()).then(back => {
+            if (back.status == "error") {
                 setError(phoneNumber, back.error);
             }
             else if (back.status == "error2") {
                 setError(password, back.error);
             }
             else {
-                history.back();
-                location.reload()
-            }   
+                window.location.href = '/'
+            }
         })
     }
-    
 };

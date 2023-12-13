@@ -160,7 +160,6 @@ const validateInput = () => {
         setSuccess(passwordRepeat);
     }
 
-
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
     if (isAllValid) {
         const register = {
@@ -170,18 +169,15 @@ const validateInput = () => {
         };
 
         fetch("/auth/register", {
-                method: "POST",
-                body: JSON.stringify(register),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(res => res.json())
+            method: "POST",
+            body: JSON.stringify(register),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
             .then(back => {
                 if (back.status == "error") {
-                    // success.style.display = "none"
-                    // error.style.display = "block";
                     setError(phoneNumber, back.error);
-                    // error.innerText = back.error
                 } else {
                     const login = {
                         phoneNumber: phoneNumber.value.trim(),
@@ -195,9 +191,7 @@ const validateInput = () => {
                             "Content-Type": "application/json"
                         }
                     })
-                    
-                    history.back();
-                    location.reload()
+                    window.location.href = '/'
                 }
             })
     }

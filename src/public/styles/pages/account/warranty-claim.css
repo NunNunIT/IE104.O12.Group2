@@ -1,8 +1,8 @@
-@import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/components/warranty-item.css");
-@import url("/styles/components/popup-warranty.css");
-@import url("/styles/components/sidebar_account.css");
+@import url('/styles/general.css');
+@import url('/styles/components/warranty-item.css');
+@import url('/styles/components/popup-warranty.css');
+@import url('/styles/components/sidebar_account.css');
+@import url('/styles/components/success-modal.css');
 
 
 body {
@@ -20,6 +20,7 @@ a {
 
 .account-container {
     width: 80%;
+    max-width: 1152px;
     padding: 0;
     margin: 24px 0;
     display: flex;

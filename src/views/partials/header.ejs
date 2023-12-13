@@ -9,19 +9,19 @@
 					</a>
 					<div class="dropdown-help__content-container">
 						<div class="dropdown-help__content">
-							<img src="/imgs/avatar.png" alt="help">
+							<img src="/imgs/qr-zalo.png" alt="help">
 							<p>Quét mã QR để gửi thông tin cần hỗ trợ đến chúng tôi</p>
 						</div>
 					</div>
 				</div>
 				<a href="#" class="header__support-info__hotline">
 					<span class="material-symbols-outlined">call</span>
-					Hotline: 0123456789
+					Hotline: 1900 123 789
 				</a>
 			</div>
 			<div>
 				<a href="/">
-					<img class="header__logo--top" src="/imgs/logo-white.png">
+					<img class="header__logo--top" src="/imgs/logo-white.png" alt="TECHTWO.">
 				</a>
 			</div>
 			<div class="header__about-account">
@@ -47,43 +47,32 @@
 						</div>
 					</div>
 					<!-- kết thúc dropdown-noti khi chưa đăng nhập -->
+
 					<% } else { %>
-					<!-- bắt đầu dropdown-noti khi đã đăng nhập -->
 					<div class="dropdown-noti__content-container">
+						<% if (user.noti.length > 0) { %>
 						<div class="dropdown-noti__content">
 							<div class="dropdown-noti__content-title">Thông báo vừa nhận</div>
-							<%- include('../components/noti-content-dropdown') %>
-							<%- include('../components/noti-content-dropdown') %>
+							<% let l = (user.noti.length > 4) ? 4 : user.noti.length %>
+							<% for (let i = 0; i < l; i++) { %>
+							<%- include('../components/noti-content-dropdown', {noti: user.noti[i]}) %>
+							<% } %>
 							<a href="/notification/account-update" class="dropdown-noti__btn-read-all">Xem tất cả</a>
 						</div>
-					</div>
-					<!-- kết thúc dropdown-noti khi đã đăng nhập -->
-
-					<!-- bắt đầu dropdown-noti khi đã đăng nhập__rỗng -->
-					<!-- <div class="dropdown-noti__content-container">
+						<% } else { %>
+						<!-- bắt đầu dropdown-noti khi đã đăng nhập__rỗng -->
 						<div class="dropdown-noti__content">
 							<div class="dropdown-noti--empty">
 								<img src="/imgs/nothing-result.png" alt="empty" class="dropdown-noti__img--empty">
 								<span class="empty-content__noti">Bạn chưa có thông báo</span>
 							</div>
 						</div>
-					</div> -->
-					<!-- kết thúc dropdown-noti khi đã đăng nhập__rỗng -->
+						<!-- kết thúc dropdown-noti khi đã đăng nhập__rỗng -->
+						<% } %>
+					</div>
 					<% } %>
 				</div>
-				<!-- kết thúc dropdown-noti -->
-
-				<!-- Hiển thị khi responsive điện thoại -->
-				<div class="header__nav--disable">
-					<a href="/notification/account-update" class="noti--disable">
-						<span class="material-symbols-outlined" title="Thông báo">notifications</span>
-					</a>
-					<a href="#" class="help--disable">
-						<span class="material-symbols-outlined" title="Hỗ trợ">help</span>
-					</a>
-				</div>
-				<!-- Kết thúc hiển thị khi ở màn hình điện thoại -->
-
+				<!-- kết thúc dropdown-noti khi đã đăng nhập -->
 				<!-- Khi đã đăng nhập -->
 				<% if (user) { %>
 				<div class="dropdown-account">
@@ -114,12 +103,24 @@
 				<% } %>
 			</div>
 		</div>
+		<!-- kết thúc dropdown-noti -->
+
+		<!-- Hiển thị khi responsive điện thoại -->
+		<div class="header__nav--disable">
+			<a href="/notification/account-update" class="noti--disable">
+				<span class="material-symbols-outlined" title="Thông báo">notifications</span>
+			</a>
+			<a href="#" class="help--disable">
+				<span class="material-symbols-outlined" title="Hỗ trợ">help</span>
+			</a>
+		</div>
+		<!-- Kết thúc hiển thị khi ở màn hình điện thoại -->
 	</nav>
 
 	<div class="header__container">
 		<div class="header__main">
 			<a href="/">
-				<img class="header__logo" src="/imgs/logo-blue.png">
+				<img class="header__logo" src="/imgs/logo-blue.png" alt="TECHTWO.">
 			</a>
 			<form class="header__search-bar" action="/search/results" method="GET">
 				<input type="search" name="searchKey" placeholder="Bạn tìm gì..." value="<%= (header.searchKey) ?? '' %>">
@@ -132,7 +133,7 @@
 				<a href="/order/cart" class="header__cart-container" title="Giỏ hàng">
 					<div class="header__cart">
 						<span class="material-symbols-outlined">shopping_cart</span>
-						<% if (user.countCart) { %>
+						<% if (user) { %>
 						<div class="header__cart__number-badge" aria-hidden="true"><%= user.countCart %></div>
 						<% } %>
 					</div>
@@ -155,24 +156,22 @@
 					<% } else { %>
 					<!-- dropdown giỏ hàng khi đã đăng nhập -->
 					<div class="dropdown-cart__content">
-						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
 						<% if (user.countCart) { %>
+						<div class="dropdown-cart__content-title">Sản phẩm vừa thêm</div>
 						<% let l = (user.countCart > 5) ? 5 : user.countCart %>
 						<% for (let i = 0; i < l; i++) { %>
-						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i]}) %>
+						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i], toCurrency: formatFunction.toCurrency }) %>
 						<% } %>
 						<% } else { %>
 						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
-						<div class="dropdown-cart__content">
-							<div class="dropdown-cart--empty">
-								<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
-								<span class="empty-content__cart">Giỏ hàng trống</span>
-							</div>
+						<div class="dropdown-cart--empty">
+							<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
+							<span class="empty-content__cart">Giỏ hàng trống</span>
 						</div>
 						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
 						<% } %>
 						<a href="/order/cart" class="btn-cart">
-							<button class="btn btn--filled pri">Xem giỏ hàng</button>
+							<div class="btn btn--filled pri">Xem giỏ hàng</div>
 						</a>
 					</div>
 					<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập -->
@@ -183,77 +182,303 @@
 		</div>
 	</div>
 
-	<div class="header__menu menu">
-		<div class="menu__cate menu__item">
-			<p class="menu__item-p">Danh mục sản phẩm</p>
-			<span class="material-symbols-outlined"> expand_more </span>
+	<ul class="header__menu menu">
+		<li>
+			<div class="menu__cate menu__item">
+				<p class="menu__item-p">Điện máy</p>
+				<span class="material-symbols-outlined"> expand_more </span>
+			</div>
 
-			<div class="header__cate-dropdown cate-dropdown">
-				<!-- <div class="cate-dropdown__aside"> -->
+			<ul class="header__cate-dropdown cate-dropdown">
 				<% header.cates.forEach(cate => { %>
-				<div class="header__cate-dropdown-wrapper">
-					<div class="cate-dropdown__item">
+				<% if (cate.categorry_type == 'Điện máy') { %>
+				<li class="header__cate-dropdown-wrapper">
+					<a href="/search/results?category_id=<%= cate.category_id %>&category_name=<%= cate.category_name %>" class="cate-dropdown__item">
 						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
 						<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
-					</div>
+					</a>
+
 					<div class="cate-dropdown__content">
-						<div class="cate-dropdown__content-wrapper">
-							<div class="cate-dropdown__title">
-								<h4>Sản phẩm bán chạy nhất</h4>
-								<a href='/search/results'>
-									<p>Xem tất cả</p>
-									<span class="material-symbols-outlined"> chevron_right </span>
-								</a>
-							</div>
-							<div class="cate-dropdown__product">
-								<% cate.bestSellerProductsOfCates.forEach(product => { %>
-								<a href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
-									<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
-									<div class="cate-dropdown__product-rating">
-										<% if (product.product_rate) { %>
-										<!-- In ra số sao hiện có -->
-										<% const productRateInt = Math.floor(product.product_rate) %>
-
-										<% for (let i = 0; i < productRateInt; i++) { %>
-										<span class="material-symbols-outlined">grade</span>
-										<% } %>
-
-										<!-- In ra số sao lẻ -->
-										<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
-										<span class="material-symbols-outlined">star_half</span>
-										<% } else if (product.product_rate!= 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
-										<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
-										<% } %>
-
-										<!-- In ra số sao trống -->
-										<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
-										<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
-										<% } %>
-										<% } %>
-										<p>(<%= product.product_rate %>)</p>
-									</div>
-									<p class="cate-dropdown__product-name"><%= product.product_name %></p>
-									<p class="cate-dropdown__product-price"><%= product.product_variant_price_currency %>đ<del><% product.discount_amount ? product.product_variant_price_after_discount_currency : '' %></del></p>
-								</a>
-								<% }) %>
-							</div>
+						<div class="cate-dropdown__title">
+							<h4>Sản phẩm bán chạy nhất</h4>
+							<a href='/search/results'>
+								<p>Xem tất cả</p>
+								<span class="material-symbols-outlined"> chevron_right </span>
+							</a>
 						</div>
+
+						<% if(cate.category_count) { %>
+						<div class="cate-dropdown__product">
+							<% cate.bestSellerProductsOfCates.forEach(product => { %>
+							<a href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+								<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
+								<div class="cate-dropdown__product-rating">
+									<% if (product.product_rate) { %>
+									<!-- In ra số sao hiện có -->
+									<% const productRateInt = Math.floor(product.product_rate) %>
+
+									<% for (let i = 0; i < productRateInt; i++) { %>
+									<span class="material-symbols-outlined">grade</span>
+									<% } %>
+
+									<!-- In ra số sao lẻ -->
+									<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+									<span class="material-symbols-outlined">star_half</span>
+									<% } else if (product.product_rate!= 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+									<% } %>
+
+									<!-- In ra số sao trống -->
+									<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+									<% } %>
+									<% } %>
+									<p>(<%= product.product_rate %>)</p>
+								</div>
+								<p class="cate-dropdown__product-name"><%= product.product_name %></p>
+								<% const discountedPriceCate = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+								<p class="cate-dropdown__product-price"><%= formatFunction.toCurrency(product.product_variant_price) %><del><% product.discount_amount ? formatFunction.toCurrency(discountedPriceCate) : '' %></del></p>
+							</a>
+							<% }) %>
+						</div>
+						<% } else { %>
+						<div class="product__not-found">
+							<img src="/imgs/nothing-result.png" alt="Not found">
+							<p>Không tìm thấy sản phẩm! </p>
+						</div>
+						<% } %>
 					</div>
-				</div>
+				</li>
+				<% } %>
 				<% }) %>
-				<!-- </div> -->
+			</ul>
+		</li>
+		<li>
+			<div class="menu__cate menu__item">
+				<p class="menu__item-p">Điện tử</p>
+				<span class="material-symbols-outlined"> expand_more </span>
 			</div>
-		</div>
-		<a href="/search/results?hotProduct=true" class="menu__hot-product menu__item">
-			<p>Sản phẩm HOT</p>
-			<span class="material-symbols-outlined"> local_fire_department </span>
-		</a>
-		<a href="/search/results?discount=true" class="menu__promo menu__item">
-			<p>Khuyến mãi</p>
-			<span class="material-symbols-outlined"> savings </span>
-		</a>
-		<a href="/about-us" class="menu__about-us menu__item">
-			<p>Về chúng tôi</p>
-		</a>
-	</div>
+
+			<ul class="header__cate-dropdown cate-dropdown">
+				<% header.cates.forEach(cate => { %>
+				<% if (cate.categorry_type == 'Điện tử') { %>
+				<li class="header__cate-dropdown-wrapper">
+					<a href="/search/results?category_id=<%= cate.category_id %>&category_name=<%= cate.category_name %>" class="cate-dropdown__item">
+						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
+						<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
+					</a>
+
+					<div class="cate-dropdown__content">
+						<div class="cate-dropdown__title">
+							<h4>Sản phẩm bán chạy nhất</h4>
+							<a href='/search/results'>
+								<p>Xem tất cả</p>
+								<span class="material-symbols-outlined"> chevron_right </span>
+							</a>
+						</div>
+						<% if(cate.category_count) { %>
+						<div class="cate-dropdown__product">
+							<% cate.bestSellerProductsOfCates.forEach(product => { %>
+							<a href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+								<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
+								<div class="cate-dropdown__product-rating">
+									<% if (product.product_rate) { %>
+									<!-- In ra số sao hiện có -->
+									<% const productRateInt = Math.floor(product.product_rate) %>
+
+									<% for (let i = 0; i < productRateInt; i++) { %>
+									<span class="material-symbols-outlined">grade</span>
+									<% } %>
+
+									<!-- In ra số sao lẻ -->
+									<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+									<span class="material-symbols-outlined">star_half</span>
+									<% } else if (product.product_rate!= 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+									<% } %>
+
+									<!-- In ra số sao trống -->
+									<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+									<% } %>
+									<% } %>
+									<p>(<%= product.product_rate %>)</p>
+								</div>
+								<p class="cate-dropdown__product-name"><%= product.product_name %></p>
+								<% const discountedPriceCate = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+								<p class="cate-dropdown__product-price"><%= formatFunction.toCurrency(product.product_variant_price) %><del><% product.discount_amount ? formatFunction.toCurrency(discountedPriceCate) : '' %></del></p>
+							</a>
+							<% }) %>
+						</div>
+						<% } else { %>
+						<div class="product__not-found">
+							<img src="/imgs/nothing-result.png" alt="Not found">
+							<p>Không tìm thấy sản phẩm! </p>
+						</div>
+						<% } %>
+					</div>
+				</li>
+				<% } %>
+				<% }) %>
+			</ul>
+		</li>
+		<li>
+			<div class="menu__cate menu__item">
+				<p class="menu__item-p">Nhà bếp</p>
+				<span class="material-symbols-outlined"> expand_more </span>
+			</div>
+
+			<ul class="header__cate-dropdown cate-dropdown">
+				<% header.cates.forEach(cate => { %>
+				<% if (cate.categorry_type == 'Đồ dùng nhà bếp') { %>
+				<li class="header__cate-dropdown-wrapper">
+					<a href="/search/results?category_id=<%= cate.category_id %>&category_name=<%= cate.category_name %>" class="cate-dropdown__item">
+						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
+						<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
+					</a>
+
+					<div class="cate-dropdown__content">
+						<div class="cate-dropdown__title">
+							<h4>Sản phẩm bán chạy nhất</h4>
+							<a href='/search/results'>
+								<p>Xem tất cả</p>
+								<span class="material-symbols-outlined"> chevron_right </span>
+							</a>
+						</div>
+
+						<% if(cate.category_count) { %>
+						<div class="cate-dropdown__product">
+							<% cate.bestSellerProductsOfCates.forEach(product => { %>
+							<a href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+								<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
+								<div class="cate-dropdown__product-rating">
+									<% if (product.product_rate) { %>
+									<!-- In ra số sao hiện có -->
+									<% const productRateInt = Math.floor(product.product_rate) %>
+
+									<% for (let i = 0; i < productRateInt; i++) { %>
+									<span class="material-symbols-outlined">grade</span>
+									<% } %>
+
+									<!-- In ra số sao lẻ -->
+									<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+									<span class="material-symbols-outlined">star_half</span>
+									<% } else if (product.product_rate!= 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+									<% } %>
+
+									<!-- In ra số sao trống -->
+									<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+									<% } %>
+									<% } %>
+									<p>(<%= product.product_rate %>)</p>
+								</div>
+								<p class="cate-dropdown__product-name"><%= product.product_name %></p>
+								<% const discountedPriceCate = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+								<p class="cate-dropdown__product-price"><%= formatFunction.toCurrency(product.product_variant_price) %><del><% product.discount_amount ? formatFunction.toCurrency(discountedPriceCate) : '' %></del></p>
+							</a>
+							<% }) %>
+						</div>
+						<% } else { %>
+						<div class="product__not-found">
+							<img src="/imgs/nothing-result.png" alt="Not found">
+							<p>Không tìm thấy sản phẩm! </p>
+						</div>
+						<% } %>
+					</div>
+				</li>
+				<% } %>
+				<% }) %>
+			</ul>
+		</li>
+		<li>
+			<div class="menu__cate menu__item">
+				<p class="menu__item-p">Gia dụng</p>
+				<span class="material-symbols-outlined"> expand_more </span>
+			</div>
+
+			<ul class="header__cate-dropdown cate-dropdown">
+				<% header.cates.forEach(cate => { %>
+				<% if (cate.categorry_type == 'Gia dụng') { %>
+				<li class="header__cate-dropdown-wrapper">
+					<a href="/search/results?category_id=<%= cate.category_id %>&category_name=<%= cate.category_name %>" class="cate-dropdown__item">
+						<img src="/imgs/categories/<%= cate.category_img %>" alt="<%= cate.category_name %>">
+						<p><%= cate.category_name %> (<%= cate.category_count %>)</p>
+					</a>
+
+					<div class="cate-dropdown__content">
+						<div class="cate-dropdown__title">
+							<h4>Sản phẩm bán chạy nhất</h4>
+							<a href='/search/results'>
+								<p>Xem tất cả</p>
+								<span class="material-symbols-outlined"> chevron_right </span>
+							</a>
+						</div>
+
+						<% if(cate.category_count) { %>
+						<div class="cate-dropdown__product">
+							<% cate.bestSellerProductsOfCates.forEach(product => { %>
+							<a href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+								<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img %>" alt="<%= product.product_name %>">
+								<div class="cate-dropdown__product-rating">
+									<% if (product.product_rate) { %>
+									<!-- In ra số sao hiện có -->
+									<% const productRateInt = Math.floor(product.product_rate) %>
+
+									<% for (let i = 0; i < productRateInt; i++) { %>
+									<span class="material-symbols-outlined">grade</span>
+									<% } %>
+
+									<!-- In ra số sao lẻ -->
+									<% if (product.product_rate - productRateInt >= 0.5 && product.product_rate - productRateInt < 1) { %>
+									<span class="material-symbols-outlined">star_half</span>
+									<% } else if (product.product_rate!= 5 && product.product_rate - productRateInt < 0.5 && product.product_rate - productRateInt >= 0) { %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;"> grade </span>
+									<% } %>
+
+									<!-- In ra số sao trống -->
+									<% for (let i = 0; i < Math.floor(5 - product.product_rate - 1); i++) {  %>
+									<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grade</span>
+									<% } %>
+									<% } %>
+									<p>(<%= product.product_rate %>)</p>
+								</div>
+								<p class="cate-dropdown__product-name"><%= product.product_name %></p>
+								<% const discountedPriceCate = Math.round(product.product_variant_price - product.product_variant_price * (product.discount_amount / 100)) %>
+								<p class="cate-dropdown__product-price"><%= formatFunction.toCurrency(product.product_variant_price) %><del><% product.discount_amount ? formatFunction.toCurrency(discountedPriceCate) : '' %></del></p>
+							</a>
+							<% }) %>
+						</div>
+						<% } else { %>
+						<div class="product__not-found">
+							<img src="/imgs/nothing-result.png" alt="Not found">
+							<p>Không tìm thấy sản phẩm! </p>
+						</div>
+						<% } %>
+					</div>
+				</li>
+				<% } %>
+				<% }) %>
+			</ul>
+		</li>
+		<li>
+			<a href="/search/results?hotProduct=true" class="menu__hot-product menu__item">
+				<p>Sản phẩm HOT</p>
+				<span class="material-symbols-outlined"> local_fire_department </span>
+			</a>
+		</li>
+		<li>
+			<a href="/search/results?discount=true" class="menu__promo menu__item">
+				<p>Khuyến mãi</p>
+				<span class="material-symbols-outlined"> savings </span>
+			</a>
+		</li>
+		<li>
+			<a href="/about-us" class="menu__about-us menu__item">
+				<p>Về chúng tôi</p>
+			</a>
+		</li>
+	</ul>
+
 </header>

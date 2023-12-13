@@ -1,171 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <title>Admin</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <link rel="stylesheet" href="/styles/admin/pages/cate_admin.css">
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/admin/pages/cate_admin.css">
+
+	<title>Admin</title>
 </head>
 
 <body>
-    <div class="grid-container">
-        <!-- Header -->
-        <%- include('../partials/sidebar_admin') %>
-        <!-- Sidebar -->
-        <%- include('../partials/header_admin', title) %>
-        <!-- Main -->
-        <main class="main-container">
-            <!-- <header> -->
+	<div class="grid-container">
 
-            <div class="filterEntries">
-                <div class="feature">
-                    <button class="addBtn">
-                        <span class="material-symbols-rounded">
-                            add
-                        </span>
-                        <p>Thêm</p>
-                    </button>
-                    <button class="deleteBtn">
-                        <span class="material-symbols-rounded">
-                            delete
-                        </span>
-                        <p>Xóa</p>
-                    </button>
-                </div>
+		<!-- Sidebar -->
+		<%- include('../partials/sidebar_admin') %>
 
-                <div class="search">
-                    <button type="submit" class="searchButton">
-                        <span class="material-symbols-rounded">
-                            search
-                        </span>
-                    </button>
-                    <form active="" method="get" role="form">
-                        <input type="search" class="searchTerm" name="searchKey"
-                            id="search" placeholder="Enter"
-                            value="<%= (searchKey) ? searchKey: '' %>">
-                    </form>
-                </div>
-            </div>
+		<!-- Header -->
+		<%- include('../partials/header_admin', title) %>
 
-            <!-- </header> -->
+		<!-- Main -->
+		<main class="main-container">
 
-            <div class="table-reponsive">
-                <table>
-                    <thead>
-                        <tr class="heading">
-                            <th><input type="checkbox" class="checkbox"></th>
-                            <th>#ID</th>
-                            <th>Tên danh mục</th>
-                            <th>Số sản phẩm</th>
-                            <th>Tồn kho</th>
-                            <th>Doanh thu</th>
-                            <th>Bán chạy</th>
-                            <th>Trạng thái</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+			<!-- Page Header -->
+			<div class="main-header">
+				<div class="row">
+					<div>
+						<h3 class="main-header__title">Danh mục sản phẩm <span class="main-header__badge"><%= data.totalRow %></span></h3>
+						<div class="export-import">
+							<a class="admin-a text-body" href="#">
+								<span class="material-symbols-rounded"> download </span> Xuất file
+							</a>
+							<a class="admin-a text-body" href="#">
+								<span class="material-symbols-rounded"> upload_file </span> Nhập file
+							</a>
+						</div>
+					</div>
+					<!-- End Col -->
 
-                    <tbody class="userInfo">
-                        <% if (!categories[0]) { %>
-                        <tr>
-                            <td class="empty" colspan="9" align="center">Không
-                                có kết quả trả về</td>
-                        </tr>
-                        <% } else { %>
-                        <% categories.forEach(function(category) { %>
-                        <tr class="employeeDetails">
-                            <td><input type="checkbox" class="checkbox"></td>
-                            <td>
-                                <%= category.category_id %>
-                            </td>
-                            <td>
-                                <img src="/imgs/admin/pic1.png" alt="cate_img">
-                                <%= category.category_name %>
-                            </td>
-                            <td>30</td>
-                            <td>50</td>
-                            <td>1.900.900đ</td>
-                            <td>no</td>
-                            <td class="status bad">
-                                <p>Hết hàng</p>
-                            </td>
-                            <td>
-                                <a>Sửa</a>
-                                <a>Xóa</a>
-                                <!-- <button>Sửa</button>
-                                <button>Xóa</button> -->
-                            </td>
-                        </tr>
-                        <% }) %>
-                        
-                        <% } %>
-                    </tbody>
-                </table>
-                <%- include('../components/pagination') %>
-            </div>
+					<div>
+						<a class="admin-a btn-admin btn-primary" href="/admin/categories_admin/add">
+							<span class="material-symbols-rounded"> add </span>
+							<p>Thêm</p>
+						</a>
+					</div>
+					<!-- End Col -->
+				</div>
+				<!-- End Row -->
 
+				<!-- Nav -->
+				<ul class="main__nav main-header__tabs nav" id="pageHeaderTab" role="tablist">
+					<li class="nav__item active">
+						<a class="admin-a nav__link active" href="#">Tất cả (26)</a>
+					</li>
+					<li class="nav__item">
+						<a class="admin-a nav__link" href="#" tabindex="-1">Hiện (10)</a>
+					</li>
+					<li class="admin-a nav__item">
+						<a class="admin-a nav__link" href="#" tabindex="-1">Ẩn (12)</a>
+					</li>
+				</ul>
+				<!-- End Nav -->
+			</div>
+			<!-- End Nav Scroller -->
+			<!-- End Page Header -->
 
+			<div class="main__filter">
+				<div>
+					<div class="filter__btn-group">
+						<a class="admin-a btn-admin btn-outline-danger" href="#">
+							<span class="material-symbols-rounded"> delete_forever </span>
+							<p>Xóa</p>
+						</a>
+						<a class="admin-a btn-admin btn-white" href="#">
+							<span class="material-symbols-rounded"> visibility </span>
+							<p>Hiện</p>
+						</a>
+						<a class="admin-a btn-admin btn-white" href="#">
+							<span class="material-symbols-rounded"> visibility_off </span>
+							<p>Ẩn</p>
+						</a>
+					</div>
+				</div>
 
-    </div>
+				<div class="main__search search">
+					<form action="" method="get" role="form">
+						<button type="submit" class="search__button">
+							<span class="material-symbols-rounded"> search </span>
+						</button>
+						<input type="search" class="search__term" name="searchKey" id="search" placeholder="Enter" value="<%= (data.searchKey) ? data.searchKey: '' %>">
+					</form>
+				</div>
+			</div>
 
-    <!--Popup Form-->
+			<div class="main__table-display">
+				<table class="main__table-responsive table">
+					<thead>
+						<tr class="table__heading">
+							<th><input type="checkbox" class="checkbox"></th>
+							<th>#ID <span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Tên danh mục <span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Số sản phẩm <span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Doanh thu <span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Action</th>
+						</tr>
+					</thead>
 
-    <div class="dark_bg">
+					<tbody class="table__user-info">
+						<% if (!data.categories[0]) { %>
+						<tr>
+							<td class="empty" colspan="9">Không có kết quả trả về</td>
+						</tr>
+						<% } else { %>
+						<% data.categories.forEach(function(category) { %>
+						<tr class="employeeDetails">
+							<td><input type="checkbox" class="checkbox"></td>
+							<td> <%= category.category_id ?? 'null' %> </td>
+							<td>
+								<img src="/imgs/categories/<%= category.category_img ?? 'default.png' %>" alt="<%= category.category_name ?? 'null' %>">
+								<%= category.category_name ?? 'null' %>
+							</td>
+							<td> <%= category.product_count ?? 'null' %> </td>
+							<td> <%= formatFunction.toCurrency(Number(category.revenue)) %></td>
+							<td class="action">
+								<ul class="action__dropdown dropdown">
+									<li>
+										<span class="material-symbols-rounded"> more_vert </span>
+										<ul class="dropdown__list">
+											<li> <a class="admin-a" href="#">Sửa</a> </li>
+											<li> <a class="admin-a" href="#">Ẩn</a> </li>
+											<li> <a class="admin-a" href="#">Xóa</a> </li>
+										</ul>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<% }) %>
+						<% } %>
+					</tbody>
+				</table>
+				<%- include('../components/pagination', {pagination : data}) %>
+			</div>
 
-        <div class="popup">
-            <div class="popup-header">
-                <h2 class="modalTitle">Thêm danh mục sản phẩm</h2>
-                <button class="closeBtn"><span class="material-symbols-rounded">
-                        close
-                    </span></button>
-            </div>
+		</main>
 
-            <div class="body">
-                <form action="#" id="myForm">
-                    <div class="imgholder">
-                        <label for="uploadimg" class="upload">
-                            <input type="file" name="" id="uploadimg"
-                                class="picture">
-                            <span class="material-symbols-rounded">
-                                image
-                            </span>
-                        </label>
-                        <img src="" alt="cate_img" class="img">
-                    </div>
+	</div>
+	<!-- End Main -->
 
-                    <div class="inputFieldContainer">
+	<!-- Scripts -->
+	<script src="/scripts/admin/cate_admin.js"></script>
+	<script src="/scripts/admin/index_admin.js"></script>
 
-                        <div class="name-field">
-                            <div class="form_control">
-                                <label for="fName">Tên danh mục:</label>
-                                <input type="text" name="category_name"
-                                    id="name" required>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="popup-footer">
-                <button form="myForm" class="submitBtn">Submit</button>
-            </div>
-        </div>
-
-    </div>
-    </div>
-    </main>
-    <!-- End Main -->
-
-    </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="/scripts/admin/cate_admin.js"></script>
-    <script src="/scripts/admin/index_admin.js"></script>
 </body>
 
 </html>

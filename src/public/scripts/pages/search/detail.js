@@ -25,21 +25,22 @@ function openImageModal(event) {
 function showAll(event) {
     const button = event.currentTarget
     const description = document.querySelector('.detail--bottom')
-    if (description.classList.contains('default-description')) {
-        description.classList.remove('default-description')
-        description.classList.add('full-description')
+    if (description.classList.contains('default')) {
+        description.classList.remove('default')
+        description.classList.add('full')
         button.innerHTML = 'Ẩn bớt'
-    }
-    else if (description.classList.contains('full-description')) {
-        description.classList.remove('full-description')
-        description.classList.add('default-description')
+    } else if (description.classList.contains('full')) {
+        description.classList.remove('full')
+        description.classList.add('default')
         button.innerHTML = 'Xem thêm'
     }
 }
 
 // Tạo sự kiện change cho phần tử
 function triggerChangeEvent(element) {
-    var event = new Event('change', { bubbles: true })
+    var event = new Event('change', {
+        bubbles: true
+    })
     element.dispatchEvent(event)
 }
 
@@ -69,37 +70,62 @@ function changeQuantity(event) {
 // Open cart success modal
 const formAddCart = document.getElementById('buy-form')
 const addCartBtn = document.querySelector('.detail__add-btn')
+const buyNowBtn = document.querySelector('.detail__buy-btn')
 const cartSuccessModal = document.querySelector('.success-modal')
 
-const product_variant_id = document.getElementById('product_variant_id').value
-const quantity = document.getElementById('quantity').value
-
-console.log(product_variant_id, quantity)
-
 addCartBtn.addEventListener('click', () => {
+    const product_variant_id = document.getElementById('product_variant_id').value
+    const quantity = document.getElementById('quantity').value
+
     const cart = {
         'product_variant_id': product_variant_id,
         'cart_quantity': quantity,
     }
 
-    console.log(cart)
-
-    fetch("/order/addCart", {
-        method: "POST",
+    fetch('/order/addCart', {
+        method: 'POST',
         body: JSON.stringify(cart),
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         }
     }).then(res => res.json())
-    .then(back => {
-        if (back.status == "error") {
-            window.alert('Vui lòng thử lại sau');
-        } else if (back.status == "success") {
-            const cartSuccessModal = document.querySelector('.success-modal')
-            cartSuccessModal.style.display = 'flex'
-            location.reload()
-        }
-    })
+        .then(back => {
+            if (back.status == 'error') {
+                window.alert('Vui lòng thử lại sau');
+            } else if (back.status == "NotAuth") {
+                window.location.href = "http://localhost:3000/auth/login"
+            } else if (back.status == "success") {
+                const cartSuccessModal = document.querySelector('.success-modal')
+                cartSuccessModal.style.display = 'flex'
+                setTimeout(() => {
+                    cartSuccessModal.style.display = 'none'
+                }, 1500)
+
+                fetch('/general/count_cart', {
+                    method: 'GET',
+                })
+                    .then(res => res.json())
+                    .then(back2 => {
+                        const countCartEle = document.querySelector('.header__cart__number-badge')
+                        countCartEle.innerHTML = back2.countCart
+                    })
+            }
+        })
+})
+
+buyNowBtn.addEventListener('click', () => {
+    const product_variant_id = document.getElementById('product_variant_id').value
+    const quantity = document.getElementById('quantity').value
+
+    const formDataArray = [{
+        'product_variant_id': Number(product_variant_id),
+        'order_detail_quantity': Number(quantity),
+    }]
+
+    let formDataArrayString = JSON.stringify(formDataArray)
+
+    localStorage.setItem('formDataArray', formDataArrayString)
+    window.location.href = 'http://localhost:3000/order/information'
 })
 
 // Run

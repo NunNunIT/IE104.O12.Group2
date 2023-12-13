@@ -7,7 +7,6 @@
     background-color: white;
     border-radius: 8px;
     margin-bottom: 24px;
-    box-shadow: 0 0 5px 0 rgb(0, 0, 0, 0.2);
 }
 
 .purchase-item--top {
@@ -28,10 +27,31 @@
     font-size: 1rem;
 }
 
+.purchase-item__status-container {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
 .purchase-item__status {
     font-weight: 500;
-    color: var(--green);
     font-size: 1rem;
+}
+
+.purchase-item__status-container.cancel {
+    color: var(--dollar-red2);
+}
+
+.purchase-item__status-container.finished {
+    color: var(--green);
+}
+
+.purchase-item__status-container.delivering {
+    color: var(--primary-color-2);
+}
+
+.purchase-item__status-container.unpaid {
+    color: var(--dark7);
 }
 
 .purchase-item__main {
@@ -53,6 +73,7 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
+    align-items: center;
 }
 
 .purchase-item__product-img {
@@ -71,7 +92,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 12px;
-    color: var(--primary-color-5);
+    color: var(--fire-orange);
 }
 
 .purchase-item__product-detail {
@@ -111,6 +132,54 @@ small {
     font-weight: 500;
 }
 
-#purchase-item__total-price {
-    color: var(--primary-color-5);
+.purchase-item__total-price {
+    color: var(--primary-color-1);
 }
+
+.purchase-item__button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.purchase-item__button--right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 100%;
+}
+
+.purchase-item__button .btn.btn--outlined.pri,
+.purchase-item__button .btn.btn--filled.pri {
+    width: 134px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2px;
+}
+
+.purchase-item__button .btn.btn--outlined.pri.cancel {
+    border-color: var(--dollar-red);
+    color: var(--dollar-red);
+}
+
+.purchase-item__button .btn.btn--outlined.pri.cancel:hover {
+    border-color: var(--dollar-red);
+    background-color: var(--dollar-red);
+    color: white;
+}
+
+.purchase-item__button .btn.btn--filled.pri.disable {
+    background-color: var(--dark7);
+}
+
+.purchase-item__button .btn.btn--filled.pri.disable:hover {
+    cursor: default;
+    box-shadow: none;
+}
+
+.purchase-item__total-price.cancelled {
+    color: gray;
+}
+ 

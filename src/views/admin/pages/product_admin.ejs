@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/admin/pages/cate_admin.css">
+
+	<title>Admin</title>
+</head>
+
+<body>
+	<div class="grid-container">
+		<!-- Header -->
+		<%- include('../partials/sidebar_admin') %>
+		<!-- Sidebar -->
+		<%- include('../partials/header_admin', title) %>
+		<!-- Main -->
+		<main class="main-container">
+			<!-- Page Header -->
+			<div class="main-header">
+				<div class="row">
+					<div class="">
+						<h3 class="main-header-title">Sản phẩm <span class="main-header__badge"><%= data.totalRow %></span></h3>
+						<div class="export-import">
+							<a class="admin-a text-body" href="#" data-bs-toggle="modal" data-bs-target="#exportProductsModal">
+								<span class="material-symbols-rounded"> download </span> Xuất file
+							</a>
+							<a class="admin-a text-body" href="#" data-bs-toggle="modal" data-bs-target="#importProductsModal">
+								<span class="material-symbols-rounded"> upload_file </span> Nhập file
+							</a>
+						</div>
+					</div>
+					<!-- End Col -->
+
+					<div class="">
+
+						<a class="admin-a btn-admin btn-primary" href="/admin/products_admin/add">
+							<span class="material-symbols-rounded"> add </span>
+							<p>Thêm</p>
+						</a>
+					</div>
+					<!-- End Col -->
+				</div>
+				<!-- End Row -->
+
+				<!-- Nav -->
+				<ul class="main__nav main-header__tabs nav" id="pageHeaderTab" role="tablist">
+					<li class="nav__item active">
+						<a class="admin-a nav__link active" href="#">Tất cả (58)</a>
+					</li>
+					<li class="nav__item">
+						<a class="admin-a nav__link disabled" href="#" tabindex="-1">Hiện (10)</a>
+					</li>
+					<li class="admin-a nav__item">
+						<a class="admin-a nav__link disabled" href="#" tabindex="-1">Ẩn (12)</a>
+					</li>
+				</ul>
+				<!-- End Nav -->
+			</div>
+			<!-- End Nav Scroller -->
+			<!-- End Page Header -->
+
+			<div class="main__filter">
+				<div>
+					<div class="filter__btn-group">
+						<a class="admin-a btn-admin btn-outline-danger" href="#">
+							<span class="material-symbols-rounded"> delete_forever </span>
+							<p>Xóa</p>
+						</a>
+						<a class="admin-a btn-admin btn-white" href="#">
+							<span class="material-symbols-rounded"> visibility </span>
+							<p>Hiện</p>
+						</a>
+						<a class="admin-a btn-admin btn-white" href="#">
+							<span class="material-symbols-rounded"> visibility_off </span>
+							<p>Ẩn</p>
+						</a>
+					</div>
+				</div>
+
+				<div class="main__search search">
+					<form active="" method="get" role="form">
+						<button type="submit" class="search__button">
+							<span class="material-symbols-rounded"> search </span>
+						</button>
+						<input type="search" class="search__term" name="searchKey" id="search" placeholder="Enter" value="<%= (data.searchKey) ? data.searchKey: '' %>">
+					</form>
+				</div>
+			</div>
+
+			<!-- </header> -->
+
+			<div class="main__table-display">
+				<table class="main__table-responsive table">
+					<thead>
+						<tr class="table__heading">
+							<th><input type="checkbox" class="checkbox"></th>
+							<th>#ID
+								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Tên sản phẩm
+								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Số biến thể
+								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Doanh thu
+								<span class="material-symbols-rounded"> arrow_drop_down </span>
+							</th>
+							<th>Trạng thái
+								<span class="material-symbols-rounded"> tune </span>
+							</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody class="table__user-info">
+						<% if (!data.totalRow) { %>
+						<tr>
+							<td class="empty" colspan="9">Không có kết quả trả về</td>
+						</tr>
+						<% } else { %>
+						<% data.products.forEach(function(product) { %>
+						<tr class="employeeDetails">
+							<td><input type="checkbox" class="checkbox"></td>
+							<td> <%= product.product_id ?? 'Null' %> </td>
+							<td>
+								<img src="/imgs/product_image/P<%= product.product_id %>/<%= product.product_avt_img ?? 'default.png' %>" alt="<%= product.product_name ?? 'Null' %>">
+								<%= product.product_name ?? 'Null' %>
+							</td>
+							<td> <%= product.product_count ?? 'Null' %> </td>
+							<td> <%= formatFunction.toCurrency(Number(product.revenue)) %></td>
+							<td class="<%= product.product_is_bestseller ? 'status good' : '' %> ">
+								<p> <%= product.product_is_bestseller ? 'Bán chạy' : '' %> </p>
+							</td>
+							<td>
+								<!-- Button Group -->
+								<ul class="action__dropdown dropdown">
+									<li>
+										<span class="dropdown-menu-toggle material-symbols-rounded"> more_vert </span>
+
+										<ul class="dropdown__list">
+											<li>
+												<a class="admin-a" href="#">Sửa</a>
+											</li>
+											<li>
+												<a class="admin-a" href="#">Ẩn</a>
+											</li>
+											<li>
+												<a class="admin-a" href="#">Xóa</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<!-- End Button Group -->
+							</td>
+						</tr>
+						<% }) %>
+						<% } %>
+					</tbody>
+				</table>
+				<%- include('../components/pagination', {pagination : data}) %>
+		</main>
+	</div>
+	<!-- End Main -->
+
+	<!-- Scripts -->
+	<script src="/scripts/admin/cate_admin.js"></script>
+	<script src="/scripts/admin/index_admin.js"></script>
+
+</body>
+
+</html>

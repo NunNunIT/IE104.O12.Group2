@@ -6,7 +6,6 @@
 }
 
 .slideshow-container {
-	/* max-width: 800px; */
 	width: 100%;
 }
 
@@ -61,6 +60,7 @@ a.next:hover {
 
 .thumbnails {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	gap: 8px;
@@ -80,7 +80,6 @@ a.next:hover {
 }
 
 .thumbnails img:hover {
-	/* border: 1.5px solid rgb(9, 9, 10); */
 	opacity: 1;
 }
 

@@ -1,7 +1,4 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
 
 .momo-logo .material-symbols-outlined {
     font-variation-settings:
@@ -45,6 +42,7 @@ a {
 .momo-container {
     margin: 24px 0;
     width: 80%;
+    max-width: 1152px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -454,7 +452,7 @@ label {
     }
 
     .info-order__bill {
-        font-size: 1rem;
+        font-size: 0.825rem;
     }
 
     .purchase-status {
@@ -512,6 +510,10 @@ label {
         margin: 20px;
     }
 
+    .momo-qr h4 {
+        font-size: 1.2rem;
+    }
+
     .momo_left-cancel {
         display: none;
     }
@@ -553,14 +555,6 @@ label {
     }
 }
 
-/* .image-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('/src/public/imgs/transaction/momo.png');
-    background-size: cover;
-  } */
-
 .scanning-box {
     position: relative;
     background-color: #f0f0f0;
@@ -573,9 +567,6 @@ label {
 }
 
 .scanning-box img {
-    /* width: 15rem;
-    padding: 2rem;
-    background-color: var(--bg-white); */
     width: 18rem;
     padding: 1rem;
     background-color: var(--bg-white);

@@ -3,9 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/site/index.css">
 
 	<title>TECHTWO.</title>
@@ -36,7 +37,7 @@
 
 		<section class="outstanding-products">
 			<div class="outstanding-products__img"></div>
-			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: '?hotProduct=true' , products: outstandingProducts}) %>
+			<%- include('../../components/carousel', {title: 'Gợi ý hôm nay', seemore: '?hotProduct=true' , products: outstandingProducts, toCurrency: formatFunction.toCurrency}) %>
 		</section>
 
 		<% if(newProducts) { %>
@@ -52,8 +53,7 @@
 				</div>
 				<div class="tip-products__content">
 					<% newProducts.slice(0, 12).forEach(newProduct => { %>
-					<% console.log(newProduct) %>
-					<%- include('../../components/product-card', { product: newProduct }) %>
+					<%- include('../../components/product-card', { product: newProduct, toCurrency: formatFunction.toCurrency }) %>
 					<% }) %>
 				</div>
 			</div>
@@ -73,7 +73,7 @@
 				</div>
 				<div class="tip-products__content">
 					<% discountProducts.slice(0, 12).forEach(discountProduct => { %>
-					<%- include('../../components/product-card', { product: discountProduct }) %>
+					<%- include('../../components/product-card', { product: discountProduct, toCurrency: formatFunction.toCurrency }) %>
 					<% }) %>
 				</div>
 			</div>
@@ -90,6 +90,7 @@
 	<script src="/scripts/components/slider.js"></script>
 	<script src="/scripts/components/scrollup.js"></script>
 	<script src="/scripts/pages/site/index.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

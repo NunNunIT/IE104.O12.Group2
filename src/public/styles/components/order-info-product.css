@@ -17,7 +17,7 @@
 .product__view img {
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -28,6 +28,10 @@
 .product__price p {
     font-weight: 500;
     color: var(--dollar-red);
+}
+
+.order-pay__total-del {
+    color: var(--del-gray);
 }
 
 /* 416px - Mobile */
@@ -50,6 +54,11 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+    }
+
+    .product p {
+        text-align: left;
+        font-weight: 500;
     }
 
     .product__name {

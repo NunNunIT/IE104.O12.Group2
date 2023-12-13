@@ -4,12 +4,12 @@
 		<div class="cart-dropdown__content">
 			<span><%= cart.product_name ?? 'NaN' %></span>
 			<div class="cart-dropdown__price">
-				<% if (cart.product_variant_price_after_discount){ %>
-					<%= cart.product_variant_price_after_discount ?? 'NaN'%>đ<small><%= cart.product_variant_price_currency ?? 'NaN' %>đ</small>
+				<% if (cart.discount_amount){ %>
+				<% const discountedPrice = Math.round(cart.product_variant_price - cart.product_variant_price * (cart.discount_amount / 100)) %>
+				<%= toCurrency(discountedPrice) ?? 'NaN'%><small><%= toCurrency(cart.product_variant_price) ?? 'NaN' %></small>
 				<% } else { %>
-					<%= cart.product_variant_price_currency ?? 'NaN'%>đ
+				<%= toCurrency(cart.product_variant_price) ?? 'NaN'%>
 				<% } %>
-				
 			</div>
 		</div>
 	</a>

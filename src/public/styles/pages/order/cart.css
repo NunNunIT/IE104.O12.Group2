@@ -1,8 +1,4 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/header.css');
-@import url('/styles/partials/footer.css');
-@import url('/styles/partials/breadcrumb.css');
-@import url('/styles/components/scrollup.css');
 @import url('/styles/components/cart-product.css');
 
 body {
@@ -38,6 +34,7 @@ button {
     display: inherit;
     flex-direction: column;
     gap: 12px;
+    position: relative;
 }
 
 .cart__title {
@@ -168,6 +165,10 @@ button {
     gap: 12px;
 }
 
+.cart__total-price del {
+    display: none;
+}
+
 .cart__total-price h2 {
     color: var(--dollar-red);
     font-weight: 700;
@@ -195,6 +196,56 @@ button {
 
 .cart__order-confirm a {
     color: var(--primary-color-1);
+}
+
+.loading-hidden {
+    visibility: hidden;
+}
+
+.lds-ring {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid var(--primary-color-2);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--primary-color-2) transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* 1024px - Mini PC */
@@ -236,6 +287,7 @@ button {
     }
 
     p,
+    del,
     .cart button {
         font-size: 0.8125rem;
     }
