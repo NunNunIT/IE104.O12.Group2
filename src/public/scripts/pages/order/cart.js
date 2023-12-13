@@ -37,7 +37,10 @@ function deleteAllItem(event) {
 
     const checkedItem = cartItems.filter(item => item.querySelector('.checkbox').checked == true)
 
-    const productsCartDelete = []
+    if (!JSON.parse(localStorage.getItem('productsCartDelete')))
+        localStorage.setItem('productsCartDelete', JSON.stringify([]))
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+
     checkedItem.forEach(item => {
         let productVariantId = item.querySelector('input[name="product_variant_id"]')
         productsCartDelete.push({
@@ -46,26 +49,55 @@ function deleteAllItem(event) {
         item.remove()
     })
 
-    console.log(productsCartDelete)
-    fetch('/order/cart/delete', {
-        body: JSON.stringify(productsCartDelete),
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(() => {
-            fetch('/general/count_cart', {
-                method: 'GET',
-            })
-                .then(res => res.json())
-                .then(back2 => {
-                    const countCartEle = document.querySelector('.header__cart__number-badge')
-                    countCartEle.innerHTML = back2.countCart
-                })
-        })
+    localStorage.removeItem('productsCartDelete')
+    localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
+
+    const countCartEle = document.querySelector('.header__cart__number-badge')
+    countCartEle.innerHTML = Number(countCartEle.innerHTML) - checkedItem.length
 
     showEmptyNoti()
+}
+
+window.addEventListener('load', deleteItems)
+function deleteItems(event) {
+    // event.preventDefault()
+    const loading = document.querySelector('.lds-ring')
+    const loadingHidden = document.querySelector('.loading-hidden')
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+    if (Array.isArray(productsCartDelete)) {
+        if (productsCartDelete.length) {
+            fetch('/order/cart/delete', {
+                body: JSON.stringify(productsCartDelete),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(() => {
+                    localStorage.removeItem('productsCartDelete')
+
+                    let cartItems
+                    if (window.innerWidth <= 416)
+                        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+                    else
+                        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
+
+                    cartItems.forEach((item, index) => {
+                        if (item.querySelector('input[name="product_variant_id"]').value == Number(productsCartDelete[index].product_variant_id))
+                            item.remove()
+
+                        showEmptyNoti()
+                    })
+
+                    loading.style.visibility = 'hidden'
+                    loadingHidden.style.visibility = 'visible'
+                })
+        }
+    }
+    else {
+        loading.style.visibility = 'hidden'
+        loadingHidden.style.visibility = 'visible'
+    }
 }
 
 // Sự kiện onclick nút 'Xóa' responsive điện thoại

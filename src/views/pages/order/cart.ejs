@@ -33,7 +33,13 @@
 		</section>
 
 		<section class="cart__content">
-			<form id="cart-form" action="/order/cart/buy" method="post">
+			<div class="lds-ring">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<form id="cart-form" class="loading-hidden" action="/order/cart/buy" method="post">
 				<div class="cart__empty">
 					<img src="/imgs/cart/empty-cart.png" alt="Giỏ hàng trống">
 					<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
