@@ -35,6 +35,7 @@ modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
         modals[index].style.display = "block";
         popupVisible[index] = true;
+        // notiItems[index].style.backgroundColor = "white"; 
     }
 });
 
