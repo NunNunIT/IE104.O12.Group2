@@ -9,7 +9,7 @@ class adminController {
     getLogin(req, res) {
         res.status(200).render('admin/pages/login_admin')
     }
-    
+
     // [POST] admin/login
     postLogin(req, res) {
         authAdmin.loginPost(req, function (err, noneAdmin, NotMatchPassword, success, id) {
@@ -51,7 +51,7 @@ class adminController {
             }
         })
     }
-    
+
     getLogout = (req, res) => {
         console.log('Admin logout')
         res.cookie('adminSave', 'logout', {
@@ -60,7 +60,7 @@ class adminController {
         });
         res.status(200).render("./admin/pages/login_admin");
     }
-    
+
 }
 
 module.exports = new adminController()

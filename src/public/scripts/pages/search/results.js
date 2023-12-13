@@ -143,9 +143,6 @@ sortBtns.forEach((btn) => {
     };
 });
 
-
-
-
 //popup
 const modalBtn = document.getElementById('btn-filter');
 const modals = document.querySelectorAll('.filter-popup');

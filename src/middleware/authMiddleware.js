@@ -1,7 +1,7 @@
 const db = require('../config/db/connect');
 const jwt = require('jsonwebtoken')
 const general = require('../models/general.model')
-const {promisify} = require('util')
+const { promisify } = require('util')
 
 exports.isLoggedIn = async (req, res, next) => {
     console.log(`isLoggedIn: ${req.cookies.userSave}`);
@@ -15,7 +15,6 @@ exports.isLoggedIn = async (req, res, next) => {
 
             // 2. Check if the user still exist
             db.query('SELECT * FROM view_user WHERE user_id = ?', [decoded.id], (err, results) => {
-                // console.log(results);
                 if (!results) {
                     return next();
                 }
@@ -33,7 +32,7 @@ exports.isLoggedIn = async (req, res, next) => {
 }
 
 exports.checkAuth = (req, res, next) => {
-    console.log (`checkAuth: ${req.cookies.userSave}`)
+    console.log(`checkAuth: ${req.cookies.userSave}`)
     if (req.cookies.userSave) {
         res.redirect('/')
     }
@@ -43,7 +42,7 @@ exports.checkAuth = (req, res, next) => {
 }
 
 exports.checkUnAuth = (req, res, next) => {
-    console.log (`checkUnAuth: ${req.cookies.userSave}`)
+    console.log(`checkUnAuth: ${req.cookies.userSave}`)
     if (!req.cookies.userSave) {
         res.status(401).redirect('/')
     }
@@ -64,12 +63,11 @@ exports.getLoggedIn = async (req, res, next) => {
 
             // 2. Check if the user still exist
             db.query('SELECT * FROM view_user WHERE user_id = ?', [decoded.id], (err, results) => {
-                // console.log(results);
                 if (!results) {
                     return next();
                 }
 
-                results.forEach((result)=>{
+                results.forEach((result) => {
                     result.user_birth_format = general.toDDMMYYYY(new Date(result.user_birth))
                 })
 

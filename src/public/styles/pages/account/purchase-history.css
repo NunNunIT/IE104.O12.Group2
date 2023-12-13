@@ -19,7 +19,6 @@ a {
 	font-weight: 500;
 }
 
-
 .account-container {
 	width: 80%;
 	max-width: 1152px;
@@ -55,7 +54,6 @@ a {
 .purchase__status a:hover {
 	cursor: pointer;
 	color: var(--primary-color-1);
-	/* border-bottom: 2px solid var(--primary-color-1); */
 	padding: 12px 24px 12px 24px;
 }
 
@@ -64,7 +62,6 @@ a {
 	border-bottom: 2px solid var(--primary-color-1);
 	padding: 12px 24 10px 24px;
 }
-
 
 #purchase__status-all.active,
 #purchase__status-payment.active,

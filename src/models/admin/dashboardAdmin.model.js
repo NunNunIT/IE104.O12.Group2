@@ -4,7 +4,7 @@ const query = util.promisify(db.query).bind(db)
 const general = require('../general.model');
 const indexAdmin = require('./indexAdmin.model');
 
-const dashboard = function(){}
+const dashboard = function () { }
 
 dashboard.getSummary = async (req, res) => {
     let getSummary = `SELECT * FROM view_dashboard`

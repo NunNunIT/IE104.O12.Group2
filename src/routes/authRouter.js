@@ -16,6 +16,5 @@ router.get('/logout', middleware.checkUnAuth, authController.logout)
 router.get('/forgot', authController.forgotPassword)
 router.post('/forgot', authController.forgotPasswordPost)
 router.get('/reset', authController.resetPassword)
-// router.get('/resetAuth', authController.resetPasswordAuth)
 
 module.exports = router

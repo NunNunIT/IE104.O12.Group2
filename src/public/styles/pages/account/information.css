@@ -69,14 +69,12 @@ a {
 }
 
 .purchase-item__product-name {
-	/* margin-bottom: 8px; */
 	padding: 8px;
 }
 
 .purchase-item__product-detail hr {
 	opacity: 0;
 	width: calc(100% - 15px);
-	/* Điều chỉnh chiều rộng của hr */
 	margin: 1px 0 12px 0 !important;
 
 }

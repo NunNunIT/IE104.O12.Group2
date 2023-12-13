@@ -62,13 +62,6 @@ hr {
 	color: var(--dark-gray-o50);
 }
 
-/* .purchase-detail__order-info {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 12px;
-	gap: 2%;
-} */
-
 .purchase-detail__order-info {
 	margin-top: 18px;
 	display: grid;
@@ -208,7 +201,6 @@ small {
 	align-items: flex-end;
 	flex-flow: column;
 	background: white;
-	/* padding: 16px; */
 }
 
 .purchase-detail__order-price p {
@@ -295,7 +287,6 @@ small {
 	object-fit: contain;
 	width: 20%;
 }
-
 
 @media only screen and (max-width: 64rem) {
 	.purchase-detail__order-info {

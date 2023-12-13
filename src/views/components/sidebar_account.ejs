@@ -1,95 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<aside class=" account-aside" id="sidebar">
+	<a href="#" class="avatar">
+		<span class="image-container">
+			<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar" />
+		</span>
+		<span class="user_name">
+			<h3><%= (user.user.user_name) ? user.user.user_name : '' %></h3>
+		</span>
+	</a>
+	<ul class="side-menu top">
+		<li class="side-menu__ele">
+			<a href="/account/information" id="info-link">
+				<span class="material-symbols-outlined">
+					perm_contact_calendar
+				</span>
+				<span class="text">Thông tin cá nhân</span>
+			</a>
+		</li>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/components/sidebar_account.css">
-</head>
+		<li class="side-menu__ele">
+			<a href="/account/purchase">
+				<span class="material-symbols-outlined">
+					shopping_bag
+				</span>
+				<span class="text">Lịch sử đơn mua</span>
+			</a>
+		</li>
+		<li class="side-menu__ele">
+			<a href="/account/warranty-claim">
+				<span class="material-symbols-outlined">
+					build
+				</span>
+				<span class="text">Yêu cầu bảo hành</span>
+			</a>
+		</li>
+	</ul>
+	<ul class="side-menu">
+		<li class="side-menu__ele">
+			<a href="/account/changePassword">
+				<span class="material-symbols-outlined">
+					settings
+				</span>
+				<span class="text">Đổi mật khẩu</span>
+			</a>
+		</li>
+		<li class="side-menu__ele">
+			<p class="btn-logout">
+				<span class="material-symbols-outlined">logout</span>
+				<span class="text">Đăng xuất</span>
+			</p>
+		</li>
+	</ul>
 
-<body>
-    
-    <aside class=" account-aside" id="sidebar">
-    <a href="#" class="avatar">
-        <span class="image-container">
-            <img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar" />
-        </span>
-        <span class="user_name">
-            <h3><%= (user.user.user_name) ? user.user.user_name : '' %></h3>
-        </span>
-    </a>
-    <ul class="side-menu top">
-        <li class="side-menu__ele">
-            <a href="/account/information" id="info-link">
-                <span class="material-symbols-outlined">
-                    perm_contact_calendar
-                </span>
-                <span class="text">Thông tin cá nhân</span>
-            </a>
-        </li>
+	<div class="sidebar-account__popup">
+		<div class="popup__main">
+			<div class="popup__main--right">
+				<div class="popup__content">
+					<div class="popup--top">
+						<p class="popup__title">Đăng xuất</p>
+						<div class="close-btn">
+							<span class="material-symbols-outlined">cancel</span>
+						</div>
+					</div>
+					<p class="popup__subtitle">Quý khách có chắc chắn muốn đăng xuất không?</p>
+					<div class="logout_img">
+						<img src="/imgs/information/logout_gb.png" alt="goodbye">
+					</div>
+					<div class="popup__button">
+						<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
+						<a href="/auth/logout"><button class="btn btn--filled pri btn-logout" type="button">Đăng xuất</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        <li class="side-menu__ele">
-            <a href="/account/purchase">
-                <span class="material-symbols-outlined">
-                    shopping_bag
-                </span>
-                <span class="text">Lịch sử đơn mua</span>
-            </a>
-        </li>
-        <li class="side-menu__ele">
-            <a href="/account/warranty-claim">
-                <span class="material-symbols-outlined">
-                    build
-                </span>
-                <span class="text">Yêu cầu bảo hành</span>
-            </a>
-        </li>
-    </ul>
-    <ul class="side-menu">
-        <li class="side-menu__ele">
-            <a href="/account/changePassword">
-                <span class="material-symbols-outlined">
-                    settings
-                </span>
-                <span class="text">Đổi mật khẩu</span>
-            </a>
-        </li>
-        <li class="side-menu__ele">
-            <p class="btn-logout">
-                <span class="material-symbols-outlined">logout</span>
-                <span class="text">Đăng xuất</span>
-            </p>
-        </li>
-    </ul>
-
-    <div class="sidebar-account__popup">
-        <div class="popup__main">
-            <div class="popup__main--right">
-                <div class="popup__content">
-                    <div class="popup--top">
-                        <p class="popup__title">Đăng xuất</p>
-                        <div class="close-btn">
-                            <span class="material-symbols-outlined">cancel</span>
-                        </div>
-                    </div>
-                <p class="popup__subtitle">Quý khách có chắc chắn muốn đăng xuất không?</p>
-               <div class="logout_img">
-                <img src="/imgs/information/logout_gb.png" alt="goodbye">
-               </div>
-                <div class="popup__button">
-                        <a href="/account/information"><button class="btn btn--outlined pri btn-cancel"
-                            type="button">Hủy</button></a>
-                        <a href="/auth/logout"><button class="btn btn--filled pri btn-logout" type="button">Đăng xuất</button></a>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    </aside>
-    <script src="/scripts/components/sidebar_account.js"></script>
-
-    </body>
-
-</html>
+</aside>

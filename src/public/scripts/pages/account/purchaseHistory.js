@@ -2,7 +2,6 @@
 const appbar__element = document.querySelectorAll('.side-menu__ele');
 appbar__element[1].classList.add('active');
 
-
 // Định nghĩa hàm để thêm class cho các phần tử purchase-item__status và purchase-item__status-container
 function addStatusClasses() {
     // Lấy tất cả các phần tử có class "purchase-item__status-container"
@@ -32,7 +31,6 @@ function addStatusClasses() {
 document.addEventListener("DOMContentLoaded", function () {
     addStatusClasses();
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     // Lấy tất cả các liên kết trong thẻ nav có class "purchase__status"
