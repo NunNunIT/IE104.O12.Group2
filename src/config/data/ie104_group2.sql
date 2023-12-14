@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 04:28 PM
+-- Generation Time: Dec 13, 2023 at 07:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -1568,28 +1568,28 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (89, 18, 'P18_4.jpg', 1),
 (90, 18, 'P18_5.jpg', 1),
 (91, 19, 'P19_1.jpg', 1),
-(92, 19, 'P19_2.jpg', 1),
-(93, 19, 'P19_3.jpg', 1),
-(94, 19, 'P19_4.jpg', 1),
-(95, 19, 'P19_5.jpg', 1),
+(92, 19, 'P19_2.png', 1),
+(93, 19, 'P19_3.png', 1),
+(94, 19, 'P19_4.png', 1),
+(95, 19, 'P19_5.png', 1),
 (96, 20, 'P20_1.jpg', 1),
 (97, 20, 'P20_2.jpg', 1),
 (98, 20, 'P20_3.jpg', 1),
 (99, 20, 'P20_4.jpg', 1),
 (100, 20, 'P20_5.jpg', 1),
 (101, 21, 'P21_1.jpg', 1),
-(102, 21, 'P21_2.jpg', 1),
+(102, 21, 'P21_2.gif', 1),
 (103, 21, 'P21_3.jpg', 1),
 (104, 21, 'P21_4.jpg', 1),
 (105, 21, 'P21_5.jpg', 1),
 (106, 22, 'P22_1.jpg', 1),
-(107, 22, 'P22_2.jpg', 1),
+(107, 22, 'P22_2.gif', 1),
 (108, 22, 'P22_3.jpg', 1),
 (109, 22, 'P22_4.jpg', 1),
 (110, 22, 'P22_5.jpg', 1),
 (111, 23, 'P23_1.jpg', 1),
 (112, 23, 'P23_2.jpg', 1),
-(113, 23, 'P23_3.jpg', 1),
+(113, 23, 'P23_3.gif', 1),
 (114, 23, 'P23_4.jpg', 1),
 (115, 23, 'P23_5.jpg', 1),
 (116, 24, 'P24_1.jpg', 1),
@@ -1603,7 +1603,7 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (124, 25, 'P25_4.jpg', 1),
 (125, 25, 'P25_5.jpg', 1),
 (126, 26, 'P26_1.jpg', 1),
-(127, 26, 'P26_2.jpg', 1),
+(127, 26, 'P26_2.gif', 1),
 (128, 26, 'P26_3.jpg', 1),
 (129, 26, 'P26_4.jpg', 1),
 (130, 26, 'P26_5.jpg', 1),
@@ -1636,7 +1636,7 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (157, 58, 'P58_2.jpg', 1),
 (158, 58, 'P58_3.jpg', 1),
 (159, 58, 'P58_4.jpg', 1),
-(160, 58, 'P58_5.jpg', 1),
+(160, 58, 'P58_5.gif', 1),
 (161, 32, 'P32_1.jpg', 1),
 (162, 32, 'P32_2.jpg', 1),
 (163, 32, 'P32_3.jpg', 1),
@@ -1659,8 +1659,8 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (180, 35, 'P35_5.jpg', 1),
 (181, 36, 'P36_1.jpg', 1),
 (182, 36, 'P36_2.jpg', 1),
-(183, 36, 'P36_3.jpg', 1),
-(184, 36, 'P36_4.jpg', 1),
+(183, 36, 'P36_3.png', 1),
+(184, 36, 'P36_4.png', 1),
 (185, 36, 'P36_5.jpg', 1),
 (186, 37, 'P37_1.jpg', 1),
 (187, 37, 'P37_2.jpg', 1),
@@ -1768,8 +1768,8 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (289, 57, 'P57_4.jpg', 1),
 (290, 57, 'P57_5.jpg', 1),
 (291, 58, 'P58_1.jpg', 1),
-(292, 58, 'P58_2.jpg', 1),
-(293, 58, 'P58_3.jpg', 1),
+(292, 58, 'P58_2.gif', 1),
+(293, 58, 'P58_3.gif', 1),
 (294, 58, 'P58_4.jpg', 1),
 (295, 58, 'P58_5.jpg', 1);
 
@@ -1988,7 +1988,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_login_name`, `user_password`, `user_name`, `user_avt_img`, `user_birth`, `user_sex`, `user_email`, `user_phone`, `user_address`, `user_register_date`, `user_active`) VALUES
-(1, '0987654321', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Phan Nguyễn Hải Yến', 'user1.png', '2003-01-03 23:38:36', 'Nữ', 'haiyen@gmail.com', '0987654321', 'An Bình, Dĩ An, Bình Dương', '2023-08-01', 1),
+(1, '0987654321', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Phan Nguyễn Hải Yến', 'user1.png', NULL, 'Nữ', 'haiyen@gmail.com', '0987654321', 'An Bình, Dĩ An, Bình Dương', '2023-08-01', 1),
 (2, '0987654322', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Trần Thị Bình', 'user2.png', '1991-02-02 00:00:00', 'Nữ', 'user2@example.com', '0987654322', 'TP. Hồ Chí Minh', '2023-01-01', 1),
 (3, '0987654323', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Lê Quang Yên', 'user3.png', '1990-01-01 00:00:00', 'Nam', 'user3@example.com', '0987654323', 'Hà Nội', '2023-01-01', 1),
 (4, '0987654324', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Trương Quang Phú', 'user4.png', '1990-01-01 00:00:00', 'Nam', 'user4@example.com', '0987654324', 'Hải Dương', '2023-01-01', 1),
@@ -2002,10 +2002,7 @@ INSERT INTO `users` (`user_id`, `user_login_name`, `user_password`, `user_name`,
 (12, '0987654332', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Hồ Thị Mai', 'user12.png', '1999-03-03 00:00:00', 'Nữ', 'user12@example.com', '0987654332', 'Bình Dương', '2023-01-01', 1),
 (13, '0987654333', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Lê Bích Tuyền', 'user13.png', '1999-03-03 00:00:00', 'Nữ', 'user13@example.com', '0987654333', 'Bình Dương', '2023-01-01', 1),
 (14, '0987654334', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Lê Hồng Bảo Trinh', 'user14.png', '1999-03-03 00:00:00', 'Nữ', 'user14@example.com', '0987654334', 'Bình Dương', '2023-01-01', 1),
-(15, '0987654335', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Nguyễn Hoàng PHương Linh', 'user15.png', '1999-03-03 00:00:00', 'Nữ', 'user15@example.com', '0987654335', 'Bình Dương', '2023-01-01', 1),
-(28, '0987296708', '$2a$08$7YfPs4xid0OBJa28dOW65OOPzi7QNnySlqwzoe8Et7I6EHckqKj62', 'Nguyễn Thị Hồng Nhung', NULL, NULL, NULL, NULL, '0987296708', NULL, '2023-12-03', 1),
-(29, '1234567890', '$2a$08$EB2QNUNXmHgz77J9Nka83.166OsIQyfDYlcp3Ifog2jIL/uu.AIoy', 'Nguyễn Nhung', NULL, NULL, NULL, NULL, '1234567890', NULL, '2023-12-03', 1),
-(30, '0987611322', '$2a$08$Xn0JENB4ZK1VnM4pgMvru.zKDaPi7pE4qItw5QwdFq/Jd5WgfjbFC', 'nunnụn', NULL, NULL, NULL, NULL, '0987611322', NULL, '2023-12-03', 1);
+(15, '0987654335', '$2a$08$eOIGRuOHME.s5d0c740JCuAtlEMupog/udCJwqHn9PC1jAQXPPX.e', 'Nguyễn Hoàng PHương Linh', 'user15.png', '1999-03-03 00:00:00', 'Nữ', 'user15@example.com', '0987654335', 'Bình Dương', '2023-01-01', 1);
 
 --
 -- Triggers `users`
