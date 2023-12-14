@@ -136,10 +136,11 @@ button {
 }
 
 .cart__del-btn {
-    cursor: pointer;
+    background-color: var(--bg-white);
 }
 
-.cart__del-btn:hover {
+.cart__del-btn:hover:enabled {
+    cursor: pointer;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--dollar-red);
     color: var(--white);
@@ -175,7 +176,6 @@ button {
 }
 
 .cart__order input {
-    cursor: pointer;
     width: 50%;
     background-color: var(--primary-color-5);
     border-radius: 8px;
@@ -184,7 +184,7 @@ button {
     color: var(--white);
 }
 
-.cart__order input:hover {
+.cart__order input:hover:enabled {
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -192,7 +192,6 @@ button {
     font-size: 0.875rem;
     text-align: center;
 }
-
 
 .cart__order-confirm a {
     color: var(--primary-color-1);

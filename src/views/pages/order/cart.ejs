@@ -18,6 +18,12 @@
 	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Giỏ hàng', link : '/order/cart' }] }) %>
 
 	<main class="cart">
+		<div class="cart__empty">
+			<img src="/imgs/cart/empty-cart.png" alt="Giỏ hàng trống">
+			<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
+		</div>
+
+		<% if (detailCart.length) { %>
 		<section class="cart__title">
 			<div>
 				<input onclick="checkAll(event); calcTotalPrice(event)" type="checkbox" class="checkbox" id="check-all" placeholder="">
@@ -44,11 +50,9 @@
 					<img src="/imgs/cart/empty-cart.png" alt="Giỏ hàng trống">
 					<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
 				</div>
-				<% if (detailCart) { %>
 				<% detailCart.forEach(cart => { %>
 				<%- include('../../components/cart-product', { cart: cart, toCurrency: formatFunction.toCurrency }) %>
 				<% }) %>
-				<% } %>
 			</form>
 		</section>
 
@@ -56,7 +60,7 @@
 			<div>
 				<div class="cart__feature mobile-hidden">
 					<button onclick="checkAllBtn(event); calcTotalPrice(event)" type="button" class="cart__checkall-btn mobile-hidden">Chọn tất cả (<span class="selected-nums">0</span>)</button>
-					<button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn">Xóa</button>
+					<button onclick="deleteAllItem(event)" type="button" class="cart__del-btn mobile-hidden" id="del-btn" disabled>Xóa</button>
 				</div>
 				<div class="cart__order">
 					<div class="cart__total-price">
@@ -68,11 +72,13 @@
 						</div>
 						<h2>0đ</h2>
 					</div>
-					<input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng" placeholder="">
+					<input onclick="cartSubmit(event)" type="submit" form="cart-form" value="Đặt hàng" placeholder="Order button" disabled>
 				</div>
 			</div>
 			<p class="cart__order-confirm">Bấm "Đặt hàng" đồng nghĩa với việc bạn đã đồng ý với <a href="/privacy-policy">chính sách đặt hàng</a> của TECHTWO.</p>
 		</section>
+		<% } %>
+
 	</main>
 
 	<%- include('../../components/scrollup') %>

@@ -1,8 +1,11 @@
 // Sự kiện onclick checkbox chọn 1 item
 function checkOne(event) {
     const checkAll = document.getElementById('check-all')
-    if (event.currentTarget.checked == false)
+    if (event.currentTarget.checked == false) {
         checkAll.checked = false
+        disableButton()
+    } else
+        enableButton()
 
     let checkboxes
     if (window.innerWidth <= 416)
@@ -60,8 +63,10 @@ function removeItem(event) {
     localStorage.removeItem('productsCartDelete')
     localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
 
-    showSelectedNums()
     showEmptyNoti()
+    modifyLastItem()
+    calcTotalPrice()
+    showSelectedNums()
 }
 
 // Tạo sự kiện change cho phần tử
