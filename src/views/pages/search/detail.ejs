@@ -20,6 +20,7 @@
 	<main class="content-container">
 
 		<section class="title">
+			<input type="hidden" name="product_id" value="<%= productInfo.product_id %>">
 			<h1><%= productInfo.product_name ?? 'null' %></h1>
 			<div class="title__rating">
 				<% if (productInfo.product_rate) { %>
@@ -110,6 +111,7 @@
 
 					<% variantProducts.forEach(variant => { %>
 					<% if (variant.product_variant_id == product_variant_id) { %>
+					<input type="hidden" name="discount_ammount" value="<%= variant.discount_amount %>">
 					<% if (variant.discount_amount) { %>
 					<div class="detail__promo promo">
 						<div class="promo__header">
