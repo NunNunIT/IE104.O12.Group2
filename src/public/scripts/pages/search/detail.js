@@ -95,7 +95,8 @@ addCartBtn.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json())
+    })
+        .then(res => res.json())
         .then(back => {
             if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
@@ -112,45 +113,53 @@ addCartBtn.addEventListener('click', () => {
                     method: 'GET',
                 })
                     .then(res => res.json())
-                    .then(back2 => {
+                    .then(countCartData => {
                         const countCartEle = document.querySelector('.header__cart__number-badge')
-                        countCartEle.innerHTML = back2.countCart
+                        countCartEle.innerHTML = countCartData.countCart
+
+                        fetch('/general/short_cart_list', {
+                            method: 'GET',
+                        })
+                            .then(res => res.json())
+                            .then(shortCartListData => {
+                                const cartDropdownItem = document.querySelector('.dropdown-cart__content')
+                                cartDropdownItem.querySelectorAll('.cart-dropdown__block').forEach(item => {
+                                    item.remove()
+                                })
+
+                                if (shortCartListData.status == 'success') {
+                                    shortCartListData.shortCartList.slice(0, 5).forEach(cartItem => {
+                                        let dropdownCartItem = document.createElement('div')
+                                        dropdownCartItem.classList.add('cart-dropdown__block')
+
+                                        let cartDropdownPrice
+                                        let cartDropdownPriceDel
+                                        if (cartItem.discount_amount) {
+                                            cartDropdownPrice = toCurrency(Math.round(cartItem.product_variant_price - cartItem.product_variant_price * (cartItem.discount_amount / 100)))
+                                            cartDropdownPriceDel = toCurrency(cartItem.product_variant_price)
+                                        }
+                                        else {
+                                            cartDropdownPrice = toCurrency(cartItem.product_variant_price)
+                                            cartDropdownPriceDel = ''
+                                        }
+
+                                        dropdownCartItem.innerHTML =
+                                            `<a href="/search/${cartItem.product_variant_id}?category_id=${cartItem.category_id}" class="cart-dropdown__main">
+                                                <img class="cart-dropdown__img" src="/imgs/product_image/P${cartItem.product_id}/${cartItem.product_avt_img}" alt="${cartItem.product_name}">
+                                                <div class="cart-dropdown__content">
+                                                    <span>${cartItem.product_name}</span>
+                                                    <div class="cart-dropdown__price">
+                                                        ${cartDropdownPrice}<small>${cartDropdownPriceDel}</small>
+                                                    </div>
+                                                </div>
+                                            </a>`
+
+                                        let cartDropdownTitle = cartDropdownItem.querySelector('.dropdown-cart__content-title')
+                                        cartDropdownTitle.after(dropdownCartItem)
+                                    })
+                                }
+                            })
                     })
-
-                const productId = document.querySelector('input[name="product_id"]').value
-                const productVariantId = document.querySelector('input[name="product_variant_id"]').value
-                const categoryId = document.querySelector('input[name="category_id"]').value
-                const productName = document.querySelector('.title h1').innerHTML
-                const productPrice = document.querySelector('.promo__header div h2').innerHTML.replaceAll('.', '').slice(0, -1)
-
-                const discountAmmount = document.querySelector('input[name="discount_ammount"]').value
-                let cartDropdownPrice
-                let cartDropdownPriceDel
-                if (discountAmmount) {
-                    cartDropdownPrice = toCurrency(Math.round(productPrice - productPrice * (discountAmmount / 100)))
-                    cartDropdownPriceDel = toCurrency(Number(productPrice))
-                }
-                else {
-                    cartDropdownPrice = toCurrency(Number(productPrice))
-                    cartDropdownPriceDel = ''
-                }
-
-                const dropdownCartItem = document.createElement('div')
-                dropdownCartItem.classList.add('cart-dropdown__block')
-                dropdownCartItem.innerHTML =
-                    `<a href="/search/${productVariantId}?category_id=${categoryId}" class="cart-dropdown__main">
-                        <img class="cart-dropdown__img" src="/imgs/product_image/P${productId}/P${productId}_avt.jpg" alt="${productName}">
-                        <div class="cart-dropdown__content">
-                            <span>${productName}</span>
-                            <div class="cart-dropdown__price">
-                                ${cartDropdownPrice}<small>${cartDropdownPriceDel}</small>
-                            </div>
-                        </div>
-                    </a>`
-
-                const cartDropdownItem = Array.from(document.querySelectorAll('.dropdown-cart__content .cart-dropdown__block'))
-                if (!cartDropdownItem.some(item => item.querySelector('.cart-dropdown__content span').innerHTML == productName) && cartDropdownItem.length < 5)
-                    cartDropdownItem.slice(-1)[0].after(dropdownCartItem)
             }
         })
 })

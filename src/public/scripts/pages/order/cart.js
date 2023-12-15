@@ -238,7 +238,7 @@ function cartSubmit(event) {
         let formDataArrayString = JSON.stringify(formDataArray)
 
         localStorage.setItem('formDataArray', formDataArrayString)
-        window.location.href = 'http://localhost:3000/order/information'
+        window.location.href = '/order/information'
     }
 }
 
