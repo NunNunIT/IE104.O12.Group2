@@ -213,7 +213,7 @@ general.getDiscountProducts = async () => {
 general.getCateProducts = async (req, product_variant_id, limit = 8) => {
     let product_id = await general.getProductId(product_variant_id)
     let category_id = await general.getCategoryId(product_id)
-    category_id = (req.query.category_id) != 0 ? req.query.category_id : category_id
+    category_id = (req.query.category_id) ? req.query.category_id : category_id
 
     let getCateProducts = `SELECT * FROM view_products_resume 
                             WHERE category_id = ${category_id} 
@@ -235,7 +235,7 @@ general.getCateProducts = async (req, product_variant_id, limit = 8) => {
 general.getNotCateProducts = async (req, product_variant_id, limit = 8) => {
     let product_id = await general.getProductId(product_variant_id)
     let category_id = await general.getCategoryId(product_id)
-    category_id = (req.query.category_id) != 0 ? req.query.category_id : category_id
+    category_id = (req.query.category_id) ? req.query.category_id : category_id
 
     let getNotCateProducts = `SELECT * FROM view_products_resume 
                             WHERE NOT(category_id = ${category_id}) 
