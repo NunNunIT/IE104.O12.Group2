@@ -118,6 +118,8 @@ addCartBtn.addEventListener('click', () => {
                     })
 
                 const productId = document.querySelector('input[name="product_id"]').value
+                const productVariantId = document.querySelector('input[name="product_variant_id"]').value
+                const categoryId = document.querySelector('input[name="category_id"]').value
                 const productName = document.querySelector('.title h1').innerHTML
                 const productPrice = document.querySelector('.promo__header div h2').innerHTML.replaceAll('.', '').slice(0, -1)
 
@@ -136,7 +138,7 @@ addCartBtn.addEventListener('click', () => {
                 const dropdownCartItem = document.createElement('div')
                 dropdownCartItem.classList.add('cart-dropdown__block')
                 dropdownCartItem.innerHTML =
-                    `<a href="/search/${productId}?product_name=${productName}" class="cart-dropdown__main">
+                    `<a href="/search/${productVariantId}?category_id=${categoryId}" class="cart-dropdown__main">
                         <img class="cart-dropdown__img" src="/imgs/product_image/P${productId}/P${productId}_avt.jpg" alt="${productName}">
                         <div class="cart-dropdown__content">
                             <span>${productName}</span>
