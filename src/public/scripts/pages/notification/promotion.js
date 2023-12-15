@@ -35,7 +35,19 @@ modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
         modals[index].style.display = "block";
         popupVisible[index] = true;
-        // notiItems[index].style.backgroundColor = "white"; 
+        notiItems[index].style.backgroundColor = 'white'
+
+        const noti_id = document.querySelector(`input[name = "noti ${index}"]`).value;
+
+        fetch("/notifications/read-noti", {
+            method: 'POST',
+            body: JSON.stringify({
+                noti_id: noti_id
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
     }
 });
 
@@ -65,7 +77,18 @@ window.onclick = function (e) {
     });
 }
 
+// Đánh dấu đã đọc tất cả
 markAllReadButton.addEventListener("click", () => {
+    fetch("/notifications/read-all", {
+        method: "POST",
+        body: JSON.stringify({
+            noti_type: 2
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+
     notiItems.forEach((item) => {
         item.classList.add("read");
         item.style.backgroundColor = "white"; //Đổi màu nền
@@ -77,4 +100,5 @@ markAllReadButton.addEventListener("click", () => {
     markAllReadButton.style.borderColor = "gray";
     markAllReadButton.style.cursor = "auto";
     markAllReadButton.style.boxShadow = "none";
-});
+})
+

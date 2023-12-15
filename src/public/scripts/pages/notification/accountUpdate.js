@@ -24,7 +24,19 @@ modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
         modals[index].style.display = "block";
         popupVisible[index] = true;
-        // notiItems[index].style.backgroundColor = "white"; 
+        notiItems[index].style.backgroundColor = 'white'
+
+        const noti_id = document.querySelector(`input[name = "noti ${index}"]`).value;
+
+        fetch("/notifications/read-noti", {
+            method: 'POST',
+            body: JSON.stringify({
+                noti_id: noti_id
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }) 
     }
 });
 
@@ -33,10 +45,6 @@ closeBtns.forEach((closeBtn, index) => {
     closeBtn.onclick = function () {
         modals[index].style.display = "none";
         popupVisible[index] = false;
-        if (popupVisible.some((visible) => visible)) {
-        } else {
-            notiItems[index].style.backgroundColor = "white"; //Đọc xong đổi màu nền
-        }
     }
 });
 
@@ -46,15 +54,21 @@ window.onclick = function (e) {
         if (e.target == modal) {
             modal.style.display = "none";
             popupVisible[index] = false;
-            if (popupVisible.some((visible) => visible)) {
-            } else {
-                notiItems[index].style.backgroundColor = "white";
-            }
         }
     });
 }
 
 markAllReadButton.addEventListener("click", () => {
+    fetch("/notifications/read-all", {
+        method: "POST",
+        body: JSON.stringify({
+            noti_type: 1
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+
     notiItems.forEach((item) => {
         item.classList.add("read");
         item.style.backgroundColor = "white"; //Đổi màu nền
@@ -66,4 +80,4 @@ markAllReadButton.addEventListener("click", () => {
     markAllReadButton.style.borderColor = "gray";
     markAllReadButton.style.cursor = "auto";
     markAllReadButton.style.boxShadow = "none";
-});
+})
