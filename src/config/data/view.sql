@@ -251,11 +251,13 @@ CREATE VIEW view_product_feedbacks AS SELECT
     product_variants.product_id,
     feedbacks.*,
     feedback_imgs.feedback_img_id,
-    feedback_imgs.feedback_img_name
+    feedback_imgs.feedback_img_name, 
+    view_user.user_name
 FROM
     product_variants
 LEFT JOIN feedbacks ON product_variants.product_variant_id = feedbacks.product_variant_id
 LEFT JOIN feedback_imgs ON feedbacks.feedback_id = feedback_imgs.feedback_id
+LEFT JOIN view_user ON view_user.customer_id = feedbacks.customer_id
 WHERE
     feedbacks.feedback_is_display = 1;
 
@@ -284,9 +286,9 @@ CREATE VIEW view_notifications AS
 SELECT
     notifications.*,
     user_notification.user_id,
-    user_notification.users_notifications_is_read
+    user_notification.user_notification_is_read
 FROM
     notifications
-LEFT JOIN user_notification ON notifications.notifications_id = user_notification.notifications_id
+LEFT JOIN user_notification ON notifications.notification_id = user_notification.notification_id
 WHERE
-    notifications.notifications_is_display = 1;
+    notifications.notification_is_display = 1;

@@ -173,6 +173,7 @@ ul li {
 }
 
 .btn {
+    text-decoration: none;
     cursor: pointer;
     height: 48px;
     display: inline-block;
@@ -313,4 +314,15 @@ ul li {
 input[type=password]::-ms-reveal,
 input[type=password]::-ms-clear {
     display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }

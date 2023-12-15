@@ -5,8 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="TECHTWO.">
+	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
 	<link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
 
 	<title>TECHTWO.</title>
@@ -32,9 +33,9 @@
 
 			<div class="purchase__main__item">
 				<% if (purchaseHistory && purchaseHistory.length > 0) { %>
-				<% purchaseHistory.forEach(purchase => { %>
-				<%- include('../../components/purchase-item', { purchaseHistory: purchase, toCurrency: formatFunction.toCurrency }) %>
-				<% }) %>
+				<% for(let i = 0; i < purchaseHistory.length; i++) { %>
+				<%- include('../../components/purchase-item', { purchaseHistory: purchaseHistory[i], toCurrency: formatFunction.toCurrency, index: i }) %>
+				<% } %>
 				<% } else { %>
 				<div class="purchase-empty">
 					<img src="/imgs/empty_order.png" alt="empty_order">

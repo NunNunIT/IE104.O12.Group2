@@ -13,4 +13,7 @@ router.get('/product_variant_info', generalController.getProductVariantInfo)
 // [GET] /general/count_cart
 router.get('/count_cart', authMiddleware.isLoggedIn, generalController.getCountCart)
 
+// [GET] /general/short_cart_list
+router.get('/short_cart_list', authMiddleware.isLoggedIn, generalController.getShortCartList)
+
 module.exports = router

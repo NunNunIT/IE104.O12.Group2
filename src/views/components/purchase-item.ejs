@@ -5,7 +5,7 @@
 			<p id="purchase-item__id">#DH00<%= purchaseHistory.order_id %></p>
 		</div>
 		<div class="purchase-item__status-container">
-			<span class="material-symbols-outlined">
+			<span class="material-symbols-outlined status">
 				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
 				cancel
 				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
@@ -77,7 +77,7 @@
 							<span class="material-symbols-outlined">info</span>
 							<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
 						</div>
-						<form id="cancel_popup">
+						<form action="" id="cancel_popup" class="his_cancel_popup">
 							<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
 							<div class="cancel-reasons">
 								<div class="cancel-reason__item">
@@ -107,7 +107,7 @@
 							</div>
 							<div class="button">
 								<div class="btn btn--outlined pri cancel-purchase">Trở lại</div>
-								<button type="submit" class="btn btn--filled pri">Xác nhận</button>
+								<button type="submit" class="btn btn--filled pri confirm-cancel">Xác nhận</button>
 							</div>
 						</form>
 					</div>
@@ -117,6 +117,9 @@
 
 			<div class="purchase-item__button--right">
 				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
+				<a href="/account/purchase/<%= purchaseHistory.order_id %>">
+					<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
+				</a>
 				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
 				<a href="/account/purchase/<%= purchaseHistory.order_id %>">
 					<div class="btn btn--outlined pri popup-btn">Xem chi tiết</div>
@@ -135,7 +138,7 @@
 				<% if (purchaseHistory.order_status === 'Đã hủy') { %>
 				<% } else if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
 				<a href="/order/payment?paying_method_id=<%= purchaseHistory.paying_method_id %>&order_id=<%= purchaseHistory.order_id %>">
-					<div class="btn btn--filled pri popup-btn">Thanh toán</div>
+					<div class="btn btn--filled pri">Thanh toán</div>
 				</a>
 				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
 				<a href="/account/feedback?order_id=<%= purchaseHistory.order_id %>">

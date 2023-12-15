@@ -1,5 +1,24 @@
+function enableButton() {
+    const deleteBtn = document.querySelector('.cart__del-btn')
+    const submitBtn = document.querySelector('.cart__order input')
+    deleteBtn.disabled = false
+    submitBtn.disabled = false
+}
+
+function disableButton() {
+    const deleteBtn = document.querySelector('.cart__del-btn')
+    const submitBtn = document.querySelector('.cart__order input')
+    deleteBtn.disabled = true
+    submitBtn.disabled = true
+}
+
 // Sự kiện onclick checkbox chọn tất cả
 function checkAll(event) {
+    if (event.currentTarget.checked == false)
+        disableButton()
+    else
+        enableButton()
+
     let checkboxes
     if (window.innerWidth <= 416)
         checkboxes = document.querySelectorAll('.checkbox.mobile-display')
@@ -13,6 +32,11 @@ function checkAll(event) {
 
 // Sự kiện onclick nút 'Chọn tất cả'
 function checkAllBtn(event) {
+    if (event.currentTarget.checked == false)
+        disableButton()
+    else
+        enableButton()
+
     const checkAll = document.querySelector('#check-all')
     checkAll.checked = !checkAll.checked
 
@@ -56,11 +80,14 @@ function deleteAllItem(event) {
     countCartEle.innerHTML = Number(countCartEle.innerHTML) - checkedItem.length
 
     showEmptyNoti()
+    modifyLastItem()
+    calcTotalPrice()
 }
 
+// Xóa sản phẩm trong giỏ khi reload hoặc chuyển trang
 window.addEventListener('load', deleteItems)
+window.addEventListener('beforeunload', deleteItems)
 function deleteItems(event) {
-    // event.preventDefault()
     const loading = document.querySelector('.lds-ring')
     const loadingHidden = document.querySelector('.loading-hidden')
     const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
@@ -74,24 +101,30 @@ function deleteItems(event) {
                 },
             })
                 .then(() => {
-                    localStorage.removeItem('productsCartDelete')
-
                     let cartItems
                     if (window.innerWidth <= 416)
                         cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
                     else
                         cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
-                    cartItems.forEach((item, index) => {
-                        if (item.querySelector('input[name="product_variant_id"]').value == Number(productsCartDelete[index].product_variant_id))
-                            item.remove()
-
-                        showEmptyNoti()
+                    productsCartDelete.forEach(del => {
+                        cartItems.forEach(item => {
+                            if (item.querySelector('input[name="product_variant_id"]').value == Number(del.product_variant_id))
+                                item.remove()
+                        })
                     })
+
+                    localStorage.removeItem('productsCartDelete')
 
                     loading.style.visibility = 'hidden'
                     loadingHidden.style.visibility = 'visible'
+
+                    showEmptyNoti()
                 })
+        }
+        else {
+            loading.style.visibility = 'hidden'
+            loadingHidden.style.visibility = 'visible'
         }
     }
     else {
@@ -110,8 +143,33 @@ function deleteMbItem(event) {
         }
     })
 
-    showSelectedNums()
     showEmptyNoti()
+    modifyLastItem()
+    showSelectedNums()
+    calcTotalPrice()
+}
+
+// Cập nhật sản phẩm trong giỏ hàng khi reload hoặc chuyển trang
+window.addEventListener('load', updateCart)
+window.addEventListener('beforeunload', updateCart)
+function updateCart(event) {
+    const productsCartUpdate = JSON.parse(localStorage.getItem('productsCartUpdate'))
+    const productsCartUpdateOld = JSON.parse(localStorage.getItem('productsCartUpdateOld'))
+    if (Array.isArray(productsCartUpdate) && Array.isArray(productsCartUpdateOld)) {
+        if (productsCartUpdate.length && productsCartUpdateOld.length) {
+            productsCartUpdate.forEach(product => delete product.product_id)
+
+            fetch('/order/updateCart', {
+                body: JSON.stringify({ productsCartUpdate, productsCartUpdateOld }),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            localStorage.removeItem('productsCartUpdate')
+            localStorage.removeItem('productsCartUpdateOld')
+        }
+    }
 }
 
 // Hàm thay đổi màu nút 'Xóa' tất cả
@@ -151,20 +209,28 @@ function showEmptyNoti() {
     if (countCartItem == 0) {
         const emptyNoti = document.querySelector('.cart__empty')
         emptyNoti.style.display = 'flex'
+
+        const cartTitle = document.querySelector('.cart__title')
+        cartTitle.remove()
+
+        const cartFooter = document.querySelector('.cart__footer')
+        cartFooter.remove()
     }
 }
 
 // Căn chỉnh cart-item cuối cùng
-let cartItems
-if (window.innerWidth <= 416)
-    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
-else
-    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
+function modifyLastItem() {
+    let cartItems
+    if (window.innerWidth <= 416)
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    else
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
-if (cartItems.length) {
-    const lastCartItem = cartItems[cartItems.length - 1]
-    lastCartItem.style.border = 'none'
-    lastCartItem.style.padding = '0'
+    if (cartItems.length) {
+        const lastCartItem = cartItems[cartItems.length - 1]
+        lastCartItem.style.border = 'none'
+        lastCartItem.style.padding = '0'
+    }
 }
 
 // Sự kiện onclick nút 'Đặt hàng'
@@ -196,7 +262,7 @@ function cartSubmit(event) {
         let formDataArrayString = JSON.stringify(formDataArray)
 
         localStorage.setItem('formDataArray', formDataArrayString)
-        window.location.href = 'http://localhost:3000/order/information'
+        window.location.href = '/order/information'
     }
 }
 
@@ -260,3 +326,4 @@ function calcTotalPrice(event) {
 
 // Hàm thực thi
 showEmptyNoti()
+modifyLastItem()

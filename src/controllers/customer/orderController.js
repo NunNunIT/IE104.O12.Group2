@@ -72,6 +72,28 @@ orderController.deleteCart = async (req, res) => {
 	})
 }
 
+// [POST] /order/cart/update
+orderController.updateCart = async (req, res) => {
+	let customer_id = req.user.customer_id
+	let productsCartUpdate = req.body.productsCartUpdate
+	let productsCartUpdateOld = req.body.productsCartUpdateOld
+
+	await order.deleteCart(customer_id, productsCartUpdate, function (err, success) { })
+	await order.deleteCart(customer_id, productsCartUpdateOld, function (err, success) { })
+
+	await order.updateCart(customer_id, productsCartUpdate, function (err, success) {
+		if (success) {
+			return res.status(200).json({
+				status: "success",
+			})
+		} else {
+			return res.status(404).json({
+				status: "error",
+			})
+		}
+	})
+}
+
 // [GET] /order/information
 orderController.information = async (req, res) => {
 	let header_user = await index.header_user(req)

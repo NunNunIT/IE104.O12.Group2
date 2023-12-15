@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#2a7ee4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="IE104.O12_Nhom2" />
+    <meta
+      name="description"
+      content="TECHTWO luôn hướng đến là người bạn đồng hành cùng mọi gia đình Việt Nam."
+    />
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <link rel="stylesheet" href="/styles/pages/site/about-us.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="theme-color" content="#2a7ee4">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHTWO.</title>
+  </head>
 
-	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
-	<link rel="stylesheet" href="/styles/pages/site/about-us.css">
+  <body>
+    <%- include('../../partials/header', { header: header, user: user }) %> <%-
+    include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Về chúng
+    tôi', link : '/about-us' }] }) %>
 
-	<title>TECHTWO.</title>
-</head>
+    <main class="about-container">
+      <div class="about-us__content">
+        <div class="about-us__title">
+          <p>ABOUT US</p>
+        </div>
+        <div class="about-us__slogan">
+          <h1>WHO WE ARE</h1>
+          <h1>TECHTWO. To The World!</h1>
+        </div>
+        <p class="about-us__intro">
+          <span class="highlight">TECHTWO</span> là dự án xây dựng website cửa
+          hàng điện máy do nhóm sinh viên thuộc trường Đại học Công nghệ Thông
+          tin, ĐHQG-HCM thực hiện trong khuôn khổ môn học Internet và Công nghệ
+          Web dưới sự hướng dẫn của Thạc sĩ Võ Tấn Khoa.
+        </p>
+      </div>
+      <img class="about-us__img" src="/imgs/about-us-3.png" alt="banner" />
+      <div class="about-us__content--colunm">
+        <div class="about-us__content--left">
+          <h2>TẦM NHÌN</h2>
+        </div>
+        <div class="about-us__content--right">
+          <p>
+            Tại <span class="highlight">TECHTWO</span>, tầm nhìn của chúng tôi
+            là tạo ra một môi trường mua sắm trực tuyến lý tưởng cho tất cả
+            những người yêu công nghệ. Chúng tôi muốn là người bạn đồng hành
+            đáng tin cậy của bạn trong việc tìm kiếm và mua sắm các sản phẩm
+            điện máy hiện đại, từ các thiết bị gia dụng thông minh cho đến các
+            sản phẩm công nghệ tiên tiến.
+          </p>
+          <p>
+            <span class="highlight">TECHTWO</span> mong muốn trở thành người bạn
+            đồng hành đáng tin cậy của bạn trong mọi hành trình công nghệ. Với
+            đội ngũ chuyên gia và đam mê về công nghệ, chúng tôi sẵn lòng chia
+            sẻ kiến thức, kinh nghiệm, và tư vấn để giúp bạn có quyết định đúng
+            đắn khi chọn lựa sản phẩm.
+          </p>
+          <p>
+            Không chỉ giới hạn bản thân trong việc cung cấp các sản phẩm hàng
+            đầu, <span class="highlight">TECHTWO</span> còn chú trọng đến sự đa
+            dạng. Từ những thiết bị gia dụng thông minh đến các sản phẩm công
+            nghệ tiên tiến, chúng tôi đảm bảo rằng bạn có nhiều lựa chọn để tùy
+            chỉnh theo nhu cầu và sở thích cá nhân.
+          </p>
+        </div>
+      </div>
+      <img class="about-us__img" src="/imgs/about-us-2.png" alt="banner" />
+      <div class="about-us__content--colunm">
+        <h2 class="about-us__content--disable">CAM KẾT</h2>
+        <div class="about-us__content--left">
+          <p>
+            <span class="highlight">TECHTWO</span> cam kết đảm bảo rằng mỗi sản
+            phẩm trên trang web của chúng tôi là chất lượng, mang lại hiệu suất
+            tốt nhất và đáng tin cậy. không chỉ cung cấp các sản phẩm hàng đầu,
+            chúng tôi luôn nỗ lực để cải thiện trải nghiệm mua sắm của khách
+            hàng thông qua dịch vụ khách hàng xuất sắc và sự hỗ trợ chuyên
+            nghiệp.
+          </p>
+          <p>
+            Hiểu rằng dịch vụ khách hàng là chìa khóa quan trọng để xây dựng mối
+            quan hệ lâu dài, đội ngũ <span class="highlight">TECHTWO</span> là
+            những chuyên gia tận tâm và chuyên nghiệp, luôn sẵn sàng giúp đỡ và
+            giải quyết mọi vấn đề của bạn một cách nhanh chóng và hiệu quả.
+          </p>
+        </div>
 
-<body>
+        <div class="about-us__content--right">
+          <h2>CAM KẾT</h2>
+        </div>
+      </div>
+      <img class="about-us__img" src="/imgs/about-us-1.png" alt="banner" />
+    </main>
 
-	<%- include('../../partials/header', { header: header, user: user }) %>
-	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Về chúng tôi', link : '/about-us' }] }) %>
+    <%- include('../../components/scrollup') %> <%-
+    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
 
-	<main class="about-container">
-		<div class="about-us__content">
-			<div class="about-us__title">
-				<p>ABOUT US</p>
-			</div>
-			<div class="about-us__slogan">
-				<h1>WHO WE ARE</h1>
-				<h1>TECHTWO. To The World!</h1>
-			</div>
-			<p class="about-us__intro"><span class="highlight">TECHTWO</span> là dự án xây dựng website cửa hàng điện máy do nhóm sinh viên thuộc trường Đại học
-				Công nghệ Thông tin, ĐHQG-HCM thực hiện trong khuôn khổ môn học Internet và Công nghệ Web dưới sự hướng dẫn
-				của Thạc sĩ Võ Tấn Khoa.</p>
-		</div>
-		<img class="about-us__img" src="/imgs/about-us-3.png" alt="banner">
-		<div class="about-us__content--colunm">
-			<div class="about-us__content--left">
-				<h2>TẦM NHÌN</h2>
-			</div>
-			<div class="about-us__content--right">
-				<p>Tại <span class="highlight">TECHTWO</span>, tầm nhìn của chúng tôi là tạo ra một môi trường mua sắm trực tuyến lý tưởng cho tất cả
-					những người yêu công nghệ. Chúng tôi muốn là người bạn đồng hành đáng tin cậy của bạn trong việc tìm kiếm
-					và mua sắm các sản phẩm điện máy hiện đại, từ các thiết bị gia dụng thông minh cho đến các sản phẩm công nghệ tiên tiến. </p>
-				<p><span class="highlight">TECHTWO</span> mong muốn trở thành người bạn đồng hành đáng tin cậy của bạn trong mọi hành trình công nghệ. Với đội ngũ chuyên gia và đam mê về công nghệ,
-					chúng tôi sẵn lòng chia sẻ kiến thức, kinh nghiệm, và tư vấn để giúp bạn có quyết định đúng đắn khi chọn lựa sản phẩm.</p>
-				<p>Không chỉ giới hạn bản thân trong việc cung cấp các sản phẩm hàng đầu, <span class="highlight">TECHTWO</span> còn chú trọng đến sự đa dạng.
-					Từ những thiết bị gia dụng thông minh đến các sản phẩm công nghệ tiên tiến, chúng tôi đảm bảo rằng bạn có nhiều lựa chọn để tùy chỉnh
-					theo nhu cầu và sở thích cá nhân.</p>
-			</div>
-
-		</div>
-		<img class="about-us__img" src="/imgs/about-us-2.png" alt="banner">
-		<div class="about-us__content--colunm">
-			<h2 class="about-us__content--disable">CAM KẾT</h2>
-			<div class="about-us__content--left">
-				<p><span class="highlight">TECHTWO</span> cam kết đảm bảo rằng mỗi sản phẩm trên trang web của chúng tôi là
-					chất lượng, mang lại hiệu suất tốt nhất và đáng tin cậy. không chỉ cung cấp các sản phẩm hàng đầu,
-					chúng tôi luôn nỗ lực để cải thiện trải nghiệm mua sắm của khách hàng thông qua dịch vụ khách hàng xuất sắc và sự hỗ
-					trợ chuyên nghiệp.</p>
-				<p>Hiểu rằng dịch vụ khách hàng là chìa khóa quan trọng để xây dựng mối quan hệ lâu dài, đội ngũ <span class="highlight">TECHTWO</span>
-					là những chuyên gia tận tâm và chuyên nghiệp, luôn sẵn sàng giúp đỡ và giải quyết mọi vấn đề của bạn một cách nhanh chóng và hiệu quả.</p>
-			</div>
-
-			<div class="about-us__content--right">
-				<h2>CAM KẾT</h2>
-			</div>
-		</div>
-		<img class="about-us__img" src="/imgs/about-us-1.png" alt="banner">
-	</main>
-
-	<%- include('../../components/scrollup') %>
-	<%- include('../../partials/footer') %>
-	<%- include('../../partials/app-bar') %>
-
-	<script src="/scripts/components/scrollup.js"></script>
-	<script src="/scripts/partials/header.js"></script>
-
-</body>
-
+    <script src="/scripts/components/scrollup.js"></script>
+    <script src="/scripts/partials/header.js"></script>
+  </body>
 </html>

@@ -106,18 +106,15 @@ accountController.feedback = async (req, res) => {
 }
 
 // [POST] /account/feedback
-accountController.feedbackPost = async (req, res) => {
+accountController.sendFeedback = async (req, res) => {
     let order_id = req.body.order_id
-    let feedbackBody = req.body.feedbackBody
-    let error = 0
+    let feedbacks = req.body.feedbacks
+    let error = false
 
-    let header_user = await index.header_user(req)
-    let header = await index.header(req)
-
-    feedbackBody.forEach(feedback => {
-        account.feedbackPost(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
+    feedbacks.forEach(feedback => {
+        account.insertFeedback(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
             if (err) {
-                error = 1
+                error = true
             }
         })
     })

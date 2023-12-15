@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#2a7ee4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="IE104.O12_Nhom2" />
+    <meta
+      name="description"
+      content="Thông tin đơn hàng của bạn được TECHTWO cập nhập theo đúng với thời gian thực tế, hãy theo dõi đơn hàng của bạn nào."
+    />
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <link rel="stylesheet" href="/styles/pages/notification/promotion.css" />
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="theme-color" content="#2a7ee4">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TECHTWO.</title>
+  </head>
 
-	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
-	<link rel="stylesheet" href="/styles/pages/notification/promotion.css" />
-
-	<title>TECHTWO.</title>
-</head>
-
-<body>
-
-	<%- include('../../partials/header', { header: header }) %>
-	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Thông báo', link : '' }, { text : 'Thông tin khuyến mãi', link : '/notification/promotion' }] }) %>
+  <body>
+    <%- include('../../partials/header', { header: header }) %> <%-
+    include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Thông báo',
+    link : '' }, { text : 'Thông tin khuyến mãi', link :
+    '/notification/promotion' }] }) %>
 
 	<main class="nofi-container">
 		<aside class="aside-wrapper">
@@ -27,8 +31,8 @@
 			</div>
 			<hr />
 			<div class="aside-wrapper__aside-section">
-				<p class="btn-update">Cập nhật đơn hàng</p>
-				<p class="btn-promo">Thông tin khuyến mãi</p>
+				<a href="/notification/account-update" class="btn-update">Cập nhật đơn hàng</a>
+				<a href="/notification/promotion" class="btn-promo">Thông tin khuyến mãi</a>
 			</div>
 		</aside>
 
@@ -39,30 +43,25 @@
 					<hr />
 				</div>
 				<div class="noti__button-promo--disable">
-					<a href="#" class="btn-promo--disable">Thông tin khuyến mãi</a>
+					<a href="/notification/promotion" class="btn-promo--disable">Thông tin khuyến mãi</a>
 					<hr />
 				</div>
 			</div>
 			<div class="btn-mark-all-read">
-				<span>Đánh dấu tất cả là đã đọc (5)</span>
+				<span>Đánh dấu tất cả là đã đọc (<%= promotions.length %>)</span>
 			</div>
 
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
+			<% for(let i=0; i< promotions.length; i++) {%>
+			<%- include('../../components/noti-item-promo', { noti: promotions[i], index: i, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
+			<% } %>
+
 		</section>
 	</main>
 
-	<%- include('../../components/scrollup') %>
-	<%- include('../../partials/footer') %>
-	<%- include('../../partials/app-bar') %>
+    <%- include('../../components/scrollup') %> <%-
+    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
 
-	<script src="/scripts/components/scrollup.js"></script>
-	<script src="/scripts/pages/notification/promotion.js"></script>
-
-</body>
-
+    <script src="/scripts/components/scrollup.js"></script>
+    <script src="/scripts/pages/notification/promotion.js"></script>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-<section class="wrapper-carousel">
+<div class="wrapper-carousel">
 	<div class="carousel__label">
 		<h2 class="carousel__title"><%= title %></h2>
 		<div class="carousel__label-seemore">
@@ -12,7 +12,7 @@
 		<ul class="carousel">
 			<% products.forEach(function(product) { %>
 			<li class="carousel__card">
-				<a class="carousel__card-main" href="/search/<%= product.product_variant_id %>?product_name=<%= product.product_name %>&category_id=<%= product.category_id %>&category_name=<%= product.category_name %>">
+				<a class="carousel__card-main" href="/search/<%= product.product_variant_id %>?category_id=<%= product.category_id %>">
 					<% if (product.discount_amount) { %>
 					<div class="carousel__card--badge">-<%= product.discount_amount %>%</div>
 					<% } %>
@@ -69,4 +69,4 @@
 		</ul>
 	</div>
 	<span id="right" class="arrow right material-symbols-outlined"> chevron_right </span>
-</section>
+</div>

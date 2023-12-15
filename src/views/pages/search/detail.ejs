@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Xem thông tin chi tiết sản phẩm của TECHTWO để biết thêm về sản phẩm.">
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/search/detail.css">
 
@@ -20,6 +21,8 @@
 	<main class="content-container">
 
 		<section class="title">
+			<input type="hidden" name="product_id" value="<%= productInfo.product_id %>">
+			<input type="hidden" name="category_id" value="<%= productInfo.category_id %>">
 			<h1><%= productInfo.product_name ?? 'null' %></h1>
 			<div class="title__rating">
 				<% if (productInfo.product_rate) { %>
@@ -90,7 +93,8 @@
 						<h3>Loại sản phẩm</h3>
 						<div>
 							<% variantProducts.forEach(variant => { %>
-							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?product_name=<%= productInfo.product_name %>&category_id=<%= productInfo.category_id %>&category_name=<%= productInfo.category_name %>">
+							<input type="hidden" name="product_variant_id" value="<%= productInfo.product_variant_id %>">
+							<a class="<%= (variant.product_variant_id == product_variant_id) ? 'variant-selected':'' %>" href="/search/<%= variant.product_variant_id %>?category_id=<%= productInfo.category_id %>">
 								<span class="variant__title"><%= variant.product_variant_name ?? 'null' %></span>
 								<span class="variant__price"><%= formatFunction.toCurrency(variant.product_variant_price) ?? 'null' %></span>
 							</a>
@@ -110,6 +114,7 @@
 
 					<% variantProducts.forEach(variant => { %>
 					<% if (variant.product_variant_id == product_variant_id) { %>
+					<input type="hidden" name="discount_ammount" value="<%= variant.discount_amount %>">
 					<% if (variant.discount_amount) { %>
 					<div class="detail__promo promo">
 						<div class="promo__header">
