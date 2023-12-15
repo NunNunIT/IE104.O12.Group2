@@ -1,94 +1,145 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#2a7ee4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="IE104.O12_Nhom2" />
+    <meta
+      name="description"
+      content="Hãy đăng ký để trở thành một phần của TECHTWO và hãy để TECHTWO trở thành một phần của bạn."
+    />
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <link rel="stylesheet" href="/styles/pages/auth/register.css" />
 
-<head>
-	<meta charset="UTF-8" />
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="author" content="IE104.O12_Nhom2">
-	<meta name="description" content="Hãy đăng ký để trở thành một phần của TECHTWO và hãy để TECHTWO trở thành một phần của bạn.">
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-	<link rel="stylesheet" href="/styles/pages/auth/register.css" />
+    <title>TECHTWO. - Đăng nhập</title>
+  </head>
 
-	<title>TECHTWO. - Đăng nhập</title>
-</head>
+  <body>
+    <%- include('../../partials/header-small', title='Đăng ký') %>
 
-<body>
+    <main class="register_main">
+      <div class="register__box">
+        <div class="register__inner-box">
+          <div class="register__forms-wrap">
+            <form id="form" autocomplete="off" class="register__sign-in-form">
+              <div class="register__logo">
+                <!-- Về trang chủ -->
+                <a href="#"><img src="/imgs/logo-blue.png" alt="techtwo" /></a>
+                <div class="register__heading">
+                  <h1>Chào mừng đến với TECHTWO.</h1>
+                  <h4>
+                    Đã có tài khoản?
+                    <a href="/auth/login" class="register__toggle"
+                      >Đăng nhập ngay</a
+                    >
+                  </h4>
+                </div>
+              </div>
 
-	<%- include('../../partials/header-small', title='Đăng ký') %>
+              <div class="register__actual-form">
+                <div class="register__input-wrap">
+                  <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    class="register__input-field"
+                    autocomplete="off"
+                  />
+                  <label>Họ tên<span style="color: red">*</span></label>
+                  <div class="register__error"></div>
+                </div>
 
-	<main class="register_main">
-		<div class="register__box">
-			<div class="register__inner-box">
-				<div class="register__forms-wrap">
-					<form id="form" autocomplete="off" class="register__sign-in-form">
-						<div class="register__logo">
-							<!-- Về trang chủ -->
-							<a href="#"><img src="/imgs/logo-blue.png" alt="techtwo" /></a>
-							<div class="register__heading">
-								<h1>Chào mừng đến với TECHTWO.</h1>
-								<h4>Đã có tài khoản? <a href="/auth/login" class="register__toggle">Đăng nhập ngay</a></h4>
-							</div>
-						</div>
+                <div class="register__input-wrap">
+                  <input
+                    type="text"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    class="register__input-field"
+                    autocomplete="off"
+                  />
+                  <label>Số điện thoại<span style="color: red">*</span></label>
+                  <div class="register__error"></div>
+                </div>
 
-						<div class="register__actual-form">
-							<div class="register__input-wrap">
-								<input type="text" id="userName" name="userName" class="register__input-field" autocomplete="off" />
-								<label>Họ tên<span style="color:red">*</span></label>
-								<div class="register__error"></div>
-							</div>
+                <div class="register__input-wrap">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="register__input-field"
+                    autocomplete="off"
+                  />
+                  <label>Mật khẩu<span style="color: red">*</span></label>
+                  <span id="togglePassword" class="register__toggle-password"
+                    ><span class="material-symbols-outlined" id="eye-open"
+                      >visibility</span
+                    >
+                  </span>
+                  <div class="register__error"></div>
+                </div>
 
-							<div class="register__input-wrap">
-								<input type="text" id="phoneNumber" name="phoneNumber" class="register__input-field" autocomplete="off" />
-								<label>Số điện thoại<span style="color:red">*</span></label>
-								<div class="register__error"></div>
-							</div>
+                <div class="register__input-wrap">
+                  <input
+                    type="password"
+                    id="passwordRepeat"
+                    name="passwordRepeat"
+                    class="register__input-field"
+                    autocomplete="off"
+                  />
+                  <label
+                    >Nhập lại mật khẩu<span style="color: red">*</span></label
+                  >
+                  <span id="togglePasswordN" class="register__toggle-password"
+                    ><span class="material-symbols-outlined" id="eye-open"
+                      >visibility</span
+                    >
+                  </span>
+                  <div class="register__error"></div>
+                </div>
+                <!-- <button type="submit">Đăng ký</button> -->
+                <input
+                  type="submit"
+                  value="Đăng ký"
+                  class="register__sign-btn"
+                />
 
-							<div class="register__input-wrap">
-								<input type="password" id="password" name="password" class="register__input-field" autocomplete="off" />
-								<label>Mật khẩu<span style="color:red">*</span></label>
-								<span id="togglePassword" class="register__toggle-password"><span class="material-symbols-outlined" id="eye-open">visibility</span>
-								</span>
-								<div class="register__error"></div>
-							</div>
+                <p class="register__text">
+                  Bằng việc đăng ký, người dùng đồng ý với
+                  <a href="#">Điều khoản sử dụng</a> và
+                  <a href="/privacy-policy">Chính sách bảo mật</a>
+                </p>
+              </div>
+            </form>
+          </div>
 
-							<div class="register__input-wrap">
-								<input type="password" id="passwordRepeat" name="passwordRepeat" class="register__input-field" autocomplete="off" />
-								<label>Nhập lại mật khẩu<span style="color:red">*</span></label>
-								<span id="togglePasswordN" class="register__toggle-password"><span class="material-symbols-outlined" id="eye-open">visibility</span>
-								</span>
-								<div class="register__error"></div>
-							</div>
-							<!-- <button type="submit">Đăng ký</button> -->
-							<input type="submit" value="Đăng ký" class="register__sign-btn" />
+          <div class="register__carousel">
+            <div class="register__images-wrapper">
+              <img
+                src="/imgs/slider/image1.png"
+                class="register__image register__img-1 show"
+                alt="image1"
+              />
+              <img
+                src="/imgs/slider/image2.png"
+                class="register__image register__img-2"
+                alt="image2"
+              />
+              <img
+                src="/imgs/slider/image3.png"
+                class="register__image register__img-3"
+                alt="image3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-							<p class="register__text">
-								Bằng việc đăng ký, người dùng đồng ý với
-								<a href="#">Điều khoản sử dụng</a> và
-								<a href="/privacy-policy">Chính sách bảo mật</a>
-							</p>
-						</div>
-					</form>
-				</div>
+    <%- include('../../components/scrollup') %> <%-
+    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
 
-				<div class="register__carousel">
-					<div class="register__images-wrapper">
-						<img src="/imgs/slider/image1.png" class="register__image register__img-1 show" alt="image1" />
-						<img src="/imgs/slider/image2.png" class="register__image register__img-2" alt="image2" />
-						<img src="/imgs/slider/image3.png" class="register__image register__img-3" alt="image3" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
-
-	<%- include('../../components/scrollup') %>
-	<%- include('../../partials/footer') %>
-	<%- include('../../partials/app-bar') %>
-
-	<!-- Javascript file -->
-	<script src="/scripts/pages/auth/register.js"></script>
-
-</body>
-
+    <!-- Javascript file -->
+    <script src="/scripts/pages/auth/register.js"></script>
+  </body>
 </html>

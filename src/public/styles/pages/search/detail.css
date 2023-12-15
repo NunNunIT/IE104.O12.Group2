@@ -1,9 +1,6 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/breadcrumb.css');
 @import url('/styles/components/small-slider.css');
 @import url('/styles/components/comment.css');
-@import url('/styles/components/pagination.css');
-@import url('/styles/components/scrollup.css');
 @import url('/styles/components/carousel.css');
 @import url('/styles/components/image-modal.css');
 @import url('/styles/components/success-modal.css');
@@ -206,14 +203,6 @@ input::-webkit-inner-spin-button {
     background: -webkit-linear-gradient(top, #3398fb 0%, var(--primary-color-2) 100%);
     background: linear-gradient(to right, #3398fb 0%, var(--primary-color-2) 100%);
 }
-
-/* .promo__no-discount div h2 {
-    color: var(--primary-color-2);
-}
-
-.promo__no-discount .promo__content {
-    padding: 0;
-} */
 
 .promo__header {
     display: inherit;

@@ -1,4 +1,4 @@
-const menuItem = Array.from(document.querySelectorAll('.menu__item')).slice(1)
+const menuItem = Array.from(document.querySelectorAll('.menu__item')).slice(-3)
 
 const activeMenuItem = localStorage.getItem('activeMenuItem')
 menuItem.forEach(item => {

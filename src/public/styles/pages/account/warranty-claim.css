@@ -1,9 +1,9 @@
 @import url('/styles/general.css');
-@import url('/styles/partials/header.css');
 @import url('/styles/components/warranty-item.css');
 @import url('/styles/components/popup-warranty.css');
 @import url('/styles/components/sidebar_account.css');
 @import url('/styles/components/success-modal.css');
+@import url("/styles/components/sidebar_account.css");
 
 
 body {

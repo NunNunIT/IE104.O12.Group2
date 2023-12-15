@@ -2,13 +2,13 @@ const inputs = document.querySelectorAll(".reset__input-field");
 const toggle_btn = document.querySelectorAll(".reset__toggle");
 
 inputs.forEach((inp) => {
-  inp.addEventListener("focus", () => {
-    inp.classList.add("active");
-  });
-  inp.addEventListener("blur", () => {
-    if (inp.value != "") return;
-    inp.classList.remove("active");
-  });
+	inp.addEventListener("focus", () => {
+		inp.classList.add("active");
+	});
+	inp.addEventListener("blur", () => {
+		if (inp.value != "") return;
+		inp.classList.remove("active");
+	});
 });
 
 const passwordInput = document.getElementById("password");
@@ -21,22 +21,22 @@ const toggleconfirmPasswordButton = document.getElementById(
 );
 
 togglePasswordButton.addEventListener("click", function () {
-  const isVisible =
-    togglePasswordButton.getAttribute("data-visible") === "true";
+	const isVisible =
+		togglePasswordButton.getAttribute("data-visible") === "true";
 
-  if (isVisible) {
-    passwordInput.type = "password";
-    togglePasswordButton.setAttribute("data-visible", "false");
-    togglePasswordButton.querySelector(
-      ".material-symbols-outlined"
-    ).textContent = "visibility";
-  } else {
-    passwordInput.type = "text"; // Hiển thị mật khẩu
-    togglePasswordButton.setAttribute("data-visible", "true");
-    togglePasswordButton.querySelector(
-      ".material-symbols-outlined"
-    ).textContent = "visibility_off";
-  }
+	if (isVisible) {
+		passwordInput.type = "password";
+		togglePasswordButton.setAttribute("data-visible", "false");
+		togglePasswordButton.querySelector(
+			".material-symbols-outlined"
+		).textContent = "visibility";
+	} else {
+		passwordInput.type = "text"; // Hiển thị mật khẩu
+		togglePasswordButton.setAttribute("data-visible", "true");
+		togglePasswordButton.querySelector(
+			".material-symbols-outlined"
+		).textContent = "visibility_off";
+	}
 });
 
 toggleoldPasswordButton.addEventListener("click", function () {
@@ -59,22 +59,22 @@ toggleoldPasswordButton.addEventListener("click", function () {
 });
 
 toggleconfirmPasswordButton.addEventListener("click", function () {
-  const isVisible =
-    toggleconfirmPasswordButton.getAttribute("data-visible") === "true";
+	const isVisible =
+		toggleconfirmPasswordButton.getAttribute("data-visible") === "true";
 
-  if (isVisible) {
-    confirmPasswordInput.type = "password"; // Ẩn mật khẩu
-    toggleconfirmPasswordButton.setAttribute("data-visible", "false");
-    toggleconfirmPasswordButton.querySelector(
-      ".material-symbols-outlined"
-    ).textContent = "visibility";
-  } else {
-    confirmPasswordInput.type = "text";
-    toggleconfirmPasswordButton.setAttribute("data-visible", "true");
-    toggleconfirmPasswordButton.querySelector(
-      ".material-symbols-outlined"
-    ).textContent = "visibility_off";
-  }
+	if (isVisible) {
+		confirmPasswordInput.type = "password"; // Ẩn mật khẩu
+		toggleconfirmPasswordButton.setAttribute("data-visible", "false");
+		toggleconfirmPasswordButton.querySelector(
+			".material-symbols-outlined"
+		).textContent = "visibility";
+	} else {
+		confirmPasswordInput.type = "text";
+		toggleconfirmPasswordButton.setAttribute("data-visible", "true");
+		toggleconfirmPasswordButton.querySelector(
+			".material-symbols-outlined"
+		).textContent = "visibility_off";
+	}
 });
 
 const resetPasswordPost = document.getElementById("form-change-pass");
@@ -91,18 +91,18 @@ const setError = (element, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(`.error`);
 
-  errorDisplay.innerText = message;
-  inputControl.classList.add("error");
-  inputControl.classList.remove("error");
+	errorDisplay.innerText = message;
+	inputControl.classList.add("error");
+	inputControl.classList.remove("error");
 };
 
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(`.error`);
 
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
+	errorDisplay.innerText = "";
+	inputControl.classList.add("success");
+	inputControl.classList.remove("error");
 };
 
 const validateInput = async () => {
@@ -110,7 +110,7 @@ const validateInput = async () => {
   const confirmPasswordValue = confirmPassword.value.trim();
   const passwordValue = password.value.trim();
 
-  let isAllValid = true;
+	let isAllValid = true;
 
   if (oldPasswordValue === "") {
     setError(oldPassword, "Vui lòng nhập mật khẩu!");

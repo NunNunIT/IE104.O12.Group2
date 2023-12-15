@@ -1,5 +1,4 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header-small.css");
 
 #eye-open {
     font-variation-settings:
@@ -240,17 +239,14 @@ label {
 
 .login__image--img-1 {
     transition: transform 0.8s ease-in-out, opacity 0.45s linear;
-    /* transform: translate(0, -50px); */
 }
 
 .login__image--img-2 {
     transition: transform 0.8s ease-in-out, opacity 0.45s linear;
-    /* transform: scale(0.4, 0.5); */
 }
 
 .login__image--img-3 {
     transition: transform 0.8s ease-in-out, opacity 0.45s linear;
-    /* transform: scale(0.3) rotate(-20deg); */
 }
 
 .login__image.show {
@@ -319,10 +315,6 @@ label {
     .login__heading {
         margin: 2rem 0;
     }
-
-    /* form.login__sign-in-form {
-        transform: translateX(100%);
-    } */
 
     .login__carousel {
         display: none;

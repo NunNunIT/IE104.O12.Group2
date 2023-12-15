@@ -1,10 +1,10 @@
-const general = require ('../../models/general.model')
-const cate = require ('../../models/admin/cateAdmin.model') 
+const general = require('../../models/general.model')
+const cate = require('../../models/admin/cateAdmin.model')
 
 const cateAdminController = () => { }
 
 // [GET] /categories_admin/searchkey=?&page=?
-cateAdminController.getCategories = async (req, res) =>{
+cateAdminController.getCategories = async (req, res) => {
     const title = 'QUẢN LÝ DANH MỤC SẢN PHẨM'
     // lấy từ khóa searchKey=?
     let admin = req.admin
@@ -15,16 +15,16 @@ cateAdminController.getCategories = async (req, res) =>{
     let categories = await cate.getCategories(searchKey, page, limit)
     let formatFunction = await general.formatFunction()
 
-    res.status(200).render('admin/pages/cate_admin',{
+    res.status(200).render('admin/pages/cate_admin', {
         title: title,
         admin: admin,
         data: categories,
-        formatFunction: formatFunction, 
+        formatFunction: formatFunction,
     })
 }
 
 // [GET] /categories_admin/searchkey=?&page=?
-cateAdminController.getProducts = async (req, res) =>{
+cateAdminController.getProducts = async (req, res) => {
     const title = 'QUẢN LÝ SẢN PHẨM'
     // lấy từ khóa searchKey=?
     let admin = req.admin
@@ -35,29 +35,29 @@ cateAdminController.getProducts = async (req, res) =>{
     let products = await cate.getProducts(searchKey, page, limit)
     let formatFunction = await general.formatFunction()
 
-    res.status(200).render('admin/pages/product_admin',{
+    res.status(200).render('admin/pages/product_admin', {
         title: title,
         admin: admin,
         data: products,
-        formatFunction: formatFunction, 
+        formatFunction: formatFunction,
     })
 }
 
-cateAdminController.addCategories = async (req, res) =>{
+cateAdminController.addCategories = async (req, res) => {
     const title = 'QUẢN LÝ DANH MỤC SẢN PHẨM'
     // lấy từ khóa searchKey=?
     let admin = req.admin
 
     let formatFunction = await general.formatFunction()
 
-    res.status(200).render('admin/pages/cate_view_admin',{
+    res.status(200).render('admin/pages/cate_view_admin', {
         title: title,
         admin: admin,
         formatFunction: formatFunction,
     })
 }
 
-cateAdminController.addProducts = async (req, res) =>{
+cateAdminController.addProducts = async (req, res) => {
     const title = 'QUẢN LÝ SẢN PHẨM'
     // lấy từ khóa searchKey=?
     let admin = req.admin
@@ -65,7 +65,7 @@ cateAdminController.addProducts = async (req, res) =>{
     let categories = await general.getCates()
     let formatFunction = await general.formatFunction()
 
-    res.status(200).render('admin/pages/product_view_admin',{
+    res.status(200).render('admin/pages/product_view_admin', {
         title: title,
         admin: admin,
         categories: categories,
@@ -74,7 +74,7 @@ cateAdminController.addProducts = async (req, res) =>{
 }
 
 // [POST] /categories_admin/delete/:id
-cateAdminController.deleteCategory = async (req, res) =>{
+cateAdminController.deleteCategory = async (req, res) => {
 }
 
 module.exports = cateAdminController

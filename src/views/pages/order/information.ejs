@@ -1,120 +1,192 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#2a7ee4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="IE104.O12_Nhom2" />
+    <meta
+      name="description"
+      content="Thông tin khách hàng và đơn hàng luôn được bảo vệ bởi TECHTWO."
+    />
+    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+    <link rel="stylesheet" href="/styles/pages/order/information.css" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="IE104.O12_Nhom2">
-	<meta name="description" content="Thông tin khách hàng và đơn hàng luôn được bảo vệ bởi TECHTWO.">
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-	<link rel="stylesheet" href="/styles/pages/order/information.css">
+    <title>TECHTWO.</title>
+  </head>
 
-	<title>TECHTWO.</title>
-</head>
+  <body>
+    <%- include('../../partials/header') %> <%-
+    include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng',
+    link : '' }, { text : 'Điền thông tin đặt hàng', link : '' }] }) %>
 
-<body>
+    <main class="order-container">
+      <section class="order-product">
+        <div class="order-product__title mobile-hidden">
+          <h4 class="order-product__col-big">Sản phẩm</h4>
+          <h4 class="order-product__col">Loại</h4>
+          <h4 class="order-product__col">Đơn giá</h4>
+          <h4 class="order-product__col">Số lượng</h4>
+          <h4 class="order-product__col">Số tiền</h4>
+        </div>
 
-	<%- include('../../partials/header') %>
-	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng', link : '' }, { text : 'Điền thông tin đặt hàng', link : '' }] }) %>
+        <div class="order-product__content"></div>
+      </section>
 
-	<main class="order-container">
-		<section class="order-product">
-			<div class="order-product__title mobile-hidden">
-				<h4 class="order-product__col-big">Sản phẩm</h4>
-				<h4 class="order-product__col">Loại</h4>
-				<h4 class="order-product__col">Đơn giá</h4>
-				<h4 class="order-product__col">Số lượng</h4>
-				<h4 class="order-product__col">Số tiền</h4>
-			</div>
+      <form onsubmit="submitOrderForm(event)" id="order-form">
+        <section class="order-detail">
+          <div class="order-detail__customer">
+            <h2>Thông tin người nhận hàng</h2>
+            <div>
+              <div class="order-detail__input">
+                <input
+                  name="buyerName"
+                  value="<%= user.user.user_name ?? '' %>"
+                  onchange="validateName(event)"
+                  type="text"
+                  placeholder="Họ và tên"
+                  required
+                />
+                <p class="error">
+                  Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!
+                </p>
+              </div>
+              <div class="order-detail__input">
+                <input
+                  name="buyerPhone"
+                  value="<%= user.user.user_phone ?? '' %>"
+                  onchange="validatePhoneNumber(event)"
+                  type="text"
+                  placeholder="Số điện thoại"
+                  required
+                />
+                <p class="error">Số điện thoại không hợp lệ!</p>
+              </div>
+            </div>
+          </div>
 
-			<div class="order-product__content"></div>
-		</section>
+          <div class="order-detail__location location">
+            <h2>Địa chỉ nhận hàng</h2>
+            <div class="location__input-group">
+              <input
+                name="province"
+                onchange="changeProvince(event)"
+                class="location__select"
+                type="text"
+                list="province"
+                placeholder="Tỉnh/Thành phố"
+                required
+              />
+              <datalist id="province">
+                <option value="Hồ Chí Minh"></option>
+                <option value="Vũng Tàu"></option>
+              </datalist>
 
-		<form onsubmit="submitOrderForm(event)" id="order-form">
-			<section class="order-detail">
-				<div class="order-detail__customer">
-					<h2>Thông tin người nhận hàng</h2>
-					<div>
-						<div class="order-detail__input">
-							<input name="buyerName" value="<%= user.user.user_name ?? '' %>" onchange="validateName(event)" type="text" placeholder="Họ và tên" required>
-							<p class="error">Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!</p>
-						</div>
-						<div class="order-detail__input">
-							<input name="buyerPhone" value="<%= user.user.user_phone ?? '' %>" onchange="validatePhoneNumber(event)" type="text" placeholder="Số điện thoại" required>
-							<p class="error">Số điện thoại không hợp lệ!</p>
-						</div>
-					</div>
-				</div>
+              <input
+                name="district"
+                onchange="changeDistrict(event)"
+                class="location__select"
+                type="text"
+                list="district"
+                placeholder="Quận/huyện"
+                required
+              />
+              <datalist id="district"> </datalist>
+              <input
+                name="ward"
+                class="location__select"
+                type="text"
+                list="ward"
+                placeholder="Phường/xã"
+                required
+              />
+              <datalist id="ward"> </datalist>
+              <input
+                name="address"
+                type="text"
+                placeholder="Địa chỉ"
+                required
+              />
+            </div>
+          </div>
 
-				<div class="order-detail__location location">
-					<h2>Địa chỉ nhận hàng</h2>
-					<div class="location__input-group">
-						<input name="province" onchange="changeProvince(event)" class="location__select" type="text" list="province" placeholder="Tỉnh/Thành phố" required>
-						<datalist id="province">
-							<option value="Hồ Chí Minh">
-							<option value="Vũng Tàu">
-						</datalist>
+          <div class="order-detail__note note">
+            <h2>Yêu cầu kèm theo</h2>
+            <textarea
+              class="note__text-area"
+              name="note"
+              placeholder="Hãy nhập yêu cầu kèm theo (tùy chọn)..."
+            ></textarea>
+          </div>
 
-						<input name="district" onchange="changeDistrict(event)" class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
-						<datalist id="district"> </datalist>
-						<input name="ward" class="location__select" type="text" list="ward" placeholder="Phường/xã" required>
-						<datalist id="ward"> </datalist>
-						<input name="address" type="text" placeholder="Địa chỉ" required>
-					</div>
-				</div>
+          <div class="order-detail__pay-method pay-method">
+            <h2>Phương thức thanh toán</h2>
+            <div class="pay-method__choose">
+              <div>
+                <input
+                  type="radio"
+                  id="radio1"
+                  name="pay-method"
+                  value="1"
+                  required
+                />
+                <label for="radio1">Thanh toán qua MOMO</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="radio2"
+                  name="pay-method"
+                  value="2"
+                  required
+                />
+                <label for="radio2">Thanh toán qua thẻ ATM</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="radio3"
+                  name="pay-method"
+                  value="3"
+                  required
+                />
+                <label for="radio3">Thanh toán qua thẻ VISA</label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
 
-				<div class="order-detail__note note">
-					<h2>Yêu cầu kèm theo</h2>
-					<textarea class="note__text-area" name="note" placeholder="Hãy nhập yêu cầu kèm theo (tùy chọn)..."></textarea>
-				</div>
+      <section class="order-pay">
+        <div class="order-pay__price">
+          <div class="order-pay__price-container">
+            <div><del class="order-pay__total-del"></del></div>
+            <div>
+              <p>Tổng tiền hàng</p>
+              <p class="order-pay__total"></p>
+            </div>
+          </div>
+        </div>
 
-				<div class="order-detail__pay-method pay-method">
-					<h2>Phương thức thanh toán</h2>
-					<div class="pay-method__choose">
-						<div>
-							<input type="radio" id="radio1" name="pay-method" value="1" required>
-							<label for="radio1">Thanh toán qua MOMO</label>
-						</div>
-						<div>
-							<input type="radio" id="radio2" name="pay-method" value="2" required>
-							<label for="radio2">Thanh toán qua thẻ ATM</label>
-						</div>
-						<div>
-							<input type="radio" id="radio3" name="pay-method" value="3" required>
-							<label for="radio3">Thanh toán qua thẻ VISA</label>
-						</div>
-					</div>
-				</div>
-			</section>
-		</form>
+        <div class="order-pay__submit">
+          <p>
+            Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br /><a
+              href="/privacy-policy"
+              >Điều khoản đặt hàng của TECHTWO.</a
+            >
+          </p>
+          <button id="order-form-submit" type="submit" form="order-form">
+            Đặt hàng
+          </button>
+        </div>
+      </section>
+    </main>
 
-		<section class="order-pay">
-			<div class="order-pay__price">
-				<div class="order-pay__price-container">
-					<div><del class="order-pay__total-del"></del></div>
-					<div>
-						<p>Tổng tiền hàng</p>
-						<p class="order-pay__total"></p>
-					</div>
-				</div>
-			</div>
+    <%- include('../../components/scrollup') %> <%-
+    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
 
-			<div class="order-pay__submit">
-				<p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br><a href="/privacy-policy">Điều khoản đặt hàng của TECHTWO.</a></p>
-				<button id="order-form-submit" type="submit" form="order-form">Đặt hàng</button>
-			</div>
-		</section>
-
-	</main>
-
-	<%- include('../../components/scrollup') %>
-	<%- include('../../partials/footer') %>
-	<%- include('../../partials/app-bar') %>
-
-	<script src="/scripts/components/scrollup.js"></script>
-	<script src="/scripts/pages/order/information.js"></script>
-	<script src="/scripts/partials/header.js"></script>
-
-</body>
-
+    <script src="/scripts/components/scrollup.js"></script>
+    <script src="/scripts/pages/order/information.js"></script>
+    <script src="/scripts/partials/header.js"></script>
+  </body>
 </html>

@@ -1,37 +1,48 @@
-const db = require('../../config/db/connect');
+const db = require('../../config/db/connect')
 const util = require('node:util')
 const jwt = require('jsonwebtoken')
 const query = util.promisify(db.query).bind(db)
-const general = require('../general.model');
+const general = require('../general.model')
 const index = require('./index.model')
 
 
-const account = function () {}
+const account = function () { }
 
 
 account.updateInfo = async (req, res) => {
-    let updateInfo = `UPDATE users 
-                      SET user_login_name = ${req.body.user_phone},
-                      user_name = '${req.body.user_name}',
-                      user_birth = DATE(${req.body.user_birth}),
-                      user_email = '${req.body.user_email}', 
-                      user_phone = '${req.body.user_phone}',
-                      user_address ='${req.body.user_address}'
-                      WHERE user_id = ${req.user.user_id}`
-    let result = await query(updateInfo)
-    console.log(result)
+    const updateInfo = `
+        UPDATE users 
+        SET 
+            user_login_name = ?,
+            user_name = ?,
+            user_birth = ?,
+            user_sex = ?,
+            user_email = ?,
+            user_phone = ?,
+            user_address = ?
+        WHERE user_id = ?
+    `
+
+    const values = [
+        req.body.user_phone,
+        req.body.user_name,
+        new Date(req.body.user_birth),
+        req.body.user_sex,
+        req.body.user_email,
+        req.body.user_phone,
+        req.body.user_address,
+        req.user.user_id
+    ]
+
+    const result = await query(updateInfo, values)
 }
 
-account.checkPassword = async (req, callback) => {
-    // console.log('Đăng nhập:', req.body)
-    const user_password = req.body.user_password;
-    const user_id = req.user.user_id;
-    console.log(user_password)
 
-    // console.log('gán req.body:', user_phone, user_password)
+account.checkPassword = async (req, callback) => {
+    const user_password = req.body.user_password
+    const user_id = req.user.user_id
 
     db.query('SELECT *  FROM users WHERE user_id = ?', [user_id], async (err, result) => {
-        // console.log(result)
         if (err) callback(1, 0, 0)
         if (!await bcrypt.compare(user_password, result[0].user_password)) {
             callback(0, 1, 0)
@@ -48,7 +59,7 @@ account.getPurchaseHistory = async (customer_id, order_status, order_id) => {
 
     if (order_id) {
         getPurchaseHistorys += ` AND order_id = ${order_id}`
-    } 
+    }
     if (order_status) {
         getPurchaseHistorys += ` AND order_status = '${order_status}'`
     }
@@ -58,34 +69,34 @@ account.getPurchaseHistory = async (customer_id, order_status, order_id) => {
     let purchaseHistorys = await query(getPurchaseHistorys)
 
     return new Promise(async (resolve, reject) => {
-        const promises = [];
-        purchaseHistorys.forEach(async(purchaseHistory) => {
-        promises.push(
-            account.getDetailPurchaseHistorys(purchaseHistory.order_id).then((order_details) => {
-                purchaseHistory.order_details = order_details
-            })
-        );
+        const promises = []
+        purchaseHistorys.forEach(async (purchaseHistory) => {
+            promises.push(
+                account.getDetailPurchaseHistorys(purchaseHistory.order_id).then((order_details) => {
+                    purchaseHistory.order_details = order_details
+                })
+            )
         })
-        await Promise.all(promises);
-        resolve(purchaseHistorys);
+        await Promise.all(promises)
+        resolve(purchaseHistorys)
     })
 }
 
 account.getDetailPurchaseHistorys = async (order_id) => {
-    let getDetailPurchaseHistorys = `SELECT * FROM view_order_detail WHERE order_id = ${order_id}` 
+    let getDetailPurchaseHistorys = `SELECT * FROM view_order_detail WHERE order_id = ${order_id}`
     let detailPurchaseHistorys = await query(getDetailPurchaseHistorys)
 
     return new Promise(async (resolve, reject) => {
-        resolve(detailPurchaseHistorys);
+        resolve(detailPurchaseHistorys)
     })
 }
 
 account.feedbackPost = async (product_variant_id, customer_id, order_id, feedback_rate, feedback_content, callback) => {
-    let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id} ${feedback_rate}, '${feedback_content}')` 
+    let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id} ${feedback_rate}, '${feedback_content}')`
 
     db.query(insertFeedback, (err, result) => {
         if (err) {
-            console.log(err);
+            console.log(err)
             callback(1, 0)
         } else {
             callback(0, 1)

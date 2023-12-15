@@ -2,59 +2,60 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/admin/pages/login_admin.css">
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/admin/pages/login_admin.css">
 
-    <title>TECHTWO.</title>
+	<title>TECHTWO. Đăng nhập Admin</title>
 </head>
 
 <body>
-    <main>
-        <div class="login__box">
-            <div class="login__inner-box">
-                <div class="login__forms-wrap">
-                    <form id="form" action="/admin/" method="POST" autocomplete="off" class="login__sign-in-form" >
-                        <div class="login__logo">
-                            <a href=#><img src="/imgs/admin/logo-admin-blue.png" alt="techtwo" /> </a>
-                        </div>
+	<main>
+		<div class="login__box">
+			<div class="login__inner-box">
+				<div class="login__forms-wrap">
+					<form id="form" action="/admin/" method="POST" autocomplete="off" class="login__sign-in-form">
+						<div class="login__logo">
+							<a href=#><img src="/imgs/admin/logo-admin-blue.png" alt="techtwo" /> </a>
+						</div>
 
-                        <div class="login__heading">
-                            <h1>Chào mừng quay trở lại Admin TECHTWO.</h1>
-                        </div>
+						<div class="login__heading">
+							<h1>Chào mừng quay trở lại Admin TECHTWO.</h1>
+						</div>
 
-                        <div class="actual-form">
-                            <div class="login__input-wrap">
-                                <input id="adminLogin" type="text" name="adminLogin" class="login__input-field" autocomplete="off" />
-                                <label>Tên đăng nhập<span style="color:red">*</span></label>
-                                <div class="login__error"></div>
-                            </div>
+						<div class="actual-form">
+							<div class="login__input-wrap">
+								<input id="adminLogin" type="text" name="adminLogin" class="login__input-field" autocomplete="off" />
+								<label>Tên đăng nhập<span style="color:red">*</span></label>
+								<div class="login__error"></div>
+							</div>
 
-                            <div class="login__input-wrap">
-                                <input id="password" type="password" name="password" class="login__input-field" autocomplete="off" />
-                                <label>Mật khẩu<span style="color:red">*</span></label>
-                                <span id="togglePassword" class="login__toggle-password"><span class="material-symbols-outlined" id="eye-open">
-                                        visibility</span>
-                                </span>
-                                <div class="login__error"></div>
-                            </div>
+							<div class="login__input-wrap">
+								<input id="password" type="password" name="password" class="login__input-field" autocomplete="off" />
+								<label>Mật khẩu<span style="color:red">*</span></label>
+								<span id="togglePassword" class="login__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+										visibility</span>
+								</span>
+								<div class="login__error"></div>
+							</div>
 
-                            <input type="submit" value="Đăng nhập" class="login__sign-btn" />
-                            <!-- <input value="Đăng nhập" class="login__sign-btn" /> -->
-                            <p class="login__text">
-                                <a href="/auth/forgot">Quên mật khẩu?</a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        </div>
-    </main>
-    <script src="/scripts/admin/login_admin.js"></script>
+							<input type="submit" value="Đăng nhập" class="login__sign-btn" />
+							<!-- <input value="Đăng nhập" class="login__sign-btn" /> -->
+							<p class="login__text">
+								<a href="/auth/forgot">Quên mật khẩu?</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	</main>
+	<script src="/scripts/admin/login_admin.js"></script>
 
 </body>
 

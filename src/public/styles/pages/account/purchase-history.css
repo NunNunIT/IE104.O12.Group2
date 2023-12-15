@@ -1,8 +1,6 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
 @import url("/styles/components/purchase-item.css");
+@import url("/styles/components/sidebar_account.css");
 
 body {
 	width: 100%;
@@ -21,7 +19,6 @@ a {
 	color: black;
 	font-weight: 500;
 }
-
 
 .account-container {
 	width: 80%;
@@ -58,7 +55,6 @@ a {
 .purchase__status a:hover {
 	cursor: pointer;
 	color: var(--primary-color-1);
-	/* border-bottom: 2px solid var(--primary-color-1); */
 	padding: 12px 24px 12px 24px;
 }
 
@@ -67,7 +63,6 @@ a {
 	border-bottom: 2px solid var(--primary-color-1);
 	padding: 12px 24 10px 24px;
 }
-
 
 #purchase__status-all.active,
 #purchase__status-payment.active,

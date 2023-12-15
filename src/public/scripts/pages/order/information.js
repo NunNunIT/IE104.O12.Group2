@@ -180,17 +180,6 @@ function changeDistrict(event) {
 function submitOrderForm(event) {
     event.preventDefault()
     const orderForm = document.querySelector('#order-form')
-
-    // const radios = orderForm.querySelectorAll('.pay-method__choose div input')
-    // console.log(radios)
-    // let radioValue
-    // radios.forEach(radio => {
-    //     if (radio.checked == true)
-    //         radioValue = radio.value
-    // })
-
-    // orderForm.action = `/order/${radioValue}`
-    // console.log(orderForm.action)
     fetchOrderPost()
 }
 
@@ -205,7 +194,6 @@ const toCurrency = function (money) {
 let cartData = localStorage.getItem('formDataArray')
 
 let cartDataString = JSON.parse(cartData)
-console.log(cartDataString)
 
 if (cartDataString.length) {
     let orderProductContent = document.querySelector('.order-product__content')
@@ -343,7 +331,6 @@ function getSelectedValue() {
     for (var i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
             var selectedValue = radioButtons[i].value;
-            console.log("Selected Value: " + selectedValue);
             return selectedValue;
         }
     }

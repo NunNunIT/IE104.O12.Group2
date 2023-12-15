@@ -5,7 +5,7 @@ const general = require('../general.model');
 const indexAdmin = require('./indexAdmin.model');
 const product = require('../customer/product.model');
 
-const cateAdmin = function () {}
+const cateAdmin = function () { }
 
 cateAdmin.getCategories = async (searchKey, page, limit) => {
     let getRowSQL = "SELECT COUNT(*) as total FROM view_cate_admin"

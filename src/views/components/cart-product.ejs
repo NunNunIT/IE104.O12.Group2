@@ -1,20 +1,20 @@
 <div class="cart-item mobile-hidden">
-	<% console.log(cart) %>
 	<input type="hidden" name="product_variant_id" value="<%= cart.product_variant_id %>" placeholder="">
 	<input onclick="checkOne(event); calcTotalPrice(event)" type="checkbox" class="checkbox mobile-hidden" placeholder="">
-	<div class="cart-item__product lg-col">
+	<a href="/search/<%= cart.product_variant_id %>?" class="cart-item__product lg-col">
 		<img src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name %>">
 		<p><%= cart.product_name ?? 'null' %></p>
-	</div>
+	</a>
 
 	<div class="sm-col">
-		<select name="variant" class="cart-item__variants">
-			<% if (cart.cart_product_variant) { %>
+		<% if (cart.cart_product_variant) { %>
+		<input type="hidden" name="product_variant_id_old" value="<%= cart.product_variant_id %>" placeholder="">
+		<select onchange="changeVariant(event)" name="variant" class="cart-item__variants">
 			<% cart.cart_product_variant.forEach(variant => { %>
-			<option value="<%= variant.product_variant_name ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
+			<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id ?? 'null' %>" <%= (variant.product_variant_id == cart.product_variant_id) ? 'selected':'' %>><%= variant.product_variant_name ?? 'null' %> </option>
 			<% }) %>
-			<% } %>
 		</select>
+		<% } %>
 	</div>
 
 	<div class="sm-col cart-item__unit-price">
@@ -32,7 +32,7 @@
 
 	<div class="cart-item__quantity sm-col">
 		<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-		<input onchange="calcPrice(event); calcTotalPrice(event)" name="product_quantity" type="number" value="<%= cart.cart_quantity %>" min="1" max="100" placeholder="">
+		<input onchange="calcPrice(event); calcTotalPrice(event); changeQuantity(event)" name="product_quantity" type="number" value="<%= cart.cart_quantity %>" min="1" max="100" placeholder="">
 		<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 	</div>
 
@@ -58,13 +58,14 @@
 		<img src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name %>">
 		<div class="cart-item__content">
 			<p><%= cart.product_name %></p>
-			<select class="cart-item__variants">
-				<% if (cart.cart_product_variant) { %>
+			<% if (cart.cart_product_variant) { %>
+			<input type="hidden" name="product_variant_id_old" value="<%= cart.product_variant_id %>" placeholder="">
+			<select onchange="changeVariant(event)" class="cart-item__variants">
 				<% cart.cart_product_variant.forEach(variant => { %>
-				<option value="<%= variant.product_variant_name ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
+				<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
 				<% }) %>
-				<% } %>
 			</select>
+			<% } %>
 			<div class="cart-item__unit-price">
 				<% if (cart.discount_amount) { %>
 				<input type="hidden" name="product_variant_price_before" value="<%= cart.product_variant_price %>" placeholder="">

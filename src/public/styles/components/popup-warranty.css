@@ -33,9 +33,7 @@
     width: 55%;
     height: auto;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
-    /* align-items: center; */
     padding: 32px;
 
 }
@@ -84,10 +82,6 @@
     font-style: italic;
     margin: 12px 0;
 }
-
-/* .popup p {
-    margin-bottom: 6px;
-} */
 
 .popup__content-title {
     width: 100%;

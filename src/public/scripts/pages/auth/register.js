@@ -114,7 +114,7 @@ const isValidPhoneNumber = phoneNumber => {
     return re.test(String(phoneNumber).trim());
 }
 
-const validateInput = () => {
+const validateInput = async () => {
     // Lấy giá trị của các trường thông tin
     const userNameValue = userName.value.trim();
     const phoneNumberValue = phoneNumber.value.trim();
@@ -160,7 +160,6 @@ const validateInput = () => {
         setSuccess(passwordRepeat);
     }
 
-
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
     if (isAllValid) {
         const register = {
@@ -169,33 +168,31 @@ const validateInput = () => {
             user_password: password.value.trim()
         };
 
-        fetch("/auth/register", {
+        await fetch("/auth/register", {
                 method: "POST",
                 body: JSON.stringify(register),
                 headers: {
                     "Content-Type": "application/json"
                 }
             }).then(res => res.json())
-            .then(back => {
+            .then(async back => {
                 if (back.status == "error") {
-                    // success.style.display = "none"
-                    // error.style.display = "block";
                     setError(phoneNumber, back.error);
-                    // error.innerText = back.error
                 } else {
                     const login = {
                         phoneNumber: phoneNumber.value.trim(),
                         password: password.value.trim()
                     }
 
-                    fetch('/auth/login', {
+                    await fetch('/auth/login', {
                         method: 'POST',
                         body: JSON.stringify(login),
                         headers: {
                             "Content-Type": "application/json"
                         }
                     })
-                    window.location.href ='/'
+                    location.reload()
+                    // window.location.href ='/'
                 }
             })
     }

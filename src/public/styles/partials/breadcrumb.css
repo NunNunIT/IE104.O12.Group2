@@ -56,26 +56,6 @@
     }
 }
 
-/* 
-@media only screen and (max-width: 40rem) {
-    .breadcrumbs {
-        padding: 8px 5vw;
-    }
-
-    .breadcrumbs li {
-        max-width: 100px;
-    }
-
-    .breadcrumbs ul li:first-child {
-        display: none;
-    }
-
-    .breadcrumbs ul li:nth-child(2) {
-        display: none;
-    }
-
-} */
-
 /* 416px - Mobile */
 @media only screen and (max-width: 26rem) {
     .breadcrumbs {

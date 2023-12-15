@@ -23,8 +23,6 @@ dashboardController.getChart = async (req, res) => {
     let chartTop5 = await dashboard.getChartTop5()
     let chartRevenue = await dashboard.getChartRevenue()
 
-    console.log('-----------', chartTop5, chartRevenue)
-
     return res.json({
         status: 'success',
         chartTop5Data: chartTop5,
@@ -76,15 +74,6 @@ dashboardController.getCategory = async (req, res) => {
             searchKey: searchKey,
             limit: limit,
         })
-        // res.send({
-        // title: title,
-        // categories: cate,
-        // totalRow: totalRow,
-        // totalPage: totalPage,
-        // page: parseInt(page),
-        // searchKey: searchKey,
-        // limit: limit,
-        // })
     })
 }
 
@@ -92,7 +81,6 @@ dashboardController.getCategory = async (req, res) => {
 dashboardController.deleteCategory = async (req, res) => {
 
 }
-
 
 // [GET] /category
 dashboardController.getOrders = async (req, res) => {

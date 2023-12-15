@@ -8,19 +8,18 @@ const index = require('./index.model')
 const order = function () { }
 
 order.addCart = async (customer_id, product_variant_id, cart_quantity) => {
-    
+
     let findCart = `SELECT * FROM carts WHERE customer_id = ${customer_id} AND product_variant_id = ${product_variant_id}`
     let updateCart = `UPDATE carts SET cart_quantity = cart_quantity + ${cart_quantity} WHERE customer_id = ${customer_id} AND product_variant_id = ${product_variant_id}`
     let addCart = `INSERT INTO carts (customer_id, product_variant_id, cart_quantity) VALUES (${customer_id}, ${product_variant_id}, ${cart_quantity})`
 
     let find = await query(findCart)
-    if (find[0]){
-            await query(updateCart) 
-        } else {
-            await db.query(addCart)
-        }
+    if (find[0]) {
+        await query(updateCart)
+    } else {
+        await db.query(addCart)
+    }
     return 1
-
 }
 
 order.getDetailCart = async (customer_id) => {
@@ -30,12 +29,12 @@ order.getDetailCart = async (customer_id) => {
 
     return new Promise(async (resolve, reject) => {
         const promises = [];
-        listCart.forEach(async(cart) => {
-        promises.push(
-            general.getProductVariants(cart.product_variant_id).then((variant) => {
-                cart.cart_product_variant = variant
-            })
-        );
+        listCart.forEach(async (cart) => {
+            promises.push(
+                general.getProductVariants(cart.product_variant_id).then((variant) => {
+                    cart.cart_product_variant = variant
+                })
+            );
         })
         await Promise.all(promises);
         resolve(listCart);
@@ -59,6 +58,12 @@ order.deleteCart = function (customer_id, productsDeleteCart, callback) {
     })
 }
 
+order.updateCart = async function (customer_id, productsUpdateCart, callback) {
+    productsUpdateCart.forEach(async product => {
+        await order.addCart(customer_id, product.product_variant_id, product.cart_quantity)
+    })
+}
+
 order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
     let insertOrder = ''
     if (orderInfo.paying_method_id != 1) {
@@ -69,15 +74,14 @@ order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
                         VALUES (${customer_id}, '${orderInfo.order_name}', '${orderInfo.order_phone}', '${orderInfo.order_delivery_address}', '${orderInfo.order_note}', 1, 1, ${new Date().getDate()} ,'Đang giao hàng')`
     }
 
-    db.query (insertOrder, (err, result) => {
+    db.query(insertOrder, (err, result) => {
         if (err) {
             console.error(err);
             callback(1, 0, 0, 0);
         } else {
             let order_id = result.insertId ?? 0;
 
-            console.log('order mới dc thêm', result.insertId);
-            order.insertOrderDetails(order_id, orderDetails, function(error, success) {
+            order.insertOrderDetails(order_id, orderDetails, function (error, success) {
                 if (error) {
                     console.log(error);
                     callback(1, 0, 0, 0);
@@ -111,9 +115,9 @@ order.updateCancelOrder = async (order_id, callback) => {
     let updateCancelOrder = `UPDATE orders 
                             SET orders.order_status = 'Đã hủy'
                             WHERE orders.order_id = ${order_id}`
-    db.query (updateCancelOrder, (err, result) => {
+    db.query(updateCancelOrder, (err, result) => {
         if (err) {
-            console.log (err);
+            console.log(err);
             callback(1, 0);
         } else {
             callback(0, 1);

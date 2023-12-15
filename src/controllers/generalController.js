@@ -41,4 +41,23 @@ generalController.getCountCart = async (req, res) => {
     }
 }
 
+// [GET] /general/short_cart_list
+generalController.getShortCartList = async (req, res) => {
+    let customer_id = req.user.customer_id
+
+    let shortCartList = await index.getShortCart(customer_id)
+
+    if (shortCartList) {
+        return res.status(200).json({
+            status: 'success',
+            shortCartList: shortCartList,
+        })
+    } else {
+        return res.status(404).json({
+            status: 'error',
+            shortCartList: 0,
+        })
+    }
+}
+
 module.exports = generalController

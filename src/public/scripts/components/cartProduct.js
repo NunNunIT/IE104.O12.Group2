@@ -1,8 +1,11 @@
 // Sự kiện onclick checkbox chọn 1 item
 function checkOne(event) {
     const checkAll = document.getElementById('check-all')
-    if (event.currentTarget.checked == false)
+    if (event.currentTarget.checked == false) {
         checkAll.checked = false
+        disableButton()
+    } else
+        enableButton()
 
     let checkboxes
     if (window.innerWidth <= 416)
@@ -43,36 +46,141 @@ function checkOne(event) {
     }
 }
 
+// Sự kiện onchange chọn biến thể
+function changeVariant(event) {
+    const current = event.currentTarget
+    const variantValue = current.value
+    const variantId = variantValue.split(',')[0]
+    const variantPrice = Number(variantValue.split(',')[1])
+    const variantDiscount = Number(variantValue.split(',')[2])
+    const variantProductId = Number(variantValue.split(',')[3])
+
+    const cartItem = current.parentElement.parentElement
+    const variantUnitPrice = cartItem.querySelector('.cart-item__unit-price')
+
+    if (variantDiscount != 'null') {
+        variantUnitPrice.innerHTML =
+            `<input type="hidden" name="product_variant_price_before" value="" placeholder="">
+            <input type="hidden" name="product_variant_price_after" value="${variantPrice}" placeholder="">
+            <p class="cart-item__unit-price-number">${toCurrency(variantPrice)}</p>`
+    }
+    else {
+        variantUnitPrice.innerHTML =
+            `<input type="hidden" name="product_variant_price_before" value="${variantPrice}" placeholder="">
+            <del>${toCurrency(variantPrice)}</del>
+            <input type="hidden" name="product_variant_price_after" value="${parseInt(variantPrice - variantPrice * (variantDiscount / 100))}" placeholder="">
+            <p class="cart-item__unit-price-number">${toCurrency(parseInt(variantPrice - variantPrice * (variantDiscount / 100)))}</p>`
+    }
+
+    const quantityInput = cartItem.querySelector('.cart-item__quantity input')
+    triggerChangeEvent(quantityInput)
+
+    const quantity = quantityInput.value
+    if (!JSON.parse(localStorage.getItem('productsCartUpdate')))
+        localStorage.setItem('productsCartUpdate', JSON.stringify([]))
+    const productsCartUpdate = JSON.parse(localStorage.getItem('productsCartUpdate'))
+
+    if (!productsCartUpdate.length)
+        productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantity })
+    else {
+        productsCartUpdate.forEach((product, index) => {
+            if (variantProductId == product.product_id) {
+                productsCartUpdate.splice(index, 1)
+                productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantity })
+            }
+        })
+    }
+
+    localStorage.removeItem('productsCartUpdate')
+    localStorage.setItem('productsCartUpdate', JSON.stringify(productsCartUpdate))
+
+    if (!JSON.parse(localStorage.getItem('productsCartUpdateOld')))
+        localStorage.setItem('productsCartUpdateOld', JSON.stringify([]))
+    const productsCartUpdateOld = JSON.parse(localStorage.getItem('productsCartUpdate'))
+
+    if (!productsCartUpdateOld.length)
+        productsCartUpdateOld.push({ product_variant_id: cartItem.querySelector('input[name="product_variant_id_old"]').value })
+    else {
+        productsCartUpdateOld.forEach((product, index) => {
+            if (variantProductId == product.product_id) {
+                productsCartUpdateOld.splice(index, 1)
+                productsCartUpdateOld.push({ product_variant_id: cartItem.querySelector('input[name="product_variant_id_old"]').value })
+            }
+        })
+    }
+
+    localStorage.removeItem('productsCartUpdateOld')
+    localStorage.setItem('productsCartUpdateOld', JSON.stringify(productsCartUpdateOld))
+}
+
+// Sự kiện onchange thay đổi số lượng
+function changeQuantity(event) {
+    const current = event.currentTarget
+    const cartItem = current.parentElement.parentElement
+    const variants = cartItem.querySelector('.cart-item__variants')
+
+    const variantId = variants.value.split(',')[0]
+    const quantity = current.value
+    const variantProductId = variants.value.split(',')[3]
+
+    if (!JSON.parse(localStorage.getItem('productsCartUpdate')))
+        localStorage.setItem('productsCartUpdate', JSON.stringify([]))
+    const productsCartUpdate = JSON.parse(localStorage.getItem('productsCartUpdate'))
+
+    if (!productsCartUpdate.length)
+        productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantity })
+    else {
+        productsCartUpdate.forEach((product, index) => {
+            if (variantProductId == product.product_id) {
+                productsCartUpdate.splice(index, 1)
+                productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantity })
+            }
+        })
+    }
+
+    localStorage.removeItem('productsCartUpdate')
+    localStorage.setItem('productsCartUpdate', JSON.stringify(productsCartUpdate))
+
+    if (!JSON.parse(localStorage.getItem('productsCartUpdateOld')))
+        localStorage.setItem('productsCartUpdateOld', JSON.stringify([]))
+    const productsCartUpdateOld = JSON.parse(localStorage.getItem('productsCartUpdate'))
+
+    if (!productsCartUpdateOld.length)
+        productsCartUpdateOld.push({ product_variant_id: cartItem.querySelector('input[name="product_variant_id_old"]').value })
+    else {
+        productsCartUpdateOld.forEach((product, index) => {
+            if (variantProductId == product.product_id) {
+                productsCartUpdateOld.splice(index, 1)
+                productsCartUpdateOld.push({ product_variant_id: cartItem.querySelector('input[name="product_variant_id_old"]').value })
+            }
+        })
+    }
+
+    localStorage.removeItem('productsCartUpdateOld')
+    localStorage.setItem('productsCartUpdateOld', JSON.stringify(productsCartUpdateOld))
+}
+
 // Sự kiện onclick nút "Xóa" 1 item
 function removeItem(event) {
     const cartItem = event.currentTarget.parentElement.parentElement
     let productVariantId = cartItem.querySelector('input[name="product_variant_id"]')
-    const productsCartDelete = []
+
+    if (!JSON.parse(localStorage.getItem('productsCartDelete')))
+        localStorage.setItem('productsCartDelete', JSON.stringify([]))
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+
     productsCartDelete.push({
         product_variant_id: Number(productVariantId.value),
     })
     cartItem.remove()
 
-    fetch('/order/cart/delete', {
-        body: JSON.stringify(productsCartDelete),
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(() => {
-            fetch('/general/count_cart', {
-                method: 'GET',
-            })
-                .then(res => res.json())
-                .then(back2 => {
-                    const countCartEle = document.querySelector('.header__cart__number-badge')
-                    countCartEle.innerHTML = back2.countCart
-                })
-        })
+    localStorage.removeItem('productsCartDelete')
+    localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
 
-    showSelectedNums()
     showEmptyNoti()
+    modifyLastItem()
+    calcTotalPrice()
+    showSelectedNums()
 }
 
 // Tạo sự kiện change cho phần tử

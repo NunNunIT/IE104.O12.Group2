@@ -1,84 +1,110 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="author" content="IE104.O12_Nhom2">
-	<meta name="description" content="Hãy đăng nhập để trở thành thành viên của gia đình TECHTWO nhé.">
+    <meta name="author" content="IE104.O12_Nhom2" />
+    <meta
+      name="description"
+      content="Hãy đăng nhập để trở thành thành viên của gia đình TECHTWO nhé."
+    />
     <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/auth/login.css">
+    <link rel="stylesheet" href="/styles/pages/auth/login.css" />
 
     <title>TECHTWO. - Đăng nhập</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <%- include('../../partials/header-small', title='Đăng nhập')%>
 
-    <main class = "login_main">
-        <div class="login__box">
-            <div class="login__inner-box">
-                <div class="login__forms-wrap">
-                    <form id="form" autocomplete="off" class="login__sign-in-form" >
-                        <!-- <form id="form"  autocomplete="off" class="login__sign-in-form" > -->
-                        <div class="login__logo">
-                            <a href=#><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
-                        </div>
+    <main class="login_main">
+      <div class="login__box">
+        <div class="login__inner-box">
+          <div class="login__forms-wrap">
+            <form id="form" autocomplete="off" class="login__sign-in-form">
+              <div class="login__logo">
+                <a href="#"><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
+              </div>
 
-                        <div class="login__heading">
-                            <h1>Chào mừng quay trở lại TECHTWO.</h1>
-                            <h4>Chưa có tài khoản?
-                                <a href="/auth/register" class="login__toggle"> Đăng ký ngay</a>
-                            </h4>
+              <div class="login__heading">
+                <h1>Chào mừng quay trở lại TECHTWO.</h1>
+                <h4>
+                  Chưa có tài khoản?
+                  <a href="/auth/register" class="login__toggle">
+                    Đăng ký ngay</a
+                  >
+                </h4>
+              </div>
 
-                        </div>
-
-                        <div class="actual-form">
-                            <div class="login__input-wrap">
-                                <input id="phoneNumber" type="text" name="phoneNumber" class="login__input-field" autocomplete="off" />
-                                <label>Số điện thoại<span style="color:red">*</span></label>
-                                <div class="login__error"></div>
-                            </div>
-
-                            <div class="login__input-wrap">
-                                <input id="password" type="password" name="password" class="login__input-field" autocomplete="off" />
-                                <label>Mật khẩu<span style="color:red">*</span></label>
-                                <span id="togglePassword" class="login__toggle-password"><span class="material-symbols-outlined" id="eye-open">
-                                        visibility</span>
-                                </span>
-                                <div class="login__error"></div>
-                            </div>
-
-                            <input type="submit" value="Đăng nhập" class="login__sign-btn" />
-                            <!-- <input value="Đăng nhập" class="login__sign-btn" /> -->
-                            <p class="login__text">
-                                <a href="/auth/forgot">Quên mật khẩu?</a>
-                            </p>
-                        </div>
-                    </form>
+              <div class="actual-form">
+                <div class="login__input-wrap">
+                  <input
+                    id="phoneNumber"
+                    type="text"
+                    name="phoneNumber"
+                    class="login__input-field"
+                    autocomplete="off"
+                  />
+                  <label>Số điện thoại<span style="color: red">*</span></label>
+                  <div class="login__error"></div>
                 </div>
 
-                <div class="login__carousel">
-                    <div class="login__images-wrapper">
-                        <img src="/imgs/slider/image1.png" class="login__image login__img-1 show" alt="" />
-                        <img src="/imgs/slider/image2.png" class="login__image login__img-2" alt="" />
-                        <img src="/imgs/slider/image3.png" class="login__image login__img-3" alt="" />
-                    </div>
-
+                <div class="login__input-wrap">
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    class="login__input-field"
+                    autocomplete="off"
+                  />
+                  <label>Mật khẩu<span style="color: red">*</span></label>
+                  <span id="togglePassword" class="login__toggle-password"
+                    ><span class="material-symbols-outlined" id="eye-open">
+                      visibility</span
+                    >
+                  </span>
+                  <div class="login__error"></div>
                 </div>
+
+                <input
+                  type="submit"
+                  value="Đăng nhập"
+                  class="login__sign-btn"
+                />
+                <p class="login__text">
+                  <a href="/auth/forgot">Quên mật khẩu?</a>
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="login__carousel">
+            <div class="login__images-wrapper">
+              <img
+                src="/imgs/slider/image1.png"
+                class="login__image login__img-1 show"
+                alt=""
+              />
+              <img
+                src="/imgs/slider/image2.png"
+                class="login__image login__img-2"
+                alt=""
+              />
+              <img
+                src="/imgs/slider/image3.png"
+                class="login__image login__img-3"
+                alt=""
+              />
             </div>
+          </div>
         </div>
-        </div>
+      </div>
     </main>
 
-    <%- include('../../components/scrollup') %>
-    <%- include('../../partials/footer') %>
-    <%- include('../../partials/app-bar') %>
+    <%- include('../../components/scrollup') %> <%-
+    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
 
     <script src="/scripts/pages/auth/login.js"></script>
-
-</body>
-
+  </body>
 </html>
