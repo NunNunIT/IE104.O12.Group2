@@ -59,12 +59,12 @@ general.toDDthangMMnamYYYY = function (datetime) {
 
 // Hàm xử lý datetime ---> DD/MM/YYYY
 general.toDDMMYYYY = function (datetime) {
-    console.log(datetime)
+    // console.log(datetime)
     let date = datetime.getDate()
     if (date < 10) {
         date = "0" + datetime.getDate()
     }
-    console.log(datetime.getMonth())
+    // console.log(datetime.getMonth())
     let month = datetime.getMonth()
     if (month < 10) {
         month = "0" + datetime.getMonth()
