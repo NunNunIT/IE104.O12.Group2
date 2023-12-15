@@ -26,7 +26,8 @@ account.updateInfo = async (req, res) => {
     const values = [
         req.body.user_phone,
         req.body.user_name,
-        new Date(req.body.user_birth),
+        // new Date(req.body.user_birth),
+        req.body.user_birth,
         req.body.user_sex,
         req.body.user_email,
         req.body.user_phone,
@@ -35,6 +36,7 @@ account.updateInfo = async (req, res) => {
     ]
 
     const result = await query(updateInfo, values)
+    
 }
 
 

@@ -32,9 +32,19 @@ accountController.getEditInformation = async (req, res) => {
 
 //POST /account/edit-information
 accountController.editInformation = async (req, res) => {
-    await account.updateInfo(req)
-
-    res.redirect('/account/information')
+    // await account.updateInfo(req)
+  
+    // res.redirect('./information')
+    try {
+        await account.updateInfo(req);
+        // Nếu không có lỗi, chuyển hướng về trang information
+        res.redirect('./information');
+    } catch (error) {
+        // Xử lý lỗi nếu cần
+        console.error('Update failed:', error);
+        // Gửi mã lỗi hoặc thông báo lỗi cho người dùng nếu cần
+        res.status(500).send('Internal Server Error');
+    }
 }
 
 

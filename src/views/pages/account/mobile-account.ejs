@@ -20,11 +20,11 @@
 		<aside class="account-aside" id="sidebar">
 			<a href="#" class="avatar">
 				<span class="image-container">
-					<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar <%= (user.user.user_name) ? user.user.user_name : '' %>" />
+					<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar <%= (user.user.user_name) ? user.user.user_name : '' %>">
 				</span>
-				<span class="user_name">
+				<div class="user_name">
 					<h5><%= (user.user.user_name) ? user.user.user_name : '' %></h5>
-				</span>
+				</div>
 			</a>
 
 			<ul class="side-menu top">
@@ -71,7 +71,7 @@
 				</li>
 			</ul>
 
-			<div class="popup">
+			<div class="mobile-account__popup">
 				<div class="popup__main">
 					<div class="popup__main--right">
 						<div class="popup__content">
@@ -97,7 +97,6 @@
 
 	<script src="/scripts/pages/account/mobile-account.js"></script>
 	<script src="/scripts/partials/header.js"></script>
-	<script src="/scripts/components/sidebar_account.js"></script>
 
 </body>
 

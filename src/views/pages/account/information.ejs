@@ -15,104 +15,86 @@
 <body>
 
 	<%- include('../../partials/header', { header: header }) %>
-	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân' , link
+		<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân' , link
 			: '/account/information' }, { text : 'Thông tin cá nhân' , link : '/account/information' }] }) %>
 
-	<main class="account-container">
-		<%- include("../../components/sidebar_account") %>
+			<main class="account-container">
+				<%- include("../../components/sidebar_account") %>
 
-		<section class="purchase__main" id="info">
-			<div class="purchase__main__item">
-				<div class="purchase-item">
-					<div class="purchase-item--top">
-						<div class="purchase-item__info">
-							<h3>Thông tin cá nhân</h3>
+					<section class="purchase__main" id="info">
+						<div class="purchase__main__item">
+							<div class="purchase-item">
+								<div class="purchase-item--top">
+									<div class="purchase-item__info">
+										<h3>Thông tin cá nhân</h3>
 
-						</div>
-						<h3 class="purchase-item__status"> <a href="/account/edit-information">Sửa</a></h3>
-					</div>
-					<div class="purchase-item__main">
-						<div class="purchase-item__element">
-							<div class="purchase-item__product-detail">
-
-								<div class="purchase-item__product-name">
-									<label>
-										<h5>Tên người dùng:</h5>
-									</label>
-									<span>
-										<%= (user.user.user_name) ? user.user.user_name : '' %>
-									</span>
-									<!-- <hr /> -->
+									</div>
+									<h3 class="purchase-item__status"> <a href="/account/edit-information">Sửa</a></h3>
 								</div>
+								<div class="purchase-item__main">
+									<div class="purchase-item__element">
+										<div class="purchase-item__product-detail">
 
-								<div class="purchase-item__product-name">
-									<label>
-										<h5>Ngày sinh:</h5>
-									</label>
-									<span>
-										<%= (user.user.user_birth_format) ? user.user.user_birth_format : '_ _ /_ _ /_ _ _ _'%>
-									</span>
-									<!-- <hr /> -->
-								</div>
+											<div class="purchase-item__product-name">
+												<h5>Tên người dùng:</h5>
+												<span>
+													<%= (user.user.user_name) ? user.user.user_name : '' %>
+												</span>
+											</div>
 
-								<div class="purchase-item__product-name">
-									<label>
-										<h5>Giới tính:</h5>
-									</label>
-									<span>
-										<%= (user.user.user_sex) ? user.user.user_sex : '' %>
-									</span>
-									<!-- <hr /> -->
-								</div>
+											<div class="purchase-item__product-name">
+												<h5>Ngày sinh:</h5>
+												<span>
+													<%= (user.user.user_birth) ? user.user.user_birth: '' %>
+												</span>
+											</div>
 
-								<div class="purchase-item__product-name">
-									<label>
-										<h5>Email:</h5>
-									</label>
-									<span>
-										<%= (user.user.user_email) ? user.user.user_email : '' %>
-									</span>
-									<!-- <hr /> -->
-								</div>
+											<div class="purchase-item__product-name">
+												<h5>Giới tính:</h5>
+												<span>
+													<%= (user.user.user_sex) ? user.user.user_sex : '' %>
+												</span>
+											</div>
 
-								<div class="purchase-item__product-name">
-									<label>
-										<h5>Số điệnt thoại:</h5>
-									</label>
-									<span>
-										<%= (user.user.user_phone) ? user.user.user_phone : '' %>
-									</span>
-									<!-- <hr /> -->
-								</div>
+											<div class="purchase-item__product-name">
+												<h5>Email:</h5>
+												<span>
+													<%= (user.user.user_email) ? user.user.user_email : '' %>
+												</span>
+											</div>
 
-								<div class="purchase-item__product-name">
-									<label>
-										<h5>Địa chỉ:</h5>
-									</label>
-									<span>
-										<%= (user.user.user_address) ? user.user.user_address : '' %>
-									</span>
-									<!-- <hr /> -->
+											<div class="purchase-item__product-name">
+												<h5>Số điện thoại:</h5>
+												<span>
+													<%= (user.user.user_phone) ? user.user.user_phone : '' %>
+												</span>
+											</div>
+
+											<div class="purchase-item__product-name">
+												<h5>Địa chỉ:</h5>
+												<span>
+													<%= (user.user.user_address) ? user.user.user_address : '' %>
+												</span>
+											</div>
+
+										</div>
+									</div>
+
 								</div>
 
 							</div>
 						</div>
+					</section>
 
-					</div>
+			</main>
 
-				</div>
-			</div>
-		</section>
+			<%- include('../../components/scrollup') %>
+			<%- include('../../partials/footer') %>
+			<%- include('../../partials/app-bar') %>
 
-	</main>
-
-	<%- include('../../components/scrollup') %>
-	<%- include('../../partials/footer') %>
-	<%- include('../../partials/app-bar') %>
-
-	<script src="/scripts/pages/account/information.js"></script>
-	<script src="/scripts/partials/header.js"></script>
-	<script src="/scripts/components/sidebar_account.js"></script>
+			<script src="/scripts/pages/account/information.js"></script>
+			<script src="/scripts/partials/header.js"></script>
+			<script src="/scripts/components/sidebar_account.js"></script>
 
 </body>
 
