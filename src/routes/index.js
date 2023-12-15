@@ -19,7 +19,7 @@ function route(app) {
   app.use('/general', generalRouter)
   app.use('/', siteRouter)
   app.use((req, res) => {
-    res.status(404).render('../views/pages/site/404-error.ejs');
+    res.status(404).redirect('/error');
   });
 }
 

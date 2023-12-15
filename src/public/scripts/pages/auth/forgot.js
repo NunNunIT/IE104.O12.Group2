@@ -1,15 +1,6 @@
 const inputs = document.querySelectorAll(".forgot__input-field");
-const toggle_btn = document.querySelectorAll(".forgot__toggle");
-const main = document.querySelector("main");
-
-autoComplete();
-function autoComplete() {
-  inputs.forEach((inp) => {
-    if (inp.value) {
-      inp.classList.add("active");
-    }
-  });
-}
+// const toggle_btn = document.querySelectorAll(".forgot__toggle");
+// const main = document.querySelector("main");
 
 inputs.forEach((inp) => {
   inp.addEventListener("focus", () => {
@@ -21,17 +12,89 @@ inputs.forEach((inp) => {
   });
 });
 
+const resetInputs = document.querySelectorAll(".reset__input-field");
+
+resetInputs.forEach((inp) => {
+  inp.addEventListener("focus", () => {
+    inp.classList.add("active");
+  });
+  inp.addEventListener("blur", () => {
+    if (inp.value != "") return;
+    inp.classList.remove("active");
+  });
+});
+
+const passwordInput = document.getElementById("Password");
+const confirmPasswordInput = document.getElementById("ConfirmPassword");
+const togglePasswordButton = document.getElementById("togglePassword");
+const toggleConfirmPasswordButton = document.getElementById(
+  "toggleConfirmPassword"
+);
+
+togglePasswordButton.addEventListener("click", function () {
+  const isVisible =
+    togglePasswordButton.getAttribute("data-visible") === "true";
+
+  if (isVisible) {
+    passwordInput.type = "password";
+    togglePasswordButton.setAttribute("data-visible", "false");
+    togglePasswordButton.querySelector(
+      ".material-symbols-outlined"
+    ).textContent = "visibility";
+  } else {
+    passwordInput.type = "text"; // Hiển thị mật khẩu
+    togglePasswordButton.setAttribute("data-visible", "true");
+    togglePasswordButton.querySelector(
+      ".material-symbols-outlined"
+    ).textContent = "visibility_off";
+  }
+});
+
+toggleConfirmPasswordButton.addEventListener("click", function () {
+  const isVisible =
+    toggleConfirmPasswordButton.getAttribute("data-visible") === "true";
+
+  if (isVisible) {
+    confirmPasswordInput.type = "password"; // Ẩn mật khẩu
+    toggleConfirmPasswordButton.setAttribute("data-visible", "false");
+    toggleConfirmPasswordButton.querySelector(
+      ".material-symbols-outlined"
+    ).textContent = "visibility";
+  } else {
+    confirmPasswordInput.type = "text";
+    toggleConfirmPasswordButton.setAttribute("data-visible", "true");
+    toggleConfirmPasswordButton.querySelector(
+      ".material-symbols-outlined"
+    ).textContent = "visibility_off";
+  }
+});
+
+const resetForm = document.getElementById("form_reset");
 const form = document.getElementById("form");
 const PhoneNumber = document.getElementById("PhoneNumber");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  validateInput();
+  validateInputPhone();
+});
+
+const formOTP = document.getElementById("form_otp");
+formOTP.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (validateInputOTP()){
+    document.querySelector("#form_otp").style.display = "none";
+    document.querySelector(".Step3").style.display = "block";
+  }
+});
+
+resetForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  validateInputPass();
 });
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(`.forgot__error`);
+  const errorDisplay = inputControl.querySelector(`.error`);
 
   errorDisplay.innerText = message;
   inputControl.classList.add("error");
@@ -40,7 +103,7 @@ const setError = (element, message) => {
 
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(`.forgot__error`);
+  const errorDisplay = inputControl.querySelector(`.error`);
 
   errorDisplay.innerText = "";
   inputControl.classList.add("success");
@@ -52,26 +115,25 @@ const isValidPhoneNumber = (PhoneNumber) => {
   return re.test(String(PhoneNumber).trim());
 };
 
-const validateInput = () => {
+const validateInputPhone = () => {
   const PhoneNumberValue = PhoneNumber.value.trim();
 
-  let isAllValid = true;
+  let isPhoneValid = true;
 
   if (PhoneNumberValue === "") {
     setError(PhoneNumber, "Vui lòng nhập số điện thoại!");
-    isAllValid = false;
+    isPhoneValid = false;
   } else if (!isValidPhoneNumber(PhoneNumberValue)) {
     setError(PhoneNumber, "Số điện thoại không đúng định dạng!");
-    isAllValid = false;
+    isPhoneValid = false;
   } else {
     setSuccess(PhoneNumber);
   }
 
-  if (isAllValid) {
+  if (isPhoneValid) {
     const forgot = {
       user_phone: PhoneNumber.value.trim(),
     };
-    console.log(forgot);
     fetch("/auth/findUser", {
       method: "POST",
       body: JSON.stringify(forgot),
@@ -81,11 +143,77 @@ const validateInput = () => {
     })
       .then((res) => res.json())
       .then((back) => {
-        console.log(back);
         if (back.status == "notFound") {
           setError(PhoneNumber, back.error);
         } else if (back.status == "success") {
           showStep2();
+        }
+      });
+  }
+};
+
+const validateInputOTP = () => {
+  const otpInputs = formOTP.querySelectorAll('input[name=otp]')
+
+  let isAllOTPValid = true;
+
+  otpInputs.forEach((otpInput) => {
+    if (otpInput.value == ""){
+      isAllOTPValid = false;
+      otpInput.style.borderColor = "red"
+    } else {
+      otpInput.style.borderColor = "#ccc"
+    }
+  })
+
+  return isAllOTPValid
+};
+
+const validateInputPass = async () => {
+  const PasswordValue = Password.value.trim();
+  const confirmPasswordValue = confirmPasswordInput.value.trim();
+
+  let isAllValidPass = true;
+
+  if (PasswordValue === "") {
+    setError(Password, "Vui lòng nhập mật khẩu!");
+    isAllValidPass = false;
+  } else if (PasswordValue.length < 8) {
+    setError(Password, "Mật khẩu phải ít nhất 8 ký tự!");
+    isAllValidPass = false;
+  } else {
+    setSuccess(Password, "Hợp lệ");
+  }
+
+  // Validate confirm password
+  if (confirmPasswordValue === "") {
+    setError(confirmPasswordInput, "Vui lòng xác nhận mật khẩu!");
+    isAllValidPass = false;
+  } else if (confirmPasswordValue !== PasswordValue) {
+    setError(confirmPasswordInput, "Mật khẩu xác nhận không khớp!");
+    isAllValidPass = false;
+  } else {
+    setSuccess(confirmPasswordInput, "Hợp lệ");
+  }
+
+  if (isAllValidPass) {
+    const reset = {
+      user_password: PasswordValue,
+      user_phone: PhoneNumber.value.trim(),
+    };
+    await fetch("/auth/reset", {
+      method: "POST",
+      body: JSON.stringify(reset),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((back) => {
+        if (back.status == "error") {
+          setError(Password, back.error)
+        } else if (back.status == "success") {
+          window.location.href = '/auth/login';
         }
       });
   }
@@ -218,13 +346,4 @@ document
     });
   });
 
-const form_reset = document.getElementById("form_otp");
-form_reset.addEventListener("submit", (e) => {
-  e.preventDefault();
-  document.querySelector("#form_otp").style.display = "none";
-  document.querySelector(".Step3").style.display = "block";
-});
-
-// Thêm "active" vào side-menu__ele
-const appbar__element = document.querySelectorAll(".side-menu__ele");
-appbar__element[3].classList.add("active");
+step3_valid = function () {};

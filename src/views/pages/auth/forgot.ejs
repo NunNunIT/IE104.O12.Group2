@@ -4,7 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Nếu bạn quên mật khẩu, hãy yên tâm, TECHTWO sẽ giúp bạn.">
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
 	<link rel="stylesheet" href="/styles/pages/auth/forgot.css">
 
@@ -35,7 +36,7 @@
 							<div class="forgot__input-wrap">
 								<input id="PhoneNumber" type="text" name="PhoneNumber" class="forgot__input-field" autocomplete="off" />
 								<label>Số điện thoại<span style="color:red">*</span></label>
-								<div class="forgot__error"></div>
+								<div class="error"></div>
 							</div>
 							<input type="submit" value="Xác nhận" class="forgot__sign-btn" />
 							<div class="back">
@@ -64,12 +65,12 @@
 									<h6>Mã OTP đã được gửi đến thiết bị của bạn.</h6>
 								</div>
 								<div class="input-wrap">
-									<input type="text" id="otp1" maxlength=1 oninput="moveToNext(this, 'otp2')" />
-									<input type="text" id="otp2" maxlength=1 oninput="moveToNext(this, 'otp3')" />
-									<input type="text" id="otp3" maxlength=1 oninput="moveToNext(this, 'otp4')" />
-									<input type="text" id="otp4" maxlength=1 oninput="moveToNext(this, 'otp5')" />
-									<input type="text" id="otp5" maxlength=1 oninput="moveToNext(this, 'otp6')" />
-									<input type="text" id="otp6" maxlength=1 />
+									<input type="number" name="otp" id="otp1" maxlength=1 oninput="moveToNext(this, 'otp2')" />
+									<input type="number" name="otp" id="otp2" maxlength=1 oninput="moveToNext(this, 'otp3')" />
+									<input type="number" name="otp" id="otp3" maxlength=1 oninput="moveToNext(this, 'otp4')" />
+									<input type="number" name="otp" id="otp4" maxlength=1 oninput="moveToNext(this, 'otp5')" />
+									<input type="number" name="otp" id="otp5" maxlength=1 oninput="moveToNext(this, 'otp6')" />
+									<input type="number" name="otp" id="otp6" maxlength=1 />
 								</div>
 								<div class="send-again">
 									<span>Bạn không nhận được mã OTP?</span>
@@ -105,7 +106,7 @@
 								<span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
 										visibility</span>
 								</span>
-								<div class="reset__error"></div>
+								<div class="error"></div>
 							</div>
 
 							<div class="reset__input-wrap">
@@ -114,7 +115,7 @@
 								<span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
 										visibility</span>
 								</span>
-								<div class="reset__error"></div>
+								<div class="error"></div>
 							</div>
 							<input type="submit" value="Xác nhận" class="reset__sign-btn" />
 							<div class="back">
@@ -134,8 +135,6 @@
 	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/pages/auth/forgot.js"></script>
-	<script src="/scripts/pages/auth/reset.js"></script>
-	<script src="https://unpkg.com/gsap@3.9.1"></script>
 
 </body>
 
