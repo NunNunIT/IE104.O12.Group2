@@ -27,7 +27,4 @@ router.get('/categories_admin', adminMiddleware.isLoggedIn, cateAdminController.
 router.get('/products_admin/add', adminMiddleware.isLoggedIn, cateAdminController.addProducts)
 router.get('/products_admin', adminMiddleware.isLoggedIn, cateAdminController.getProducts)
 
-// router.get('/categories_admin/delete/:id', adminMiddleware.isLoggedIn, adminController.deleteCategory)
-// router.get('/orders_admin', adminMiddleware.isLoggedIn, adminController.getOrders)
-
 module.exports = router

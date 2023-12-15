@@ -1,6 +1,6 @@
 const db = require('../config/db/connect');
 const jwt = require('jsonwebtoken')
-const {promisify} = require('util')
+const { promisify } = require('util')
 
 exports.isLoggedIn = async (req, res, next) => {
     console.log(`isLoggedIn: ${req.cookies.adminSave}`);
@@ -14,7 +14,6 @@ exports.isLoggedIn = async (req, res, next) => {
 
             // 2. Check if the admin still exist
             db.query('SELECT * FROM admin WHERE admin_id = ?', [decoded.id], (err, results) => {
-                // console.log(results);
                 if (!results) {
                     return next();
                 }
@@ -31,7 +30,7 @@ exports.isLoggedIn = async (req, res, next) => {
 }
 
 exports.checkAuth = (req, res, next) => {
-    console.log (`checkAuth: ${req.cookies.adminSave}`)
+    console.log(`checkAuth: ${req.cookies.adminSave}`)
     if (req.cookies.adminSave) {
         res.redirect('/admin/')
     }
@@ -41,7 +40,7 @@ exports.checkAuth = (req, res, next) => {
 }
 
 exports.checkUnAuth = (req, res, next) => {
-    console.log (`checkUnAuth: ${req.cookies.adminSave}`)
+    console.log(`checkUnAuth: ${req.cookies.adminSave}`)
     if (!req.cookies.adminSave) {
         res.status(401).redirect('/admin/')
     }

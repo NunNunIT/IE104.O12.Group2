@@ -22,20 +22,16 @@ togglePasswordButton.addEventListener("click", function () {
         passwordInput.type = "Password"; // Ẩn mật khẩu
         togglePasswordButton.setAttribute("data-visible", "false");
         togglePasswordButton.querySelector(".material-symbols-outlined").textContent = "visibility";
-
-
     } else {
         passwordInput.type = "text"; // Hiển thị mật khẩu
         togglePasswordButton.setAttribute("data-visible", "true");
         togglePasswordButton.querySelector(".material-symbols-outlined").textContent = "visibility_off";
-
     }
 });
 
 const form = document.getElementById('form');
 const adminLogin = document.getElementById('adminLogin');
 const password = document.getElementById('password');
-
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -101,8 +97,8 @@ const validateInput = () => {
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then (res => res.json()).then (back => {
-            if (back.status == "error"){
+        }).then(res => res.json()).then(back => {
+            if (back.status == "error") {
                 setError(adminLogin, back.error);
             }
             else if (back.status == "error2") {
@@ -111,8 +107,8 @@ const validateInput = () => {
             else {
                 window.location.href = '/admin/'
             }
-    
+
         })
     }
-    
+
 };

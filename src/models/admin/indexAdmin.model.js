@@ -2,7 +2,7 @@ const db = require('../../config/db/connect');
 const util = require('node:util')
 const query = util.promisify(db.query).bind(db)
 
-const indexAdmin = function () {}
+const indexAdmin = function () { }
 
 indexAdmin.toCurrency = function (money) {
     let currency = money.toFixed(0).replace(/./g, function (c, i, a) {

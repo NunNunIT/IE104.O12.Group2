@@ -394,8 +394,6 @@ label {
 
 .input_box--mini {
     width: 45%;
-    /* display: flex;
-    flex-direction: row; */
 }
 
 .input_title {
@@ -405,7 +403,6 @@ label {
 
 .input_left {
     width: 70%;
-    /* display: flex; */
 }
 
 .input_right {
@@ -547,7 +544,6 @@ label {
 
     .input_left {
         width: 100%;
-        /* display: flex; */
     }
 
     .input_right {

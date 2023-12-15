@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
-
 const form = document.getElementById('editForm')
 const userName = document.getElementById('userName')
 const userEmail = document.getElementById('userEmail')
@@ -135,7 +134,6 @@ const sendUpdateRequest = async () => {
     })
 
     if (response.ok) {
-        console.log('Update successful')
         window.location.href = '/account/information'
     } else {
         console.error('Update failed')

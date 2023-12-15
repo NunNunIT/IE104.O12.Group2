@@ -143,14 +143,10 @@ section {
 
 .tip-products-wrapper.new-products .tip-products__img {
     background-image: url("/imgs/banner/bannerNew.png");
-    /* The image used */
     height: 100px;
     background-position: center;
-    /* Center the image */
     background-repeat: no-repeat;
-    /* Do not repeat the image */
     background-size: cover;
-    /* Resize the background image to cover the entire container */
 }
 
 .tip-products-wrapper.sale-products {

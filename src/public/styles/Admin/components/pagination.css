@@ -17,7 +17,6 @@
     display: flex;
 }
 
-
 .table-footer .admin-pagination a {
     width: 48px;
     padding: 8px 4px;
@@ -43,12 +42,11 @@
 .admin-pagination a.active,
 .admin-pagination a:hover,
 .admin-pagination a:active span,
-.admin-pagination a:hover span{
+.admin-pagination a:hover span {
     text-decoration: none;
     background: var(--primary-color-1);
     color: var(--white);
 }
-
 
 .admin-pagination a.act:first-child {
     opacity: 1;
@@ -73,4 +71,4 @@
         height: 70px;
         padding: 4px 12px 8px 12px;
     }
-  }
+}

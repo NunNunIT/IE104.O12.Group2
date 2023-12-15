@@ -160,7 +160,6 @@ const validateInput = async () => {
         setSuccess(passwordRepeat);
     }
 
-
     // Nếu tất cả các trường thông tin hợp lệ, thì gửi form
     if (isAllValid) {
         const register = {
@@ -178,10 +177,7 @@ const validateInput = async () => {
             }).then(res => res.json())
             .then(async back => {
                 if (back.status == "error") {
-                    // success.style.display = "none"
-                    // error.style.display = "block";
                     setError(phoneNumber, back.error);
-                    // error.innerText = back.error
                 } else {
                     const login = {
                         phoneNumber: phoneNumber.value.trim(),

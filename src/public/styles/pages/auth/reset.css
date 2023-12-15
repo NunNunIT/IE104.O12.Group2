@@ -50,7 +50,6 @@ main {
 }
 
 .inner-box {
-    /* border: 2px solid black; */
     position: absolute;
     width: calc(100% - 4.1rem);
     height: calc(100% - 4.1rem);
@@ -61,7 +60,6 @@ main {
 
 form {
     width: 90%;
-    /* width: 100%; */
     margin: 0 auto;
     height: 100%;
     display: flex;
@@ -70,7 +68,6 @@ form {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     transition: opacity 0.02s 0.4s;
-    /* gap: 12px; */
 }
 
 .logo {
@@ -214,7 +211,6 @@ form .reset__sign-in-form {
 
     form {
         max-width: revert;
-        /* padding: 1.5rem 2.5rem 2rem; */
         transition: transform 0.8s ease-in-out, opacity 0.45s linear;
     }
 
@@ -267,7 +263,4 @@ form .reset__sign-in-form {
         font-size: 1.2rem;
     }
 
-    /* form {
-        /* padding: 1rem 2rem 1.5rem;
-    } */
 }
