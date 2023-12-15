@@ -1,20 +1,20 @@
 // Sự kiện onclick checkbox chọn 1 item
 function checkOne(event) {
     const checkAll = document.getElementById('check-all')
-    if (event.currentTarget.checked == false) {
-        checkAll.checked = false
-        disableButton()
-    } else
-        enableButton()
 
     let checkboxes
     if (window.innerWidth <= 416)
-        checkboxes = document.querySelectorAll('.checkbox.mobile-display')
+        checkboxes = Array.from(document.querySelectorAll('.checkbox.mobile-display'))
     else
-        checkboxes = document.querySelectorAll('.checkbox.mobile-hidden')
+        checkboxes = Array.from(document.querySelectorAll('.checkbox.mobile-hidden'))
 
-    if (Array.from(checkboxes).filter(checkbox => checkbox.checked == false).length == 0)
+    if (checkboxes.filter(checkbox => checkbox.checked == false).length == 0)
         checkAll.checked = true
+
+    if (checkboxes.some(checkbox => checkbox.checked == true))
+        enableButton()
+    else
+        disableButton()
 
     showSelectedNums()
     changeDel()
