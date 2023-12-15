@@ -20,7 +20,6 @@ order.addCart = async (customer_id, product_variant_id, cart_quantity) => {
         await db.query(addCart)
     }
     return 1
-
 }
 
 order.getDetailCart = async (customer_id) => {
@@ -56,6 +55,12 @@ order.deleteCart = function (customer_id, productsDeleteCart, callback) {
         } else {
             callback(0, 1)
         }
+    })
+}
+
+order.updateCart = async function (customer_id, productsUpdateCart, callback) {
+    productsUpdateCart.forEach(async product => {
+        await order.addCart(customer_id, product.product_variant_id, product.cart_quantity)
     })
 }
 

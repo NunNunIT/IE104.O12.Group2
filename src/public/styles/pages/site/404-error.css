@@ -69,3 +69,13 @@ body {
         padding: 12px 20px 12px 24px;
     }
 }
+
+span.history-back {
+    color: var(--primary-color-1);
+    font-weight: 700;
+}
+
+span.history-back:hover {
+    cursor: pointer;
+    color: var(--primary-color-5);
+}

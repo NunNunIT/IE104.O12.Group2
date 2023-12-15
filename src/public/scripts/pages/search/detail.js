@@ -67,6 +67,13 @@ function changeQuantity(event) {
         input.value = input.min
 }
 
+const toCurrency = function (money) {
+    let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
+        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c
+    })
+    return currency + 'đ'
+}
+
 // Open cart success modal
 const formAddCart = document.getElementById('buy-form')
 const addCartBtn = document.querySelector('.detail__add-btn')
@@ -88,12 +95,13 @@ addCartBtn.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json())
+    })
+        .then(res => res.json())
         .then(back => {
             if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
             } else if (back.status == "NotAuth") {
-                window.location.href = "http://localhost:3000/auth/login"
+                window.location.href = "/auth/login"
             } else if (back.status == "success") {
                 const cartSuccessModal = document.querySelector('.success-modal')
                 cartSuccessModal.style.display = 'flex'
@@ -105,9 +113,52 @@ addCartBtn.addEventListener('click', () => {
                     method: 'GET',
                 })
                     .then(res => res.json())
-                    .then(back2 => {
+                    .then(countCartData => {
                         const countCartEle = document.querySelector('.header__cart__number-badge')
-                        countCartEle.innerHTML = back2.countCart
+                        countCartEle.innerHTML = countCartData.countCart
+
+                        fetch('/general/short_cart_list', {
+                            method: 'GET',
+                        })
+                            .then(res => res.json())
+                            .then(shortCartListData => {
+                                const cartDropdownItem = document.querySelector('.dropdown-cart__content')
+                                cartDropdownItem.querySelectorAll('.cart-dropdown__block').forEach(item => {
+                                    item.remove()
+                                })
+
+                                if (shortCartListData.status == 'success') {
+                                    shortCartListData.shortCartList.slice(0, 5).forEach(cartItem => {
+                                        let dropdownCartItem = document.createElement('div')
+                                        dropdownCartItem.classList.add('cart-dropdown__block')
+
+                                        let cartDropdownPrice
+                                        let cartDropdownPriceDel
+                                        if (cartItem.discount_amount) {
+                                            cartDropdownPrice = toCurrency(Math.round(cartItem.product_variant_price - cartItem.product_variant_price * (cartItem.discount_amount / 100)))
+                                            cartDropdownPriceDel = toCurrency(cartItem.product_variant_price)
+                                        }
+                                        else {
+                                            cartDropdownPrice = toCurrency(cartItem.product_variant_price)
+                                            cartDropdownPriceDel = ''
+                                        }
+
+                                        dropdownCartItem.innerHTML =
+                                            `<a href="/search/${cartItem.product_variant_id}?category_id=${cartItem.category_id}" class="cart-dropdown__main">
+                                                <img class="cart-dropdown__img" src="/imgs/product_image/P${cartItem.product_id}/${cartItem.product_avt_img}" alt="${cartItem.product_name}">
+                                                <div class="cart-dropdown__content">
+                                                    <span>${cartItem.product_name}</span>
+                                                    <div class="cart-dropdown__price">
+                                                        ${cartDropdownPrice}<small>${cartDropdownPriceDel}</small>
+                                                    </div>
+                                                </div>
+                                            </a>`
+
+                                        let cartDropdownTitle = cartDropdownItem.querySelector('.dropdown-cart__content-title')
+                                        cartDropdownTitle.after(dropdownCartItem)
+                                    })
+                                }
+                            })
                     })
             }
         })
@@ -125,7 +176,7 @@ buyNowBtn.addEventListener('click', () => {
     let formDataArrayString = JSON.stringify(formDataArray)
 
     localStorage.setItem('formDataArray', formDataArrayString)
-    window.location.href = 'http://localhost:3000/order/information'
+    window.location.href = 'order/information'
 })
 
 // Run
