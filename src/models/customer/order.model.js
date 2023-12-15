@@ -59,6 +59,12 @@ order.deleteCart = function (customer_id, productsDeleteCart, callback) {
     })
 }
 
+order.updateCart = async function (customer_id, productsUpdateCart, callback) {
+    productsUpdateCart.forEach(async product => {
+        await order.addCart(customer_id, product.product_variant_id, product.cart_quantity)
+    })
+}
+
 order.insertOrder = function (customer_id, orderInfo, orderDetails, callback) {
     let insertOrder = ''
     if (orderInfo.paying_method_id != 1) {
