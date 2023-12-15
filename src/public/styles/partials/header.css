@@ -542,6 +542,7 @@ img.dropdown-cart__img--empty {
 }
 
 .menu__item {
+    cursor: pointer;
     height: 48px;
     box-sizing: border-box;
     padding: 12px;
