@@ -42,7 +42,7 @@ function checkOne(event) {
 
         const totalPriceDelEle = document.querySelector('.cart__total-price del')
         if (totalPriceDelEle)
-            totalPriceDelEle.innerHTML = toCurrency(totalPriceDel) + 'đ'
+            totalPriceDelEle.innerHTML = toCurrency(totalPriceDel)
     }
 }
 
