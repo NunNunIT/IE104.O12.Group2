@@ -26,15 +26,15 @@
 			</div>
 			<hr />
 			<div class="aside-wrapper__aside-section">
-				<p class="btn-update">Cập nhật đơn hàng</p>
-				<p class="btn-promo">Thông tin khuyến mãi</p>
+				<a href="/notification/account-update" class="btn-update">Cập nhật đơn hàng</a>
+				<a href="/notification/promotion" class="btn-promo">Thông tin khuyến mãi</a>
 			</div>
 		</aside>
 
 		<section class="nofi__main">
 			<div class="nofi--disable">
 				<div class="noti__button-update--disable">
-					<a href="#" class="btn-update--disable">Cập nhật đơn hàng</a>
+					<a href="/notification/account-update" class="btn-update--disable">Cập nhật đơn hàng</a>
 					<hr />
 				</div>
 				<div class="noti__button-promo--disable">
@@ -45,10 +45,11 @@
 			<div class="btn-mark-all-read">
 				<span>Đánh dấu tất cả là đã đọc (5)</span>
 			</div>
-			<%- include('../../components/noti-item-account') %>
-			<%- include('../../components/noti-item-account') %>
-			<%- include('../../components/noti-item-account') %>
-			<%- include('../../components/noti-item-account') %>
+			<% user.noti.forEach(noti => { %>
+			<% if (noti.notification_types_id != 6 && noti.notification_types_id != 7) { %>
+			<%- include('../../components/noti-item-account', { noti: noti, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
+			<% } %>
+			<% }) %>
 		</section>
 	</main>
 

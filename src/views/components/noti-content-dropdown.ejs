@@ -1,5 +1,19 @@
 <div class="noti-dropdown__block">
-	<img src="/imgs/notifications/promotion/img.png" alt="img" class="noti-dropdown__img">
+	<% if (noti.notification_types_id == 1) { %>
+	<img src="/imgs/notifications/order_placed.png" alt="order_placed" class="noti-dropdown__img">
+	<% } %>
+	<% if (noti.notification_types_id == 2) { %>
+	<img src="/imgs/notifications/order_shipped.png" alt="order_shipped" class="noti-dropdown__img">
+	<% } %>
+	<% if (noti.notification_types_id == 3) { %>
+	<img src="/imgs/notifications/order_delivered.png" alt="order_delivered" class="noti-dropdown__img">
+	<% } %>
+	<% if (noti.notification_types_id == 4) { %>
+	<img src="/imgs/notifications/payment_received.png" alt="payment_received" class="noti-dropdown__img">
+	<% } %>
+	<% if (noti.notification_types_id == 5) { %>
+	<img src="/imgs/notifications/feedback_received.png" alt="feedback_received" class="noti-dropdown__img">
+	<% } %>
 	<div class="noti-dropdown__content">
 		<strong><%= noti.notifications_title %></strong>
 		<span><%= noti.notifications_subtitle %></span>

@@ -27,8 +27,8 @@
 			</div>
 			<hr />
 			<div class="aside-wrapper__aside-section">
-				<p class="btn-update">Cập nhật đơn hàng</p>
-				<p class="btn-promo">Thông tin khuyến mãi</p>
+				<a href="/notification/account-update" class="btn-update">Cập nhật đơn hàng</a>
+				<a href="/notification/promotion" class="btn-promo">Thông tin khuyến mãi</a>
 			</div>
 		</aside>
 
@@ -39,20 +39,24 @@
 					<hr />
 				</div>
 				<div class="noti__button-promo--disable">
-					<a href="#" class="btn-promo--disable">Thông tin khuyến mãi</a>
+					<a href="/notification/promotion" class="btn-promo--disable">Thông tin khuyến mãi</a>
 					<hr />
 				</div>
 			</div>
 			<div class="btn-mark-all-read">
 				<span>Đánh dấu tất cả là đã đọc (5)</span>
 			</div>
+			<%# console.log('###############################', user.noti) %>
 
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
-			<%- include('../../components/noti-item-promo') %>
+			<% user.noti.forEach(noti => { %>
+			<% if (noti.notification_types_id == 6 || noti.notification_types_id == 7) { %>
+			<%- include('../../components/noti-item-promo', { noti: noti, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
+			<% } %>
+			<% }) %>
+
+
+
+
 		</section>
 	</main>
 

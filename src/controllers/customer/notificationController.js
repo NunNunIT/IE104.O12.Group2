@@ -30,3 +30,4 @@ notificationsController.promotion = async (req, res) => {
 }
 
 module.exports = notificationsController
+

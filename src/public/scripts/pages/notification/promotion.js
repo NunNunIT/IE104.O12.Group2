@@ -1,27 +1,3 @@
-//Điều hướng
-const updateBtn = document.querySelector(".btn-update");
-const promoBtn = document.querySelector(".btn-promo");
-const useBtns = document.querySelectorAll(".btn-use");
-
-const redirect2updateView = () => {
-    window.location.href = "http://127.0.0.1:3000/notification/account-update";
-}
-
-const redirect2promoView = () => {
-    window.location.href = "http://127.0.0.1:3000/notification/promotion";
-}
-
-const redirect2detailAccom = () => {
-    window.location.href = "http://127.0.0.1:3000/search/detail"; // Sửa URL chuyển hướng tại đây
-}
-
-useBtns.forEach((btn) => {
-    btn.addEventListener("click", redirect2detailAccom);
-});
-
-updateBtn.addEventListener("click", redirect2updateView);
-promoBtn.addEventListener("click", redirect2promoView);
-
 
 //Popup
 const modalBtns = document.querySelectorAll(".popup-btn");
