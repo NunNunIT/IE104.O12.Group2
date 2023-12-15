@@ -32,9 +32,19 @@ accountController.getEditInformation = async (req, res) => {
 
 //POST /account/edit-information
 accountController.editInformation = async (req, res) => {
-    await account.updateInfo(req)
-
-    res.redirect('/account/information')
+    // await account.updateInfo(req)
+  
+    // res.redirect('./information')
+    try {
+        await account.updateInfo(req);
+        // Nếu không có lỗi, chuyển hướng về trang information
+        res.redirect('./information');
+    } catch (error) {
+        // Xử lý lỗi nếu cần
+        console.error('Update failed:', error);
+        // Gửi mã lỗi hoặc thông báo lỗi cho người dùng nếu cần
+        res.status(500).send('Internal Server Error');
+    }
 }
 
 
@@ -96,18 +106,15 @@ accountController.feedback = async (req, res) => {
 }
 
 // [POST] /account/feedback
-accountController.feedbackPost = async (req, res) => {
+accountController.sendFeedback = async (req, res) => {
     let order_id = req.body.order_id
-    let feedbackBody = req.body.feedbackBody
-    let error = 0
+    let feedbacks = req.body.feedbacks
+    let error = false
 
-    let header_user = await index.header_user(req)
-    let header = await index.header(req)
-
-    feedbackBody.forEach(feedback => {
-        account.feedbackPost(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
+    feedbacks.forEach(feedback => {
+        account.insertFeedback(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
             if (err) {
-                error = 1
+                error = true
             }
         })
     })

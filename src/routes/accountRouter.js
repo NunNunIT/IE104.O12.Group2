@@ -11,6 +11,7 @@ router.post('/edit-information', authMiddleware.isLoggedIn, accountController.ed
 router.get('/purchase', authMiddleware.isLoggedIn, accountController.purchaseHistory)
 router.get('/purchase/:order_id', authMiddleware.isLoggedIn, accountController.purchaseDetail)
 router.get('/feedback', authMiddleware.isLoggedIn, accountController.feedback)
+router.post('/feedback', authMiddleware.isLoggedIn, accountController.sendFeedback)
 router.get('/warranty-claim', authMiddleware.isLoggedIn, accountController.warrantyClaim)
 router.get('/mobile-account', authMiddleware.isLoggedIn, accountController.mobileAccount)
 router.get('/changePassword', authMiddleware.isLoggedIn, accountController.changePassword)

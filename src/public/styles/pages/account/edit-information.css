@@ -1,39 +1,39 @@
 @import url("/styles/general.css");
 @import url("/styles/pages/account/information.css");
-@import url("/styles/components/sidebar_account.css");
 
+ 
 .userName {
-    width: 50%;
+    width: 60%;
     border-bottom: 2px solid #eaeaea;
 }
 
 .userBirth {
-    width: 50%;
+    width: 60%;
     border-bottom: 2px solid #eaeaea;
 }
 
 .userSex {
-    width: 50%;
+    width: 60%;
     border-bottom: 2px solid #eaeaea;
-
+    
 }
 
 .userEmail {
-    width: 50%;
+    width: 60%;
     border-bottom: 2px solid #eaeaea;
-
+    
 }
 
 .userPhone {
-    width: 50%;
+    width: 60%;
     border-bottom: 2px solid #eaeaea;
-
+    
 }
 
 .userAddress {
-    width: 50%;
+    width: 60%;
     border-bottom: 2px solid #eaeaea;
-
+    
 }
 
 .purchase-item__product-name {
@@ -41,12 +41,11 @@
     flex-direction: row;
 }
 
-.purchase-item__product-name label {
+.purchase-item__product-name label{
     padding: 8px;
-}
-
-.purchase-item__product-detail hr {
-    opacity: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 20%;
 }
 
 #userSex {
@@ -61,7 +60,6 @@
     padding: 0;
     text-indent: 4px;
 }
-
 .popup__button {
     display: flex;
     justify-content: flex-end;
@@ -69,30 +67,40 @@
     gap: 12px;
 }
 
-.popup__button .cancel {
-    color: var(--primary-color-1);
+.popup__button a.btn.btn--outlined.pri.btn-cancel-edit {
+    width: 100.51px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0px 36px;
 }
 
-.popup__button .save {
-    color: white;
-}
-
-.purchase-item__product-detail input,
-select {
-    height: 40px;
+ .purchase-item__product-detail input, select{
+    height: 40px; 
     font-size: 16px;
     outline-color: var(--primary-color-1);
-}
+    cursor: pointer;
+  }
 
-.purchase-item__product-detail input {
+  .purchase-item__product-detail input {
     padding: 8px;
     width: 100%;
     border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .purchase-item__product-name {
     position: relative;
     margin-bottom: 12px;
+}
+
+.userBirth span {
+    display: flex;
+    cursor: pointer;
+    padding: 8px;
+    height: 40px; 
+    width: 100%;
+    align-items: center;
 }
 
 .purchase-item__product-name .error-message {
@@ -106,12 +114,28 @@ select {
     text-indent: 8px;
 }
 
-@media only screen and (max-width: 26rem) {
-    .purchase-item__product-detail input {
-        font-size: 14px;
-    }
+/*Responsive-small-laptop*/
+@media only screen and (max-width: 64rem) {
+	.purchase-item__product-name label {
+		width: 30%;
+	}
+}
 
-    #userSex {
+@media only screen and (max-width: 48rem) {
+    .purchase-item { 
+        padding: 12px;
+    }
+	.purchase-item__product-name label {
+		width: 35%;
+	}
+}
+
+@media only screen and (max-width: 26rem){
+    .purchase-item__product-detail input { 
+        font-size: 14px;
+      }
+
+      #userSex {
         font-size: 0.875rem;
     }
 
@@ -128,7 +152,6 @@ select {
         font-size: 0.875rem !important;
         padding: 0 18px !important;
     }
-
     .purchase-item__product-name .error-message {
         margin-left: -18%;
     }
@@ -138,8 +161,18 @@ select {
         align-items: center;
     }
 
-    .purchase-item__product-name input,
-    select {
+    .purchase-item__product-name input, select {
         width: 100%;
     }
+
+    .popup__button a.btn.btn--outlined.pri.btn-cancel-edit {
+        height: 42px;
+        width: 60.95px;
+        text-align: center;
+        font-size: 0.875rem;
+        padding: 0px 18px;
+    }
 }
+
+
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 08:18 PM
+-- Generation Time: Dec 15, 2023 at 10:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -75,6 +75,7 @@ INSERT INTO `carts` (`customer_id`, `product_variant_id`, `cart_quantity`, `cart
 (1, 30, 4, '2023-12-15 23:48:53'),
 (1, 34, 1, '2023-12-15 23:41:33'),
 (1, 54, 1, '2023-12-04 13:54:19'),
+(1, 63, 1, '2023-12-16 03:52:17'),
 (3, 3, 3, '2023-11-01 04:40:58'),
 (4, 32, 3, '2023-11-26 19:45:13'),
 (5, 22, 2, '2023-11-26 19:45:13'),
@@ -599,7 +600,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `staff_id`, `order_name`, `order_phone`, `order_date`, `order_delivery_date`, `order_delivery_address`, `order_note`, `order_total_before`, `order_total_after`, `paying_method_id`, `order_paying_date`, `order_is_paid`, `order_status`) VALUES
-(1, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-11-02', '2023-11-04', '123 Nguyen Van Troi Street, Ward 12, District 5, Ho Chi Minh City', 'Kiểm hàng trước', 13470000, 13470000, 1, '2023-11-30', 1, 'Đang giao hàng'),
+(1, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-11-02', '2023-11-04', '123 Nguyen Van Troi Street, Ward 12, District 5, Ho Chi Minh City', 'Kiểm hàng trước', 13470000, 13470000, 1, '2023-11-30', 1, 'Hoàn thành'),
 (2, 2, 2, 'Trần Thị Bình', '0987654322', '2023-11-02', '2023-11-05', '456 Le Van Luong Street, Ward 10, District 2, Ho Chi Minh City', 'Giao vào giờ hành chính 8h đến 16h', 54540000, 54540000, 1, '2023-11-30', 1, 'Hoàn thành'),
 (3, 3, 3, 'Lê Quang Yên', '0987654323', '2023-11-02', '2023-11-06', '789 Tran Hung Dao Street, Ward 6, District 1, Ho Chi Minh City', 'Đóng gói kỹ', 50980000, 50980000, 1, '2023-11-30', 1, 'Hoàn thành'),
 (4, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-11-02', '2023-11-04', '123 Nguyen Van Troi Street, Ward 12, District 5, Ho Chi Minh City', 'Kiểm hàng trước', 46380000, 41742000, 1, '2023-11-30', 1, 'Hoàn thành'),
@@ -2346,6 +2347,7 @@ CREATE TABLE `view_product_feedbacks` (
 ,`feedback_is_display` tinyint(1)
 ,`feedback_img_id` int(11)
 ,`feedback_img_name` varchar(100)
+,`user_name` varchar(100)
 );
 
 -- --------------------------------------------------------
@@ -2554,7 +2556,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_product_feedbacks`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_product_feedbacks`  AS SELECT `product_variants`.`product_variant_name` AS `product_variant_name`, `product_variants`.`product_id` AS `product_id`, `feedbacks`.`feedback_id` AS `feedback_id`, `feedbacks`.`product_variant_id` AS `product_variant_id`, `feedbacks`.`customer_id` AS `customer_id`, `feedbacks`.`order_id` AS `order_id`, `feedbacks`.`feedback_date` AS `feedback_date`, `feedbacks`.`feedback_rate` AS `feedback_rate`, `feedbacks`.`feedback_content` AS `feedback_content`, `feedbacks`.`feedback_is_display` AS `feedback_is_display`, `feedback_imgs`.`feedback_img_id` AS `feedback_img_id`, `feedback_imgs`.`feedback_img_name` AS `feedback_img_name` FROM ((`product_variants` left join `feedbacks` on(`product_variants`.`product_variant_id` = `feedbacks`.`product_variant_id`)) left join `feedback_imgs` on(`feedbacks`.`feedback_id` = `feedback_imgs`.`feedback_id`)) WHERE `feedbacks`.`feedback_is_display` = 1 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_product_feedbacks`  AS SELECT `product_variants`.`product_variant_name` AS `product_variant_name`, `product_variants`.`product_id` AS `product_id`, `feedbacks`.`feedback_id` AS `feedback_id`, `feedbacks`.`product_variant_id` AS `product_variant_id`, `feedbacks`.`customer_id` AS `customer_id`, `feedbacks`.`order_id` AS `order_id`, `feedbacks`.`feedback_date` AS `feedback_date`, `feedbacks`.`feedback_rate` AS `feedback_rate`, `feedbacks`.`feedback_content` AS `feedback_content`, `feedbacks`.`feedback_is_display` AS `feedback_is_display`, `feedback_imgs`.`feedback_img_id` AS `feedback_img_id`, `feedback_imgs`.`feedback_img_name` AS `feedback_img_name`, `view_user`.`user_name` AS `user_name` FROM (((`product_variants` left join `feedbacks` on(`product_variants`.`product_variant_id` = `feedbacks`.`product_variant_id`)) left join `feedback_imgs` on(`feedbacks`.`feedback_id` = `feedback_imgs`.`feedback_id`)) left join `view_user` on(`view_user`.`customer_id` = `feedbacks`.`customer_id`)) WHERE `feedbacks`.`feedback_is_display` = 1 ;
 
 -- --------------------------------------------------------
 

@@ -61,8 +61,8 @@
 			<textarea name="opinion" cols="30" rows="8" placeholder="Đánh giá của bạn..."></textarea>
 			<% }) %>
 			<div class="popup__button">
-				<a href="/account/purchase"><button class="btn btn--outlined sec btn-cancel" type="button">Hủy</button></a>
-				<a href="/account/purchase"><button class="btn btn--filled sec btn-logout" type="button">Gửi đánh giá</button></a>
+				<button class="btn btn--outlined sec btn-cancel" type="button" onclick="redirectTo('/account/purchase')">Hủy</button>
+				<button class="btn btn--filled sec btn-logout" type="button" onclick="redirectTo('/account/purchase')">Gửi đánh giá</button>
 			</div>
 		</form>
 	</div>
