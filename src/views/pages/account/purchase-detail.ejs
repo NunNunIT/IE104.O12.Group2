@@ -9,7 +9,7 @@
 	<meta name="description" content="Thông tin về đơn hàng của bạn luôn được lưu trữ và bảo vệ bởi TECHTWO.">
 	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
 	<link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
-
+	<link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
 	<title>TECHTWO.</title>
 </head>
 
@@ -89,10 +89,17 @@
 						<span>Thành tiền:</span>
 						<span id="total-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
+					<% if (purchaseHistory.order_status === 'Đã hủy') { %>
 					<p class="purchase-detail__final">
 						<span>Tổng tiền:</span>
-						<span id="paid-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
+						<span class="paid-amount cancelled"><del><%= formatFunction.toCurrency(totalAmount) %></del></span>
 					</p>
+					<% } else { %>
+					<p class="purchase-detail__final">
+						<span>Tổng tiền:</span>
+						<span class="paid-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
+					</p>
+					<% } %>
 				</div>
 				<div class="purchase-detail__button">
 					<% if (purchaseHistory.order_status === 'Chờ thanh toán') { %>

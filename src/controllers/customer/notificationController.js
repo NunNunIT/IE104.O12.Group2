@@ -6,27 +6,37 @@ const notificationsController = () => { }
 
 // [GET] /notification/account-update
 notificationsController.accountUpdate = async (req, res) => {
+    let user_id = req.user.user_id
+
     let header_user = await index.header_user(req)
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
+
+    let accountUpdates = await notifications.getAccountUpdate(user_id)
 
     res.render('./pages/notification/account-update', {
         header: header,
         user: header_user,
         formatFunction: formatFunction,
+        accountUpdates: accountUpdates,
     })
 }
 
 // [GET] /notification/promotion
 notificationsController.promotion = async (req, res) => {
+    let user_id = req.user.user_id
+
     let header_user = await index.header_user(req)
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
+
+    let promotions = await notifications.getPromotion(user_id)
 
     res.render('./pages/notification/promotion', {
         header: header,
         user: header_user,
         formatFunction: formatFunction,
+        promotions: promotions,
     })
 }
 
@@ -46,7 +56,7 @@ notificationsController.readNotification = async (req, res) => {
 
 // [POST] /notifications/read-all
 notificationsController.readAllNotifications = async (req, res) => {
-    notifications.readAllNotifications({
+    await notifications.readAllNotifications({
         "id": req.user.user_id,
         "noti_type": req.body.noti_type
     }, (err, result) => {
@@ -56,3 +66,4 @@ notificationsController.readAllNotifications = async (req, res) => {
 }
 
 module.exports = notificationsController
+

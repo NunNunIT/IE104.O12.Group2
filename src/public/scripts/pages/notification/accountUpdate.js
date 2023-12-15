@@ -1,17 +1,3 @@
-const updateBtn = document.querySelector(".btn-update")
-const promoBtn = document.querySelector(".btn-promo");
-
-const redirect2updateView = () => {
-    window.location.href = "http://127.0.0.1:3000/notification/account-update"
-}
-
-const redirect2promoView = () => {
-    window.location.href = "http://127.0.0.1:3000/notification/promotion"
-}
-
-updateBtn.addEventListener("click", redirect2updateView)
-promoBtn.addEventListener("click", redirect2promoView);
-
 const modalBtns = document.querySelectorAll(".popup-btn");
 const modals = document.querySelectorAll(".popup");
 const closeBtns = document.querySelectorAll(".close-btn");
@@ -28,7 +14,7 @@ modalBtns.forEach((btn, index) => {
 
         const noti_id = document.querySelector(`input[name = "noti ${index}"]`).value;
 
-        fetch("/notifications/read-noti", {
+        fetch("/notification/read-noti", {
             method: 'POST',
             body: JSON.stringify({
                 noti_id: noti_id
@@ -58,8 +44,8 @@ window.onclick = function (e) {
     });
 }
 
-markAllReadButton.addEventListener("click", () => {
-    fetch("/notifications/read-all", {
+markAllReadButton.addEventListener("click", async () => {
+    fetch("/notification/read-all", {
         method: "POST",
         body: JSON.stringify({
             noti_type: 1

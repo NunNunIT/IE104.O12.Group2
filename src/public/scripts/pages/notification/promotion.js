@@ -1,27 +1,3 @@
-//Điều hướng
-const updateBtn = document.querySelector(".btn-update");
-const promoBtn = document.querySelector(".btn-promo");
-const useBtns = document.querySelectorAll(".btn-use");
-
-const redirect2updateView = () => {
-    window.location.href = "http://127.0.0.1:3000/notification/account-update";
-}
-
-const redirect2promoView = () => {
-    window.location.href = "http://127.0.0.1:3000/notification/promotion";
-}
-
-const redirect2detailAccom = () => {
-    window.location.href = "http://127.0.0.1:3000/search/detail"; // Sửa URL chuyển hướng tại đây
-}
-
-useBtns.forEach((btn) => {
-    btn.addEventListener("click", redirect2detailAccom);
-});
-
-updateBtn.addEventListener("click", redirect2updateView);
-promoBtn.addEventListener("click", redirect2promoView);
-
 
 //Popup
 const modalBtns = document.querySelectorAll(".popup-btn");
@@ -39,7 +15,7 @@ modalBtns.forEach((btn, index) => {
 
         const noti_id = document.querySelector(`input[name = "noti ${index}"]`).value;
 
-        fetch("/notifications/read-noti", {
+        fetch("/notification/read-noti", {
             method: 'POST',
             body: JSON.stringify({
                 noti_id: noti_id
@@ -56,10 +32,6 @@ closeBtns.forEach((closeBtn, index) => {
     closeBtn.onclick = function () {
         modals[index].style.display = "none";
         popupVisible[index] = false;
-        if (popupVisible.some((visible) => visible)) {
-        } else {
-            notiItems[index].style.backgroundColor = "white"; //Đọc xong đổi màu nền
-        }
     }
 });
 
@@ -69,17 +41,13 @@ window.onclick = function (e) {
         if (e.target == modal) {
             modal.style.display = "none";
             popupVisible[index] = false;
-            if (popupVisible.some((visible) => visible)) {
-            } else {
-                notiItems[index].style.backgroundColor = "white";
-            }
         }
     });
 }
 
 // Đánh dấu đã đọc tất cả
 markAllReadButton.addEventListener("click", () => {
-    fetch("/notifications/read-all", {
+    fetch("/notification/read-all", {
         method: "POST",
         body: JSON.stringify({
             noti_type: 2

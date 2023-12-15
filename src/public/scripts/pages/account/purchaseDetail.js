@@ -91,8 +91,8 @@ cancelForm.addEventListener('submit', e => {
 
             } else if (back.status == "success") {
                 // Pop up đã hủy thành công
-
-                location.reload()
+                
+                // location.reload()
             }
         })
 });

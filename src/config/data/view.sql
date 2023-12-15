@@ -284,9 +284,9 @@ CREATE VIEW view_notifications AS
 SELECT
     notifications.*,
     user_notification.user_id,
-    user_notification.users_notifications_is_read
+    user_notification.user_notification_is_read
 FROM
     notifications
-LEFT JOIN user_notification ON notifications.notifications_id = user_notification.notifications_id
+LEFT JOIN user_notification ON notifications.notification_id = user_notification.notification_id
 WHERE
-    notifications.notifications_is_display = 1;
+    notifications.notification_is_display = 1;

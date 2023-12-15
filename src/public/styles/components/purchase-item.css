@@ -132,6 +132,10 @@ small {
     font-weight: 500;
 }
 
+.purchase-item__total h2 {
+    font-weight: 700;
+}
+
 .purchase-item__total-price {
     color: var(--primary-color-1);
 }
@@ -182,4 +186,3 @@ small {
 .purchase-item__total-price.cancelled {
     color: gray;
 }
- 

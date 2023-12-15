@@ -1,15 +1,30 @@
-<div class="noti-item__block">
-	<img src="/imgs/discount/order_shipped.png" alt="img" class="noti-item__img">
+<div class="noti-item__block <%= (noti.user_notification_is_read == 1) ? 'read':'' %>">
+	<% if (noti.notification_type_id == 1) { %>
+	<img src="/imgs/notifications/order_placed.png" alt="order_placed" class="noti-item__img">
+	<% } %>
+	<% if (noti.notification_type_id == 2) { %>
+	<img src="/imgs/notifications/order_shipped.png" alt="order_shipped" class="noti-item__img">
+	<% } %>
+	<% if (noti.notification_type_id == 3) { %>
+	<img src="/imgs/notifications/order_delivered.png" alt="order_delivered" class="noti-item__img">
+	<% } %>
+	<% if (noti.notification_type_id == 4) { %>
+	<img src="/imgs/notifications/payment_received.png" alt="payment_received" class="noti-item__img">
+	<% } %>
+	<% if (noti.notification_type_id == 5) { %>
+	<img src="/imgs/notifications/feedback_received.png" alt="feedback_received" class="noti-item__img">
+	<% } %>
+
 	<div class="noti-item__main">
 		<input type="hidden" name="noti <%= index %>" value="<%=noti.notification_id%>">
 		<div>
-			<p class="noti-item__title">ĐƠN HÀNG ĐÃ ĐƯỢC GIAO</p>
-			<p class="noti-item__sub-title">Đơn hàng đã được giao thành công. Vui lòng kiểm tra và xác nhận đơn hàng.</p>
+			<p class="noti-item__title"><%= noti.notification_title %></p>
+			<p class="noti-item__sub-title"><%= noti.notification_subtitle %></p>
 		</div>
 		<div class="noti-item__info">
 			<div class="noti-item__date-time">
-				<p class="noti-item__time">14:12</p>
-				<p class="noti-item__date">13/11/2023</p>
+				<p class="noti-item__time"><%= toHHMM(new Date(noti.notification_date)) ?? 'NaN' %></p>
+				<p class="noti-item__date"><%= toDDMMYYYY(new Date(noti.notification_date)) ?? 'NaN' %></p>
 			</div>
 			<button class="btn btn--outlined pri popup-btn" type="submit">Xem chi tiết</button>
 			<div class="popup">
@@ -19,7 +34,21 @@
 					</div>
 					<div class="popup__content-main">
 						<div class="popup__content--left">
-							<img src="/imgs/discount/order_shipped.png" alt="img" class="popup__img">
+							<% if (noti.notification_type_id == 1) { %>
+							<img src="/imgs/notifications/order_placed.png" alt="order_placed" class="popup__img">
+							<% } %>
+							<% if (noti.notification_type_id == 2) { %>
+							<img src="/imgs/notifications/order_shipped.png" alt="order_shipped" class="popup__img">
+							<% } %>
+							<% if (noti.notification_type_id == 3) { %>
+							<img src="/imgs/notifications/order_delivered.png" alt="order_delivered" class="popup__img">
+							<% } %>
+							<% if (noti.notification_type_id == 4) { %>
+							<img src="/imgs/notifications/payment_received.png" alt="payment_received" class="popup__img">
+							<% } %>
+							<% if (noti.notification_type_id == 5) { %>
+							<img src="/imgs/notifications/feedback_received.png" alt="feedback_received" class="popup__img">
+							<% } %>
 							<div class="timeline">
 								<ul>
 									<li class="in-view"></li>
@@ -30,8 +59,8 @@
 						</div>
 						<div class="popup__content--right">
 							<div class="popup__content-title">
-								<p class="popup__title">ĐƠN HÀNG ĐÃ ĐƯỢC GIAO</p>
-								<p class="popup_sub-tittle">Đơn hàng của bạn đã được giao đến địa chỉ của bạn.</p>
+								<p class="popup__title"><%= noti.notification_title %></p>
+								<p class="popup_sub-tittle"><%= noti.notification_subtitle %></p>
 							</div>
 							<div class="popup__details">
 								<p class="popup__details-title">Đặt hàng thành công</p>

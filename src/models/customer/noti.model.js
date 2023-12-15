@@ -8,14 +8,55 @@ const query = util.promisify(db.query).bind(db)
 
 const notifications = function () { }
 
+// [GET] /notification/account-update
+notifications.getAccountUpdate = async (user_id, callback) => {
+    const getAccountUpdate = `
+        SELECT * FROM view_notifications 
+        WHERE user_id = ${user_id}
+        AND NOT(notification_type_id = 6)
+        AND NOT(notification_type_id = 7)
+        `
+    return new Promise((resolve, reject) => {
+        db.query(getAccountUpdate, (err, accountUpdates)  => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(accountUpdates)
+            }
+        })
+    })
+}
+
+// [GET] /notification/promotion
+notifications.getPromotion = async (user_id, callback) => {
+    const getPromotion = `
+        SELECT * FROM view_notifications 
+        WHERE user_id = ${user_id}
+        AND notification_type_id = 6
+        OR notification_type_id = 7
+        `
+    return new Promise((resolve, reject) => {
+        db.query(getPromotion, (err, promotions)  => {
+            if (err) {
+                console.log(err)
+                resolve(0)
+            } else {
+                resolve(promotions)
+            }
+        })
+    })
+}
+
+
 // [POST] /notification/account-update
 // [POST] /notification/promotion
 notifications.readNotification = ({ id, noti_id }, callback) => {
     const readNotification = `
-        UPDATE usernoti
-        SET usernoti_is_read = 1
-        WHERE au_user_id = ${id}
-            AND noti_id = ${noti_id}
+        UPDATE user_notification
+        SET user_notification_is_read = 1
+        WHERE user_id = ${id}
+            AND notification_id = ${noti_id}
     `
 
     db.query(readNotification, (err, result) => {
@@ -25,12 +66,19 @@ notifications.readNotification = ({ id, noti_id }, callback) => {
 
 // [GET] /notification/read-all
 notifications.readAllNotifications = ({ id, noti_type }, callback) => {
-    const readAllNotification = `
-    UPDATE usernoti
-    SET usernoti_is_read = 1
-    WHERE usernoti.au_user_id = ${id}
-      AND usernoti.noti_id in (SELECT notification_id FROM notifications WHERE notification_types_id = ${noti_type});
+    let readAllNotification = `
+    UPDATE user_notification
+    SET user_notification_is_read = 1
+    WHERE user_notification.user_id = ${id}
+      AND user_notification.notification_id in (SELECT notification_id FROM notifications WHERE
     `
+    if (noti_type == 1) {
+        readAllNotification += ` NOT(notification_type_id = 6)
+                                AND NOT(notification_type_id = 7));`
+    } else if (noti_type == 2) {
+        readAllNotification += ` (notification_type_id = 6)
+                                OR (notification_type_id = 7));`
+    }
 
     db.query(readAllNotification, (err, result) => {
         callback(err, result);

@@ -9,6 +9,11 @@ body {
     background-color: var(--bg-white);
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .nofi-container {
     width: 80%;
     margin: 24px 0;
@@ -75,14 +80,14 @@ body {
     font-weight: 500;
 }
 
-.aside-wrapper__aside-section p:hover {
+.aside-wrapper__aside-section a:hover {
     cursor: pointer;
     border-radius: 8px;
     background-color: #d9d9d9;
     transition: 0.3s;
 }
 
-.aside-wrapper__aside-section p:nth-child(2) {
+.aside-wrapper__aside-section a:nth-child(2) {
     background-color: var(--primary-color-1);
     color: white;
     border-radius: 8px;

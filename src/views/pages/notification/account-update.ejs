@@ -23,50 +23,44 @@
     include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Thông báo',
     link : '' }, { text : 'Cập nhật tài khoản', link : '' }] }) %>
 
-    <main class="nofi-container">
-      <aside class="aside-wrapper">
-        <div class="aside-wrapper__aside-info">
-          <img
-            class="aside-wrapper__aside-avatar"
-            src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>"
-            alt="avatar"
-          />
-          <div class="aside-wrapper__aside-title">
-            <p>Thông báo</p>
-          </div>
-        </div>
-        <hr />
-        <div class="aside-wrapper__aside-section">
-          <p class="btn-update">Cập nhật đơn hàng</p>
-          <p class="btn-promo">Thông tin khuyến mãi</p>
-        </div>
-      </aside>
+	<main class="nofi-container">
+		<aside class="aside-wrapper">
+			<div class="aside-wrapper__aside-info">
+				<img class="aside-wrapper__aside-avatar" src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar" />
+				<div class="aside-wrapper__aside-title">
+					<p>Thông báo</p>
+				</div>
+			</div>
+			<hr />
+			<div class="aside-wrapper__aside-section">
+				<a href="/notification/account-update" class="btn-update">Cập nhật đơn hàng</a>
+				<a href="/notification/promotion" class="btn-promo">Thông tin khuyến mãi</a>
+			</div>
+		</aside>
 
-      <section class="nofi__main">
-        <div class="nofi--disable">
-          <div class="noti__button-update--disable">
-            <a href="#" class="btn-update--disable">Cập nhật đơn hàng</a>
-            <hr />
-          </div>
-          <div class="noti__button-promo--disable">
-            <a href="/notification/promotion" class="btn-promo--disable"
-              >Thông tin khuyến mãi</a
-            >
-            <hr />
-          </div>
-        </div>
-        <div class="btn-mark-all-read">
-          <span>Đánh dấu tất cả là đã đọc (5)</span>
-        </div>
-        <%- include('../../components/noti-item-account') %> <%-
-        include('../../components/noti-item-account') %> <%-
-        include('../../components/noti-item-account') %> <%-
-        include('../../components/noti-item-account') %>
-      </section>
-    </main>
+		<section class="nofi__main">
+			<div class="nofi--disable">
+				<div class="noti__button-update--disable">
+					<a href="/notification/account-update" class="btn-update--disable">Cập nhật đơn hàng</a>
+					<hr />
+				</div>
+				<div class="noti__button-promo--disable">
+					<a href="/notification/promotion" class="btn-promo--disable">Thông tin khuyến mãi</a>
+					<hr />
+				</div>
+			</div>
+			<div class="btn-mark-all-read">
+				<span>Đánh dấu tất cả là đã đọc (<%= accountUpdates.length %>)</span>
+			</div>
+			<% for(let i=0; i< accountUpdates.length; i++) {%>
+				<%- include('../../components/noti-item-account', { noti: accountUpdates[i], index: i, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
+			<% } %>
+		</section>
+	</main>
 
-    <%- include('../../components/scrollup') %> <%-
-    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
+    <%- include('../../components/scrollup') %> 
+    <%- include('../../partials/footer') %> 
+    <%- include('../../partials/app-bar') %>
 
     <script src="/scripts/components/scrollup.js"></script>
     <script src="/scripts/pages/notification/accountUpdate.js"></script>
