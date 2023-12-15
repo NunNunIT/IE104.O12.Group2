@@ -67,6 +67,13 @@ function changeQuantity(event) {
         input.value = input.min
 }
 
+const toCurrency = function (money) {
+    let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
+        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c
+    })
+    return currency + 'đ'
+}
+
 // Open cart success modal
 const formAddCart = document.getElementById('buy-form')
 const addCartBtn = document.querySelector('.detail__add-btn')
@@ -93,7 +100,7 @@ addCartBtn.addEventListener('click', () => {
             if (back.status == 'error') {
                 window.alert('Vui lòng thử lại sau');
             } else if (back.status == "NotAuth") {
-                window.location.href = "http://localhost:3000/auth/login"
+                window.location.href = "/auth/login"
             } else if (back.status == "success") {
                 const cartSuccessModal = document.querySelector('.success-modal')
                 cartSuccessModal.style.display = 'flex'
@@ -109,6 +116,41 @@ addCartBtn.addEventListener('click', () => {
                         const countCartEle = document.querySelector('.header__cart__number-badge')
                         countCartEle.innerHTML = back2.countCart
                     })
+
+                const productId = document.querySelector('input[name="product_id"]').value
+                const productVariantId = document.querySelector('input[name="product_variant_id"]').value
+                const categoryId = document.querySelector('input[name="category_id"]').value
+                const productName = document.querySelector('.title h1').innerHTML
+                const productPrice = document.querySelector('.promo__header div h2').innerHTML.replaceAll('.', '').slice(0, -1)
+
+                const discountAmmount = document.querySelector('input[name="discount_ammount"]').value
+                let cartDropdownPrice
+                let cartDropdownPriceDel
+                if (discountAmmount) {
+                    cartDropdownPrice = toCurrency(Math.round(productPrice - productPrice * (discountAmmount / 100)))
+                    cartDropdownPriceDel = toCurrency(Number(productPrice))
+                }
+                else {
+                    cartDropdownPrice = toCurrency(Number(productPrice))
+                    cartDropdownPriceDel = ''
+                }
+
+                const dropdownCartItem = document.createElement('div')
+                dropdownCartItem.classList.add('cart-dropdown__block')
+                dropdownCartItem.innerHTML =
+                    `<a href="/search/${productVariantId}?category_id=${categoryId}" class="cart-dropdown__main">
+                        <img class="cart-dropdown__img" src="/imgs/product_image/P${productId}/P${productId}_avt.jpg" alt="${productName}">
+                        <div class="cart-dropdown__content">
+                            <span>${productName}</span>
+                            <div class="cart-dropdown__price">
+                                ${cartDropdownPrice}<small>${cartDropdownPriceDel}</small>
+                            </div>
+                        </div>
+                    </a>`
+
+                const cartDropdownItem = Array.from(document.querySelectorAll('.dropdown-cart__content .cart-dropdown__block'))
+                if (!cartDropdownItem.some(item => item.querySelector('.cart-dropdown__content span').innerHTML == productName) && cartDropdownItem.length < 5)
+                    cartDropdownItem.slice(-1)[0].after(dropdownCartItem)
             }
         })
 })
