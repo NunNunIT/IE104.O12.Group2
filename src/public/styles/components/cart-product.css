@@ -7,6 +7,8 @@
 }
 
 .cart-item__product {
+    text-decoration: none;
+    color: var(--black);
     display: inherit;
     gap: 8px;
 }

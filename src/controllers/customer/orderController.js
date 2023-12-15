@@ -75,9 +75,15 @@ orderController.deleteCart = async (req, res) => {
 // [POST] /order/cart/update
 orderController.updateCart = async (req, res) => {
 	let customer_id = req.user.customer_id
-	let productsCartUpdate = req.body
+	let productsCartUpdate = req.body.productsCartUpdate
+	let productsCartUpdateOld = req.body.productsCartUpdateOld
 
-	order.updateCart(customer_id, productsCartUpdate, function (err, success) {
+	console.log(req.body)
+
+	await order.deleteCart(customer_id, productsCartUpdate, function (err, success) { })
+	await order.deleteCart(customer_id, productsCartUpdateOld, function (err, success) { })
+
+	await order.updateCart(customer_id, productsCartUpdate, function (err, success) {
 		if (success) {
 			return res.status(200).json({
 				status: "success",

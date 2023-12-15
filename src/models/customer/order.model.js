@@ -20,7 +20,6 @@ order.addCart = async (customer_id, product_variant_id, cart_quantity) => {
         await db.query(addCart)
     }
     return 1
-
 }
 
 order.getDetailCart = async (customer_id) => {

@@ -84,6 +84,7 @@ function deleteAllItem(event) {
     calcTotalPrice()
 }
 
+// Xóa sản phẩm trong giỏ khi reload hoặc chuyển trang
 window.addEventListener('load', deleteItems)
 window.addEventListener('beforeunload', deleteItems)
 function deleteItems(event) {
@@ -146,6 +147,29 @@ function deleteMbItem(event) {
     modifyLastItem()
     showSelectedNums()
     calcTotalPrice()
+}
+
+// Cập nhật sản phẩm trong giỏ hàng khi reload hoặc chuyển trang
+window.addEventListener('load', updateCart)
+window.addEventListener('beforeunload', updateCart)
+function updateCart(event) {
+    const productsCartUpdate = JSON.parse(localStorage.getItem('productsCartUpdate'))
+    const productsCartUpdateOld = JSON.parse(localStorage.getItem('productsCartUpdateOld'))
+    if (Array.isArray(productsCartUpdate) && Array.isArray(productsCartUpdateOld)) {
+        if (productsCartUpdate.length && productsCartUpdateOld.length) {
+            productsCartUpdate.forEach(product => delete product.product_id)
+
+            fetch('/order/updateCart', {
+                body: JSON.stringify({ productsCartUpdate, productsCartUpdateOld }),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            localStorage.removeItem('productsCartUpdate')
+            localStorage.removeItem('productsCartUpdateOld')
+        }
+    }
 }
 
 // Hàm thay đổi màu nút 'Xóa' tất cả
