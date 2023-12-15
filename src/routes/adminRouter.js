@@ -22,7 +22,9 @@ router.get('/', adminMiddleware.isLoggedIn, dashboardAdminController.getDashboar
 // admin cate management
 router.get('/categories_admin/add', adminMiddleware.isLoggedIn, cateAdminController.addCategories)
 router.get('/categories_admin', adminMiddleware.isLoggedIn, cateAdminController.getCategories)
-// router.get('/categories_admin/delete/:id', adminMiddleware.isLoggedIn, adminController.deleteCategory)
-// router.get('/orders_admin', adminMiddleware.isLoggedIn, adminController.getOrders)
+
+// admin product management
+router.get('/products_admin/add', adminMiddleware.isLoggedIn, cateAdminController.addProducts)
+router.get('/products_admin', adminMiddleware.isLoggedIn, cateAdminController.getProducts)
 
 module.exports = router

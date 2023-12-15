@@ -21,12 +21,6 @@ orderController.addCart = async (req, res) => {
 	let product_variant_id = req.body.product_variant_id
 	let cart_quantity = req.body.cart_quantity
 
-	// if (!customer_id) {
-	// 	return res.status(401).json({
-	// 		status: "NotAuth",
-	// 	})
-	// }
-
 	let result = await order.addCart(
 		customer_id,
 		product_variant_id,
@@ -64,7 +58,6 @@ orderController.cart = async (req, res) => {
 orderController.deleteCart = async (req, res) => {
 	let customer_id = req.user.customer_id
 	let productsCartDelete = req.body
-	console.log(productsCartDelete)
 
 	order.deleteCart(customer_id, productsCartDelete, function (err, success) {
 		if (success) {
@@ -132,8 +125,6 @@ orderController.payment = async (req, res) => {
 	let formatFunction = await general.formatFunction()
 
 	let purchase = await account.getPurchaseHistory(customer_id, 0, order_id)
-
-	console.log(purchase)
 
 	if (paying_method_id == 1) {
 		res.render("./pages/order/momo", {

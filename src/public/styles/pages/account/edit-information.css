@@ -1,18 +1,6 @@
 @import url("/styles/general.css");
 @import url("/styles/pages/account/information.css");
-
-
-.error {
-    display: flex;
-    /* color: var(--red);
-    font-size: 0.8rem;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    transform: translateY(-0%);
-    pointer-events: none;
-    transition: 0.4s; */
-}
+@import url("/styles/components/sidebar_account.css");
 
 .userName {
     width: 50%;
@@ -27,25 +15,25 @@
 .userSex {
     width: 50%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .userEmail {
     width: 50%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .userPhone {
     width: 50%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .userAddress {
     width: 50%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .purchase-item__product-name {
@@ -53,9 +41,8 @@
     flex-direction: row;
 }
 
-.purchase-item__product-name label{
-    display: flex;
-    width: 20%;
+.purchase-item__product-name label {
+    padding: 8px;
 }
 
 .purchase-item__product-detail hr {
@@ -65,13 +52,16 @@
 #userSex {
     font-size: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 4px;
 }
 
 #userBirth {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     gap: 12px;
     padding: 0;
+    text-indent: 4px;
 }
+
 .popup__button {
     display: flex;
     justify-content: flex-end;
@@ -87,43 +77,41 @@
     color: white;
 }
 
- .purchase-item__product-detail input, select {
-    height: 40px; 
+.purchase-item__product-detail input,
+select {
+    height: 40px;
     font-size: 16px;
     outline-color: var(--primary-color-1);
-  }
+}
 
-  .purchase-item__product-detail input {
+.purchase-item__product-detail input {
     padding: 8px;
     width: 100%;
     border-radius: 8px;
 }
 
-
-
-#purchase-item__product-name {
+.purchase-item__product-name {
+    position: relative;
     margin-bottom: 12px;
 }
 
-.error-message {
+.purchase-item__product-name .error-message {
+    display: flex;
     color: red;
     font-size: 13px;
+    position: absolute;
+    bottom: -7px;
+    justify-content: center;
+    margin-top: 8px;
+    text-indent: 8px;
 }
 
-
-@media only screen and (max-width: 26rem){
-
-    .purchase-item__status {
-        font-weight: 500;
-        color: var(--green);
-        font-size: 14px !important;
+@media only screen and (max-width: 26rem) {
+    .purchase-item__product-detail input {
+        font-size: 14px;
     }
 
-    .purchase-item__product-detail input { 
-        font-size: 14px;
-      }
-
-      #userSex {
+    #userSex {
         font-size: 0.875rem;
     }
 
@@ -139,5 +127,19 @@
     button.btn--filled.pri {
         font-size: 0.875rem !important;
         padding: 0 18px !important;
+    }
+
+    .purchase-item__product-name .error-message {
+        margin-left: -18%;
+    }
+
+    .purchase-item__product-name label {
+        width: 45%;
+        align-items: center;
+    }
+
+    .purchase-item__product-name input,
+    select {
+        width: 100%;
     }
 }

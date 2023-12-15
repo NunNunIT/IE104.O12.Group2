@@ -577,7 +577,7 @@ img.dropdown-cart__img--empty {
 .header__cate-dropdown {
     width: 100%;
     max-width: 1152px;
-    /* max-height: 450px; */
+    min-height: 500px;
     padding: 12px;
     background-color: var(--white);
     border-bottom-left-radius: 12px;
@@ -585,18 +585,13 @@ img.dropdown-cart__img--empty {
     box-shadow: 1px 6px 8px -2px rgba(0, 0, 0, 0.2);
     display: none !important;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: absolute;
-    overflow-y: scroll;
-}
-
-.header__cate-dropdown::-webkit-scrollbar {
-    display: none;
+    left: 0;
 }
 
 .header__cate-dropdown-wrapper {
     display: flex;
-    scroll-snap-align: start;
 }
 
 .header__cate-dropdown-wrapper .cate-dropdown__content:first-child {
@@ -619,7 +614,10 @@ img.dropdown-cart__img--empty {
     justify-content: flex-start;
     align-items: center;
     gap: 4px;
-    scroll-snap-align: start;
+}
+
+.cate-dropdown__item p {
+    text-align: left;
 }
 
 .cate-dropdown__content {
@@ -671,7 +669,6 @@ img.dropdown-cart__img--empty {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 12px;
-    scroll-snap-align: start;
 }
 
 .cate-dropdown__product img {
@@ -723,6 +720,21 @@ img.dropdown-cart__img--empty {
     align-items: center;
 }
 
+.product__not-found {
+    width: 100%;
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.product__not-found img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
 .cate-dropdown__product-rating span {
     font-variation-settings: 'FILL' 1;
     font-size: 1.25rem;
@@ -749,7 +761,6 @@ img.dropdown-cart__img--empty {
     font-size: 1.5rem;
 }
 
-
 /* 1024px - Mini PC */
 @media only screen and (max-width: 64rem) {
     .dropdown-noti__content-container {
@@ -767,6 +778,14 @@ img.dropdown-cart__img--empty {
 
     .header__search-btn {
         width: 20%;
+    }
+
+    .header__menu {
+        gap: 12px;
+    }
+
+    .menu__item {
+        padding: 12px 4px;
     }
 }
 
@@ -830,6 +849,10 @@ img.dropdown-cart__img--empty {
         width: 90%;
     }
 
+    .header__cate-dropdown {
+        min-height: 450px;
+    }
+
     .cate-dropdown__product a {
         width: 31%;
     }
@@ -840,7 +863,7 @@ img.dropdown-cart__img--empty {
 
     .menu__item {
         height: 40px;
-        padding: 8px;
+        padding: 8px 0;
     }
 
     .cate-dropdown__product-rating span {

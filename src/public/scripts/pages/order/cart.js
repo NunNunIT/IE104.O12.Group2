@@ -1,5 +1,10 @@
 // Sự kiện onclick checkbox chọn tất cả
 function checkAll(event) {
+    if (event.currentTarget.checked == false)
+        disableButton()
+    else
+        enableButton()
+
     let checkboxes
     if (window.innerWidth <= 416)
         checkboxes = document.querySelectorAll('.checkbox.mobile-display')
@@ -11,8 +16,27 @@ function checkAll(event) {
     changeDel()
 }
 
+function enableButton() {
+    const deleteBtn = document.querySelector('.cart__del-btn')
+    const submitBtn = document.querySelector('.cart__order input')
+    deleteBtn.disabled = false
+    submitBtn.disabled = false
+}
+
+function disableButton() {
+    const deleteBtn = document.querySelector('.cart__del-btn')
+    const submitBtn = document.querySelector('.cart__order input')
+    deleteBtn.disabled = true
+    submitBtn.disabled = true
+}
+
 // Sự kiện onclick nút 'Chọn tất cả'
 function checkAllBtn(event) {
+    if (event.currentTarget.checked == false)
+        disableButton()
+    else
+        enableButton()
+
     const checkAll = document.querySelector('#check-all')
     checkAll.checked = !checkAll.checked
 
@@ -37,7 +61,10 @@ function deleteAllItem(event) {
 
     const checkedItem = cartItems.filter(item => item.querySelector('.checkbox').checked == true)
 
-    const productsCartDelete = []
+    if (!JSON.parse(localStorage.getItem('productsCartDelete')))
+        localStorage.setItem('productsCartDelete', JSON.stringify([]))
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+
     checkedItem.forEach(item => {
         let productVariantId = item.querySelector('input[name="product_variant_id"]')
         productsCartDelete.push({
@@ -46,26 +73,63 @@ function deleteAllItem(event) {
         item.remove()
     })
 
-    console.log(productsCartDelete)
-    fetch('/order/cart/delete', {
-        body: JSON.stringify(productsCartDelete),
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(() => {
-            fetch('/general/count_cart', {
-                method: 'GET',
-            })
-                .then(res => res.json())
-                .then(back2 => {
-                    const countCartEle = document.querySelector('.header__cart__number-badge')
-                    countCartEle.innerHTML = back2.countCart
-                })
-        })
+    localStorage.removeItem('productsCartDelete')
+    localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
+
+    const countCartEle = document.querySelector('.header__cart__number-badge')
+    countCartEle.innerHTML = Number(countCartEle.innerHTML) - checkedItem.length
 
     showEmptyNoti()
+    modifyLastItem()
+    calcTotalPrice()
+}
+
+window.addEventListener('load', deleteItems)
+window.addEventListener('beforeunload', deleteItems)
+function deleteItems(event) {
+    const loading = document.querySelector('.lds-ring')
+    const loadingHidden = document.querySelector('.loading-hidden')
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+    if (Array.isArray(productsCartDelete)) {
+        if (productsCartDelete.length) {
+            fetch('/order/cart/delete', {
+                body: JSON.stringify(productsCartDelete),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(() => {
+                    let cartItems
+                    if (window.innerWidth <= 416)
+                        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+                    else
+                        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
+
+                    productsCartDelete.forEach(del => {
+                        cartItems.forEach(item => {
+                            if (item.querySelector('input[name="product_variant_id"]').value == Number(del.product_variant_id))
+                                item.remove()
+                        })
+                    })
+
+                    localStorage.removeItem('productsCartDelete')
+
+                    loading.style.visibility = 'hidden'
+                    loadingHidden.style.visibility = 'visible'
+
+                    showEmptyNoti()
+                })
+        }
+        else {
+            loading.style.visibility = 'hidden'
+            loadingHidden.style.visibility = 'visible'
+        }
+    }
+    else {
+        loading.style.visibility = 'hidden'
+        loadingHidden.style.visibility = 'visible'
+    }
 }
 
 // Sự kiện onclick nút 'Xóa' responsive điện thoại
@@ -78,8 +142,10 @@ function deleteMbItem(event) {
         }
     })
 
-    showSelectedNums()
     showEmptyNoti()
+    modifyLastItem()
+    showSelectedNums()
+    calcTotalPrice()
 }
 
 // Hàm thay đổi màu nút 'Xóa' tất cả
@@ -119,20 +185,28 @@ function showEmptyNoti() {
     if (countCartItem == 0) {
         const emptyNoti = document.querySelector('.cart__empty')
         emptyNoti.style.display = 'flex'
+
+        const cartTitle = document.querySelector('.cart__title')
+        cartTitle.remove()
+
+        const cartFooter = document.querySelector('.cart__footer')
+        cartFooter.remove()
     }
 }
 
 // Căn chỉnh cart-item cuối cùng
-let cartItems
-if (window.innerWidth <= 416)
-    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
-else
-    cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
+function modifyLastItem() {
+    let cartItems
+    if (window.innerWidth <= 416)
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+    else
+        cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-hidden'))
 
-if (cartItems.length) {
-    const lastCartItem = cartItems[cartItems.length - 1]
-    lastCartItem.style.border = 'none'
-    lastCartItem.style.padding = '0'
+    if (cartItems.length) {
+        const lastCartItem = cartItems[cartItems.length - 1]
+        lastCartItem.style.border = 'none'
+        lastCartItem.style.padding = '0'
+    }
 }
 
 // Sự kiện onclick nút 'Đặt hàng'
@@ -228,3 +302,4 @@ function calcTotalPrice(event) {
 
 // Hàm thực thi
 showEmptyNoti()
+modifyLastItem()

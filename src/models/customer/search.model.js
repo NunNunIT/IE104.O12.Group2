@@ -5,7 +5,7 @@ const query = util.promisify(db.query).bind(db)
 const general = require('../../models/general.model');
 const index = require('../../models/customer/index.model')
 
-const search = function () {}
+const search = function () { }
 
 search.findProductsBySearchKey = async (req, limit = 24) => {
     // lấy từ khóa searchKey=?
@@ -113,16 +113,16 @@ search.findProductsByCateId = async (req, limit = 24) => {
                 resolve(0)
             }
 
-                let productList = {
-                    products,
-                    category_id,
-                    category_name,
-                    totalRow,
-                    totalPage,
-                    page,
-                    limit
-                }
-                resolve(productList)
+            let productList = {
+                products,
+                category_id,
+                category_name,
+                totalRow,
+                totalPage,
+                page,
+                limit
+            }
+            resolve(productList)
 
         })
     })

@@ -3,9 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/order/credit.css">
 
 	<title>TECHTWO.</title>
@@ -32,7 +33,6 @@
 						<% } else { %>
 						Chị
 						<% } %>
-						<%= console.log(purchase.user_sex) %>
 						<%=purchase.order_name%> </strong> đã cho TECHTWO cơ hội được phục vụ.
 				</div>
 				<div class="info-order">
@@ -41,11 +41,6 @@
 							<p><strong>ĐƠN HÀNG:</strong></p>
 							<p id="trans__id">#DH00<%=purchase.order_id%></p>
 						</div>
-						<!-- <div class="header--right">
-                            <a href="#" id="btn-manage">Quản lý đơn hàng</a>
-                            <p>|</p>
-                            <a href="#" id="btn-cancel">Hủy</a>
-                        </div> -->
 					</div>
 					<div class="info-order__bill">
 						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
@@ -85,7 +80,6 @@
 								<div class="input_title">Số thẻ<span style="color:red">*</span></div>
 								<div class="input-wrap">
 									<input id="NumberCard" type="text" placeholder="1234 5678 9101 2345" name="NumberCard" class="input-field" autocomplete="off" onclick="normalCardImage()" />
-									<!-- <label>1234 5678 9101 2345</label> -->
 									<div class="error"></div>
 								</div>
 							</div>
@@ -94,7 +88,6 @@
 									<div class="input_title">Tháng/Năm hết hạn<span style="color:red">*</span></div>
 									<div class="input-wrap">
 										<input id="EndDate" type="text" placeholder="MM/YY" name="EndDate" class="input-field" autocomplete="off" onclick="normalCardImage()" />
-										<!-- <label>MM/YY</label> -->
 										<div class="error"></div>
 									</div>
 								</div>
@@ -102,7 +95,6 @@
 									<div class="input_title">CSC<span style="color:red">*</span></div>
 									<div class="input-wrap">
 										<input id="CSC" type="text" placeholder="123" name="CSC" class="input-field" autocomplete="off" onclick="updateCardImage()" />
-										<!-- <label>123</label> -->
 										<div class="error"></div>
 									</div>
 								</div>

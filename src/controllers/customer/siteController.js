@@ -30,7 +30,7 @@ siteController.aboutUs = async (req, res) => {
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
 
-    res.render('./pages/site/about-us', {
+    res.status(200).render('./pages/site/about-us', {
         header: header,
         user: header_user,
         formatFunction: formatFunction,
@@ -43,7 +43,7 @@ siteController.privacyPolicy = async (req, res) => {
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
 
-    res.render('./pages/site/privacy-policy', {
+    res.status(200).render('./pages/site/privacy-policy', {
         header: header,
         user: header_user,
         formatFunction: formatFunction,
@@ -52,10 +52,7 @@ siteController.privacyPolicy = async (req, res) => {
 
 // [GET] /error
 siteController.error = async (req, res) => {
-    let header_user = await index.header_user(req)
-    let header = await index.header(req)
-
-    res.render('./pages/site/404-error', {
+    res.status(200).render('./pages/site/404-error', {
         header: header,
         user: header_user,
     })
@@ -67,11 +64,16 @@ siteController.category = async (req, res) => {
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
 
-    res.render('./pages/site/category-mobile', {
+    res.status(200).render('./pages/site/category-mobile', {
         header: header,
         user: header_user,
         formatFunction: formatFunction,
     })
+}
+
+// [GET] /feature_development
+siteController.development = async (req, res) => {
+    res.status(503).render('./pages/site/feature_development')
 }
 
 module.exports = siteController

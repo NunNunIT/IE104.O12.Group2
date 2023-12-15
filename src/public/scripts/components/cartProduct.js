@@ -1,8 +1,11 @@
 // Sự kiện onclick checkbox chọn 1 item
 function checkOne(event) {
     const checkAll = document.getElementById('check-all')
-    if (event.currentTarget.checked == false)
+    if (event.currentTarget.checked == false) {
         checkAll.checked = false
+        disableButton()
+    } else
+        enableButton()
 
     let checkboxes
     if (window.innerWidth <= 416)
@@ -47,32 +50,23 @@ function checkOne(event) {
 function removeItem(event) {
     const cartItem = event.currentTarget.parentElement.parentElement
     let productVariantId = cartItem.querySelector('input[name="product_variant_id"]')
-    const productsCartDelete = []
+
+    if (!JSON.parse(localStorage.getItem('productsCartDelete')))
+        localStorage.setItem('productsCartDelete', JSON.stringify([]))
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+
     productsCartDelete.push({
         product_variant_id: Number(productVariantId.value),
     })
     cartItem.remove()
 
-    fetch('/order/cart/delete', {
-        body: JSON.stringify(productsCartDelete),
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(() => {
-            fetch('/general/count_cart', {
-                method: 'GET',
-            })
-                .then(res => res.json())
-                .then(back2 => {
-                    const countCartEle = document.querySelector('.header__cart__number-badge')
-                    countCartEle.innerHTML = back2.countCart
-                })
-        })
+    localStorage.removeItem('productsCartDelete')
+    localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
 
-    showSelectedNums()
     showEmptyNoti()
+    modifyLastItem()
+    calcTotalPrice()
+    showSelectedNums()
 }
 
 // Tạo sự kiện change cho phần tử
