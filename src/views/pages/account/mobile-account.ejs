@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="theme-color" content="#2a7ee4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="IE104.O12_Nhom2" />
-    <meta
-      name="description"
-      content="Các chức năng cá nhân mà bạn có thể thực hiện ở TECHTWO."
-    />
-    <title>TECHTWO.</title>
-    <link rel="stylesheet" href="/styles/pages/account/mobile-account.css" />
 
-    <title>TECHTWO.</title>
-  </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Các chức năng cá nhân mà bạn có thể thực hiện ở TECHTWO.">
 
-  <body>
-    <%- include('../../partials/header') %>
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/pages/account/mobile-account.css">
+
+	<title>TECHTWO. Trang cá nhân</title>
+</head>
+
+<body>
+	<%- include('../../partials/header') %>
 
 	<div class="mobile-account-container">
 		<aside class="account-aside" id="sidebar">
@@ -29,43 +28,43 @@
 				</div>
 			</a>
 
-        <ul class="side-menu top">
-          <li>
-            <a href="/account/information" id="info-link">
-              <span class="material-symbols-outlined">
-                perm_contact_calendar
-              </span>
-              <span class="text">Thông tin cá nhân</span>
-            </a>
-          </li>
+			<ul class="side-menu top">
+				<li>
+					<a href="/account/information" id="info-link">
+						<span class="material-symbols-outlined">
+							perm_contact_calendar
+						</span>
+						<span class="text">Thông tin cá nhân</span>
+					</a>
+				</li>
 
-          <li>
-            <a href="/account/purchase">
-              <span class="material-symbols-outlined"> shopping_bag </span>
-              <span class="text">Lịch sử đơn mua</span>
-            </a>
-          </li>
-          <li>
-            <a href="/account/warranty-claim">
-              <span class="material-symbols-outlined"> build </span>
-              <span class="text">Yêu cầu bảo hành</span>
-            </a>
-          </li>
-          <li>
-            <a href="/account/information">
-              <span class="material-symbols-outlined"> settings </span>
-              <span class="text">Đổi mật khẩu</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="side-menu">
-          <li>
-            <p class="btn-warranty">
-              <span class="material-symbols-outlined">logout</span>
-              <span class="text">Đăng xuất</span>
-            </p>
-          </li>
-        </ul>
+				<li>
+					<a href="/account/purchase">
+						<span class="material-symbols-outlined"> shopping_bag </span>
+						<span class="text">Lịch sử đơn mua</span>
+					</a>
+				</li>
+				<li>
+					<a href="/account/warranty-claim">
+						<span class="material-symbols-outlined"> build </span>
+						<span class="text">Yêu cầu bảo hành</span>
+					</a>
+				</li>
+				<li>
+					<a href="/account/information">
+						<span class="material-symbols-outlined"> settings </span>
+						<span class="text">Đổi mật khẩu</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="side-menu">
+				<li>
+					<p class="btn-warranty">
+						<span class="material-symbols-outlined">logout</span>
+						<span class="text">Đăng xuất</span>
+					</p>
+				</li>
+			</ul>
 
 			<div class="mobile-account__popup">
 				<div class="popup__main">
@@ -89,7 +88,7 @@
 		</aside>
 	</div>
 
-    <%- include('../../partials/app-bar') %>
+	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/pages/account/mobile-account.js"></script>
 	<script src="/scripts/partials/header.js"></script>
