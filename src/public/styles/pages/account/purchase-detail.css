@@ -173,7 +173,7 @@ hr {
 	border: 0.5px solid #eaeaea;
 }
 
-#purchase-detail__price {
+.purchase-detail__price {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -187,7 +187,7 @@ hr {
 	gap: 4px;
 }
 
-#purchase-detail__variant {
+.purchase-detail__variant {
 	color: var(--dark-gray-o50);
 	font-size: 0.875rem;
 }

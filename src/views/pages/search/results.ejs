@@ -20,30 +20,30 @@
 	<main class="seacrh-result__container">
 		<section class="seacrh-result__filter">
 			<div class="seacrh-result__filter-normal">
-				<p class="seacrh-result__filter-normal__title">Bộ lọc:</p>
+				<h5 class="seacrh-result__filter-normal__title">Bộ lọc:</h5>
 				<div class="seacrh-result__filter-normal__content">
 					<p>Giá</p>
 					<span class="material-symbols-outlined dropdown-button">expand_more</span>
 					<form action="/search/results" method="GET" class="dropdown-content">
 						<div class="filter-list">
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="less-than-5m" name="less-than-5m" value="">
+								<input class="filter-option" type="radio" id="less-than-5m" value="less-than-5m">
 								<label class="filter-label">Dưới 5 triệu</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m">
+								<input class="filter-option" type="radio" id="5m-10m" value="5m-10m">
 								<label class="filter-label">Từ 5tr - 10tr</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m">
+								<input class="filter-option" type="radio" id="10m-15m" value="10m-15m">
 								<label class="filter-label">Từ 10tr - 15tr</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m">
+								<input class="filter-option" type="radio" id="15m-20m" value="15m-20m">
 								<label class="filter-label">Từ 15tr - 20tr</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m">
+								<input class="filter-option" type="radio" id="greater-than-20m" value="greater-than-20m">
 								<label class="filter-label">Trên 20 triệu</label>
 							</div>
 						</div>
@@ -64,20 +64,20 @@
 					<div class="dropdown-content">
 						<div class="filter-list">
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 1</label>
+								<input class="filter-option" type="radio" id="type1" value="type1">
+								<label for="type1" class="filter-label">Phân loại 1</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 2</label>
+								<input class="filter-option" type="radio" id="type2" value="type2">
+								<label for="type2" class="filter-label">Phân loại 2</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 3</label>
+								<input class="filter-option" type="radio" id="type3" value="type3">
+								<label for="type3" class="filter-label">Phân loại 3</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 4</label>
+								<input class="filter-option" type="radio" id="type4" value="type">
+								<label for="type4" class="filter-label">Phân loại 4</label>
 							</div>
 						</div>
 						<div class="filter-dropdown__button">
@@ -96,24 +96,24 @@
 					<div class="dropdown-content">
 						<div class="filter-list">
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="less-than-5m" name="sort" value="less-than-5m">
-								<label for="" class="filter-label">Tiện ích 1</label>
+								<input class="filter-option" type="radio" id="extend1" value="extend1">
+								<label for="extend1" class="filter-label">Tiện ích 1</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m">
-								<label for="" class="filter-label">Tiện ích 2</label>
+								<input class="filter-option" type="radio" id="extend2" value="extend2">
+								<label for="extend2" class="filter-label">Tiện ích 2</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m">
-								<label for="" class="filter-label">Tiện ích 3</label>
+								<input class="filter-option" type="radio" id="extend3" value="extend3">
+								<label for="extend3" class="filter-label">Tiện ích 3</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m">
-								<label for="" class="filter-label">Tiện ích 4</label>
+								<input class="filter-option" type="radio" id="extend4" value="extend4">
+								<label for="extend4" class="filter-label">Tiện ích 4</label>
 							</div>
 							<div class="dropdown-options">
-								<input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m">
-								<label for="" class="filter-label">Tiện ích 5</label>
+								<input class="filter-option" type="radio" id="extend5" value="extend5">
+								<label for="extend5" class="filter-label">Tiện ích 5</label>
 							</div>
 						</div>
 						<div class="filter-dropdown__button">
@@ -199,17 +199,17 @@
 						</div>
 						<hr>
 						<div class="dropdown-options">
-							<input class="sort-option" type="radio" id="hot" name="sort" value="hot">
+							<input class="sort-option" type="radio" id="sale" name="sort" value="sale">
 							<label for="hot" class="sort-label">Bán chạy</label>
 						</div>
 						<hr>
 						<div class="dropdown-options">
-							<input class="sort-option" type="radio" id="hot" name="sort" value="hot">
+							<input class="sort-option" type="radio" id="price-z-to-a" name="sort" value="price-z-to-a">
 							<label for="hot" class="sort-label">Giá cao đến thấp</label>
 						</div>
 						<hr>
 						<div class="dropdown-options">
-							<input class="sort-option" type="radio" id="hot" name="sort" value="hot">
+							<input class="sort-option" type="radio" id="price-a-to-z" name="sort" value="price-a-to-z">
 							<label for="hot" class="sort-label">Giá thấp đến cao</label>
 						</div>
 					</div>
@@ -221,23 +221,23 @@
 						<label><strong>Giá:</strong></label>
 						<div class="filter-popup__section__main">
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="less-than-5m" name="less-than-5m" value="">
+								<input class="filter-option" type="radio" id="less-than-5m-phone" name="less-than-5m" value="">
 								<label class="filter-label">Dưới 5 triệu</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="5m-10m" name="sort" value="5m-10m">
+								<input class="filter-option" type="radio" id="5m-10m-phone" name="sort" value="5m-10m">
 								<label class="filter-label">Từ 5tr - 10tr</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="10m-15m" name="sort" value="10m-15m">
+								<input class="filter-option" type="radio" id="10m-15m-phone" name="sort" value="10m-15m">
 								<label class="filter-label">Từ 10tr - 15tr</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="15m-20m" name="sort" value="15m-20m">
+								<input class="filter-option" type="radio" id="15m-20m-phone" name="sort" value="15m-20m">
 								<label class="filter-label">Từ 15tr - 20tr</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="greater-than-20m" name="sort" value="greater-than-20m">
+								<input class="filter-option" type="radio" id="greater-than-20m-phone" name="sort" value="greater-than-20m">
 								<label class="filter-label">Trên 20 triệu</label>
 							</div>
 						</div>
@@ -247,20 +247,20 @@
 						<label><strong>Phân loại:</strong></label>
 						<div class="filter-popup__section__main">
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 1</label>
+								<input class="filter-option" type="radio" id="type1-phone" value="type1">
+								<label for="type1" class="filter-label">Phân loại 1</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 2</label>
+								<input class="filter-option" type="radio" id="type2-phone" value="type2">
+								<label for="type2" class="filter-label">Phân loại 2</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 3</label>
+								<input class="filter-option" type="radio" id="type3-phone" value="type3">
+								<label for="type3" class="filter-label">Phân loại 3</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Phân loại 4</label>
+								<input class="filter-option" type="radio" id="type4-phone" value="type4">
+								<label for="type4" class="filter-label">Phân loại 4</label>
 							</div>
 						</div>
 					</div>
@@ -268,20 +268,20 @@
 						<label><strong>Tiện ích:</strong></label>
 						<div class="filter-popup__section__main">
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Tiện ích 1</label>
+								<input class="filter-option" type="radio" id="extend1-phone" value="extend1">
+								<label for="extend1" class="filter-label">Tiện ích 1</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Tiện ích 2</label>
+								<input class="filter-option" type="radio" id="extend2-phone" value="extend2">
+								<label for="extend2" class="filter-label">Tiện ích 2</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Tiện ích 3</label>
+								<input class="filter-option" type="radio" id="extend3-phone" value="extend3">
+								<label for="extend3" class="filter-label">Tiện ích 3</label>
 							</div>
 							<div class="filter-popup-options">
-								<input class="filter-option" type="radio" id="" name="" value="">
-								<label for="" class="filter-label">Tiện ích 4</label>
+								<input class="filter-option" type="radio" id="extend4-phone" value="extend4">
+								<label for="extend4" class="filter-label">Tiện ích 4</label>
 							</div>
 						</div>
 					</div>
@@ -325,8 +325,8 @@
 
 			<div class="seacrh-result__form-check-disable__group">
 				<div class="seacrh-result__form-check-disable">
-					<input type="checkbox" class="form-check-input" value="something" id="form-check-input__discount">
-					<label class="form-check-label" for="form-check-input__discount">Giảm giá</label>
+					<input type="checkbox" class="form-check-input" value="something" id="form-check-input__discount-phone">
+					<label class="form-check-label" for="form-check-input__discount-phone">Giảm giá</label>
 				</div>
 			</div>
 

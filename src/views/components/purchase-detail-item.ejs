@@ -2,12 +2,12 @@
 	<div class="purchase-detail__element--left">
 		<img src="/imgs/product_image/P<%= purchaseDetail.product_id %>/<%= purchaseDetail.product_avt_img %>" alt="product" class="purchase-detail__img">
 		<div class="purchase-detail__product-detail">
-			<h4 id="purchase-detail__product-name"><%= purchaseDetail.product_name %></h4>
-			<p id="purchase-detail__variant">Phân loại hàng: <%= purchaseDetail.product_variant_name %></p>
-			<p id="purchase-detail__amount">x<%= purchaseDetail.order_detail_quantity %></p>
+			<h4 class="purchase-detail__product-name"><%= purchaseDetail.product_name %></h4>
+			<p class="purchase-detail__variant">Phân loại hàng: <%= purchaseDetail.product_variant_name %></p>
+			<p class="purchase-detail__amount">x<%= purchaseDetail.order_detail_quantity %></p>
 		</div>
 	</div>
-	<h5 id="purchase-detail__price">
+	<h5 class="purchase-detail__price">
 		<% if (purchaseDetail.order_detail_price_before > purchaseDetail.order_detail_price_after) { %>
 		<small><%= toCurrency(purchaseDetail.order_detail_price_before) %></small>
 		<% } %>

@@ -2,7 +2,7 @@
 	<div class="purchase-item--top">
 		<div class="purchase-item__info">
 			<h5>Đơn hàng:</h5>
-			<p id="purchase-item__id">#DH00<%= purchaseHistory.order_id %></p>
+			<p class="purchase-item__id">#DH00<%= purchaseHistory.order_id %></p>
 		</div>
 		<div class="purchase-item__status-container">
 			<span class="material-symbols-outlined status">
@@ -31,12 +31,12 @@
 			<div class="purchase-item__element--left">
 				<img src="/imgs/product_image/P<%= orderDetail.product_id %>/<%= orderDetail.product_avt_img %>" alt="product_img" class="purchase-item__product-img">
 				<div class="purchase-item__product-detail">
-					<h4 id="purchase-item__product-name"><%= orderDetail.product_name %></h4>
-					<p id="purchase-item__variant">Phân loại hàng: <%= orderDetail.product_variant_name %></p>
-					<p id="purchase-item__amount">x<%= orderDetail.order_detail_quantity %></p>
+					<h4 class="purchase-item__product-name"><%= orderDetail.product_name %></h4>
+					<p class="purchase-item__variant">Phân loại hàng: <%= orderDetail.product_variant_name %></p>
+					<p class="purchase-item__amount">x<%= orderDetail.order_detail_quantity %></p>
 				</div>
 			</div>
-			<h5 id="purchase-item__price">
+			<h5 class="purchase-item__price">
 				<% if (orderDetail.order_detail_price_before > orderDetail.order_detail_price_after) { %>
 				<small><%= toCurrency(orderDetail.order_detail_price_before) %></small>
 				<% } %>
@@ -77,7 +77,7 @@
 							<span class="material-symbols-outlined">info</span>
 							<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
 						</div>
-						<form action="" id="cancel_popup" class="his_cancel_popup">
+						<form id="cancel_popup" class="his_cancel_popup">
 							<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
 							<div class="cancel-reasons">
 								<div class="cancel-reason__item">

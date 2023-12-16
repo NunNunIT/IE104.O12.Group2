@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="IE104.O12_Nhom2">
 	<meta name="description" content="Thông tin về đơn hàng của bạn luôn được lưu trữ và bảo vệ bởi TECHTWO.">
-
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
 	<link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
@@ -27,7 +26,7 @@
 			<div class="purchase-detail--top">
 				<div class="purchase-detail__info">
 					<h4>Chi tiết đơn hàng:</h4>
-					<p id="purchase-detail__id">#DH00<%= purchaseHistory.order_id ?? 'NaN' %></p>
+					<p class="purchase-detail__id">#DH00<%= purchaseHistory.order_id ?? 'NaN' %></p>
 				</div>
 				<div class="purchase-detail__status-container">
 					<span class="material-symbols-outlined">
@@ -46,8 +45,8 @@
 			</div>
 			<div class="purchase-detail__date-time">
 				<p>Đặt lúc:</p>
-				<p id="purchase-detail__time"><%= formatFunction.toHHMM(new Date(purchaseHistory.order_date)) ?? 'NaN' %></p>
-				<p id="purchase-detail__date"><%= formatFunction.toDDMMYYYY(new Date(purchaseHistory.order_date)) ?? 'NaN' %></p>
+				<p class="purchase-detail__time"><%= formatFunction.toHHMM(new Date(purchaseHistory.order_date)) ?? 'NaN' %></p>
+				<p class="purchase-detail__date"><%= formatFunction.toDDMMYYYY(new Date(purchaseHistory.order_date)) ?? 'NaN' %></p>
 			</div>
 			<div class="purchase-detail__order-info">
 				<div class="purchase-detail__order-info__user">
@@ -57,15 +56,15 @@
 					</h5>
 					<div class="purchase-detail__order-info__user-detail">
 						<span class="order-info__label">Người nhận:</span>
-						<p id="user-detail__name"><%= purchaseHistory.order_name ?? 'NaN' %></p>
+						<p class="user-detail__name"><%= purchaseHistory.order_name ?? 'NaN' %></p>
 					</div>
 					<div class="purchase-detail__order-info__user-detail">
 						<span class="order-info__label">Số điện thoại:</span>
-						<p id="user-detail__phone"><%= purchaseHistory.order_phone ?? 'NaN' %></p>
+						<p class="user-detail__phone"><%= purchaseHistory.order_phone ?? 'NaN' %></p>
 					</div>
 					<div class="purchase-detail__order-info__user-detail">
 						<span class="order-info__label">Địa chỉ:</span>
-						<p id="user-detail__address"><%= purchaseHistory.order_delivery_address ?? 'NaN' %></p>
+						<p class="user-detail__address"><%= purchaseHistory.order_delivery_address ?? 'NaN' %></p>
 					</div>
 				</div>
 				<div class="purchase-detail__order-info__payment">
@@ -73,7 +72,7 @@
 						<span class="material-symbols-outlined">credit_card</span>
 						<span>HÌNH THỨC THANH TOÁN</span>
 					</h5>
-					<p id="order-info__payment-detail"><%= purchaseHistory.paying_method_name ?? 'NaN'%></p>
+					<p class="order-info__payment-detail"><%= purchaseHistory.paying_method_name ?? 'NaN'%></p>
 				</div>
 			</div>
 			<div class="purchase-detail__bill">
@@ -89,7 +88,7 @@
 				<div class="purchase-detail__order-price">
 					<p>
 						<span>Thành tiền:</span>
-						<span id="total-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
+						<span class="total-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
 					<% if (purchaseHistory.order_status === 'Đã hủy') { %>
 					<p class="purchase-detail__final">
@@ -122,7 +121,7 @@
 									<span class="material-symbols-outlined">info</span>
 									<span>Nếu bạn xác nhận hủy, toàn bộ đơn hàng sẽ được hủy. Hãy chọn lý do hủy đặt hàng phù hợp nhất với bạn nhé!</span>
 								</div>
-								<form action="" id="cancel_popup">
+								<form id="cancel_popup">
 									<input type="hidden" name="order_id" value="<%= purchaseHistory.order_id %>">
 									<div class="cancel-reasons">
 										<div class="cancel-reason__item">
