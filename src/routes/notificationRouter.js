@@ -7,7 +7,7 @@ const notificationController = require('../controllers/customer/notificationCont
 // import middleware
 const authMiddleware = require('../middleware/authMiddleware.js')
 
-router.get('/account-update', authMiddleware.isLoggedIn, notificationController.accountUpdate)
+router.get('/order', authMiddleware.isLoggedIn, notificationController.accountUpdate)
 router.get('/promotion', authMiddleware.isLoggedIn, notificationController.promotion)
 
 module.exports = router
