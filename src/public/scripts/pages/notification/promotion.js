@@ -2,13 +2,15 @@
 //Popup
 const modalBtns = document.querySelectorAll(".popup-btn");
 const modals = document.querySelectorAll(".popup");
+const notiItemsRead = document.querySelectorAll(".noti-item__block.read");
+const notiLength = document.querySelector('input[name = noti-length]').value
 const closeBtns = document.querySelectorAll(".close-btn");
 const notiItems = document.querySelectorAll(".noti-item__block");
 const markAllReadButton = document.querySelector(".btn-mark-all-read");
 const popupVisible = new Array(modals.length).fill(false);
 
 // Kiểm tra nếu tất cả thông báo đã được đọc
-if (popupVisible.every((visible) => !visible)) {
+if (notiItemsRead.length == notiLength) {
     // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
     markAllReadButton.disabled = true;
     markAllReadButton.style.color = "gray";
@@ -16,6 +18,7 @@ if (popupVisible.every((visible) => !visible)) {
     markAllReadButton.style.cursor = "auto";
     markAllReadButton.style.boxShadow = "none";
 }
+
 
 modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
