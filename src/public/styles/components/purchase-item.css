@@ -86,7 +86,7 @@
     border: 0.5px solid #eaeaea;
 }
 
-#purchase-item__price {
+.purchase-item__price {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -101,7 +101,7 @@
     gap: 4px;
 }
 
-#purchase-item__variant {
+.purchase-item__variant {
     color: var(--dark-gray-o50);
     font-size: 0.875rem;
 }

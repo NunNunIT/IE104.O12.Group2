@@ -17,7 +17,6 @@ body::-webkit-scrollbar {
     width: 80%;
     max-width: 1152px;
     margin: 24px auto;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -99,8 +98,8 @@ button {
 }
 
 .cart__empty img {
+    object-fit: contain;
     width: 200px;
-    height: 200px;
 }
 
 .cart__footer {

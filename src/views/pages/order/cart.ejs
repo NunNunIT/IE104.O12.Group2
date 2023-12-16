@@ -48,10 +48,7 @@
 				<div></div>
 			</div>
 			<form id="cart-form" class="loading-hidden" action="/order/cart/buy" method="post">
-				<div class="cart__empty">
-					<img src="/imgs/cart/empty-cart.png" alt="Giỏ hàng trống">
-					<p>Bạn chưa thêm sản phẩm vào giỏ hàng!</p>
-				</div>
+
 				<% detailCart.forEach(cart => { %>
 				<%- include('../../components/cart-product', { cart: cart, toCurrency: formatFunction.toCurrency }) %>
 				<% }) %>

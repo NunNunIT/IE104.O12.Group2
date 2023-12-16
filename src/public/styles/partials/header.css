@@ -439,9 +439,13 @@ img.dropdown-cart__img--empty {
 }
 
 /* end dropdown-cart */
-
 .header__logo--top {
-    width: 0rem;
+    display: none;
+}
+
+.header__logo--top img {
+    object-fit: contain;
+    width: 10rem;
 }
 
 .header__auth {
@@ -923,9 +927,7 @@ img.dropdown-cart__img--empty {
         display: none;
     }
 
-    .header__logo--top {
-        width: 10rem;
-    }
+
 }
 
 /*Responsive-smartphone*/
@@ -940,6 +942,14 @@ img.dropdown-cart__img--empty {
 
     .header__nav a {
         font-size: 0.875rem;
+    }
+
+    .header__nav--disable {
+        display: flex;
+    }
+
+    .header__logo--top {
+        display: block;
     }
 
     .header__search-bar {
@@ -963,10 +973,6 @@ img.dropdown-cart__img--empty {
 
     .header__about-account .header__nofitications {
         display: none;
-    }
-
-    .header__logo--top {
-        width: 10rem;
     }
 
     .header__search-btn .material-symbols-outlined {

@@ -4,11 +4,6 @@
 @import url("/styles/components/product-card.css");
 @import url("/styles/components/carousel.css");
 
-* {
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
 
 body {
     width: 100vw;
@@ -21,7 +16,7 @@ body {
     width: 80%;
     margin: 24px auto;
     max-width: 1152px;
-    display: inherit;
+    display: flex;
     flex-direction: column;
     gap: 5vh;
 }
