@@ -1,11 +1,21 @@
 const modalBtns = document.querySelectorAll(".popup-btn");
+const notiItemsRead = document.querySelectorAll(".noti-item__block.read");
+const notiLength = document.querySelector('input[name = noti-length]').value
 const modals = document.querySelectorAll(".popup");
 const closeBtns = document.querySelectorAll(".close-btn");
 const notiItems = document.querySelectorAll(".noti-item__block");
 const markAllReadButton = document.querySelector(".btn-mark-all-read");
 const popupVisible = new Array(modals.length).fill(false);
 
-
+// Kiểm tra nếu tất cả thông báo đã được đọc
+if (notiItemsRead.length == notiLength) {
+    // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
+    markAllReadButton.disabled = true;
+    markAllReadButton.style.color = "gray";
+    markAllReadButton.style.borderColor = "gray";
+    markAllReadButton.style.cursor = "auto";
+    markAllReadButton.style.boxShadow = "none";
+}
 
 // Lặp qua từng nút và gán sự kiện hiển thị pop-up
 modalBtns.forEach((btn, index) => {
@@ -55,15 +65,7 @@ window.onclick = function (e) {
     });
 }
 
-// Kiểm tra nếu tất cả thông báo đã được đọc
-if (popupVisible.every((visible) => !visible)) {
-    // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
-    markAllReadButton.disabled = true;
-    markAllReadButton.style.color = "gray";
-    markAllReadButton.style.borderColor = "gray";
-    markAllReadButton.style.cursor = "auto";
-    markAllReadButton.style.boxShadow = "none";
-}
+
 
 // Đánh dấu đã đọc tất cả
 markAllReadButton.addEventListener("click", () => {

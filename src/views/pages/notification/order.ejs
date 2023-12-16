@@ -43,7 +43,8 @@
 				</div>
 			</div>
 			<div class="btn-mark-all-read">
-				<span>Đánh dấu tất cả là đã đọc (5)</span>
+				<input type="hidden" name="noti-length" value="<%= order.length %>">
+				<span>Đánh dấu tất cả là đã đọc (<%= order.length %>)</span>
 			</div>
 			<% for(let i = 0; i < order.length; i++) {%>
 			<%- include('../../components/noti-item-order', { noti: order[i], index: i, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
