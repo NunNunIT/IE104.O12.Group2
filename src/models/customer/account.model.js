@@ -36,7 +36,7 @@ account.updateInfo = async (req, res) => {
     ]
 
     const result = await query(updateInfo, values)
-    
+
 }
 
 
@@ -94,7 +94,7 @@ account.getDetailPurchaseHistorys = async (order_id) => {
 }
 
 account.insertFeedback = async (product_variant_id, customer_id, order_id, feedback_rate, feedback_content, callback) => {
-    let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id} ${feedback_rate}, '${feedback_content}')`
+    let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id}, ${feedback_rate}, '${feedback_content}')`
 
     db.query(insertFeedback, (err, result) => {
         if (err) {

@@ -9,15 +9,22 @@ body {
     background-color: var(--bg-white-o80);
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .cart {
     width: 80%;
     max-width: 1152px;
-    margin: 3vh auto;
+    margin: 24px auto;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
+}
+
+.cart section {
     padding: 24px;
-    box-sizing: border-box;
     border-radius: 8px;
     background-color: var(--white);
 }
@@ -101,7 +108,11 @@ button {
     flex-direction: column;
     gap: 32px;
     padding-top: 24px;
-    border-top: 3px solid var(--outline-gray);
+    position: sticky;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    box-shadow: 1px -4px 12px -4px rgba(0, 0, 0, 0.2);
 }
 
 .cart__footer>div {
@@ -248,8 +259,21 @@ button {
     }
 }
 
+.cart-item:last-of-type {
+    border: none;
+}
+
 /* 1024px - Mini PC */
 @media screen and (max-width: 64rem) {
+
+    .cart {
+        gap: 16px;
+    }
+
+    .cart section {
+        padding: 16px 24px;
+    }
+
     .cart__feature button {
         height: 48px;
     }
@@ -259,23 +283,26 @@ button {
     }
 }
 
-/* 900px - Large Tablet */
-@media screen and (max-width: 56.25rem) {
-    .cart {
-        padding: 12px;
+/* 768px - Tablet */
+@media screen and (max-width: 48rem) {
+    .scrollup {
+        bottom: 140px;
+        z-index: 2;
     }
 
     .checkbox {
         width: 16px;
         height: 16px;
     }
-}
 
-/* 768px - Tablet */
-@media screen and (max-width: 48rem) {
     .cart {
         width: 90%;
-        gap: 24px;
+        margin: 16px auto;
+        gap: 12px;
+    }
+
+    .cart section {
+        padding: 12px 16px;
     }
 
     .lg-col {
@@ -304,32 +331,12 @@ button {
     }
 }
 
-/* 640px - Large Mobile */
-@media screen and (max-width: 40rem) {
-    h4 {
-        font-size: 0.875rem;
-    }
-
-    p,
-    .cart button {
-        font-size: 0.75rem;
-    }
-
-    .cart {
-        width: 90%;
-    }
-
-    .cart__title {
-        padding-bottom: 12px;
-    }
-
-    .cart__footer {
-        padding-top: 12px;
-    }
-}
-
 /* 416px - Mobile */
 @media screen and (max-width: 26rem) {
+    .scrollup {
+        bottom: 120px;
+    }
+
     .mobile-hidden {
         display: none !important;
     }
@@ -358,9 +365,13 @@ button {
 
     .cart {
         width: 100%;
-        padding: 12px 24px;
-        margin: 0;
-        border-radius: 0;
+        margin: 0 auto 12px;
+        gap: 8px;
+    }
+
+    .cart section {
+        padding: 8px 12px;
+        gap: 8px;
     }
 
     .cart button {
@@ -389,10 +400,6 @@ button {
         width: 50%;
         height: 48px;
         font-size: 1rem;
-    }
-
-    .cart__footer {
-        gap: 12px;
     }
 
     .cart__total-price del {

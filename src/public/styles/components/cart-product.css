@@ -164,6 +164,7 @@ input::-webkit-inner-spin-button {
 /* 416px - Mobile */
 @media screen and (max-width: 26rem) {
     .cart-item {
+        padding-bottom: 8px;
         justify-content: start;
         gap: 12px;
     }

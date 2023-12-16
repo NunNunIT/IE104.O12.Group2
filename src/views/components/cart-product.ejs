@@ -20,7 +20,7 @@
 	<div class="sm-col cart-item__unit-price">
 		<% if (cart.discount_amount) { %>
 		<input type="hidden" name="product_variant_price_before" value="<%= cart.product_variant_price %>" placeholder="">
-		<del><%= toCurrency(cart.product_variant_price) ?? 'null' %>đ</del>
+		<del><%= toCurrency(cart.product_variant_price) ?? 'null' %></del>
 		<input type="hidden" name="product_variant_price_after" value="<%= parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100) %>" placeholder="">
 		<p class="cart-item__unit-price-number"><%= toCurrency(parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %></p>
 		<% } else { %>
