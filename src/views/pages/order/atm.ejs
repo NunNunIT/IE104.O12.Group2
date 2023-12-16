@@ -16,9 +16,8 @@
   </head>
 
   <body>
-    <%- include('../../partials/header', { header: header }) %> <%-
-    include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng',
-    link : '' }, { text : 'Thanh toán', link : '' }] }) %>
+    <%- include('../../partials/header', { header: header }) %> 
+    <%-include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng', link : '' }, { text : 'Thanh toán', link : '' }] }) %>
 
     <main class="transaction-container">
       <div class="transaction-box">
@@ -59,9 +58,7 @@
                 >- <strong>Tổng tiền: </strong
                 ><span id="purchase-amount">
                   <% if (purchase.order_details.length > 0) { %> <% let
-                  totalAmount = 0; %> <% purchase.order_details.forEach(detail
-                  => { %> <% totalAmount += detail.order_detail_price_after; %>
-                  <% }); %> <%= formatFunction.toCurrency(totalAmount) %> <% }
+                  totalAmount = 0; %> <% purchase.order_details.forEach(detail => { %> <% totalAmount += detail.order_detail_price_after; %> <% }); %> <%= formatFunction.toCurrency(totalAmount) %> <% }
                   %>
                 </span></span
               >
@@ -119,9 +116,7 @@
                 <div class="pay_frame2">
                   <strong>
                     <% if (purchase.order_details.length > 0) { %> <% let
-                    totalAmount = 0; %> <% purchase.order_details.forEach(detail
-                    => { %> <% totalAmount += detail.order_detail_price_after;
-                    %> <% }); %> <%= formatFunction.toCurrency(totalAmount) %>
+                    totalAmount = 0; %> <% purchase.order_details.forEach(detail => { %> <% totalAmount += detail.order_detail_price_after; %> <% }); %> <%= formatFunction.toCurrency(totalAmount) %>
                     <% } %>
                   </strong>
                 </div>
@@ -163,9 +158,7 @@
                 <div class="pay_frame2">
                   <strong>
                     <% if (purchase.order_details.length > 0) { %> <% let
-                    totalAmount = 0; %> <% purchase.order_details.forEach(detail
-                    => { %> <% totalAmount += detail.order_detail_price_after;
-                    %> <% }); %> <%= formatFunction.toCurrency(totalAmount) %>
+                    totalAmount = 0; %> <% purchase.order_details.forEach(detail => { %> <% totalAmount += detail.order_detail_price_after; %> <% }); %> <%= formatFunction.toCurrency(totalAmount) %>
                     <% } %>
                   </strong>
                 </div>

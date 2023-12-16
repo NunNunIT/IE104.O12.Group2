@@ -68,11 +68,11 @@
 }
 
 .popup__button a.btn.btn--outlined.pri.btn-cancel-edit {
-    width: 100.51px;
+    width: 76.51px;
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 0px 36px;
+    padding: 0px 24px;
 }
 
  .purchase-item__product-detail input, select{
@@ -173,6 +173,5 @@
         padding: 0px 18px;
     }
 }
-
 
 

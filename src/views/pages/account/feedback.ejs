@@ -35,7 +35,7 @@
 			</div>
 		</div>
 
-		<form action="#">
+		<form id="feedback-form" action="/account/feedback" method="POST">
 			<div class="quality">
 				<p>Chất lượng sản phẩm</p>
 				<div class="rating">
@@ -62,7 +62,7 @@
 			<% }) %>
 			<div class="popup__button">
 				<button class="btn btn--outlined sec btn-cancel" type="button" onclick="redirectTo('/account/purchase')">Hủy</button>
-				<button class="btn btn--filled sec btn-logout" type="button" onclick="redirectTo('/account/purchase')">Gửi đánh giá</button>
+				<button class="btn btn--filled sec btn-logout" type="submit">Gửi đánh giá</button>
 			</div>
 		</form>
 	</div>
