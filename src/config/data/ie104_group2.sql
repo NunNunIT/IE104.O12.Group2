@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2023 at 02:42 PM
+-- Generation Time: Dec 16, 2023 at 06:18 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -1637,10 +1637,6 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (153, 31, 'P31_3.jpg', 1),
 (154, 31, 'P31_4.jpg', 1),
 (155, 31, 'P31_5.jpg', 1),
-(156, 58, 'P58_1.jpg', 1),
-(157, 58, 'P58_2.jpg', 1),
-(158, 58, 'P58_3.jpg', 1),
-(159, 58, 'P58_4.jpg', 1),
 (160, 58, 'P58_5.gif', 1),
 (161, 32, 'P32_1.jpg', 1),
 (162, 32, 'P32_2.jpg', 1),
@@ -1775,8 +1771,7 @@ INSERT INTO `product_imgs` (`image_id`, `product_id`, `image_name`, `image_is_di
 (291, 58, 'P58_1.jpg', 1),
 (292, 58, 'P58_2.gif', 1),
 (293, 58, 'P58_3.gif', 1),
-(294, 58, 'P58_4.jpg', 1),
-(295, 58, 'P58_5.jpg', 1);
+(294, 58, 'P58_4.jpg', 1);
 
 -- --------------------------------------------------------
 

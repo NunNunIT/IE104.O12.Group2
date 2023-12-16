@@ -179,8 +179,8 @@ function removeItem(event) {
 
     showEmptyNoti()
     modifyLastItem()
-    calcTotalPrice()
     showSelectedNums()
+    calcTotalPrice()
 }
 
 // Tạo sự kiện change cho phần tử
