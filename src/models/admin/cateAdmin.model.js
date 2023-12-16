@@ -70,7 +70,7 @@ cateAdmin.getProducts = async (searchKey, page, limit) => {
 
     let start = (page - 1) * limit
 
-    getProductSQL += " ORDER BY view_products_admin.product_id LIMIT " + start + "," + limit;
+    getProductSQL += " ORDER BY view_products_admin.revenue DESC LIMIT " + start + "," + limit;
 
     return new Promise((resolve, reject) => {
         db.query(getProductSQL, (err, product) => {

@@ -3,11 +3,10 @@ DROP VIEW IF EXISTS view_dashboard;
 
 CREATE VIEW view_dashboard AS
 SELECT dashboard_customer.customer_count,
-dashboard_order.quantity_sold,
-dashboard_order.revenue
+SUM(dashboard_order.quantity_sold) as 'quantity_sold',
+SUM(dashboard_order.revenue) as 'revenue'
 FROM (SELECT COUNT(*) as 'customer_count' FROM customers) dashboard_customer,
-(SELECT COUNT(*) as 'quantity_sold', SUM(orders.order_total_after) as 'revenue' FROM orders WHERE orders.order_is_paid=1) dashboard_order;
-
+(SELECT COUNT(*) as 'quantity_sold', SUM(orders.order_total_after) as 'revenue' FROM orders WHERE orders.order_is_paid=1 AND orders.order_status ='Hoàn thành' GROUP BY orders.order_id) dashboard_order;
 
 DROP VIEW IF EXISTS view_getchart_revenue;
 
@@ -66,14 +65,45 @@ GROUP BY order_details.product_variant_id;
 DROP VIEW IF EXISTS view_cate_admin;
 
 CREATE VIEW view_cate_admin AS 
-SELECT 
-categories.*,
-COUNT(DISTINCT view_product_variants.product_id) as 'product_count', 
-SUM(order_details.order_detail_price_after*order_details.order_detail_quantity) as 'revenue'
-FROM categories 
-LEFT JOIN view_product_variants ON categories.category_id = view_product_variants.category_id
-LEFT JOIN order_details ON view_product_variants.product_variant_id = order_details.product_variant_id
-GROUP BY categories.category_id;
+SELECT
+    categories.*,
+    COALESCE(product_counts.product_count, 0) AS product_count,
+    COALESCE(SUM(order_details.order_detail_price_after), 0) AS revenue
+FROM
+    categories
+LEFT JOIN (
+    SELECT
+        category_id,
+        COUNT(*) AS product_count
+    FROM
+        products
+    GROUP BY
+        category_id
+) AS product_counts ON categories.category_id = product_counts.category_id
+LEFT JOIN order_details ON order_details.product_variant_id IN (
+    SELECT
+        product_variant_id
+    FROM
+        view_products_resume
+    WHERE
+        view_products_resume.category_id = categories.category_id
+)
+GROUP BY
+    categories.category_id, categories.category_name;
+
+
+DROP VIEW IF EXISTS view_products_admin;
+
+CREATE VIEW view_products_admin AS 
+SELECT view_product_variants.*, COUNT(view_product_variants.product_variant_id) as 'product_count', SUM(R.quantity_sold) as 'quantity_sold', SUM(R.revenue) as 'revenue'
+FROM view_product_variants 
+LEFT JOIN (SELECT order_details.product_variant_id, COUNT(order_details.product_variant_id) AS 'quantity_sold', SUM(order_details.order_detail_price_after) AS 'revenue'
+FROM orders LEFT JOIN order_details ON orders.order_id = order_details.order_id
+WHERE orders.order_is_paid AND orders.order_status = 'Hoàn thành'
+GROUP BY order_details.product_variant_id) R
+ON view_product_variants.product_variant_id = R.product_variant_id
+GROUP BY view_product_variants.product_id
+ORDER BY SUM(R.revenue) DESC;
 
 
 DROP VIEW IF EXISTS
@@ -84,10 +114,22 @@ FROM
     discounts
 WHERE
     DATE(discounts.discount_end_date) > CURRENT_TIMESTAMP AND DATE(discounts.discount_start_date) < CURRENT_TIMESTAMP AND discounts.discount_is_display = 1;
+
 DROP VIEW IF EXISTS
     view_user;
 CREATE VIEW view_user AS SELECT
-    users.*,
+    users.user_id,
+    users.user_login_name,
+    users.user_password,
+    users.user_name,
+    users.user_avt_img,
+    DATE_FORMAT(users.user_birth, '%d/%m/%Y') AS user_birth,
+    users.user_sex,
+    users.user_email,
+    users.user_phone,
+    users.user_address,
+    users.user_register_date,
+    users.user_active,
     customers.customer_id,
     staffs.staff_id,
     staffs.staff_role,
