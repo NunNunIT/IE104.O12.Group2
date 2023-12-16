@@ -221,7 +221,7 @@ span.image-container img {
 
 @media only screen and (max-width: 64rem) {
     .sidebar-account__popup {
-        padding-top: 30%;
+        padding-top: 25%;
     }
 }
 

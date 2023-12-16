@@ -21,6 +21,8 @@ const url = location.href
 if (url != 'http://localhost:3000/search/results?hotProduct=true' && url != 'http://127.0.0.1:3000/search/results?hotProduct=true'
     && url != 'http://localhost:3000/search/results?discount=true' && url != 'http://127.0.0.1:3000/search/results?discount=true'
     && url != 'http://localhost:3000/about-us' && url != 'http://127.0.0.1:3000/about-us') {
-    let activeItem = document.querySelector(`.${activeMenuItem.replaceAll(' ', '.')}`)
-    activeItem.classList.remove('active-menu-item')
+    if (activeMenuItem) {
+        let activeItem = document.querySelector(`.${activeMenuItem.replaceAll(' ', '.')}`)
+        activeItem.classList.remove('active-menu-item')
+    }
 }

@@ -1,6 +1,6 @@
 @import url("/styles/general.css");
 
-#eye-open {
+.material-symbols-outlined.eye-open {
 	font-variation-settings:
 		'FILL' 0,
 		'wght' 400,
@@ -13,6 +13,10 @@
 	transform: translateY(-50%);
 	cursor: pointer;
 	color: var(--dark7)
+}
+
+span.red-start{
+	color: red; 
 }
 
 *,

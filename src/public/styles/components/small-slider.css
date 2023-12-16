@@ -17,8 +17,8 @@
 	object-fit: contain;
 }
 
-a.prev,
-a.next {
+button.prev,
+button.next {
 	position: absolute;
 	top: 50%;
 	width: auto;
@@ -34,20 +34,20 @@ a.next {
 	cursor: pointer;
 }
 
-a.prev {
+button.prev {
 	left: 10px;
 }
 
-a.next {
+button.next {
 	right: 10px;
 }
 
-a.prev:hover {
+button.prev:hover {
 	background-color: rgb(241, 247, 247);
 	color: black
 }
 
-a.next:hover {
+button.next:hover {
 	background-color: rgb(241, 247, 247);
 	color: black
 }
@@ -129,6 +129,7 @@ a.next:hover {
 		width: 60px;
 		height: 40px;
 	}
+
 	.slider-counter {
 		top: 67%;
 	}

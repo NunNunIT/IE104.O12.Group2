@@ -60,8 +60,7 @@
 							<div class="card-body">
 								<!-- Form -->
 								<div>
-									<label for="productNameLabel" class="form-label">Tên sản phẩm <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell."></i></label>
-
+									<label for="productNameLabel" class="form-label">Tên sản phẩm </label>
 									<input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Nhập tên sản phẩm" value="">
 								</div>
 								<!-- End Form -->
@@ -72,15 +71,10 @@
 
 									<!-- Select -->
 									<div class="tom-select-custom">
-										<select class="js-select form-select tomselected ts-hidden-accessible" autocomplete="off" id="categoryLabel" data-hs-tom-select-options="{
-                                              &quot;searchInDropdown&quot;: false,
-                                              &quot;hideSearch&quot;: true,
-                                              &quot;placeholder&quot;: &quot;Select category&quot;
-                                            }" tabindex="-1">
+										<select class="js-select form-select tomselected ts-hidden-accessible" autocomplete="off" id="categoryLabel-ts-control">
 											<% categories.forEach(function(category) { %>
 											<option value="<%= category.category_name %>"><%= category.category_name %></option>
 											<% }) %>
-
 										</select>
 									</div>
 									<!-- End Select -->
@@ -102,7 +96,7 @@
 										<button type="button"><span class="material-symbols-rounded"> code </span></button>
 										<button type="button"><span class="material-symbols-rounded"> format_list_bulleted </span></button>
 									</div>
-									<textarea name="" placeholder="Nhập mô tả sản phẩm..."></textarea>
+									<textarea name="product-description" placeholder="Nhập mô tả sản phẩm..."></textarea>
 								</div>
 								<!-- End Quill -->
 							</div>
@@ -127,10 +121,12 @@
 										<h5>Kéo và thả hình ảnh tại đây</h5>
 										<p>hoặc</p>
 										<div class="dz-message-btn">
-											<span class="btn-admin btn-white"><span class="material-symbols-rounded"> upload </span>
-												<p>Tải file lên tại đây</p>
-											</span>
-										</div>
+											<input type="file" name="image" id="imageUpload" accept="image/*" style="display: none">
+											<label for="imageUpload" class="image-upload-label">
+												<span class="material-symbols-rounded"> upload </span> 
+												Thêm hình ảnh
+											</label>
+									</div>
 									</div>
 								</div>
 								<!-- End Dropzone -->
@@ -180,13 +176,9 @@
 							<!-- Body -->
 							<div class="card-body">
 								<div class="card-item">
-									<div class="col-sm-8">
-										<input type="text" class="form-control" placeholder="Tên thông số">
-									</div>
+									<input type="text" class="form-control" placeholder="Tên thông số">
 
-									<div class="col-sm-8">
-										<input type="text" class="form-control" placeholder="Giá trị thông số">
-									</div>
+									<input type="text" class="form-control" placeholder="Giá trị thông số">
 								</div>
 								<!-- End Col -->
 							</div>
@@ -202,6 +194,7 @@
 				<!-- End Card -->
 			</div>
 			<!-- End Col -->
+			</main>
 	</div>
 	<!-- Body -->
 

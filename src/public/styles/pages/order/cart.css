@@ -216,7 +216,7 @@ button {
 .lds-ring {
     display: flex;
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 100%;
     min-height: 100px;
     justify-content: center;
@@ -420,7 +420,7 @@ button {
         border-radius: 8px;
     }
 
-    #del-mb-btn:hover {
+    #del-mb-btn:enabled:hover {
         background-color: var(--dollar-red);
         color: var(--white);
     }
