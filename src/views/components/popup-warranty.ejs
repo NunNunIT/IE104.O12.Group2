@@ -15,7 +15,7 @@
 			<div>
 				<p class="popup__note">Các mục được đánh dấu * là bắt buộc</p>
 			</div>
-			<form autocomplete="off" class="warranty-form" method="post" action="">
+			<form autocomplete="off" class="warranty-form" method="post">
 				<div class="warranty__form">
 					<div class="warranty-detail__input--filled">
 						<p class="warranty-detail__input-title">
@@ -35,28 +35,28 @@
 						</p>
 						<p class="warranty-detail__input-detail--filled"><%= orderDetail.product_name ?? 'null' %></p>
 					</div>
-					<div class="warranty-detail__input" id="Password">
+					<div class="warranty-detail__input">
 						<p class="warranty-detail__input-title">
 							Số sêri: <span class="required">*</span>
 						</p>
 						<input id="serialNumberInput" type="text" name="serial_number" value="" placeholder="Nhập số sêri" required />
 						<div class="reset__error"></div>
 					</div>
-					<div class="warranty-detail__input" id="Password">
+					<div class="warranty-detail__input">
 						<p class="warranty-detail__input-title" id="nameCustomer">
 							Họ và tên khách hàng: <span class="required">*</span>
 						</p>
 						<input id="nameCustomerInput" type="text" name="name" value="" placeholder="Nhập họ và tên" required />
 						<div class="reset__error"></div>
 					</div>
-					<div class="warranty-detail__input" id="Password">
+					<div class="warranty-detail__input">
 						<p class="warranty-detail__input-title">
 							Số điện thoại khách hàng: <span class="required">*</span>
 						</p>
 						<input id="numberCustomerInput" type="text" name="phone_number" value="" placeholder="Nhập số điện thoại" required />
 						<div class="reset__error"></div>
 					</div>
-					<div class="warranty-detail__input" id="Password">
+					<div class="warranty-detail__input">
 						<p class="warranty-detail__input-title">
 							Tỉnh/Thành phố: <span class="required">*</span>
 						</p>
@@ -67,7 +67,7 @@
 
 						<div class="reset__error"></div>
 					</div>
-					<div class="warranty-detail__input" id="Password">
+					<div class="warranty-detail__input">
 						<p class="warranty-detail__input-title">
 							Quận/Huyện: <span class="required">*</span>
 						</p>
@@ -88,7 +88,7 @@
 
 						<div class="reset__error"></div>
 					</div>
-					<div class="warranty-detail__input" id="Password">
+					<div class="warranty-detail__input">
 						<p class="warranty-detail__input-title">
 							Phường/Xã: <span class="required">*</span>
 						</p>
