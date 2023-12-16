@@ -78,6 +78,12 @@ const ratingText = document.querySelector('.ratingText');
 
 allStar.forEach((item, idx) => {
     item.addEventListener('click', function (event) {
+        let current = event.currentTarget
+        let ratingInput = current.parentElement.querySelector('input')
+
+        let click = 0
+        ratingInput.value = idx % 5 + 1
+    item.addEventListener('click', function (event) {
         let current = event.currentTarget;
         let ratingInput = current.parentElement.querySelector('input');
 
@@ -86,18 +92,18 @@ allStar.forEach((item, idx) => {
 
         // Xóa trạng thái đã chọn của tất cả các sao
         allStar.forEach(i => {
-            i.classList.replace('bxs-star', 'bx-star');
-            i.classList.remove('active');
-        });
+            i.classList.replace('bxs-star', 'bx-star')
+            i.classList.remove('active')
+        })
 
         // Thiết lập trạng thái cho sao hiện tại
         for (let i = 0; i < allStar.length; i++) {
             if (i <= idx) {
-                allStar[i].classList.replace('bx-star', 'bxs-star');
-                allStar[i].classList.add('active');
+                allStar[i].classList.replace('bx-star', 'bxs-star')
+                allStar[i].classList.add('active')
             } else {
-                allStar[i].style.setProperty('--i', click);
-                click++;
+                allStar[i].style.setProperty('--i', click)
+                click++
             }
         }
 
@@ -123,6 +129,26 @@ allStar.forEach((item, idx) => {
                 default:
                     ratingText.textContent = '';
             }
+        // add status of rating stars
+        switch (idx + 1) {
+            case 1:
+                ratingText.textContent = 'Tệ'
+                break
+            case 2:
+                ratingText.textContent = 'Không hài lòng'
+                break
+            case 3:
+                ratingText.textContent = 'Bình thường'
+                break
+            case 4:
+                ratingText.textContent = 'Hài lòng'
+                break
+            case 5:
+                ratingText.textContent = 'Tuyệt vời'
+                break
+            default:
+                ratingText.textContent = ''
+        }
 
             // add color for rating text
             ratingText.style.color = '#e5ad06';

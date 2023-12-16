@@ -9,6 +9,7 @@
 	<meta name="description" content="Hãy cùng góp ý để xây dựng TECHTWO ngày càng là một người bạn tin cậy và hữu ích cho bạn.">
 
 	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+	<link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/account/feedback.css">
 
@@ -22,14 +23,17 @@
 
 	<div class="feedback-wrapper">
 		<h3>ĐÁNH GIÁ SẢN PHẨM</h3>
-		<form action="/account/feedback" method="POST" class="rating-form">
+		<form action="/account/feedback" method="POST" id="rating-form">
+			<input type="hidden" name="order_id" value="<%= orderDetails[0].order_id %>">
 			<% orderDetails.forEach(orderDetail => { %>
+			<% console.log(orderDetail) %>
 			<div class="feedback-product">
 				<div class="product-info">
+					<input type="hidden" name="product_variant_id" value="<%= orderDetail.product_variant_id ?? 'null' %>">
 					<img src="/imgs/product_image/P<%= orderDetail.product_id %>/<%= orderDetail.product_avt_img %>" alt="<%= orderDetail.product_name %>">
 					<div class="product-details">
 						<h4 class="product_name"><%= orderDetail.product_name %></h4>
-						<p class="product_variant-name">Phân loại: <%= orderDetail.product_variant_name %></p>
+						<p class="product_variant-name">Phân loại: <%= orderDetail.product_variant_name ?? 'null' %></p>
 						<div class="price_quantity">
 							<p class="price"><del><%= formatFunction.toCurrency(orderDetail.order_detail_price_before) %></del> <strong><%= formatFunction.toCurrency(orderDetail.order_detail_price_after) %></strong></p>
 							<p class="quantity">x<%= orderDetail.order_detail_quantity %></p>
@@ -40,18 +44,18 @@
 				<div class="quality">
 					<p>Chất lượng sản phẩm</p>
 					<div class="rating">
-						<input type="number" name="rating" hidden>
+						<input type="hidden" name="rating" value="5">
 						<i class='bx bx-star star' style="--i: 0;"></i>
 						<i class='bx bx-star star' style="--i: 1;"></i>
 						<i class='bx bx-star star' style="--i: 2;"></i>
 						<i class='bx bx-star star' style="--i: 3;"></i>
 						<i class='bx bx-star star' style="--i: 4;"></i>
 					</div>
-					<div class="ratingText"></div>
+					<div class="rating-text" id="ratingText"></div>
 				</div>
 
 				<div class="image-upload-container">
-					<input type="file" name="image" class="imageUpload" accept="image/*" style="display: none">
+					<input type="file" name="image" id="imageUpload" accept="image/*" style="display: none">
 					<label for="imageUpload" class="image-upload-label">
 						<span class="material-symbols-outlined">
 							add_a_photo
@@ -69,6 +73,7 @@
 		</form>
 	</div>
 
+	<%- include('../../components/success-modal', { action: 'Đánh giá'}) %>
 	<%- include('../../components/scrollup') %>
 	<%- include('../../partials/footer') %>
 	<%- include('../../partials/app-bar') %>

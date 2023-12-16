@@ -1,5 +1,6 @@
 @import url("/styles/general.css");
 @import url("/styles/components/sidebar_account.css");
+@import url("/styles/components/success-modal.css");
 
 body {
     background: var(--white-gray);
@@ -173,6 +174,12 @@ a.btn.btn--outlined.sec.btn-cancel {
 
 .popup__button .save {
     color: white;
+}
+
+.popup__button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 48rem) {
