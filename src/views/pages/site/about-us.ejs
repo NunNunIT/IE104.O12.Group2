@@ -16,9 +16,8 @@
   </head>
 
   <body>
-    <%- include('../../partials/header', { header: header, user: user }) %> <%-
-    include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Về chúng
-    tôi', link : '/about-us' }] }) %>
+    <%- include('../../partials/header', { header: header, user: user }) %>
+    <%-include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Về chúng tôi', link : '/about-us' }] }) %>
 
     <main class="about-container">
       <div class="about-us__content">
@@ -93,8 +92,9 @@
       <img class="about-us__img" src="/imgs/about-us-1.png" alt="banner" />
     </main>
 
-    <%- include('../../components/scrollup') %> <%-
-    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
+    <%- include('../../components/scrollup') %> 
+    <%- include('../../partials/footer') %> 
+    <%- include('../../partials/app-bar') %>
 
     <script src="/scripts/components/scrollup.js"></script>
     <script src="/scripts/partials/header.js"></script>
