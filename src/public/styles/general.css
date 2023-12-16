@@ -173,6 +173,7 @@ ul li {
 }
 
 .btn {
+    text-decoration: none;
     cursor: pointer;
     height: 48px;
     display: inline-block;

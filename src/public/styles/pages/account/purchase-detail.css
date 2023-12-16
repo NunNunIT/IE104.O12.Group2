@@ -212,9 +212,13 @@ small {
 	justify-content: space-between;
 }
 
-#paid-amount {
+.paid-amount {
 	color: var(--primary-color-1);
 	font-size: 1.5rem;
+}
+
+.paid-amount.cancelled {
+	color: gray;
 }
 
 .purchase-detail__final {
@@ -288,6 +292,7 @@ small {
 	object-fit: contain;
 	width: 20%;
 }
+
 
 @media only screen and (max-width: 64rem) {
 	.purchase-detail__order-info {

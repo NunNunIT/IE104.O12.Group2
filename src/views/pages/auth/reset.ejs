@@ -1,87 +1,67 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="IE104.O12_Nhom2" />
-    <meta
-      name="description"
-      content="TECHTWO khuyên bạn hãy đổi mật khẩu thường xuyên để đảm bảo sự bảo mật của bạn nhé."
-    />
-    <link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-    <link rel="stylesheet" href="/styles/pages/auth/reset.css" />
 
-    <title>TECHTWO.</title>
-  </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="TECHTWO khuyên bạn hãy đổi mật khẩu thường xuyên để đảm bảo sự bảo mật của bạn nhé.">
 
-  <body>
-    <%- include('../../partials/header-small') %>
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/pages/auth/reset.css">
 
-    <main>
-      <div class="box">
-        <div class="inner-box">
-          <form
-            id="resetPasswordPost"
-            autocomplete="off"
-            class="sign-in-form"
-            action="post"
-          >
-            <div class="logo">
-              <a href="#"><img src="/imgs/logo-blue.png" alt="techtwo" /> </a>
-            </div>
-            <div class="heading">
-              <h2>Đặt lại mật khẩu</h2>
-            </div>
-            <div class="actual-form">
-              <div class="reset__input-wrap">
-                <input
-                  id="Password"
-                  type="password"
-                  name="Password"
-                  class="reset__input-field"
-                  autocomplete="off"
-                />
-                <label>Mật khẩu mới<span style="color: red">*</span></label>
-                <span id="togglePassword" class="reset__toggle-password"
-                  ><span class="material-symbols-outlined" id="eye-open">
-                    visibility</span
-                  >
-                </span>
-                <div class="reset__error"></div>
-              </div>
+	<title>TECHTWO. Đổi mật khẩu</title>
+</head>
 
-              <div class="reset__input-wrap">
-                <input
-                  id="ConfirmPassword"
-                  type="password"
-                  name="Password"
-                  class="reset__input-field"
-                  autocomplete="off"
-                />
-                <label
-                  >Xác nhận mật khẩu mới<span style="color: red">*</span></label
-                >
-                <span id="toggleConfirmPassword" class="reset__toggle-password"
-                  ><span class="material-symbols-outlined" id="eye-open">
-                    visibility</span
-                  >
-                </span>
-                <div class="reset__error"></div>
-              </div>
+<body>
+	<%- include('../../partials/header-small') %>
 
-              <input type="submit" value="Xác nhận" class="reset__sign-btn" />
-              <div class="back">
-                <a href="/auth/login">Hủy</a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </main>
+	<main>
+		<div class="box">
+			<div class="inner-box">
+				<form id="resetPasswordPost" autocomplete="off" class="sign-in-form" action="post">
+					<div class="logo">
+						<a href="#"><img src="/imgs/logo-blue.png" alt="techtwo"> </a>
+					</div>
+					<div class="heading">
+						<h2>Đặt lại mật khẩu</h2>
+					</div>
+					<div class="actual-form">
+						<div class="reset__input-wrap">
+							<input id="Password" type="password" name="Password" class="reset__input-field" autocomplete="off">
+							<label>Mật khẩu mới<span style="color: red">*</span></label>
+							<span id="togglePassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+									visibility</span>
+							</span>
+							<div class="reset__error"></div>
+						</div>
 
-    <%- include('../../components/scrollup') %> <%-
-    include('../../partials/footer') %> <%- include('../../partials/app-bar') %>
+						<div class="reset__input-wrap">
+							<input id="ConfirmPassword" type="password" name="Password" class="reset__input-field" autocomplete="off">
+							<label>Xác nhận mật khẩu mới<span style="color: red">*</span></label>
+							<span id="toggleConfirmPassword" class="reset__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+									visibility</span>
+							</span>
+							<div class="reset__error"></div>
+						</div>
 
-    <script src="/scripts/pages/auth/reset.js"></script>
-  </body>
+						<input type="submit" value="Xác nhận" class="reset__sign-btn">
+						<div class="back">
+							<a href="/auth/login">Hủy</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<%- include('../../components/scrollup') %>
+	<%- include('../../partials/footer') %>
+	<%- include('../../partials/app-bar') %>
+
+	<script src="/scripts/pages/auth/reset.js"></script>
+
+</body>
+
 </html>

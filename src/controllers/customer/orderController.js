@@ -78,8 +78,6 @@ orderController.updateCart = async (req, res) => {
 	let productsCartUpdate = req.body.productsCartUpdate
 	let productsCartUpdateOld = req.body.productsCartUpdateOld
 
-	console.log(req.body)
-
 	await order.deleteCart(customer_id, productsCartUpdate, function (err, success) { })
 	await order.deleteCart(customer_id, productsCartUpdateOld, function (err, success) { })
 

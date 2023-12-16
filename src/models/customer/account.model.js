@@ -26,7 +26,8 @@ account.updateInfo = async (req, res) => {
     const values = [
         req.body.user_phone,
         req.body.user_name,
-        new Date(req.body.user_birth),
+        // new Date(req.body.user_birth),
+        req.body.user_birth,
         req.body.user_sex,
         req.body.user_email,
         req.body.user_phone,
@@ -35,6 +36,7 @@ account.updateInfo = async (req, res) => {
     ]
 
     const result = await query(updateInfo, values)
+    
 }
 
 
@@ -91,7 +93,7 @@ account.getDetailPurchaseHistorys = async (order_id) => {
     })
 }
 
-account.feedbackPost = async (product_variant_id, customer_id, order_id, feedback_rate, feedback_content, callback) => {
+account.insertFeedback = async (product_variant_id, customer_id, order_id, feedback_rate, feedback_content, callback) => {
     let insertFeedback = `INSERT INTO feedbacks (product_variant_id, customer_id, order_id, feedback_rate, feedback_content) VALUES (${product_variant_id}, ${customer_id}, ${order_id} ${feedback_rate}, '${feedback_content}')`
 
     db.query(insertFeedback, (err, result) => {

@@ -2,15 +2,16 @@
 <html lang="vi">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
 
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/admin/pages/cate_view_admin.css">
 	<link rel="stylesheet" href="/styles/admin/pages/product_view_admin.css">
 
-	<title>Admin</title>
+	<title>TECHTWO.Admin - Thêm sản phẩm</title>
 </head>
 
 <body>
@@ -46,158 +47,158 @@
 				<!-- End Page Header -->
 
 				<div class="row">
-						<div class="main-form">
-							<!-- Card -->
-							<div class="card">
-								<!-- Header -->
-								<div class="card-header">
-									<h4 class="card-header-title">Thông tin sản phẩm</h4>
+					<div class="main-form">
+						<!-- Card -->
+						<div class="card">
+							<!-- Header -->
+							<div class="card-header">
+								<h4 class="card-header-title">Thông tin sản phẩm</h4>
+							</div>
+							<!-- End Header -->
+
+							<!-- Body -->
+							<div class="card-body">
+								<!-- Form -->
+								<div>
+									<label for="productNameLabel" class="form-label">Tên sản phẩm <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell."></i></label>
+
+									<input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Nhập tên sản phẩm" value="">
 								</div>
-								<!-- End Header -->
+								<!-- End Form -->
 
-								<!-- Body -->
-								<div class="card-body">
-									<!-- Form -->
-									<div>
-										<label for="productNameLabel" class="form-label">Tên sản phẩm <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell."></i></label>
+								<!-- Form -->
+								<div>
+									<label for="categoryLabel-ts-control" class="form-label" id="categoryLabel-ts-label">Thuộc loại danh mục</label>
 
-										<input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Nhập tên sản phẩm" value="">
-									</div>
-									<!-- End Form -->
-
-									<!-- Form -->
-									<div>
-										<label for="categoryLabel-ts-control" class="form-label" id="categoryLabel-ts-label">Thuộc loại danh mục</label>
-
-										<!-- Select -->
-										<div class="tom-select-custom">
-											<select class="js-select form-select tomselected ts-hidden-accessible" autocomplete="off" id="categoryLabel" data-hs-tom-select-options="{
+									<!-- Select -->
+									<div class="tom-select-custom">
+										<select class="js-select form-select tomselected ts-hidden-accessible" autocomplete="off" id="categoryLabel" data-hs-tom-select-options="{
                                               &quot;searchInDropdown&quot;: false,
                                               &quot;hideSearch&quot;: true,
                                               &quot;placeholder&quot;: &quot;Select category&quot;
                                             }" tabindex="-1">
-												<% categories.forEach(function(category) { %>
-												<option value="<%= category.category_name %>"><%= category.category_name %></option>
-												<% }) %>
+											<% categories.forEach(function(category) { %>
+											<option value="<%= category.category_name %>"><%= category.category_name %></option>
+											<% }) %>
 
-											</select>
-										</div>
-										<!-- End Select -->
+										</select>
 									</div>
-									<!-- Form -->
-
-									<label class="form-label">Mô tả sản phẩm </label>
-
-									<!-- Quill -->
-									<div class="quill-custom">
-										<div class="ql-toolbar ql-snow">
-											<button type="button"><span class="material-symbols-rounded"> format_bold </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_italic </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_underlined </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_strikethrough </span></button>
-											<button type="button"><span class="material-symbols-rounded"> link </span></button>
-											<button type="button"><span class="material-symbols-rounded"> image </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_quote </span></button>
-											<button type="button"><span class="material-symbols-rounded"> code </span></button>
-											<button type="button"><span class="material-symbols-rounded"> format_list_bulleted </span></button>
-										</div>
-										<textarea name="" placeholder="Nhập mô tả sản phẩm..."></textarea>
-									</div>
-									<!-- End Quill -->
+									<!-- End Select -->
 								</div>
-								<!-- Body -->
+								<!-- Form -->
+
+								<label class="form-label">Mô tả sản phẩm </label>
+
+								<!-- Quill -->
+								<div class="quill-custom">
+									<div class="ql-toolbar ql-snow">
+										<button type="button"><span class="material-symbols-rounded"> format_bold </span></button>
+										<button type="button"><span class="material-symbols-rounded"> format_italic </span></button>
+										<button type="button"><span class="material-symbols-rounded"> format_underlined </span></button>
+										<button type="button"><span class="material-symbols-rounded"> format_strikethrough </span></button>
+										<button type="button"><span class="material-symbols-rounded"> link </span></button>
+										<button type="button"><span class="material-symbols-rounded"> image </span></button>
+										<button type="button"><span class="material-symbols-rounded"> format_quote </span></button>
+										<button type="button"><span class="material-symbols-rounded"> code </span></button>
+										<button type="button"><span class="material-symbols-rounded"> format_list_bulleted </span></button>
+									</div>
+									<textarea name="" placeholder="Nhập mô tả sản phẩm..."></textarea>
+								</div>
+								<!-- End Quill -->
 							</div>
-							<!-- End Card -->
-
-							<!-- Card -->
-							<div class="card">
-								<!-- Header -->
-								<div class="card-header card-header-content-between">
-									<h4 class="card-header-title">Ảnh</h4>
-								</div>
-								<!-- End Header -->
-
-								<!-- Body -->
-								<div class="card-body">
-									<!-- Dropzone -->
-									<div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable">
-										<div class="dz-message">
-											<img class="img-upload" src="/imgs/admin/img-upload.svg" alt="Image Description" data-hs-theme-appearance="default">
-											<h5>Kéo và thả hình ảnh tại đây</h5>
-											<p>hoặc</p>
-											<div class="dz-message-btn">
-												<span class="btn-admin btn-white"><span class="material-symbols-rounded"> upload </span>
-													<p>Tải file lên tại đây</p>
-												</span>
-											</div>
-										</div>
-									</div>
-									<!-- End Dropzone -->
-								</div>
-								<!-- Body -->
-							</div>
-							<!-- End Card -->
+							<!-- Body -->
 						</div>
+						<!-- End Card -->
 
-						<div class="main-form">
-							<!-- Card -->
-							<div class="card variants">
-								<!-- Header -->
-								<div class="card-header">
-									<h4 class="card-header-title">Biến thể</h4>
-								</div>
-								<!-- End Header -->
+						<!-- Card -->
+						<div class="card">
+							<!-- Header -->
+							<div class="card-header card-header-content-between">
+								<h4 class="card-header-title">Ảnh</h4>
+							</div>
+							<!-- End Header -->
 
-								<!-- Body -->
-								<div class="card-body">
-									<div class="card-item">
-										<div>
-											<input type="text" class="form-control" placeholder="Tên biến thể">
-										</div>
-
-										<div>
-											<input type="text" class="form-control" placeholder="Nhập giá tiền">
+							<!-- Body -->
+							<div class="card-body">
+								<!-- Dropzone -->
+								<div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card dz-clickable">
+									<div class="dz-message">
+										<img class="img-upload" src="/imgs/admin/img-upload.svg" alt="Image Description" data-hs-theme-appearance="default">
+										<h5>Kéo và thả hình ảnh tại đây</h5>
+										<p>hoặc</p>
+										<div class="dz-message-btn">
+											<span class="btn-admin btn-white"><span class="material-symbols-rounded"> upload </span>
+												<p>Tải file lên tại đây</p>
+											</span>
 										</div>
 									</div>
-									<!-- End Col -->
 								</div>
-								<!-- End Row -->
-
-								<!-- Container For Input Field -->
-								<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm biến thể khác </button>
-
+								<!-- End Dropzone -->
 							</div>
-
-							<!-- Card -->
-							<div class="card details">
-								<!-- Header -->
-								<div class="card-header">
-									<h4 class="card-header-title">Chi tiết sản phẩm</h4>
-								</div>
-								<!-- End Header -->
-
-								<!-- Body -->
-								<div class="card-body">
-									<div class="card-item">
-										<div class="col-sm-8">
-											<input type="text" class="form-control" placeholder="Tên thông số">
-										</div>
-
-										<div class="col-sm-8">
-											<input type="text" class="form-control" placeholder="Giá trị thông số">
-										</div>
-									</div>
-									<!-- End Col -->
-								</div>
-								<!-- End Row -->
-
-								<!-- Container For Input Field -->
-								<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm thông số khác </button>
-							</div>
+							<!-- Body -->
 						</div>
-						<!-- End Add Another Option Input Field -->
+						<!-- End Card -->
 					</div>
-					<!-- Body -->
+
+					<div class="main-form">
+						<!-- Card -->
+						<div class="card variants">
+							<!-- Header -->
+							<div class="card-header">
+								<h4 class="card-header-title">Biến thể</h4>
+							</div>
+							<!-- End Header -->
+
+							<!-- Body -->
+							<div class="card-body">
+								<div class="card-item">
+									<div>
+										<input type="text" class="form-control" placeholder="Tên biến thể">
+									</div>
+
+									<div>
+										<input type="text" class="form-control" placeholder="Nhập giá tiền">
+									</div>
+								</div>
+								<!-- End Col -->
+							</div>
+							<!-- End Row -->
+
+							<!-- Container For Input Field -->
+							<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm biến thể khác </button>
+
+						</div>
+
+						<!-- Card -->
+						<div class="card details">
+							<!-- Header -->
+							<div class="card-header">
+								<h4 class="card-header-title">Chi tiết sản phẩm</h4>
+							</div>
+							<!-- End Header -->
+
+							<!-- Body -->
+							<div class="card-body">
+								<div class="card-item">
+									<div class="col-sm-8">
+										<input type="text" class="form-control" placeholder="Tên thông số">
+									</div>
+
+									<div class="col-sm-8">
+										<input type="text" class="form-control" placeholder="Giá trị thông số">
+									</div>
+								</div>
+								<!-- End Col -->
+							</div>
+							<!-- End Row -->
+
+							<!-- Container For Input Field -->
+							<button class="add-another-btn"> <span class="material-symbols-outlined"> add </span> Thêm thông số khác </button>
+						</div>
+					</div>
+					<!-- End Add Another Option Input Field -->
+				</div>
+				<!-- Body -->
 				<!-- End Card -->
 			</div>
 			<!-- End Col -->

@@ -1,115 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="theme-color" content="#2a7ee4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="IE104.O12_Nhom2" />
-    <meta
-      name="description"
-      content="Các chức năng cá nhân mà bạn có thể thực hiện ở TECHTWO."
-    />
-    <title>TECHTWO.</title>
-    <link rel="stylesheet" href="/styles/pages/account/mobile-account.css" />
 
-    <title>TECHTWO.</title>
-  </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#2a7ee4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Các chức năng cá nhân mà bạn có thể thực hiện ở TECHTWO.">
 
-  <body>
-    <%- include('../../partials/header') %>
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/pages/account/mobile-account.css">
 
-    <div class="mobile-account-container">
-      <aside class="account-aside" id="sidebar">
-        <a href="#" class="avatar">
-          <span class="image-container">
-            <img
-              src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>"
-              alt="avatar <%= (user.user.user_name) ? user.user.user_name : '' %>"
-            />
-          </span>
-          <span class="user_name">
-            <h5><%= (user.user.user_name) ? user.user.user_name : '' %></h5>
-          </span>
-        </a>
+	<title>TECHTWO. Trang cá nhân</title>
+</head>
 
-        <ul class="side-menu top">
-          <li>
-            <a href="/account/information" id="info-link">
-              <span class="material-symbols-outlined">
-                perm_contact_calendar
-              </span>
-              <span class="text">Thông tin cá nhân</span>
-            </a>
-          </li>
+<body>
+	<%- include('../../partials/header') %>
 
-          <li>
-            <a href="/account/purchase">
-              <span class="material-symbols-outlined"> shopping_bag </span>
-              <span class="text">Lịch sử đơn mua</span>
-            </a>
-          </li>
-          <li>
-            <a href="/account/warranty-claim">
-              <span class="material-symbols-outlined"> build </span>
-              <span class="text">Yêu cầu bảo hành</span>
-            </a>
-          </li>
-          <li>
-            <a href="/account/information">
-              <span class="material-symbols-outlined"> settings </span>
-              <span class="text">Đổi mật khẩu</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="side-menu">
-          <li>
-            <p class="btn-warranty">
-              <span class="material-symbols-outlined">logout</span>
-              <span class="text">Đăng xuất</span>
-            </p>
-          </li>
-        </ul>
+	<div class="mobile-account-container">
+		<aside class="account-aside" id="sidebar">
+			<a href="#" class="avatar">
+				<span class="image-container">
+					<img src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar <%= (user.user.user_name) ? user.user.user_name : '' %>">
+				</span>
+				<div class="user_name">
+					<h5><%= (user.user.user_name) ? user.user.user_name : '' %></h5>
+				</div>
+			</a>
 
-        <div class="popup">
-          <div class="popup__main">
-            <div class="popup__main--right">
-              <div class="popup__content">
-                <div class="popup--top">
-                  <p class="popup__title">Đăng xuất</p>
-                  <div class="close-btn">
-                    <span class="material-symbols-outlined">cancel</span>
-                  </div>
-                </div>
-                <p class="popup__subtitle">
-                  Quý khách có chắc chắn muốn đăng xuất không?
-                </p>
-                <div class="popup__button">
-                  <button
-                    class="btn btn--outlined pri btn-cancel"
-                    type="button"
-                    onclick="redirectTo('/account/mobile-account')"
-                  >
-                    Hủy
-                  </button>
-                  <button
-                    class="btn btn--filled pri btn-logout"
-                    type="button"
-                    onclick="redirectTo('/auth/logout')"
-                  >
-                    Đăng xuất
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
+			<ul class="side-menu top">
+				<li>
+					<a href="/account/information" id="info-link">
+						<span class="material-symbols-outlined">
+							perm_contact_calendar
+						</span>
+						<span class="text">Thông tin cá nhân</span>
+					</a>
+				</li>
 
-    <%- include('../../partials/app-bar') %>
+				<li>
+					<a href="/account/purchase">
+						<span class="material-symbols-outlined"> shopping_bag </span>
+						<span class="text">Lịch sử đơn mua</span>
+					</a>
+				</li>
+				<li>
+					<a href="/account/warranty-claim">
+						<span class="material-symbols-outlined"> build </span>
+						<span class="text">Yêu cầu bảo hành</span>
+					</a>
+				</li>
+				<li>
+					<a href="/account/information">
+						<span class="material-symbols-outlined"> settings </span>
+						<span class="text">Đổi mật khẩu</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="side-menu">
+				<li>
+					<p class="btn-warranty">
+						<span class="material-symbols-outlined">logout</span>
+						<span class="text">Đăng xuất</span>
+					</p>
+				</li>
+			</ul>
 
-    <script src="/scripts/pages/account/mobile-account.js"></script>
-    <script src="/scripts/partials/header.js"></script>
-    <script src="/scripts/components/sidebar_account.js"></script>
-  </body>
+			<div class="mobile-account__popup">
+				<div class="popup__main">
+					<div class="popup__main--right">
+						<div class="popup__content">
+							<div class="popup--top">
+								<p class="popup__title">Đăng xuất</p>
+								<div class="close-btn">
+									<span class="material-symbols-outlined">cancel</span>
+								</div>
+							</div>
+							<p class="popup__subtitle">Quý khách có chắc chắn muốn đăng xuất không?</p>
+							<div class="popup__button">
+								<button class="btn btn--outlined pri btn-cancel" type="button" onclick="redirectTo('/account/mobile-account')">Hủy</button>
+								<button class="btn btn--filled pri btn-logout" type="button" onclick="redirectTo('/auth/logout')">Đăng xuất</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+	</div>
+
+	<%- include('../../partials/app-bar') %>
+
+	<script src="/scripts/pages/account/mobile-account.js"></script>
+	<script src="/scripts/partials/header.js"></script>
+
+</body>
+
 </html>

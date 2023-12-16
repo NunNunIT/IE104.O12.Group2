@@ -2,7 +2,7 @@
 	<div class="comment__info">
 		<img class="comment__avatar" src="/imgs/user_avt_img/<%= 'default.png' %>" alt="avatar">
 		<div>
-			<p class="comment__user-name"><%= 'Nguyễn Văn A' %></p>
+			<p class="comment__user-name"><%= feedback.user_name ?? 'Nguyễn Văn A' %></p>
 			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'null' %></button>
 			<div class="comment__stars">
 				<% if (feedback.feedback_rate) { %>

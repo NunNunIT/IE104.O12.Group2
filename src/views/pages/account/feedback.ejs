@@ -7,11 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="IE104.O12_Nhom2">
 	<meta name="description" content="Hãy cùng góp ý để xây dựng TECHTWO ngày càng là một người bạn tin cậy và hữu ích cho bạn.">
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
+
 	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/account/feedback.css">
 
-	<title>TECHTWO.</title>
+	<title>TECHTWO. Đánh giá</title>
 </head>
 
 <body>
@@ -31,7 +32,6 @@
 					<p class="price"><del><%= formatFunction.toCurrency(orderDetail.order_detail_price_before) %></del> <strong><%= formatFunction.toCurrency(orderDetail.order_detail_price_after) %></strong></p>
 					<p class="quantity">x<%= orderDetail.order_detail_quantity %></p>
 				</div>
-
 			</div>
 		</div>
 
@@ -61,8 +61,8 @@
 			<textarea name="opinion" cols="30" rows="8" placeholder="Đánh giá của bạn..."></textarea>
 			<% }) %>
 			<div class="popup__button">
-				<a href="/account/purchase"><button class="btn btn--outlined sec btn-cancel" type="button">Hủy</button></a>
-				<a href="/account/purchase"><button class="btn btn--filled sec btn-logout" type="button">Gửi đánh giá</button></a>
+				<button class="btn btn--outlined sec btn-cancel" type="button" onclick="redirectTo('/account/purchase')">Hủy</button>
+				<button class="btn btn--filled sec btn-logout" type="button" onclick="redirectTo('/account/purchase')">Gửi đánh giá</button>
 			</div>
 		</form>
 	</div>
@@ -73,8 +73,8 @@
 
 	<script src="/scripts/pages/account/feedback.js"></script>
 	<script src="/scripts/pages/account/information.js"></script>
-	<script src="/scripts/partials/header.js"></script>
 	<script src="/scripts/components/sidebar_account.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

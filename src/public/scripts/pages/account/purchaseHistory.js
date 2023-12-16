@@ -71,12 +71,53 @@ function updateActiveLink(links, url) {
 // Thêm sự kiện click cho nút hủy mua hàng
 const purchaseCancelBtns = document.querySelectorAll(".btn.btn--outlined.pri.cancel");
 const purchaseCancelModals = document.querySelectorAll(".purchase-cancel__popup");
+const cancelConfirmBtns = document.querySelectorAll(".btn.btn--filled.pri.confirm-cancel");
 const purchaseCancelCloseBtns = document.querySelectorAll(".purchase-cancel__popup .close-btn");
 const purchaseCancelConfirmBtns = document.querySelectorAll(".btn.btn--outlined.pri.cancel-purchase");
+const cancelForms = document.querySelectorAll('.his_cancel_popup');
+
+
+cancelForms.forEach(form => {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+    })
+})
+
 
 purchaseCancelBtns.forEach((cancelBtn, index) => {
     cancelBtn.addEventListener("click", function () {
         purchaseCancelModals[index].style.display = "block";
+        const order_id = {
+            order_id: purchaseCancelModals[index].querySelector(`input[name=order_id]`).value
+        }
+        cancelConfirmBtns[index].addEventListener("click", function () {
+            fetch('/order/cancel_order', {
+                method: 'POST',
+                body: JSON.stringify(order_id),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(res => res.json())
+                .then(back => {
+                    if (back.status == "error") {
+                        // Hiển thị thông báo vui lòng thử lại sau
+                    } else if (back.status == "success") {
+                        // Hiển thị thông báo đã hủy thành công
+                        // purchaseCancelModals[index].style.display = "none";
+                        //Thay đổi trạng thái
+                        // const purchaseItem = document.querySelectorAll('.purchase-item')[index];
+                        // const statusBlock = purchaseItem.querySelector('.purchase-item__status-container');
+                        // const statusIcon = purchaseItem.querySelector('.material-symbols-outlined.status');
+                        // const status = purchaseItem.querySelector('.purchase-item__status');
+                        // statusBlock.classList.remove("cancel", "unpaid", "finished", "delivering");
+                        // statusBlock.classList.add("cancel");
+                        // statusIcon.innerHTML = "cancel";
+                        // status.innerHTML = "Đã hủy";
+                        // cancelBtn.style.display = "none";
+                        location.reload();
+                    }
+                });
+        });
     });
 });
 
@@ -102,6 +143,33 @@ window.addEventListener("click", function (e) {
         }
     });
 });
+
+
+// cancelForms.forEach(cancelForm => {
+//     cancelForm.addEventListener('submit', e => {
+//         // Ngăn chặn việc gửi form nếu có bất kỳ trường nào không hợp lệ
+//         e.preventDefault();
+
+//         // Kiểm tra dữ liệu nhập vào
+
+
+//         fetch('/order/cancel_order', {
+//             method: 'POST',
+//             body: JSON.stringify(order_id),
+//             headers: {
+//                 "Content-Type": "application/json"
+//             }
+//         }).then(res => res.json())
+//             .then(back => {
+//                 if (back.status == "error") {
+//                     // Hiển thị thông báo vui lòng thử lại sau
+//                 } else if (back.status == "success") {
+//                     // Hiển thị thông báo đã hủy thành công
+//                     location.reload();
+//                 }
+//             });
+//     });
+// });
 
 
 

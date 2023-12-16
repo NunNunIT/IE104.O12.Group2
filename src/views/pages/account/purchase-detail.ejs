@@ -7,10 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="IE104.O12_Nhom2">
 	<meta name="description" content="Thông tin về đơn hàng của bạn luôn được lưu trữ và bảo vệ bởi TECHTWO.">
-	<link rel="shortcut icon" type="ico" href="/imgs/ico-logo-blue.png" />
-	<link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
 
-	<title>TECHTWO.</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
+	<link rel="stylesheet" href="/styles/pages/account/purchase-detail.css">
+	<link rel="stylesheet" href="/styles/pages/account/purchase-history.css">
+
+	<title>TECHTWO. Chi tiết đơn hàng</title>
 </head>
 
 <body>
@@ -89,10 +91,17 @@
 						<span>Thành tiền:</span>
 						<span id="total-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
 					</p>
+					<% if (purchaseHistory.order_status === 'Đã hủy') { %>
 					<p class="purchase-detail__final">
 						<span>Tổng tiền:</span>
-						<span id="paid-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
+						<span class="paid-amount cancelled"><del><%= formatFunction.toCurrency(totalAmount) %></del></span>
 					</p>
+					<% } else { %>
+					<p class="purchase-detail__final">
+						<span>Tổng tiền:</span>
+						<span class="paid-amount"><%= formatFunction.toCurrency(totalAmount) %></span>
+					</p>
+					<% } %>
 				</div>
 				<div class="purchase-detail__button">
 					<% if (purchaseHistory.order_status === 'Chờ thanh toán') { %>
@@ -180,8 +189,8 @@
 	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/pages/account/purchaseDetail.js"></script>
-	<script src="/scripts/partials/header.js"></script>
 	<script src="/scripts/components/sidebar_account.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

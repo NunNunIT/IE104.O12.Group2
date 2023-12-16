@@ -1,9 +1,4 @@
 @import url("/styles/general.css");
-@import url("/styles/partials/header.css");
-@import url("/styles/partials/footer.css");
-@import url("/styles/partials/breadcrumb.css");
-
-
 
 /* side-bar */
 #sidebar {
@@ -47,15 +42,10 @@ span.image-container img {
     text-align: center;
 }
 
-
-
 /* Định dạng màu đỏ cho menu active */
 #sidebar .side-menu__ele.active a {
     color: var(--primary-color-1);
 }
-
-
-
 
 #sidebar .side-menu.top li a:hover {
     color: var(--primary-color-2);
@@ -64,7 +54,6 @@ span.image-container img {
 #sidebar .side-menu li a:hover {
     color: var(--primary-color-2);
 }
-
 
 #sidebar .side-menu {
     width: 100%;
@@ -91,7 +80,6 @@ span.image-container img {
     white-space: nowrap;
     overflow-x: hidden;
 }
-
 
 #sidebar .side-menu li a.logout {
     color: var(--red);
@@ -129,7 +117,7 @@ span.image-container img {
     color: var(--primary-color-2);
 }
 
-.popup__main {
+.sidebar-account__popup .popup__main {
     position: relative;
     background-color: #FAFAFA;
     border-radius: 8px;
@@ -137,9 +125,7 @@ span.image-container img {
     width: 55%;
     height: auto;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
-    /* align-items: center; */
     padding: 32px;
 
 }
@@ -156,15 +142,14 @@ span.image-container img {
     cursor: pointer;
 }
 
-
-.popup__content-main {
+.sidebar-account__popup .popup__content-main {
     display: flex;
     padding: 32px;
     flex-direction: column;
     gap: 12px;
 }
 
-.popup--top {
+.sidebar-account__popup .popup--top {
     display: flex;
     justify-content: space-between;
 }
@@ -179,20 +164,14 @@ span.image-container img {
 }
 
 
-.popup__content-title {
+.sidebar-account__popup .popup__content-title {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.popup__main--right {
+.sidebar-account__popup .popup__main--right {
     width: 100%;
-}
-
-.warranty__form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .logout_img {
@@ -203,25 +182,24 @@ span.image-container img {
     height: 300px;
 }
 
-
 .logout_img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.popup__button {
+.sidebar-account__popup .popup__button {
     display: flex;
     justify-content: flex-end;
     margin-top: 24px;
     gap: 12px;
 }
 
-.popup__button button.btn--filled.pri {
+.sidebar-account__popup .popup__button button.btn--filled.pri {
     padding: 0 36px 0 36px;
 }
 
-.popup__button button.btn--outlined.pri {
+.sidebar-account__popup .popup__button button.btn--outlined.pri {
     padding: 0 36px 0 36px;
 }
 
@@ -234,6 +212,11 @@ span.image-container img {
 .btn-logout:hover {
     cursor: pointer;
     color: var(--dollar-red);
+}
+
+.btn.btn--outlined.pri.btn-cancel {
+    display: flex;
+    align-items: center;
 }
 
 @media only screen and (max-width: 64rem) {
