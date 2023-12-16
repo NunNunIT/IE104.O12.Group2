@@ -3,9 +3,9 @@ let isPhoneNumberValid
 
 // Kiểm tra định dạng họ và tên
 function validateName(event) {
-    const nameRegex = /^[A-Za-z\s]+$/
+    const vietnameseRegex = /[a-zA-ZđĐáàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ\s]+/g
     const name = event.currentTarget
-    if (nameRegex.test(name.value) == false) {
+    if (vietnameseRegex.test(name.value) == false) {
         name.nextElementSibling.style.display = 'block'
         isNameValid = false
     } else {
@@ -278,7 +278,8 @@ if (cartDataString.length) {
                     totalOrderPay += Number(product.querySelector('.product__quantity').textContent) * Number(product.querySelector('.product__unit-price').textContent.slice(0, -1).replaceAll('.', ''))
                 })
 
-                orderPayDel.innerHTML = toCurrency(totalOrderPayDel)
+                if (totalOrderPayDel != totalOrderPay)
+                    orderPayDel.innerHTML = toCurrency(totalOrderPayDel)
                 orderPay.innerHTML = toCurrency(totalOrderPay)
             })
     })
@@ -326,7 +327,7 @@ const fetchOrderPost = function () {
 }
 
 function getSelectedValue() {
-    var radioButtons = document.getElementsByName('pay-method');
+    var radioButtons = document.getElementsByName('pay-method')
 
     for (var i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {

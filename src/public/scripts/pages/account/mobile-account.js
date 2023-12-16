@@ -2,26 +2,9 @@
 const appbarEle = document.querySelectorAll('.app-bar__element')
 appbarEle[3].classList.add('active')
 
-//sidebar
-const links = document.querySelectorAll('#sidebar a')
-
-links.forEach(function (link) {
-    link.addEventListener('click', function () {
-        links.forEach(function (otherLink) {
-            otherLink.parentNode.classList.remove('active')
-        })
-
-        link.parentNode.classList.add('active')
-    })
-})
-
-function redirectTo(url) {
-    window.location.href = url
-}
-
 //Popup
 const modalBtns = document.querySelectorAll('.btn-warranty')
-const modals = document.querySelectorAll('.popup')
+const modals = document.querySelectorAll('.mobile-account__popup')
 const closeBtns = document.querySelectorAll('.close-btn')
 const cancelBtns = document.querySelectorAll('.btn-cancel')
 
@@ -46,10 +29,18 @@ cancelBtns.forEach((cancelBtn) => {
 })
 
 // Đóng popup khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
+// window.onclick = function (e) {
+//     modals.forEach((modal) => {
+//         if (e.target == modals) {
+//             // modals[0].style.display = 'none'
+//             modal.style.display = 'none'
+//         }
+//     })
+// }
 window.onclick = function (e) {
     modals.forEach((modal) => {
-        if (e.target == modal) {
-            modal.style.display = 'none'
+        if (e.target.closest('.mobile-account__popup') == modal) {
+            modal.style.display = 'none';
         }
-    })
-}
+    });
+};

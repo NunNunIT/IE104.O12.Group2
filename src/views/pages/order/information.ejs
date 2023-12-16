@@ -5,15 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Thông tin khách hàng và đơn hàng luôn được bảo vệ bởi TECHTWO.">
 
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/order/information.css">
 
-	<title>TECHTWO.</title>
+	<title>TECHTWO. Điền thông tin đặt hàng</title>
 </head>
 
 <body>
-
 	<%- include('../../partials/header') %>
 	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng', link : '' }, { text : 'Điền thông tin đặt hàng', link : '' }] }) %>
 
@@ -51,8 +52,8 @@
 					<div class="location__input-group">
 						<input name="province" onchange="changeProvince(event)" class="location__select" type="text" list="province" placeholder="Tỉnh/Thành phố" required>
 						<datalist id="province">
-							<option value="Hồ Chí Minh">
-							<option value="Vũng Tàu">
+							<option value="Hồ Chí Minh"></option>
+							<option value="Vũng Tàu"></option>
 						</datalist>
 
 						<input name="district" onchange="changeDistrict(event)" class="location__select" type="text" list="district" placeholder="Quận/huyện" required>
@@ -100,11 +101,12 @@
 			</div>
 
 			<div class="order-pay__submit">
-				<p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <br><a href="/privacy-policy">Điều khoản đặt hàng của TECHTWO.</a></p>
+				<p>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo
+					<br><a href="/privacy-policy">Điều khoản đặt hàng của TECHTWO.</a>
+				</p>
 				<button id="order-form-submit" type="submit" form="order-form">Đặt hàng</button>
 			</div>
 		</section>
-
 	</main>
 
 	<%- include('../../components/scrollup') %>

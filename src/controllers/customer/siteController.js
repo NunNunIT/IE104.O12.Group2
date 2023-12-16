@@ -52,10 +52,7 @@ siteController.privacyPolicy = async (req, res) => {
 
 // [GET] /error
 siteController.error = async (req, res) => {
-    res.status(200).render('./pages/site/404-error', {
-        header: header,
-        user: header_user,
-    })
+    res.status(200).render('./pages/site/404-error')
 }
 
 // [GET] /category

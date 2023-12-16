@@ -1,3 +1,17 @@
+function enableButton() {
+    const deleteBtn = document.querySelector('.cart__del-btn')
+    const submitBtn = document.querySelector('.cart__order input')
+    deleteBtn.disabled = false
+    submitBtn.disabled = false
+}
+
+function disableButton() {
+    const deleteBtn = document.querySelector('.cart__del-btn')
+    const submitBtn = document.querySelector('.cart__order input')
+    deleteBtn.disabled = true
+    submitBtn.disabled = true
+}
+
 // Sự kiện onclick checkbox chọn tất cả
 function checkAll(event) {
     if (event.currentTarget.checked == false)
@@ -14,20 +28,6 @@ function checkAll(event) {
 
     showSelectedNums()
     changeDel()
-}
-
-function enableButton() {
-    const deleteBtn = document.querySelector('.cart__del-btn')
-    const submitBtn = document.querySelector('.cart__order input')
-    deleteBtn.disabled = false
-    submitBtn.disabled = false
-}
-
-function disableButton() {
-    const deleteBtn = document.querySelector('.cart__del-btn')
-    const submitBtn = document.querySelector('.cart__order input')
-    deleteBtn.disabled = true
-    submitBtn.disabled = true
 }
 
 // Sự kiện onclick nút 'Chọn tất cả'

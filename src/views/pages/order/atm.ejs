@@ -5,15 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="TECHTWO đã có hỗ trợ thanh toán qua Internet Banking cho các khách hàng nhà TECHTWO.">
 
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/order/atm.css">
 
-	<title>TECHTWO.</title>
+	<title>TECHTWO. Thanh toán thẻ ngân hàng</title>
 </head>
 
 <body>
-
 	<%- include('../../partials/header', { header: header }) %>
 	<%- include('../../partials/breadcrumb', { breadcrumbs : [{ text : 'Đặt hàng', link : '' }, { text : 'Thanh toán', link : '' }] }) %>
 
@@ -26,29 +27,22 @@
 				<h3 class="success-text"><strong>ĐẶT HÀNG THÀNH CÔNG</strong></h3>
 			</div>
 			<div class="inner-box">
-
-
 				<div class="thanks">
-					Cảm ơn <strong>
-						<% if (user.user.user_sex === 'Nam') { %>
-						Anh
-						<% } else { %>
-						Chị
-						<!-- <%= user.user_sex %> -->
-						<% } %>
-						<%=purchase.order_name%>
-					</strong> đã cho TECHTWO cơ hội được phục vụ.
+					Cảm ơn
+					<strong> <%= user.user.user_sex === 'Nam' ? 'Anh' + purchase.order_name : 'Chị' + purchase.order_name %> </strong>
+					đã cho TECHTWO cơ hội được phục vụ.
 				</div>
 
 				<div class="info-order">
 					<div class="info-order__header--left">
 						<p><strong>ĐƠN HÀNG:</strong></p>
-						<p id="trans__id">#DH00<%=purchase.order_id%></p>
+						<p id="trans__id">#DH00<%= purchase.order_id %></p>
 					</div>
 					<div class="info-order__bill">
-						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info"><%=purchase.order_name%></span></span>
-						<span>- <strong>Giao đến: </strong><span id="purchase-address"><%=purchase.order_delivery_address%></span></span>
-						<span>- <strong>Tổng tiền: </strong><span id="purchase-amount">
+						<span>- <strong>Người nhận hàng: </strong><span id="purchase-info"><%= purchase.order_name %></span></span>
+						<span>- <strong>Giao đến: </strong><span id="purchase-address"><%= purchase.order_delivery_address %></span></span>
+						<span>- <strong>Tổng tiền: </strong>
+							<span id="purchase-amount">
 								<% if (purchase.order_details.length > 0) { %>
 								<% let totalAmount = 0; %>
 								<% purchase.order_details.forEach(detail => { %>
@@ -56,7 +50,8 @@
 								<% }); %>
 								<%= formatFunction.toCurrency(totalAmount) %>
 								<% } %>
-							</span></span>
+							</span>
+						</span>
 					</div>
 				</div>
 
@@ -76,7 +71,9 @@
 					<div class="pay_info" id="pay_info-vietcombank">
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Ngân hàng:</div>
-							<div class="pay_frame2">Vietcombank - NHTMCP Ngoại thương Việt Nam</div>
+							<div class="pay_frame2">
+								Vietcombank - NHTMCP Ngoại thương Việt Nam
+							</div>
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tài khoản:</div>
@@ -92,11 +89,14 @@
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Nội dung chuyển khoản:</div>
-							<div class="pay_frame2"><strong>DH00<%=purchase.order_id%></strong></div>
+							<div class="pay_frame2">
+								<strong>DH00<%=purchase.order_id%></strong>
+							</div>
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tiền:</div>
-							<div class="pay_frame2"><strong>
+							<div class="pay_frame2">
+								<strong>
 									<% if (purchase.order_details.length > 0) { %>
 									<% let totalAmount = 0; %>
 									<% purchase.order_details.forEach(detail => { %>
@@ -104,9 +104,12 @@
 									<% }); %>
 									<%= formatFunction.toCurrency(totalAmount) %>
 									<% } %>
-								</strong></div>
+								</strong>
+							</div>
 						</div>
-						<div class="pay_qr"><img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR"></div>
+						<div class="pay_qr">
+							<img src="/imgs/transaction/vietcombank-qr.png" alt="Bank_QR">
+						</div>
 						<div class="pay_use">
 							Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
 						</div>
@@ -114,7 +117,9 @@
 					<div class="pay_info" id="pay_info-bidv">
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Ngân hàng:</div>
-							<div class="pay_frame2">BIDV - NHTMCP Đầu tư và Phát triển Việt Nam</div>
+							<div class="pay_frame2">
+								BIDV - NHTMCP Đầu tư và Phát triển Việt Nam
+							</div>
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tài khoản:</div>
@@ -130,27 +135,34 @@
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Nội dung chuyển khoản:</div>
-							<div class="pay_frame2"><strong>DH00<%=purchase.order_id%></strong></div>
+							<div class="pay_frame2">
+								<strong>DH00<%=purchase.order_id%></strong>
+							</div>
 						</div>
 						<div class="pay_info_frame">
 							<div class="pay_frame1">Số tiền:</div>
-							<div class="pay_frame2"><strong>
+							<div class="pay_frame2">
+								<strong>
 									<% if (purchase.order_details.length > 0) { %>
 									<% let totalAmount = 0; %>
-									<% purchase.order_details.forEach(detail => { %>
-									<% totalAmount += detail.order_detail_price_after; %>
+									<% purchase.order_details.forEach(detail => { %> <% totalAmount += detail.order_detail_price_after; %>
 									<% }); %>
 									<%= formatFunction.toCurrency(totalAmount) %>
 									<% } %>
-								</strong></div>
+								</strong>
+							</div>
 						</div>
-						<div class="pay_qr"><img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR"></div>
+						<div class="pay_qr">
+							<img src="/imgs/transaction/bidv-qr.png" alt="Bank_QR">
+						</div>
 						<div class="pay_use">
 							Dùng ứng dụng ngân hàng để quét mã QR chuyển khoản
 						</div>
 					</div>
 				</div>
-				<button type="button" id="btn-home-page" class="btn btn--outlined pri">Thanh toán sau</button>
+				<button type="button" id="btn-home-page" class="btn btn--outlined pri">
+					Thanh toán sau
+				</button>
 			</div>
 		</div>
 	</main>

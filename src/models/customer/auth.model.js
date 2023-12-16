@@ -62,4 +62,34 @@ auth.findNumberPhone = async (req, callback) => {
     })
 }
 
+auth.checkPhone = (phone, callback) => {
+    const sql = `
+        SELECT *
+        FROM USERS
+        WHERE user_phone = ?`
+    db.query(sql, [phone], (err, result) => {
+        callback(err, result)
+    })
+}
+
+auth.checkOldPassword = async ( user_old_password, user_password , callback) => {
+    console.log(user_old_password, user_password)
+    if (!await bcrypt.compare(user_old_password, user_password)){
+        callback(1, 0)
+    } else {
+        callback(0, 1)
+    }
+}
+
+auth.resetPassword = async (phone, password, callback) => {
+    const hashedPass = await bcrypt.hash(password, 8)
+    const sql = `
+        UPDATE USERS
+        SET user_password = '${hashedPass}'
+        WHERE user_phone = '${phone}';`;
+    db.query(sql, (err, result) => {
+        callback(err, result)
+    })
+}
+
 module.exports = auth

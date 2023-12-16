@@ -152,7 +152,7 @@ span.image-container img {
 	padding: 10px;
 }
 
-.popup {
+.mobile-account__popup {
 	display: none;
 	position: fixed;
 	padding-top: 50%;
@@ -165,7 +165,7 @@ span.image-container img {
 	transform: translate(-50%, -50%);
 }
 
-.popup .material-symbols-outlined {
+.mobile-account__popup .material-symbols-outlined {
 	font-variation-settings:
 		'FILL' 1,
 		'wght' 300,
@@ -173,7 +173,7 @@ span.image-container img {
 		'opsz' 24
 }
 
-.popup__main {
+.mobile-account__popup .popup__main {
 	position: relative;
 	background-color: #FAFAFA;
 	border-radius: 8px;
@@ -186,55 +186,49 @@ span.image-container img {
 
 }
 
-.close-btn {
+.mobile-account__popup .close-btn {
 	position: relative;
 	color: var(--primary-color-1);
 	font-size: 25px;
 	font-weight: 700;
 }
 
-.close-btn:hover {
+.mobile-account__popup .close-btn:hover {
 	color: rgba(0, 0, 0, 0.5);
 	cursor: pointer;
 }
 
 
-.popup__content-main {
+.mobile-account__popup .popup__content-main {
 	display: flex;
 	padding: 32px;
 	flex-direction: column;
 	gap: 12px;
 }
 
-.popup--top {
+.mobile-account__popup .popup--top {
 	display: flex;
 	justify-content: space-between;
 }
 
-.popup .popup__title {
+.mobile-account__popup .popup .popup__title {
 	font-size: 16px;
 	font-weight: 600;
 }
 
-.popup .popup__subtitle {
+.mobile-account__popup .popup__subtitle {
 	margin: 4px 0;
 	font-size: 14px;
 }
 
-.popup__content-title {
+.mobile-account__popup .popup__content-title {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-.popup__main--right {
+.mobile-account__popup .popup__main--right {
 	width: 100%;
-}
-
-.warranty__form {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
 }
 
 .logout_img {
@@ -252,18 +246,18 @@ span.image-container img {
 	object-fit: cover;
 }
 
-.popup__button {
+.mobile-account__popup .popup__button {
 	display: flex;
 	justify-content: center;
 	margin-top: 24px;
 	gap: 12px;
 }
 
-.popup__button button.btn--filled.pri {
+.mobile-account__popup .popup__button button.btn--filled.pri {
 	padding: 0 36px 0 36px;
 }
 
-.popup__button button.btn--outlined.pri {
+.mobile-account__popup .popup__button button.btn--outlined.pri {
 	padding: 0 36px 0 36px;
 }
 
@@ -279,16 +273,16 @@ span.image-container img {
 }
 
 
-.popup__button button {
+.mobile-account__popup .popup__button button {
 	height: 42px;
 }
 
-.popup__button button.btn--outlined.pri {
+.mobile-account__popup .popup__button button.btn--outlined.pri {
 	font-size: 0.875rem;
 	padding: 0 18px;
 }
 
-.popup__button button.btn--filled.pri {
+.mobile-account__popup .popup__button button.btn--filled.pri {
 	font-size: 0.875rem;
 	padding: 0 18px;
 }

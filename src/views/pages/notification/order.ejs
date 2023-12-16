@@ -45,11 +45,10 @@
 			<div class="btn-mark-all-read">
 				<span>Đánh dấu tất cả là đã đọc (5)</span>
 			</div>
-			<% user.noti.forEach(noti => { %>
-			<% if (noti.notification_types_id != 6 && noti.notification_types_id != 7) { %>
-			<%- include('../../components/noti-item-account', { noti: noti, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
+			<% for(let i = 0; i < order.length; i++) {%>
+			<%- include('../../components/noti-item-order', { noti: order[i], index: i, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
 			<% } %>
-			<% }) %>
+
 		</section>
 	</main>
 

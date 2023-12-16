@@ -5,18 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Thông tin của bạn trong TECHTWO luôn được đảm bảo an toàn tuyệt đối.">
 
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/account/information.css">
 
-	<title>TECHTWO.</title>
+	<title>TECHTWO. Trang thông tin cá nhân</title>
 </head>
 
 <body>
 
 	<%- include('../../partials/header', { header: header }) %>
-	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân' , link
-			: '/account/information' }, { text : 'Thông tin cá nhân' , link : '/account/information' }] }) %>
+	<%- include('../../partials/breadcrumb', {breadcrumbs : [{ text : 'Trang cá nhân' , link: '/account/information' }, { text : 'Thông tin cá nhân' , link : '/account/information' }] }) %>
 
 	<main class="account-container">
 		<%- include("../../components/sidebar_account") %>
@@ -36,70 +37,49 @@
 							<div class="purchase-item__product-detail">
 
 								<div class="purchase-item__product-name">
-									<label>
-										<h5>Tên người dùng:</h5>
-									</label>
+									<h5>Tên người dùng:</h5>
 									<span>
 										<%= (user.user.user_name) ? user.user.user_name : '' %>
 									</span>
-									<!-- <hr /> -->
 								</div>
 
 								<div class="purchase-item__product-name">
-									<label>
-										<h5>Ngày sinh:</h5>
-									</label>
+									<h5>Ngày sinh:</h5>
 									<span>
-										<%= (user.user.user_birth_format) ? user.user.user_birth_format : '_ _ /_ _ /_ _ _ _'%>
+										<%= (user.user.user_birth) ? user.user.user_birth: '' %>
 									</span>
-									<!-- <hr /> -->
 								</div>
 
 								<div class="purchase-item__product-name">
-									<label>
-										<h5>Giới tính:</h5>
-									</label>
+									<h5>Giới tính:</h5>
 									<span>
 										<%= (user.user.user_sex) ? user.user.user_sex : '' %>
 									</span>
-									<!-- <hr /> -->
 								</div>
 
 								<div class="purchase-item__product-name">
-									<label>
-										<h5>Email:</h5>
-									</label>
+									<h5>Email:</h5>
 									<span>
 										<%= (user.user.user_email) ? user.user.user_email : '' %>
 									</span>
-									<!-- <hr /> -->
 								</div>
 
 								<div class="purchase-item__product-name">
-									<label>
-										<h5>Số điệnt thoại:</h5>
-									</label>
+									<h5>Số điện thoại:</h5>
 									<span>
 										<%= (user.user.user_phone) ? user.user.user_phone : '' %>
 									</span>
-									<!-- <hr /> -->
 								</div>
 
 								<div class="purchase-item__product-name">
-									<label>
-										<h5>Địa chỉ:</h5>
-									</label>
+									<h5>Địa chỉ:</h5>
 									<span>
 										<%= (user.user.user_address) ? user.user.user_address : '' %>
 									</span>
-									<!-- <hr /> -->
 								</div>
-
 							</div>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</section>
@@ -111,8 +91,8 @@
 	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/pages/account/information.js"></script>
-	<script src="/scripts/partials/header.js"></script>
 	<script src="/scripts/components/sidebar_account.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 

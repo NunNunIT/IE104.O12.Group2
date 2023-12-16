@@ -1,14 +1,15 @@
-<div class="noti-item__block">
+<div class="noti-item__block <%= (noti.user_notification_is_read == 1) ? 'read':'' %>">
 	<img src="/imgs/notifications/sale.png" alt="img" class="noti-item__img">
 	<div class="noti-item__main">
+		<input type="hidden" name="noti <%= index %>" value="<%=noti.notification_id%>">
 		<div>
-			<p class="noti-item__title"><%= noti.notifications_title %></p>
-			<p class="noti-item__sub-title"><%= noti.notifications_subtitle %></p>
+			<p class="noti-item__title"><%= noti.notification_title %></p>
+			<p class="noti-item__sub-title"><%= noti.notification_subtitle %></p>
 		</div>
 		<div class="noti-item__info">
 			<div class="noti-item__date-time">
-				<p class="noti-item__time"><%= toHHMM(new Date(noti.notifications_date)) ?? 'NaN' %></p>
-				<p class="noti-item__date"><%= toDDMMYYYY(new Date(noti.notifications_date)) ?? 'NaN' %></p>
+				<p class="noti-item__time"><%= toHHMM(new Date(noti.notification_date)) ?? 'NaN' %></p>
+				<p class="noti-item__date"><%= toDDMMYYYY(new Date(noti.notification_date)) ?? 'NaN' %></p>
 			</div>
 			<div class="noti-item__button">
 				<button class="btn btn--outlined pri popup-btn">Xem chi tiết</button>
@@ -19,14 +20,14 @@
 					<div class="popup__content-main">
 						<div class="popup__content-title">
 							<div class="popup--top">
-								<p class="popup__title"><%= noti.notifications_title %></p>
+								<p class="popup__title"><%= noti.notification_title %></p>
 								<div class="close-btn">
 									<span class="material-symbols-outlined">cancel</span>
 								</div>
 							</div>
 							<div class="noti-item__date-time">
-								<p class="noti-item__time"><%= toHHMM(new Date(noti.notifications_date)) ?? 'NaN' %></p>
-								<p class="noti-item__date"><%= toDDMMYYYY(new Date(noti.notifications_date)) ?? 'NaN' %></p>
+								<p class="noti-item__time"><%= toHHMM(new Date(noti.notification_date)) ?? 'NaN' %></p>
+								<p class="noti-item__date"><%= toDDMMYYYY(new Date(noti.notification_date)) ?? 'NaN' %></p>
 							</div>
 							<p class="popup__sub-title">Khuyến mãi cực hấp dẫn cuối tuần. Deal ngon giá tốt, chốt liền tay cùng TECHTWO thôi bạn ơi!!!!</p>
 						</div>

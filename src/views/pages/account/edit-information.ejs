@@ -5,11 +5,13 @@
 	<meta charset="UTF-8">
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="IE104.O12_Nhom2">
+	<meta name="description" content="Thay đổi thông tin cho tài khoản cá nhân để có những nhận được những thông báo mới nhất và quyền lợi chính đáng của TECHTWO.">
 
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/pages/account/edit-information.css">
 
-	<title>TECHTWO.</title>
+	<title>TECHTWO. Sửa thông tin cá nhân</title>
 </head>
 
 <body>
@@ -36,27 +38,31 @@
 
 									<div class="purchase-item__product-name">
 										<label for="userName">
-											<h5>Tên người dùng:</h5>
+											Tên người dùng:
+											<span style="color:red">*</span>
 										</label>
 										<div class="userName">
-											<input type="text" id="userName" name="userName" autocomplete="off" placeholder="Nhập tên" value="<%= user.user.user_name %>" />
+											<input type="text" id="userName" name="userName" autocomplete="off" placeholder="Nhập tên" value="<%= user.user.user_name %>">
 											<div class="error-message"></div>
 										</div>
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label for="userBirth">
-											<h5>Ngày sinh:</h5>
+											Ngày sinh:
 										</label>
-										<div class="userBirth">
-											<input type="date" id="userBirth" name="userBirth" autocomplete="off" placeholder="Nhập ngày sinh" value="<%= user.user.user_birth %>" />
+										<div class="userBirth" onclick="showDatePicker()">
+											<span id="displayUserBirth">
+												<%= user.user.user_birth %>
+											</span>
+											<input type="date" id="userBirth" name="userBirth" autocomplete="off" style="display:none;">
 											<div class="error-message"></div>
 										</div>
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label for="userSex">
-											<h5>Giới tính:</h5>
+											Giới tính:
 										</label>
 										<div class="userSex">
 											<select id="userSex" name="userSex" title="Chọn giới tính">
@@ -68,36 +74,37 @@
 
 									<div class="purchase-item__product-name">
 										<label for="userEmail">
-											<h5>Email:</h5>
+											Email:
 										</label>
 										<div class="userEmail">
-											<input type="text" id="userEmail" name="userEmail" autocomplete="off" placeholder="Nhập email" value="<%= user.user.user_email %>" />
+											<input type="text" id="userEmail" name="userEmail" autocomplete="off" placeholder="Nhập email" value="<%= user.user.user_email %>">
 											<div class="error-message"></div>
 										</div>
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label for="userPhone">
-											<h5>Số điện thoại:</h5>
+											Số điện thoại:
+											<span style="color:red">*</span>
 										</label>
 										<div class="userPhone">
-											<input type="text" id="userPhone" name="userPhone" autocomplete="off" placeholder="Nhập số điện thoại" value="<%= user.user.user_phone %>" />
+											<input type="text" id="userPhone" name="userPhone" autocomplete="off" placeholder="Nhập số điện thoại" value="<%= user.user.user_phone %>">
 											<div class="error-message"></div>
 										</div>
 									</div>
 
 									<div class="purchase-item__product-name">
 										<label for="userAddress">
-											<h5>Địa chỉ:</h5>
+											Địa chỉ:
 										</label>
 										<div class="userAddress">
-											<input type="text" id="userAddress" name="userAddress" autocomplete="off" placeholder="Nhập địa chỉ" value="<%= user.user.user_address %>" />
+											<input type="text" id="userAddress" name="userAddress" autocomplete="off" placeholder="Nhập địa chỉ" value="<%= user.user.user_address %>">
 											<div class="error-message"></div>
 										</div>
 									</div>
 
 									<div class="popup__button">
-										<a href="/account/information"><button class="btn btn--outlined pri btn-cancel" type="button">Hủy</button></a>
+										<a href="/account/information" class="btn btn--outlined pri btn-cancel-edit">Hủy</a>
 										<button type="submit" id="saveButton" class="btn btn--filled pri">Lưu</button>
 									</div>
 								</div>
@@ -115,6 +122,7 @@
 	<script src="/scripts/pages/account/information.js"></script>
 	<script src="/scripts/pages/account/edit-information.js"></script>
 	<script src="/scripts/components/sidebar_account.js"></script>
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 
