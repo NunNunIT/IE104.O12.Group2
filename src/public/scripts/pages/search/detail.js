@@ -154,8 +154,8 @@ addCartBtn.addEventListener('click', () => {
                                                 </div>
                                             </a>`
 
-                                        let cartDropdownTitle = cartDropdownItem.querySelector('.dropdown-cart__content-title')
-                                        cartDropdownTitle.after(dropdownCartItem)
+                                        let cartDropdownTitle = cartDropdownItem.querySelector('.btn-cart')
+                                        cartDropdownTitle.before(dropdownCartItem)
                                     })
                                 }
                             })
