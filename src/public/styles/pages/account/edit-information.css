@@ -114,6 +114,10 @@
     text-indent: 8px;
 }
 
+span.red-start{
+	color: red; 
+}
+
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
 	.purchase-item__product-name label {
