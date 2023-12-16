@@ -206,14 +206,6 @@ function add(event) {
     triggerChangeEvent(input)
 }
 
-// Chuyển đổi số thành tiền
-function toCurrency(money) {
-    let currency = money.toFixed(0).replace(/./g, function (c, i, a) {
-        return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c
-    })
-    return currency
-}
-
 // Sự kiện onchange tính tiền
 function calcPrice(event) {
     const input = event.currentTarget

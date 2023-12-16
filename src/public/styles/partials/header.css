@@ -753,7 +753,7 @@ img.dropdown-cart__img--empty {
 }
 
 .header__nav--disable {
-    display: flex;
+    display: none;
     justify-content: flex-end;
     gap: 8px;
 }

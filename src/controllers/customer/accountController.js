@@ -33,7 +33,7 @@ accountController.getEditInformation = async (req, res) => {
 //POST /account/edit-information
 accountController.editInformation = async (req, res) => {
     // await account.updateInfo(req)
-  
+
     // res.redirect('./information')
     try {
         await account.updateInfo(req);
@@ -107,12 +107,13 @@ accountController.feedback = async (req, res) => {
 
 // [POST] /account/feedback
 accountController.sendFeedback = async (req, res) => {
+    let customer_id = req.user.customer_id
     let order_id = req.body.order_id
     let feedbacks = req.body.feedbacks
     let error = false
 
     feedbacks.forEach(feedback => {
-        account.insertFeedback(feedback.product_variant_id, feedback.customer_id, feedback.order_id, feedback.feedback_rate, feedback.feedback_content, function (error, success) {
+        account.insertFeedback(feedback.product_variant_id, customer_id, order_id, feedback.feedback_rate, feedback.feedback_content, function (err, success) {
             if (err) {
                 error = true
             }

@@ -84,9 +84,11 @@ LEFT JOIN order_details ON order_details.product_variant_id IN (
     SELECT
         product_variant_id
     FROM
-        view_products_resume
+        view_products_resume, orders
     WHERE
         view_products_resume.category_id = categories.category_id
+    AND orders.order_id = order_details.order_id
+    and orders.order_is_paid = 1 and orders.order_status = 'Hoàn thành'
 )
 GROUP BY
     categories.category_id, categories.category_name;

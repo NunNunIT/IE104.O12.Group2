@@ -1,5 +1,6 @@
 @import url("/styles/general.css");
 @import url("/styles/components/sidebar_account.css");
+@import url("/styles/components/success-modal.css");
 
 body {
     background: var(--white-gray);
@@ -11,12 +12,10 @@ body {
 }
 
 .feedback-wrapper {
-
     display: flex;
     margin: 0 auto;
     flex-direction: column;
     gap: 12px;
-
     margin-top: 24px;
     background: var(--white);
     padding: 1.5rem;
@@ -122,8 +121,8 @@ body {
     transform: scale(1.1);
 }
 
-#ratingText {
-    color: transparent;
+.ratingText {
+    color: var(--primary-color-5);
     transition: color 0.3s;
 }
 
@@ -167,9 +166,20 @@ textarea {
 .popup__button .cancel {
     color: var(--primary-color-1);
 }
+a.btn.btn--outlined.sec.btn-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .popup__button .save {
     color: white;
+}
+
+.popup__button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 48rem) {
@@ -232,7 +242,7 @@ textarea {
         font-size: 14px;
     }
 
-    #ratingText {
+    .ratingText {
         font-size: 14px;
     }
 

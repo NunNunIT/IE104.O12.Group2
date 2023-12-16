@@ -118,6 +118,9 @@ const isValidPhoneNumber = phoneNumber => {
 }
 
 const isValidEmail = email => {
+    if (!email) {
+        return true;
+    }
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return re.test(String(email).toLowerCase())
 }
@@ -140,7 +143,7 @@ const validateInput = () => {
             setSuccess(userName)
         }
 
-        if (userEmailValue != '' & !isValidEmail(userEmailValue)) {
+        if (!isValidEmail(userEmailValue)) {
             setError(userEmail, 'Email không đúng định dạng!')
             isAllValid = false
         } else {

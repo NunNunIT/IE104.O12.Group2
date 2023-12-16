@@ -107,7 +107,7 @@ addCartBtn.addEventListener('click', () => {
                 cartSuccessModal.style.display = 'flex'
                 setTimeout(() => {
                     cartSuccessModal.style.display = 'none'
-                }, 1500)
+                }, 1000)
 
                 fetch('/general/count_cart', {
                     method: 'GET',
@@ -154,8 +154,8 @@ addCartBtn.addEventListener('click', () => {
                                                 </div>
                                             </a>`
 
-                                        let cartDropdownTitle = cartDropdownItem.querySelector('.dropdown-cart__content-title')
-                                        cartDropdownTitle.after(dropdownCartItem)
+                                        let cartDropdownTitle = cartDropdownItem.querySelector('.btn-cart')
+                                        cartDropdownTitle.before(dropdownCartItem)
                                     })
                                 }
                             })
@@ -176,7 +176,7 @@ buyNowBtn.addEventListener('click', () => {
     let formDataArrayString = JSON.stringify(formDataArray)
 
     localStorage.setItem('formDataArray', formDataArrayString)
-    window.location.href = 'order/information'
+    window.location.href = '/order/information'
 })
 
 // Run
