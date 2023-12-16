@@ -305,45 +305,72 @@ otpInputs.forEach((input) => {
 	});
 });
 
-document
-	.getElementById("resendLink")
-	.addEventListener("click", function (event) {
-		event.preventDefault();
+const resendLinkBtn = document.getElementById("resendLink")
+console.log(resendLinkBtn);
 
-		const statusSpan = document.querySelector(".send-again span");
+resendLinkBtn.addEventListener("click", function (event) {
+  event.preventDefault();
 
-		// Sử dụng gsap để tạo hiệu ứng fadeOut cho cả span và nút Gửi lại mã OTP
-		gsap.to([statusSpan, "#resendLink"], {
-			opacity: 0,
-			duration: 0.5,
-			onComplete: function () {
-				// Thay đổi nội dung của span
-				statusSpan.textContent = "Đã gửi lại mã OTP";
-				statusSpan.classList.add("centered-text");
+  const statusSpan = document.querySelector(".send-again span");
 
-				// Sử dụng gsap để tạo hiệu ứng fadeIn cho cả span và nút Gửi lại mã OTP
-				gsap.to([statusSpan], { opacity: 1, duration: 0.5 });
+  clearOTPValues()
+  fadeOut(statusSpan, resendLinkBtn, 500, function () {
+      statusSpan.textContent = "Đã gửi lại mã OTP";
+      statusSpan.classList.add("centered-text");
 
-				// Đặt thời gian để hiển thị lại nút Gửi lại mã OTP sau 5 giây
-				setTimeout(function () {
-					// Sử dụng gsap để tạo hiệu ứng fadeOut cho cả span và nút Gửi lại mã OTP
-					gsap.to([statusSpan], {
-						opacity: 0,
-						duration: 0.5,
-						onComplete: function () {
-							// Cập nhật nội dung của span về trạng thái bình thường
-							statusSpan.textContent = "Bạn không nhận được mã OTP?";
-							statusSpan.classList.remove("centered-text");
-							// Sử dụng gsap để tạo hiệu ứng fadeIn cho cả span và nút Gửi lại mã OTP
-							gsap.to([statusSpan, "#resendLink"], {
-								opacity: 1,
-								duration: 0.5,
-							});
-						},
-					});
-				}, 5000);
-			},
-		});
-	});
+      fadeInOne(statusSpan, 500);
+
+      setTimeout(function () {
+          fadeOut(statusSpan, resendLinkBtn, 500, function () {
+              statusSpan.textContent = "Bạn không nhận được mã OTP?";
+              statusSpan.classList.remove("centered-text");
+              fadeInTwo(statusSpan, resendLinkBtn, 500);
+          });
+      }, 5000);
+  });
+});
+
+function clearOTPValues() {
+  // Lặp qua tất cả các ô OTP và xóa giá trị của chúng
+  for (let i = 1; i <= 6; i++) {
+      const otpInput = document.getElementById(`otp${i}`);
+      if (otpInput) {
+          otpInput.value = "";
+      }
+  }
+}
+
+function fadeInTwo(element, element, duration, callback) {
+  element.style.transition = `opacity ${duration}ms`;
+  element.style.opacity = 1;
+
+  // Set a timeout to clear the transition property after the fade in is complete
+  setTimeout(function () {
+      element.style.transition = "";
+      callback && callback(); // Call the callback function if provided
+  }, duration);
+}
+
+function fadeInOne(element, duration, callback) {
+  element.style.transition = `opacity ${duration}ms`;
+  element.style.opacity = 1;
+
+  // Set a timeout to clear the transition property after the fade in is complete
+  setTimeout(function () {
+      element.style.transition = "";
+      callback && callback(); // Call the callback function if provided
+  }, duration);
+}
+
+function fadeOut(element, element, duration, callback) {
+  element.style.transition = `opacity ${duration}ms`;
+  element.style.opacity = 0;
+
+  // Set a timeout to clear the transition property after the fade out is complete
+  setTimeout(function () {
+      element.style.transition = "";
+      callback && callback(); // Call the callback function if provided
+  }, duration);
+}
 
 step3_valid = function () {};

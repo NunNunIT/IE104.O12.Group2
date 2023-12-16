@@ -6,7 +6,7 @@
 	<meta name="theme-color" content="#2a7ee4">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="IE104.O12_Nhom2">
-
+	<meta name="description" content="Chào mừng bạn đến với TECHTWO - địa chỉ mua sắm trực tuyến hàng đầu về điện máy! Khám phá thế giới công nghệ với sự đa dạng và chất lượng tốt nhất từ máy tính, điện thoại di động đến các sản phẩm gia dụng thông minh. Mua sắm an toàn, thuận tiện và tiết kiệm ngay hôm nay với các ưu đãi độc quyền. TECHTWO - Nơi nâng cao cuộc sống thông qua công nghệ!.">
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
 	<link rel="stylesheet" href="/styles/admin/pages/login_admin.css">
 
@@ -18,7 +18,7 @@
 		<div class="login__box">
 			<div class="login__inner-box">
 				<div class="login__forms-wrap">
-					<form id="form" action="/admin/" method="POST" autocomplete="off" class="login__sign-in-form">
+					<form id="form" autocomplete="off" class="login__sign-in-form">
 						<div class="login__logo">
 							<a href=#><img src="/imgs/admin/logo-admin-blue.png" alt="techtwo"> </a>
 						</div>
@@ -30,14 +30,14 @@
 						<div class="actual-form">
 							<div class="login__input-wrap">
 								<input id="adminLogin" type="text" name="adminLogin" class="login__input-field" autocomplete="off">
-								<label>Tên đăng nhập<span style="color:red">*</span></label>
+								<label>Tên đăng nhập<span class="red-start">*</span></label>
 								<div class="login__error"></div>
 							</div>
 
 							<div class="login__input-wrap">
 								<input id="password" type="password" name="password" class="login__input-field" autocomplete="off">
-								<label>Mật khẩu<span style="color:red">*</span></label>
-								<span id="togglePassword" class="login__toggle-password"><span class="material-symbols-outlined" id="eye-open">
+								<label>Mật khẩu<span class="red-start">*</span></label>
+								<span id="togglePassword" class="login__toggle-password"><span class="material-symbols-outlined eye-open">
 										visibility</span>
 								</span>
 								<div class="login__error"></div>
@@ -46,13 +46,12 @@
 							<input type="submit" value="Đăng nhập" class="login__sign-btn">
 							<!-- <input value="Đăng nhập" class="login__sign-btn" > -->
 							<p class="login__text">
-								<a href="/auth/forgot">Quên mật khẩu?</a>
+								<a href="#">Quên mật khẩu?</a>
 							</p>
 						</div>
 					</form>
 				</div>
 			</div>
-		</div>
 		</div>
 	</main>
 	<script src="/scripts/admin/login_admin.js"></script>
