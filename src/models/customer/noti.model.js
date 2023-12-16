@@ -8,8 +8,8 @@ const query = util.promisify(db.query).bind(db)
 
 const notifications = function () { }
 
-// [GET] /notification/account-update
-notifications.getAccountUpdate = async (user_id, callback) => {
+// [GET] /notification/order
+notifications.getOrder = async (user_id, callback) => {
     const getAccountUpdate = `
         SELECT * FROM view_notifications 
         WHERE user_id = ${user_id}
@@ -49,7 +49,7 @@ notifications.getPromotion = async (user_id, callback) => {
 }
 
 
-// [POST] /notification/account-update
+// [POST] /notification/order
 // [POST] /notification/promotion
 notifications.readNotification = ({ id, noti_id }, callback) => {
     const readNotification = `

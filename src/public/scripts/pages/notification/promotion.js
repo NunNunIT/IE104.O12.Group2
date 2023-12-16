@@ -7,6 +7,16 @@ const notiItems = document.querySelectorAll(".noti-item__block");
 const markAllReadButton = document.querySelector(".btn-mark-all-read");
 const popupVisible = new Array(modals.length).fill(false);
 
+// Kiểm tra nếu tất cả thông báo đã được đọc
+if (popupVisible.every((visible) => !visible)) {
+    // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
+    markAllReadButton.disabled = true;
+    markAllReadButton.style.color = "gray";
+    markAllReadButton.style.borderColor = "gray";
+    markAllReadButton.style.cursor = "auto";
+    markAllReadButton.style.boxShadow = "none";
+}
+
 modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
         modals[index].style.display = "block";

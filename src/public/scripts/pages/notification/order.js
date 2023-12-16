@@ -5,6 +5,8 @@ const notiItems = document.querySelectorAll(".noti-item__block");
 const markAllReadButton = document.querySelector(".btn-mark-all-read");
 const popupVisible = new Array(modals.length).fill(false);
 
+
+
 // Lặp qua từng nút và gán sự kiện hiển thị pop-up
 modalBtns.forEach((btn, index) => {
     btn.onclick = function () {
@@ -22,8 +24,8 @@ modalBtns.forEach((btn, index) => {
             headers: {
                 "Content-Type": "application/json",
             },
-        }) 
-    }
+        })
+    };
 });
 
 // Lặp qua từng nút đóng và gán sự kiện đóng pop-up tương ứng
@@ -31,8 +33,13 @@ closeBtns.forEach((closeBtn, index) => {
     closeBtn.onclick = function () {
         modals[index].style.display = "none";
         popupVisible[index] = false;
+        if (popupVisible.some((visible) => visible)) {
+        } else {
+            notiItems[index].style.backgroundColor = "white"; //Đọc xong đổi màu nền
+        }
     }
 });
+
 
 // Gán sự kiện đóng khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
 window.onclick = function (e) {
@@ -40,11 +47,26 @@ window.onclick = function (e) {
         if (e.target == modal) {
             modal.style.display = "none";
             popupVisible[index] = false;
+            if (popupVisible.some((visible) => visible)) {
+            } else {
+                notiItems[index].style.backgroundColor = "white";
+            }
         }
     });
 }
 
-markAllReadButton.addEventListener("click", async () => {
+// Kiểm tra nếu tất cả thông báo đã được đọc
+if (popupVisible.every((visible) => !visible)) {
+    // Vô hiệu hóa nút "Đánh dấu tất cả là đã đọc"
+    markAllReadButton.disabled = true;
+    markAllReadButton.style.color = "gray";
+    markAllReadButton.style.borderColor = "gray";
+    markAllReadButton.style.cursor = "auto";
+    markAllReadButton.style.boxShadow = "none";
+}
+
+// Đánh dấu đã đọc tất cả
+markAllReadButton.addEventListener("click", () => {
     fetch("/notification/read-all", {
         method: "POST",
         body: JSON.stringify({

@@ -80,6 +80,14 @@ h2 {
     margin-top: 24px;
 }
 
+.privacy__content-detail {
+    list-style-type: none;
+}
+
+.privacy__content-detail li {
+    font-size: 1rem;
+}
+
 
 /*Responsive-tablet*/
 @media only screen and (max-width: 48rem) {

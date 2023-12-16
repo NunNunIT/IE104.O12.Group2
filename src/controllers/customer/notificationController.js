@@ -5,20 +5,20 @@ const notifications = require('../../models/customer/noti.model')
 const notificationsController = () => { }
 
 // [GET] /notification/account-update
-notificationsController.accountUpdate = async (req, res) => {
+notificationsController.order = async (req, res) => {
     let user_id = req.user.user_id
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
 
-    let accountUpdates = await notifications.getAccountUpdate(user_id)
+    let orders = await notifications.getOrder(user_id)
 
-    res.render('./pages/notification/account-update', {
+    res.render('./pages/notification/order', {
         header: header,
         user: header_user,
         formatFunction: formatFunction,
-        accountUpdates: accountUpdates,
+        order: orders,
     })
 }
 
@@ -40,7 +40,7 @@ notificationsController.promotion = async (req, res) => {
     })
 }
 
-// [POST] /notifications/account-update
+// [POST] /notifications/order
 // [POST] /notifications/promotion
 notificationsController.readNotification = async (req, res) => {
     const { noti_id } = req.body;
