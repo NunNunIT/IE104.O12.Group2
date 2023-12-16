@@ -1,14 +1,18 @@
 function enableButton() {
     const deleteBtn = document.querySelector('.cart__del-btn')
+    const deleteBtnMb = document.querySelector('#del-mb-btn')
     const submitBtn = document.querySelector('.cart__order input')
     deleteBtn.disabled = false
+    deleteBtnMb.disabled = false
     submitBtn.disabled = false
 }
 
 function disableButton() {
     const deleteBtn = document.querySelector('.cart__del-btn')
+    const deleteBtnMb = document.querySelector('#del-mb-btn')
     const submitBtn = document.querySelector('.cart__order input')
     deleteBtn.disabled = true
+    deleteBtnMb.disabled = true
     submitBtn.disabled = true
 }
 
@@ -135,13 +139,27 @@ function deleteItems(event) {
 
 // Sự kiện onclick nút 'Xóa' responsive điện thoại
 function deleteMbItem(event) {
-    const checkboxes = Array.from(document.querySelectorAll('.checkbox')).slice(1)
-    checkboxes.forEach((checkbox, index) => {
-        if (index % 2 == 1 && checkbox.checked == true) {
-            checkbox.parentNode.previousElementSibling.remove()
-            checkbox.parentNode.remove()
-        }
+    let cartItems = Array.from(document.querySelectorAll('.cart-item.mobile-display'))
+
+    const checkedItem = cartItems.filter(item => item.querySelector('.checkbox').checked == true)
+
+    if (!JSON.parse(localStorage.getItem('productsCartDelete')))
+        localStorage.setItem('productsCartDelete', JSON.stringify([]))
+    const productsCartDelete = JSON.parse(localStorage.getItem('productsCartDelete'))
+
+    checkedItem.forEach(item => {
+        let productVariantId = item.querySelector('input[name="product_variant_id"]')
+        productsCartDelete.push({
+            product_variant_id: Number(productVariantId.value),
+        })
+        item.remove()
     })
+
+    localStorage.removeItem('productsCartDelete')
+    localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
+
+    const countCartEle = document.querySelector('.header__cart__number-badge')
+    countCartEle.innerHTML = Number(countCartEle.innerHTML) - checkedItem.length
 
     showEmptyNoti()
     modifyLastItem()

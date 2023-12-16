@@ -28,7 +28,7 @@
 		<% if (detailCart.length) { %>
 		<section class="cart__title">
 			<div>
-				<input onclick="checkAll(event); calcTotalPrice(event)" type="checkbox" class="checkbox" id="check-all" placeholder="">
+				<input onclick="checkAll(event); calcTotalPrice(event)" type="checkbox" class="checkbox" id="check-all">
 				<p class="mobile-display">Tất cả (<span class="selected-nums">0</span>)</p>
 			</div>
 			<h4 class="lg-col mobile-hidden">Sản phẩm</h4>
@@ -37,7 +37,7 @@
 			<h4 class="sm-col mobile-hidden">Số lượng</h4>
 			<h4 class="sm-col mobile-hidden">Số tiền</h4>
 			<h4 class="sm-col mobile-hidden">Thao tác</h4>
-			<button onclick="deleteMbItem(event)" type="button" class="mobile-display" id="del-mb-btn">Xóa</button>
+			<button onclick="deleteMbItem(event)" type="button" class="mobile-display" id="del-mb-btn" disabled>Xóa</button>
 		</section>
 
 		<section class="cart__content">
