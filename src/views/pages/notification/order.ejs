@@ -2,16 +2,14 @@
 <html lang="vi">
 
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<meta name="theme-color" content="#2a7ee4">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="IE104.O12_Nhom2">
-	<meta name="description" content="TECHTWO thông báo về việc cập nhật thông tin tài khoản của bạn ở đây, hãy kiểm tra thường xuyên nhé.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="/imgs/ico-logo-blue.png">
-	<link rel="stylesheet" href="/styles/pages/notification/account-update.css">
+	<link rel="stylesheet" href="/styles/pages/notification/order.css" />
 
-	<title>TECHTWO. Thông báo cập nhật tài khoản</title>
+	<title>TECHTWO.</title>
 </head>
 
 <body>
@@ -21,14 +19,14 @@
 	<main class="nofi-container">
 		<aside class="aside-wrapper">
 			<div class="aside-wrapper__aside-info">
-				<img class="aside-wrapper__aside-avatar" src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar">
+				<img class="aside-wrapper__aside-avatar" src="/imgs/user_avt_img/<%= (user.user.user_avt_img) ? user.user.user_avt_img : 'default.png' %>" alt="avatar" />
 				<div class="aside-wrapper__aside-title">
 					<p>Thông báo</p>
 				</div>
 			</div>
-			<hr>
+			<hr />
 			<div class="aside-wrapper__aside-section">
-				<a href="/notification/account-update" class="btn-update">Cập nhật đơn hàng</a>
+				<a href="/notification/order" class="btn-update">Cập nhật đơn hàng</a>
 				<a href="/notification/promotion" class="btn-promo">Thông tin khuyến mãi</a>
 			</div>
 		</aside>
@@ -36,20 +34,21 @@
 		<section class="nofi__main">
 			<div class="nofi--disable">
 				<div class="noti__button-update--disable">
-					<a href="/notification/account-update" class="btn-update--disable">Cập nhật đơn hàng</a>
-					<hr>
+					<a href="/notification/order" class="btn-update--disable">Cập nhật đơn hàng</a>
+					<hr />
 				</div>
 				<div class="noti__button-promo--disable">
 					<a href="/notification/promotion" class="btn-promo--disable">Thông tin khuyến mãi</a>
-					<hr>
+					<hr />
 				</div>
 			</div>
 			<div class="btn-mark-all-read">
-				<span>Đánh dấu tất cả là đã đọc (<%= accountUpdates.length %>)</span>
+				<span>Đánh dấu tất cả là đã đọc (5)</span>
 			</div>
-			<% for(let i=0; i< accountUpdates.length; i++) {%>
-			<%- include('../../components/noti-item-account', { noti: accountUpdates[i], index: i, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
+			<% for(let i = 0; i < order.length; i++) {%>
+			<%- include('../../components/noti-item-order', { noti: order[i], index: i, toDDMMYYYY: formatFunction.toDDMMYYYY, toHHMM: formatFunction.toHHMM }) %>
 			<% } %>
+
 		</section>
 	</main>
 
@@ -58,8 +57,7 @@
 	<%- include('../../partials/app-bar') %>
 
 	<script src="/scripts/components/scrollup.js"></script>
-	<script src="/scripts/pages/notification/accountUpdate.js"></script>
-	<script src="/scripts/partials/header.js"></script>
+	<script src="/scripts/pages/notification/order.js"></script>
 
 </body>
 

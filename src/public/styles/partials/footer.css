@@ -25,6 +25,17 @@
     font-weight: 700;
 }
 
+.footer__listtext.phone {
+    text-decoration: none;
+    color: white;
+    font-size: 0.875rem;
+}
+
+.footer__listtext.phone:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .footer h3 {
     font-size: 1.25rem;
 }
