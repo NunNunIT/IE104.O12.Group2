@@ -38,11 +38,11 @@
 					<div>
 						<div class="order-detail__input">
 							<input name="buyerName" value="<%= user.user.user_name ?? '' %>" onchange="validateName(event)" type="text" placeholder="Họ và tên" required>
-							<p class="error">Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!</p>
+							<p class="error"></p>
 						</div>
 						<div class="order-detail__input">
 							<input name="buyerPhone" value="<%= user.user.user_phone ?? '' %>" onchange="validatePhoneNumber(event)" type="text" placeholder="Số điện thoại" required>
-							<p class="error">Số điện thoại không hợp lệ!</p>
+							<p class="error"></p>
 						</div>
 					</div>
 				</div>
