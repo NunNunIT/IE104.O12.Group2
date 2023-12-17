@@ -142,7 +142,7 @@
 				</a>
 				<% } else if (purchaseHistory.order_status === 'Hoàn thành') { %>
 				<a href="/account/feedback?order_id=<%= purchaseHistory.order_id %>">
-					<div class="btn btn--filled pri">Đánh giá</div>
+					<div class="btn btn--filled pri"><%= (purchaseHistory.order_details[0].feedback != 0) ? 'Xem đánh giá của tôi':'Đánh giá'%></div>
 				</a>
 				<% } else if (purchaseHistory.order_status === 'Đang giao hàng') { %>
 				<div class="btn btn--filled pri disable">Đánh giá</div>

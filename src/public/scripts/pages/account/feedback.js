@@ -91,6 +91,6 @@ function submitRating(event) {
                 successModal.style.display = 'none'
             }, 1000)
 
-            window.location.href = '/account/purchase'
+            window.location.href = '/account/purchase?order_status=Hoàn%20thành'
         })
 }
