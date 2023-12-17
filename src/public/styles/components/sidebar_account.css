@@ -214,7 +214,7 @@ span.image-container img {
     color: var(--dollar-red);
 }
 
-.btn.btn--outlined.pri.btn-cancel {
+.sidebar-account__popup .btn.btn--outlined.pri.btn-cancel {
     display: flex;
     align-items: center;
 }
