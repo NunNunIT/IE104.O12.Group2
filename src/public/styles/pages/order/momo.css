@@ -1,4 +1,5 @@
-@import url("/styles/general.css");
+@import url('/styles/general.css');
+@import url('/styles/components/success-modal.css');
 
 .momo-logo .material-symbols-outlined {
     font-variation-settings:
@@ -21,7 +22,7 @@
 
 body,
 input {
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -216,13 +217,13 @@ a {
     width: 30px;
 }
 
-.payment-frame input[type="radio"] {
+.payment-frame input[type='radio'] {
     width: 18px;
     height: 18px;
     color: var(--gray)
 }
 
-.payment-frame input[type="radio"]:checked {
+.payment-frame input[type='radio']:checked {
     color: red;
 }
 

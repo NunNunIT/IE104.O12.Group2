@@ -167,8 +167,13 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .pay-method__choose div {
+    cursor: pointer;
     display: inherit;
     gap: 12px;
+}
+
+.pay-method__choose div label {
+    cursor: pointer;
 }
 
 .pay-method__choose div input {

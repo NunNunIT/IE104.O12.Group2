@@ -8,8 +8,10 @@ function checkOne(event) {
     else
         checkboxes = Array.from(document.querySelectorAll('.checkbox.mobile-hidden'))
 
-    if (checkboxes.filter(checkbox => checkbox.checked == false).length == 0)
+    if (checkboxes.every(checkbox => checkbox.checked == true))
         checkAll.checked = true
+    else
+        checkAll.checked = false
 
     if (checkboxes.some(checkbox => checkbox.checked == true))
         enableButton()
@@ -17,7 +19,6 @@ function checkOne(event) {
         disableButton()
 
     showSelectedNums()
-    changeDel()
 
     const cartItem = event.currentTarget.parentElement
     const input = cartItem.querySelector('input')

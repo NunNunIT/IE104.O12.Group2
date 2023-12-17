@@ -31,7 +31,6 @@ function checkAll(event) {
     checkboxes.forEach(checkbox => checkbox.checked = event.currentTarget.checked)
 
     showSelectedNums()
-    changeDel()
 }
 
 // Sự kiện onclick nút 'Chọn tất cả'
@@ -52,7 +51,6 @@ function checkAllBtn(event) {
     checkboxes.forEach(checkbox => checkbox.checked = checkAll.checked)
 
     showSelectedNums()
-    changeDel()
 }
 
 // Sự kiện onclick nút 'Xóa' tất cả
@@ -223,19 +221,6 @@ function updateCart(event) {
             localStorage.removeItem('productsCartUpdate')
             localStorage.removeItem('productsCartUpdateOld')
         }
-    }
-}
-
-// Hàm thay đổi màu nút 'Xóa' tất cả
-function changeDel() {
-    const delBtn = document.querySelector('#del-btn')
-    if (Array.from(document.querySelectorAll('.checkbox')).some(checkbox => checkbox.checked == true)) {
-        delBtn.style.background = 'var(--dollar-red)'
-        delBtn.style.color = 'var(--white)'
-    }
-    else {
-        delBtn.style.removeProperty('background')
-        delBtn.style.removeProperty('color')
     }
 }
 
