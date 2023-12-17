@@ -1,3 +1,6 @@
+const appbarEle = document.querySelectorAll('.app-bar__element')
+appbarEle[3].classList.add('active')
+
 const allForm = document.querySelectorAll('.feedback-form-item');
 allForm.forEach((form) => {
     const allStar = form.querySelectorAll('.rating .star')

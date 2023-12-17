@@ -42,12 +42,15 @@
 											<p class="product_variant-name">Phân loại: <%=orderDetails[i].product_variant_name ?? 'null' %>
 											</p>
 											<div class="price_quantity">
-												<p class="price"><del>
-														<%= formatFunction.toCurrency(orderDetails[i].order_detail_price_before)%>
-													</del> <strong>
-														<%= formatFunction.toCurrency(orderDetails[i].order_detail_price_after)%>
-													</strong></p>
-												<p class="quantity">x<%= orderDetails[i].order_detail_quantity %>
+												<p class="price">
+													<% if (orderDetails[i].order_detail_price_before > orderDetails[i].order_detail_price_after) { %>
+														<del><%= formatFunction.toCurrency(orderDetails[i].order_detail_price_before)%></del>
+														<% } %>
+														<strong><%= formatFunction.toCurrency(orderDetails[i].order_detail_price_after)%></strong>
+												</p>
+												
+												<p class="quantity">
+													x<%= orderDetails[i].order_detail_quantity %>
 												</p>
 											</div>
 										</div>

@@ -21,8 +21,7 @@ body {
 #sidebar {
 	display: flex;
 	flex-direction: column;
-	width: 100% !important;
-	z-index: 0 !important;
+	width: 100%;
 	transition: .3s ease;
 	scrollbar-width: none;
 	border-radius: 8px;
@@ -89,40 +88,19 @@ span.image-container img {
 	margin-bottom: 8px;
 }
 
-.side-menu li .arrow-icon {
+.side-menu.top li .arrow-icon {
 	margin-left: auto;
 	margin-right: 10px;
 	font-size: 16px;
 }
 
-#sidebar .side-menu li.active {
-	background: white;
-	position: relative;
+#sidebar .side-menu.top li a:focus {
+	background: var(--primary-color-1);
+	color: var(--white);
+	border-radius: 12px;
 }
 
-#sidebar .side-menu li.active::before {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	top: -40px;
-	right: 0;
-	box-shadow: 20px 20px 0 white;
-	z-index: -1;
-}
-
-#sidebar .side-menu li.active::after {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	bottom: -40px;
-	right: 0;
-	box-shadow: 20px -20px 0 white;
-	z-index: -1;
-}
-
-#sidebar .side-menu li a {
+#sidebar .side-menu.top li a {
 	width: 100%;
 	height: 100%;
 	background: white;
@@ -137,21 +115,22 @@ span.image-container img {
 	padding: 4px;
 }
 
-#sidebar .side-menu li p {
-	color: var(--white);
-	font-weight: bold;
-}
-
-#sidebar .side-menu li a .bx {
-	min-width: calc(60px - ((4px + 6px) * 2));
+#mobile-account__logout a {
 	display: flex;
+	align-items: center;
+	text-align: center;
 	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: var(--white);
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .side-menu li {
 	padding: 10px;
 }
-
+/* Popup logout */
 .mobile-account__popup {
 	display: none;
 	position: fixed;
@@ -163,6 +142,7 @@ span.image-container img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	z-index: 9999;
 }
 
 .mobile-account__popup .material-symbols-outlined {
@@ -192,12 +172,6 @@ span.image-container img {
 	font-size: 25px;
 	font-weight: 700;
 }
-
-.mobile-account__popup .close-btn:hover {
-	color: rgba(0, 0, 0, 0.5);
-	cursor: pointer;
-}
-
 
 .mobile-account__popup .popup__content-main {
 	display: flex;
@@ -231,21 +205,6 @@ span.image-container img {
 	width: 100%;
 }
 
-.logout_img {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: inherit;
-	height: 140px;
-}
-
-
-.logout_img img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
 .mobile-account__popup .popup__button {
 	display: flex;
 	justify-content: center;
@@ -265,18 +224,6 @@ a.btn.btn--filled.pri.btn-logout {
 .mobile-account__popup .popup__button button.btn--outlined.pri {
 	padding: 0 36px 0 36px;
 }
-
-.btn-warranty {
-	display: flex;
-	align-items: center;
-	font-size: 18px;
-	color: red;
-}
-
-.btn-warranty span:first-child {
-	font-size: 20px;
-}
-
 
 .mobile-account__popup .popup__button button {
 	height: 42px;

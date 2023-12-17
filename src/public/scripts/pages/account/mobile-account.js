@@ -2,6 +2,21 @@
 const appbarEle = document.querySelectorAll('.app-bar__element')
 appbarEle[3].classList.add('active')
 
+document.addEventListener('DOMContentLoaded', function() {
+    var topMenuItems = document.querySelectorAll('.side-menu.top li');
+
+    topMenuItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            topMenuItems.forEach(function(otherItem) {
+                otherItem.classList.remove('focus');
+            });
+
+            item.classList.add('focus');
+        });
+    });
+});
+
+
 //Popup
 const modalBtns = document.querySelectorAll('.btn-warranty')
 const modals = document.querySelectorAll('.mobile-account__popup')
@@ -29,14 +44,6 @@ cancelBtns.forEach((cancelBtn) => {
 })
 
 // Đóng popup khi nhấp chuột vào bất kỳ khu vực nào trên màn hình
-// window.onclick = function (e) {
-//     modals.forEach((modal) => {
-//         if (e.target == modals) {
-//             // modals[0].style.display = 'none'
-//             modal.style.display = 'none'
-//         }
-//     })
-// }
 window.onclick = function (e) {
     modals.forEach((modal) => {
         if (e.target.closest('.mobile-account__popup') == modal) {

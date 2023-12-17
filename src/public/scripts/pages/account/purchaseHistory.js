@@ -2,6 +2,9 @@
 const appbar__element = document.querySelectorAll('.side-menu__ele')
 appbar__element[1].classList.add('active')
 
+const appbarEle = document.querySelectorAll('.app-bar__element')
+appbarEle[3].classList.add('active')
+
 // Định nghĩa hàm để thêm class cho các phần tử purchase-item__status và purchase-item__status-container
 function addStatusClasses() {
     // Lấy tất cả các phần tử có class "purchase-item__status-container"
