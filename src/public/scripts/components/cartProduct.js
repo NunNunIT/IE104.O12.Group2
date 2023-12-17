@@ -238,9 +238,22 @@ function add(event) {
 function calcPrice(event) {
     const input = event.currentTarget
     const cartItem = event.currentTarget.parentElement.parentElement
-    const unitPrice = cartItem.querySelector('.cart-item__unit-price p')
+    const unitPriceEle = cartItem.querySelector('.cart-item__unit-price p')
+    const unitPrice = unitPriceEle.textContent.slice(0, -1).replaceAll('.', '')
     const priceEle = cartItem.querySelector('.cart-item__price')
+    const priceDelEle = cartItem.querySelector('.cart-item__unit-price del')
+    const quantity = Number(input.value)
 
-    const price = Number(input.value) * Number(unitPrice.textContent.slice(0, -1).replaceAll('.', ''))
-    priceEle.innerHTML = toCurrency(price)
+    if (priceDelEle) {
+        const priceDel = Number(priceDelEle.textContent.slice(0, -1).replaceAll('.', ''))
+        priceEle.innerHTML =
+            `<del>${toCurrency(quantity * priceDel)}</del>
+            <input type="hidden" name="product_price" value="${quantity * unitPrice}">
+            <p>${toCurrency(quantity * unitPrice)}</p>`
+    }
+    else {
+        priceEle.innerHTML =
+            `<input type="hidden" name="product_price" value="${quantity * unitPrice}">
+            <p>${toCurrency(quantity * unitPrice)}</p>`
+    }
 }

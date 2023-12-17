@@ -182,6 +182,7 @@ button {
 }
 
 .cart__total-price del {
+    color: var(--del-gray);
     display: none;
 }
 

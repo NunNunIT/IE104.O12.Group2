@@ -49,7 +49,6 @@
 }
 
 .cart-dropdown__block small {
-    font-size: 80%;
     font-weight: 400;
     text-decoration: line-through;
     display: inline-block;
@@ -69,6 +68,7 @@
 .cart-dropdown__price {
     display: flex;
     flex-direction: row-reverse;
+    align-items: baseline;
 }
 
 .cart-dropdown__product-name {

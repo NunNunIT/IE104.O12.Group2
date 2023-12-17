@@ -36,13 +36,14 @@
 		<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 	</div>
 
-	<div class="sm-col">
+	<div class="cart-item__price sm-col">
 		<% if (cart.discount_amount) { %>
+		<del><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %></del>
 		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100) %>">
-		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %></p>
+		<p><%= toCurrency(cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %></p>
 		<% } else { %>
 		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * cart.product_variant_price %>">
-		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %></p>
+		<p><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %></p>
 		<% } %>
 	</div>
 
