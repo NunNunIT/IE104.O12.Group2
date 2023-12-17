@@ -83,6 +83,9 @@ function deleteAllItem(event) {
     const countCartEle = document.querySelector('.header__cart__number-badge')
     countCartEle.innerHTML = Number(countCartEle.innerHTML) - checkedItem.length
 
+    const selectedNumsSpan = document.querySelectorAll('.selected-nums')
+    selectedNumsSpan.forEach(span => span.innerHTML = 0)
+
     showEmptyNoti()
     modifyLastItem()
     calcTotalPrice()

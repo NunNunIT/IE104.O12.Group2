@@ -177,10 +177,13 @@ function removeItem(event) {
     localStorage.removeItem('productsCartDelete')
     localStorage.setItem('productsCartDelete', JSON.stringify(productsCartDelete))
 
+    const countCartEle = document.querySelector('.header__cart__number-badge')
+    countCartEle.innerHTML = Number(countCartEle.innerHTML) - 1
+
     showEmptyNoti()
     modifyLastItem()
-    calcTotalPrice()
     showSelectedNums()
+    calcTotalPrice()
 }
 
 // Tạo sự kiện change cho phần tử

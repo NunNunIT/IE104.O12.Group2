@@ -3,9 +3,10 @@ let isPhoneNumberValid
 
 // Kiểm tra định dạng họ và tên
 function validateName(event) {
-    const vietnameseRegex = /[a-zA-ZđĐáàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ\s]+/g
+    const vietnameseRegex = /^[a-zA-ZđĐáàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ\s]*$/g
     const name = event.currentTarget
     if (vietnameseRegex.test(name.value) == false) {
+        name.nextElementSibling.textContent = 'Họ và tên chỉ bao gồm chữ hoa, chữ thường và dấu cách!'
         name.nextElementSibling.style.display = 'block'
         isNameValid = false
     } else {
@@ -14,8 +15,8 @@ function validateName(event) {
     }
 
     if (name.value == '') {
-        name.nextElementSibling.style.display = 'block'
         name.nextElementSibling.textContent = 'Vui lòng điền họ và tên người nhận hàng!'
+        name.nextElementSibling.style.display = 'block'
     }
 }
 
@@ -24,6 +25,7 @@ function validatePhoneNumber(event) {
     const vnPhoneNumberRegex = /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/
     const phoneNumber = event.currentTarget
     if (vnPhoneNumberRegex.test(phoneNumber.value) == false) {
+        phoneNumber.nextElementSibling.textContent = 'Số điện thoại không hợp lệ!'
         phoneNumber.nextElementSibling.style.display = 'block'
         isPhoneNumberValid = false
     } else {
