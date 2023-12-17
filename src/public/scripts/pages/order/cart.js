@@ -100,7 +100,7 @@ function deleteDropdown(event) {
     dropdownItems.forEach(item => {
         deleteEle.forEach(ele => {
             let dropdownItemLink = item.querySelector('.cart-dropdown__main')
-            let productVariantId = Number(dropdownItemLink.getAttribute("href").split('?')[0].split('/')[2])
+            let productVariantId = Number(dropdownItemLink.getAttribute('href').split('?')[0].split('/')[2])
             if (ele.product_variant_id == productVariantId) {
                 item.remove()
                 countDeleted++
@@ -350,16 +350,18 @@ function calcTotalPrice(event) {
 
     const totalPriceDelEle = document.querySelector('.cart__total-price del')
 
-    if (isNaN(totalPriceDel)) {
-        totalPriceDel = 0
-        totalPriceDelEle.style.display = 'none'
-    }
-    else if (total == totalPriceDel) {
-        totalPriceDel = 0
-        totalPriceDelEle.style.display = 'none'
-    } else {
-        totalPriceDelEle.innerHTML = toCurrency(totalPriceDel)
-        totalPriceDelEle.style.display = 'flex'
+    if (totalPriceDelEle) {
+        if (isNaN(totalPriceDel)) {
+            totalPriceDel = 0
+            totalPriceDelEle.style.display = 'none'
+        }
+        else if (total == totalPriceDel) {
+            totalPriceDel = 0
+            totalPriceDelEle.style.display = 'none'
+        } else {
+            totalPriceDelEle.innerHTML = toCurrency(totalPriceDel)
+            totalPriceDelEle.style.display = 'flex'
+        }
     }
 }
 

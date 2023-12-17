@@ -11,7 +11,7 @@
 		<input type="hidden" name="product_variant_id_old" value="<%= cart.product_variant_id %>">
 		<select onchange="changeVariant(event)" name="variant" class="cart-item__variants">
 			<% cart.cart_product_variant.forEach(variant => { %>
-			<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id ?? 'null' %>" <%= (variant.product_variant_id == cart.product_variant_id) ? 'selected':'' %>><%= variant.product_variant_name ?? 'null' %> </option>
+			<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id + ',' + variant.product_variant_name ?? 'null' %>" <%= (variant.product_variant_id == cart.product_variant_id) ? 'selected':'' %>><%= variant.product_variant_name ?? 'null' %> </option>
 			<% }) %>
 		</select>
 		<% } %>
@@ -62,7 +62,7 @@
 			<input type="hidden" name="product_variant_id_old" value="<%= cart.product_variant_id %>">
 			<select onchange="changeVariant(event)" class="cart-item__variants">
 				<% cart.cart_product_variant.forEach(variant => { %>
-				<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
+				<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id + ',' + variant.product_variant_name ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
 				<% }) %>
 			</select>
 			<% } %>

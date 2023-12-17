@@ -158,9 +158,10 @@ addCartBtn.addEventListener('click', () => {
                                             `<a href="/search/${cartItem.product_variant_id}?category_id=${cartItem.category_id}" class="cart-dropdown__main">
                                                 <img class="cart-dropdown__img" src="/imgs/product_image/P${cartItem.product_id}/${cartItem.product_avt_img}" alt="${cartItem.product_name}">
                                                 <div class="cart-dropdown__content">
-                                                    <span>${cartItem.product_name}</span>
-                                                    <div class="cart-dropdown__price">
-                                                        ${cartDropdownPrice}<small>${cartDropdownPriceDel}</small>
+                                                    <span class="cart-dropdown__product-name">${cartItem.product_name}</span>
+                                                    <div class="cart-dropdown__div">
+                                                        <span class="cart-dropdown__variant">Loại: ${cartItem.product_variant_name} </span>
+                                                        <span class="cart-dropdown__price">${cartDropdownPrice}<small>${cartDropdownPriceDel}</small></span>
                                                     </div>
                                                 </div>
                                             </a>`
