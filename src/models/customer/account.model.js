@@ -66,7 +66,7 @@ account.getPurchaseHistory = async (customer_id, order_status, order_id) => {
         getPurchaseHistorys += ` AND order_status = '${order_status}'`
     }
 
-    getPurchaseHistorys += ` ORDER BY order_date DESC`
+    getPurchaseHistorys += ` ORDER BY order_date DESC, order_id DESC`
 
     let purchaseHistorys = await query(getPurchaseHistorys)
 
