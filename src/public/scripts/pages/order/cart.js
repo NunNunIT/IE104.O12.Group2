@@ -88,7 +88,39 @@ function deleteAllItem(event) {
 
     showEmptyNoti()
     modifyLastItem()
+    deleteDropdown()
     calcTotalPrice()
+}
+
+// Xóa sản phẩm phải xóa ở dropdown cart
+function deleteDropdown(event) {
+    const dropdownCart = document.querySelector('.dropdown-cart__content')
+    const dropdownItems = Array.from(dropdownCart.querySelectorAll('.cart-dropdown__block'))
+    const deleteEle = JSON.parse(localStorage.getItem('productsCartDelete'))
+
+    let countDeleted = 0
+    dropdownItems.forEach(item => {
+        deleteEle.forEach(ele => {
+            let dropdownItemLink = item.querySelector('.cart-dropdown__main')
+            let productVariantId = Number(dropdownItemLink.getAttribute("href").split('?')[0].split('/')[2])
+            if (ele.product_variant_id == productVariantId) {
+                item.remove()
+                countDeleted++
+            }
+        })
+    })
+
+    if (countDeleted == dropdownItems.length) {
+        dropdownCart.innerHTML =
+            `<div class="dropdown-cart__content-title--empty">Sản phẩm vừa thêm</div>
+            <div class="dropdown-cart--empty">
+                <img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
+                <span class="empty-content__cart">Giỏ hàng trống</span>
+            </div>
+            <a href="/order/cart" class="btn-cart btn-cart--empty">
+                <div class="btn btn--filled pri">Xem giỏ hàng</div>
+            </a>`
+    }
 }
 
 // Xóa sản phẩm trong giỏ khi reload hoặc chuyển trang
@@ -167,6 +199,7 @@ function deleteMbItem(event) {
     showEmptyNoti()
     modifyLastItem()
     showSelectedNums()
+    deleteDropdown()
     calcTotalPrice()
 }
 

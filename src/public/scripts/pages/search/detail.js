@@ -117,6 +117,17 @@ addCartBtn.addEventListener('click', () => {
                         const countCartEle = document.querySelector('.header__cart__number-badge')
                         countCartEle.innerHTML = countCartData.countCart
 
+                        const dropdownCart = document.querySelector('.dropdown-cart__content')
+                        const cartTitle = dropdownCart.querySelector('.dropdown-cart__content-title')
+                        const emptyNoti = dropdownCart.querySelector('.dropdown-cart--empty')
+                        const cartBtn = dropdownCart.querySelector('.btn-cart')
+
+                        if (emptyNoti) {
+                            emptyNoti.remove()
+                            cartTitle.style.visibility = 'visible'
+                            cartBtn.style.visibility = 'visible'
+                        }
+
                         fetch('/general/short_cart_list', {
                             method: 'GET',
                         })

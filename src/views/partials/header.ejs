@@ -162,17 +162,21 @@
 						<% for (let i = 0; i < l; i++) { %>
 						<%- include('../components/cart-dropdown-item', {cart: user.shortCarts[i], toCurrency: formatFunction.toCurrency }) %>
 						<% } %>
+						<a href="/order/cart" class="btn-cart">
+							<div class="btn btn--filled pri">Xem giỏ hàng</div>
+						</a>
 						<% } else { %>
 						<!-- bắt đầu dropdown giỏ hàng khi đã đăng nhập__rỗng -->
+						<div class="dropdown-cart__content-title dropdown-cart__content-title--empty">Sản phẩm vừa thêm</div>
 						<div class="dropdown-cart--empty">
 							<img src="/imgs/cart/empty-cart.png" alt="empty" class="dropdown-cart__img--empty">
 							<span class="empty-content__cart">Giỏ hàng trống</span>
 						</div>
-						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
-						<% } %>
-						<a href="/order/cart" class="btn-cart">
+						<a href="/order/cart" class="btn-cart btn-cart--empty">
 							<div class="btn btn--filled pri">Xem giỏ hàng</div>
 						</a>
+						<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập__rỗng -->
+						<% } %>
 					</div>
 					<!-- kết thúc dropdown giỏ hàng khi đã đăng nhập -->
 					<% } %>
