@@ -183,6 +183,7 @@ function removeItem(event) {
     showEmptyNoti()
     modifyLastItem()
     showSelectedNums()
+    deleteDropdown()
     calcTotalPrice()
 }
 

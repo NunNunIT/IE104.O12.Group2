@@ -22,6 +22,8 @@
 
 .cart-item__product p {
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cart-item__variants {
