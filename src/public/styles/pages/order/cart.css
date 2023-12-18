@@ -111,7 +111,7 @@ button {
     padding-top: 24px;
     position: sticky;
     z-index: 2;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     box-shadow: 1px -4px 12px -4px rgba(0, 0, 0, 0.2);
 }
@@ -341,6 +341,10 @@ button {
 @media screen and (max-width: 26rem) {
     .scrollup {
         bottom: 120px;
+    }
+
+    .cart__footer {
+        bottom: 69px;
     }
 
     .mobile-hidden {

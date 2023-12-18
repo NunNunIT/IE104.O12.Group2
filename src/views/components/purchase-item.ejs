@@ -28,6 +28,7 @@
 		<% purchaseHistory.order_details.forEach(orderDetail => { %>
 		<!-- Mỗi sản phẩm trong đơn hàng -->
 		<div class="purchase-item__element">
+			<a href = '/search/<%=orderDetail.product_variant_id%>'>
 			<div class="purchase-item__element--left">
 				<img src="/imgs/product_image/P<%= orderDetail.product_id %>/<%= orderDetail.product_avt_img %>" alt="product_img" class="purchase-item__product-img">
 				<div class="purchase-item__product-detail">
@@ -36,15 +37,17 @@
 					<p class="purchase-item__amount">x<%= orderDetail.order_detail_quantity %></p>
 				</div>
 			</div>
+			</a>
+
 			<h5 class="purchase-item__price">
-				<% if (orderDetail.order_detail_price_before > orderDetail.order_detail_price_after) { %>
+				<% if (orderDetail.order_total_price_before > orderDetail.order_detail_price_after) { %>
 				<small><%= toCurrency(orderDetail.order_detail_price_before) %></small>
 				<% } %>
 				<%= toCurrency(orderDetail.order_detail_price_after) %>
 			</h5>
 		</div>
 		<hr />
-		<% totalAmount += parseFloat(orderDetail.order_detail_price_after); %>
+		<% totalAmount += parseFloat(orderDetail.order_detail_price_after * orderDetail.order_detail_quantity); %>
 		<% }) %>
 		<!-- End mỗi sản phẩm trong đơn hàng -->
 	</div>

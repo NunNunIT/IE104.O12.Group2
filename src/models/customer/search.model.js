@@ -26,14 +26,14 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     }
 
     if (searchKey && req.query.discount) {
-        getProductsSQL += ` WHERE product_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
-        getRowSQL += ` WHERE product_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
+        getProductsSQL += ` WHERE product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
+        getRowSQL += ` WHERE product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
     } else if (searchKey || req.query.discount) {
         getProductsSQL += ` WHERE`
         getRowSQL += ` WHERE`
         if (searchKey) {
-            getProductsSQL += ` product_name LIKE '%${searchKey}%'`
-            getRowSQL += ` product_name LIKE '%${searchKey}%'`
+            getProductsSQL += ` product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%'`
+            getRowSQL += ` product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%'`
         } else {
             getProductsSQL += ` discount_amount IS NOT NULL`
             getRowSQL += ` discount_amount IS NOT NULL`
