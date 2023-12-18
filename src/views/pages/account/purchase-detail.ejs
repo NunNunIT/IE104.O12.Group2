@@ -174,7 +174,7 @@
 					<% if (purchaseHistory.order_status === 'Hoàn thành') { %>
 					<!-- nút đánh giá khi status là "Hoàn thành"-->
 					<a href="/account/feedback?order_id=<%= purchaseHistory.order_id %>">
-						<div class="btn btn--filled pri">Đánh giá</div>
+						<div class="btn btn--filled pri"><%= (purchaseHistory.order_details[0].feedback != 0) ? 'Xem đánh giá':'Đánh giá'%></div>
 					</a>
 					<!-- end -->
 					<% } %>

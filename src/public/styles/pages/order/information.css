@@ -322,6 +322,7 @@ input::-webkit-calendar-picker-indicator {
     }
 
     .order-container {
+        margin-top: 12px;
         width: 100%;
         gap: 0;
     }
@@ -354,5 +355,9 @@ input::-webkit-calendar-picker-indicator {
         width: 40%;
         height: 40px;
         font-size: 1rem;
+    }
+
+    body {
+        background-color: var(--white);
     }
 }

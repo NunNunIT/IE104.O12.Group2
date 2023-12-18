@@ -160,12 +160,14 @@ small {
 
 .purchase-item__button .btn.btn--outlined.pri,
 .purchase-item__button .btn.btn--filled.pri {
-    width: 134px;
+    width: 148px;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 2px;
+    text-align: center;
+    line-height: 1.15;
 }
 
 .purchase-item__button .btn.btn--outlined.pri.cancel {

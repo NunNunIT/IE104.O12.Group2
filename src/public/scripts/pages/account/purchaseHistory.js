@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     // Lấy tất cả các liên kết trong thẻ nav có class "purchase__status"
-    var statusLinks = document.querySelectorAll(".purchase__status a")
+    let statusLinks = document.querySelectorAll(".purchase__status a")
 
     // Xác định URL hiện tại và giải mã
-    var currentUrl = decodeURIComponent(window.location.href)
+    let currentUrl = decodeURIComponent(window.location.href)
 
     // Cập nhật class "active" dựa trên URL hiện tại
     updateActiveLink(statusLinks, currentUrl)
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Thêm sự kiện cho sự thay đổi trạng thái trang (như khi chuyển trang)
     window.addEventListener("popstate", function () {
         // Xác định URL mới và giải mã
-        var newUrl = decodeURIComponent(window.location.href)
+        let newUrl = decodeURIComponent(window.location.href)
 
         // Cập nhật class "active" dựa trên URL mới
         updateActiveLink(statusLinks, newUrl)
@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Hàm để cập nhật class "active" dựa trên URL
 function updateActiveLink(links, url) {
-    for (var i = 0; i < links.length; i++) {
-        var link = links[i]
-        var linkUrl = decodeURIComponent(link.href)
+    for (let i = 0; i < links.length; i++) {
+        let link = links[i]
+        let linkUrl = decodeURIComponent(link.href)
 
         if (url === linkUrl) {
             // Nếu liên kết có URL trùng khớp với URL hiện tại, thêm class "active"

@@ -274,7 +274,7 @@ a {
 	}
 
 	.purchase__status a {
-		flex: 0 0 28%;
+		flex: 0 0 max-content;
 		font-size: 0.875rem;
 		text-align: center;
 	}

@@ -1,5 +1,6 @@
 @import url('/styles/general.css');
 @import url('/styles/components/cart-product.css');
+@import url('/styles/components/fail-modal.css');
 
 body {
     width: 100vw;
@@ -429,7 +430,7 @@ button {
         border-radius: 8px;
     }
 
-    #del-mb-btn:enabled:hover {
+    #del-mb-btn:enabled {
         background-color: var(--dollar-red);
         color: var(--white);
     }
