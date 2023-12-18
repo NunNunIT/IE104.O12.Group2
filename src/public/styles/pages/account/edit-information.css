@@ -1,7 +1,7 @@
 @import url("/styles/general.css");
 @import url("/styles/pages/account/information.css");
 
- 
+
 .userName {
     width: 60%;
     border-bottom: 2px solid #eaeaea;
@@ -15,25 +15,25 @@
 .userSex {
     width: 60%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .userEmail {
     width: 60%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .userPhone {
     width: 60%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .userAddress {
     width: 60%;
     border-bottom: 2px solid #eaeaea;
-    
+
 }
 
 .purchase-item__product-name {
@@ -41,7 +41,7 @@
     flex-direction: row;
 }
 
-.purchase-item__product-name label{
+.purchase-item__product-name label {
     padding: 8px;
     font-size: 1rem;
     font-weight: 500;
@@ -57,9 +57,10 @@
 #userBirth {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     gap: 12px;
-    padding: 0;
+    padding: 0 12px 0 0;
     text-indent: 4px;
 }
+
 .popup__button {
     display: flex;
     justify-content: flex-end;
@@ -75,14 +76,19 @@
     padding: 0px 24px;
 }
 
- .purchase-item__product-detail input, select{
-    height: 40px; 
+.purchase-item__product-detail input,
+select {
+    height: 40px;
     font-size: 16px;
     outline-color: var(--primary-color-1);
-    cursor: pointer;
-  }
+}
 
-  .purchase-item__product-detail input {
+.purchase-item__product-detail select,
+.purchase-item__product-detail input[type="date"] {
+    cursor: pointer;
+}
+
+.purchase-item__product-detail input {
     padding: 8px;
     width: 100%;
     border-radius: 8px;
@@ -98,7 +104,7 @@
     display: flex;
     cursor: pointer;
     padding: 8px;
-    height: 40px; 
+    height: 40px;
     width: 100%;
     align-items: center;
 }
@@ -114,32 +120,33 @@
     text-indent: 8px;
 }
 
-span.red-start{
-	color: red; 
+span.red-start {
+    color: red;
 }
 
 /*Responsive-small-laptop*/
 @media only screen and (max-width: 64rem) {
-	.purchase-item__product-name label {
-		width: 30%;
-	}
+    .purchase-item__product-name label {
+        width: 30%;
+    }
 }
 
 @media only screen and (max-width: 48rem) {
-    .purchase-item { 
+    .purchase-item {
         padding: 12px;
     }
-	.purchase-item__product-name label {
-		width: 35%;
-	}
+
+    .purchase-item__product-name label {
+        width: 35%;
+    }
 }
 
-@media only screen and (max-width: 26rem){
-    .purchase-item__product-detail input { 
+@media only screen and (max-width: 26rem) {
+    .purchase-item__product-detail input {
         font-size: 14px;
-      }
+    }
 
-      #userSex {
+    #userSex {
         font-size: 0.875rem;
     }
 
@@ -156,6 +163,7 @@ span.red-start{
         font-size: 0.875rem !important;
         padding: 0 18px !important;
     }
+
     .purchase-item__product-name .error-message {
         margin-left: -18%;
     }
@@ -165,7 +173,8 @@ span.red-start{
         align-items: center;
     }
 
-    .purchase-item__product-name input, select {
+    .purchase-item__product-name input,
+    select {
         width: 100%;
     }
 
@@ -177,5 +186,3 @@ span.red-start{
         padding: 0px 18px;
     }
 }
-
-

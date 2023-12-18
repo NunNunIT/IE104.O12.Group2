@@ -1,11 +1,11 @@
 const modalBtn = document.querySelectorAll('.btn-logout')
 const modal = document.querySelectorAll('.sidebar-account__popup')
 const closeBtn = document.querySelectorAll('.btn-close')
-const cancelBtn = document.querySelectorAll('.btn-cancelp')
+const cancelBtn = document.querySelectorAll('.btn-cancel')
 
 modalBtn.forEach((btn) => {
     btn.onclick = function () {
-        modal[0].style.display = 'block'
+        modal[0].style.display = 'flex'
     }
 })
 
