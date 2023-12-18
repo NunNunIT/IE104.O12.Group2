@@ -425,7 +425,7 @@ button {
         border-radius: 8px;
     }
 
-    #del-mb-btn:enabled:hover {
+    #del-mb-btn:enabled {
         background-color: var(--dollar-red);
         color: var(--white);
     }
