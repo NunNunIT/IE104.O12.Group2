@@ -92,8 +92,9 @@ span.image-container img {
 
 .sidebar-account__popup {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    padding-top: 12%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -131,14 +132,14 @@ span.image-container img {
 
 }
 
-.close-btn {
+.btn-close {
     position: relative;
     color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
 }
 
-.close-btn:hover {
+.btn-close:hover {
     color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
@@ -220,16 +221,7 @@ span.image-container img {
     align-items: center;
 }
 
-@media only screen and (max-width: 64rem) {
-    .sidebar-account__popup {
-        padding-top: 15%;
-    }
-}
-
 @media only screen and (max-width: 48rem) {
-    .sidebar-account__popup {
-        padding-top: 25%;
-    }
 
     .logout_img {
         height: 250px;

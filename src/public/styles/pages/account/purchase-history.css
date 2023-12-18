@@ -61,18 +61,8 @@ a {
 
 .purchase__status a.active {
 	color: var(--primary-color-1);
-	border-bottom: 2px solid var(--primary-color-1);
+	box-shadow: inset 0 -2px 0 0 var(--primary-color-1);
 	padding: 12px 24 10px 24px;
-}
-
-#purchase__status-all.active,
-#purchase__status-payment.active,
-#purchase__status-finish.active,
-#purchase__status-cancel.active,
-#purchase__status-deliver.active {
-	color: var(--primary-color-1);
-	border-bottom: 2px solid var(--primary-color-1);
-	padding: 12px 24px 12px 24px;
 }
 
 .purchase-empty {
@@ -274,8 +264,19 @@ a {
 		font-size: 0.875rem;
 	}
 
+	.purchase__status {
+		overflow-x: scroll;
+		gap: 4px;
+	}
+
+	.purchase__status::-webkit-scrollbar {
+		display: none;
+	}
+
 	.purchase__status a {
+		flex: 0 0 28%;
 		font-size: 0.875rem;
+		text-align: center;
 	}
 
 	small {
