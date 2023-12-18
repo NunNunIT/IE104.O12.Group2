@@ -131,15 +131,11 @@ span.image-container img {
 
 }
 
-.close-btn {
+.sidebar-account__popup .btn-close {
     position: relative;
     color: var(--primary-color-1);
     font-size: 25px;
     font-weight: 700;
-}
-
-.close-btn:hover {
-    color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
