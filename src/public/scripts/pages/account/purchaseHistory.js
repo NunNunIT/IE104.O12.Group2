@@ -113,7 +113,8 @@ purchaseCancelBtns.forEach((cancelBtn, index) => {
                             successModal.style.display = 'none'
                         }, 1000)
 
-                        location.reload()
+                        windown.location.href = '/account/purchase?order_status=Đã%20hủy'
+                        // location.reload()
                     }
                 })
         })

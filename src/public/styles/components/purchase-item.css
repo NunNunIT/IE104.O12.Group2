@@ -9,6 +9,11 @@
     margin-bottom: 24px;
 }
 
+.purchase-item__element a {
+    text-decoration: none;
+    color: black;
+ }
+
 .purchase-item--top {
     display: flex;
     flex-direction: row;
