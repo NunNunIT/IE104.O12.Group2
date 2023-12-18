@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 12:40 PM
+-- Generation Time: Dec 18, 2023 at 01:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -68,11 +68,8 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`customer_id`, `product_variant_id`, `cart_quantity`, `cart_added_date`) VALUES
-(1, 15, 1, '2023-12-18 18:26:26'),
-(1, 16, 1, '2023-12-18 18:26:31'),
-(1, 18, 1, '2023-12-18 18:25:58'),
-(1, 42, 1, '2023-12-18 18:25:39'),
-(1, 50, 2, '2023-12-18 18:24:53'),
+(1, 15, 1, '2023-12-18 18:46:34'),
+(1, 40, 1, '2023-12-18 18:47:38'),
 (1, 52, 1, '2023-12-18 18:14:08'),
 (1, 58, 1, '2023-12-18 18:25:08'),
 (1, 62, 1, '2023-12-18 18:14:02'),
@@ -188,9 +185,9 @@ CREATE TABLE `discounts` (
 
 INSERT INTO `discounts` (`discount_id`, `discount_name`, `discount_description`, `discount_start_date`, `discount_end_date`, `discount_amount`, `discount_is_display`, `discount_img`) VALUES
 (1, 'Black Friday', 'Chương trình giảm giá Black Friday', '2023-11-23', '2023-11-30', 10, 1, ''),
-(2, 'Vui Tết', 'Chương trình giảm giá dịp Tết', '2024-01-01', '2023-01-31', 15, 1, ''),
+(2, 'Vui Tết', 'Chương trình giảm giá dịp Tết', '2024-01-01', '2024-03-01', 15, 1, ''),
 (3, 'Vui Trung Thu', 'Chương trình giảm giá dịp Trung Thu', '2023-09-25', '2023-09-30', 20, 1, ''),
-(4, 'Back to school', 'Chương trình giảm giá cho học sinh, sinh viên back to school', '2023-11-01', '2023-11-30', 12.5, 1, ''),
+(4, 'Back to school', 'Chương trình giảm giá cho học sinh, sinh viên back to school', '2023-11-01', '2024-11-30', 12.5, 1, ''),
 (5, 'Kỷ niệm 5 năm thành lập', 'Chương trình giảm giá kỷ niệm 5 năm thành lập của TechTwo', '2023-11-01', '2024-02-29', 10, 1, ''),
 (6, '05/05', 'Chương trình giảm giá ngày đôi 05/05', '2023-05-01', '2023-05-31', 18, 1, ''),
 (7, '06/06', 'Chương trình giảm giá ngày đôi 06/06', '2023-06-01', '2023-06-30', 15, 1, ''),
@@ -627,7 +624,15 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `staff_id`, `order_name`, `orde
 (39, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-05', '0000-00-00', 'tới nhà Nhung nguyễn Phường 4 Quận 8 Hồ Chí Minh', '', NULL, 0, 1, '0000-00-00', 1, 'Hoàn thành'),
 (40, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-17', '0000-00-00', 'KTX Khu A Phường 4 Quận 4 Hồ Chí Minh', '', 19490000, 19490000, 2, '0000-00-00', 0, 'Chờ thanh toán'),
 (41, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-17', '0000-00-00', 'KTX khu A Phường 7 Quận 2 Vũng Tàu', '', NULL, 0, 1, '0000-00-00', 1, 'Đang giao hàng'),
-(42, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-17', '0000-00-00', 'Tới nhà Nhung Phường 4 Quận 4 Hồ Chí Minh', '', 58470000, 58470000, 1, '0000-00-00', 1, 'Hoàn thành');
+(42, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-17', '0000-00-00', 'Tới nhà Nhung Phường 4 Quận 4 Hồ Chí Minh', '', 58470000, 58470000, 1, '0000-00-00', 1, 'Hoàn thành'),
+(43, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-18', '0000-00-00', 'Nhung Nguyễn Phường Tân Hưng Quận 7 Hồ Chí Minh', 'Boom hàng', 35970000, 35970000, 1, '0000-00-00', 1, 'Đang giao hàng'),
+(44, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-18', '0000-00-00', 'Nhung mua Phường Tân Thuận Đông Quận 7 Hồ Chí Minh', 'Không mua', NULL, 0, 2, '0000-00-00', 0, 'Đã hủy'),
+(45, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-18', '0000-00-00', 'yến bom hàng Phường 1 Quận 8 Hồ Chí Minh', 'Đừng có gửi', NULL, 0, 2, '0000-00-00', 0, 'Đã hủy'),
+(46, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-18', '0000-00-00', 'Tới ngõ nhỏ Phường 16 Quận 5 Hồ Chí Minh', 'Kiểm hàng trước', 76470000, 68823000, 1, '0000-00-00', 1, 'Hoàn thành'),
+(47, 1, 1, 'Lý Phi Lân', '0987654321', '2023-12-18', '0000-00-00', 'KTX b Phường 2 Quận 8 Hồ Chí Minh', '', NULL, 0, 1, '0000-00-00', 1, 'Hoàn thành'),
+(48, 1, 1, 'Hương vi', '0987654321', '2023-12-18', '0000-00-00', 'Hương vi nhà bà tám Phường 2 Quận 8 Hồ Chí Minh', '', NULL, 0, 1, '0000-00-00', 1, 'Hoàn thành'),
+(49, 1, 1, 'Lê Đức Mạnh', '0987654321', '2023-12-18', '0000-00-00', 'Tới nhà chòi Phường An Phú Quận 2 Hồ Chí Minh', 'Giao tận tay', NULL, 0, 1, '0000-00-00', 1, 'Hoàn thành'),
+(50, 1, 1, 'Phan Nguyễn Hải Yến', '0987654321', '2023-12-18', '0000-00-00', 'KTX khu A Phường Tân Thuận Đông Quận 7 Hồ Chí Minh', '', NULL, 0, 2, '0000-00-00', 0, 'Chờ thanh toán');
 
 -- --------------------------------------------------------
 
@@ -673,7 +678,19 @@ INSERT INTO `order_details` (`order_id`, `product_variant_id`, `order_detail_qua
 (42, 9, 1, 4990000, 4990000),
 (42, 17, 1, 7990000, 7191000),
 (42, 18, 1, 25490000, 22941000),
-(42, 44, 1, 19490000, 19490000);
+(42, 44, 1, 19490000, 19490000),
+(43, 15, 3, 11990000, 11990000),
+(43, 16, 1, 10990000, 10990000),
+(44, 63, 1, 3490000, 3490000),
+(45, 63, 1, 3490000, 3490000),
+(46, 16, 4, 10990000, 9616250),
+(46, 18, 1, 25490000, 22941000),
+(46, 26, 1, 19990000, 19990000),
+(46, 41, 1, 22890000, 22890000),
+(47, 50, 2, 36490000, 36490000),
+(48, 77, 1, 5590000, 5590000),
+(49, 42, 4, 79990000, 79990000),
+(50, 36, 1, 10990000, 9671200);
 
 --
 -- Triggers `order_details`
@@ -2797,7 +2814,7 @@ ALTER TABLE `notification_types`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `paying_methods`

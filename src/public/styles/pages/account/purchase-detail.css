@@ -152,6 +152,11 @@ hr {
 	width: 100%;
 }
 
+.purchase-detail__element a {
+	text-decoration: none;
+	color: black;
+}
+
 .purchase-detail__element h5 {
 	font-weight: 600;
 }
