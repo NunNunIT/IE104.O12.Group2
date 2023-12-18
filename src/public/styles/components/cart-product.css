@@ -24,11 +24,12 @@
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .cart-item__variants {
     cursor: pointer;
-    width: 90%;
+    width: max-content;
     max-width: 100px;
     padding-left: 8px;
     border-right: 8px solid transparent;
@@ -37,6 +38,8 @@
     font-size: 1rem;
     background-color: var(--bg-white-o80);
     border-radius: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cart-item__variants:hover {
@@ -205,6 +208,7 @@ input::-webkit-inner-spin-button {
 
     .cart-item__content>p {
         font-weight: 500;
+        white-space: normal;
     }
 
     .cart-item__variants {
