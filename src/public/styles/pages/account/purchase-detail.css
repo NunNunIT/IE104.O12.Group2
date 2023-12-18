@@ -240,6 +240,8 @@ small {
 	justify-content: center;
 	align-items: center;
 	padding-bottom: 2px;
+	text-align: center;
+	line-height: 1.15;
 }
 
 .purchase-detail__button .btn.btn--outlined.pri.cancel {
@@ -291,7 +293,7 @@ small {
 
 .purchase-detail__img {
 	object-fit: contain;
-	width: 20%;
+	width: 100px;
 }
 
 
