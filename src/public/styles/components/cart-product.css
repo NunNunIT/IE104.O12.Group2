@@ -67,7 +67,7 @@ input::-webkit-inner-spin-button {
 }
 
 .cart-item__quantity input {
-    width: 20%;
+    width: max-content;
     padding: 6px 8px;
     border: 1px solid var(--outline-gray);
     border-radius: 4px;

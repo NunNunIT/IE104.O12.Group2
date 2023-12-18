@@ -1,4 +1,4 @@
-.success-modal {
+.fail-modal {
     z-index: 9999;
     width: 100vw;
     height: 100vh;
@@ -8,13 +8,13 @@
     position: fixed;
 }
 
-.success-modal__background {
+.fail-modal__background {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.success-modal__content {
+.fail-modal__content {
     z-index: 10000;
     width: 30%;
     padding: 48px 24px;
@@ -28,14 +28,14 @@
     gap: 16px;
 }
 
-.success-modal__content img {
-    width: 60px;
-    height: 60px;
+.fail-modal__content img {
+    width: 80px;
+    height: 80px;
 }
 
 /* 1024px - Tablet */
 @media only screen and (max-width: 64rem) {
-    .success-modal__content {
+    .fail-modal__content {
         width: 35%;
         padding: 36px 24px;
     }
@@ -43,12 +43,12 @@
 
 /* 768px - Tablet */
 @media only screen and (max-width: 48rem) {
-    .success-modal__content {
+    .fail-modal__content {
         width: 40%;
         padding: 24px;
     }
 
-    .success-modal__content h3 {
+    .fail-modal__content h3 {
         font-size: 1.125rem;
     }
 
@@ -56,17 +56,17 @@
 
 /* 416px - Tablet */
 @media only screen and (max-width: 26rem) {
-    .success-modal__content {
+    .fail-modal__content {
         width: 80%;
         border-radius: 4px;
         gap: 12px;
     }
 
-    .success-modal__close span {
+    .fail-modal__close span {
         font-size: 1.5rem;
     }
 
-    .success-modal__content h3 {
+    .fail-modal__content h3 {
         font-size: 1rem;
     }
 }

@@ -140,11 +140,29 @@ function changeVariant(event) {
 // Sự kiện onchange thay đổi số lượng
 function changeQuantity(event) {
     const current = event.currentTarget
+
+    const quantity = current.value
+    const max = Number(current.max)
+    const min = Number(current.min)
+
+    if (quantity > max) {
+        current.value = max
+        const failModal = document.querySelector('.fail-modal')
+        failModal.style.display = 'flex'
+        setTimeout(() => failModal.style.display = 'none', 1000)
+    }
+    else if (quantity < min) {
+        current.value = min
+        const failModal = document.querySelector('.fail-modal')
+        failModal.style.display = 'flex'
+        setTimeout(() => failModal.style.display = 'none', 1000)
+    }
+
+    const quantityAfter = current.value
     const cartItem = current.parentElement.parentElement
     const variants = cartItem.querySelector('.cart-item__variants')
 
     const variantId = variants.value.split(',')[0]
-    const quantity = current.value
     const variantProductId = variants.value.split(',')[3]
 
     if (!JSON.parse(localStorage.getItem('productsCartUpdate')))
@@ -152,12 +170,12 @@ function changeQuantity(event) {
     const productsCartUpdate = JSON.parse(localStorage.getItem('productsCartUpdate'))
 
     if (!productsCartUpdate.length)
-        productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantity })
+        productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantityAfter })
     else {
         productsCartUpdate.forEach((product, index) => {
             if (variantProductId == product.product_id) {
                 productsCartUpdate.splice(index, 1)
-                productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantity })
+                productsCartUpdate.push({ 'product_id': variantProductId, 'product_variant_id': variantId, 'cart_quantity': quantityAfter })
             }
         })
     }
