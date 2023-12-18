@@ -423,19 +423,30 @@ img.dropdown-noti__img--empty {
 .dropdown-cart--empty {
     display: flex;
     flex-direction: column;
-    padding: 62px;
     align-items: center;
     gap: 12PX;
 }
 
+.dropdown-cart__content-title--empty {
+    visibility: hidden;
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 12px;
+}
+
 img.dropdown-cart__img--empty {
     object-fit: contain;
+    margin: 24px 24px p;
     width: 100px;
 }
 
 .empty-content__cart {
     color: black;
     font-size: 0.875rem
+}
+
+.btn-cart--empty {
+    visibility: hidden;
 }
 
 /* end dropdown-cart */
@@ -790,7 +801,7 @@ img.dropdown-cart__img--empty {
     }
 
     .menu__item {
-        padding: 12px 4px;
+        padding: 12px 2px;
     }
 }
 

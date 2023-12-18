@@ -1,11 +1,10 @@
 const appbar__element = document.querySelectorAll('.side-menu__ele');
 appbar__element[3].classList.add('active');
+const appbarEle = document.querySelectorAll('.app-bar__element')
+appbarEle[3].classList.add('active')
 
 const inputs = document.querySelectorAll(".reset__input-field");
 const toggle_btn = document.querySelectorAll(".reset__toggle");
-
-const appbar__element = document.querySelectorAll('.side-menu__ele');
-appbar__element[3].classList.add('active');
 
 inputs.forEach((inp) => {
 	inp.addEventListener("focus", () => {

@@ -1,6 +1,9 @@
 const appbar__element = document.querySelectorAll(".side-menu__ele");
 appbar__element[2].classList.add("active");
 
+const appbarEle = document.querySelectorAll('.app-bar__element')
+appbarEle[3].classList.add('active')
+
 // Popup
 const warrantyBtns = Array.from(document.querySelectorAll(".btn-warranty"));
 const warrantyPopups = Array.from(document.querySelectorAll(".popup-warranty"));

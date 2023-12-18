@@ -20,7 +20,7 @@
 button.prev,
 button.next {
 	position: absolute;
-	top: 50%;
+	top: 42%;
 	width: auto;
 	padding: 8px;
 	margin-top: -22px;
@@ -28,7 +28,7 @@ button.next {
 	font-weight: bold;
 	color: white;
 	background-color: rgb(170, 168, 168);
-	opacity: 0.75;
+	opacity: 0.5;
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;
@@ -90,7 +90,7 @@ button.next:hover {
 	border-radius: 20px;
 	color: var(--white);
 	background-color: var(--dark9);
-	opacity: 0.6;
+	opacity: 0.5;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -106,11 +106,10 @@ button.next:hover {
 /* 1024px - Mini PC */
 @media only screen and (max-width: 64rem) {
 	.slides img {
-		max-height: 180px;
+		height: 250px;
 	}
-
 	.slider-counter {
-		top: 62%;
+		top: 70%;
 	}
 
 	.thumbnails {
@@ -121,27 +120,51 @@ button.next:hover {
 		width: 70px;
 		height: 50px;
 	}
+
+	button.prev {
+		left: 5px;
+	}
+	
+	button.next {
+		right: 5px;
+	}
 }
 
 /* 768px - Tablet */
 @media only screen and (max-width: 48rem) {
+	.slides img {
+		height: 240px;
+	}
 	.thumbnails img {
 		width: 60px;
 		height: 40px;
 	}
 
 	.slider-counter {
-		top: 67%;
+		top: 73%;
 	}
 }
 
 /* 416px - Mobile */
 @media only screen and (max-width: 26rem) {
+	.slides img {
+		height: 230px;
+	}
+	.slider-container {
+		width: 100%;
+	}
 	.thumbnails img {
 		width: 15%;
 	}
 
 	.slider-counter {
-		top: 67%;
+		top: 72%;
+	}
+	button.prev {
+		left: 10px;
+	}
+	
+	button.next {
+		right: 10px;
 	}
 }

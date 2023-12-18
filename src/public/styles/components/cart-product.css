@@ -22,6 +22,8 @@
 
 .cart-item__product p {
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cart-item__variants {
@@ -50,6 +52,7 @@
 }
 
 .cart-item__unit-price del {
+    text-align: center;
     color: var(--del-gray);
 }
 
@@ -87,9 +90,21 @@ input::-webkit-inner-spin-button {
 }
 
 .cart-item__price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cart-item__price p {
     text-align: center;
     font-weight: 500;
     color: var(--dollar-red);
+}
+
+.cart-item__price del {
+    text-align: center;
+    color: var(--del-gray);
 }
 
 .cart-item__del-btn {
@@ -126,7 +141,8 @@ input::-webkit-inner-spin-button {
         height: 60px;
     }
 
-    .cart-item__unit-price {
+    .cart-item__unit-price,
+    .cart-item__price {
         gap: 4px;
     }
 

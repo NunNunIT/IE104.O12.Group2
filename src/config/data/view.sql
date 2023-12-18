@@ -296,7 +296,8 @@ CREATE VIEW view_product_feedbacks AS SELECT
     feedbacks.*,
     feedback_imgs.feedback_img_id,
     feedback_imgs.feedback_img_name, 
-    view_user.user_name
+    view_user.user_name,
+    view_user.user_avt_img
 FROM
     product_variants
 LEFT JOIN feedbacks ON product_variants.product_variant_id = feedbacks.product_variant_id

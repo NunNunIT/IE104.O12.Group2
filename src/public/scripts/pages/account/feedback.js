@@ -1,3 +1,6 @@
+const appbarEle = document.querySelectorAll('.app-bar__element')
+appbarEle[3].classList.add('active')
+
 const allForm = document.querySelectorAll('.feedback-form-item');
 allForm.forEach((form) => {
     const allStar = form.querySelectorAll('.rating .star')
@@ -88,6 +91,6 @@ function submitRating(event) {
                 successModal.style.display = 'none'
             }, 1000)
 
-            window.location.href = '/account/purchase'
+            window.location.href = '/account/purchase?order_status=Hoàn%20thành'
         })
 }

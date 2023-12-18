@@ -70,7 +70,8 @@ body {
 }
 
 .product-info del {
-    color: var(--del-gray)
+    color: var(--del-gray);
+    margin-right: 12px;
 }
 
 
@@ -251,6 +252,10 @@ a.btn.btn--outlined.sec.btn-cancel {
     }
 
     .popup__button button {
+        height: 42px;
+    }
+
+    .popup__button .btn-cancel {
         height: 42px;
     }
 

@@ -3,7 +3,7 @@
 	<input onclick="checkOne(event); calcTotalPrice(event)" type="checkbox" class="checkbox mobile-hidden">
 	<a href="/search/<%= cart.product_variant_id %>" class="cart-item__product lg-col">
 		<img src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name %>">
-		<p><%= cart.product_name ?? 'null' %></p>
+		<p title="<%= cart.product_name ?? 'null' %>"><%= cart.product_name ?? 'null' %></p>
 	</a>
 
 	<div class="sm-col">
@@ -11,7 +11,7 @@
 		<input type="hidden" name="product_variant_id_old" value="<%= cart.product_variant_id %>">
 		<select onchange="changeVariant(event)" name="variant" class="cart-item__variants">
 			<% cart.cart_product_variant.forEach(variant => { %>
-			<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id ?? 'null' %>" <%= (variant.product_variant_id == cart.product_variant_id) ? 'selected':'' %>><%= variant.product_variant_name ?? 'null' %> </option>
+			<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id + ',' + variant.product_variant_name ?? 'null' %>" <%= (variant.product_variant_id == cart.product_variant_id) ? 'selected':'' %>><%= variant.product_variant_name ?? 'null' %> </option>
 			<% }) %>
 		</select>
 		<% } %>
@@ -36,13 +36,14 @@
 		<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 	</div>
 
-	<div class="sm-col">
+	<div class="cart-item__price sm-col">
 		<% if (cart.discount_amount) { %>
+		<del><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %></del>
 		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100) %>">
-		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %></p>
+		<p><%= toCurrency(cart.cart_quantity * parseInt(cart.product_variant_price - cart.product_variant_price * cart.discount_amount / 100)) ?? 'null' %></p>
 		<% } else { %>
 		<input type="hidden" name="product_price" value="<%= cart.cart_quantity * cart.product_variant_price %>">
-		<p class="cart-item__price"><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %></p>
+		<p><%= toCurrency(cart.cart_quantity * cart.product_variant_price) ?? 'null' %></p>
 		<% } %>
 	</div>
 
@@ -57,12 +58,12 @@
 	<div class="cart-item__product">
 		<img src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name %>">
 		<div class="cart-item__content">
-			<p><%= cart.product_name %></p>
+			<p title="<%= cart.product_name ?? 'null' %>"><%= cart.product_name ?? 'null' %></p>
 			<% if (cart.cart_product_variant) { %>
 			<input type="hidden" name="product_variant_id_old" value="<%= cart.product_variant_id %>">
 			<select onchange="changeVariant(event)" class="cart-item__variants">
 				<% cart.cart_product_variant.forEach(variant => { %>
-				<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
+				<option value="<%= variant.product_variant_id + ',' + variant.product_variant_price + ',' + variant.discount_amount + ',' + variant.product_id + ',' + variant.product_variant_name ?? 'null' %>"><%= variant.product_variant_name ?? 'null' %></option>
 				<% }) %>
 			</select>
 			<% } %>
