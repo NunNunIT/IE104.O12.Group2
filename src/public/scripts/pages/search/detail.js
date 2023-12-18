@@ -60,11 +60,24 @@ function add(event) {
 
 // Change quantity
 function changeQuantity(event) {
-    const input = event.currentTarget
-    if (Number(input.value) > Number(input.max))
-        input.value = input.max
-    else if (Number(input.value) < Number(input.min))
-        input.value = input.min
+    const current = event.currentTarget
+
+    const quantity = current.value
+    const max = Number(current.max)
+    const min = Number(current.min)
+
+    if (quantity > max) {
+        current.value = max
+        const failModal = document.querySelector('.fail-modal')
+        failModal.style.display = 'flex'
+        setTimeout(() => failModal.style.display = 'none', 1000)
+    }
+    else if (quantity < min) {
+        current.value = min
+        const failModal = document.querySelector('.fail-modal')
+        failModal.style.display = 'flex'
+        setTimeout(() => failModal.style.display = 'none', 1000)
+    }
 }
 
 const toCurrency = function (money) {
@@ -80,7 +93,9 @@ const addCartBtn = document.querySelector('.detail__add-btn')
 const buyNowBtn = document.querySelector('.detail__buy-btn')
 const cartSuccessModal = document.querySelector('.success-modal')
 
-addCartBtn.addEventListener('click', () => {
+formAddCart.addEventListener('submit', (event) => event.preventDefault())
+
+addCartBtn.addEventListener('click', (event) => {
     const product_variant_id = document.getElementById('product_variant_id').value
     const quantity = document.getElementById('quantity').value
 

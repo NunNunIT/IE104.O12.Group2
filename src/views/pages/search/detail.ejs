@@ -281,6 +281,7 @@
 	</div>
 	<% } %>
 
+	<%- include('../../components/fail-modal', { action: 'Số lượng' }) %>
 	<%- include('../../components/success-modal', { action: 'Thêm vào giỏ hàng' }) %>
 	<%- include('../../components/image-modal') %>
 	<%- include('../../components/scrollup') %>
@@ -293,7 +294,7 @@
 	<script src="/scripts/components/image-modal.js"></script>
 	<script src="/scripts/components/success-modal.js"></script>
 	<script src="/scripts/components/carousel.js"></script>
-	<!-- <script src="/scripts/partials/header.js"></script> -->
+	<script src="/scripts/partials/header.js"></script>
 
 </body>
 
