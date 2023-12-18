@@ -282,7 +282,7 @@ a {
 		font-size: 0.75rem;
 	}
 
-	#purchase-item__price {
+	.purchase-item__price {
 		gap: 4px;
 		flex-direction: column;
 	}
@@ -328,11 +328,19 @@ a {
 	.purchase__status a {
 		font-size: 0.8125rem;
 	}
+
+	.purchase-item__button .btn.btn--outlined.pri,
+	.purchase-item__button .btn.btn--filled.pri {
+		width: 120px;
+		height: 44px;
+		padding: 0 12px;
+		font-size: 0.875rem;
+	}
 }
 
 @media only screen and (max-width: 26rem) {
-	#purchase-item__product-name {
-		font-size: 1rem;
+	.purchase-item__product-name {
+		font-size: 0.875rem;
 	}
 
 	.noti-item__button .btn.btn--outlined.pri,
@@ -342,9 +350,9 @@ a {
 		padding: 0 20px;
 	}
 
-	#purchase-item__variant,
-	#purchase-item__amount {
-		font-size: 0.8125rem;
+	.purchase-item__variant,
+	.purchase-item__amount {
+		font-size: 0.75rem;
 	}
 
 	.purchase-cancel__popup__main {
@@ -356,16 +364,18 @@ a {
 
 	.purchase-item__button .btn.btn--outlined.pri,
 	.purchase-item__button .btn.btn--filled.pri {
-		width: 120px;
-		padding: 0 12px 0 12px;
+		height: 40px;
+		width: 100px;
+		padding: 0 8px 0 8px;
+		font-size: 0.875rem;
 	}
 
 	.purchase-item__button .btn.btn--outlined.pri.cancel {
 		display: none;
 	}
 
-	#purchase__status-finish,
-	#purchase__status-cancel {
+	.purchase__status-finish,
+	.purchase__status-cancel {
 		display: none;
 	}
 

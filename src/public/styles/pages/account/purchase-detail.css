@@ -352,7 +352,29 @@ small {
 		font-size: 0.75rem;
 	}
 
-	#purchase-detail__price {
+	.purchase-detail__price {
 		gap: 8px;
+	}
+
+	.purchase-detail__button .btn.btn--outlined.pri,
+	.purchase-detail__button .btn.btn--filled.pri {
+		width: 120px;
+		height: 44px;
+		padding: 0 12px;
+		font-size: 0.875rem;
+	}
+
+	.paid-amount {
+		font-size: 1.25rem;
+	}
+}
+
+@media only screen and (max-width: 26rem) {
+	.purchase-detail__order-info__user-detail p {
+		font-size: 0.875rem;
+	}
+
+	p.order-info__payment-detail {
+		font-size: 0.875rem;
 	}
 }
