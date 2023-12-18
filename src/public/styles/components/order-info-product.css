@@ -23,6 +23,8 @@
 
 .product__view p {
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product__price p {
@@ -44,7 +46,7 @@
     .product img {
         width: 100px;
         height: 100px;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 8px;
     }
 

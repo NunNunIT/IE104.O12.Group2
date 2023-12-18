@@ -8,8 +8,10 @@ function checkOne(event) {
     else
         checkboxes = Array.from(document.querySelectorAll('.checkbox.mobile-hidden'))
 
-    if (checkboxes.filter(checkbox => checkbox.checked == false).length == 0)
+    if (checkboxes.every(checkbox => checkbox.checked == true))
         checkAll.checked = true
+    else
+        checkAll.checked = false
 
     if (checkboxes.some(checkbox => checkbox.checked == true))
         enableButton()
@@ -17,7 +19,6 @@ function checkOne(event) {
         disableButton()
 
     showSelectedNums()
-    changeDel()
 
     const cartItem = event.currentTarget.parentElement
     const input = cartItem.querySelector('input')
@@ -49,16 +50,16 @@ function checkOne(event) {
 // Sự kiện onchange chọn biến thể
 function changeVariant(event) {
     const current = event.currentTarget
-    const variantValue = current.value
-    const variantId = variantValue.split(',')[0]
-    const variantPrice = Number(variantValue.split(',')[1])
-    const variantDiscount = Number(variantValue.split(',')[2])
-    const variantProductId = Number(variantValue.split(',')[3])
+    const variantValue = current.value.split(',')
+    const variantId = variantValue[0]
+    const variantPrice = Number(variantValue[1])
+    const variantDiscount = Number(variantValue[2])
+    const variantProductId = Number(variantValue[3])
 
     const cartItem = current.parentElement.parentElement
     const variantUnitPrice = cartItem.querySelector('.cart-item__unit-price')
 
-    if (variantDiscount != 'null') {
+    if (isNaN(variantDiscount)) {
         variantUnitPrice.innerHTML =
             `<input type="hidden" name="product_variant_price_before" value="" placeholder="">
             <input type="hidden" name="product_variant_price_after" value="${variantPrice}" placeholder="">
@@ -98,19 +99,42 @@ function changeVariant(event) {
         localStorage.setItem('productsCartUpdateOld', JSON.stringify([]))
     const productsCartUpdateOld = JSON.parse(localStorage.getItem('productsCartUpdate'))
 
+    const oldVariantId = cartItem.querySelector('input[name="product_variant_id_old"]').value
     if (!productsCartUpdateOld.length)
-        productsCartUpdateOld.push({ product_variant_id: cartItem.querySelector('input[name="product_variant_id_old"]').value })
+        productsCartUpdateOld.push({ product_variant_id: oldVariantId })
     else {
         productsCartUpdateOld.forEach((product, index) => {
             if (variantProductId == product.product_id) {
                 productsCartUpdateOld.splice(index, 1)
-                productsCartUpdateOld.push({ product_variant_id: cartItem.querySelector('input[name="product_variant_id_old"]').value })
+                productsCartUpdateOld.push({ product_variant_id: oldVariantId })
             }
         })
     }
 
     localStorage.removeItem('productsCartUpdateOld')
     localStorage.setItem('productsCartUpdateOld', JSON.stringify(productsCartUpdateOld))
+
+    const variantName = variantValue[4]
+    const dropdownCart = document.querySelector('.dropdown-cart__content')
+    const dropdownCartItems = Array.from(dropdownCart.querySelectorAll('.cart-dropdown__block'))
+
+    dropdownCartItems.forEach(item => {
+        let dropdownProductLink = item.querySelector('.cart-dropdown__main')
+        let dropdownVariantId = dropdownProductLink.getAttribute('href').split('?')[0].split('/')[2]
+
+        if (oldVariantId == dropdownVariantId) {
+            let dropdownVariantName = item.querySelector('.cart-dropdown__variant')
+            dropdownVariantName.innerHTML = 'Loại: ' + variantName
+
+            let dropdownPrice = item.querySelector('.cart-dropdown__price')
+            if (isNaN(variantDiscount)) {
+                dropdownPrice.innerHTML = toCurrency(variantPrice)
+            }
+            else {
+                dropdownPrice.innerHTML = `${toCurrency(parseInt(variantPrice - variantPrice * (variantDiscount / 100)))} <small>${toCurrency(variantPrice)}</small>`
+            }
+        }
+    })
 }
 
 // Sự kiện onchange thay đổi số lượng
@@ -212,11 +236,26 @@ function add(event) {
 
 // Sự kiện onchange tính tiền
 function calcPrice(event) {
-    const input = event.currentTarget
-    const cartItem = event.currentTarget.parentElement.parentElement
-    const unitPrice = cartItem.querySelector('.cart-item__unit-price p')
-    const priceEle = cartItem.querySelector('.cart-item__price')
+    if (window.innerWidth > 416) {
+        const input = event.currentTarget
+        const cartItem = event.currentTarget.parentElement.parentElement
+        const unitPriceEle = cartItem.querySelector('.cart-item__unit-price p')
+        const unitPrice = unitPriceEle.textContent.slice(0, -1).replaceAll('.', '')
+        const priceEle = cartItem.querySelector('.cart-item__price')
+        const priceDelEle = cartItem.querySelector('.cart-item__unit-price del')
+        const quantity = Number(input.value)
 
-    const price = Number(input.value) * Number(unitPrice.textContent.slice(0, -1).replaceAll('.', ''))
-    priceEle.innerHTML = toCurrency(price)
+        if (priceDelEle) {
+            const priceDel = Number(priceDelEle.textContent.slice(0, -1).replaceAll('.', ''))
+            priceEle.innerHTML =
+                `<del>${toCurrency(quantity * priceDel)}</del>
+            <input type="hidden" name="product_price" value="${quantity * unitPrice}">
+            <p>${toCurrency(quantity * unitPrice)}</p>`
+        }
+        else {
+            priceEle.innerHTML =
+                `<input type="hidden" name="product_price" value="${quantity * unitPrice}">
+            <p>${toCurrency(quantity * unitPrice)}</p>`
+        }
+    }
 }

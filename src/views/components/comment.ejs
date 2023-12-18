@@ -1,6 +1,6 @@
 <div class="comment-container">
 	<div class="comment__info">
-		<img class="comment__avatar" src="/imgs/user_avt_img/<%= 'default.png' %>" alt="avatar">
+		<img class="comment__avatar" src="/imgs/user_avt_img/<%= feedback.user_avt_img ?? 'default.png' %>" alt="avatar">
 		<div>
 			<p class="comment__user-name"><%= feedback.user_name ?? 'Nguyễn Văn A' %></p>
 			<button class="comment__variant">Phân loại: <%= feedback.product_variant_name ?? 'null' %></button>

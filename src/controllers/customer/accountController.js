@@ -91,11 +91,12 @@ accountController.purchaseDetail = async (req, res) => {
 // [GET] /account/feedback
 accountController.feedback = async (req, res) => {
     let order_id = req.query.order_id
+    let customer_id = req.user.customer_id
 
     let header_user = await index.header_user(req)
     let header = await index.header(req)
     let formatFunction = await general.formatFunction()
-    let orderDetails = await account.getDetailPurchaseHistorys(order_id)
+    let orderDetails = await account.getDetailPurchaseHistorys(order_id, customer_id)
 
     res.render('./pages/account/feedback', {
         header: header,

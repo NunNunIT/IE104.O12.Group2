@@ -1,15 +1,18 @@
 <div class="cart-dropdown__block">
 	<a href="/search/<%= cart.product_variant_id %>?category_id=<%= cart.category_id %>" class="cart-dropdown__main">
-		<img class="cart-dropdown__img" src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name ?? 'NaN' %>">
+		<img class="cart-dropdown__img" src="/imgs/product_image/P<%= cart.product_id %>/<%= cart.product_avt_img %>" alt="<%= cart.product_name ?? 'null' %>">
 		<div class="cart-dropdown__content">
-			<span><%= cart.product_name ?? 'NaN' %></span>
-			<div class="cart-dropdown__price">
-				<% if (cart.discount_amount){ %>
-				<% const discountedPrice = Math.round(cart.product_variant_price - cart.product_variant_price * (cart.discount_amount / 100)) %>
-				<%= toCurrency(discountedPrice) ?? 'NaN'%><small><%= toCurrency(cart.product_variant_price) ?? 'NaN' %></small>
-				<% } else { %>
-				<%= toCurrency(cart.product_variant_price) ?? 'NaN'%>
-				<% } %>
+			<span class="cart-dropdown__product-name"><%= cart.product_name ?? 'null' %></span>
+			<div class="cart-dropdown__div">
+				<span class="cart-dropdown__variant">Loại: <%= cart.product_variant_name ?? 'null' %></span>
+				<span class="cart-dropdown__price">
+					<% if (cart.discount_amount){ %>
+					<% const discountedPrice = Math.round(cart.product_variant_price - cart.product_variant_price * (cart.discount_amount / 100)) %>
+					<%= toCurrency(discountedPrice) ?? 'null'%><small><%= toCurrency(cart.product_variant_price) ?? 'null' %></small>
+					<% } else { %>
+					<%= toCurrency(cart.product_variant_price) ?? 'null'%>
+					<% } %>
+				</span>
 			</div>
 		</div>
 	</a>
