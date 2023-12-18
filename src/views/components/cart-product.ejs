@@ -31,7 +31,6 @@
 	</div>
 
 	<div class="cart-item__quantity sm-col">
-		<% console.log(cart) %>
 		<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
 		<input onchange="changeQuantity(event); calcPrice(event); calcTotalPrice(event);" name="product_quantity" type="number" value="<%= cart.cart_quantity %>" min="1" max="<%= cart.product_variant_available %>">
 		<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
@@ -82,7 +81,7 @@
 			</div>
 			<div class="cart-item__quantity">
 				<button onclick="minus(event)" type="button"><span class="material-symbols-outlined">remove</span></button>
-				<input onchange="calcPrice(event); calcTotalPrice(event)" name="product_quantity" type="number" value="<%= cart.cart_quantity %>" min="1" max="100">
+				<input onchange="changeQuantity(event); calcPrice(event); calcTotalPrice(event)" name="product_quantity" type="number" value="<%= cart.cart_quantity %>" min="1" max="100">
 				<button onclick="add(event)" type="button"><span class="material-symbols-outlined">add</span></button>
 			</div>
 		</div>

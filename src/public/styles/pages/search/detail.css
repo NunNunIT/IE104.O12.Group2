@@ -4,6 +4,7 @@
 @import url('/styles/components/carousel.css');
 @import url('/styles/components/image-modal.css');
 @import url('/styles/components/success-modal.css');
+@import url('/styles/components/fail-modal.css');
 @import url('/styles/components/product-card.css');
 
 body {
