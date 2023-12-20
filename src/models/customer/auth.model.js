@@ -18,14 +18,14 @@ auth.registerPost = async (req, callback) => {
         } else {
             let hashedPassword = await bcrypt.hash(user_password, 8);
 
-            db.query('INSERT INTO users SET ?', {
+            db.query('INSERT INTO users SET ?', [{
                 user_login_name: user_phone,
                 user_phone: user_phone,
                 user_name: user_login_name,
                 user_password: hashedPassword,
                 user_register_date: new Date(),
                 user_active: 1
-            }, async (error, results) => {
+            }], async (error, results) => {
                 if (err) callback(1, 0, 0)
                 callback(0, 0, 1)
             })

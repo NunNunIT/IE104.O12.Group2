@@ -26,14 +26,14 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     }
 
     if (searchKey && req.query.discount) {
-        getProductsSQL += ` WHERE product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
-        getRowSQL += ` WHERE product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%' AND discount_amount IS NOT NULL`
+        getProductsSQL += ` WHERE product_name LIKE ? OR category_name LIKE ? AND discount_amount IS NOT NULL`
+        getRowSQL += ` WHERE product_name LIKE ? OR category_name LIKE ? AND discount_amount IS NOT NULL`
     } else if (searchKey || req.query.discount) {
         getProductsSQL += ` WHERE`
         getRowSQL += ` WHERE`
         if (searchKey) {
-            getProductsSQL += ` product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%'`
-            getRowSQL += ` product_name LIKE '%${searchKey}%' OR category_name LIKE '%${searchKey}%'`
+            getProductsSQL += ` product_name LIKE ? OR category_name LIKE ?`
+            getRowSQL += ` product_name LIKE ? OR category_name LIKE ?`
         } else {
             getProductsSQL += ` discount_amount IS NOT NULL`
             getRowSQL += ` discount_amount IS NOT NULL`
@@ -44,7 +44,7 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     let page = req.query.page ? req.query.page : 1
 
     //truy vấn tính tổng số dòng trong một bảng
-    let rowData = await query(getRowSQL)
+    let rowData = await query(getRowSQL, [`%${searchKey}%`, `%${searchKey}%`])
     let totalRow = rowData[0].total
 
     // tính số trang thực tế sẽ có
@@ -58,7 +58,7 @@ search.findProductsBySearchKey = async (req, limit = 24) => {
     getProductsSQL += ` LIMIT ${start}, ${limit}`
 
     return new Promise((resolve, reject) => {
-        db.query(getProductsSQL, (err, products) => {
+        db.query(getProductsSQL, [`%${searchKey}%`, `%${searchKey}%`], (err, products) => {
             if (err) {
                 console.error(err);
                 resolve(0)

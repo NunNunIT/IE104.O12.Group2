@@ -110,7 +110,7 @@ const setSuccess = element => {
 }
 
 const isValidPhoneNumber = phoneNumber => {
-    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    const re = /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
     return re.test(String(phoneNumber).trim());
 }
 

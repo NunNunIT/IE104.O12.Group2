@@ -16,4 +16,7 @@ router.get('/count_cart', authMiddleware.isLoggedIn, generalController.getCountC
 // [GET] /general/short_cart_list
 router.get('/short_cart_list', authMiddleware.isLoggedIn, generalController.getShortCartList)
 
+// [POST] /general/check_cart
+router.get('/check_cart', authMiddleware.isLoggedIn, generalController.getShortCartList)
+
 module.exports = router

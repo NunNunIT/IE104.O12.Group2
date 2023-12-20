@@ -30,6 +30,19 @@ index.getShortCart = async (customer_id) => {
     return (shortCart);
 };
 
+index.checkCart = async (customer_id, product_variant_id) => {
+    let checkCart = `SELECT * FROM view_cart WHERE customer_id = ${customer_id} AND product_variant_id = ${product_variant_id}`;
+    let isExistInCart = await query(checkCart)
+
+    if (isExistInCart[0]){
+        return 1;
+    } else {
+        return 0;
+    }
+
+    
+};
+
 index.getNoti = async (user_id) => {
     let getNoti = `SELECT * FROM view_notifications WHERE user_id = ${user_id}`;
     let noti = await query(getNoti)

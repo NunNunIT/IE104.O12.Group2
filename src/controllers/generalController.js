@@ -44,8 +44,9 @@ generalController.getCountCart = async (req, res) => {
 // [GET] /general/short_cart_list
 generalController.getShortCartList = async (req, res) => {
     let customer_id = req.user.customer_id
+    let product_variant_id = req.query.product_variant_id
 
-    let shortCartList = await index.getShortCart(customer_id)
+    let shortCartList = await index.getShortCart(customer_id, product_variant_id = 1)
 
     if (shortCartList) {
         return res.status(200).json({
@@ -59,5 +60,24 @@ generalController.getShortCartList = async (req, res) => {
         })
     }
 }
+
+// [GET] /general/check_cart
+generalController.checkCart = async (req, res) => {
+    let customer_id = req.user.customer_id
+    let product_variant_id = req.body.product_variant_id
+
+    let checkCart = await index.checkCart(customer_id, product_variant_id)
+
+    if (checkCart) {
+        return res.status(200).json({
+            status: 'exist',
+        })
+    } else {
+        return res.status(404).json({
+            status: 'notExist',
+        })
+    }
+}
+
 
 module.exports = generalController
