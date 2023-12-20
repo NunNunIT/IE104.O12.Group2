@@ -272,6 +272,11 @@ function modifyLastItem() {
     }
 }
 
+const cartSubmitForm = document.getElementById('cart-form')
+cartSubmitForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+})
+
 // Sự kiện onclick nút 'Đặt hàng'
 function cartSubmit(event) {
     event.preventDefault()

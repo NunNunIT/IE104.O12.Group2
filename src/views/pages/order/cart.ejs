@@ -47,7 +47,7 @@
 				<div></div>
 				<div></div>
 			</div>
-			<form id="cart-form" class="loading-hidden" action="/order/cart/buy" method="post">
+			<form id="cart-form" class="loading-hidden">
 
 				<% detailCart.forEach(cart => { %>
 				<%- include('../../components/cart-product', { cart: cart, toCurrency: formatFunction.toCurrency }) %>
