@@ -8,13 +8,13 @@
 ## FORM đóng góp ý kiến: [Form đóng góp ý kiến](https://forms.gle/zCPqAjYzTPvj2MMY8)
 
 ## Danh sách thành viên
-|STT | Họ tên | MSSV|
-|:---:|:-------------:|:-----:|
-|1. 	| Nguyễn Thị Hồng Nhung | 21522436
-|2. 	| Lê Đức Mạnh		| 21521116 
-|3. 	| Lý Phi Lân		|	21520319
-|4.  | Phan Nguyễn Hải Yến | 21521698
-|5. 	| Vi Thị Hương | 21522132
+|STT | Họ tên | MSSV|Chức vụ|
+|:---:|:-------------:|:-----:|:-----:|
+|1. 	| Nguyễn Thị Hồng Nhung | 21522436| Nhóm trưởng (Leader) |
+|2. 	| Lê Đức Mạnh		| 21521116 ||
+|3. 	| Lý Phi Lân		|	21520319||
+|4.  | Phan Nguyễn Hải Yến | 21521698||
+|5. 	| Vi Thị Hương | 21522132||
 
 ## Giới thiệu
 Trong thời đại hiện đại, sự tiện lợi và linh hoạt trong việc mua sắm trực tuyến ngày càng trở thành một xu hướng phổ biến. Đối với lĩnh vực điện máy, việc tạo ra một website bán hàng chuyên nghiệp không chỉ là một cơ hội kinh doanh mà còn là cách để đáp ứng nhu cầu ngày càng cao của khách hàng.
@@ -75,7 +75,7 @@ Vì vậy, nhóm quyết định chọn đề tài "Xây dựng website cửa h�
 * [MySQL] - Hệ quản trị cơ sở dữ liệu quan hệ sử dụng để lưu trữ dữ liệu cho trang web
 * [HTML-CSS-JS] - Bộ ba công nghệ web, hiện thức hóa giao diện
 
-## Cài đặt
+## Hướng dẫn và Cài đặt
 Yêu cầu : 
 * [Node.js](https://nodejs.org/) v19+ để có thể chạy chương trình.
 * [Xampp](https://www.apachefriends.org/download.html) để thực hiện thao tác liên quan đến CSDL.
